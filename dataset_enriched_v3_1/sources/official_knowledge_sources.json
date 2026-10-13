@@ -1,0 +1,26 @@
+[
+  {
+    "source_id": "std_bigdata_2021",
+    "title": "大数据工程技术人员国家职业技术技能标准（2021年版）",
+    "url": "https://zsgx.mohrss.gov.cn/uploads/2024-10-24/大数据工程技术人员国家职业技术技能标准.pdf",
+    "region": "CN",
+    "record_type": "official_standard_reference",
+    "occupation_code": "2-02-10-11",
+    "publication_version": "2021",
+    "checked_on": "2026-10-12",
+    "access_status": "text_read",
+    "reuse_scope": "factual_paraphrase_and_source_link_no_full_document_copy"
+  },
+  {
+    "source_id": "std_cloud_2021",
+    "title": "云计算工程技术人员国家职业技术技能标准（2021年版）",
+    "url": "https://zsgx.mohrss.gov.cn/uploads/2024-10-24/云计算工程技术人员国家职业技术技能标准.pdf",
+    "region": "CN",
+    "record_type": "official_standard_reference",
+    "occupation_code": "2-02-10-12",
+    "publication_version": "2021",
+    "checked_on": "2026-10-12",
+    "access_status": "text_read",
+    "reuse_scope": "factual_paraphrase_and_source_link_no_full_document_copy"
+  }
+]

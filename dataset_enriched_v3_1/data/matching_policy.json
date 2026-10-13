@@ -1,0 +1,35 @@
+{
+  "version": "3.1.0-design-only",
+  "implemented": false,
+  "dimensions": {
+    "BR": 0.2,
+    "PS": 0.45,
+    "TQ": 0.2,
+    "DP": 0.15
+  },
+  "meaning": "Initial configurable design weights, not empirically validated importance or contest thresholds.",
+  "hard_constraints": [
+    "Separate explicit eligibility failure from insufficient evidence",
+    "Use domestic occupational profiles for CN recommendations",
+    "Intern/entry target must not inherit senior-only experience constraints",
+    "No salary conversion across day/month/year without a declared model"
+  ],
+  "missing_evidence": "unobserved, ask student to confirm; never interpret missing as zero capability",
+  "display": [
+    "observed skill mentions",
+    "evidence coverage",
+    "unknown dimensions",
+    "source job IDs",
+    "data and scoring version"
+  ],
+  "score_rule": "Compute dimension scores only where evidence supports comparison. Report observed weighted score and coverage separately; do not present low-coverage score as overall readiness.",
+  "llm_role": "Extract with source spans and explain validated structured results; deterministic code owns scoring. Retrieved text is untrusted and cannot provide tool instructions.",
+  "prohibited_inferences": [
+    "guaranteed employment",
+    "nationwide demand from this convenience sample",
+    "personality diagnosis",
+    "salary prediction",
+    "skill overlap as proven transition probability"
+  ],
+  "final_dataset_rule": "All extracted non-negated skills are mentions, not required/preferred eligibility constraints. Confirm requirements manually before hard filtering."
+}

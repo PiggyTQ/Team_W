@@ -1,0 +1,886 @@
+[
+  {
+    "edge_id": "497bbafc5b5495984a2dfb92",
+    "market": "CN",
+    "from_occupation": "CYBERSEC",
+    "to_occupation": "TECH_SUPPORT",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_PYTHON",
+      "SK_SQL",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_BACKUP",
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_MYSQL",
+      "SK_NETWORKING",
+      "SK_PERFORMANCETEST",
+      "SK_VIRTUAL"
+    ],
+    "jaccard": 0.3043,
+    "evidence_profile_ids": [
+      "CN:CYBERSEC:all",
+      "CN:TECH_SUPPORT:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "f497b9399212889dce3158ac",
+    "market": "CN",
+    "from_occupation": "CYBERSEC",
+    "to_occupation": "IMPLEMENTATION",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_PYTHON",
+      "SK_SQL",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_HTML",
+      "SK_MYSQL",
+      "SK_NETWORKING",
+      "SK_SOFTWARETEST",
+      "SK_SQLSERVER"
+    ],
+    "jaccard": 0.25,
+    "evidence_profile_ids": [
+      "CN:CYBERSEC:all",
+      "CN:IMPLEMENTATION:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "d33b8e3e976410e3893b66a0",
+    "market": "CN",
+    "from_occupation": "DATA_ANALYST",
+    "to_occupation": "DATA_ENG",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_DATAGOV",
+      "SK_DATAQUALITY",
+      "SK_DATAWAREHOUSE",
+      "SK_DWH",
+      "SK_HADOOP",
+      "SK_MONITOR",
+      "SK_PYTHON",
+      "SK_SPARK",
+      "SK_SQL"
+    ],
+    "gap_skills": [
+      "SK_ETL",
+      "SK_FLINK",
+      "SK_HIVE",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_LLM"
+    ],
+    "jaccard": 0.4286,
+    "evidence_profile_ids": [
+      "CN:DATA_ANALYST:all",
+      "CN:DATA_ENG:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "cece8a2f361706ade00cd488",
+    "market": "CN",
+    "from_occupation": "DATA_ANALYST",
+    "to_occupation": "IMPLEMENTATION",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_EXCEL",
+      "SK_MONITOR",
+      "SK_PYTHON",
+      "SK_SQL"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_DOC",
+      "SK_FUNCTIONALTEST",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MYSQL",
+      "SK_NETWORKING",
+      "SK_SOFTWARETEST",
+      "SK_SQLSERVER",
+      "SK_TCPIP"
+    ],
+    "jaccard": 0.1538,
+    "evidence_profile_ids": [
+      "CN:DATA_ANALYST:all",
+      "CN:IMPLEMENTATION:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "cdb82cc36005e6a319a316e6",
+    "market": "CN",
+    "from_occupation": "DATA_ENG",
+    "to_occupation": "DATA_ANALYST",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_DATAGOV",
+      "SK_DATAQUALITY",
+      "SK_DATAWAREHOUSE",
+      "SK_DWH",
+      "SK_HADOOP",
+      "SK_MONITOR",
+      "SK_PYTHON",
+      "SK_SPARK",
+      "SK_SQL"
+    ],
+    "gap_skills": [
+      "SK_DATAVIZ",
+      "SK_DSALGO",
+      "SK_EXCEL",
+      "SK_PANDAS",
+      "SK_POWERBI",
+      "SK_STATS"
+    ],
+    "jaccard": 0.4286,
+    "evidence_profile_ids": [
+      "CN:DATA_ENG:all",
+      "CN:DATA_ANALYST:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "3c189ecd7900457c1a10bf2a",
+    "market": "CN",
+    "from_occupation": "DATA_ENG",
+    "to_occupation": "CYBERSEC",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_PYTHON",
+      "SK_SQL"
+    ],
+    "gap_skills": [
+      "SK_CPP",
+      "SK_DATASEC",
+      "SK_HARDEN",
+      "SK_INCIDENT",
+      "SK_NMAP",
+      "SK_PENTEST",
+      "SK_PHP",
+      "SK_TCPIP",
+      "SK_VULN",
+      "SK_VULNSCAN"
+    ],
+    "jaccard": 0.2,
+    "evidence_profile_ids": [
+      "CN:DATA_ENG:all",
+      "CN:CYBERSEC:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "c76de930c564433c53fc62a8",
+    "market": "CN",
+    "from_occupation": "DEVOPS_SRE",
+    "to_occupation": "TECH_SUPPORT",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_BACKUP",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_NETWORKING",
+      "SK_PYTHON"
+    ],
+    "gap_skills": [
+      "SK_CPP",
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_MYSQL",
+      "SK_PERFORMANCETEST",
+      "SK_SQL",
+      "SK_TCPIP",
+      "SK_VIRTUAL"
+    ],
+    "jaccard": 0.25,
+    "evidence_profile_ids": [
+      "CN:DEVOPS_SRE:all",
+      "CN:TECH_SUPPORT:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "245632f519e9c49febb909ce",
+    "market": "CN",
+    "from_occupation": "DEVOPS_SRE",
+    "to_occupation": "DATA_ENG",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_LLM",
+      "SK_MONITOR",
+      "SK_PYTHON"
+    ],
+    "gap_skills": [
+      "SK_DATAGOV",
+      "SK_DATAQUALITY",
+      "SK_DATAWAREHOUSE",
+      "SK_DWH",
+      "SK_ETL",
+      "SK_FLINK",
+      "SK_HADOOP",
+      "SK_HIVE",
+      "SK_SPARK",
+      "SK_SQL"
+    ],
+    "jaccard": 0.2,
+    "evidence_profile_ids": [
+      "CN:DEVOPS_SRE:all",
+      "CN:DATA_ENG:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "a2d01235213f557a3b1a3b04",
+    "market": "CN",
+    "from_occupation": "HARDWARE",
+    "to_occupation": "SW_TEST",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_AUTOTEST",
+      "SK_CPP",
+      "SK_FUNCTIONALTEST",
+      "SK_INTEGRATIONTEST",
+      "SK_LINUX",
+      "SK_PERFORMANCETEST",
+      "SK_PYTHON",
+      "SK_SOFTWARETEST",
+      "SK_TESTCASE"
+    ],
+    "gap_skills": [
+      "SK_AGILE",
+      "SK_JAVA",
+      "SK_JMETER",
+      "SK_MYSQL",
+      "SK_SELENIUM",
+      "SK_SQL"
+    ],
+    "jaccard": 0.4286,
+    "evidence_profile_ids": [
+      "CN:HARDWARE:all",
+      "CN:SW_TEST:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "15d0da76bfa7f3477390d2f7",
+    "market": "CN",
+    "from_occupation": "HARDWARE",
+    "to_occupation": "SW_GENERAL",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_DOC",
+      "SK_LINUX",
+      "SK_PYTHON",
+      "SK_SOFTWARETEST",
+      "SK_SYSDESIGN",
+      "SK_TCPIP",
+      "SK_UNITTEST"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_DISTRIBUTED",
+      "SK_DSALGO",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_NETWORKING",
+      "SK_SQL"
+    ],
+    "jaccard": 0.3636,
+    "evidence_profile_ids": [
+      "CN:HARDWARE:all",
+      "CN:SW_GENERAL:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "02914d2a48057e6aa52c45ee",
+    "market": "CN",
+    "from_occupation": "IMPLEMENTATION",
+    "to_occupation": "TECH_SUPPORT",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_MYSQL",
+      "SK_NETWORKING",
+      "SK_PYTHON",
+      "SK_SQL",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_BACKUP",
+      "SK_CPP",
+      "SK_PERFORMANCETEST",
+      "SK_VIRTUAL"
+    ],
+    "jaccard": 0.5789,
+    "evidence_profile_ids": [
+      "CN:IMPLEMENTATION:all",
+      "CN:TECH_SUPPORT:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "817b66e62cb9d1b01810d2be",
+    "market": "CN",
+    "from_occupation": "IMPLEMENTATION",
+    "to_occupation": "SW_GENERAL",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CSHARP",
+      "SK_DOC",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_NETWORKING",
+      "SK_PYTHON",
+      "SK_SOFTWARETEST",
+      "SK_SQL",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_CPP",
+      "SK_DISTRIBUTED",
+      "SK_DSALGO",
+      "SK_SYSDESIGN",
+      "SK_UNITTEST"
+    ],
+    "jaccard": 0.5,
+    "evidence_profile_ids": [
+      "CN:IMPLEMENTATION:all",
+      "CN:SW_GENERAL:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "952e68e5e56d3fe0c4386e66",
+    "market": "CN",
+    "from_occupation": "ML_AI",
+    "to_occupation": "DEVOPS_SRE",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_AGENT",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_LLM",
+      "SK_PYTHON"
+    ],
+    "gap_skills": [
+      "SK_ANSIBLE",
+      "SK_BACKUP",
+      "SK_CICD",
+      "SK_DOCKER",
+      "SK_DSALGO",
+      "SK_JENKINS",
+      "SK_K8S",
+      "SK_MONITOR",
+      "SK_NETWORKING",
+      "SK_SRE"
+    ],
+    "jaccard": 0.2,
+    "evidence_profile_ids": [
+      "CN:ML_AI:all",
+      "CN:DEVOPS_SRE:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "7abe83bd654748a17c3e9b11",
+    "market": "CN",
+    "from_occupation": "ML_AI",
+    "to_occupation": "CYBERSEC",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_PYTHON"
+    ],
+    "gap_skills": [
+      "SK_DATASEC",
+      "SK_HARDEN",
+      "SK_INCIDENT",
+      "SK_MONITOR",
+      "SK_NMAP",
+      "SK_PENTEST",
+      "SK_PHP",
+      "SK_SQL",
+      "SK_TCPIP",
+      "SK_VULN",
+      "SK_VULNSCAN"
+    ],
+    "jaccard": 0.1538,
+    "evidence_profile_ids": [
+      "CN:ML_AI:all",
+      "CN:CYBERSEC:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "925aac2814c5321d066f8d68",
+    "market": "CN",
+    "from_occupation": "PM",
+    "to_occupation": "DATA_ANALYST",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_EXCEL",
+      "SK_STATS"
+    ],
+    "gap_skills": [
+      "SK_DATAGOV",
+      "SK_DATAQUALITY",
+      "SK_DATAVIZ",
+      "SK_DATAWAREHOUSE",
+      "SK_DSALGO",
+      "SK_DWH",
+      "SK_HADOOP",
+      "SK_MONITOR",
+      "SK_PANDAS",
+      "SK_POWERBI",
+      "SK_PYTHON",
+      "SK_SPARK",
+      "SK_SQL"
+    ],
+    "jaccard": 0.1111,
+    "evidence_profile_ids": [
+      "CN:PM:all",
+      "CN:DATA_ANALYST:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "45df24fec991cd63b57abd6b",
+    "market": "CN",
+    "from_occupation": "PM",
+    "to_occupation": "IMPLEMENTATION",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_DOC",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_MYSQL",
+      "SK_NETWORKING",
+      "SK_PYTHON",
+      "SK_SOFTWARETEST",
+      "SK_SQL",
+      "SK_SQLSERVER",
+      "SK_TCPIP"
+    ],
+    "jaccard": 0.1111,
+    "evidence_profile_ids": [
+      "CN:PM:all",
+      "CN:IMPLEMENTATION:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "e40b33d80e8ca59d13566e0d",
+    "market": "CN",
+    "from_occupation": "SW_BE",
+    "to_occupation": "SW_GENERAL",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_DSALGO",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_PYTHON",
+      "SK_SQL",
+      "SK_SYSDESIGN",
+      "SK_UNITTEST"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_DISTRIBUTED",
+      "SK_DOC",
+      "SK_NETWORKING",
+      "SK_SOFTWARETEST",
+      "SK_TCPIP"
+    ],
+    "jaccard": 0.4286,
+    "evidence_profile_ids": [
+      "CN:SW_BE:all",
+      "CN:SW_GENERAL:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "35defc28ca76a3a10e6bf56f",
+    "market": "CN",
+    "from_occupation": "SW_BE",
+    "to_occupation": "IMPLEMENTATION",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MYSQL",
+      "SK_PYTHON",
+      "SK_SQL"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_MONITOR",
+      "SK_NETWORKING",
+      "SK_SOFTWARETEST",
+      "SK_SQLSERVER",
+      "SK_TCPIP"
+    ],
+    "jaccard": 0.25,
+    "evidence_profile_ids": [
+      "CN:SW_BE:all",
+      "CN:IMPLEMENTATION:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "c05920a4cdf2723422671ed5",
+    "market": "CN",
+    "from_occupation": "SW_FE",
+    "to_occupation": "SW_BE",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CSS",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_JAVASCRIPT",
+      "SK_PYTHON",
+      "SK_SYSDESIGN"
+    ],
+    "gap_skills": [
+      "SK_CPP",
+      "SK_DSALGO",
+      "SK_LINUX",
+      "SK_MICROSERVICES",
+      "SK_MYSQL",
+      "SK_REDIS",
+      "SK_SPRING",
+      "SK_SQL",
+      "SK_UNITTEST"
+    ],
+    "jaccard": 0.25,
+    "evidence_profile_ids": [
+      "CN:SW_FE:all",
+      "CN:SW_BE:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "f0f50fd0a9a6e8f347e275ad",
+    "market": "CN",
+    "from_occupation": "SW_FE",
+    "to_occupation": "SW_GENERAL",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_DOC",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_PYTHON",
+      "SK_SYSDESIGN"
+    ],
+    "gap_skills": [
+      "SK_CPP",
+      "SK_CSHARP",
+      "SK_DISTRIBUTED",
+      "SK_DSALGO",
+      "SK_LINUX",
+      "SK_NETWORKING",
+      "SK_SOFTWARETEST",
+      "SK_SQL",
+      "SK_TCPIP",
+      "SK_UNITTEST"
+    ],
+    "jaccard": 0.2,
+    "evidence_profile_ids": [
+      "CN:SW_FE:all",
+      "CN:SW_GENERAL:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "9ea0bbcd59e2c86597b30309",
+    "market": "CN",
+    "from_occupation": "SW_GENERAL",
+    "to_occupation": "IMPLEMENTATION",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CSHARP",
+      "SK_DOC",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_NETWORKING",
+      "SK_PYTHON",
+      "SK_SOFTWARETEST",
+      "SK_SQL",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_MONITOR",
+      "SK_MYSQL",
+      "SK_SQLSERVER"
+    ],
+    "jaccard": 0.5,
+    "evidence_profile_ids": [
+      "CN:SW_GENERAL:all",
+      "CN:IMPLEMENTATION:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "ce1a8b1e9afdb1e4c27f7915",
+    "market": "CN",
+    "from_occupation": "SW_GENERAL",
+    "to_occupation": "SW_BE",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_DSALGO",
+      "SK_HTML",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_PYTHON",
+      "SK_SQL",
+      "SK_SYSDESIGN",
+      "SK_UNITTEST"
+    ],
+    "gap_skills": [
+      "SK_CSS",
+      "SK_JAVASCRIPT",
+      "SK_MICROSERVICES",
+      "SK_MYSQL",
+      "SK_REDIS",
+      "SK_SPRING"
+    ],
+    "jaccard": 0.4286,
+    "evidence_profile_ids": [
+      "CN:SW_GENERAL:all",
+      "CN:SW_BE:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "d110baccfab8ca5c9064100b",
+    "market": "CN",
+    "from_occupation": "SW_TEST",
+    "to_occupation": "HARDWARE",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_AUTOTEST",
+      "SK_CPP",
+      "SK_FUNCTIONALTEST",
+      "SK_INTEGRATIONTEST",
+      "SK_LINUX",
+      "SK_PERFORMANCETEST",
+      "SK_PYTHON",
+      "SK_SOFTWARETEST",
+      "SK_TESTCASE"
+    ],
+    "gap_skills": [
+      "SK_C",
+      "SK_DOC",
+      "SK_MONITOR",
+      "SK_SYSDESIGN",
+      "SK_TCPIP",
+      "SK_UNITTEST"
+    ],
+    "jaccard": 0.4286,
+    "evidence_profile_ids": [
+      "CN:SW_TEST:all",
+      "CN:HARDWARE:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "b2dd1487bc059dde4f2a3c86",
+    "market": "CN",
+    "from_occupation": "SW_TEST",
+    "to_occupation": "TECH_SUPPORT",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_FUNCTIONALTEST",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MYSQL",
+      "SK_PERFORMANCETEST",
+      "SK_PYTHON",
+      "SK_SQL"
+    ],
+    "gap_skills": [
+      "SK_BACKUP",
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_MONITOR",
+      "SK_NETWORKING",
+      "SK_TCPIP",
+      "SK_VIRTUAL"
+    ],
+    "jaccard": 0.3636,
+    "evidence_profile_ids": [
+      "CN:SW_TEST:all",
+      "CN:TECH_SUPPORT:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "b5332aa1824baa87ea3e36b0",
+    "market": "CN",
+    "from_occupation": "TECH_SUPPORT",
+    "to_occupation": "IMPLEMENTATION",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_DOC",
+      "SK_EXCEL",
+      "SK_FUNCTIONALTEST",
+      "SK_JAVA",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_MYSQL",
+      "SK_NETWORKING",
+      "SK_PYTHON",
+      "SK_SQL",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_CSHARP",
+      "SK_HTML",
+      "SK_SOFTWARETEST",
+      "SK_SQLSERVER"
+    ],
+    "jaccard": 0.5789,
+    "evidence_profile_ids": [
+      "CN:TECH_SUPPORT:all",
+      "CN:IMPLEMENTATION:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  },
+  {
+    "edge_id": "61ac6c6450da31e565324536",
+    "market": "CN",
+    "from_occupation": "TECH_SUPPORT",
+    "to_occupation": "HARDWARE",
+    "edge_type": "skill_overlap_candidate",
+    "shared_skills": [
+      "SK_CPP",
+      "SK_DOC",
+      "SK_FUNCTIONALTEST",
+      "SK_LINUX",
+      "SK_MONITOR",
+      "SK_PERFORMANCETEST",
+      "SK_PYTHON",
+      "SK_TCPIP"
+    ],
+    "gap_skills": [
+      "SK_AUTOTEST",
+      "SK_C",
+      "SK_INTEGRATIONTEST",
+      "SK_SOFTWARETEST",
+      "SK_SYSDESIGN",
+      "SK_TESTCASE",
+      "SK_UNITTEST"
+    ],
+    "jaccard": 0.3636,
+    "evidence_profile_ids": [
+      "CN:TECH_SUPPORT:all",
+      "CN:HARDWARE:all"
+    ],
+    "review_status": "requires_adviser_review",
+    "approved": false,
+    "claim": "技能重叠候选，不证明真实转岗概率、方向或晋升关系"
+  }
+]

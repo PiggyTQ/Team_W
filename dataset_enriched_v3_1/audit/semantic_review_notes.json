@@ -1,0 +1,20 @@
+[
+  {
+    "source_record_key": "ncss:LwB1sp7VmpRnmgi4hkr5yS",
+    "decision": "retain_DATA_ENG",
+    "reason": "虽涉及具身智能和标注，但实际职责是设计维护采集、清洗、筛选、评估与版本管理的数据管线，并明确初级/实习生条件。",
+    "review_type": "assistant_semantic_review_not_human_gold"
+  },
+  {
+    "source_record_key": "ncss:Ws49aLEVXP6wWyhKHF8cfY",
+    "decision": "retain_DEVOPS_SRE_system_operations_track",
+    "reason": "标题包含硬件运维，但实际职责包括 IT 网络、安全系统和服务器虚拟化维护，属于 IT 系统运维；不等同于 SRE 开发。",
+    "review_type": "assistant_semantic_review_not_human_gold"
+  },
+  {
+    "source_record_key": "ncss:Poo5j6vH9R6bgM5mjkJSoa",
+    "decision": "retain_DATA_ANALYST_flag_industrial_metrology_hybrid",
+    "reason": "职责同时包含产品指标分析、效果评估和计量校准，明确 SQL/Python/R 技能；保留为行业交叉样本，但不能忽略计量背景要求或当作通用业务分析入门岗位。",
+    "review_type": "assistant_semantic_review_not_human_gold"
+  }
+]

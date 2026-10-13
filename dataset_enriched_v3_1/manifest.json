@@ -1,0 +1,210 @@
+{
+  "version": "3.1.0-domestic-enriched-base",
+  "files": [
+    {
+      "path": "audit/classification_review_overrides.json",
+      "bytes": 1822,
+      "sha256": "6213b646fae60700fad541dd1f1bfe9099524baf03a896ce7d2310bb047325e5"
+    },
+    {
+      "path": "audit/collection_errors.json",
+      "bytes": 42521,
+      "sha256": "d5bc6afce6320af0f63529197598ce4c823a8a76c1bbec6ada2a920a20fad64d"
+    },
+    {
+      "path": "audit/collection_rejected.json",
+      "bytes": 3991,
+      "sha256": "7550d3b59205babdd0dd2109ba00b8bcdf2ca3d679a64bab9eedd3ff82ec97dd"
+    },
+    {
+      "path": "audit/collection_summary.json",
+      "bytes": 5304,
+      "sha256": "7692f9838ea86733fa34c6d8efa59c9572a313af2467e35a7343420af5a08efd"
+    },
+    {
+      "path": "audit/coverage_by_occupation.csv",
+      "bytes": 2320,
+      "sha256": "4f6d1d428c81460b932ef21a8743b10f6dcac8cd58dc2f54e7ec1f7b2b94e015"
+    },
+    {
+      "path": "audit/exact_duplicates_removed.csv",
+      "bytes": 34,
+      "sha256": "a16ab3cd7683cec1a3eb4d35176cbca5064e7e32c0cfc10ac3c9a53feb9b9798"
+    },
+    {
+      "path": "audit/foreign_or_ambiguous_locations_excluded.json",
+      "bytes": 812,
+      "sha256": "fec8112e1c01ee24e7f9da5a7896f950621a01a88b73405583b22d8409cd9b08"
+    },
+    {
+      "path": "audit/future_dated_excluded.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "audit/occupation_review_exclusions.json",
+      "bytes": 675,
+      "sha256": "328655a205d7e26bee795da6609ac2fcbf4124562b99f710dfbb2636fd491d32"
+    },
+    {
+      "path": "audit/priority_review_new_jobs.csv",
+      "bytes": 8178,
+      "sha256": "8d4dca2fa87515c24d0e0c63fe9e1d9b3910b22b50b8d1651483f2e5ecc85f86"
+    },
+    {
+      "path": "audit/quality_report.json",
+      "bytes": 2171,
+      "sha256": "9b945494735ae64aead61d56118dac0022ae0bbb461d7b4fc56908affbc18bdd"
+    },
+    {
+      "path": "audit/robots_check.json",
+      "bytes": 246,
+      "sha256": "8cba13ac50fbfe06b40f8907e593633a4083a2da3948cca79b21f65b9936ef75"
+    },
+    {
+      "path": "audit/search_runs.json",
+      "bytes": 4121,
+      "sha256": "5a9c09b5f05d262ca8c993e694bcd671b2944e9526a474a2cceb16c7b4898864"
+    },
+    {
+      "path": "audit/semantic_review_notes.json",
+      "bytes": 1126,
+      "sha256": "7aba66da400c3d6250f9c910c9ab38439eaab89164b835bffbc9b59231bfcfdc"
+    },
+    {
+      "path": "build_enriched_once.py",
+      "bytes": 24305,
+      "sha256": "699999aa6a469ad2aaab7926cd0318aeafe88283f19087ccbdeca56fbe591335"
+    },
+    {
+      "path": "collect_domestic_once.py",
+      "bytes": 11698,
+      "sha256": "8c43465350f64943c5cafc4b050b7fb4d1509aff4a8ff2f109484f01abc22b1b"
+    },
+    {
+      "path": "data/action_templates.json",
+      "bytes": 16704,
+      "sha256": "3ab43f8f85a358d8622ec6fb3355bc2a5b856cf7351736b2a1ce05b63b5b57c7"
+    },
+    {
+      "path": "data/competency_dictionary.csv",
+      "bytes": 17852,
+      "sha256": "15b3232ab8bbb0389f5476d611b9392e66293053bc8852a28c03ae76bcf7278b"
+    },
+    {
+      "path": "data/data_dictionary.csv",
+      "bytes": 5806,
+      "sha256": "670fd5b4fad40a646317088f74df416c87bc08fcf8b6f936a9783f65fde684e4"
+    },
+    {
+      "path": "data/job_competencies.csv",
+      "bytes": 7099638,
+      "sha256": "f119a8f0fdedfe3973b08d246841c8358b6d4518fd78b4d332759689be07d794"
+    },
+    {
+      "path": "data/job_competencies_new_specialties.csv",
+      "bytes": 666850,
+      "sha256": "9889a4bb10ab01e31db419236909c16501f4f5c4852469783c7469f96a8c427c"
+    },
+    {
+      "path": "data/jobs_base_80cn.csv",
+      "bytes": 8499759,
+      "sha256": "ec34cd6e19312503ae239946656c7aa3d7c67439f4717e5b4278b016c28ee9e0"
+    },
+    {
+      "path": "data/jobs_cn.csv",
+      "bytes": 4683312,
+      "sha256": "47736979fbe89a56f65bde28ed305c3c885a87d2db66db0b969b4e1bf713f529"
+    },
+    {
+      "path": "data/jobs_cn_new_specialties.csv",
+      "bytes": 507284,
+      "sha256": "c5e25aaad3fabed9c1fcc1461c6cd47ccbec4687e34ec86f96bbb53a7aa2066a"
+    },
+    {
+      "path": "data/jobs_international_reference.csv",
+      "bytes": 58466299,
+      "sha256": "445d08c104afd7923f21cbfb5d761d9f0230dec94998b2ee764c0eceef715e76"
+    },
+    {
+      "path": "data/learning_resources.json",
+      "bytes": 3283,
+      "sha256": "a38f786801813d94c044a58b48967f4c3cc9952ed05d60c13ea4eac52a5db9c5"
+    },
+    {
+      "path": "data/matching_policy.json",
+      "bytes": 1649,
+      "sha256": "d9c7406f569cfb11b87d617fbf7f0179e06dee31449441752886a1b6e1df9bc7"
+    },
+    {
+      "path": "data/occupation_catalog.json",
+      "bytes": 15578,
+      "sha256": "b608ac7e68d724ad01a9610db0cee485568b9e878e15439a5ca11eff7a7f9ecc"
+    },
+    {
+      "path": "data/occupation_profiles.json",
+      "bytes": 2682545,
+      "sha256": "6eff0e6785f180c040d72327e156e28bfb8c6690d96906c06e1cc3e7d87a9ee2"
+    },
+    {
+      "path": "data/occupation_track_profiles.json",
+      "bytes": 34890,
+      "sha256": "321cf32136b243f72ee302fe5e29ed8a08ab9b5a75c7456ad4301a1d4c506d80"
+    },
+    {
+      "path": "data/occupation_transitions_candidates.json",
+      "bytes": 21748,
+      "sha256": "1325ba8d4e45a5058f16703f5ea58e0659a7d150911eba060701bd7e616a0ea4"
+    },
+    {
+      "path": "data/official_knowledge_facts.json",
+      "bytes": 3908,
+      "sha256": "80bb46f2a883a8a248ff5138bfc964a8cb60a0f1d88750925d708c42f1ff0dda"
+    },
+    {
+      "path": "data/student_profile_schema.json",
+      "bytes": 2942,
+      "sha256": "86ed2bdab20c23b5bdebffd8c14ed260ec1d332ddc2243e671d2a8a653991973"
+    },
+    {
+      "path": "data/website_base.sqlite",
+      "bytes": 60555264,
+      "sha256": "40b4a88135ccda738a093f73ac8fd541afc41494777b4d5451c7dd3a61da1f5c"
+    },
+    {
+      "path": "evaluation/new_specialties_review_sample.csv",
+      "bytes": 147458,
+      "sha256": "6b9fd4ef9934561c384f855ae505beec84c4efa4ea350b87804300adb5dc1193"
+    },
+    {
+      "path": "evaluation/review_sample_300.csv",
+      "bytes": 506534,
+      "sha256": "df2380e87b79ea62f31a95c0edefdb3d4324be5fea0a85b184093bd592a4efd0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7973,
+      "sha256": "0d5bedb0c97882e47f44686e039b7e47af0c15553ffede2df8068be2817b00a0"
+    },
+    {
+      "path": "schema.sql",
+      "bytes": 4411,
+      "sha256": "c1626086e8075de81603c57678d660c0612e7255a68f941f840accea5cf2b63c"
+    },
+    {
+      "path": "sources/new_job_provenance.csv",
+      "bytes": 92789,
+      "sha256": "9f908cfa2f8acde1541cf21281e27b07434c0527decbb96956e85a8c019e6dd7"
+    },
+    {
+      "path": "sources/official_knowledge_sources.json",
+      "bytes": 1113,
+      "sha256": "33b76334c1c00d137ffcc72ee531460ebc68cdd46c5e8338725f7e4a76af8a33"
+    },
+    {
+      "path": "sources/registry.json",
+      "bytes": 92698,
+      "sha256": "41d9b8bed3fa9dd70b10ac8b67c4c5c52b1aa4aa0003f9ae7dc95faf75fc3fff"
+    }
+  ]
+}

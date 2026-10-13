@@ -1,0 +1,118 @@
+[
+  {
+    "fact_id": "fact_001",
+    "source_id": "std_bigdata_2021",
+    "locator": "PDF page index (zero-based) 4",
+    "topic": "职业范围",
+    "summary_zh": "工作涵盖数据采集、清洗、分析、治理及维护。",
+    "competency_ids": [
+      "SK_ETL",
+      "SK_DATAQUALITY",
+      "SK_DATAGOV"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_002",
+    "source_id": "std_bigdata_2021",
+    "locator": "PDF page index (zero-based) 7",
+    "topic": "基础知识",
+    "summary_zh": "基础知识涉及操作系统、网络、编程、数据库和软件工程。",
+    "competency_ids": [
+      "SK_LINUX",
+      "SK_SQL",
+      "SK_DSALGO"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_003",
+    "source_id": "std_bigdata_2021",
+    "locator": "PDF page index (zero-based) 9–10",
+    "topic": "运行维护",
+    "summary_zh": "维护能力包括版本管理、集群监控、排错、备份和权限管理。",
+    "competency_ids": [
+      "SK_GIT",
+      "SK_MONITOR",
+      "SK_BACKUP",
+      "SK_ACCESSCONTROL"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_004",
+    "source_id": "std_bigdata_2021",
+    "locator": "PDF page index (zero-based) 11",
+    "topic": "数据处理",
+    "summary_zh": "处理方向涉及清洗转换、查询、分布式计算和统计报告。",
+    "competency_ids": [
+      "SK_ETL",
+      "SK_SQL",
+      "SK_DISTRIBUTED",
+      "SK_DATAVIZ"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_005",
+    "source_id": "std_cloud_2021",
+    "locator": "PDF page index (zero-based) 4",
+    "topic": "职业范围",
+    "summary_zh": "工作包括云技术研发、系统建设部署及资源维护。",
+    "competency_ids": [
+      "SK_VIRTUAL",
+      "SK_DISTRIBUTED"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_006",
+    "source_id": "std_cloud_2021",
+    "locator": "PDF page index (zero-based) 7",
+    "topic": "基础知识",
+    "summary_zh": "基础知识覆盖操作系统、网络、数据库、分布式系统及安全。",
+    "competency_ids": [
+      "SK_LINUX",
+      "SK_SQL",
+      "SK_DISTRIBUTED",
+      "SK_DATASEC"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_007",
+    "source_id": "std_cloud_2021",
+    "locator": "PDF page index (zero-based) 9–11",
+    "topic": "平台运维",
+    "summary_zh": "涉及虚拟化、容器、监控、日志、备份及服务接口。",
+    "competency_ids": [
+      "SK_VIRTUAL",
+      "SK_DOCKER",
+      "SK_MONITOR",
+      "SK_LOGANALYSIS",
+      "SK_BACKUP",
+      "SK_API"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  },
+  {
+    "fact_id": "fact_008",
+    "source_id": "std_cloud_2021",
+    "locator": "PDF page index (zero-based) 9–11",
+    "topic": "运行安全",
+    "summary_zh": "安全管理涉及身份权限、网络隔离及事件处置。",
+    "competency_ids": [
+      "SK_ACCESSCONTROL",
+      "SK_INCIDENT"
+    ],
+    "mapping_basis": "editorial_mapping_of_official_standard",
+    "scope": "occupation_standard_not_individual_job_requirement"
+  }
+]

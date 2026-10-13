@@ -1,0 +1,14 @@
+[
+  {
+    "source_id": "ai_2021",
+    "url": "https://zsgx.mohrss.gov.cn/uploads/2021-10-09/9614e82951fb41fd96653a4e722096a8.pdf",
+    "status": "failed",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+  },
+  {
+    "source_id": "datasecurity_2023",
+    "url": "https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/qt/gztz/202303/P020230327570509396537.pdf",
+    "status": "failed",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+  }
+]
