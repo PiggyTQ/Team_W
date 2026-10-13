@@ -1,0 +1,117 @@
+{
+  "schema_version": "3.0.0",
+  "type": "object",
+  "required": [
+    "student_id",
+    "consent_version",
+    "preferences",
+    "competencies"
+  ],
+  "properties": {
+    "student_id": {
+      "type": "string"
+    },
+    "consent_version": {
+      "type": "string"
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "target_occupations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weekly_learning_hours": {
+          "type": "number",
+          "minimum": 0
+        },
+        "graduation_year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "competencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "competency_id",
+          "verification_status",
+          "evidence"
+        ],
+        "properties": {
+          "competency_id": {
+            "type": "string"
+          },
+          "verification_status": {
+            "enum": [
+              "unconfirmed",
+              "self_confirmed",
+              "evidence_verified"
+            ]
+          },
+          "proficiency": {
+            "enum": [
+              "unknown",
+              "basic",
+              "intermediate",
+              "advanced"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source_type",
+                "text"
+              ],
+              "properties": {
+                "source_type": {
+                  "enum": [
+                    "resume",
+                    "project",
+                    "certificate",
+                    "manual_input"
+                  ]
+                },
+                "text": {
+                  "type": "string"
+                },
+                "start": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "end": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-notes": [
+    "This is a contract, not a collection of real student data.",
+    "Do not infer personality, stress tolerance or innovation from absent evidence.",
+    "Use opaque IDs; names, phone numbers, gender, ethnicity and precise address are excluded from scoring.",
+    "Users confirm extracted claims before matching; deletion must cover raw files, vectors, reports and backups under a documented retention policy."
+  ]
+}

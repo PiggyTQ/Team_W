@@ -1,0 +1,2375 @@
+[
+  {
+    "source_id": "cn_contest_supplied",
+    "name": "赛题方提供的中文招聘CSV",
+    "region": "CN",
+    "kind": "supplied_csv",
+    "homepage": "https://www.zhaopin.com/",
+    "access_basis": "user_confirmed_contest_supplied_2026-10-12",
+    "permission_status": "pending_written_scope",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_ashby",
+    "name": "V1 ashby",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://jobs.ashbyhq.com/cerebras/4e706d0d-65a6-4a36-9ff3-b9e9da16a618",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_greenhouse",
+    "name": "V1 greenhouse",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://job-boards.greenhouse.io/adyen/jobs/7732433",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_lever",
+    "name": "V1 lever",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://jobs.lever.co/blablacar/213c9dbc-8f3d-42b9-b8a2-814cd383cd41",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_open_jobs_daily",
+    "name": "V1 open_jobs_daily",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://recruiting.ultipro.com/VAN1011VANP/JobBoard/71a647a6-b80b-48a6-b60f-7159443cfd30/OpportunityDetail?opportunityId=9771afd8-4e4d-451e-a3d7-ebfe6c05de21",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_personio",
+    "name": "V1 personio",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://1komma5grad.jobs.personio.com/job/2747256",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_remoteok",
+    "name": "V1 remoteok",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://remoteOK.com/remote-jobs/remote-sr-solutions-architect-extrahop-1137394",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_weworkremotely",
+    "name": "V1 weworkremotely",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://weworkremotely.com/remote-jobs/discord-senior-software-engineer-application-security",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "v1_workable",
+    "name": "V1 workable",
+    "region": "international",
+    "kind": "legacy_snapshot",
+    "homepage": "https://jobs.workable.com/view/5JNyCaApNEbqz8TitfQK8W/hybrid-(support)-business-analyst-in-kontich-at-3p-nv",
+    "access_basis": "v1_claimed_public_access_not_reuse_license",
+    "permission_status": "pending_evidence",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "ncss",
+    "name": "国家大学生就业服务平台",
+    "region": "CN",
+    "kind": "authorized_feed_candidate",
+    "homepage": "https://www.ncss.cn/",
+    "access_basis": "candidate_only",
+    "permission_status": "not_requested",
+    "permission_evidence": null,
+    "allowed_purposes": [],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "university_export",
+    "name": "高校就业中心授权导出",
+    "region": "CN",
+    "kind": "partner_export_candidate",
+    "homepage": "https://jyb.fzu.edu.cn/",
+    "access_basis": "candidate_only",
+    "permission_status": "not_requested",
+    "permission_evidence": null,
+    "allowed_purposes": [],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "employer_direct",
+    "name": "企业直接供稿",
+    "region": "CN",
+    "kind": "partner_export_candidate",
+    "homepage": null,
+    "access_basis": "candidate_only",
+    "permission_status": "not_requested",
+    "permission_evidence": null,
+    "allowed_purposes": [],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "mohrss_standards",
+    "name": "人社部职业标准",
+    "region": "CN",
+    "kind": "reference_metadata",
+    "homepage": "https://zsgx.mohrss.gov.cn/zsgx/htmlDocument/category12500/index.html",
+    "access_basis": "candidate_only",
+    "permission_status": "not_requested",
+    "permission_evidence": null,
+    "allowed_purposes": [],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false
+  },
+  {
+    "source_id": "ncss_ce4469b2caa1",
+    "name": "国家大学生就业服务平台 / 陕西科技大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "陕西科技大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_70bbbd991cf3",
+    "name": "国家大学生就业服务平台 / 重庆工业职业技术大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "重庆工业职业技术大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_1360565eabf3",
+    "name": "国家大学生就业服务平台 / 南京邮电大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京邮电大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_27bc8d5a73ad",
+    "name": "国家大学生就业服务平台 / 南开大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南开大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_8da77b153c08",
+    "name": "国家大学生就业服务平台 / 江南大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江南大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_4da5ba1cd759",
+    "name": "国家大学生就业服务平台 / 安徽工业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "安徽工业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_4cbdb99a8d2f",
+    "name": "国家大学生就业服务平台 / 陕西师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "陕西师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_141a09334c46",
+    "name": "国家大学生就业服务平台 / 廊坊师范学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "廊坊师范学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_d2d401e0db05",
+    "name": "国家大学生就业服务平台 / 西安石油大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西安石油大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_1df01e94e5f9",
+    "name": "国家大学生就业服务平台 / 常州工学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "常州工学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_6aa222d552dc",
+    "name": "国家大学生就业服务平台 / 南京信息工程大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京信息工程大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_2e827b6a3848",
+    "name": "国家大学生就业服务平台 / 华东理工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "华东理工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_3778ef6fa8ea",
+    "name": "国家大学生就业服务平台 / 重庆电子科技职业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "重庆电子科技职业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c7bd0230fd05",
+    "name": "国家大学生就业服务平台 / 天津理工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "天津理工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_176670baa520",
+    "name": "国家大学生就业服务平台 / 复旦大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "复旦大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_49639f3d7433",
+    "name": "国家大学生就业服务平台 / 北京邮电大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "北京邮电大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_5f00b30c7508",
+    "name": "国家大学生就业服务平台 / 山西工程科技职业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "山西工程科技职业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_6ea66ce2cee5",
+    "name": "国家大学生就业服务平台 / 智联招聘",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "智联招聘",
+    "origin_category": "third_party_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_d1e73f1b0ccb",
+    "name": "国家大学生就业服务平台 / 前程无忧",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "前程无忧",
+    "origin_category": "third_party_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_90e1dcef508a",
+    "name": "国家大学生就业服务平台 / 湖南大众传媒职业技术学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "湖南大众传媒职业技术学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_3859bbf8697d",
+    "name": "国家大学生就业服务平台 / 太原理工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "太原理工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_419c3269919b",
+    "name": "国家大学生就业服务平台 / 湖北省高等学校毕业生就业指导服务中心",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "湖北省高等学校毕业生就业指导服务中心",
+    "origin_category": "third_party_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_008db88f4ba0",
+    "name": "国家大学生就业服务平台 / 天津城建大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "天津城建大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_521356ed7b4b",
+    "name": "国家大学生就业服务平台 / 武汉轻工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "武汉轻工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_8671059159c4",
+    "name": "国家大学生就业服务平台 / 内蒙古鸿德文理学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "内蒙古鸿德文理学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_7b8562031f93",
+    "name": "国家大学生就业服务平台 / 湖北第二师范学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "湖北第二师范学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_01f2535c1799",
+    "name": "国家大学生就业服务平台 / 湖北大学知行学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "湖北大学知行学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_a11e8e5501df",
+    "name": "国家大学生就业服务平台 / 安徽省大中专毕业生就业指导中心",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "安徽省大中专毕业生就业指导中心",
+    "origin_category": "third_party_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_abd078f665e3",
+    "name": "国家大学生就业服务平台 / 天津大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "天津大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_0dad98b31e0b",
+    "name": "国家大学生就业服务平台 / 重庆市教育委员会",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "重庆市教育委员会",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_b53fbd780de6",
+    "name": "国家大学生就业服务平台 / 西安工业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西安工业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_9b028f64e1d9",
+    "name": "国家大学生就业服务平台 / 云南大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "云南大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_b637670024c1",
+    "name": "国家大学生就业服务平台 / 山西科技学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "山西科技学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_ec28aff32bf7",
+    "name": "国家大学生就业服务平台 / 吉林师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "吉林师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_d49a66e303f3",
+    "name": "国家大学生就业服务平台 / 四川大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "四川大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_eec970b7129b",
+    "name": "国家大学生就业服务平台 / 中国民用航空飞行学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "中国民用航空飞行学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_8bd7834cf495",
+    "name": "国家大学生就业服务平台 / 襄阳职业技术学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "襄阳职业技术学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_d9a31781bd1e",
+    "name": "国家大学生就业服务平台 / 同济大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "同济大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_9cd22f30dc7d",
+    "name": "国家大学生就业服务平台 / 大连民族大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "大连民族大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_db2d1cb0ce55",
+    "name": "国家大学生就业服务平台 / 中南财经政法大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "中南财经政法大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_29088ba40a8f",
+    "name": "国家大学生就业服务平台 / 西北民族大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西北民族大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f27ed625f064",
+    "name": "国家大学生就业服务平台 / 华北电力大学(保定)",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "华北电力大学(保定)",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_1fc13faf1022",
+    "name": "国家大学生就业服务平台 / 南京工业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京工业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_efc11e46172b",
+    "name": "国家大学生就业服务平台 / 江苏师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江苏师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_75536dcca64a",
+    "name": "国家大学生就业服务平台 / 浙江省教育发展中心",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "浙江省教育发展中心",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_add028b56e3e",
+    "name": "国家大学生就业服务平台 / 南京农业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京农业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_98cf68be107f",
+    "name": "国家大学生就业服务平台 / 实习僧",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "实习僧",
+    "origin_category": "third_party_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c86a93c580ee",
+    "name": "国家大学生就业服务平台 / 南方科技大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南方科技大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_0b8e568034d1",
+    "name": "国家大学生就业服务平台 / 常州大学怀德学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "常州大学怀德学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_185c23e05477",
+    "name": "国家大学生就业服务平台 / 江西科技师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江西科技师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c19b7ea9d6a9",
+    "name": "国家大学生就业服务平台 / 国家大学生就业服务平台",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "国家大学生就业服务平台",
+    "origin_category": "platform_direct",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_196dfb9ec78a",
+    "name": "国家大学生就业服务平台 / 河南师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "河南师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_a582d99044a8",
+    "name": "国家大学生就业服务平台 / 九江学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "九江学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_5a5e308e011b",
+    "name": "国家大学生就业服务平台 / 合肥经济学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "合肥经济学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_21aa189366ed",
+    "name": "国家大学生就业服务平台 / 北京大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "北京大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_3e7d7f1573f5",
+    "name": "国家大学生就业服务平台 / 南昌大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南昌大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_ca5ec7b4912f",
+    "name": "国家大学生就业服务平台 / 江苏省高校招生就业指导服务中心",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江苏省高校招生就业指导服务中心",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f3b6cf0f045a",
+    "name": "国家大学生就业服务平台 / 南京师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_8c6774ead140",
+    "name": "国家大学生就业服务平台 / 华东师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "华东师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_cbe4b159ba7c",
+    "name": "国家大学生就业服务平台 / 北京林业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "北京林业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_cfe498ec9df8",
+    "name": "国家大学生就业服务平台 / 安徽农业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "安徽农业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_2cef126351af",
+    "name": "国家大学生就业服务平台 / 湖南第一师范学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "湖南第一师范学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f2d09e3099b8",
+    "name": "国家大学生就业服务平台 / 江西财经大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江西财经大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_d3cc38c0a87a",
+    "name": "国家大学生就业服务平台 / 西安理工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西安理工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c325e198a837",
+    "name": "国家大学生就业服务平台 / 国聘",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "国聘",
+    "origin_category": "third_party_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_4c3a7b10919a",
+    "name": "国家大学生就业服务平台 / 南昌交通学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南昌交通学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_8ba309664c20",
+    "name": "国家大学生就业服务平台 / 吉林大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "吉林大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_65664474e19d",
+    "name": "国家大学生就业服务平台 / 浙江大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "浙江大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_7687210e5107",
+    "name": "国家大学生就业服务平台 / 湖南师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "湖南师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f3deea77d4fa",
+    "name": "国家大学生就业服务平台 / 黄山学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "黄山学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_b8f3d81bb808",
+    "name": "国家大学生就业服务平台 / 成都大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "成都大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c8933652e81a",
+    "name": "国家大学生就业服务平台 / 重庆理工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "重庆理工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_aff25234392c",
+    "name": "国家大学生就业服务平台 / 河北工业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "河北工业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_edb2cc397d3c",
+    "name": "国家大学生就业服务平台 / 江苏海洋大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江苏海洋大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_64c84ebd69d5",
+    "name": "国家大学生就业服务平台 / 北京科技大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "北京科技大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_7bb91620f6bf",
+    "name": "国家大学生就业服务平台 / 上海交通大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "上海交通大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_ca130dcb9921",
+    "name": "国家大学生就业服务平台 / 山东大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "山东大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f872c612146a",
+    "name": "国家大学生就业服务平台 / 北京航空航天大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "北京航空航天大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_788bd487bf85",
+    "name": "国家大学生就业服务平台 / 深圳技术大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "深圳技术大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c844a9869ac1",
+    "name": "国家大学生就业服务平台 / 河南省教育厅",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "河南省教育厅",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f90d332cd8a1",
+    "name": "国家大学生就业服务平台 / 南京航空航天大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京航空航天大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_ad93f8c58e1a",
+    "name": "国家大学生就业服务平台 / 西安交通大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西安交通大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_7e353ec45b6c",
+    "name": "国家大学生就业服务平台 / 中国地质大学(武汉)",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "中国地质大学(武汉)",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f4c815862b75",
+    "name": "国家大学生就业服务平台 / 北方民族大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "北方民族大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_88382491a9f4",
+    "name": "国家大学生就业服务平台 / 西南交通大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西南交通大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_01e5318c2644",
+    "name": "国家大学生就业服务平台 / 东南大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "东南大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_e2fb1df2d851",
+    "name": "国家大学生就业服务平台 / 西北大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西北大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_a4eb76d3373c",
+    "name": "国家大学生就业服务平台 / 武汉职业技术大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "武汉职业技术大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_e200c6a3621e",
+    "name": "国家大学生就业服务平台 / 哈尔滨工程大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "哈尔滨工程大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_f22bb9021786",
+    "name": "国家大学生就业服务平台 / 南京理工大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "南京理工大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_122c6327adb8",
+    "name": "国家大学生就业服务平台 / 金陵科技学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "金陵科技学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_ef20575cc804",
+    "name": "国家大学生就业服务平台 / 厦门大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "厦门大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_e33893825e13",
+    "name": "国家大学生就业服务平台 / 郑州大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "郑州大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_b6cec187ed90",
+    "name": "国家大学生就业服务平台 / 河南工业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "河南工业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_c15d8fe65e6f",
+    "name": "国家大学生就业服务平台 / 宿迁学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "宿迁学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_42493f63b710",
+    "name": "国家大学生就业服务平台 / 常州大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "常州大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_66d808b30124",
+    "name": "国家大学生就业服务平台 / 江苏信息职业技术学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "江苏信息职业技术学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_e17db3add609",
+    "name": "国家大学生就业服务平台 / 杭州电子科技大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "杭州电子科技大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_6679674c38d9",
+    "name": "国家大学生就业服务平台 / 大连海事大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "大连海事大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_443b24e04905",
+    "name": "国家大学生就业服务平台 / 东北电力大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "东北电力大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_a218c7e3912d",
+    "name": "国家大学生就业服务平台 / 内蒙古农业大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "内蒙古农业大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_27d2b2e49153",
+    "name": "国家大学生就业服务平台 / 西北农林科技大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西北农林科技大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_baa6f7222484",
+    "name": "国家大学生就业服务平台 / 郑州升达经贸管理学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "郑州升达经贸管理学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_54916b93ff1b",
+    "name": "国家大学生就业服务平台 / 内蒙古大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "内蒙古大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_b84ba3da5808",
+    "name": "国家大学生就业服务平台 / 广州大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "广州大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_34f22e5c9815",
+    "name": "国家大学生就业服务平台 / 杭州师范大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "杭州师范大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_b5e0881927fd",
+    "name": "国家大学生就业服务平台 / 哈尔滨剑桥学院",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "哈尔滨剑桥学院",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  },
+  {
+    "source_id": "ncss_7e022a89bf77",
+    "name": "国家大学生就业服务平台 / 西南民族大学",
+    "region": "CN",
+    "kind": "public_recruitment_snapshot",
+    "homepage": "https://www.ncss.cn/student/jobs/index.html",
+    "origin_name": "西南民族大学",
+    "origin_category": "university_or_education_republication",
+    "access_basis": "unauthenticated_public_search_and_detail_pages",
+    "permission_status": "reuse_scope_not_verified",
+    "permission_evidence": null,
+    "allowed_purposes": [
+      "local_research_candidate"
+    ],
+    "public_display_allowed": false,
+    "automated_refresh_allowed": false,
+    "model_training_allowed": false,
+    "enabled": false,
+    "robots_status": "html_404_page_no_valid_robot_directives"
+  }
+]

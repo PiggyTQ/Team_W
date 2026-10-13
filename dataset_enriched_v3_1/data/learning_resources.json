@@ -1,0 +1,100 @@
+[
+  {
+    "resource_id": "res_huawei_roadmap",
+    "title": "华为云开发者学习路线",
+    "url": "https://developer.huaweicloud.com/resource/roadmap.html",
+    "provider": "华为云",
+    "source_region": "CN",
+    "competency_ids": [
+      "SK_JAVA",
+      "SK_HUAWEICLOUD",
+      "SK_MYSQL"
+    ],
+    "record_type": "link_metadata_only",
+    "checked_on": "2026-10-12",
+    "cost": "check_provider",
+    "mapping_status": "editorial_draft",
+    "verification_scope": "link_metadata_from_previous_build; availability_not_retested_in_final_build"
+  },
+  {
+    "resource_id": "res_huawei_db",
+    "title": "华为云数据库开发者社区",
+    "url": "https://developer.huaweicloud.com/techfield/db.html",
+    "provider": "华为云",
+    "source_region": "CN",
+    "competency_ids": [
+      "SK_MYSQL",
+      "SK_SQL"
+    ],
+    "record_type": "link_metadata_only",
+    "checked_on": "2026-10-12",
+    "cost": "check_provider",
+    "mapping_status": "editorial_draft",
+    "verification_scope": "link_metadata_from_previous_build; availability_not_retested_in_final_build"
+  },
+  {
+    "resource_id": "res_huawei_lab",
+    "title": "华为云数据库开发者实验室",
+    "url": "https://edu.huaweicloud.com/activity/Database",
+    "provider": "华为云",
+    "source_region": "CN",
+    "competency_ids": [
+      "SK_MYSQL",
+      "SK_HUAWEICLOUD"
+    ],
+    "record_type": "link_metadata_only",
+    "checked_on": "2026-10-12",
+    "cost": "check_provider",
+    "mapping_status": "editorial_draft",
+    "verification_scope": "link_metadata_from_previous_build; availability_not_retested_in_final_build"
+  },
+  {
+    "resource_id": "res_huawei_school",
+    "title": "华为云开发者学堂",
+    "url": "https://edu.huaweicloud.com/welcome/",
+    "provider": "华为云",
+    "source_region": "CN",
+    "competency_ids": [
+      "SK_HUAWEICLOUD",
+      "SK_CICD"
+    ],
+    "record_type": "link_metadata_only",
+    "checked_on": "2026-10-12",
+    "cost": "check_provider",
+    "mapping_status": "editorial_draft",
+    "verification_scope": "link_metadata_from_previous_build; availability_not_retested_in_final_build"
+  },
+  {
+    "resource_id": "res_vue",
+    "title": "Vue 官方中文指南",
+    "url": "https://cn.vuejs.org/guide/introduction",
+    "provider": "Vue.js",
+    "source_region": "international",
+    "competency_ids": [
+      "SK_VUE",
+      "SK_JAVASCRIPT"
+    ],
+    "record_type": "link_metadata_only",
+    "checked_on": "2026-10-12",
+    "cost": "free_documentation",
+    "mapping_status": "editorial_draft",
+    "verification_scope": "link_metadata_from_previous_build; availability_not_retested_in_final_build"
+  },
+  {
+    "resource_id": "res_d2l",
+    "title": "动手学深度学习",
+    "url": "https://zh.d2l.ai/",
+    "provider": "D2L contributors",
+    "source_region": "international",
+    "competency_ids": [
+      "SK_PYTHON",
+      "SK_PYTORCH",
+      "SK_DEEPLEARNING"
+    ],
+    "record_type": "link_metadata_only",
+    "checked_on": "2026-10-12",
+    "cost": "free_web_book",
+    "mapping_status": "editorial_draft",
+    "verification_scope": "link_metadata_from_previous_build; availability_not_retested_in_final_build"
+  }
+]

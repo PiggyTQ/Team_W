@@ -1,0 +1,263 @@
+{
+  "accepted": 237,
+  "group_counts": {
+    "ML_AI": 51,
+    "DATA": 81,
+    "CYBERSEC": 53,
+    "DEVOPS_SRE": 52
+  },
+  "occupation_counts": {
+    "CYBERSEC": 53,
+    "DATA_ENG": 47,
+    "DATA_ANALYST": 34,
+    "DEVOPS_SRE": 52,
+    "ML_AI": 51
+  },
+  "distinct_companies": 166,
+  "errors": 191,
+  "duplicate_rejected": 38,
+  "queries": [
+    {
+      "query": "算法工程师",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "算法工程师",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "算法工程师",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "AI应用",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "AI应用",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "AI应用",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "大模型",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "大模型",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "大模型",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据工程师",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据工程师",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据工程师",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据开发",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据开发",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据开发",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据分析师",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据分析师",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据分析师",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "网络安全工程师",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "网络安全工程师",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "网络安全工程师",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "安全服务工程师",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "安全服务工程师",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "安全服务工程师",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "渗透测试",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "渗透测试",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "渗透测试",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "运维工程师",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "运维工程师",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "运维工程师",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "DevOps",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "DevOps",
+      "page": 2,
+      "returned": 18,
+      "reported_count": 200
+    },
+    {
+      "query": "DevOps",
+      "page": 3,
+      "returned": 0,
+      "reported_count": 200
+    },
+    {
+      "query": "SRE",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "SRE",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "SRE",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据分析",
+      "page": 1,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据分析",
+      "page": 2,
+      "returned": 20,
+      "reported_count": 200
+    },
+    {
+      "query": "数据分析",
+      "page": 3,
+      "returned": 20,
+      "reported_count": 200
+    }
+  ],
+  "robots": {
+    "url": "https://www.ncss.cn/robots.txt",
+    "checked_at": "2026-10-12T15:39:31.877117+00:00",
+    "response_sha256": "73f958e6a57f4bb35f4172508bb2c05796effecaf6d8dd9e9a3ffb5cd8f7f7bc",
+    "status": "html_404_page_no_valid_robot_directives"
+  },
+  "scheduler_installed": false,
+  "public_display_permission_confirmed": false
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "source_record_key": "ncss:RjgWJhG3bWHtXWL34gKu6w",
+    "original_role": "DATA_ENG",
+    "corrected_role": "ML_AI",
+    "reason": "标题为 AI 数据工程师，但六项职责主要是大模型应用、智能助手、知识检索、接口集成及效果优化；按实际工作归入 AI 应用方向。",
+    "review_type": "assistant_semantic_review_not_human_gold",
+    "source_evidence_term": "大语言模型"
+  },
+  {
+    "source_record_key": "ncss:6MPNnmDqT6EgdPKvDqpCQ5",
+    "original_role": "ML_AI",
+    "corrected_role": "NETWORK",
+    "reason": "实际职责为通信物理层基带算法、ASIC 实现与芯片适配，未体现机器学习或 AI 任务，归入网络通信方向。",
+    "review_type": "assistant_semantic_review_not_human_gold",
+    "source_evidence_term": "物联网通信物理层基带算法"
+  },
+  {
+    "source_record_key": "ncss:KmhaA3khxPAcEJgQwwk23P",
+    "original_role": "DATA_ENG",
+    "corrected_role": "ML_AI",
+    "reason": "标题为 AI 数据工程师，但六项职责主要是大模型应用、智能助手、知识检索、接口集成及效果优化；按实际工作归入 AI 应用方向。 与已审阅记录的描述完全相同。",
+    "review_type": "assistant_semantic_review_not_human_gold",
+    "source_evidence_term": "大语言模型"
+  },
+  {
+    "source_record_key": "ncss:9i6DLYYD9gqGebZe18ErQG",
+    "original_role": "DATA_ENG",
+    "corrected_role": "ML_AI",
+    "reason": "标题为 AI 数据工程师，但六项职责主要是大模型应用、智能助手、知识检索、接口集成及效果优化；按实际工作归入 AI 应用方向。 与已审阅记录的描述完全相同。",
+    "review_type": "assistant_semantic_review_not_human_gold",
+    "source_evidence_term": "大语言模型"
+  }
+]

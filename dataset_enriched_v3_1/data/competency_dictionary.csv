@@ -1,0 +1,229 @@
+﻿competency_id,canonical_name,dimension_id,category_id,aliases,default_importance,corpus_job_count,corpus_prevalence,top_occupations,dictionary_version
+SK_PYTHON,Python,PS,PS_LANG,python,,,,,3.1.0
+SK_JAVA,Java,PS,PS_LANG,java,,,,,3.1.0
+SK_JAVASCRIPT,JavaScript,PS,PS_LANG,javascript | java script,,,,,3.1.0
+SK_TYPESCRIPT,TypeScript,PS,PS_LANG,typescript,,,,,3.1.0
+SK_CPP,C++,PS,PS_LANG,c++ | cpp|C/C++,,,,,3.1.0
+SK_CSHARP,C#,PS,PS_LANG,c# | c sharp,,,,,3.1.0
+SK_GOLANG,Go,PS,PS_LANG,golang | go programming | go language|Golang,,,,,3.1.0
+SK_RUST,Rust,PS,PS_LANG,rust,,,,,3.1.0
+SK_KOTLIN,Kotlin,PS,PS_LANG,kotlin,,,,,3.1.0
+SK_SWIFT,Swift,PS,PS_LANG,swift,,,,,3.1.0
+SK_SQL,SQL,PS,PS_LANG,sql,,,,,3.1.0
+SK_R,R,PS,PS_LANG,r programming | r language,,,,,3.1.0
+SK_SCALA,Scala,PS,PS_LANG,scala,,,,,3.1.0
+SK_PHP,PHP,PS,PS_LANG,php,,,,,3.1.0
+SK_RUBY,Ruby,PS,PS_LANG,ruby,,,,,3.1.0
+SK_SHELL,Shell/Bash,PS,PS_LANG,bash | shell scripting | shell script,,,,,3.1.0
+SK_HTML,HTML,PS,PS_LANG,html|HTML5,,,,,3.1.0
+SK_CSS,CSS,PS,PS_LANG,css|CSS3,,,,,3.1.0
+SK_REACT,React,PS,PS_FRAME,react.js | reactjs | react,,,,,3.1.0
+SK_ANGULAR,Angular,PS,PS_FRAME,angular,,,,,3.1.0
+SK_VUE,Vue.js,PS,PS_FRAME,vue.js | vuejs | vue|Vue|Vue3,,,,,3.1.0
+SK_NEXTJS,Next.js,PS,PS_FRAME,next.js | nextjs,,,,,3.1.0
+SK_NODEJS,Node.js,PS,PS_FRAME,node.js | nodejs|NodeJS,,,,,3.1.0
+SK_EXPRESS,Express.js,PS,PS_FRAME,express.js | expressjs,,,,,3.1.0
+SK_SPRING,Spring / Spring Boot,PS,PS_FRAME,spring boot | spring framework|SpringBoot,,,,,3.1.0
+SK_DOTNET,.NET / ASP.NET,PS,PS_FRAME,asp.net | .net | dotnet,,,,,3.1.0
+SK_DJANGO,Django,PS,PS_FRAME,django,,,,,3.1.0
+SK_FLASK,Flask,PS,PS_FRAME,flask,,,,,3.1.0
+SK_FASTAPI,FastAPI,PS,PS_FRAME,fastapi,,,,,3.1.0
+SK_RAILS,Ruby on Rails,PS,PS_FRAME,ruby on rails,,,,,3.1.0
+SK_LARAVEL,Laravel,PS,PS_FRAME,laravel,,,,,3.1.0
+SK_PYTORCH,PyTorch,PS,PS_FRAME,pytorch,,,,,3.1.0
+SK_TENSORFLOW,TensorFlow,PS,PS_FRAME,tensorflow,,,,,3.1.0
+SK_SKLEARN,scikit-learn,PS,PS_FRAME,scikit-learn | sklearn,,,,,3.1.0
+SK_KERAS,Keras,PS,PS_FRAME,keras,,,,,3.1.0
+SK_SPARK,Apache Spark,PS,PS_FRAME,apache spark|Spark,,,,,3.1.0
+SK_PANDAS,pandas,PS,PS_FRAME,pandas,,,,,3.1.0
+SK_NUMPY,NumPy,PS,PS_FRAME,numpy,,,,,3.1.0
+SK_POSTGRES,PostgreSQL,PS,PS_DB,postgresql | postgres,,,,,3.1.0
+SK_MYSQL,MySQL,PS,PS_DB,mysql,,,,,3.1.0
+SK_SQLSERVER,Microsoft SQL Server,PS,PS_DB,sql server | mssql,,,,,3.1.0
+SK_ORACLEDB,Oracle Database,PS,PS_DB,oracle database | oracle db,,,,,3.1.0
+SK_MONGODB,MongoDB,PS,PS_DB,mongodb,,,,,3.1.0
+SK_REDIS,Redis,PS,PS_DB,redis,,,,,3.1.0
+SK_ELASTIC,Elasticsearch / OpenSearch,PS,PS_DB,elasticsearch | opensearch,,,,,3.1.0
+SK_SNOWFLAKE,Snowflake,PS,PS_DB,snowflake,,,,,3.1.0
+SK_BIGQUERY,BigQuery,PS,PS_DB,bigquery,,,,,3.1.0
+SK_DATABRICKS,Databricks,PS,PS_DB,databricks,,,,,3.1.0
+SK_DYNAMODB,DynamoDB,PS,PS_DB,dynamodb,,,,,3.1.0
+SK_CASSANDRA,Cassandra,PS,PS_DB,cassandra,,,,,3.1.0
+SK_NEO4J,Neo4j,PS,PS_DB,neo4j,,,,,3.1.0
+SK_AWS,Amazon Web Services (AWS),PS,PS_CLOUD,amazon web services | aws,,,,,3.1.0
+SK_AZURE,Microsoft Azure,PS,PS_CLOUD,microsoft azure | azure,,,,,3.1.0
+SK_GCP,Google Cloud Platform (GCP),PS,PS_CLOUD,google cloud platform | google cloud | gcp,,,,,3.1.0
+SK_K8S,Kubernetes,PS,PS_CLOUD,kubernetes | k8s,,,,,3.1.0
+SK_DOCKER,Docker,PS,PS_CLOUD,docker,,,,,3.1.0
+SK_TERRAFORM,Terraform,PS,PS_CLOUD,terraform,,,,,3.1.0
+SK_HELM,Helm,PS,PS_CLOUD,helm,,,,,3.1.0
+SK_ANSIBLE,Ansible,PS,PS_CLOUD,ansible,,,,,3.1.0
+SK_JENKINS,Jenkins,PS,PS_DEVOPS,jenkins,,,,,3.1.0
+SK_GHACTIONS,GitHub Actions,PS,PS_DEVOPS,github actions,,,,,3.1.0
+SK_GITLABCI,GitLab CI/CD,PS,PS_DEVOPS,gitlab ci | gitlab ci/cd,,,,,3.1.0
+SK_CICD,CI/CD,PS,PS_DEVOPS,ci/cd | continuous integration | continuous delivery | continuous deployment|持续集成|持续交付,,,,,3.1.0
+SK_PROMETHEUS,Prometheus,PS,PS_DEVOPS,prometheus,,,,,3.1.0
+SK_GRAFANA,Grafana,PS,PS_DEVOPS,grafana,,,,,3.1.0
+SK_DATADOG,Datadog,PS,PS_DEVOPS,datadog,,,,,3.1.0
+SK_OBSERVABILITY,Observability,PS,PS_DEVOPS,observability,,,,,3.1.0
+SK_SRE,Site Reliability Engineering,PS,PS_DEVOPS,site reliability engineering | site reliability | sre,,,,,3.1.0
+SK_ML,Machine Learning,PS,PS_DATAAI,machine learning|机器学习,,,,,3.1.0
+SK_DEEPLEARNING,Deep Learning,PS,PS_DATAAI,deep learning|深度学习,,,,,3.1.0
+SK_GENAI,Generative AI,PS,PS_DATAAI,generative ai | gen ai | genai|生成式人工智能,,,,,3.1.0
+SK_LLM,Large Language Models (LLMs),PS,PS_DATAAI,large language models | large language model | llms | llm|大语言模型|大模型,,,,,3.1.0
+SK_NLP,Natural Language Processing,PS,PS_DATAAI,natural language processing | nlp|自然语言处理,,,,,3.1.0
+SK_CV,Computer Vision,PS,PS_DATAAI,computer vision|计算机视觉,,,,,3.1.0
+SK_MLOPS,MLOps,PS,PS_DATAAI,mlops,,,,,3.1.0
+SK_RAG,Retrieval-Augmented Generation (RAG),PS,PS_DATAAI,retrieval augmented generation | retrieval-augmented generation|检索增强生成|RAG,,,,,3.1.0
+SK_VECTORDB,Vector Databases,PS,PS_DATAAI,vector database | vector databases | vector db|向量数据库,,,,,3.1.0
+SK_DATAENG,Data Engineering,PS,PS_DATAAI,data engineering|数据工程,,,,,3.1.0
+SK_ETL,ETL / ELT,PS,PS_DATAAI,etl | elt,,,,,3.1.0
+SK_DWH,Data Warehousing,PS,PS_DATAAI,data warehouse | data warehousing|数据仓库|数仓,,,,,3.1.0
+SK_DATAMODEL,Data Modeling,PS,PS_DATAAI,data modeling | data modelling|数据建模,,,,,3.1.0
+SK_DATAVIZ,Data Visualization,PS,PS_DATAAI,data visualization | data visualisation|数据可视化|数据可视化,,,,,3.1.0
+SK_ABTEST,A/B Testing,PS,PS_DATAAI,a/b testing | ab testing | a/b test,,,,,3.1.0
+SK_STATS,Statistics,PS,PS_DATAAI,statistics | statistical analysis|统计学|统计分析,,,,,3.1.0
+SK_IAM,Identity & Access Management (IAM),PS,PS_SECURITY,identity and access management | identity & access management | iam,,,,,3.1.0
+SK_OAUTH,OAuth / OIDC,PS,PS_SECURITY,oauth | openid connect | oidc,,,,,3.1.0
+SK_SSO,Single Sign-On (SSO),PS,PS_SECURITY,single sign-on | single sign on | sso,,,,,3.1.0
+SK_SIEM,SIEM,PS,PS_SECURITY,siem,,,,,3.1.0
+SK_SOC,Security Operations Center (SOC),PS,PS_SECURITY,security operations center | security operations centre|SOC,,,,,3.1.0
+SK_OWASP,OWASP,PS,PS_SECURITY,owasp,,,,,3.1.0
+SK_PENTEST,Penetration Testing,PS,PS_SECURITY,penetration testing | pentesting|渗透测试,,,,,3.1.0
+SK_THREAT,Threat Modeling,PS,PS_SECURITY,threat modeling | threat modelling|威胁建模,,,,,3.1.0
+SK_ZEROTRUST,Zero Trust,PS,PS_SECURITY,zero trust,,,,,3.1.0
+SK_VULN,Vulnerability Management,PS,PS_SECURITY,vulnerability management|漏洞管理|漏洞挖掘,,,,,3.1.0
+SK_INCIDENT,Incident Response,PS,PS_SECURITY,incident response|应急响应|安全事件响应|安全事件,,,,,3.1.0
+SK_UNITTEST,Unit Testing,PS,PS_TEST,unit testing | unit tests|单元测试,,,,,3.1.0
+SK_INTEGRATIONTEST,Integration Testing,PS,PS_TEST,integration testing | integration tests|集成测试,,,,,3.1.0
+SK_AUTOTEST,Test Automation,PS,PS_TEST,test automation | automated testing | automation testing|自动化测试,,,,,3.1.0
+SK_SELENIUM,Selenium,PS,PS_TEST,selenium,,,,,3.1.0
+SK_PLAYWRIGHT,Playwright,PS,PS_TEST,playwright,,,,,3.1.0
+SK_CYPRESS,Cypress,PS,PS_TEST,cypress,,,,,3.1.0
+SK_JUNIT,JUnit,PS,PS_TEST,junit,,,,,3.1.0
+SK_PYTEST,pytest,PS,PS_TEST,pytest,,,,,3.1.0
+SK_REST,REST APIs,PS,PS_ARCH,rest api | rest apis | restful api | restful services,,,,,3.1.0
+SK_GRAPHQL,GraphQL,PS,PS_ARCH,graphql,,,,,3.1.0
+SK_GRPC,gRPC,PS,PS_ARCH,grpc,,,,,3.1.0
+SK_MICROSERVICES,Microservices,PS,PS_ARCH,microservices | microservice architecture|微服务,,,,,3.1.0
+SK_DISTRIBUTED,Distributed Systems,PS,PS_ARCH,distributed systems|分布式系统,,,,,3.1.0
+SK_EVENTDRIVEN,Event-Driven Architecture,PS,PS_ARCH,event-driven architecture | event driven architecture,,,,,3.1.0
+SK_KAFKA,Apache Kafka,PS,PS_ARCH,apache kafka | kafka,,,,,3.1.0
+SK_RABBITMQ,RabbitMQ,PS,PS_ARCH,rabbitmq,,,,,3.1.0
+SK_APIDESIGN,API Design,PS,PS_ARCH,api design,,,,,3.1.0
+SK_SYSDESIGN,System Design,PS,PS_ARCH,system design | systems design|系统设计|架构设计,,,,,3.1.0
+SK_LINUX,Linux,PS,PS_OSNET,linux,,,,,3.1.0
+SK_WINDOWS,Windows,PS,PS_OSNET,windows server,,,,,3.1.0
+SK_TCPIP,TCP/IP,PS,PS_OSNET,tcp/ip | tcp ip,,,,,3.1.0
+SK_DNS,DNS,PS,PS_OSNET,dns,,,,,3.1.0
+SK_NETWORKING,Networking,PS,PS_OSNET,networking | network protocols|计算机网络|网络协议,,,,,3.1.0
+SK_SALESFORCE,Salesforce,PS,PS_ENTERPRISE,salesforce,,,,,3.1.0
+SK_SAP,SAP,PS,PS_ENTERPRISE,sap,,,,,3.1.0
+SK_SERVICENOW,ServiceNow,PS,PS_ENTERPRISE,servicenow,,,,,3.1.0
+SK_JIRA,Jira,PS,PS_METHOD,jira,,,,,3.1.0
+SK_CONFLUENCE,Confluence,PS,PS_METHOD,confluence,,,,,3.1.0
+SK_AGILE,Agile,PS,PS_METHOD,agile|敏捷开发,,,,,3.1.0
+SK_SCRUM,Scrum,PS,PS_METHOD,scrum,,,,,3.1.0
+SK_KANBAN,Kanban,PS,PS_METHOD,kanban,,,,,3.1.0
+SK_SDLC,Software Development Life Cycle (SDLC),PS,PS_METHOD,software development life cycle | sdlc|软件开发生命周期,,,,,3.1.0
+SK_PRODUCTMGMT,Product Management,PS,PS_PRODUCT,product management|产品管理,,,,,3.1.0
+SK_USERRESEARCH,User Research,PS,PS_PRODUCT,user research|用户研究,,,,,3.1.0
+SK_UX,UX Design,PS,PS_PRODUCT,ux design | user experience design|用户体验设计|交互设计,,,,,3.1.0
+SK_UI,UI Design,PS,PS_PRODUCT,ui design | user interface design|UI设计,,,,,3.1.0
+SK_FIGMA,Figma,PS,PS_PRODUCT,figma,,,,,3.1.0
+TQ_COMMUNICATION,Communication,TQ,TQ_COMM,communication skills | strong communication | excellent communication | communicate effectively | written and verbal communication|沟通能力|沟通表达|沟通协调,,,,,3.1.0
+TQ_COLLABORATION,Collaboration / Teamwork,TQ,TQ_COLLAB,collaboration | collaborative | teamwork | cross-functional | cross functional|团队合作|团队协作,,,,,3.1.0
+TQ_PROBLEMSOLVING,Problem Solving,TQ,TQ_PROBLEM,problem solving | problem-solving | troubleshooting | solve complex problems|解决问题|问题解决,,,,,3.1.0
+TQ_ANALYTICAL,Analytical Thinking,TQ,TQ_ANALYTIC,analytical thinking | analytical skills | critical thinking | data-driven decision|分析能力|分析思维,,,,,3.1.0
+TQ_STAKEHOLDER,Stakeholder Management,TQ,TQ_STAKE,stakeholder management | manage stakeholders | stakeholder engagement,,,,,3.1.0
+TQ_LEADERSHIP,Leadership,TQ,TQ_LEAD,leadership | technical leadership | people leadership | lead a team | lead teams|领导力,,,,,3.1.0
+TQ_PROJECTMGMT,Project Management,TQ,TQ_PROJECT,project management | project planning | delivery management|项目管理,,,,,3.1.0
+TQ_CUSTOMER,Customer / User Orientation,TQ,TQ_CUSTOMER,customer-focused | customer focused | customer-centric | customer centric | user-centric | user centric | customer empathy,,,,,3.1.0
+TQ_DETAIL,Attention to Detail,TQ,TQ_DETAIL,attention to detail | detail-oriented | detail oriented|细心|认真细致,,,,,3.1.0
+TQ_PRESENT,Presentation Skills,TQ,TQ_COMM,presentation skills | presenting to,,,,,3.1.0
+DP_LEARNING,Learning Agility,DP,DP_LEARN,continuous learning | quick learner | fast learner | learn quickly | learning mindset | eager to learn|学习能力|勤恳好学|善于学习,,,,,3.1.0
+DP_ADAPTABILITY,Adaptability,DP,DP_ADAPT,adaptability | adaptable | adapt to change | changing priorities|适应能力,,,,,3.1.0
+DP_OWNERSHIP,Ownership,DP,DP_OWN,ownership | take ownership | end-to-end ownership | end to end ownership | accountability|责任心|责任感,,,,,3.1.0
+DP_INITIATIVE,Initiative / Proactivity,DP,DP_INIT,initiative | proactive | self-starter | self starter | self-directed | self directed|积极主动|主动性,,,,,3.1.0
+DP_INNOVATION,Innovation,DP,DP_INNOV,innovation | innovative | creativity | creative solutions | experiment with|创新能力|创新意识,,,,,3.1.0
+DP_GROWTH,Growth Mindset,DP,DP_GROWTH,growth mindset | learn from feedback | continuous improvement | continual improvement,,,,,3.1.0
+DP_MENTORING,Mentoring / Coaching,DP,DP_MENTOR,mentoring|指导新人|培养团队成员,,,,,3.1.0
+DP_AMBIGUITY,Ambiguity Tolerance,DP,DP_AMBIG,ambiguity | ambiguous environment | operate independently | little direction | uncertain environment,,,,,3.1.0
+BR_ENGLISH,English,BR,BR_LANG,english language | fluent english | english proficiency | proficiency in english | written and spoken english|英语|英文,,,,,3.1.0
+BR_MANDARIN,Mandarin Chinese,BR,BR_LANG,mandarin | mandarin chinese|普通话,,,,,3.1.0
+BR_GERMAN,German,BR,BR_LANG,german language | fluent german | german proficiency,,,,,3.1.0
+BR_FRENCH,French,BR,BR_LANG,french language | fluent french | french proficiency,,,,,3.1.0
+BR_SPANISH,Spanish,BR,BR_LANG,spanish language | fluent spanish | spanish proficiency,,,,,3.1.0
+BR_JAPANESE,Japanese,BR,BR_LANG,japanese language | fluent japanese | japanese proficiency|日语,,,,,3.1.0
+CERT_AWS,AWS Certification,BR,BR_CERT,aws certified | aws certification,,,,,3.1.0
+CERT_AZURE,Microsoft Azure Certification,BR,BR_CERT,azure certification | microsoft certified: azure | microsoft azure certification,,,,,3.1.0
+CERT_GCP,Google Cloud Certification,BR,BR_CERT,google cloud certification | gcp certification,,,,,3.1.0
+CERT_CISSP,CISSP,BR,BR_CERT,cissp,,,,,3.1.0
+CERT_CISM,CISM,BR,BR_CERT,cism,,,,,3.1.0
+CERT_SECURITYPLUS,CompTIA Security+,BR,BR_CERT,security+ | comptia security+,,,,,3.1.0
+CERT_PMP,PMP,BR,BR_CERT,pmp certification | project management professional,,,,,3.1.0
+CERT_SCRUM,Scrum Certification,BR,BR_CERT,certified scrum master | csm certification | scrum certification,,,,,3.1.0
+SK_C,C,PS,PS_LANG,C语言|C programming,,,,,3.1.0
+SK_ARCGIS,ArcGIS,PS,PS_PRODUCT,ArcGIS,,,,,3.1.0
+SK_CASS,CASS,PS,PS_PRODUCT,CASS,,,,,3.1.0
+SK_SOFTWARETEST,软件测试,PS,PS_TEST,软件测试|software testing,,,,,3.1.0
+SK_FUNCTIONALTEST,功能测试,PS,PS_TEST,功能测试|functional testing,,,,,3.1.0
+SK_PERFORMANCETEST,性能测试,PS,PS_TEST,性能测试|performance testing,,,,,3.1.0
+SK_TESTCASE,测试用例,PS,PS_TEST,测试用例|test cases,,,,,3.1.0
+SK_JMETER,JMeter,PS,PS_TEST,JMeter,,,,,3.1.0
+SK_POSTMAN,Postman,PS,PS_TEST,Postman,,,,,3.1.0
+SK_ALIYUN,阿里云,PS,PS_CLOUD,阿里云|Aliyun|Alibaba Cloud,,,,,3.1.0
+SK_HUAWEICLOUD,华为云,PS,PS_CLOUD,华为云|Huawei Cloud,,,,,3.1.0
+SK_TENCENTCLOUD,腾讯云,PS,PS_CLOUD,腾讯云|Tencent Cloud,,,,,3.1.0
+SK_HARMONY,HarmonyOS,PS,PS_OSNET,鸿蒙|HarmonyOS,,,,,3.1.0
+SK_MINIPROGRAM,微信小程序,PS,PS_FRAME,微信小程序,,,,,3.1.0
+SK_GIT,Git,PS,PS_METHOD,git,,,,,3.1.0
+SK_EXCEL,Excel,PS,PS_PRODUCT,Excel,,,,,3.1.0
+SK_POWERBI,Power BI,PS,PS_PRODUCT,Power BI|PowerBI,,,,,3.1.0
+BR_EDU_PHD,博士,BR,BR_EDU,博士|doctorate|PhD,,,,,3.1.0
+BR_EDU_MASTER,硕士,BR,BR_EDU,硕士|master degree|master's degree,,,,,3.1.0
+BR_EDU_BACHELOR,本科,BR,BR_EDU,本科|bachelor's degree|bachelor degree,,,,,3.1.0
+BR_EDU_ASSOCIATE,专科,BR,BR_EDU,大专|专科|associate degree,,,,,3.1.0
+BR_EXP_YEARS,工作经验,BR,BR_EXP,__experience_rule__,,,,,3.1.0
+SK_DATAQUALITY,数据质量,PS,PS_FOUNDATION,数据质量|data quality,,,,,3.1.0
+SK_DATAGOV,数据治理,PS,PS_FOUNDATION,数据治理|data governance,,,,,3.1.0
+SK_DATASEC,数据安全,PS,PS_FOUNDATION,数据安全|data security,,,,,3.1.0
+SK_BACKUP,备份与恢复,PS,PS_FOUNDATION,备份|灾难恢复|backup|disaster recovery,,,,,3.1.0
+SK_MONITOR,监控与告警,PS,PS_FOUNDATION,监控|告警|monitoring|alerting,,,,,3.1.0
+SK_VIRTUAL,虚拟化,PS,PS_FOUNDATION,虚拟化|virtualization,,,,,3.1.0
+SK_FEATURE,特征工程,PS,PS_FOUNDATION,特征工程|feature engineering,,,,,3.1.0
+SK_MODELEVAL,模型评估,PS,PS_FOUNDATION,模型评估|model evaluation,,,,,3.1.0
+SK_MODELDEPLOY,模型部署,PS,PS_FOUNDATION,模型部署|model deployment,,,,,3.1.0
+SK_PRIVACY,隐私保护,PS,PS_FOUNDATION,隐私保护|privacy protection,,,,,3.1.0
+SK_DATACLASS,数据分类分级,PS,PS_FOUNDATION,数据分类分级|data classification,,,,,3.1.0
+SK_ACCESSCONTROL,访问控制,PS,PS_FOUNDATION,访问控制|access control,,,,,3.1.0
+SK_LOGANALYSIS,日志分析,PS,PS_FOUNDATION,日志分析|log analysis,,,,,3.1.0
+SK_LINEARALG,线性代数,PS,PS_FOUNDATION,线性代数|linear algebra,,,,,3.1.0
+SK_PROBABILITY,概率与统计,PS,PS_FOUNDATION,概率论|概率统计|probability,,,,,3.1.0
+SK_DSALGO,数据结构与算法,PS,PS_FOUNDATION,数据结构|data structures,,,,,3.1.0
+SK_DOC,技术文档,PS,PS_FOUNDATION,技术文档|technical documentation,,,,,3.1.0
+SK_API,接口设计,PS,PS_FOUNDATION,接口设计|API design,,,,,3.1.0
+SK_HADOOP,Apache Hadoop,PS,PS_SPECIALTY,Hadoop,,,,,3.1.0
+SK_PADDLE,PaddlePaddle,PS,PS_SPECIALTY,PaddlePaddle|飞桨,,,,,3.1.0
+SK_HIVE,Apache Hive,PS,PS_SPECIALTY,Hive,,,,,3.1.0
+SK_FLINK,Apache Flink,PS,PS_SPECIALTY,Flink,,,,,3.1.0
+SK_HBASE,Apache HBase,PS,PS_SPECIALTY,HBase,,,,,3.1.0
+SK_CLICKHOUSE,ClickHouse,PS,PS_SPECIALTY,ClickHouse,,,,,3.1.0
+SK_ZABBIX,Zabbix,PS,PS_SPECIALTY,Zabbix,,,,,3.1.0
+SK_NGINX,Nginx,PS,PS_SPECIALTY,Nginx,,,,,3.1.0
+SK_HDFS,HDFS,PS,PS_SPECIALTY,HDFS,,,,,3.1.0
+SK_PROMPT,提示词设计,PS,PS_SPECIALTY,Prompt|提示词,,,,,3.1.0
+SK_AGENT,AI 智能体,PS,PS_SPECIALTY,Agent|智能体,,,,,3.1.0
+SK_TRANSFORMER,Transformer,PS,PS_SPECIALTY,Transformer,,,,,3.1.0
+SK_REINFORCEMENT,强化学习,PS,PS_SPECIALTY,强化学习|reinforcement learning,,,,,3.1.0
+SK_WAF,Web 应用防火墙,PS,PS_SPECIALTY,WAF,,,,,3.1.0
+SK_NMAP,Nmap,PS,PS_SPECIALTY,Nmap,,,,,3.1.0
+SK_BURP,Burp Suite,PS,PS_SPECIALTY,Burp Suite,,,,,3.1.0
+SK_SQLMAP,Sqlmap,PS,PS_SPECIALTY,Sqlmap,,,,,3.1.0
+SK_WIRESHARK,Wireshark,PS,PS_SPECIALTY,Wireshark,,,,,3.1.0
+SK_VULNSCAN,漏洞扫描,PS,PS_SPECIALTY,漏洞扫描|漏洞检测,,,,,3.1.0
+SK_HARDEN,安全加固,PS,PS_SPECIALTY,安全加固,,,,,3.1.0
+SK_MLFLOW,MLflow,PS,PS_SPECIALTY,MLflow,,,,,3.1.0
+SK_AIRFLOW,Apache Airflow,PS,PS_SPECIALTY,Airflow,,,,,3.1.0
+SK_DATAWAREHOUSE,数据仓库,PS,PS_SPECIALTY,数据仓库|数仓|data warehouse,,,,,3.1.0
+SK_HYPERVISOR,云虚拟机管理,PS,PS_SPECIALTY,虚拟机|VMware|KVM,,,,,3.1.0

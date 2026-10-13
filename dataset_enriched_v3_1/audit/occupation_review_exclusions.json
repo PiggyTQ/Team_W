@@ -1,0 +1,14 @@
+[
+  {
+    "source_record_key": "ncss:CFYuN7zjvNtrAn7UjGiCxV",
+    "title": "数据中心基础设施运维工程师",
+    "reason": "职责主要为供配电、空调、消防及动环设施，缺少计算机系统、软件、网络或云平台运维职责，不计入 IT 运维样本。",
+    "review_type": "assistant_semantic_review_not_human_gold"
+  },
+  {
+    "source_record_key": "ncss:V2vSvzMDstbVvEU2bcw21Q",
+    "title": "AI应用管理员",
+    "reason": "职责只概述搭建管理 AI 应用体系，未具体说明模型、算法或 AI 应用开发任务，暂不计入 AI 工程师样本。",
+    "review_type": "assistant_semantic_review_not_human_gold"
+  }
+]

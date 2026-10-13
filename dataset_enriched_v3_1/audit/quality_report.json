@@ -1,0 +1,76 @@
+{
+  "version": "3.1.0-domestic-enriched-base",
+  "snapshot_date": "2026-10-12",
+  "base_jobs": 3515,
+  "domestic_jobs": 2859,
+  "domestic_share": 0.8133712660028449,
+  "international_in_base": 656,
+  "international_reference_jobs": 9858,
+  "new_domestic_jobs": 233,
+  "new_occupation_counts": {
+    "CYBERSEC": 53,
+    "DATA_ENG": 43,
+    "DATA_ANALYST": 34,
+    "ML_AI": 52,
+    "DEVOPS_SRE": 50,
+    "NETWORK": 1
+  },
+  "new_companies": 163,
+  "new_company_counts_by_role": {
+    "CYBERSEC": 41,
+    "DATA_ANALYST": 32,
+    "DATA_ENG": 30,
+    "DEVOPS_SRE": 32,
+    "ML_AI": 43,
+    "NETWORK": 1
+  },
+  "new_status_counts": {
+    "visible_unverified": 233
+  },
+  "new_origin_categories": {
+    "university_or_education_republication": 189,
+    "third_party_republication": 43,
+    "platform_direct": 1
+  },
+  "new_jobs_with_complete_platform_date": 233,
+  "new_seniority_counts": {
+    "unknown": 174,
+    "entry_possible": 33,
+    "entry": 16,
+    "intern": 10
+  },
+  "new_published_date_min": "2026-07-31T08:00:00+00:00",
+  "new_published_date_max": "2026-10-12T15:00:17+00:00",
+  "competencies": 228,
+  "job_competency_mentions": 20574,
+  "occupation_catalog": 21,
+  "market_profiles": 172,
+  "human_reviewed_rows": 0,
+  "employer_contact_verified_jobs": 0,
+  "public_display_eligible_jobs": 0,
+  "checks": {
+    "sqlite_integrity": true,
+    "foreign_keys": true,
+    "unique_job_ids": true,
+    "domestic_share_80plus": true,
+    "evidence_exact": true,
+    "skill_references": true,
+    "all_new_sources_traced": true,
+    "no_unreviewed_public_jobs": true,
+    "no_measured_accuracy_claim": true,
+    "all_four_groups_nonzero": true,
+    "review_exclusions_absent": true,
+    "salary_ranges_valid": true,
+    "track_evidence_resolves": true
+  },
+  "scheduler_installed": false,
+  "foreign_or_ambiguous_locations_excluded": 2,
+  "future_dates_excluded": 0,
+  "occupation_review_exclusions": 2,
+  "delivery_checks": {
+    "csv_sqlite_counts_match": true,
+    "domestic_subset_exact": true,
+    "profile_job_references_resolve": true,
+    "transition_profile_references_resolve": true
+  }
+}
