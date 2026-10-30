@@ -1,0 +1,740 @@
+{
+  "asset": "/mascot/cheese-source-articulated.glb",
+  "source": "C:\\Users\\tsnbx\\Desktop\\team\\project\\低保真原型\\public\\mascot\\cheese-source-faithful.glb",
+  "sourceSHA256": "c31edc67af8a211476fa91d984a0ecfe3a8359c824387611d28e4b56bc6431c3",
+  "outputSHA256": "a1e7b365943f5e3705cf295038772e86e47e901db2e985a67d56a82b7708b302",
+  "outputBytes": 24418796,
+  "coordinateSpace": "glTF Y up; all part nodes identity, original global coordinate positions",
+  "parts": {
+    "body": "Cheese_Body"
+  },
+  "partAudit": [
+    {
+      "node": "Cheese_Body",
+      "sourceTriangles": 54341,
+      "closureTriangles": 210,
+      "repairTriangles": 18109,
+      "totalTriangles": 72660,
+      "boundsMin": [
+        -0.3657735586166382,
+        0.11211983114480972,
+        -0.2724112868309021
+      ],
+      "boundsMax": [
+        0.3862535059452057,
+        0.9999656677246094,
+        0.21827809512615204
+      ],
+      "originalAttributesExact": false,
+      "retainedSourceAttributesExact": true,
+      "closedBoundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "inconsistentWindingEdges": 0,
+      "previousFusedContactAudit": {
+        "node": "Cheese_Body",
+        "sourceTriangles": 68946,
+        "closureTriangles": 908,
+        "boundsMin": [
+          -0.3657735586166382,
+          0.11211983114480972,
+          -0.2724112868309021
+        ],
+        "boundsMax": [
+          0.3862535059452057,
+          0.9999656677246094,
+          0.23031467199325562
+        ],
+        "originalAttributesExact": true,
+        "sourceBoundaryEdges": 908,
+        "closedBoundaryEdges": 0,
+        "loops": [
+          {
+            "boundaryEdges": 168,
+            "center": [
+              -0.2782982289791107,
+              0.4366432726383209,
+              -0.012296273373067379
+            ],
+            "min": [
+              -0.29145631194114685,
+              0.36556312441825867,
+              -0.09756895899772644
+            ],
+            "max": [
+              -0.26468586921691895,
+              0.49839434027671814,
+              0.0738830640912056
+            ],
+            "sourceMaterialCounts": {
+              "0": 168
+            }
+          },
+          {
+            "boundaryEdges": 230,
+            "center": [
+              -0.30661606788635254,
+              0.5385610461235046,
+              0.19023838639259338
+            ],
+            "min": [
+              -0.3444591164588928,
+              0.4499458968639374,
+              0.1312287449836731
+            ],
+            "max": [
+              -0.25810983777046204,
+              0.6093583703041077,
+              0.23031467199325562
+            ],
+            "sourceMaterialCounts": {
+              "0": 230
+            }
+          },
+          {
+            "boundaryEdges": 102,
+            "center": [
+              0.14245878159999847,
+              0.1251629889011383,
+              -0.0153788598254323
+            ],
+            "min": [
+              0.060222841799259186,
+              0.11211983114480972,
+              -0.09593693912029266
+            ],
+            "max": [
+              0.21834267675876617,
+              0.13542555272579193,
+              0.06484329700469971
+            ],
+            "sourceMaterialCounts": {
+              "0": 102
+            }
+          },
+          {
+            "boundaryEdges": 160,
+            "center": [
+              0.2837063670158386,
+              0.3069474399089813,
+              -0.14825324714183807
+            ],
+            "min": [
+              0.2722322344779968,
+              0.22369125485420227,
+              -0.2344309538602829
+            ],
+            "max": [
+              0.29316577315330505,
+              0.3826755881309509,
+              -0.053969286382198334
+            ],
+            "sourceMaterialCounts": {
+              "0": 160
+            }
+          },
+          {
+            "boundaryEdges": 140,
+            "center": [
+              0.3000835180282593,
+              0.44288983941078186,
+              -0.03700912743806839
+            ],
+            "min": [
+              0.28952765464782715,
+              0.3889271318912506,
+              -0.09967371076345444
+            ],
+            "max": [
+              0.3107861876487732,
+              0.49428436160087585,
+              0.020221205428242683
+            ],
+            "sourceMaterialCounts": {
+              "0": 140
+            }
+          },
+          {
+            "boundaryEdges": 108,
+            "center": [
+              -0.11428140848875046,
+              0.12483964115381241,
+              -0.01442517526447773
+            ],
+            "min": [
+              -0.19729472696781158,
+              0.11562960594892502,
+              -0.09598080068826675
+            ],
+            "max": [
+              -0.038217075169086456,
+              0.13798892498016357,
+              0.06688214838504791
+            ],
+            "sourceMaterialCounts": {
+              "0": 108
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "Cheese_LeftArm",
+      "sourceTriangles": 8096,
+      "closureTriangles": 168,
+      "boundsMin": [
+        -0.41976943612098694,
+        0.3414572775363922,
+        -0.09756895899772644
+      ],
+      "boundsMax": [
+        -0.24726589024066925,
+        0.6263511776924133,
+        0.27241581678390503
+      ],
+      "originalAttributesExact": false,
+      "sourceBoundaryEdges": 398,
+      "closedBoundaryEdges": 0,
+      "loops": [
+        {
+          "boundaryEdges": 168,
+          "center": [
+            -0.2782983183860779,
+            0.43664318323135376,
+            -0.012296278029680252
+          ],
+          "min": [
+            -0.29145631194114685,
+            0.36556312441825867,
+            -0.09756895899772644
+          ],
+          "max": [
+            -0.26468586921691895,
+            0.49839434027671814,
+            0.0738830640912056
+          ],
+          "sourceMaterialCounts": {
+            "0": 168
+          }
+        },
+        {
+          "boundaryEdges": 230,
+          "center": [
+            -0.3066159784793854,
+            0.5385608077049255,
+            0.19023846089839935
+          ],
+          "min": [
+            -0.3444591164588928,
+            0.4499458968639374,
+            0.1312287449836731
+          ],
+          "max": [
+            -0.25810983777046204,
+            0.6093583703041077,
+            0.23031467199325562
+          ],
+          "sourceMaterialCounts": {
+            "0": 230
+          }
+        }
+      ],
+      "previousFlatPalmFanAudit": {
+        "node": "Cheese_LeftArm",
+        "sourceTriangles": 8096,
+        "closureTriangles": 398,
+        "boundsMin": [
+          -0.41976943612098694,
+          0.3414572775363922,
+          -0.09756895899772644
+        ],
+        "boundsMax": [
+          -0.24726589024066925,
+          0.6263511776924133,
+          0.27241581678390503
+        ],
+        "originalAttributesExact": true,
+        "sourceBoundaryEdges": 398,
+        "closedBoundaryEdges": 0,
+        "loops": [
+          {
+            "boundaryEdges": 168,
+            "center": [
+              -0.2782983183860779,
+              0.43664318323135376,
+              -0.012296278029680252
+            ],
+            "min": [
+              -0.29145631194114685,
+              0.36556312441825867,
+              -0.09756895899772644
+            ],
+            "max": [
+              -0.26468586921691895,
+              0.49839434027671814,
+              0.0738830640912056
+            ],
+            "sourceMaterialCounts": {
+              "0": 168
+            }
+          },
+          {
+            "boundaryEdges": 230,
+            "center": [
+              -0.3066159784793854,
+              0.5385608077049255,
+              0.19023846089839935
+            ],
+            "min": [
+              -0.3444591164588928,
+              0.4499458968639374,
+              0.1312287449836731
+            ],
+            "max": [
+              -0.25810983777046204,
+              0.6093583703041077,
+              0.23031467199325562
+            ],
+            "sourceMaterialCounts": {
+              "0": 230
+            }
+          }
+        ]
+      },
+      "repairTriangles": 3256,
+      "totalTriangles": 11520,
+      "sourceShellPositionIndexUVColorExact": true,
+      "retainedSourceAttributesExact": false,
+      "sourceBoundaryNormalUpdatedVertices": 236,
+      "nonmanifoldEdges": 0,
+      "inconsistentWindingEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "node": "Cheese_RightArm",
+      "sourceTriangles": 8096,
+      "closureTriangles": 168,
+      "boundsMin": [
+        0.26905089024066925,
+        0.3477042775363922,
+        -0.08228195899772645
+      ],
+      "boundsMax": [
+        0.44155443612098694,
+        0.6325981776924133,
+        0.287702816783905
+      ],
+      "originalAttributesExact": false,
+      "sourceBoundaryEdges": 398,
+      "closedBoundaryEdges": 0,
+      "loops": [
+        {
+          "boundaryEdges": 168,
+          "center": [
+            0.3000833183860779,
+            0.44289018323135376,
+            0.002990721970319748
+          ],
+          "min": [
+            0.28647086921691894,
+            0.37181012441825867,
+            -0.08228195899772645
+          ],
+          "max": [
+            0.31324131194114685,
+            0.5046413402767181,
+            0.08917006409120559
+          ],
+          "sourceMaterialCounts": {
+            "0": 168
+          }
+        },
+        {
+          "boundaryEdges": 230,
+          "center": [
+            0.3284009784793854,
+            0.5448078077049255,
+            0.20552546089839935
+          ],
+          "min": [
+            0.27989483777046203,
+            0.4561928968639374,
+            0.1465157449836731
+          ],
+          "max": [
+            0.3662441164588928,
+            0.6156053703041077,
+            0.2456016719932556
+          ],
+          "sourceMaterialCounts": {
+            "0": 230
+          }
+        }
+      ],
+      "previousFlatPalmFanAudit": {
+        "node": "Cheese_LeftArm",
+        "sourceTriangles": 8096,
+        "closureTriangles": 398,
+        "boundsMin": [
+          0.26905089024066925,
+          0.3477042775363922,
+          -0.08228195899772645
+        ],
+        "boundsMax": [
+          0.44155443612098694,
+          0.6325981776924133,
+          0.287702816783905
+        ],
+        "originalAttributesExact": true,
+        "sourceBoundaryEdges": 398,
+        "closedBoundaryEdges": 0,
+        "loops": [
+          {
+            "boundaryEdges": 168,
+            "center": [
+              0.3000833183860779,
+              0.44289018323135376,
+              0.002990721970319748
+            ],
+            "min": [
+              0.28647086921691894,
+              0.37181012441825867,
+              -0.08228195899772645
+            ],
+            "max": [
+              0.31324131194114685,
+              0.5046413402767181,
+              0.08917006409120559
+            ],
+            "sourceMaterialCounts": {
+              "0": 168
+            }
+          },
+          {
+            "boundaryEdges": 230,
+            "center": [
+              0.3284009784793854,
+              0.5448078077049255,
+              0.20552546089839935
+            ],
+            "min": [
+              0.27989483777046203,
+              0.4561928968639374,
+              0.1465157449836731
+            ],
+            "max": [
+              0.3662441164588928,
+              0.6156053703041077,
+              0.2456016719932556
+            ],
+            "sourceMaterialCounts": {
+              "0": 230
+            }
+          }
+        ]
+      },
+      "repairTriangles": 3256,
+      "totalTriangles": 11520,
+      "sourceShellPositionIndexUVColorExact": false,
+      "retainedSourceAttributesExact": false,
+      "sourceBoundaryNormalUpdatedVertices": 236,
+      "nonmanifoldEdges": 0,
+      "inconsistentWindingEdges": 0,
+      "degenerateTriangles": 0,
+      "construction": "Original left arm reflected one-to-one and rigidly fitted to right shoulder; continuous palm/wrist/forearm"
+    },
+    {
+      "node": "Cheese_LeftLeg",
+      "sourceTriangles": 3954,
+      "closureTriangles": 108,
+      "boundsMin": [
+        -0.22026541829109192,
+        -3.324041699670488e-06,
+        -0.1102263331413269
+      ],
+      "boundsMax": [
+        -0.038217075169086456,
+        0.13798892498016357,
+        0.15130135416984558
+      ],
+      "originalAttributesExact": true,
+      "sourceBoundaryEdges": 108,
+      "closedBoundaryEdges": 0,
+      "loops": [
+        {
+          "boundaryEdges": 108,
+          "center": [
+            -0.11428136378526688,
+            0.12483959645032883,
+            -0.014425170607864857
+          ],
+          "min": [
+            -0.19729472696781158,
+            0.11562960594892502,
+            -0.09598080068826675
+          ],
+          "max": [
+            -0.038217075169086456,
+            0.13798892498016357,
+            0.06688214838504791
+          ],
+          "sourceMaterialCounts": {
+            "0": 108
+          }
+        }
+      ]
+    },
+    {
+      "node": "Cheese_RightLeg",
+      "sourceTriangles": 3924,
+      "closureTriangles": 102,
+      "boundsMin": [
+        0.060222841799259186,
+        0.000965916900895536,
+        -0.11010822653770447
+      ],
+      "boundsMax": [
+        0.24086137115955353,
+        0.13542555272579193,
+        0.15101568400859833
+      ],
+      "originalAttributesExact": true,
+      "sourceBoundaryEdges": 102,
+      "closedBoundaryEdges": 0,
+      "loops": [
+        {
+          "boundaryEdges": 102,
+          "center": [
+            0.14245879650115967,
+            0.1251629889011383,
+            -0.015378865413367748
+          ],
+          "min": [
+            0.060222841799259186,
+            0.11211983114480972,
+            -0.09593693912029266
+          ],
+          "max": [
+            0.21834267675876617,
+            0.13542555272579193,
+            0.06484329700469971
+          ],
+          "sourceMaterialCounts": {
+            "0": 102
+          }
+        }
+      ]
+    }
+  ],
+  "restBounds": {
+    "min": [
+      -0.41976943612098694,
+      -3.324041699670488e-06,
+      -0.2724112868309021
+    ],
+    "max": [
+      0.4197899103164673,
+      0.9999656677246094,
+      0.27241581678390503
+    ]
+  },
+  "allOriginalTrianglesRetainedExactlyOnce": false,
+  "newGeometryPolicy": "Only hidden fused hand/body/frame contact surfaces are locally reconstructed as single continuous patches; the left circle keeps its fitted source dimensions. Original hands and feet, original material definitions, all embedded PNG payloads, bone anchors and overall rest bounds remain exact.",
+  "arms": {
+    "left": {
+      "node": "Cheese_LeftArm",
+      "shoulder": [
+        -0.278298,
+        0.436643,
+        -0.012296
+      ],
+      "elbow": [
+        -0.382,
+        0.39,
+        0.04
+      ],
+      "wrist": [
+        -0.363,
+        0.49,
+        0.178
+      ],
+      "palm": [
+        -0.35,
+        0.548,
+        0.193
+      ]
+    },
+    "right": {
+      "node": "Cheese_RightArm",
+      "shoulder": [
+        0.300083,
+        0.44289,
+        0.0029910000000000006
+      ],
+      "elbow": [
+        0.403785,
+        0.396247,
+        0.055287
+      ],
+      "wrist": [
+        0.384785,
+        0.496247,
+        0.193287
+      ],
+      "palm": [
+        0.371785,
+        0.554247,
+        0.208287
+      ],
+      "continuousMirroredLeftArm": true,
+      "sourcePalmNormal": [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "legs": {
+    "left": {
+      "node": "Cheese_LeftLeg",
+      "hip": [
+        -0.114281,
+        0.12484,
+        -0.014425
+      ],
+      "knee": [
+        -0.133,
+        0.091,
+        -0.015
+      ],
+      "ankle": [
+        -0.133,
+        0.06,
+        -0.015
+      ],
+      "soleY": 0
+    },
+    "right": {
+      "node": "Cheese_RightLeg",
+      "hip": [
+        0.142459,
+        0.125163,
+        -0.015379
+      ],
+      "knee": [
+        0.153,
+        0.091,
+        -0.015
+      ],
+      "ankle": [
+        0.153,
+        0.06,
+        -0.015
+      ],
+      "soleY": 0
+    }
+  },
+  "contactRepair": {
+    "version": 5,
+    "assetSHA256": "51613d5e7711060e2db75acb06495e82c209d70730f1f09909039cdd3f6c74ce",
+    "audit": "checks/芝识分子接触口修复_20261025/final-surface-audit.json",
+    "constructionAudit": "checks/芝识分子接触口修复_20261025/single-surface-audit.json",
+    "sourceTrianglesRetainedExact": 75637,
+    "sourceTrianglesRemovedInHiddenBodyContacts": 14605,
+    "originalBodyClosureTrianglesRemoved": 698,
+    "newBodyRepairTriangles": 18109,
+    "originalHandsFeetAllAttributesAndIndicesExact": true,
+    "originalMaterialDefinitionsExact": 5,
+    "originalEmbeddedPNGImagesExact": 11,
+    "overallRestBoundsExact": true,
+    "allPartOrientedEdgesClosed": true
+  },
+  "rightPalmVolumeRepair": {
+    "date": "2026-10-26",
+    "scope": "Only the previously fused inward right palm/finger fan; authored outward shell positions/indices/UV/color unchanged.",
+    "oldConcaveFanTrianglesRemoved": 160,
+    "newRoundedTriangles": 5910,
+    "boundaryPositionError": 0,
+    "sourceBoundaryNormalUpdates": 181,
+    "originalShoulderClosureTrianglesUnchanged": 140,
+    "materialDefinitionsExact": true,
+    "embeddedPNGImagesExact": 11,
+    "unaffectedPartsExact": [
+      "Cheese_Body",
+      "Cheese_LeftArm",
+      "Cheese_LeftLeg",
+      "Cheese_RightLeg"
+    ],
+    "audit": "checks/芝识分子右手补体积_20261026/validation.json"
+  },
+  "leftPalmVolumeRepair": {
+    "date": "2026-10-26",
+    "scope": "Only the previously fused inward left palm/finger fan; authored outward shell positions/indices/UV/color unchanged.",
+    "oldConcaveFanTrianglesRemoved": 230,
+    "newRoundedTriangles": 3256,
+    "boundaryPositionError": 0,
+    "sourceBoundaryNormalUpdates": 236,
+    "originalShoulderClosureTrianglesUnchanged": 168,
+    "materialDefinitionsExact": true,
+    "embeddedPNGImagesExact": 11,
+    "unaffectedPartsExact": [
+      "Cheese_Body",
+      "Cheese_RightArm",
+      "Cheese_LeftLeg",
+      "Cheese_RightLeg"
+    ],
+    "audit": "checks/芝识分子左手补体积_20261026/validation.json"
+  },
+  "rightHandShapeRepair": {
+    "date": "2026-10-27",
+    "construction": "Original left arm reflected one-to-one and rigidly fitted to right shoulder; continuous palm/wrist/forearm",
+    "sourceScale": 1.0,
+    "oldRightArm": {
+      "node": "Cheese_RightArm",
+      "shoulder": [
+        0.300083,
+        0.44289,
+        -0.037009
+      ],
+      "elbow": [
+        0.385,
+        0.375,
+        -0.025
+      ],
+      "wrist": [
+        0.326,
+        0.287,
+        -0.145
+      ],
+      "palm": [
+        0.303,
+        0.267,
+        -0.18
+      ],
+      "upperBoneLength": 0.10938082587912748,
+      "foreBoneLength": 0.16007810593582122,
+      "elbowInsideSourceMeshVerified": true,
+      "elbowXCrossSectionAtYZ": [
+        0.3099049,
+        0.407264
+      ]
+    },
+    "rotation": [
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "status": "published and checked 2026-10-27"
+  }
+}

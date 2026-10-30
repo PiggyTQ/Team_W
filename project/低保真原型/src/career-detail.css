@@ -1,0 +1,154 @@
+/* Career reading surface. Diagrams describe tasks and relationships, never scores. */
+#root #main .occupation-grid>article{position:relative;isolation:isolate;transition:border-color 160ms ease,box-shadow 160ms ease}
+#root #main .occupation-grid h3 a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;cursor:pointer}
+#root #main .occupation-grid :is(button,.occupation-actions a){position:relative;z-index:2}
+#root #main .occupation-grid>article:hover{border-color:#b77962;box-shadow:0 4px 16px #6553350c}
+#root #main .occupation-grid>article:focus-within{outline:2px solid var(--action-main,#aa4d38);outline-offset:3px}
+#root #main .occupation-grid h3 a:focus-visible{outline:0}
+#root #main .career-profile{--career-accent:var(--action-main,#aa4d38);--career-ink:var(--surface-ink,#30362e);--career-copy:#5e6559;--career-line:var(--surface-border,#e7e1d5);--career-soft:var(--surface-inset,#f7f3eb);min-width:0}
+#root #main .career-profile :is(p,dt,small,figcaption){color:var(--career-copy)}
+#root #main .career-profile p{margin:6px 0 12px;max-width:75ch}
+#root #main .career-profile :is(a,button){touch-action:manipulation}
+#root #main .career-profile-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+#root #main .career-profile-navigation>span{color:var(--career-copy);white-space:nowrap}
+#root #main .career-profile-sheet{border:1px solid var(--career-line);border-radius:22px;background:#fff;overflow:hidden}
+#root #main .career-profile-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:28px 30px 20px;background:#faf7f1}
+#root #main .career-profile-heading>div{min-width:0}
+#root #main .career-profile-heading h2{margin:0;color:var(--career-ink)}
+#root #main .career-profile-heading h2:focus{outline:none}
+#root #main .career-profile .career-english-name{margin:3px 0 13px;color:#7a5947}
+#root #main .career-profile .career-profile-lead{color:var(--career-ink);margin:0;max-width:64ch}
+#root #main .career-profile-save{flex-shrink:0;background:#fffdf9;color:#934a35;border:1px solid #e4d2c0;min-height:42px}
+#root #main .career-profile-save[aria-pressed=true]{background:#f2e7d8}
+#root #main .career-profile-facts{display:grid;grid-template-columns:1.3fr .8fr 1.2fr;margin:0;padding:18px 30px 22px;gap:22px;background:#faf7f1}
+#root #main .career-profile-facts>div+div{border-left:1px solid #dfd5c5;padding-left:22px}
+#root #main .career-profile-facts dt{margin:0 0 6px}
+#root #main .career-profile-facts dd{margin:0;color:var(--career-ink);line-height:1.6}
+#root #main .career-profile-tabs{display:flex;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#c5b59f transparent;padding:0 22px;gap:12px;border-block:1px solid var(--career-line);background:#fff}
+#root #main .career-profile-tabs button{position:relative;flex:0 0 auto;white-space:nowrap;padding:15px 8px;min-height:54px;border:0;border-radius:0;background:transparent;color:#626759;box-shadow:none}
+#root #main .career-profile-tabs button[aria-selected=true]{color:#934a35;font-weight:600}
+#root #main .career-profile-tabs button[aria-selected=true]::after{content:"";position:absolute;bottom:0;left:8px;right:8px;height:3px;border-radius:2px;background:var(--career-accent)}
+#root #main .career-profile-tabs button:hover{background:#faf7f1}
+#root #main .career-profile-body{padding:28px 30px 30px;min-width:0}
+#root #main .career-profile-body:focus-visible{outline:2px solid var(--career-accent);outline-offset:-4px}
+#root #main .career-profile-body>section+section{margin-top:32px}
+#root #main .career-profile h3{margin:0 0 10px}
+#root #main .career-profile h4{margin:0 0 7px}
+#root #main .career-section-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
+#root #main .career-section-title>span{color:var(--career-copy)}
+#root #main .career-section-title h3{margin-bottom:0}
+#root #main .career-scenario{display:flex;gap:20px;justify-content:space-between;align-items:flex-start}
+#root #main .career-scenario p{margin-bottom:0}
+#root #main .career-process-track{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 0 18px;padding:0;gap:10px}
+#root #main .career-process-track li{position:relative;min-width:0}
+#root #main .career-process-track li:not(:last-child)::after{content:"";position:absolute;top:20px;left:calc(50% + 22px);width:calc(100% - 34px);height:1px;background:#d8cdbb;z-index:0}
+#root #main .career-process-track button{width:100%;min-height:93px;display:flex;flex-direction:column;gap:10px;padding:0 5px 8px;color:var(--career-copy);background:none;border:0;box-shadow:none;border-radius:8px}
+#root #main .career-step-number{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;border:1px solid #d8cdbb;background:#fff;width:40px;height:40px;border-radius:50%;color:#745640;font-variant-numeric:tabular-nums}
+#root #main .career-process-track strong{line-height:1.6;text-align:center;font-weight:500}
+#root #main .career-process-track [aria-pressed=true] .career-step-number{background:var(--career-accent);color:#fff;border-color:var(--career-accent)}
+#root #main .career-process-track [aria-pressed=true] strong{color:#934a35}
+#root #main .career-process-detail{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:var(--career-soft);padding:20px 22px;border-radius:12px}
+#root #main .career-process-detail>div+div{border-left:1px solid #dfd5c5;padding-left:24px}
+#root #main .career-process-detail p{margin-bottom:0}
+#root #main .career-process-detail>div>span{color:#79553e}
+#root #main .career-deliverable-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+#root #main .career-deliverable-list>div{border-top:2px solid #ded5c4;padding-top:15px;min-width:0}
+#root #main .career-deliverable-list details{margin-top:12px}
+#root #main .career-profile summary{cursor:pointer;color:#8c4937;line-height:1.65;padding:6px 0}
+#root #main .career-checks{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+#root #main .career-checks li{display:flex;align-items:flex-start;gap:9px;color:var(--career-copy)}
+#root #main .career-checks svg{color:#427162;flex:none;margin-top:3px}
+#root #main .career-reading-next{width:100%;justify-content:space-between;margin-top:28px;background:#faf7f1;border:1px solid var(--career-line);padding:12px 16px;color:#934a35}
+#root #main .career-skill-layers{display:grid;gap:0}
+#root #main .career-skill-layers>section{display:grid;grid-template-columns:40px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--career-line)}
+#root #main .career-layer-mark{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#f3ece0;color:#79553e;font-variant-numeric:tabular-nums}
+#root #main .career-skill-tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+#root #main .career-skill-tags>span{background:#f7f3eb;color:#5e6559;padding:4px 10px;border-radius:6px}
+#root #main .career-personal-evidence{padding:22px;background:#f2f6f1;border-radius:12px;margin-top:28px}
+#root #main .career-inline-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:20px}
+#root #main .career-context-note{margin-top:24px}
+#root #main .career-growth-route{list-style:none;margin:28px 0;padding:0}
+#root #main .career-growth-route li{position:relative;display:grid;grid-template-columns:22px 1fr;gap:18px;padding-bottom:30px}
+#root #main .career-growth-route li:last-child{padding-bottom:0}
+#root #main .career-growth-route li:not(:last-child)::before{content:"";position:absolute;left:9px;top:20px;bottom:0;width:1px;background:#d5c8b5}
+#root #main .career-growth-dot{margin-top:4px;width:19px;height:19px;border:4px solid #f1e5d4;outline:1px solid #b98d6e;background:#aa4d38;border-radius:50%}
+#root #main .career-growth-stage{display:block;color:#8c4937;margin-bottom:7px}
+#root #main .career-growth-route p{margin-bottom:0}
+#root #main .career-related{margin-top:34px;border-top:1px solid var(--career-line);padding-top:24px}
+#root #main .career-related>div{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
+#root #main .career-related>div>div{min-width:0}
+#root #main .career-collaboration{margin:24px 0 30px}
+#root #main .career-collaboration-center{display:flex;flex-direction:column;text-align:center;width:fit-content;margin:auto;position:relative;background:#f2e8d9;color:#764631;padding:15px 30px;border-radius:12px;font-weight:600}
+#root #main .career-collaboration-center>span{font-weight:400;color:#79553e;margin-top:5px}
+#root #main .career-collaboration-center::after{content:"";position:absolute;width:1px;height:25px;background:#d8cbb7;left:50%;top:100%}
+#root #main .career-collaboration ul{list-style:none;padding:0;margin:46px 0 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative}
+#root #main .career-collaboration ul::before{content:"";position:absolute;left:16.66%;right:16.66%;height:1px;top:-22px;background:#d8cbb7}
+#root #main .career-collaboration li{position:relative;text-align:center;padding:18px 12px 8px;border-top:1px solid var(--career-line)}
+#root #main .career-collaboration li::before{content:"";position:absolute;left:50%;height:22px;width:1px;background:#d8cbb7;bottom:100%}
+#root #main .career-collaboration figcaption{text-align:center}
+#root #main .career-environment-notes{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;padding-top:26px;border-top:1px solid var(--career-line)}
+#root #main .career-practice-columns{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;margin:28px 0}
+#root #main .career-practice-steps{list-style:none;padding:0;margin:15px 0 0;display:grid;gap:18px}
+#root #main .career-practice-steps li{display:flex;gap:12px;align-items:flex-start}
+#root #main .career-practice-steps li>span{flex-shrink:0;background:#f3ece0;color:#79553e;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+#root #main .career-practice-steps p{margin:0}
+#root #main .career-practice-delivery{background:#f7f3eb;padding:22px;border-radius:12px;align-self:start}
+#root #main .career-practice-delivery h4{margin-top:22px}
+#root #main .career-context-caption{color:var(--career-copy);margin-top:18px}
+#root #main .career-profile-resources{padding:20px 30px;border-top:1px solid var(--career-line)}
+#root #main .career-profile-resources details>p{margin-top:10px}
+#root #main .career-job-link{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:12px}
+#root #main .career-profile-actions{margin:0;border-top:1px solid var(--career-line);padding:22px 30px;background:#faf7f1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#root #main .career-profile-actions h3{margin:0 0 5px}
+#root #main .career-profile-actions p{margin:0}
+#root #main .career-profile-actions .actions{margin:0;display:flex;flex-wrap:wrap;gap:10px}
+#root #main .career-adjacent{display:flex;justify-content:space-between;gap:20px;padding:24px 2px}
+#root #main .career-adjacent>span{color:var(--career-copy)}
+@media(max-width:1100px){
+ #root #main .career-profile-heading{padding:24px}
+ #root #main .career-profile-facts{padding:16px 24px 22px;gap:16px;grid-template-columns:1fr 1fr}
+ #root #main .career-profile-facts>div:last-child{grid-column:1/-1;border:0;padding:0}
+ #root #main .career-profile-body{padding:24px}
+ #root #main .career-scenario{flex-direction:column;gap:12px}
+ #root #main .career-deliverable-list{grid-template-columns:1fr;gap:20px}
+ #root #main .career-process-detail{grid-template-columns:1fr}
+ #root #main .career-process-detail>div+div{border-left:0;border-top:1px solid #dfd5c5;padding:14px 0 0}
+ #root #main .career-section-title{flex-wrap:wrap;gap:6px}
+ #root #main .career-practice-columns{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+ #root #main .career-profile-navigation{gap:8px;flex-wrap:wrap}
+ #root #main .career-profile-heading{padding:22px 18px 18px;gap:14px;flex-wrap:wrap}
+ #root #main .career-profile-heading>div{flex-basis:100%}
+ #root #main .career-profile-save{min-height:40px}
+ #root #main .career-profile-facts{padding:10px 18px 20px;gap:16px}
+ #root #main .career-profile-facts>div+div{padding-left:16px}
+ #root #main .career-profile-tabs{padding-inline:10px;gap:4px}
+ #root #main .career-profile-tabs button{padding-inline:10px;min-height:52px}
+ #root #main .career-profile-body{padding:24px 18px}
+ #root #main .career-process-track{grid-template-columns:1fr 1fr;gap:12px}
+ #root #main .career-process-track li::after{display:none}
+ #root #main .career-process-track button{min-height:86px;background:#faf7f1;padding:12px 6px;gap:7px}
+ #root #main .career-step-number{width:32px;height:32px}
+ #root #main .career-process-detail{padding:18px;gap:16px}
+ #root #main .career-environment-notes,#root #main .career-related>div{grid-template-columns:1fr;gap:22px}
+ #root #main .career-collaboration-center{margin:0 0 0 20px;padding:14px 20px;max-width:calc(100% - 20px)}
+ #root #main .career-collaboration-center::after{left:-12px;top:50%;width:12px;height:1px}
+ #root #main .career-collaboration ul{grid-template-columns:1fr;margin:20px 0 15px;padding-left:20px;gap:16px}
+ #root #main .career-collaboration ul::before{left:8px;top:-48px;right:auto;bottom:30px;width:1px;height:auto}
+ #root #main .career-collaboration li{text-align:left;padding:15px 0 0}
+ #root #main .career-collaboration li::before{left:-12px;top:26px;height:1px;width:12px;bottom:auto}
+ #root #main .career-collaboration figcaption{text-align:left}
+ #root #main .career-profile-resources{padding:18px}
+ #root #main .career-profile-actions{padding:22px 18px;align-items:flex-start}
+ #root #main .career-profile-actions .actions{width:100%}
+ #root #main .career-profile-actions .actions button{flex:1}
+ #root #main .career-skill-layers>section{grid-template-columns:30px 1fr;gap:12px}
+ #root #main .career-layer-mark{width:30px;height:30px}
+ #root #main .career-adjacent{gap:16px;flex-wrap:wrap}
+}
+@media(max-width:360px){
+ #root #main .career-profile .career-profile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding:0 6px;overflow:visible}
+ #root #main .career-profile .career-profile-tabs [role="tab"]{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;min-width:0;padding:10px 3px;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){#root #main .occupation-grid>article{transition:none}}

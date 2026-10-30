@@ -1,0 +1,35 @@
+import React,{useState,useId,useRef} from 'react';
+import {reportDecisionBrief,savedReportBrief} from './output-workspace-model';
+import {planningReportBody} from './continuity-model';
+import {reportIsStale} from './alignment-model';
+import {taskRoute} from './flow-navigation';
+import ThematicReport from './ThematicReport';
+import ReportRecordVisuals,{ReportRecordFlow} from './ReportRecordVisuals';
+
+export function ReportSnapshotBrief({report,blocked}){
+ if(blocked)return <div className="notice">引用已不可访问，停止展示缓存摘要与正文。请使用有效依据建立新草稿。</div>;
+ return <section className="output-snapshot-summary" aria-label="保存报告摘要"><h2>先看这份报告的重点</h2><p>以下内容取自这份保存快照，后续资料不会自动改写它。</p><dl>{savedReportBrief(report).map(r=><div key={r.title}><dt>{r.title}</dt><dd>{r.text}</dd></div>)}</dl></section>;
+}
+export default function ReportDecisionDesk({s,link,update,createReport}){
+ const b=reportDecisionBrief(s),[chapter,setChapter]=useState('brief'),[editing,setEditing]=useState(false),[draft,setDraft]=useState(null),[message,setMessage]=useState(''),uid=useId(),panel=useRef(null),library=useRef(null);
+ const choose=id=>{setChapter(id);if(matchMedia('(max-width:720px)').matches)requestAnimationFrame(()=>panel.current?.scrollIntoView({block:'start'}));};
+ const save=e=>{e.preventDefault();update(x=>({...x,decision:{...x.decision,...draft}}));setEditing(false);setMessage('选择记录已保存；已有报告快照保持不变。');};
+ const entry=r=><article className="output-saved-row" key={r.id}><div><h3>{link('/reports/'+encodeURIComponent(r.id),r.title)}</h3><p>{r.date?.slice(0,10)||'日期未知'} · v{r.version} · {reportIsStale(s,r)?'依据有变化':'保存快照'}</p></div>{link('/reports/'+encodeURIComponent(r.id),'打开报告 →','button')}</article>;
+ const saved=[...s.reports].reverse();
+ return <div className="output-report-desk">
+  <header className="output-purpose"><div><h2>职业报告</h2><p>汇总职业选择、材料依据和行动记录，核对后保存阶段版本。</p></div><button className="primary" onClick={createReport}>创建报告 · 先检查缺项</button></header>
+  <ReportRecordFlow s={s} link={link} choose={choose} onLibrary={()=>{library.current?.scrollIntoView({block:'start'});library.current?.focus({preventScroll:true});}}/>
+  <div className="output-report-layout"><nav className="output-report-nav" aria-label="阶段报告阅读导航">{[['brief','阶段摘要','先看判断与下一步'],['evidence','选择与依据','回到具体经历'],['action','行动与成果','看做过什么、接着做什么'],['full','完整报告','展开全部章节']].map(([id,title,hint])=><button key={id} type="button" aria-pressed={chapter===id} aria-controls={uid+'-panel'} onClick={()=>choose(id)}><span>{title}</span><small>{hint}</small></button>)}<p>本页记录预览<br/>尚未保存成报告</p>{link('/assessment?tab=成果档案','查看我的画像 →')}</nav>
+   <article className="output-report-document" ref={panel} id={uid+'-panel'} aria-label="当前阶段报告预览"><header className="output-document-title"><div><h2>{b.target}<span>职业规划报告</span></h2><p>资料版本 {s.profileVersion} · 计划版本 {s.planVersion} · 本页记录预览</p></div><span className="status-chip">尚未保存</span></header>
+   {chapter==='brief'&&<><ReportRecordVisuals s={s}/><section className="output-report-conclusion"><h3>阶段判断</h3><p className="output-decision-statement">{b.decision}</p><dl><div><dt>选择理由</dt><dd>{b.reason}</dd></div><div><dt>本阶段要回答的问题</dt><dd>{b.question}</dd></div></dl><button onClick={()=>{setDraft({reason:s.decision.reason||'',question:s.decision.question||'',result:s.decision.result||''});setEditing(!editing);}}>编辑选择与问题</button>
+    {editing&&<form className="output-decision-form" onSubmit={save}><label className="field"><span>我的选择理由</span><textarea aria-label="我的选择理由" value={draft.reason} onChange={e=>setDraft({...draft,reason:e.target.value})}/></label><label className="field"><span>本阶段想验证的问题</span><textarea aria-label="本阶段想验证的问题" value={draft.question} onChange={e=>setDraft({...draft,question:e.target.value})}/></label><label className="field"><span>我的阶段判断</span><input aria-label="我的阶段判断" value={draft.result} onChange={e=>setDraft({...draft,result:e.target.value})}/></label><div className="actions"><button className="primary" type="submit">保存选择记录</button><button type="button" onClick={()=>setEditing(false)}>取消编辑</button></div></form>}<p role="status">{message}</p></section>
+    <div className="output-report-takeaways"><section><h3>已经有的依据</h3>{b.facts.length?<><p>{b.facts.length} 项本人确认经历</p><ul>{b.facts.slice(0,3).map(c=><li key={c.id}>{c.title}</li>)}</ul></>:<p>还没有确认经历。已有课程项目、作品或一次尝试都可以先整理。</p>}<button className="output-text-button" onClick={()=>choose('evidence')}>回看具体依据 →</button></section><section><h3>仍需核对什么</h3>{b.gaps.length?<ul>{b.gaps.slice(0,3).map(g=><li key={g.title}>{g.title}</li>)}</ul>:<p>基础资料已有记录。实际任务表现与岗位条件仍需具体核对。</p>}<button className="output-text-button" onClick={()=>choose('evidence')}>查看待核对清单 →</button></section></div>
+    <section className="output-next-action"><div><h3>接下来先做这一件</h3><p>{b.actionTitle}</p><small>{b.next?'这是当前已有行动，不是报告自动生成的新任务。':'从小范围预览开始，再决定投入与安排。'}</small></div>{link(b.next?taskRoute(s,b.next):b.actionTo,b.next?'继续这项行动 →':'选择一次实践 →','button')}</section></>}
+   {chapter==='evidence'&&<><ReportRecordVisuals s={s} only="evidence"/><section><h3>选择的方向与取舍</h3><p>{b.career?.task||'尚未确定长期方向，可以先比较任务和工作环境。'}</p><p>{b.reason}</p>{link('/careers?tab=比较','回到方向比较 →')}</section><section className="output-evidence-list"><h3>可以回查的经历</h3>{b.facts.length?b.facts.map(c=><article key={c.id}><h4>{c.title}</h4><p>{c.text}</p><p>本人贡献：{c.contribution||'待补充'}</p><small>{c.skill} · 材料 v{c.version} · 本人确认，未独立实核</small></article>):<p>暂时没有确认经历；不据此判断能力高低。</p>}{link('/assessment?tab=原文确认','核对材料原文 →')}</section><section className="output-evidence-gaps"><h3>需要补充与核对</h3>{b.gaps.length?b.gaps.map(g=><div key={g.title}><p>{g.title}{g.count?' · '+g.count+' 项':''}</p>{link(g.to,g.action+' →')}</div>):<p>尚不能据此判断胜任程度，请继续用实际任务与反馈核对。</p>}</section></>}
+   {chapter==='action'&&<><ReportRecordVisuals s={s} only="action"/><section><h3>行动与成果记录</h3>{s.tasks.length?<ul className="output-action-list">{s.tasks.map(t=><li key={t.id}><div><h4>{link(taskRoute(s,t),t.title)}</h4><p>{t.status} · {t.attempts?.length?'已提交成果 v'+t.attempts.at(-1).version:'尚无提交版本'} · {t.check||'检查未知'}</p><small>{t.contribution||'本人贡献尚待说明'}</small></div></li>)}</ul>:<p>还没有实际行动记录。报告会保留这个缺项。</p>}</section><section className="output-next-action"><div><h3>任务与预算安排</h3><p>每周总预算 {s.budget??'未定'} 小时，调整安排仍回原计划操作。</p></div>{link('/plan','安排下一步 →','button')}</section><section><h3>复盘与调整</h3><p>{s.reviews.length} 次本人复盘；私人结果、困难和调整正文默认不放入报告。</p>{link('/plan?tab=复盘','回看本人复盘 →')}</section></>}
+   {chapter==='full'&&<ThematicReport body={planningReportBody(s)} all/>}
+   <footer className="output-document-foot">由当前记录整理，不生成能力评分；保存前会检查缺项和用途。私人反思默认不进入报告。</footer></article>
+  </div>
+  <section className="output-report-library" aria-label="已保存的阶段报告" ref={library} tabIndex={-1}><header><div><h2>已保存的阶段报告</h2><p>回看当时的判断。资料变化后另建新稿，保留旧版本。</p></div><span>{saved.length} 份快照</span></header>{saved.length?<>{saved.slice(0,3).map(entry)}{saved.length>3&&<details><summary>查看更早的保存快照</summary>{saved.slice(3).map(entry)}</details>}</>:<p className="output-library-empty">还没有保存报告。先补充本阶段的选择与问题，再从上方检查并保存。</p>}</section>
+ </div>;
+}

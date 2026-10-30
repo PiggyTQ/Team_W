@@ -1,0 +1,80 @@
+/* U03: real work leads; exploration and the full catalogue support it. */
+#root #main.workspace .home-hub{gap:24px}
+#root #main.workspace .home-resume-grid{grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+#root #main.workspace :is(.home-primary-column,.home-context-column){display:flex;flex-direction:column;min-width:0;gap:24px}
+#root #main.workspace .home-action-panel{display:block;width:100%;min-height:0;padding:24px 28px;background:#fff;border:1px solid #e5e9f1;border-radius:24px;box-shadow:none}
+#root #main.workspace .home-action-panel .home-section-title{align-items:start;margin:0 0 16px;gap:12px}
+#root #main.workspace .home-action-panel h2{margin:0;color:#071331;max-width:25ch;text-wrap:balance}
+#root #main.workspace .home-action-panel .status-chip{flex-shrink:0;margin-top:6px;background:#eaf1fb;color:#315585;padding:4px 12px;border:0;border-radius:999px}
+#root #main.workspace .home-action-panel .home-next-content>p{max-width:64ch;color:#52617b;margin:0 0 20px}
+#root #main.workspace .home-action-panel .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0}
+#root #main.workspace .home-action-panel .actions>:is(button,.button){min-height:48px;padding:12px 20px;white-space:normal;max-width:100%;border-radius:999px}
+#root #main.workspace .home-action-panel .home-defer{padding-inline:8px;box-shadow:none}
+#root #main.workspace .home-action-panel .home-task-standard{display:block;margin:0 0 20px;padding-top:16px;border-color:#e5e9f1}
+#root #main.workspace .home-task-standard dt{color:#52617b;margin-bottom:4px}
+#root #main.workspace .home-task-standard dd{margin:0;color:#071331}
+#root #main.workspace .home-action-panel .home-task-blocked{padding:12px 16px;border-radius:12px;background:#fff5e8;color:#775022}
+#root #main.workspace .home-action-panel>small{display:block;margin-top:12px;color:#52617b}
+#root #main.workspace .home-work-overview{min-width:0;padding:24px 28px;background:#fff;border:1px solid #e5e9f1;border-radius:24px;box-shadow:none}
+#root #main.workspace .home-work-overview>h2{margin:0 0 8px}
+#root #main.workspace .home-record-line{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px 16px;align-items:center;padding:20px 0;border-bottom:1px solid #e5e9f1}
+#root #main.workspace .home-record-line:last-child{border-bottom:0;padding-bottom:4px}
+#root #main.workspace .home-record-line>svg{align-self:start;margin-top:8px;color:#52617b;flex:none}
+#root #main.workspace .home-record-copy{min-width:0}
+#root #main.workspace .home-record-label{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
+#root #main.workspace .home-record-label h3{margin:0;color:#071331}
+#root #main.workspace .home-record-state{color:#52617b}
+#root #main.workspace .home-record-copy p{margin:6px 0 0;color:#52617b;overflow-wrap:anywhere}
+#root #main.workspace .home-record-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 0;color:#315585;text-underline-offset:5px;max-width:190px;min-width:0}
+#root #main.workspace .home-record-link span{min-width:0;overflow-wrap:anywhere}
+#root #main.workspace .home-record-link svg{flex:none}
+#root #main.workspace .home-reading-resume{display:flex;flex-wrap:wrap;gap:12px;align-items:center;border-top:1px solid #e5e9f1;margin-top:20px;padding-top:16px}
+#root #main.workspace .home-reading-resume>div{flex:1;min-width:0}
+#root #main.workspace .home-reading-resume p{margin:4px 0 0;color:#52617b}
+#root #main.workspace .home-context-column>.home-scope{background:#fff;padding:24px;border:1px solid #e5e9f1;border-radius:24px;box-shadow:none}
+#root #main.workspace .home-scope h2{margin:0 0 16px}
+#root #main.workspace .home-scope h3{margin:0 0 8px}
+#root #main.workspace .home-scope>p{margin-bottom:16px;color:#52617b}
+#root #main.workspace .home-scope .capacity-compact{padding:0;margin:0 0 12px;border:0;background:transparent;box-shadow:none}
+#root #main.workspace .home-scope .capacity-note{margin:0 0 12px;color:#52617b}
+#root #main.workspace .home-scope>a{min-height:44px}
+#root #main.workspace .home-explore-shortcut{border-top:1px solid #e5e9f1;margin-top:16px;padding-top:20px}
+#root #main.workspace .home-explore-shortcut h3{margin:0 0 8px}
+#root #main.workspace .home-explore-shortcut p{color:#52617b;margin:0 0 8px}
+#root #main.workspace .home-explore-shortcut a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:5px}
+#root #main.workspace .home-catalogue{margin:0;padding:24px 28px;min-width:0;border:1px solid #e5e9f1;border-radius:24px;background:#fff;box-shadow:none}
+#root #main.workspace .home-catalogue>.home-section-title{margin:0 0 16px;padding:0;border:0}
+#root #main.workspace .home-entry-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+#root #main.workspace .home-catalogue-tabs{margin:0 0 8px;max-width:100%;width:max-content;flex-wrap:wrap}
+#root #main.workspace .home-entry{padding:20px 0}
+#root #main.workspace .home-entry:hover{background:transparent;color:#315585}
+#root #main.workspace .home-map-entry{border-top:1px solid #e5e9f1;padding-top:20px;margin-top:20px}
+#root #main.workspace .home-map-entry>div{display:flex;align-items:center;gap:12px}
+#root #main.workspace .home-map-entry h3{margin:0}
+#root #main.workspace .home-map-entry p{margin:8px 0;color:#52617b}
+#root #main.workspace .home-map-route{display:flex;flex-wrap:wrap;gap:8px 20px;margin:8px 0}
+#root #main.workspace .home-map-route :is(a,i){min-width:0}
+#root #main.workspace .home-map-route a{display:inline-flex;align-items:center;min-height:44px}
+#root #main.workspace .home-map-route i{display:none}
+@media(max-width:1180px){
+ #root #main.workspace .home-resume-grid{grid-template-columns:minmax(0,1fr)}
+ #root #main.workspace .home-context-column{display:block}
+ #root #main.workspace .home-scope .home-scope-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 32px}
+ #root #main.workspace .home-scope .home-explore-shortcut{border-top:0;border-left:1px solid #e5e9f1;margin-top:0;padding:0 0 0 24px}
+ #root #main.workspace .home-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+ #root #main.workspace :is(.home-action-panel,.home-work-overview,.home-catalogue,.home-context-column>.home-scope){padding:20px;border-radius:20px}
+ #root #main.workspace .home-resume-grid{gap:20px}
+ #root #main.workspace .home-record-line{grid-template-columns:22px minmax(0,1fr);gap:8px 12px;padding:20px 0}
+ #root #main.workspace .home-record-link{grid-column:2;justify-self:start;max-width:100%;padding:4px 0}
+ #root #main.workspace .home-record-label{display:block}
+ #root #main.workspace .home-record-state{display:block;margin-top:4px}
+ #root #main.workspace .home-scope .home-scope-body{display:block}
+ #root #main.workspace .home-scope .home-explore-shortcut{border-top:1px solid #e5e9f1;border-left:0;margin-top:16px;padding:20px 0 0}
+ #root #main.workspace .home-entry-grid{grid-template-columns:minmax(0,1fr)}
+ #root #main.workspace .home-action-panel .home-section-title{flex-direction:column-reverse;align-items:start}
+ #root #main.workspace .home-action-panel .status-chip{margin-top:0}
+ #root #main.workspace .home-action-panel .actions>*{max-width:100%}
+ #root #main.workspace .home-catalogue-tabs{width:100%}
+}

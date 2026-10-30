@@ -1,0 +1,19 @@
+[Unit]
+Description=Career Growth local health and metrics probe
+After=career-auth.service
+[Service]
+Type=oneshot
+User=root
+EnvironmentFile=-/etc/career-growth/ops.env
+Environment=OPS_BACKUP_RECEIPT=/var/backups/career-growth/last-success.json
+Environment=OPS_TLS_CERT_FILE=/etc/letsencrypt/live/career-ip/fullchain.pem
+Environment=OPS_STATE_FILE=/var/lib/career-growth/ops-probe.json
+Environment=OPS_HISTORY_DIRECTORY=/var/lib/career-ops/history
+ExecStart=/usr/local/bin/node /srv/career-growth/source/scripts/ops-probe.mjs
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+PrivateTmp=true
+ReadWritePaths=/var/lib/career-growth
+ReadWritePaths=/var/lib/career-ops
+UMask=0077

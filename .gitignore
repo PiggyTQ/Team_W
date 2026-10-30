@@ -1,0 +1,30 @@
+# Local dependencies, build artifacts and verification output
+node_modules/
+dist/
+__pycache__/
+*.pyc
+*.log
+.deploy-auth/
+.deploy-cache/
+.vercel/
+checks/
+检查记录/
+_backup/
+发布包/
+# Filled environment files and credentials never belong in this repository
+.env
+.env.*
+!.env*.example
+ai.env
+ops.env
+*.pem
+*.key
+*.pfx
+*ed25519*
+auth.sqlite*
+ai-budget.sqlite*
+account*.sqlite*
+knowledge.sqlite*
+ops-probe.json
+ops-history/
+*.tar.gz

@@ -1,0 +1,114 @@
+/* Plan changes belong to the goal they affect. A collapsed entry shares its
+   action row; an open proposal uses the goal panel's available width. */
+#root #main.student-workspace:not(.workbench-home) .plan-overview:not(:has(.plan-adjustment[open])) { align-items:stretch; }
+#root #main.student-workspace:not(.workbench-home) .plan-overview:not(:has(.plan-adjustment[open])) > .plan-primary { display:flex; flex-direction:column; align-items:stretch; }
+#root #main.student-workspace:not(.workbench-home) .plan-overview:not(:has(.plan-adjustment[open])) > .plan-primary > .goal-statement { flex:1; }
+#root #main.student-workspace:not(.workbench-home) .plan-primary .goal-statement { align-content:start; }
+#root #main.student-workspace:not(.workbench-home) .plan-primary .goal-statement > .plan-goal-actions {
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:start;
+  gap:8px 16px;
+  min-width:0;
+  margin:2px 0 0;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-goal-actions > button {
+  flex:0 1 auto;
+  max-width:100%;
+  min-height:44px;
+  margin:0;
+  white-space:normal;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-goal-actions > .plan-adjustment {
+  flex:0 1 auto;
+  min-width:0;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  scroll-margin-top:24px;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-goal-actions > .plan-adjustment[open] { flex:1 1 100%; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  align-items:center;
+  gap:4px 8px;
+  width:fit-content;
+  max-width:100%;
+  min-height:44px;
+  box-sizing:border-box;
+  margin:0;
+  padding:8px 0;
+  border:0;
+  border-radius:8px;
+  color:#3b655c;
+  line-height:1.5;
+  list-style:none;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary::-webkit-details-marker { display:none; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary > svg { flex:0 0 auto; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary > svg:last-child { margin-left:2px; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment[open] > summary > svg:last-child { transform:rotate(180deg); }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary > span {
+  min-width:0;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary > span::after { content:none; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary > small {
+  min-width:0;
+  max-width:100%;
+  align-self:center;
+  color:#697163;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary:hover { color:#285248; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > summary:focus-visible {
+  outline:2px solid #4f766c;
+  outline-offset:4px;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment > .plan-adjustment-body {
+  min-width:0;
+  padding:10px 0 0;
+  border:0;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment-body > .section-heading {
+  align-items:start;
+  flex-wrap:wrap;
+  gap:12px 20px;
+  margin:0;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment-body > .section-heading > div {
+  flex:1 1 260px;
+  min-width:0;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment-body > .section-heading > button {
+  flex:0 1 auto;
+  max-width:100%;
+  white-space:normal;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment-body .section-heading p { margin:4px 0 0; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment-note { margin:8px 0 0; color:#697163; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment .plan-change-summary {
+  gap:12px;
+  padding:14px;
+  margin:14px 0 12px;
+  border-radius:12px;
+  background:#f6f5ef;
+}
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment .plan-change-summary > div { min-width:0; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment .plan-change-summary p { overflow-wrap:anywhere; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment .table-wrap { max-width:100%; overflow-x:auto; }
+#root #main.student-workspace:not(.workbench-home) .plan-adjustment .plan-change-preview > p { margin:10px 0; }
+
+@container workspace (max-width:640px) {
+  #root #main.student-workspace:not(.workbench-home) .plan-goal-actions { gap:8px; }
+  #root #main.student-workspace:not(.workbench-home) .plan-goal-actions > .plan-adjustment { flex:1 1 100%; }
+  #root #main.student-workspace:not(.workbench-home) .plan-adjustment .plan-change-summary { grid-template-columns:minmax(0,1fr); }
+}

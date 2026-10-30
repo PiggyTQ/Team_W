@@ -1,0 +1,5 @@
+# 日志字段与范围
+
+所有记录为项目生成的合成事件，时区固定+08:00。event_id为本文件唯一事件ID；timestamp为事件时间；service只有demo-api；request_id关联请求；level区分INFO/WARN/ERROR；message为教学事件名称。app.log与app_logs.jsonl表示同一组120个事件，不能把两个文件合并后当240个独立观察。
+
+request_started表示记录了请求开始；request_completed表示示例完成；dependency_timeout表示出现依赖超时事件；slow_response仅表示慢响应记录。没有依赖服务内部日志、资源指标、网络测量、攻击信息或真实用户身份。

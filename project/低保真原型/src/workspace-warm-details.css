@@ -1,0 +1,182 @@
+/* Remaining operating components observed in the 2026-10-23 Edge captures.
+   Warm navigation is distinct from record status: active coral, complete mint,
+   waiting beige, blocked brown. No chart dimensions or stored data change. */
+#root:has(>#main.student-workspace) {
+  --control-selected:#efe5d6;
+  --control-selected-ink:#8f4937;
+  --jimo-canvas:#fffdf9;
+  --shadow-hover:0 6px 22px #65533512;
+}
+
+/* Header and footer sit beside main, so they need the same student-page guard. */
+#root:has(>#main.student-workspace) > .app-header .workspace-search :is(.search-submit,.search-clear) {
+  color:#954a36; border-color:#e7e1d5; background:#fffdf9;
+}
+#root:has(>#main.student-workspace) > .app-header .workspace-search :is(.search-submit,.search-clear):hover {
+  color:#7e3f2f; background:#efe5d6;
+}
+#root:has(>#main.student-workspace) > #workspace-sidebar .sidebar-links a[aria-current=page] .sidebar-nav-icon { color:currentColor; }
+#root:has(>#main.student-workspace) > .flow-progress { background:#fffdf9; border-color:#e7e1d5; color:#686d60; }
+#root:has(>#main.student-workspace) > .flow-progress :is(.flow-back,.flow-help) { background:#fffdf9; border-color:#e7e1d5; color:#8f4937; box-shadow:none; }
+#root:has(>#main.student-workspace) > .flow-progress .flow-progress-context p { color:#686d60; }
+#root:has(>#main.student-workspace) > .flow-progress .flow-next.primary { background:#aa4d38; border-color:#aa4d38; color:#fff; box-shadow:0 3px 8px #aa4d3812; }
+#root:has(>#main.student-workspace) > .flow-progress .flow-next.primary:hover { background:#903e2e; border-color:#903e2e; color:#fff; }
+#root:has(>#main.student-workspace) > .flow-progress :is(a,button):focus-visible { outline-color:#aa4d38; }
+
+#root #main.student-workspace:not(.workbench-home) {
+  /* Both the sliding plate and its text must supersede the former blue theme. */
+  & .segmented-control { background:#f3eee5; border-color:#e7e1d5; }
+  & .segmented-control > .selection-plate { background:#e9dcc9; box-shadow:none; }
+  & .segmented-control > :is(a,button) { color:#686d60; }
+  & .segmented-control > :is(a[aria-current=page],button[aria-pressed=true],.selected) { color:#8f4937; box-shadow:none; }
+  & .segmented-control > :is(a,button):hover { color:#8f4937; }
+  & :is(.breadcrumbs,.breadcrumbs > span,.workspace-guide-trigger,.guidance-trigger) { color:#686d60; }
+  & .breadcrumbs > a { color:#8f4937; }
+  & :is(input,select,textarea):focus { border-color:#b98069; box-shadow:0 0 0 3px #aa4d3810; }
+  & input:is([type=radio],[type=checkbox],[type=range]) { accent-color:#aa4d38; }
+
+  /* Assessments retain neutral unknown states and green recorded categories. */
+  & :is(.assessment-hub,.profile-insight) { color:#30362e; --profile-line:#e7e1d5; --profile-muted:#686d60; }
+  & .assessment-hub :is(.hub-next,.hub-section,.assessment-hub-jumps,.assessment-hub-jumps > a,.hub-resume-layout,.hub-review-list > li,.hub-gap-list > li,.profile-insight-heading,.profile-insight-archive,.profile-insight-records > li) { border-color:#e7e1d5; }
+  & .assessment-hub :is(.hub-next,.hub-section,.assessment-hub-jumps > a) { box-shadow:0 4px 16px #65533505; }
+  & .assessment-hub .hub-section { padding-inline:20px; }
+  & .assessment-hub .assessment-hub-jumps > a:hover { background:#f7f3eb; color:#8f4937; }
+  & .assessment-hub :is(.hub-review-empty,.hub-snapshot-state,.hub-resume-layout > aside,.profile-insight-detail) { background:#f7f3eb; border-color:#e7e1d5; }
+  & .assessment-hub .profile-insight-dimensions button { color:#4f5949; border-color:#e7e1d5; }
+  & .assessment-hub .profile-insight-dimensions button[aria-pressed=true] { color:#376f60; background:#e8f0e9; border-color:#abc3b0; }
+  & .assessment-hub .profile-insight-dimension-state { color:#686d60; }
+  & .assessment-hub .profile-insight-dot { background:#65917a; }
+  & .assessment-hub .profile-insight-dash { border-color:#afa58f; }
+  & .assessment-hub .profile-insight-inner-guide { stroke:#e7e1d5; }
+  & .assessment-hub :is(.profile-insight-sector-code,.profile-insight-ring-total) { fill:#686d60; }
+  & .assessment-hub :is(.profile-insight-ring-count,.profile-insight-ring-label) { fill:#30362e; }
+  & .assessment-hub .profile-insight-ring figcaption i { border-color:#76a592; }
+  & .assessment-hub .profile-insight-ring figcaption i.missing { border-color:#c9bea9; }
+
+  /* Career discovery: paper cards on a continuous cream support surface. */
+  & .explore-filter { border-color:#e7e1d5; box-shadow:0 5px 20px #65533506; }
+  & .occupation-grid { background:linear-gradient(180deg,#f2eadc,rgba(242,234,220,0) 320px); }
+  & .occupation-grid > article { border-color:#e7e1d5; box-shadow:0 4px 16px #65533505; }
+  & .occupation-grid > article > p,
+  & .occupation-output :is(span,p) { color:#686d60; }
+  & .occupation-avatar { background:#eadbc8; color:#9a513b; }
+  & .occupation-card-top > button { background:#f4efe5; color:#686d60; }
+  & :is(.occupation-output,.occupation-actions) { border-color:#eee7db; }
+  & .occupation-tags > span { background:#f3eee5; color:#686d60; }
+  & .occupation-actions > a { color:#8f4937; }
+  & .occupation-actions > button { background:#fffdf9; color:#8f4937; border-color:#ded3c0; box-shadow:none; }
+  & .occupation-actions > button[aria-pressed=true] { background:#efe0ce; color:#8f4937; border-color:#cfaa8e; box-shadow:none; }
+  & .occupation-actions > button:hover { background:#f3e9da; color:#8f4937; border-color:#cfbba3; }
+  & :is(.career-detail,.opportunity-detail,.opportunity-list,.opportunity-toolbar,.discovery-job-card,.discovery-detail) { border-color:#e7e1d5; box-shadow:0 5px 20px #65533506; }
+  & :is(.discovery-filter,.task-output-pair > div,.career-detail .requirement-line,.personal-opportunity-summary) { background:#f7f3eb; border-color:#e7e1d5; }
+  & .discovery-job-card [aria-pressed=true],
+  & .opportunity-select[aria-pressed=true] { background:#efe0ce; color:#8f4937; border-color:#cfaa8e; }
+
+  /* Plan and learning use paper/mint insets rather than spare blue panels. */
+  & :is(.plan-primary .goal-statement,.weekly-budget,.phase-columns > section,.learning-card) { border-color:#e7e1d5; box-shadow:0 5px 20px #65533506; }
+  & :is(.plan-goal-context,.plan-adjustment,.phase-resources,.capacity-ledger) { border-color:#e7e1d5; }
+  & .capacity-rail { background:#eee7dc; }
+  & .capacity-rail > .capacity-segment { background:#76a592; border-right-color:#fffdf9; }
+  & .capacity-rail > .capacity-segment:nth-child(3n+2) { background:#a8bda4; }
+  & .capacity-rail > .capacity-segment:nth-child(3n) { background:#cad1ba; }
+  & .capacity-legend > span > i { background:#76a592; }
+  & .capacity-budget-marker { background:#8d5037; border-color:#fffdf9; }
+  & .budget-capacity[data-state=over] .capacity-over-label { color:#8d5037; }
+  & .learning-focus .learning-continuation { background:#edf3ed; border-color:#d9e3d5; }
+  & .learning-focus .learning-collections > a[aria-current=page] { color:#376f60; background:#e8f0e7; box-shadow:inset 0 0 0 1px #d0dfcd; }
+  & .learning-focus :is(.learning-reading-guide,.learning-related-disclosure > div,.project-preview) { border-color:#e7e1d5; }
+  & .learning-focus .learning-related-disclosure { background:#f7f3eb; }
+
+  /* Reports: the output stays white, while its reading frame is warm paper. */
+  & .output-workspace { --output-ink:#30362e; --output-muted:#686d60; --output-line:#e7e1d5; --output-soft:#f7f3eb; }
+  & .output-workspace .output-report-layout { background:linear-gradient(180deg,#f3eee4,rgba(243,238,228,0) 440px); }
+  & .output-workspace :is(.output-report-nav,.output-report-document,.report-record-node,.report-paper,.output-resume-paper,.resume-assembly) { border-color:#e7e1d5; box-shadow:0 4px 16px #65533505; }
+  & .output-workspace .output-report-nav button { background:#fff; color:#686d60; border-color:transparent; box-shadow:none; }
+  & .output-workspace .output-report-nav button small { color:#74776a; }
+  & .output-workspace .output-report-nav button[aria-pressed=true] { background:#e9dcc9; color:#8f4937; border-color:#e9dcc9; box-shadow:none; }
+  & .output-workspace .output-report-nav button[aria-pressed=true] small { color:#806c56; }
+  & .output-workspace :is(.output-document-title,.output-document-foot,.report-record-charts,.report-record-charts figure + figure,.output-report-library,.output-saved-row,.output-purpose,.output-resume-toolbar) { border-color:#e7e1d5; }
+  & .output-workspace :is(.output-resume-editor,.output-next-action,.output-library-empty,.output-snapshot-summary,.report-reference) { background:#f7f3eb; border-color:#e7e1d5; }
+  & .output-workspace :is(.report-record-node > span,.report-record-node > small,.report-record-charts header > span,.record-column > span,.record-column-track > span,.record-material-legend dt) { color:#686d60; }
+  & .output-workspace .record-material-track { background:#eee7dc; }
+  & .output-workspace :is(.record-material-segment.confirmed,.record-material-legend i.confirmed) { background:#52866c; }
+  & .output-workspace :is(.record-material-segment.pending,.record-material-legend i.pending) { background:#bbaa8b; }
+  & .output-workspace :is(.record-material-segment.excluded,.record-material-legend i.excluded) { background:#d8d0c2; }
+  & .output-workspace .record-column-track > i { background:#827b6a; }
+  & .output-workspace .record-column-track > i.waiting { background:#c9bea9; }
+  & .output-workspace .record-column-track > i.active { background:#c36c52; }
+  & .output-workspace .record-column-track > i.blocked { background:#8c6545; }
+  & .output-workspace .record-column-track > i.complete { background:#52866c; }
+  & .output-workspace .record-column-track > i.stopped { background:#d5ccbb; }
+  & .output-workspace .record-columns { border-color:#ded5c5; }
+  & .output-workspace :is(.output-preview-controls button[aria-pressed=true],.assembly-heading) { color:#376f60; border-color:#c2d8c8; }
+  & .output-workspace .assembly-requirement-cells button.is-linked { background:#52866c; border-color:#52866c; color:#fff; }
+  & .output-workspace .output-resume-steps button[aria-pressed=true] { background:#f3eee5; color:#8f4937; border-color:#c7927d; }
+
+  /* AI prompts are examples; only the send/confirmed action uses the accent. */
+  & .assistant-page-focused > .assistant-main { background:#fff; border-color:#e7e1d5; box-shadow:0 5px 20px #65533506; }
+  & .assistant-page-focused .chat-toolbar { border-color:#eee7db; }
+  & .assistant-page-focused .chat-scope-summary { background:#f7f3eb; color:#686d60; }
+  & .assistant-page-focused .empty-prompt-starts button { background:#faf7f0; border-color:#e7e1d5; color:#4f5949; }
+  & .assistant-page-focused .empty-prompt-starts button:hover { background:#efe5d6; color:#8f4937; }
+  & .assistant-page-focused .empty-prompt-starts small { color:#686d60; }
+  & .assistant-page-focused .chat-composer { background:#fffdf9; border-color:#d8ccba; }
+  & .assistant-page-focused .chat-composer:focus-within { border-color:#aa4d38; outline-color:#aa4d38; }
+  & .assistant-page-focused .chat-message-user .chat-message-body { background:#f3e9da; border-color:#e6d7c1; }
+  & .assistant-page-focused .chat-message-assistant .chat-message-body { color:#30362e; }
+  & .assistant-page-focused .chat-transcript .result-card { background:#edf3ed; border-color:#d9e3d5; }
+  & .assistant-page-focused :is(.composer-controls select,.chat-demo-menu button) { background:#f7f3eb; border-color:#e7e1d5; color:#686d60; }
+  & .settings-focus-page input.preference-switch { background:#d6cebd; border-color:#c4b79f; }
+  & .settings-focus-page input.preference-switch:checked { background:#6f9b82; border-color:#6f9b82; }
+}
+
+/* These legend dots alone require priority over existing inline colours and
+   the legacy theme's important nth-child dots; they are not task statuses. */
+#root #main.student-workspace:not(.workbench-home) .capacity-task > i { background:#76a592!important; }
+#root #main.student-workspace:not(.workbench-home) .capacity-task:nth-child(3n+2) > i { background:#a8bda4!important; }
+#root #main.student-workspace:not(.workbench-home) .capacity-task:nth-child(3n) > i { background:#cad1ba!important; }
+
+/* Atlas has an independent canvas and lazy styles; keep its selectors explicit. */
+#root #main.student-workspace.atlas-workspace {
+  background:#fffdf9;
+  & .work-atlas { color:#30362e; }
+  & :is(.atlas-toolbar,.atlas-phase-strip,.atlas-tool-choice,.atlas-dock,.atlas-tool-guide) { border-color:#e7e1d5; background:#fff; box-shadow:0 4px 16px #65533505; }
+  & .atlas-visual { background:linear-gradient(160deg,#f5eee1,#fffdf9 72%); border-color:#e7e1d5; }
+  & :is(.atlas-toolbar > nav,.atlas-phase-buttons,.atlas-tool-choice,.atlas-explore-bar) button { background:#fffdf9; color:#686d60; border-color:transparent; box-shadow:none; }
+  & :is(.atlas-toolbar > nav,.atlas-phase-buttons,.atlas-tool-choice,.atlas-explore-bar) button[aria-pressed=true] { background:#e9dcc9; color:#8f4937; border-color:#e9dcc9; box-shadow:none; }
+  & :is(.atlas-toolbar > nav,.atlas-phase-buttons,.atlas-tool-choice,.atlas-explore-bar) button:not([aria-pressed=true]):hover { background:#f3eee5; color:#8f4937; }
+  & .atlas-phase-buttons button > span { color:#8a806e; }
+  & .atlas-tool-choice > .atlas-tool-trigger { color:#4f5949; background:#fffdf9; border-color:#e7e1d5; }
+  & .atlas-dock-actions > .primary { background:#aa4d38; border-color:#aa4d38; color:#fff; }
+  & .atlas-dock-actions > .primary:hover { background:#903e2e; border-color:#903e2e; }
+  & :is(.atlas-dock p,.atlas-dock small,.atlas-product,.atlas-node-state,.atlas-context,.atlas-input-label,.atlas-fork-label,.atlas-scope,.atlas-local-status,.atlas-tool-purpose) { color:#686d60; }
+  & :is(.atlas-practice-steps,.atlas-node-state,.atlas-related,.atlas-relation-notes) { border-color:#e7e1d5; }
+  & :is(.atlas-practice-steps summary,.atlas-dock h2,.atlas-dock h3) { color:#30362e; }
+  & input[type=range] { accent-color:#aa4d38; }
+  & .atlas-river-bed { stroke:#e5ddcf; }
+  & :is(.atlas-river-line,.atlas-river-alternative) { stroke:#b4aa96; }
+  & :is(.atlas-river-line.is-active,.atlas-river-alternative.is-active) { stroke:#9d5940; }
+  & .atlas-station-ring > span { background:#fffdf9; border-color:#8d8069; }
+  & .atlas-station.is-selected .atlas-station-ring { background:#fffdf9; border-color:#aa4d38; }
+  & .atlas-station.is-selected .atlas-station-ring > span { background:#aa4d38; border-color:#aa4d38; }
+  & .atlas-station.has-evidence .atlas-station-ring > span { background:#52866c; border-color:#52866c; }
+  & .atlas-station.has-evidence .atlas-station-label:after { background:#52866c; }
+  & .atlas-station-label { color:#4f5949; }
+  & .atlas-station-label small { color:#686d60; }
+  & .atlas-station.is-selected .atlas-station-label { color:#8f4937; }
+  & .atlas-projection { background:#edf3e9; border-color:#b7c9b5; }
+  & .atlas-projection-links path { stroke:#76a592; }
+  & .atlas-bridge ellipse { fill:#ebe1d0; stroke:#c7b9a2; }
+  & .atlas-phase-mark > span { color:#c5b79d; }
+  /* The old 160px limit label wraps both lines and crosses the clipped edge.
+     A wider inward-aligned label preserves 18px type and all station content. */
+  & .atlas-station[data-skill=limits] .atlas-station-label { width:210px; top:40px; transform:translateX(-75%); }
+}
+@media(min-width:721px) {
+  #root #main.student-workspace.atlas-workspace .atlas-visual.is-work { height:clamp(540px,54dvh,640px); min-height:540px; }
+}
+@media(max-width:720px) {
+  #root #main.student-workspace:not(.workbench-home) .assessment-hub .hub-section { padding-inline:16px; }
+  #root #main.student-workspace.atlas-workspace .atlas-visual.is-work { height:460px; min-height:460px; }
+  #root #main.student-workspace.atlas-workspace .atlas-station[data-skill=limits] .atlas-station-label { width:200px; }
+}

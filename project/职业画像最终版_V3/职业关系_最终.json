@@ -1,0 +1,872 @@
+{
+  "horizontal": [
+    {
+      "relation_id": "SW_FE__SW_BE.2.0",
+      "from_profile_id": "SW_FE.base.2.0",
+      "to_profile_id": "SW_BE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "接口契约与业务流程",
+      "toward_to_profile_additions": "数据库、鉴权与服务端异常",
+      "toward_from_profile_additions": "浏览器状态、可访问性与交互验证",
+      "bridge_task": "交付一个完整的前后端流程，并分别说明两侧贡献",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_software",
+        "onet_web"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_BE__DATA_ENG.2.0",
+      "from_profile_id": "SW_BE.base.2.0",
+      "to_profile_id": "DATA_ENG.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "数据模型与读写",
+      "toward_to_profile_additions": "批处理、增量一致性、数据质量",
+      "toward_from_profile_additions": "服务接口、事务与权限",
+      "bridge_task": "把业务数据接入可重跑的数据流程并核对结果",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_database",
+        "onet_software",
+        "std_bigdata_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_BE__DEVOPS_SRE.2.0",
+      "from_profile_id": "SW_BE.base.2.0",
+      "to_profile_id": "DEVOPS_SRE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "服务运行与故障定位",
+      "toward_to_profile_additions": "Linux、网络、监控与恢复",
+      "toward_from_profile_additions": "业务逻辑、接口与数据一致性",
+      "bridge_task": "部署服务，演练失败发布和备份恢复",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_software",
+        "onet_sysadmin",
+        "std_cloud_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_TEST__SW_BE.2.0",
+      "from_profile_id": "SW_TEST.base.2.0",
+      "to_profile_id": "SW_BE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "软件行为、缺陷与验证",
+      "toward_to_profile_additions": "编程、数据模型与服务设计",
+      "toward_from_profile_additions": "风险覆盖、用例设计与质量报告",
+      "bridge_task": "从缺陷复现进入修复，实现检查和回归",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_qa",
+        "onet_software"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_TEST__DEVOPS_SRE.2.0",
+      "from_profile_id": "SW_TEST.base.2.0",
+      "to_profile_id": "DEVOPS_SRE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "自动检查与发布风险",
+      "toward_to_profile_additions": "部署、运行观测和故障恢复",
+      "toward_from_profile_additions": "测试覆盖、断言和缺陷管理",
+      "bridge_task": "将稳定检查接入流水线，验证失败阻断与回退",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_qa",
+        "onet_sysadmin",
+        "std_cloud_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "DATA_ENG__DATA_ANALYST.2.0",
+      "from_profile_id": "DATA_ENG.base.2.0",
+      "to_profile_id": "DATA_ANALYST.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "SQL、口径和数据质量",
+      "toward_to_profile_additions": "统计解释、业务指标和偏差识别",
+      "toward_from_profile_additions": "数据流程、模型和加工可靠性",
+      "bridge_task": "交付可复现数据集和口径一致的分析报告",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_bi",
+        "onet_database",
+        "std_bigdata_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "DATA_ENG__ML_AI.2.0",
+      "from_profile_id": "DATA_ENG.base.2.0",
+      "to_profile_id": "ML_AI.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "模型数据准备与质量",
+      "toward_to_profile_additions": "数学基础、模型实验与效果评价",
+      "toward_from_profile_additions": "数据加工、版本和可靠运行",
+      "bridge_task": "形成无泄漏训练数据，并比较模型基线",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_database",
+        "onet_datasci",
+        "std_bigdata_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "DATA_ANALYST__ML_AI.2.0",
+      "from_profile_id": "DATA_ANALYST.base.2.0",
+      "to_profile_id": "ML_AI.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "统计、数据解释与评价",
+      "toward_to_profile_additions": "模型方法、训练或应用流程",
+      "toward_from_profile_additions": "业务口径、实验设计和结论沟通",
+      "bridge_task": "比较业务规则与模型方法，说明误差与使用限制",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_bi",
+        "onet_datasci",
+        "std_bigdata_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "DEVOPS_SRE__CYBERSEC.2.0",
+      "from_profile_id": "DEVOPS_SRE.base.2.0",
+      "to_profile_id": "CYBERSEC.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "系统、网络与运行风险",
+      "toward_to_profile_additions": "威胁分析、授权评估与安全处置",
+      "toward_from_profile_additions": "可靠性、自动化与恢复演练",
+      "bridge_task": "在本地环境完成权限、日志、告警和恢复检查",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_security",
+        "onet_sysadmin",
+        "std_cloud_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "IMPLEMENTATION__DATA_ANALYST.2.0",
+      "from_profile_id": "IMPLEMENTATION.base.2.0",
+      "to_profile_id": "DATA_ANALYST.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "客户业务与数据口径",
+      "toward_to_profile_additions": "查询、统计、指标和分析解释",
+      "toward_from_profile_additions": "配置交付、客户培训与验收",
+      "bridge_task": "将客户业务问题转为核验口径和分析结论",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_bi",
+        "onet_systems",
+        "std_bigdata_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "IMPLEMENTATION__SW_BE.2.0",
+      "from_profile_id": "IMPLEMENTATION.base.2.0",
+      "to_profile_id": "SW_BE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "需求、接口与系统集成",
+      "toward_to_profile_additions": "编码、数据模型、权限与测试",
+      "toward_from_profile_additions": "业务配置、现场交付与验收",
+      "bridge_task": "实现一个接口并完成客户联调和交付说明",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_software",
+        "onet_systems"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_GENERAL__ML_AI.2.0",
+      "from_profile_id": "SW_GENERAL.base.2.0",
+      "to_profile_id": "ML_AI.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "编程、算法与工程验证",
+      "toward_to_profile_additions": "模型任务、数据划分、数学与评价",
+      "toward_from_profile_additions": "系统接口、资源管理和构建",
+      "bridge_task": "复现模型基线并在应用中验证集成限制",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_datasci",
+        "onet_software"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_GENERAL__SW_BE.2.0",
+      "from_profile_id": "SW_GENERAL.base.2.0",
+      "to_profile_id": "SW_BE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "模块开发与调试",
+      "toward_to_profile_additions": "服务、数据库、接口与权限",
+      "toward_from_profile_additions": "平台接口、资源生命周期和构建",
+      "bridge_task": "将应用模块实现为服务接口并验证错误路径",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_software"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "SW_FE__SW_TEST.2.0",
+      "from_profile_id": "SW_FE.base.2.0",
+      "to_profile_id": "SW_TEST.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "用户流程与交互缺陷",
+      "toward_to_profile_additions": "风险用例、缺陷复现和回归",
+      "toward_from_profile_additions": "组件实现、状态管理和浏览器兼容",
+      "bridge_task": "针对一个页面完成异常验证、修复与回归",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_qa",
+        "onet_web"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    },
+    {
+      "relation_id": "DATA_ENG__DEVOPS_SRE.2.0",
+      "from_profile_id": "DATA_ENG.base.2.0",
+      "to_profile_id": "DEVOPS_SRE.base.2.0",
+      "relation_type": "project_authored_cross_occupation_learning_bridge",
+      "direction": "bidirectional_exploration",
+      "shared_foundation": "数据平台运行与故障",
+      "toward_to_profile_additions": "监控、容量、备份与恢复",
+      "toward_from_profile_additions": "数据建模、加工和口径核对",
+      "bridge_task": "演练平台失败及作业恢复，核对恢复后的数据",
+      "completion_evidence": [
+        "范围和本人贡献",
+        "可复现成果与检查",
+        "失败及差距说明"
+      ],
+      "reference_ids": [
+        "onet_database",
+        "onet_sysadmin",
+        "std_bigdata_2021",
+        "std_cloud_2021"
+      ],
+      "source_support": "functional_role_reference_and_project_reasoning; no_observed_career_transition_records",
+      "transition_probability": null,
+      "promotion_years": null,
+      "automatic_recommendation": false,
+      "verification_status": "authored_learning_relation_not_verified_job_transition"
+    }
+  ],
+  "vertical": [
+    {
+      "relation_id": "SW_BE.L1_L2",
+      "from_profile_id": "SW_BE.L1.2.0",
+      "to_profile_id": "SW_BE.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立交付一个带权限和数据读写的服务模块",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_BE.L2_L3",
+      "from_profile_id": "SW_BE.L2.2.0",
+      "to_profile_id": "SW_BE.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "承担跨模块一致性、容量与故障处理方案",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_BE.L3_L4",
+      "from_profile_id": "SW_BE.L3.2.0",
+      "to_profile_id": "SW_BE.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹服务边界、演进策略、评审和重大运行风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_FE.L1_L2",
+      "from_profile_id": "SW_FE.L1.2.0",
+      "to_profile_id": "SW_FE.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立完成页面流程、接口协作与异常恢复",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_FE.L2_L3",
+      "from_profile_id": "SW_FE.L2.2.0",
+      "to_profile_id": "SW_FE.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理多页面状态、性能、兼容与工程约束",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_FE.L3_L4",
+      "from_profile_id": "SW_FE.L3.2.0",
+      "to_profile_id": "SW_FE.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹组件规范、架构演进和跨团队交互质量",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_TEST.L1_L2",
+      "from_profile_id": "SW_TEST.L1.2.0",
+      "to_profile_id": "SW_TEST.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立设计一个模块的风险用例并闭环缺陷",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_TEST.L2_L3",
+      "from_profile_id": "SW_TEST.L2.2.0",
+      "to_profile_id": "SW_TEST.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "制定跨模块测试策略并选择自动化、性能验证范围",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_TEST.L3_L4",
+      "from_profile_id": "SW_TEST.L3.2.0",
+      "to_profile_id": "SW_TEST.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹质量策略、工具体系、发布风险与协作标准",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_GENERAL.L1_L2",
+      "from_profile_id": "SW_GENERAL.L1.2.0",
+      "to_profile_id": "SW_GENERAL.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立交付可构建、可测试的软件模块",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_GENERAL.L2_L3",
+      "from_profile_id": "SW_GENERAL.L2.2.0",
+      "to_profile_id": "SW_GENERAL.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理多模块接口、并发、资源及兼容问题",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "SW_GENERAL.L3_L4",
+      "from_profile_id": "SW_GENERAL.L3.2.0",
+      "to_profile_id": "SW_GENERAL.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹软件架构、技术演进与可维护性风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "IMPLEMENTATION.L1_L2",
+      "from_profile_id": "IMPLEMENTATION.L1.2.0",
+      "to_profile_id": "IMPLEMENTATION.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立交付边界明确的配置、联调、培训与验收",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "IMPLEMENTATION.L2_L3",
+      "from_profile_id": "IMPLEMENTATION.L2.2.0",
+      "to_profile_id": "IMPLEMENTATION.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "协调复杂迁移、系统集成、变更和客户风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "IMPLEMENTATION.L3_L4",
+      "from_profile_id": "IMPLEMENTATION.L3.2.0",
+      "to_profile_id": "IMPLEMENTATION.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹多项目交付方法、技术方案与重大上线风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "ML_AI.L1_L2",
+      "from_profile_id": "ML_AI.L1.2.0",
+      "to_profile_id": "ML_AI.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立完成单一任务的实验或 AI 应用及错误分析",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "ML_AI.L2_L3",
+      "from_profile_id": "ML_AI.L2.2.0",
+      "to_profile_id": "ML_AI.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理数据版本、评价设计、部署约束和复杂误差",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "ML_AI.L3_L4",
+      "from_profile_id": "ML_AI.L3.2.0",
+      "to_profile_id": "ML_AI.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹任务方案、评估治理、成本效果与生产风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DATA_ENG.L1_L2",
+      "from_profile_id": "DATA_ENG.L1.2.0",
+      "to_profile_id": "DATA_ENG.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立交付可重跑的数据流程、模型与质量规则",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DATA_ENG.L2_L3",
+      "from_profile_id": "DATA_ENG.L2.2.0",
+      "to_profile_id": "DATA_ENG.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理跨源口径、增量一致性、性能与故障恢复",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DATA_ENG.L3_L4",
+      "from_profile_id": "DATA_ENG.L3.2.0",
+      "to_profile_id": "DATA_ENG.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹数据架构、治理边界、演进与系统性质量风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DATA_ANALYST.L1_L2",
+      "from_profile_id": "DATA_ANALYST.L1.2.0",
+      "to_profile_id": "DATA_ANALYST.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立定义业务问题、口径和可复现分析",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DATA_ANALYST.L2_L3",
+      "from_profile_id": "DATA_ANALYST.L2.2.0",
+      "to_profile_id": "DATA_ANALYST.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理偏差、实验设计、多源差异和决策沟通",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DATA_ANALYST.L3_L4",
+      "from_profile_id": "DATA_ANALYST.L3.2.0",
+      "to_profile_id": "DATA_ANALYST.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹指标体系、分析方法与结论使用的边界",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "CYBERSEC.L1_L2",
+      "from_profile_id": "CYBERSEC.L1.2.0",
+      "to_profile_id": "CYBERSEC.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立完成限定范围的评估、处置或控制验证",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "CYBERSEC.L2_L3",
+      "from_profile_id": "CYBERSEC.L2.2.0",
+      "to_profile_id": "CYBERSEC.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理多系统风险、事件证据、整改协同与复测",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "CYBERSEC.L3_L4",
+      "from_profile_id": "CYBERSEC.L3.2.0",
+      "to_profile_id": "CYBERSEC.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹安全方案、治理责任、重大事件与风险取舍",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DEVOPS_SRE.L1_L2",
+      "from_profile_id": "DEVOPS_SRE.L1.2.0",
+      "to_profile_id": "DEVOPS_SRE.L2.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "独立维护小范围服务、告警、备份与回退",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DEVOPS_SRE.L2_L3",
+      "from_profile_id": "DEVOPS_SRE.L2.2.0",
+      "to_profile_id": "DEVOPS_SRE.L3.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "处理复杂故障、变更、容量和自动化运维",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    },
+    {
+      "relation_id": "DEVOPS_SRE.L3_L4",
+      "from_profile_id": "DEVOPS_SRE.L3.2.0",
+      "to_profile_id": "DEVOPS_SRE.L4.2.0",
+      "relation_type": "responsibility_scope_progression",
+      "direction": "forward_learning",
+      "required_scope": "统筹可靠性策略、运行架构、协作机制与重大故障风险",
+      "completion_evidence": [
+        "更大范围的真实或明确标注模拟任务",
+        "独立程度与个人责任",
+        "复杂问题处理及验证"
+      ],
+      "promotion_years": null,
+      "employer_promotion_guarantee": false,
+      "basis": "project_authored_not_observed_promotion"
+    }
+  ],
+  "observed_verified_transitions": [],
+  "observed_verified_promotions": []
+}

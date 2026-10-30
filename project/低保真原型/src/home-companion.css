@@ -1,0 +1,116 @@
+/* Public companion studio. All selectors stay local to this new surface. */
+#root #main.publicmain.publicmain .home-companion {
+  --companion-paper:#fffdf8;
+  --companion-ink:#153657;
+  --companion-copy:#526776;
+  --companion-sage:#56735a;
+  --companion-surface:#fff;
+  --companion-yellow:#f2cb62;
+  --ui-type-page:clamp(36px,3.6vw,60px);
+  --ui-type-section:clamp(36px,3.6vw,60px);
+  --ui-type-body:16px;
+  --ui-type-note:13px;
+  --jimo-switch:280ms;
+  --jimo-ease:cubic-bezier(.22,1,.36,1);
+  box-sizing:border-box;
+  position:relative;
+  min-height:100svh;
+  padding:clamp(60px,8svh,108px) 0;
+  color:var(--companion-ink);
+  background:var(--companion-paper);
+  scroll-margin-top:24px;
+  isolation:isolate;
+}
+#root #main.publicmain.publicmain .home-companion *, #root #main.publicmain.publicmain .home-companion *::before, #root #main.publicmain.publicmain .home-companion *::after {box-sizing:border-box;}
+#root #main.publicmain.publicmain .home-companion::selection, #root #main.publicmain.publicmain .home-companion ::selection {background:#f2cb62;color:#153657;}
+#root #main.publicmain.publicmain .home-companion .companion-layout {display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,112px);align-items:center;min-height:calc(100svh - 216px);}
+#root #main.publicmain.publicmain .home-companion .companion-copy {min-width:0;max-width:540px;}
+#root #main.publicmain.publicmain .home-companion :is(h1,h2) {margin:0;color:var(--companion-ink);font-size:var(--ui-type-section);font-weight:600;line-height:1.22;letter-spacing:-.035em;text-wrap:balance;}
+#root #main.publicmain.publicmain .home-companion .companion-intro {max-width:34ch;margin:28px 0 0;color:var(--companion-copy);font-size:18px;line-height:1.85;text-wrap:pretty;}
+#root #main.publicmain.publicmain .home-companion .companion-close {margin:28px 0 0;max-width:34ch;color:var(--companion-sage);line-height:1.8;}
+#root #main.publicmain.publicmain .home-companion .companion-text-link {display:inline-flex;align-items:center;gap:20px;min-height:48px;margin-top:28px;padding:8px 0;color:var(--companion-ink);font-weight:600;text-decoration-line:underline;text-decoration-color:#b2bdb5;text-underline-offset:7px;text-decoration-thickness:1px;}
+#root #main.publicmain.publicmain .home-companion .companion-text-link svg {flex:none;transition:transform 220ms var(--jimo-ease);}
+#root #main.publicmain.publicmain .home-companion .companion-experience {min-width:0;}
+#root #main.publicmain.publicmain .home-companion .companion-stage {position:relative;min-width:0;height:clamp(300px,47svh,540px);background:var(--companion-surface);border-radius:24px;overflow:hidden;isolation:isolate;}
+#root #main.publicmain.publicmain .home-companion .companion-stage .auth-nook-scene {display:block;position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;padding:0;border:0;border-radius:inherit;background:transparent;color:var(--companion-ink);box-shadow:none;cursor:pointer;overflow:hidden;touch-action:pan-y;transform:none;}
+#root #main.publicmain.publicmain .home-companion .companion-stage .auth-nook-scene:is(:hover,:active) {background:transparent;border:0;box-shadow:none;transform:none;}
+#root #main.publicmain.publicmain .home-companion .auth-nook-canvas {position:absolute;inset:0;display:block;pointer-events:none;}
+#root #main.publicmain.publicmain .home-companion .auth-nook-canvas canvas {display:block;width:100%;height:100%;}
+#root #main.publicmain.publicmain .home-companion :is(.companion-poster,.cheese-scene-fallback) {position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;}
+#root #main.publicmain.publicmain .home-companion :is(.companion-poster,.cheese-scene-fallback) img {display:block;max-width:100%;width:100%;height:100%;object-fit:contain;}
+#root #main.publicmain.publicmain .home-companion .companion-stage-name {position:absolute;left:24px;bottom:21px;color:#536a55;font-size:13px;line-height:1.4;pointer-events:none;}
+#root #main.publicmain.publicmain .home-companion .companion-cheese-note {position:absolute;right:24px;top:24px;width:34px;height:34px;border-radius:10px;background:var(--companion-yellow);transform:rotate(-8deg);pointer-events:none;}
+#root #main.publicmain.publicmain .home-companion .companion-cheese-note span {position:absolute;width:5px;height:5px;border-radius:50%;background:#cb9c39;}
+#root #main.publicmain.publicmain .home-companion .companion-cheese-note span:nth-child(1) {left:8px;top:8px;}
+#root #main.publicmain.publicmain .home-companion .companion-cheese-note span:nth-child(2) {right:6px;top:16px;width:7px;height:7px;}
+#root #main.publicmain.publicmain .home-companion .companion-cheese-note span:nth-child(3) {left:9px;bottom:5px;width:4px;height:4px;}
+#root #main.publicmain.publicmain .home-companion .companion-interactions {padding:22px 0 0;}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control {display:flex;position:relative;isolation:isolate;align-items:center;gap:3px;width:100%;max-width:100%;margin:0 auto;padding:5px;border:0;border-radius:14px;background:#eeeee5;box-shadow:none;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#adb8aa transparent;overscroll-behavior-x:contain;}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button {position:relative;z-index:1;flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:0;padding:10px clamp(10px,1.15vw,18px);border:0;border-radius:10px;background:transparent;color:#526776;box-shadow:none;white-space:nowrap;line-height:1.5;transition:color 160ms var(--jimo-ease),transform 160ms var(--jimo-ease);}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button[aria-pressed=true] {color:var(--companion-paper);background:transparent;}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>.selection-plate {display:block;position:absolute;left:0;top:0;z-index:0;width:var(--selection-w,0px);height:var(--selection-h,0px);border:0;border-radius:10px;background:var(--companion-ink);box-shadow:none;transform:translate(var(--selection-x,0px),var(--selection-y,0px));pointer-events:none;transition:none;}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control[data-selected=false]>.selection-plate {visibility:hidden;}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control[data-animated=true]>.selection-plate {transition:transform 240ms var(--jimo-ease);}
+#root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control[data-keyboard=true]>.selection-plate {transition:none;}
+#root #main.publicmain.publicmain .home-companion .companion-caption {min-height:90px;margin:24px auto 0;max-width:50ch;text-align:center;}
+#root #main.publicmain.publicmain .home-companion .companion-caption p {margin:0;color:var(--companion-copy);line-height:1.65;}
+#root #main.publicmain.publicmain .home-companion .companion-caption .companion-action-title {margin-bottom:7px;color:var(--companion-ink);font-weight:600;}
+#root #main.publicmain.publicmain .home-companion .companion-hint {margin:14px 0 0;color:#526776;text-align:center;line-height:1.6;}
+#root #main.publicmain.publicmain .home-companion .companion-keyboard-hint {display:none;}
+#root #main.publicmain.publicmain .home-companion :is(a,button):focus-visible {outline:3px solid var(--companion-sage);outline-offset:-6px;}
+#root #main.publicmain.publicmain .home-companion .companion-stage .auth-nook-scene:focus-visible {outline-offset:-6px;}
+#root #main.publicmain.publicmain .home-companion .companion-top {display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:40px;}
+#root #main.publicmain.publicmain .home-companion .companion-top a {display:inline-flex;gap:12px;align-items:center;min-height:44px;color:var(--companion-ink);text-decoration:none;}
+#root #main.publicmain.publicmain .home-companion .companion-top>span {color:var(--companion-sage);}
+#root #main.publicmain.publicmain .home-companion-standalone {padding:24px clamp(20px,6vw,100px) 64px;}
+#root #main.publicmain.publicmain .home-companion-standalone .companion-layout {min-height:calc(100svh - 172px);max-width:1440px;margin:0 auto;}
+#root #main.publicmain.publicmain .home-companion-standalone .companion-top {max-width:1440px;margin-inline:auto;}
+@media(hover:hover) and (pointer:fine) {
+  #root #main.publicmain.publicmain .home-companion .companion-text-link:hover {color:#56735a;text-decoration-color:currentColor;}
+  #root #main.publicmain.publicmain .home-companion .companion-text-link:hover svg {transform:translateX(4px);}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button:not([aria-pressed=true]):hover {color:#153657;background:transparent;}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button:active {transform:scale(.97);}
+  #root #main.publicmain.publicmain .home-companion:focus-within .companion-keyboard-hint {display:block;margin-top:4px;}
+}
+@media(max-width:1100px) {
+  #root #main.publicmain.publicmain .home-companion .companion-layout {grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:32px;}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control {width:100%;justify-content:space-between;}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button {padding-inline:10px;}
+}
+@media(max-width:900px) {
+  #root #main.publicmain.publicmain .home-companion {padding-block:64px;min-height:0;--ui-type-page:clamp(34px,5vw,48px);--ui-type-section:clamp(34px,5vw,48px);}
+  #root #main.publicmain.publicmain .home-companion .companion-layout {grid-template-columns:1fr;gap:40px;min-height:0;}
+  #root #main.publicmain.publicmain .home-companion .companion-copy {max-width:660px;}
+  #root #main.publicmain.publicmain .home-companion .companion-intro {max-width:44ch;margin-top:22px;}
+  #root #main.publicmain.publicmain .home-companion .companion-close {margin-top:18px;}
+  #root #main.publicmain.publicmain .home-companion .companion-text-link {margin-top:18px;}
+  #root #main.publicmain.publicmain .home-companion .companion-stage {height:clamp(320px,49svh,500px);}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control {width:100%;}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button {padding-inline:18px;}
+  #root #main.publicmain.publicmain .home-companion-standalone {padding-top:20px;}
+  #root #main.publicmain.publicmain .home-companion-standalone .companion-top {margin-bottom:40px;}
+}
+@media(max-width:520px) {
+  #root #main.publicmain.publicmain .home-companion {padding-block:44px;--ui-type-page:34px;--ui-type-section:34px;--ui-type-body:15px;}
+  #root #main.publicmain.publicmain .home-companion .companion-layout {gap:30px;}
+  #root #main.publicmain.publicmain .home-companion :is(h1,h2) {letter-spacing:-.025em;}
+  #root #main.publicmain.publicmain .home-companion .companion-intro {margin-top:20px;}
+  #root #main.publicmain.publicmain .home-companion .companion-close {margin-top:18px;}
+  #root #main.publicmain.publicmain .home-companion .companion-stage {height:330px;border-radius:18px;}
+  #root #main.publicmain.publicmain .home-companion .companion-stage-name {left:18px;bottom:16px;}
+  #root #main.publicmain.publicmain .home-companion .companion-cheese-note {right:18px;top:18px;}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control {--ui-type-body:13px;width:100%;justify-content:space-between;gap:1px;padding:4px;border-radius:12px;}
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button {min-width:0;flex:1 1 0;padding-inline:8px;font-size:13px;}
+  #root #main.publicmain.publicmain .home-companion[data-language=en] .companion-actions.segmented-control>button {flex:0 0 auto;min-width:max-content;}
+  #root #main.publicmain.publicmain .home-companion .companion-caption {min-height:100px;margin-top:22px;}
+  #root #main.publicmain.publicmain .home-companion .companion-hint {margin-top:8px;}
+  #root #main.publicmain.publicmain .home-companion-standalone {padding-top:16px;}
+  #root #main.publicmain.publicmain .home-companion .companion-top>span {display:none;}
+}
+@media(max-width:360px) {
+  #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button {flex:0 0 auto;min-width:max-content;}
+}
+@media(prefers-reduced-motion:reduce) {
+  #root #main.publicmain.publicmain .home-companion *, #root #main.publicmain.publicmain .home-companion *::before, #root #main.publicmain.publicmain .home-companion *::after {scroll-behavior:auto;transition:none!important;animation:none!important;}
+  #root #main.publicmain.publicmain .home-companion .companion-text-link:hover svg, #root #main.publicmain.publicmain .home-companion .companion-actions.segmented-control>button:active {transform:none;}
+}

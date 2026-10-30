@@ -1,0 +1,44 @@
+/* U03: a direct comparison form or a current work item, rather than an intro. */
+#main.workspace .home-hub-heading{margin-bottom:0}
+#main.workspace .home-action-panel{
+ background:#fafafa;color:#292929;border:1px solid #d4d4d0;border-radius:12px;
+ padding:22px 24px;min-width:0;align-self:start;
+}
+#main.workspace .home-action-panel .home-section-title{margin-bottom:8px;gap:12px;align-items:baseline;flex-wrap:wrap}
+#main.workspace .home-action-panel .home-section-title h2{font-size:22px;line-height:1.5;color:#292929}
+#main.workspace .home-action-panel .home-section-title>a{font-size:13px;min-height:32px;display:inline-flex;align-items:center;text-underline-offset:4px}
+#main.workspace .home-action-description{font-size:14px;line-height:1.75;color:#5b5b55;margin:0 0 16px}
+#main.workspace .home-compare-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));gap:8px;border:0;padding:0;margin:0;min-width:0}
+#main.workspace .home-compare-option{display:flex;align-items:center;gap:9px;min-width:0;min-height:44px;padding:9px 10px;margin:0;border:1px solid #c9c9c3;border-radius:7px;background:#fff;color:#3d3d37;font-size:13px;line-height:1.6;cursor:pointer;box-sizing:border-box}
+#main.workspace .home-compare-option span{min-width:0;overflow-wrap:anywhere}
+#main.workspace .home-compare-option input{appearance:auto;accent-color:#33332e;width:16px;height:16px;min-height:0;margin:0;padding:0;flex:none;box-shadow:none;border-radius:0}
+#main.workspace .home-compare-option.is-selected{background:#e9e9e4;border-color:#686860;color:#292929}
+#main.workspace .home-compare-option.is-disabled{background:#f4f4f1;border-color:#deded8;color:#76766d;cursor:not-allowed}
+#main.workspace .home-compare-option:focus-within{outline:2px solid #55554d;outline-offset:2px}
+#main.workspace .home-compare-option input:focus-visible{outline:0}
+#main.workspace .home-compare-status{font-size:13px;line-height:1.7;color:#5b5b55;margin:12px 0}
+#main.workspace .home-action-panel .actions{margin:0;gap:8px;align-items:center}
+#main.workspace .home-action-panel .actions>:is(button,.button){min-height:44px;font-size:14px;box-shadow:none}
+#main.workspace .home-action-panel .actions .primary:disabled{opacity:1;background:#e7e7e1;color:#6b6b62;border-color:#d7d7cf;cursor:not-allowed;transform:none}
+#main.workspace .home-compare-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 16px}
+#main.workspace .home-other-actions{display:flex;flex-wrap:wrap;gap:0 18px;border:0;margin:0;padding:0}
+#main.workspace .home-other-actions a{display:inline-flex;align-items:center;min-height:44px;padding:4px 0;font-size:13px;color:#484842;text-underline-offset:4px}
+#main.workspace .home-action-panel .home-next-content{animation:none}
+#main.workspace .home-current h3{font-size:19px;line-height:1.6;margin:14px 0 8px;letter-spacing:0;overflow-wrap:anywhere}
+#main.workspace .home-current .home-next-content>p{font-size:14px;line-height:1.8;color:#5b5b55;margin:0 0 16px}
+#main.workspace .home-pending-items{padding-left:20px;margin:0 0 18px;color:#3d3d37;font-size:14px;line-height:1.8;overflow-wrap:anywhere}
+#main.workspace .home-task-standard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;font-size:13px;line-height:1.8;border-top:1px solid #deded8;padding-top:12px;margin:0 0 18px}
+#main.workspace .home-task-standard dt{color:#62625a}
+#main.workspace .home-task-standard dd{margin:0;color:#3d3d37;overflow-wrap:anywhere}
+#main.workspace .home-current .home-task-blocked{background:#ebebe6;padding:10px 12px;border-radius:5px}
+#main.workspace .home-current .home-defer{border:0;background:transparent;color:#55554d;box-shadow:none}
+#main.workspace .home-current>small{color:#5b5b55;font-size:13px}
+@media(hover:hover){#main.workspace .home-compare-option:hover:not(.is-disabled){border-color:#77776e;background:#f0f0eb}#main.workspace .home-other-actions a:hover{color:#222}}
+@media(max-width:720px){
+ #main.workspace .home-action-panel{padding:18px}
+ #main.workspace .home-action-panel .home-section-title h2{font-size:21px}
+ #main.workspace .home-compare-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #main.workspace .home-current h3{font-size:18px}
+ #main.workspace .home-task-standard{grid-template-columns:1fr;gap:4px}
+}
+@media(max-width:360px){#main.workspace .home-compare-option{padding-inline:7px;gap:7px}}

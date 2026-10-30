@@ -1,0 +1,64 @@
+/* Reference-calibrated roles, shared by operating pages and dialogs.
+   A named important layer intentionally outranks legacy/unlayered sizes,
+   including lazy page styles. This layer changes no icon or SVG coordinates. */
+@layer type-system {
+ :root{--ui-type-page:30px;--ui-type-section:22px;--ui-type-card:18px;--ui-type-body:14px;--ui-type-note:12px}
+ #root .publicmain{--ui-type-page:36px;--ui-type-section:26px;--ui-type-card:20px;--ui-type-body:16px;--ui-type-note:13px}
+ #root{font-size:var(--ui-type-body)!important}
+ #root :where(*):not(:where(svg,svg *)){font-size:inherit!important}
+ #root :is(p,li,td,th,label,input,textarea,select,button,summary,small,caption,figcaption,blockquote,pre,code,dt,dd){font-size:var(--ui-type-body)!important}
+ #root :is(small,caption,figcaption){font-size:var(--ui-type-note)!important}
+ #root :is(.caption,.breadcrumbs,.nav-label,.workbench-metric-note,.workbench-state,.capacity-note,.composer-disclaimer,.chat-scope-summary,.chat-toolbar>div>span,.profile-insight-limit,.output-document-foot){font-size:13px!important}
+ #root h1{font-size:var(--ui-type-page)!important;line-height:1.35;font-weight:650!important}
+ #root h2{font-size:var(--ui-type-section)!important;line-height:1.45;font-weight:650!important}
+ #root :is(h3,h4,h5,h6){font-size:var(--ui-type-card)!important;line-height:1.5;font-weight:600!important}
+ #root .publicmain :is(.section-heading h2,.showcase-heading h2,.archive-heading h2,#before-start h2,.tail-closing h2){font-size:var(--ui-type-page)!important;line-height:1.35!important}
+ #root .publicmain .os-copy-body h3{font-size:var(--ui-type-section)!important}
+ #root .career-book-cover strong{font-size:var(--ui-type-card)!important;font-weight:600!important}
+ #root :is(.home-entry-heading,.spread-step-title,.start-answer summary,.problem-card-title){font-size:var(--ui-type-card)!important;font-weight:600!important}
+ #root .brand{font-size:var(--ui-type-card)!important}
+ #root :is(.os-count,.os-counter,.story-index,.spread-step-number,.story-rail h3,.modal>header h2,.auth-dialog h2){font-size:var(--ui-type-section)!important}
+ #root :is(.os-counter,.story-index,.spread-step-number){line-height:1.45}
+ #root :is(.os-counter,.story-index)>span{font-size:inherit!important}
+}
+@layer type-system {
+ #root #main.workbench-home .workbench-metric-value{font-size:var(--ui-type-page)!important}
+ @media(max-width:720px){
+  #root{--ui-type-page:26px;--ui-type-section:22px;--ui-type-card:18px;--ui-type-body:15px;--ui-type-note:13px}
+  #root .publicmain{--ui-type-page:32px;--ui-type-section:24px;--ui-type-card:20px;--ui-type-body:16px}
+  #root :is(input,textarea,select){font-size:16px!important}
+ }
+}
+/* Reflow controls rather than shrinking labels back to small type. */
+#root :is(button,input,select,textarea){line-height:1.5}
+#root :is(p,small,figcaption,blockquote,dd){line-height:1.65}
+#root #main.student-workspace{line-height:1.6}
+#root #main.student-workspace :is(p,li,dd){line-height:1.6}
+#root #main.student-workspace :is(.caption,.breadcrumbs,.capacity-note,.composer-disclaimer,.chat-scope-summary){line-height:1.5}
+#root :is(h1,h2,h3,h4,h5,h6){overflow-wrap:anywhere}
+#root :is(.publicnav,.workspace-header,.screen-heading,.section-heading){height:auto;min-height:0}
+#root .publicnav{min-height:82px;gap:16px;padding-block:14px}
+#root .publicnav .public-links{flex-wrap:wrap;gap:16px}
+#root :is(.prototype-bar,.breadcrumbs,.workspace-context-bar){height:auto;flex-wrap:wrap}
+#root :is(.os-counter,.story-index){height:auto;min-height:0}
+#root :is(.os-copy-body,.os-copy,.archive-caption,.occupation-grid>article){min-width:0}
+#root :is(.os-copy-body p,.archive-caption p,.caption,.muted){overflow-wrap:anywhere}
+#root :is(span,strong,a){overflow-wrap:anywhere}
+#root .assistant-page .tabs a{white-space:normal;min-width:0;height:auto;overflow-wrap:anywhere}
+/* The former 125–145px absolute cover cannot hold three English text groups.
+   Keep all copy and let the book, shelf and card grow with the content. */
+#root .publicmain.publicmain .career-book-shelf{height:auto;min-height:0;padding:28px 24px 30px;flex-shrink:0}
+#root .publicmain.publicmain .career-book{width:210px;max-width:100%;height:auto;min-height:0}
+#root .publicmain.publicmain .career-book-cover{position:relative;inset:auto;box-sizing:border-box;min-height:280px;height:auto;gap:18px;padding:22px 18px 22px 25px}
+#root .publicmain.publicmain .career-book-cover :is(span,strong,i){display:block;flex-shrink:0;max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.5;font-style:normal}
+#root .publicmain.publicmain .tail-closing h2{margin-bottom:28px;color:#071331}
+#root .publicmain.publicmain .tail-closing p{max-width:64ch;margin:0 auto 32px;color:#52617b}
+#root .publicmain.publicmain .tail-closing a{margin-top:26px;color:#52617b}
+#root .publicmain.publicmain .tail-closing small{margin-top:32px;color:#52617b}
+#root .publicmain.publicmain .tail-closing-frame{max-width:100%;box-sizing:border-box}
+@media(max-width:720px){
+ #root .publicnav{flex-wrap:wrap;gap:10px}
+ #root .publicnav .brand{margin-right:auto}
+ #root .publicnav>button{max-width:100%;white-space:normal}
+}
+

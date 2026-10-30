@@ -1,0 +1,28 @@
+{
+  "version": "existing-authored-candidate-20261028-v1",
+  "foundationRoles": 10,
+  "foundationSources": 20,
+  "courses": 4,
+  "chapters": 16,
+  "totalSources": 36,
+  "chunks": 308,
+  "structuralChecksPassed": true,
+  "sourceFilesUnchanged": true,
+  "published": false,
+  "paidCalls": 0,
+  "excluded": [
+    "sample_summary",
+    "observed_mentions",
+    "raw job descriptions",
+    "job-specific salary/degree/experience clauses",
+    "personality or potential scores",
+    "specialization and responsibility claims pending separate review"
+  ],
+  "nextWork": [
+    "Review candidate definitions and tasks as authored career guidance",
+    "Check course claims against original reference outputs and current published version",
+    "Publish an explicit reviewed derivative with truthful review identity",
+    "Evaluate retrieval and answer support against independent labelled cases"
+  ],
+  "originalApprovalFieldsUnchanged": true
+}

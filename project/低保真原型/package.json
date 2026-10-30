@@ -1,0 +1,25 @@
+{
+  "name": "career-lowfi-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run i18n:check && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.mjs",
+    "build:server": "npm run i18n:check && vite build --mode server",
+    "start:auth": "node server/auth-server.mjs",
+    "i18n:check": "node scripts/prepare-bilingual.mjs --check"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "vite": "^7.1.0"
+  }
+}

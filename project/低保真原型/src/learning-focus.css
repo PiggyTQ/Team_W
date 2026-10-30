@@ -1,0 +1,78 @@
+/* Resource scanning leads to reading; requirements and practice stay one step away. */
+#main.workspace .learning-focus .catalog-intent{padding:0;margin-bottom:18px}
+#main.workspace .learning-focus .catalog-intent h2{margin:0 0 8px;font-size:20px}
+#main.workspace .learning-focus .catalog-intent p{max-width:74ch;font-size:13px;line-height:1.8}
+#main.workspace .learning-focus .catalog-intent .learning-mode-note{border:0;padding:0;margin:6px 0 0}
+#main.workspace .learning-focus .learning-continuation{margin:0 0 18px;padding:12px 16px;gap:20px}
+#main.workspace .learning-focus .learning-continuation header h3{font-size:16px;margin-bottom:4px}
+#main.workspace .learning-focus .learning-continuation header p{font-size:12px;line-height:1.7;margin:0}
+#main.workspace .learning-focus .learning-continuation>div>article{padding:6px 0;gap:12px}
+#main.workspace .learning-focus .learning-continuation h4{font-size:15px;margin:0 0 4px}
+#main.workspace .learning-focus .learning-continuation article p{font-size:12px;margin:4px 0}
+#main.workspace .learning-focus .learning-continuation article small{font-size:11px}
+#main.workspace .learning-focus .learning-card{grid-template-columns:96px minmax(0,1fr);gap:20px;padding:20px 0}
+#main.workspace .learning-focus .learning-media img{height:72px}
+#main.workspace .learning-focus .learning-media>span{padding:8px 0;font-size:11px}
+#main.workspace .learning-focus .learning-card-content{display:block}
+#main.workspace .learning-focus .learning-card-intro>h3{font-size:21px;line-height:1.5;margin:0 0 6px}
+#main.workspace .learning-focus .task-meta{gap:8px 18px;font-size:12px;line-height:1.7}
+#main.workspace .learning-focus .learning-output{display:flex;align-items:baseline;gap:12px;margin:10px 0 14px;padding:0;border:0}
+#main.workspace .learning-focus .learning-output>span{font-size:12px;white-space:nowrap;flex:none}
+#main.workspace .learning-focus .learning-output p{font-size:14px;line-height:1.8;margin:0;color:#4d4d48;max-width:66ch}
+#main.workspace .learning-focus .learning-card-intro>.caption{margin:8px 0 12px;font-size:12px;line-height:1.7}
+#main.workspace .learning-focus .learning-card-intro .actions{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+#main.workspace .learning-focus .learning-card-intro .actions>button{min-height:44px;font-size:13px;flex:none;padding:8px 12px}
+#main.workspace .learning-focus .learning-card-intro .actions>.learning-bookmark{border-color:transparent;background:transparent;color:#55554f;box-shadow:none}
+#main.workspace .learning-focus .learning-card-intro .actions>.learning-bookmark:hover{background:#f1f1ed;color:#292929}
+#main.workspace .learning-focus .learning-card-intro .actions>.learning-bookmark[aria-pressed=true]{text-decoration:underline;text-underline-offset:4px}
+#main.workspace .learning-focus .learning-reading-disclosure{border:0;padding:0;margin:0;min-width:0}
+#main.workspace .learning-focus :is(.learning-reading-disclosure,.learning-related-disclosure)>summary{min-height:44px;align-content:center;box-sizing:border-box;font-size:13px;color:#55554f;cursor:pointer;padding:8px 0;line-height:1.8}
+#main.workspace .learning-focus :is(.learning-reading-disclosure,.learning-related-disclosure)>summary:hover{color:#292929;text-decoration:underline;text-underline-offset:4px}
+#main.workspace .learning-focus .learning-reading-disclosure[open]>summary{margin-bottom:10px}
+#main.workspace .learning-focus .learning-reading-guide{border:0;border-top:1px solid #d9d9d3;padding:16px 0 10px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;min-width:0}
+#main.workspace .learning-focus .learning-reading-guide :is(h4,h5){font-size:15px;margin:0 0 8px;line-height:1.6}
+#main.workspace .learning-focus .learning-reading-guide p{font-size:13px;margin:0 0 12px;line-height:1.8}
+#main.workspace .learning-focus .learning-reading-guide small{display:block;font-size:12px;color:#62625d;line-height:1.8;margin-top:10px}
+#main.workspace .learning-focus .learning-reading-guide button{font-size:13px;line-height:1.7;min-height:44px;padding:10px 0}
+#main.workspace .learning-focus .learning-related-disclosure{padding:0;margin:0;border:0}
+#main.workspace .learning-focus .learning-related-disclosure>div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #deded8}
+#main.workspace .learning-focus .learning-related-disclosure small{font-size:12px;line-height:1.8}
+#main.workspace .learning-focus .learning-related-disclosure button{min-height:44px;font-size:13px;flex:none}
+#main.workspace .learning-focus .project-preview{margin:12px 0 0;padding-top:16px}
+#main.workspace .learning-focus .project-preview>h4{font-size:17px;margin:0 0 14px}
+#main.workspace .learning-focus .project-preview>.field{max-width:380px}
+#main.workspace .learning-focus .project-preview .actions{margin:16px 0 0;gap:8px}
+#main.workspace .learning-focus .project-preview .actions>button{min-height:44px;font-size:13px}
+@media(max-width:1100px){
+ #main.workspace .learning-focus .learning-card{grid-template-columns:76px minmax(0,1fr);gap:16px}
+ #main.workspace .learning-focus .learning-media img{height:64px}
+ #main.workspace .learning-focus .learning-reading-guide{grid-template-columns:minmax(0,1fr);gap:18px}
+}
+@media(max-width:720px){
+ #main.workspace .learning-focus{gap:18px}
+ #main.workspace .learning-focus .library-filters{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding-bottom:12px;align-items:center}
+ #main.workspace .learning-focus .learning-collections{margin:0;gap:4px}
+ #main.workspace .learning-focus .learning-collections>a{padding-inline:9px;font-size:12px}
+ #main.workspace .learning-focus .library-filter-toggle{margin:0;padding-inline:9px;min-height:44px;font-size:12px}
+ #main.workspace .learning-focus .catalog-toolbar{grid-column:1/-1}
+ #main.workspace .learning-focus .catalog-intent{margin-bottom:14px}
+ #main.workspace .learning-focus .catalog-intent h2{font-size:18px;line-height:1.6}
+ #main.workspace .learning-focus .learning-continuation{padding:12px;margin-bottom:14px;gap:8px}
+ #main.workspace .learning-focus .learning-continuation header p{display:none}
+ #main.workspace .learning-focus .learning-card{grid-template-columns:minmax(0,1fr);gap:0;padding:18px 0}
+ #main.workspace .learning-focus .learning-media{display:none}
+ #main.workspace .learning-focus .learning-card-intro>h3{font-size:21px}
+ #main.workspace .learning-focus .learning-output{gap:8px;margin:10px 0 14px}
+ #main.workspace .learning-focus .learning-output>span{font-size:12px}
+ #main.workspace .learning-focus .learning-output p{font-size:14px}
+ #main.workspace .learning-focus .learning-card-intro .actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+ #main.workspace .learning-focus .learning-card-intro .actions>.primary{grid-column:1/-1}
+ #main.workspace .learning-focus .learning-card-intro .actions>button{width:100%;white-space:normal;font-size:13px;padding:8px 12px}
+ #main.workspace .learning-focus .learning-reading-guide{gap:18px}
+ #main.workspace .learning-focus .learning-related-disclosure>div{align-items:start;flex-direction:column}
+ #main.workspace .learning-focus .project-preview .actions{display:grid;grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:360px){
+ #main.workspace .learning-focus .library-filters{grid-template-columns:minmax(0,1fr)}
+ #main.workspace .learning-focus .library-filter-toggle{justify-self:start}
+}

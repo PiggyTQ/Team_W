@@ -1,0 +1,22 @@
+{
+  "source": "C:\\Users\\tsnbx\\Desktop\\team\\project\\cheese+block+character+3d+model\\材质边界修正_20261024\\Cheese_original_shape_clean_materials.glb",
+  "source_sha256": "bc93d96c615b11e55854813585cea02029d3d0ac409c7875daa36c8d77d5a210",
+  "source_changed": false,
+  "method": "Web copy only. Exact positional weld before manifold-preserving decimation. Source UV/PBR retained outside reconstructed fused-hand contact regions, with 2048 px lossless PNG textures. Closed torso contact surfaces and a clean local navy frame arc replace fused remnants. Independent solid procedural arms, hands and eyelids follow the existing interaction state machine. Source geometry files unchanged.",
+  "meshes": [
+    {
+      "name": "Cheese_Body_Closed_and_Frame_Repair",
+      "source_triangles": 501358,
+      "web_triangles": 76280,
+      "vertices": 43555,
+      "welded_vertices": 38135,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "bytes": 18157428,
+  "sha256": "b2cc4c3e44600a017e9f7e4c97aa430198446b4e0010d104a92d6e1396b4aafb",
+  "procedural_parts": ["src/login-cheese-arms.js", "src/login-cheese-eyelids.js"],
+  "surface_repair_report": "../../检查记录/芝识分子表面修复_20261025/body-final-export-audit.json",
+  "pose_audit": "../../检查记录/芝识分子表面修复_20261025/pose-seam-audit-cheese-original-web.json"
+}

@@ -1,0 +1,5 @@
+import React from 'react';
+export default function NavigationIcon({ name = "home", size = 20 }) {
+  const paths = { home: "M3 10 12 3l9 7v11h-6v-7H9v7H3Z", compass: "m16 8-3 5-5 3 3-5 5-3Z M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20", file: "M5 3h9l5 5v13H5Z M14 3v6h5 M8 13h8 M8 17h6", map: "m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Z M9 3v16 M15 5v16", plan: "M5 4h14v17H5Z M9 2v4 M15 2v4 M8 10h8 M8 14h8 M8 18h4", book: "M3 4h7l2 2 2-2h7v16h-7l-2 2-2-2H3Z M12 6v16", chat: "M3 3h18v14H9l-6 4Z M7 8h10 M7 12h7", arrow: "M4 12h16 M14 6l6 6-6 6", check: "m5 12 4 4L19 6", clock: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18 M12 7v6l4 2", settings: "M4 7h16 M4 17h16 M8 4v6 M16 14v6", search: "M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14 m5 12 6 6", chevron: "m9 5 7 7-7 7", user: "M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M4 21v-3a8 6 0 0 1 16 0v3", grid: "M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z", shield: "m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6Z" };
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name] || paths.file} /></svg>;
+}

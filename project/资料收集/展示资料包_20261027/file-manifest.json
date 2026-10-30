@@ -1,0 +1,365 @@
+{
+  "files": [
+    {
+      "path": "00_收集进度.md",
+      "bytes": 2145,
+      "sha256": "8bf9e7bcdf91578467581669ad43883c97f8034eb1c47c23e17c08a2f91050ee"
+    },
+    {
+      "path": "来源说明.md",
+      "bytes": 3410,
+      "sha256": "e4ac51427edb9281836d642535f1a25d5e6b493978737c0181d07268af5b1610"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/chapters/01.md",
+      "bytes": 1636,
+      "sha256": "86a247ceee68411a25c1560417ac4ae086565ce49d150c5abc172e857e9e030b"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/chapters/02.md",
+      "bytes": 1696,
+      "sha256": "07601b85328178c88797f1fd08e1471be37a18d219f0389582d1b5e9a99b31a6"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/chapters/03.md",
+      "bytes": 1629,
+      "sha256": "4305c08c277f958dca0d12543a618f1e482785ed83ac4e26f987026b1ec16c49"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/chapters/04.md",
+      "bytes": 1669,
+      "sha256": "02eb62a117a6ef53cdd2b81b9d636a840d9da9e651f340345dbe47810ce62cfc"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/course.md",
+      "bytes": 1234,
+      "sha256": "8833533571e7f56f03752ee2a20998923595747df11e3c5df1023571d9e2a0e3"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/practice/data_dictionary.md",
+      "bytes": 756,
+      "sha256": "4d91dbe9cd2c100358ef42c440114d0576d894d12c9d72f14df739163ddcf13e"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/practice/input/eval_cases.jsonl",
+      "bytes": 3987,
+      "sha256": "80d3e35206329784f627ef150a85e79bc1fc745d2a4cf237c12c6d981c931f7a"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/practice/rubric.md",
+      "bytes": 769,
+      "sha256": "34457c24cc26fbf0a9292f197788259172f9442862fdecba9411d2c6d661956f"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/practice/task.md",
+      "bytes": 856,
+      "sha256": "40c8eb9f756784d22e063f76248f634ed3b68a71e08c87dc9d31f7b19747a2c0"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/reference/reference_output.md",
+      "bytes": 728,
+      "sha256": "a23cde32c223df8d3c9aaac344c348074df59e45efd40780062c2a73e2db065e"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/reference/results/reference_judgments.jsonl",
+      "bytes": 3704,
+      "sha256": "98d29d8d60789e6f2c2f2e332ba80963b6c38272819cfaeef6b3e1589a8df6fe"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/video/video.json",
+      "bytes": 760,
+      "sha256": "dd24cb0d3b7e44a59587a918542f334e55ac787802ee2e681ed946864f7be5a6"
+    },
+    {
+      "path": "ai-eval_AI调用与评估体验/video/video.md",
+      "bytes": 1156,
+      "sha256": "48b242255aaba92e9a67aa769dc7232988db2152dfd5d42d20efd79c1d514a3e"
+    },
+    {
+      "path": "catalog-ready.json",
+      "bytes": 40345,
+      "sha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043"
+    },
+    {
+      "path": "log_离线合成日志分析/chapters/01.md",
+      "bytes": 1536,
+      "sha256": "42dd97189503ed82a61e020960c1c57164e21c532b5e995560166c90b69d130c"
+    },
+    {
+      "path": "log_离线合成日志分析/chapters/02.md",
+      "bytes": 1570,
+      "sha256": "04840b0ac31a89afd1e4a20dc05c52d5df496d3a9de346ffc15b9bf993b001a8"
+    },
+    {
+      "path": "log_离线合成日志分析/chapters/03.md",
+      "bytes": 1649,
+      "sha256": "b54b21a69e0afeb2f680d18da13c63b9682f862e570dca247e7189b6d762463a"
+    },
+    {
+      "path": "log_离线合成日志分析/chapters/04.md",
+      "bytes": 1603,
+      "sha256": "be7c69103e6795fb5a027ebaa93ea254dcdb999f9592fa48f10e56e9037ade3c"
+    },
+    {
+      "path": "log_离线合成日志分析/course.md",
+      "bytes": 1224,
+      "sha256": "265911e59279cb05533515f1bdf2519a354fe7b5c98989a9d941f6de25955b58"
+    },
+    {
+      "path": "log_离线合成日志分析/practice/data_dictionary.md",
+      "bytes": 653,
+      "sha256": "6e1efb9542dfbd5d5c59bc03620aa2557da9e701b1daa376bff5637c43ca7ccb"
+    },
+    {
+      "path": "log_离线合成日志分析/practice/input/app_logs.jsonl",
+      "bytes": 19922,
+      "sha256": "299506463b42d053bf97815dcdef8b09242fbf07acba37a690f118c69dd9270a"
+    },
+    {
+      "path": "log_离线合成日志分析/practice/input/app.log",
+      "bytes": 8522,
+      "sha256": "206a74d98337d8496c20a018795f281d0085a84345230cb328bd63b7e3b3e8cc"
+    },
+    {
+      "path": "log_离线合成日志分析/practice/rubric.md",
+      "bytes": 766,
+      "sha256": "809c62b3f3e2e80e0ba6099fe702f9ff488e1d90f1c54abc6e83f3cff2750ab9"
+    },
+    {
+      "path": "log_离线合成日志分析/practice/task.md",
+      "bytes": 906,
+      "sha256": "2848c5d038b21165e51d39a11e24e41d4ff75edacf60fea64b9200a95e4b343e"
+    },
+    {
+      "path": "log_离线合成日志分析/reference/reference_output.md",
+      "bytes": 798,
+      "sha256": "ae67953fcd7ab3fa5dd0eb09a17d485bb5cd277eb2c31f44fcee00a5fa722f8d"
+    },
+    {
+      "path": "log_离线合成日志分析/reference/results/control_counts.json",
+      "bytes": 273,
+      "sha256": "a741d7f3b0e01b44297be5293b85f3cf12ee58e976f2ad6dc401ce6b65931c35"
+    },
+    {
+      "path": "log_离线合成日志分析/reference/results/event_timeline.csv",
+      "bytes": 488,
+      "sha256": "c2f332c9f017737ea38c5ef56ca351e3cf5f3016743006bab45a1222a59d9ea9"
+    },
+    {
+      "path": "log_离线合成日志分析/video/video.json",
+      "bytes": 785,
+      "sha256": "bfda447f917b3128eae50b8558c1203ab5555d03d0a46876bfe5308c6915a990"
+    },
+    {
+      "path": "log_离线合成日志分析/video/video.md",
+      "bytes": 1119,
+      "sha256": "11a5c2805614d5e2de1ef934b4c3109d04a4b6055ef26805d611842f69fb3905"
+    },
+    {
+      "path": "quality_数据质量小项目/chapters/01.md",
+      "bytes": 1896,
+      "sha256": "b68f69269aaab81d38504e10c11c650bace29ed27f77dcef255c6fa5e148ba05"
+    },
+    {
+      "path": "quality_数据质量小项目/chapters/02.md",
+      "bytes": 1878,
+      "sha256": "7233239f1adac054ae3c2e911831c67a6bbde188f713aaefd14c1dc8270b016c"
+    },
+    {
+      "path": "quality_数据质量小项目/chapters/03.md",
+      "bytes": 1876,
+      "sha256": "ae4b7d37c5735f86016e4e86aab6f74426d6873b141ebb2d209cdd4dca9a809d"
+    },
+    {
+      "path": "quality_数据质量小项目/chapters/04.md",
+      "bytes": 1806,
+      "sha256": "c1cc216ea3f1568c39415ae719d41ca68e969ee0e84c28b99da83575030ac8f0"
+    },
+    {
+      "path": "quality_数据质量小项目/course.md",
+      "bytes": 1349,
+      "sha256": "e92646b1f3522fdf83fe5d77e8d8b55dface30fb30512ea2f3160c1f3b37d564"
+    },
+    {
+      "path": "quality_数据质量小项目/practice/data_dictionary.md",
+      "bytes": 1291,
+      "sha256": "f5a63da587d71135682e9225aa03e5d8980b37098a22a709595ebbf694b89778"
+    },
+    {
+      "path": "quality_数据质量小项目/practice/input/penguins_exercise.csv",
+      "bytes": 17427,
+      "sha256": "78c0bfe4d4222830d7fd4212be998fe4d2492c85dc4dcffb74056fcc88cc86a6"
+    },
+    {
+      "path": "quality_数据质量小项目/practice/input/penguins_exercise.jsonl",
+      "bytes": 62659,
+      "sha256": "5203df8d31f2c1dcf429da3b23ad9bf746fe05be93e12e6c42f59b24e4751cb2"
+    },
+    {
+      "path": "quality_数据质量小项目/practice/input/penguins_source.csv",
+      "bytes": 15241,
+      "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93"
+    },
+    {
+      "path": "quality_数据质量小项目/practice/rubric.md",
+      "bytes": 769,
+      "sha256": "b902935baa8c5428453eebab0033f2bd483f9c580b80111ca3aeb98cca89facb"
+    },
+    {
+      "path": "quality_数据质量小项目/practice/task.md",
+      "bytes": 1260,
+      "sha256": "144223721820447d526cb6b0d47bafc4b7a93eec4d2395b1ac08fec5c30b36c2"
+    },
+    {
+      "path": "quality_数据质量小项目/reference/injection_manifest.json",
+      "bytes": 806,
+      "sha256": "b3d7ef706f2ac0c254ec106157355cd8cb689cc3c9f47544457f04b1c4b89d61"
+    },
+    {
+      "path": "quality_数据质量小项目/reference/reference_output.md",
+      "bytes": 953,
+      "sha256": "4004094268227397f7d306f593daa7bb1ecc9e1d75ec85e0fee8ff35e9a39c62"
+    },
+    {
+      "path": "quality_数据质量小项目/reference/results/control_counts.json",
+      "bytes": 1136,
+      "sha256": "8f2464d69a871b3314c68eb8ea3212b9a525d1341ab1ad04170e452322417f62"
+    },
+    {
+      "path": "quality_数据质量小项目/reference/results/issues.csv",
+      "bytes": 1523,
+      "sha256": "841d3ec0bc907ab2bd80c1f27d80b8ccb8fa69362441eefa68104f4062300fb5"
+    },
+    {
+      "path": "quality_数据质量小项目/reference/results/penguins_prepared.jsonl",
+      "bytes": 62289,
+      "sha256": "f82abf6a72eb7e7a806a59a5b89d8797967a1896ffd6e979eee08b52566213c9"
+    },
+    {
+      "path": "quality_数据质量小项目/reference/results/summary.csv",
+      "bytes": 270,
+      "sha256": "cf045a6240bad9e6a79c4c69f3f56096e04902b987ded70d82d14e8b4984c4a4"
+    },
+    {
+      "path": "quality_数据质量小项目/video/video.json",
+      "bytes": 871,
+      "sha256": "caa0b374ee110da16ac9edf64efa7ba267ac76af2c012a43bf165d8b15430c53"
+    },
+    {
+      "path": "quality_数据质量小项目/video/video.md",
+      "bytes": 1260,
+      "sha256": "d3787bab372747d1a0a56cbc85701aaaf45535e9978a5b2dd204ab5eba86c55f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1926,
+      "sha256": "9419c6d995ffcb59954f8a053875fac9d70c6dbe78e1f5e74f5f3735754e543f"
+    },
+    {
+      "path": "restore_模拟恢复记录/chapters/01.md",
+      "bytes": 1670,
+      "sha256": "137a69a5e8fa8bfcee28ec14f3ab33db131438b6a13c84525cfb313d839d9c39"
+    },
+    {
+      "path": "restore_模拟恢复记录/chapters/02.md",
+      "bytes": 1718,
+      "sha256": "53d6fa20b09a474332e65ec7940e03a7f5aebfc652b166fec5dd61e732bb5121"
+    },
+    {
+      "path": "restore_模拟恢复记录/chapters/03.md",
+      "bytes": 1516,
+      "sha256": "b4ec3f974203381c6646cfc57c7b0c4c7f601e5ca1c47b96a2cda5072ec21db5"
+    },
+    {
+      "path": "restore_模拟恢复记录/chapters/04.md",
+      "bytes": 1661,
+      "sha256": "bf335b57bbb648032dfd03456ddba6bd2195206ce7605da9188f9e12070a06e9"
+    },
+    {
+      "path": "restore_模拟恢复记录/course.md",
+      "bytes": 1244,
+      "sha256": "e36b5aa85761a784a7be0956b599295ae3f6341b5a4db87533e1197e7b8ae382"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/data_dictionary.md",
+      "bytes": 531,
+      "sha256": "15cece149089acbde807ffcfe32f7146471d8fba04fc94f686d119f7cce921f7"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/input/incident.md",
+      "bytes": 934,
+      "sha256": "40b3e62a5abf82eb9474d8ee8825e7c0820afa85df106c8f87d1a747fd54936d"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/input/monitoring.csv",
+      "bytes": 851,
+      "sha256": "8c9344c950d2904fc0c39fe4eef0370bb8e70afa8015c76b9bb370aa5ede27cf"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/input/monitoring.jsonl",
+      "bytes": 2207,
+      "sha256": "4c801a462ad8f953ac7cc95a9b74fcce5f2ddd3357592dca2c7fb66e41037713"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/input/timeline.csv",
+      "bytes": 905,
+      "sha256": "875e55c3174d11abee0224f1f9bb3cfd9688605f03cbd01e962e750806e1070f"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/input/timeline.jsonl",
+      "bytes": 1472,
+      "sha256": "eb25c4d47725e6f04b874e72a9fe3716cf12522c85356659af27cb9d3f4c82da"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/rubric.md",
+      "bytes": 788,
+      "sha256": "02fa6513a9aa1a268c92afefa0cec4f394b5e1611b2a530e17610f6cf4fe7dbf"
+    },
+    {
+      "path": "restore_模拟恢复记录/practice/task.md",
+      "bytes": 1020,
+      "sha256": "6a4d50fe835364d5b6d295c3b702f2430a6cd4bcc304572b5eae16699469e2ff"
+    },
+    {
+      "path": "restore_模拟恢复记录/reference/reference_output.md",
+      "bytes": 925,
+      "sha256": "e1cdadc2e35f118c352b9113bcc0dc11a6eebd32fc1aa51773c0f5f1d951147c"
+    },
+    {
+      "path": "restore_模拟恢复记录/reference/results/verification.json",
+      "bytes": 2487,
+      "sha256": "f0d15155c8e9801a21a10c33645a27362d3551d2dde4fb1d7456af2792891bf6"
+    },
+    {
+      "path": "restore_模拟恢复记录/video/video.json",
+      "bytes": 789,
+      "sha256": "82173c19f478db41bf63172ec35d545bcfa14c742085d1a90d02fc3c7d599905"
+    },
+    {
+      "path": "restore_模拟恢复记录/video/video.md",
+      "bytes": 1132,
+      "sha256": "23dd58c8ba5a091644ccbfadf64e104dbb5c4b7c99e8a7b588bf3721cb9e90b9"
+    },
+    {
+      "path": "source-receipts.json",
+      "bytes": 10076,
+      "sha256": "e8a3bb04bd50f3ef59ebb2c11aa896bf76003a9306ba2fb4c466ac1ba8561f99"
+    },
+    {
+      "path": "sources.csv",
+      "bytes": 3281,
+      "sha256": "5f64ec98aa5eb3e5bdbb9b0b3d07722a86b680b6ec6ad5fe00fc876c212500c3"
+    },
+    {
+      "path": "tools/validate_materials.py",
+      "bytes": 7188,
+      "sha256": "b6b29a752857656f927cde6032ebbf130923bf3527cca1149415c03399f21a28"
+    },
+    {
+      "path": "validation-report.json",
+      "bytes": 3237,
+      "sha256": "2cdd574c1c06eeba4a6a27c5e9b65a407d5273c24326c598bd7d7526325ec5a1"
+    }
+  ],
+  "count": 72
+}

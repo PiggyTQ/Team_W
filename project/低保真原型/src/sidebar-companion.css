@@ -1,0 +1,178 @@
+/* The companion belongs to the sidebar flow. Nothing floats over navigation. */
+.sidebar-companion {
+  flex: none;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  border: 0;
+  border-radius: 14px;
+  background: #eae3d6;
+  color: #345849;
+  box-sizing: border-box;
+}
+.sidebar-companion .sidebar-companion-presence {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.sidebar-companion :is(.sidebar-companion-pet, .sidebar-companion-restore) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 11px;
+  background: #faf7ed;
+  color: #345849;
+  cursor: pointer;
+  box-shadow: none;
+}
+.sidebar-companion .sidebar-companion-pet {
+  --companion-face: #345849;
+  --companion-ear: #c3d0bd;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  background: #567762;
+  color: #faf7ed;
+}
+.sidebar-companion .sidebar-companion-cat {
+  display: block;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  overflow: visible;
+}
+.sidebar-companion .sidebar-companion-copy {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.sidebar-companion .sidebar-companion-copy strong {
+  display: block;
+  margin: 0 0 2px;
+  color: #354b3c;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.sidebar-companion .sidebar-companion-copy small {
+  display: block;
+  color: #58614f;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.sidebar-companion .sidebar-companion-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  margin-top: 6px;
+  min-width: 0;
+}
+.sidebar-companion .sidebar-companion-controls button {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #4c5e4b;
+  font: inherit;
+  line-height: 1.3;
+  text-align: center;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  box-shadow: none;
+}
+.sidebar-companion .sidebar-companion-controls button:last-child {
+  flex: 0 1 auto;
+  min-width: 44px;
+  color: #646753;
+}
+.sidebar-companion .sidebar-companion-controls svg {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.sidebar-companion .sidebar-companion-restore {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 6px;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.sidebar-companion .sidebar-companion-restore .sidebar-companion-cat {
+  width: 30px;
+  height: 30px;
+}
+.sidebar-companion[data-hidden="true"] { padding-block: 3px; }
+.sidebar-companion[data-collapsed="true"] {
+  width: 44px;
+  padding: 0;
+  margin-inline: auto;
+  background: transparent;
+}
+.sidebar-companion[data-collapsed="true"] .sidebar-companion-restore {
+  width: 44px;
+  justify-content: center;
+  background: #eae3d6;
+}
+.sidebar-companion button:focus-visible {
+  outline: 2px solid #8f4937;
+  outline-offset: 3px;
+}
+.sidebar-companion .sidebar-companion-tail {
+  transform-box: fill-box;
+  transform-origin: 10% 90%;
+  transform: rotate(0deg);
+  transition: transform 180ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.sidebar-companion .sidebar-companion-head {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  transform: rotate(0deg);
+  transition: transform 180ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.sidebar-companion[data-petting="true"] .sidebar-companion-tail { transform: rotate(-16deg); }
+.sidebar-companion[data-petting="true"] .sidebar-companion-head { transform: rotate(-5deg); }
+@media (hover: hover) and (pointer: fine) {
+  .sidebar-companion .sidebar-companion-pet:hover { background: #4c6d58; }
+  .sidebar-companion .sidebar-companion-controls button:hover,
+  .sidebar-companion .sidebar-companion-restore:hover { background: #dcd8c8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-companion :is(.sidebar-companion-tail, .sidebar-companion-head) {
+    transform: none;
+    transition: none;
+  }
+  .sidebar-companion[data-petting="true"] :is(.sidebar-companion-tail, .sidebar-companion-head) { transform: none; }
+}
+/* The legacy global button theme has an ID selector. Keep this symbol and its
+   small controls in the sidebar's own material, including pressed states. */
+#root > #workspace-sidebar .sidebar-companion {
+  background:#e4e8da;
+  & button { border:0; box-shadow:none; transform:none; border-radius:8px; color:#4c5e4b; }
+  & .sidebar-companion-pet { background:#567762; color:#faf7ed; border-radius:11px; }
+  & .sidebar-companion-restore { background:transparent; color:#4c5e4b; border-radius:8px; }
+  & .sidebar-companion-controls button { background:transparent; border-radius:8px; }
+  &[data-collapsed=true] { background:transparent; }
+  &[data-collapsed=true] .sidebar-companion-restore { background:#e4e8da; }
+  & .sidebar-companion-cat { color:inherit; }
+}
+@media (hover:hover) and (pointer:fine) {
+  #root > #workspace-sidebar .sidebar-companion .sidebar-companion-pet:hover { background:#486953; }
+  #root > #workspace-sidebar .sidebar-companion :is(.sidebar-companion-controls button,.sidebar-companion-restore):hover { background:#d5ddcb; }
+}

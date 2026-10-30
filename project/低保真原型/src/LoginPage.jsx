@@ -1,0 +1,86 @@
+import ProductIcon from './ProductIcon';
+import BrandLogo from './BrandLogo';
+import React, {useEffect, useRef, useState} from 'react';
+import {useLanguage} from './i18n/render';
+import LoginNookScene from './LoginNookScene';
+import {authMessage} from './auth-contract';
+
+const copy={
+  zh:{brand:'Avemly',back:'返回首页',title:<>每一种可能，<br/>都从你出发。</>,description:'认识职业，找到方向，走好自己的下一步。',welcome:'欢迎回来',register:'从这里，开始探索',recover:'找回访问方式',intro:'继续探索你的职业可能。',registerIntro:'给未来的自己，留一个新的起点。',recoverIntro:'输入示例邮箱，体验找回流程。',login:'登录',signup:'注册',email:'邮箱',password:'密码',forgot:'忘记密码？',show:'显示密码',hide:'隐藏密码',submit:'登录，继续探索',create:'注册，开启探索',reset:'模拟找回（不发邮件）',emailLabel:'示例邮箱',passwordLabel:'模拟密码',submitLabel:'模拟登录并恢复入口',createLabel:'模拟注册并恢复入口',cancelLabel:'取消认证，回公开首页',cancel:'先逛逛，返回首页',demo:'原型演示',demoCopy:'请用示例邮箱和模拟密码，不创建真实账户。',agree:'我已阅读并同意原型使用说明',legal:'使用与隐私说明',legalCopy:'记录仅保存在当前浏览器；本原型未接入真实认证、AI 或后台。请勿输入真实密码或敏感个人资料。',fail:'模拟认证失败',restore:'认证恢复地址',legalSummary:'本机演示 · 使用与隐私',idle:'下一步，我们一起找。',emailMood:'你好呀，未来的探索者。',secret:'放心，我不看。',visible:'我还是不看，你慢慢确认。',errorMood:'没关系，再试一次。',modeMood:'新的可能，从这里开始。',recoveryMood:'别着急，我们慢慢来。',buddy:'和探索伙伴打个招呼',hello:'嗨！很高兴和你一起出发。',scene:'通向蓝色拱门的弯曲小路、阶梯与树木，象征职业探索的多种可能',footer:'你的节奏，你的方向。',annotation:'探索没有标准路线。'},
+  en:{brand:'Avemly',back:'Back to home',title:<>Every possibility<br/> starts with you.</>,description:'Explore careers. Find a direction. Take your next step.',welcome:'Welcome back',register:'Your next chapter',recover:'Recover access',intro:'Pick up where your curiosity left off.',registerIntro:'Make a little room for your future self.',recoverIntro:'Try the recovery flow with a sample email.',login:'Sign in',signup:'Sign up',email:'Email',password:'Password',forgot:'Forgot password?',show:'Show password',hide:'Hide password',submit:'Sign in and explore',create:'Start exploring',reset:'Simulate recovery (no email sent)',emailLabel:'Sample email',passwordLabel:'Demo password',submitLabel:'Simulate Sign in and return to your entry',createLabel:'Simulate Sign up and return to your entry',cancelLabel:'Cancel authentication and return to public home',cancel:'Explore the homepage first',demo:'Prototype demo',demoCopy:'Use a sample email and made-up password. No real account is created.',agree:'I have read and agree to the prototype notes',legal:'Usage and privacy notes',legalCopy:'Records stay in this browser. Authentication, AI and backend services are simulated. Do not enter real passwords or sensitive information.',fail:'Simulate authentication failure',restore:'Open authentication recovery URL',legalSummary:'Local demo · Usage and privacy',idle:'Let’s find your next step.',emailMood:'Hello, future explorer.',secret:'Your secret is safe with me.',visible:'Still not looking. Take your time.',errorMood:'It’s okay. Let’s try again.',modeMood:'A new possibility starts here.',recoveryMood:'No rush. We’ll find the way.',buddy:'Say hello to your exploration companion',hello:'Hi! Glad to explore with you.',scene:'A winding ivory path, stairs and trees leading to a blue doorway, representing career possibilities',footer:'Your pace. Your direction.',annotation:'There’s more than one way forward.'}
+};
+
+const nookCopy={
+ zh:{welcome:'回到你的探索',register:'从好奇心开始',intro:'继续整理想法，安排下一步行动。',registerIntro:'先留下一个起点，方向可以慢慢探索。',title:<>下一步，<br/>一起想清楚。</>,description:'我是芝识分子，欢迎来到你的Avemly 工作区。',idle:'你好，新的探索者。',emailMood:'嗯，我在听。慢慢输入就好。',secret:'我先闭眼收好书，再用双手遮住眼睛。',visible:'你慢慢确认，我继续不看。',errorMood:'没关系，输入还在，可以再试一次。',buddy:'和芝识分子打个招呼',hello:'嗨！很高兴见到你。',hint:'点击芝识分子，打个招呼',scene:'Avemly 的桌边伙伴芝识分子'},
+ en:{welcome:'Pick up your next idea',register:'Start with curiosity',intro:'Make room for your thoughts and your next step.',registerIntro:'Start here. You can explore your direction as you go.',title:<>A little curiosity.<br/>A next step.</>,description:'I’m Cheese Scholar, your desk companion at Avemly.',idle:'Hello, curious explorer.',emailMood:'Take your time. I’m right here.',secret:'Eyes closed. I’ll stow my book, then cover both eyes.',visible:'Still not looking. Take your time.',errorMood:'Your input is still here. Let’s try again.',buddy:'Say hello to Cheese Scholar',hello:'Hi! It’s lovely to meet you.',hint:'Tap Cheese Scholar to say hello',scene:'Cheese Scholar, the Avemly desk companion'}
+};
+const motionCopy={
+ zh:{buddy:'轻碰芝识分子',hint:'轻碰芝识分子，看看它的反应',reading:'你慢慢输入，我坐下来翻会儿书。',stowing:'等我收好书，再来回应你。',reaction:'哎哟，揉揉脑袋……马上回来。',thinking:'从一个问题开始，慢慢想。',dancing:'活动一下，灵感也许就来啦。',resting:'我休息一会儿，需要时叫我。'},
+ en:{buddy:'Give Cheese Scholar a gentle tap',hint:'Give Cheese Scholar a gentle tap',reading:'Take your time. I’ll sit and read a little.',stowing:'Let me put my book away first.',reaction:'Oh! A little head rub, then I’m back.',thinking:'One question at a time.',dancing:'A little stretch, a little inspiration.',resting:'Taking a little rest. Call me when you’re ready.'}
+};
+function Arrow(){return <ProductIcon name="arrow" size={20}/>;}
+function Compass(){return <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="10" fill="currentColor"/><path d="m21.7 10.3-3.1 8.3-8.3 3.1 3.1-8.3 8.3-3.1Z" stroke="white" strokeWidth="1.6" strokeLinejoin="round"/><circle cx="16" cy="16" r="1.5" fill="white"/></svg>;}
+function Eye({hidden}){return <ProductIcon name={hidden?"eyeOff":"eye"} size={20}/>;}
+function CompanionActionIcon({kind}){return <ProductIcon name={{greet:"hand",think:"brain",rest:"moon"}[kind]||"hand"} size={20}/>;}
+
+export default function LoginPage({mode,onModeChange,form,setField,onSubmit,onCancel,onFailure,onPasswordFailure,onAuthFeedbackClear,onRestore,error,authFeedback,languageSwitch,live=false,busy=false,fieldErrors={}}){
+  const language=useLanguage(),c={...copy[language],...nookCopy[language]},m=motionCopy[language],register=mode==='注册',recovery=mode==='找回';
+  if(live)Object.assign(c,language==='en'?{emailLabel:'Email address',passwordLabel:'Password',submitLabel:'Sign in and continue',createLabel:'Create an account',reset:'Request password reset',recoverIntro:'Enter your account email to request a reset. An unavailable service will be clearly reported.',demo:'Real account',demoCopy:'Your account and records are stored on the server. Courses are connected; email and AI follow the current service configuration.',agree:'I have read and agree to the account and privacy notes below',legalSummary:'Account and privacy notes',legalCopy:'Your email is used for sign-in. Ownership can be confirmed through the verification flow when available. Passwords are stored as salted hashes. The server stores consent and revocable sessions. Your records are stored by account. Courses are connected. AI and recovery email depend on service availability and authorization. Deleting your account removes live data; permission-protected server backups expire within 14 days.'}:{emailLabel:'邮箱地址',passwordLabel:'密码',submitLabel:'登录并继续',createLabel:'创建账户',reset:'申请重置密码',recoverIntro:'输入账户邮箱申请重置，服务不可用时会明确提示。',demo:'真实账户',demoCopy:'账户与个人记录已接入服务器；课程可用，邮件与 AI 按当前服务状态开放。',agree:'我已阅读并同意下方账户使用与隐私说明',legalSummary:'账户使用与隐私说明',legalCopy:'邮箱用于登录；服务开放后可通过验证流程确认邮箱归属。密码仅以加盐哈希保存。服务器记录必要同意与可撤销会话，个人记录按账户保存。课程已接入，AI 与邮件找回按服务配置和授权范围开放。注销会删除在线数据，权限保护的服务器备份最长保留 14 天。'});
+  const [showPassword,setShowPassword]=useState(false),[focus,setFocus]=useState(''),[recoverySent,setRecoverySent]=useState(false);
+  const heading=useRef(null),greetTimer=useRef(null),reactionTimer=useRef(null);
+  const [greeting,setGreeting]=useState(false);
+  const [reaction,setReaction]=useState(0),[reacting,setReacting]=useState(false);
+  const [activity,setActivity]=useState('idle');
+  const [sceneActivity,setSceneActivity]=useState('');
+  const previousMode=useRef(mode);
+  useEffect(()=>{if(previousMode.current!==mode){previousMode.current=mode;clearTimeout(greetTimer.current);clearTimeout(reactionTimer.current);setGreeting(false);setReacting(false);setActivity('idle');setSceneActivity('');setShowPassword(false);setFocus('');setRecoverySent(false);heading.current?.focus();}},[mode]);
+  const hiding=focus==='password'||showPassword||busy;
+  useEffect(()=>()=>{clearTimeout(greetTimer.current);clearTimeout(reactionTimer.current);},[]);
+  const greet=event=>{clearTimeout(greetTimer.current);clearTimeout(reactionTimer.current);setReacting(false);setActivity('idle');setGreeting(true);greetTimer.current=setTimeout(()=>{setGreeting(false);},2800);};
+  const react=event=>{clearTimeout(greetTimer.current);clearTimeout(reactionTimer.current);setGreeting(false);setReaction(value=>value+1);setReacting(true);reactionTimer.current=setTimeout(()=>{setReacting(false);},2400);};
+  const changeActivity=(next,event)=>{const nextActivity=activity===next?'idle':next;clearTimeout(greetTimer.current);clearTimeout(reactionTimer.current);setGreeting(false);setReacting(false);setActivity(nextActivity);};
+  const actions=language==='en'?{label:'Companion interactions',greet:'Say hello',think:'Think together',rest:'Rest / wake'}:{label:'伙伴互动',greet:'打个招呼',think:'想一想',rest:'休息 / 唤醒'};
+  // The renderer reports only activity changes. Captions follow the complete
+  // action, including book stow and recovery, rather than a UI timeout.
+  const actualMood={reading:m.reading,'stow-for-reaction':m.stowing,recoil:m.reaction,privacy:showPassword?c.visible:c.secret,welcome:c.hello,think:m.thinking,dance:m.dancing,rest:m.resting,error:c.errorMood,'auth-error':c.errorMood};
+  const hasSceneActivity=sceneActivity&&sceneActivity!=='fallback';
+  const fallbackMood=focus==='email'?m.reading:reacting?m.reaction:greeting?c.hello:recovery?c.recoveryMood:activity==='think'?m.thinking:activity==='rest'?m.resting:c.idle;
+  const mood=sceneActivity==='auth-error'?c.errorMood:hiding?(showPassword?c.visible:c.secret):error?c.errorMood:hasSceneActivity?(actualMood[sceneActivity]||(recovery?c.recoveryMood:c.idle)):fallbackMood;
+  return <div className="auth-page auth-nook-page" data-secret={hiding} data-focus={focus} data-mode={recovery?'recovery':register?'register':'login'}>
+    <header className="auth-masthead">
+      <a className="auth-brand" href="/" onClick={event=>{event.preventDefault();onCancel();}}><BrandLogo/></a>
+      <div className="auth-top-actions">{languageSwitch}<button type="button" className="auth-back auth-close" onClick={onCancel} aria-label={c.cancelLabel}><ProductIcon name="close" size={20}/></button></div>
+    </header>
+    <div className="auth-layout">
+      <section className="auth-world auth-nook-world" aria-label={c.scene}>
+        <div className="auth-nook-copy"><h2>{c.title}</h2><p>{c.description}</p></div>
+        <div className="auth-nook-stage"><LoginNookScene secret={hiding} focus={focus} greeting={Boolean(greeting)} reaction={reaction} reactionActive={reacting} activity={activity} error={Boolean(error)} authFeedback={authFeedback} language={language} onReact={react} onMotionState={setSceneActivity} label={m.buddy}/></div>
+        <div className="auth-cheese-actions" role="group" aria-label={actions.label}>
+          <button type="button" onClick={greet} aria-label={actions.greet} title={actions.greet}><CompanionActionIcon kind="greet"/></button>
+          <button type="button" onClick={event=>changeActivity('think',event)} aria-pressed={activity==='think'} aria-label={actions.think} title={actions.think}><CompanionActionIcon kind="think"/></button>
+          <button type="button" onClick={event=>changeActivity('rest',event)} aria-pressed={activity==='rest'} aria-label={actions.rest} title={actions.rest}><CompanionActionIcon kind="rest"/></button>
+        </div>
+        <div className="auth-nook-caption"><p className="auth-nook-speech" role="status" aria-live={activity==='idle'&&['idle','think','dance'].includes(sceneActivity)?'off':'polite'} aria-atomic="true">{mood}</p><span>{m.hint}</span></div>
+      </section>
+      <section className="auth-form-region" aria-labelledby="auth-heading">
+        <div className="auth-form-content">
+          <div className="auth-form-heading"><h1 id="auth-heading" tabIndex={-1} ref={heading}>{recovery?c.recover:register?c.register:c.welcome}<span className="auth-heading-dot">.</span></h1><p>{recovery?c.recoverIntro:register?c.registerIntro:c.intro}</p></div>
+          <nav className="auth-modes" aria-label={language==='en'?'Account action':'账户操作'}>{[['登录',c.login],['注册',c.signup]].map(([value,label])=><button key={value} type="button" disabled={busy} aria-pressed={mode===value} onClick={()=>onModeChange(value)}>{label}</button>)}</nav>
+          <form className="auth-form" noValidate={live} aria-busy={busy} onSubmit={event=>{if(recovery&&!live)setRecoverySent(true);onSubmit(event);}} onFocus={event=>{setFocus(event.target.closest('.auth-password')?'password':event.target.name||'');if(event.target.name){clearTimeout(greetTimer.current);clearTimeout(reactionTimer.current);setGreeting(false);setReacting(false);setActivity('idle');}}} onBlur={event=>{if(!event.currentTarget.contains(event.relatedTarget))setFocus('');}}>
+            <label className="auth-field" htmlFor="auth-email">{c.email}<input id="auth-email" name="email" aria-label={c.emailLabel} type="email" autoComplete="email" autoCapitalize="none" spellCheck={false} readOnly={busy} required maxLength={254} placeholder="you@example.com" value={form.email||''} onChange={event=>{setRecoverySent(false);setField('email',event.target.value);onAuthFeedbackClear?.();}} aria-invalid={live?Boolean(fieldErrors.email||authFeedback):Boolean(error)} aria-describedby={fieldErrors.email?'auth-email-error':error?'auth-error':'auth-demo-note'}/>{fieldErrors.email&&<span className="auth-field-error" id="auth-email-error">{authMessage(fieldErrors.email,language)}</span>}</label>
+            {!recovery&&<div className="auth-password-group"><div className="auth-label-row"><label htmlFor="auth-password">{c.password}</label><button className="auth-text-button" type="button" disabled={busy} onClick={()=>onModeChange('找回')}>{c.forgot}</button></div><div className="auth-password"><input id="auth-password" aria-label={c.passwordLabel} name="password" type={showPassword?'text':'password'} autoComplete={register?'new-password':'current-password'} autoCapitalize="none" spellCheck={false} readOnly={busy} required minLength={live?undefined:4} placeholder={live?(language==='en'?(register?'8–128 characters':'Enter your password'):(register?'8–128 个字符':'输入你的密码')):(language==='en'?'At least 4 made-up characters':'至少 4 位模拟密码')} onChange={onAuthFeedbackClear} aria-invalid={live?Boolean(fieldErrors.password||authFeedback):Boolean(error)} aria-describedby={[fieldErrors.password?'auth-password-error':error?'auth-error':'auth-demo-note',live&&register?'auth-password-policy':''].filter(Boolean).join(' ')}/><button type="button" className="auth-eye-toggle" onClick={()=>setShowPassword(value=>!value)} aria-label={showPassword?c.hide:c.show} aria-pressed={showPassword}><Eye hidden={showPassword}/></button></div>{live&&register&&<p className="auth-password-policy" id="auth-password-policy">{language==='en'?'Use 8–128 characters and at least two types: uppercase letters, lowercase letters, numbers or symbols. Case and spaces must match exactly.':'8–128 个字符，须包含大写字母、小写字母、数字、符号中的至少两类；大小写与空格须完全匹配。'}</p>}{fieldErrors.password&&<p className="auth-field-error" id="auth-password-error">{authMessage(fieldErrors.password,language)}</p>}</div>}
+            {register&&<label className="auth-agree"><input name="agree" type="checkbox" disabled={busy} checked={form.agree||false} aria-invalid={Boolean(fieldErrors.agree)} aria-describedby={fieldErrors.agree?'auth-agree-error':undefined} onChange={event=>{setField('agree',event.target.checked);onAuthFeedbackClear?.();}}/><span>{c.agree}</span></label>}
+            {fieldErrors.agree&&<p className="auth-field-error" id="auth-agree-error">{authMessage(fieldErrors.agree,language)}</p>}
+            {error&&<p className="auth-error" id="auth-error" role="alert">{error}</p>}
+            <button className="auth-submit" type="submit" disabled={busy} aria-label={busy?(language==='en'?'Verifying…':'正在验证…'):recovery?c.reset:register?c.createLabel:c.submitLabel}>{busy?(language==='en'?'Verifying…':'正在验证…'):recovery?c.reset:register?c.create:c.submit}<Arrow/></button>
+            {recovery&&recoverySent&&<p className="auth-feedback" role="status">{language==='en'?'Demo recovery request received. No email was sent. You can return to sign in.':'模拟找回请求已受理，没有发送邮件。可以返回登录继续体验。'}</p>}
+          </form>
+          <p className="auth-demo-note" id="auth-demo-note"><span className="auth-demo-dot"/>{c.demo}<span>{c.demoCopy}</span></p>
+          <button className="auth-browse" type="button" onClick={onCancel}>{c.cancel}<Arrow/></button>
+          <details className="auth-demo-details"><summary>{c.legalSummary}</summary><p>{c.legalCopy}</p>{!live&&<div><button className="auth-text-button" type="button" onClick={onFailure}>{c.fail}</button>{!register&&!recovery&&<button className="auth-text-button" type="button" onClick={onPasswordFailure}>{language==='en'?'Simulate incorrect password':'模拟密码错误'}</button>}<button className="auth-text-button" type="button" onClick={onRestore}>{c.restore}</button></div>}</details>
+        </div>
+      </section>
+    </div>
+  </div>;
+}
+

@@ -1,0 +1,20 @@
+{
+  "id": "ai-eval-video",
+  "course_id": "ai-eval",
+  "chapter_ids": [
+    "ai-eval-chapter-2"
+  ],
+  "title": "LLM Evaluations in Azure AI Studio",
+  "provider": "Microsoft / Seth Juarez / Mehrnoosh Sameki",
+  "source_id": "VID-002",
+  "source_url": "https://learn.microsoft.com/en-us/shows/ai-show/llm-evaluations-in-azure-ai-studio",
+  "delivery": "external_reference",
+  "local_file": null,
+  "duration_seconds": null,
+  "language": "en",
+  "source_page_http_status": 200,
+  "source_page_verified": true,
+  "playback_verified": false,
+  "media_candidates": [],
+  "viewing_guide_zh": "来源页01:16介绍评估，04:19开始展示人工评估。产品界面可能变化；本课只做离线判定，不要求购买或配置Azure。"
+}

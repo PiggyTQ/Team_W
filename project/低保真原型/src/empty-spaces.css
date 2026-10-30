@@ -1,0 +1,47 @@
+/* v56: useful starting context, without stretching sparse content. */
+#main.workspace .home-resume-grid{align-items:start}
+#main.workspace .home-next{min-height:0;height:auto}
+#main.workspace .plan-overview{align-items:start}
+#main.workspace .plan-primary .goal-statement{height:auto;justify-content:flex-start;gap:20px}
+#main.workspace .plan-primary .goal-statement>button{margin-top:0}
+#main.workspace .plan-goal-context{margin-top:20px;padding-top:18px;border-top:1px solid #d3d3ce}
+#main.workspace .plan-goal-context h3{font-size:16px;margin:0 0 8px}
+#main.workspace .plan-goal-context p{font-size:14px;line-height:1.85;max-width:65ch;margin:0 0 12px}
+#main.workspace .plan-goal-context nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+#main.workspace .plan-goal-context a{display:inline-flex;align-items:center;min-height:44px;font-size:13px}
+#main.workspace .empty-chat-home{align-self:stretch;max-width:1040px;box-sizing:border-box;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:start;align-content:start;min-height:0;overflow-y:auto}
+#main.workspace .empty-chat-home>div:first-child{grid-column:1/-1}
+#main.workspace .empty-chat-home h3{text-align:left;font-size:26px;line-height:1.45;margin:0 0 8px}
+#main.workspace .empty-chat-home>div>p{text-align:left;font-size:14px;line-height:1.8;margin:0}
+#main.workspace .empty-prompt-starts{display:grid;grid-template-columns:1fr;gap:0;min-width:0;justify-content:stretch}
+#main.workspace .empty-prompt-starts button{display:block;text-align:left;background:transparent;box-shadow:none;border:0;border-top:1px solid #d5d5d0;border-radius:0;padding:14px 12px;min-height:0;width:100%;font-size:15px;line-height:1.7;white-space:normal}
+#main.workspace .empty-prompt-starts button:hover{background:#eeeeeb}
+#main.workspace .empty-prompt-starts button>span{display:block}
+#main.workspace .empty-prompt-starts small{display:block;font-size:13px;line-height:1.8;color:#62625e;margin-top:6px}
+#main.workspace .empty-chat-home .chat-composer{position:sticky;top:16px;align-self:start;box-sizing:border-box;margin:0;width:100%;padding:18px;background:#fff}
+#main.workspace .empty-chat-home .chat-composer textarea{min-height:150px;font-size:15px;line-height:1.8}
+#main.workspace .empty-chat-home .composer-controls{flex-wrap:wrap;gap:8px}
+#main.workspace .empty-chat-home .composer-disclaimer{font-size:12px;line-height:1.8}
+#main.workspace.assistant-workspace{overflow-y:auto!important}
+#main.workspace.assistant-workspace>.page-surface{flex:0 0 auto;min-height:0}
+#main.workspace .assistant-page-focused>.assistant-main{flex:none;height:auto;max-height:none;overflow:visible}
+#main.workspace .assistant-page-focused .ai-chat-surface.has-messages{height:auto;grid-template-rows:auto auto minmax(240px,50dvh) auto}
+#main.workspace .assistant-page-focused .ai-chat-surface.is-empty{height:auto;grid-template-rows:auto auto auto;overflow:visible}
+#main.workspace .ai-chat-surface.is-empty .empty-chat-home{overflow:visible}
+#main.workspace .ai-chat-surface.is-empty .chat-composer{position:static}
+@media(max-width:1100px){
+ #main.workspace .empty-chat-home{grid-template-columns:1fr;padding:24px}
+ #main.workspace .empty-prompt-starts{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+ #main.workspace .empty-chat-home .chat-composer{position:static}
+ #main.workspace .empty-chat-home .chat-composer textarea{min-height:100px}
+}
+@media(max-width:720px){
+ #main.workspace .empty-chat-home{padding:24px 16px;gap:20px}
+ #main.workspace .empty-chat-home{overflow:visible}
+ #main.workspace .assistant-page-focused .ai-chat-surface.is-empty{grid-template-rows:auto auto auto}
+ #main.workspace .empty-chat-home h3{font-size:22px}
+ #main.workspace .empty-prompt-starts{grid-template-columns:1fr}
+ #main.workspace .empty-prompt-starts button{padding:12px 0}
+ #main.workspace .empty-chat-home .chat-composer{padding:14px}
+ #main.workspace .empty-chat-home .chat-composer textarea{font-size:16px;min-height:100px}
+}

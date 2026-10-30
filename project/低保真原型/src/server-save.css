@@ -1,0 +1,11 @@
+.server-save-status{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 14px;margin:0 0 14px;border:1px solid #deded5;border-radius:10px;color:#4d6154;background:#f9faf5;font-size:13px;line-height:1.6;}
+.server-save-status div{display:flex;gap:8px;flex-wrap:wrap;}
+.server-save-status button{font:inherit;}
+.server-save-error{color:#8d3027;background:#fff5ef;border-color:#ecd5c8;}
+.account-security-panel{margin-top:18px;}
+.account-security-panel>summary{cursor:pointer;font-weight:600;min-height:44px;display:list-item;line-height:44px;}
+.account-security-panel p{overflow-wrap:anywhere;}
+.account-security-panel form{display:grid;gap:12px;margin:14px 0;max-width:560px;}
+.account-security-panel label{display:grid;gap:6px;}
+.account-security-panel input{width:100%;min-height:44px;font:inherit;}
+.account-security-panel .account-form-actions{display:flex;gap:8px;flex-wrap:wrap;}

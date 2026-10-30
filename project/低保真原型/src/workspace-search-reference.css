@@ -1,0 +1,39 @@
+/* Match the supplied wide white search surface, preserving search behavior. */
+html body #root#root#root#root#root > .app-header .workspace-search.global-search {
+ flex:1 1 900px;width:auto;max-width:900px;min-width:0;height:52px;min-height:52px;
+ display:flex;align-items:center;gap:12px;padding:4px 5px 4px 20px;
+ border:1px solid #edf0f3;border-radius:26px;background:#fff;
+ box-shadow:0 2px 7px -3px #253c5714;box-sizing:border-box;
+}
+html body #root#root#root#root#root > .app-header .workspace-search {
+ &>svg {color:#64748f;width:21px;height:21px;flex:none}
+ &>input {flex:1 1 0;width:0;min-width:0;height:42px;min-height:42px;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;color:#183b63;font-size:14px;outline:0}
+ &>input::placeholder {color:#63718a;opacity:1}
+ &>select {flex:0 0 144px;width:144px;min-width:0;max-width:none;min-height:28px;height:28px;border:0;border-left:1px solid #d8dde5;border-radius:0;padding:0 27px 0 20px;background-color:transparent;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='14' height='14' fill='none' stroke='%23536580' stroke-width='1.5'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;box-shadow:none;color:#536580;font-size:14px}
+ &>kbd {display:none}
+ &>.search-submit {flex:none;display:grid;place-items:center;min-width:80px;height:42px;min-height:42px;padding:0 20px;border:1px solid #0763a4;border-radius:17px;background:#00477f;color:#fff;font-size:14px;line-height:1.3;box-shadow:inset 0 1px 2px #ffffff42,0 3px 8px -4px #00477f55;white-space:nowrap}
+ &>.search-submit:hover {background:#063b69;color:#fff}
+ &>.search-clear {flex:none;min-width:24px;width:24px;height:32px;min-height:32px;padding:0;background:transparent;color:#63718a;border:0;box-shadow:none}
+ &>.search-clear:hover {background:#eef4fa;color:#143e68}
+ &>:is(button,select):focus-visible {outline:2px solid #3189d0;outline-offset:2px}
+}
+html body #root#root#root#root#root > .app-header .workspace-search:focus-within {background:#fff;border-color:#a6c6e4;box-shadow:0 0 0 3px #3989ce12}
+html[lang=en-US] body #root#root#root#root#root > .app-header .workspace-search>select {flex-basis:170px;width:170px;font-size:13px}
+@media(max-width:1100px){
+ html body #root#root#root#root#root > .app-header .workspace-search.global-search {flex-basis:100%;max-width:none;width:100%}
+}
+@media(max-width:600px){
+ html body #root#root#root#root#root > .app-header .workspace-search.global-search {gap:8px;padding-left:12px;height:50px;min-height:50px}
+ html body #root#root#root#root#root > .app-header .workspace-search {
+  &>input {font-size:16px;height:40px;min-height:40px}
+  &>svg {width:18px;height:18px}
+  &>select {flex-basis:90px;width:90px;font-size:12px;padding-left:9px;padding-right:18px}
+  &>.search-submit {min-width:62px;height:40px;min-height:40px;padding:0 12px;font-size:13px}
+ }
+ html[lang=en-US] body #root#root#root#root#root > .app-header .workspace-search>select {flex-basis:131px;width:131px;font-size:11px;padding-left:8px}
+}
+@layer type-system {
+ html body #root#root#root#root#root > .app-header .workspace-search>select {font-size:14px!important}
+ html[lang=en-US] body #root#root#root#root#root > .app-header .workspace-search>select {font-size:13px!important}
+ @media(max-width:600px){html body #root#root#root#root#root > .app-header .workspace-search>select {font-size:11px!important}}
+}

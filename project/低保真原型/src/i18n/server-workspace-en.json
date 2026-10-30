@@ -1,0 +1,20 @@
+{
+  "账户数据保存 · 课程资料收集中 · AI 尚未接入":"Account storage · Course materials pending · AI not connected",
+  "账户存储":"Account storage",
+  "正在读取账户记录，请稍候。读取失败时可使用上方重试。":"Loading your account records. Use Retry above if loading fails.",
+  "偏好已保存至账户。":"Preferences saved to your account.",
+  "重新载入账户记录？":"Reload account records?",
+  "这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。":"This replaces unsaved page changes with the latest server records. Download your changes first; cancel to keep your input.",
+  "退出前会保存本页改动并撤销会话。已保存的账户记录将保留。":"Your changes will be saved before this session is revoked. Saved account records remain.",
+  "本人记录已接入账户存储；课程资料待补充，AI 及自动能力评估尚未接入。":"Your records are stored by account. Course materials, AI and automated assessments are not available yet.",
+  "4 套课程、16 章、4 条视频正在收集，仅保留占位，尚未发布。":"4 courses, 16 chapters and 4 videos are being collected. These are unpublished placeholders.",
+  "4 章目录 · 内容待补充":"4 chapter outlines · Content pending",
+  "资料准备中":"Materials pending",
+  "正文、视频与实践要求将在资料收集完成后补充。":"Reading, video and practice requirements will be added after collection.",
+  "查看待补充目录":"View pending outline",
+  "课程资料准备中":"Course materials pending",
+  "课程目录 · 内容待补充":"Course outline · Content pending",
+  "资料正在收集中，先修要求与课程内容尚待审核。":"Materials are being collected. Prerequisites and content await review.",
+  "点选只查看待补充目录，不形成阅读或完成记录。":"View a pending outline. This does not record reading or completion.",
+  "修改自动保存至账户，保存结果见页面状态。计划和评估不会自动改变。":"Changes save to your account; check the save status. Plans and assessments do not change automatically."
+}

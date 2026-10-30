@@ -1,0 +1,5 @@
+/* v75: radius only. Original layout, colors, type and motion remain in force. */
+.publicmain.publicmain :is(.hero-import-photo,.intro-atlas,.os-stage,.spread-plate,.direction-gallery-card,.problem-card,.outcome-showcase[data-os-mode=list] .os-scene){border-radius:28px}
+.publicmain.publicmain :is(button,.button,.hero-import-actions a,.meta-cta-secondary,select){border-radius:16px}
+.publicmain.publicmain .entry-deck .problem-card-face{border-radius:28px 28px 0 0}
+.publicmain.publicmain .archive-switch nav{border-radius:16px}

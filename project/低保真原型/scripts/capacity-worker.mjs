@@ -1,0 +1,11 @@
+import {DatabaseSync} from 'node:sqlite';
+import {scryptSync,randomBytes,randomUUID} from 'node:crypto';
+import {createAuthServer} from '../server/auth-server.mjs';
+const database=process.env.CAPACITY_DATABASE,token=process.env.CAPACITY_TOKEN;
+if(!database||!token||process.env.AI_ENABLED!=='0')throw Error('ISOLATED_CONFIG_REQUIRED');
+const server=await createAuthServer({database,origin:'http://capacity.test',opsToken:token,production:false,trustProxy:false});
+const db=new DatabaseSync(database),salt=randomBytes(16).toString('hex');
+const key=scryptSync('Synthetic capacity secret 2026!',salt,64,{N:131072,r:8,p:1,maxmem:192*1024*1024}).toString('hex');
+for(let i=0;i<20;i++)db.prepare('INSERT INTO users VALUES(?,?,?,?,?,?)').run(randomUUID(),`capacity-${i}@example.invalid`,`scrypt$131072$8$1$${salt}$${key}`,Date.now(),'2026-10-27',Date.now());db.close();
+await new Promise(r=>server.listen(0,'127.0.0.1',r));process.send({port:server.address().port});
+process.on('message',message=>{if(message==='close')server.close(()=>process.exit(0));});

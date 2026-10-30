@@ -1,0 +1,15 @@
+{
+  "本机记录保存与恢复": "Local record saving and recovery",
+  "本机记录尚未保存": "Local records have not been saved",
+  "浏览器未能保存当前记录。本次操作仅临时保留，关闭或刷新页面可能丢失；请重试保存或下载本次记录。": "The browser could not save the current records. Changes are kept temporarily and may be lost if you close or refresh this page. Retry saving or download the current records.",
+  "原有本机记录格式异常": "The existing local records have an invalid format",
+  "原有记录未被覆盖。当前使用临时空工作区；本次操作仅临时保留，关闭或刷新页面可能丢失。请先下载原始记录，再重试读取或确认替换。": "The original records have not been overwritten. You are using a temporary empty workspace; changes may be lost if you close or refresh this page. Download the original records before retrying the read or confirming replacement.",
+  "暂时无法读取本机记录": "Local records cannot be read right now",
+  "浏览器未能读取原有记录，原记录未被覆盖。当前使用临时空工作区；本次操作仅临时保留，关闭或刷新页面可能丢失。可重试读取，或下载本次记录。": "The browser could not read the existing records. They have not been overwritten. You are using a temporary empty workspace; changes may be lost if you close or refresh this page. Retry reading or download the current records.",
+  "重试读取": "Retry reading",
+  "重试保存": "Retry saving",
+  "下载本次记录": "Download current records",
+  "下载原始记录": "Download original records",
+  "用本次记录替换": "Replace with current records",
+  "重试读取会重新载入原有记录；本次临时操作请先下载保留。替换需另行确认，才会尝试覆盖本机记录。": "Retrying the read reloads the original records. Download temporary changes first to keep them. Replacement requires separate confirmation before attempting to overwrite local records."
+}

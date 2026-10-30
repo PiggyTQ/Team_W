@@ -1,0 +1,35 @@
+.map-workspace .screen-heading>.actions{flex:none;margin:0;gap:9px}
+.map-workspace .screen-heading>.actions a{font-size:12px}
+.map-demo-label{font-size:12px;color:#666;line-height:1.8;margin:0 0 17px}
+.map-workspace-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);gap:22px;align-items:start}
+.map-workspace-layout>*{min-width:0}
+.map-context{padding:23px;border:1px solid #d5d5d5;background:#fff;border-radius:5px}
+.map-context h2{font-size:18px;margin-bottom:15px}
+.map-context h3{font-size:19px;margin:5px 0 15px}
+.map-context p,.map-context .facts{font-size:12px;line-height:1.9}
+.map-context .facts{grid-template-columns:minmax(85px,1fr) minmax(0,2.3fr)}
+.map-context .facts dt,.map-context .facts dd{padding:10px}
+.map-context .actions{gap:9px}.map-context button,.map-context a{font-size:12px}
+.map-context>a{display:block;margin:14px 0}
+.map-context-tools{margin-top:22px;padding-top:17px;border-top:1px solid #ddd;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.map-context-tools>a{display:block;width:100%;font-size:12px}
+.map-relation-diagram{display:flex;flex-direction:column;align-items:center;gap:20px;padding:28px 12px}
+.map-relation-list{display:flex;flex-direction:column;gap:14px;padding:20px 0}
+.map-relation-diagram button,.map-relation-list button{min-height:54px;padding:13px 18px;flex-direction:column;min-width:180px;font-size:14px}
+.map-relation-diagram button small,.map-relation-list button small{display:block;font-size:11px;color:#666;margin-top:5px}
+.map-target-nodes{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;max-width:100%}
+.map-relation-diagram .map-relationship{min-height:35px;border-style:dashed;font-size:12px;background:#f5f5f5;min-width:150px}
+.map-relation-diagram .responsibility-line{border-style:solid}
+.map-workspace [aria-pressed=true]{border-color:#555;background:#e8e8e8}
+.map-workspace .branch-map{padding:23px 12px;gap:12px}
+.map-workspace .branch-map>button{min-width:200px;max-width:100%;font-size:13px}
+.map-workspace .branch-map button small{display:block;font-size:11px;margin-top:5px}
+.map-workspace .tool-choices{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;width:100%}
+.map-workspace .tool-choices>button{flex-direction:column;max-width:100%;font-size:12px}
+.map-workspace .map-dependency{background:#fafafa;border-style:dashed;font-size:11px!important;min-height:30px;padding:5px 10px}
+.map-workspace .tool-choices>.map-dependency{flex-basis:100%;min-width:0;max-width:180px;margin-inline:auto}
+.map-workspace .route-equivalent button{width:100%;text-align:left;justify-content:flex-start;flex-direction:column;align-items:flex-start}
+.map-workspace .route-equivalent p{font-size:12px}
+.map-workspace .map-legend{flex-wrap:wrap}
+@media(max-width:1050px){.map-workspace-layout{grid-template-columns:minmax(0,1fr)}.map-workspace .screen-heading{flex-direction:column;gap:15px}.map-context{padding:22px}}
+@media(max-width:720px){.map-workspace .screen-heading>.actions{flex-wrap:wrap}.map-workspace .route-controls{grid-template-columns:minmax(0,1fr)}.map-context{padding:19px}.map-context .facts{grid-template-columns:85px minmax(0,1fr)}.map-workspace .tool-choices>button{min-width:0;flex:1}.map-workspace .route-canvas{padding:18px}.map-relation-diagram{padding:24px 0}.map-relation-diagram button{min-width:0;width:100%}.map-target-nodes{width:100%}.map-demo-label{font-size:11px}}

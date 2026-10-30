@@ -1,0 +1,21 @@
+{
+  "id": "quality-video",
+  "course_id": "quality",
+  "chapter_ids": [
+    "quality-chapter-2",
+    "quality-chapter-3"
+  ],
+  "title": "How to Analyze and Clean a Dataset (Part 8 of 17)",
+  "provider": "Microsoft / Bea Stollnitz",
+  "source_id": "VID-001",
+  "source_url": "https://learn.microsoft.com/en-us/shows/machine-learning-for-beginners/how-to-analyze-and-clean-a-dataset-machine-learning-for-beginners",
+  "delivery": "external_reference",
+  "local_file": null,
+  "duration_seconds": null,
+  "language": "en",
+  "source_page_http_status": 200,
+  "source_page_verified": true,
+  "playback_verified": false,
+  "media_candidates": [],
+  "viewing_guide_zh": "视频使用南瓜数据，和本课企鹅文件不同；只参考先看问题、再检查缺失与字段的操作次序。可关注来源页列出的00:47、01:49、03:00章节。"
+}

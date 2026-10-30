@@ -1,0 +1,95 @@
+{
+  "rule": "EXERCISE ONLY: v1 and errors/requests <1% and p95<300ms for two consecutive full 60s windows after I09; production criteria must be defined separately.",
+  "windows": [
+    {
+      "window_start": "2026-10-01T09:00:00+08:00",
+      "release": "v1",
+      "error_rate": 0.002,
+      "p95_ms": 160,
+      "meets_exercise_rule": true
+    },
+    {
+      "window_start": "2026-10-01T09:01:00+08:00",
+      "release": "v1",
+      "error_rate": 0.001,
+      "p95_ms": 155,
+      "meets_exercise_rule": true
+    },
+    {
+      "window_start": "2026-10-01T09:02:00+08:00",
+      "release": "v1",
+      "error_rate": 0.002,
+      "p95_ms": 165,
+      "meets_exercise_rule": true
+    },
+    {
+      "window_start": "2026-10-01T09:03:00+08:00",
+      "release": "v2",
+      "error_rate": 0.06,
+      "p95_ms": 420,
+      "meets_exercise_rule": false
+    },
+    {
+      "window_start": "2026-10-01T09:04:00+08:00",
+      "release": "v2",
+      "error_rate": 0.18,
+      "p95_ms": 900,
+      "meets_exercise_rule": false
+    },
+    {
+      "window_start": "2026-10-01T09:05:00+08:00",
+      "release": "v2",
+      "error_rate": 0.24,
+      "p95_ms": 1200,
+      "meets_exercise_rule": false
+    },
+    {
+      "window_start": "2026-10-01T09:06:00+08:00",
+      "release": "v2",
+      "error_rate": 0.22,
+      "p95_ms": 1100,
+      "meets_exercise_rule": false
+    },
+    {
+      "window_start": "2026-10-01T09:07:00+08:00",
+      "release": "v2",
+      "error_rate": 0.15,
+      "p95_ms": 800,
+      "meets_exercise_rule": false
+    },
+    {
+      "window_start": "2026-10-01T09:08:00+08:00",
+      "release": "v1",
+      "error_rate": 0.004,
+      "p95_ms": 190,
+      "meets_exercise_rule": true
+    },
+    {
+      "window_start": "2026-10-01T09:09:00+08:00",
+      "release": "v1",
+      "error_rate": 0.003,
+      "p95_ms": 180,
+      "meets_exercise_rule": true
+    },
+    {
+      "window_start": "2026-10-01T09:10:00+08:00",
+      "release": "v1",
+      "error_rate": 0.002,
+      "p95_ms": 175,
+      "meets_exercise_rule": true
+    },
+    {
+      "window_start": "2026-10-01T09:11:00+08:00",
+      "release": "v1",
+      "error_rate": 0.002,
+      "p95_ms": 170,
+      "meets_exercise_rule": true
+    }
+  ],
+  "first_qualifying_post_switch_pair": [
+    "2026-10-01T09:08:00+08:00",
+    "2026-10-01T09:09:00+08:00"
+  ],
+  "actual_rollback_executed": false,
+  "root_cause": "unknown"
+}

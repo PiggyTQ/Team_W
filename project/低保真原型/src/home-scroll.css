@@ -1,0 +1,25 @@
+.outcome-motion-body{height:100%;min-height:0;position:relative;overflow:hidden}
+[data-motion-snapshot]{pointer-events:none!important;user-select:none}
+.home-scroll-hint{display:none}
+html[data-home-scroll=section-snap]{overflow-anchor:none}
+/* The case remains one narrative, with a complete chapter frame at each stop. */
+@media(min-width:1001px) and (min-height:600px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ html[data-home-scroll=section-snap] .story-scene{max-height:calc(100svh - 48px);overflow-y:auto;scrollbar-width:thin;scrollbar-gutter:stable}
+}
+@media(min-width:1024px) and (min-height:720px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.home-scroll-hint{display:block;margin:16px 0 0;font-size:12px;color:#777;line-height:1.6}}
+
+@media(min-width:1024px) and (min-height:720px) and (max-height:850px) and (prefers-reduced-motion:no-preference){
+ .scroll-journey[data-journey-mode=scroll] .sj-stage{padding:12px 0}
+ .scroll-journey[data-journey-mode=scroll] .sj-viewport{height:290px;padding-block:8px}
+ .scroll-journey[data-journey-mode=scroll] .section-heading{margin-bottom:12px}
+ .scroll-journey[data-journey-mode=scroll] .sj-shortcuts{margin-bottom:8px}
+ .scroll-journey[data-journey-mode=scroll] .sj-current-detail{padding:10px 0;margin-top:3px}
+ .career-gallery[data-gallery-mode=scroll] .career-gallery-stage{padding:12px 0}
+ .career-gallery[data-gallery-mode=scroll] .direction-gallery-card img{height:88px}
+ .career-gallery[data-gallery-mode=scroll] .direction-card-content{padding:12px 18px}
+ .career-gallery[data-gallery-mode=scroll] .direction-card-content h3{margin:6px 0 12px}
+ .career-gallery[data-gallery-mode=scroll] .direction-card-content dl>div+div{margin-top:10px}
+ .career-gallery[data-gallery-mode=scroll] .direction-gallery-toolbar{margin-bottom:9px}
+ .career-gallery[data-gallery-mode=scroll] footer.direction-gallery-footer{margin-top:12px}
+}
+

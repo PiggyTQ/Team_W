@@ -1,0 +1,121 @@
+.journey-header-mascot{display:none}
+/* Keep the supplied paper labels inside the actual note, not over its artwork. */
+html body #root#root#root#root#root .publicmain .detailed-journey-3 .journey-paper-label[data-label-index="1"],
+html body #root#root#root#root#root .publicmain .detailed-journey-3 .journey-paper-label[data-label-index="2"],
+html body #root#root#root#root#root .publicmain .detailed-journey-3 .journey-paper-label[data-label-index="3"] {
+ background:transparent;padding:0;line-height:1.2;word-break:normal;overflow-wrap:normal;text-wrap:balance;
+}
+@layer type-system {
+ html body #root#root#root#root#root .publicmain .detailed-journey-3 .journey-paper-label:is([data-label-index="1"],[data-label-index="2"],[data-label-index="3"]){font-size:18px!important;line-height:1.2!important}
+}
+html body #root#root#root#root#root .publicmain :is(.problem-card-title,.problem-card-description,.spread-step-title,.spread-index small,.archive-heading button) {word-break:normal;overflow-wrap:normal;hyphens:none}
+html body #root#root#root#root#root .publicmain .problem-card-title {text-wrap:balance}
+@media(min-width:1024px){
+ html body #root#root#root#root#root .publicmain .entry-deck {height:auto;min-height:0;padding-block:36px 80px}
+ html body #root#root#root#root#root .publicmain .entry-deck-note {position:relative;margin:20px auto 24px;max-width:70%;height:auto;min-height:0}
+}
+@media(max-width:600px){
+ html body #root#root#root#root#root .publicmain .spread-index {grid-template-columns:minmax(0,1fr);gap:8px;padding-bottom:20px}
+ html body #root#root#root#root#root .publicmain .spread-index>button {grid-template-columns:32px minmax(0,1fr);padding:14px 16px;min-height:0;gap:12px}
+ html body #root#root#root#root#root .publicmain .archive-heading>div:last-child {flex-wrap:wrap;max-width:100%}
+ html body #root#root#root#root#root .publicmain .archive-heading button {white-space:normal;min-width:max-content}
+}
+@media(min-width:1024px){
+ html body #root#root#root#root#root #main.publicmain{overflow-x:clip;overflow-y:visible}
+ html body #root#root#root#root#root .publicmain :is(#starting-points,#directions,#before-start,.sj-stage){overflow:visible;background:transparent}
+ html body #root#root#root#root#root .cheese-scene-decor{left:calc(50% - 50vw);right:auto;width:100vw;overflow:hidden;pointer-events:none;background-color:#fffcf7}
+ html body #root#root#root#root#root .cheese-decor-entry .detailed-scene-backdrop{display:none!important}
+ html body #root#root#root#root#root .cheese-decor-entry .cheese-landscape{display:block!important;width:100%;height:270px;opacity:.55;left:0}
+ html body #root#root#root#root#root .cheese-decor-entry :is(.cheese-decor-first,.cheese-decor-second,.cheese-decor-entry-header){display:block!important;object-fit:contain;object-position:center;width:clamp(90px,10vw,160px);height:180px;max-width:none;left:12px;bottom:90px;top:auto}
+ html body #root#root#root#root#root .cheese-decor-entry .cheese-decor-second{left:auto;right:12px}
+ html body #root#root#root#root#root .cheese-decor-entry .cheese-decor-entry-header{left:auto;right:max(25px,calc((100vw - 1440px)/2));top:8px;bottom:auto;width:clamp(140px,17vw,230px);height:170px}
+ html body #root#root#root#root#root .entry-deck{width:100%;--deck-spread:clamp(264px,24vw,360px)}
+ html body #root#root#root#root#root .problem-card{width:clamp(240px,22vw,330px)}
+ html body #root#root#root#root#root #starting-points>.section-heading{max-width:64%;width:64%;min-height:170px}
+ html body #root#root#root#root#root .cheese-decor-careers .detailed-scene-backdrop{left:0;inset-block:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+ html body #root#root#root#root#root .publicmain #directions.career-loop{padding-bottom:180px}
+ html body #root#root#root#root#root .cheese-decor-faq :is(.cheese-decor-first,.cheese-decor-second){width:min(20vw,250px);height:210px;max-width:none;top:25px;left:max(20px,calc((100vw - 1440px)/2));bottom:auto;object-fit:contain}
+ html body #root#root#root#root#root .cheese-decor-faq .cheese-decor-second{left:auto;right:max(20px,calc((100vw - 1440px)/2))}
+ html body #root#root#root#root#root .cheese-decor-faq .scene-handmarks{display:none}
+ html body #root#root#root#root#root #before-start>header{width:54%;max-width:none;min-height:220px;box-sizing:border-box;margin:0 auto;padding:35px 0 20px;display:flex;flex-direction:column;justify-content:center}
+ html body #root#root#root#root#root #before-start>header h2{overflow-wrap:normal;text-wrap:balance;line-height:1.25}
+ html body #root#root#root#root#root .cheese-decor-journey::after{display:none!important}
+ html body #root#root#root#root#root .cheese-decor-journey .scene-handmarks{display:none}
+ html body #root#root#root#root#root .cheese-decor-journey .cheese-decor-first{left:max(20px,calc((100vw - 1440px)/2));width:clamp(130px,17vw,240px);height:150px;bottom:50px;top:auto;max-width:none}
+ html body #root#root#root#root#root .publicmain #how .section-heading{min-height:170px;padding-right:210px;box-sizing:border-box}
+ html body #root#root#root#root#root .publicmain #how .section-heading>div{max-width:100%;width:100%}
+ html body #root#root#root#root#root .publicmain #how .section-heading h2{max-width:27ch}
+ html body #root#root#root#root#root .publicmain .journey-header-mascot{display:block;position:absolute;right:0;top:54px;width:180px;height:110px;object-fit:contain;pointer-events:none}
+ html body #root#root#root#root#root .publicmain #how .section-heading>a{top:0;right:0;max-width:200px;white-space:normal;text-align:right}
+ html body #root#root#root#root#root .detailed-journey-art{overflow:visible;inset:8px}
+ html body #root#root#root#root#root .journey-aligned-canvas{display:block;width:100%;height:100%;overflow:visible}
+ html body #root#root#root#root#root .journey-paper-label{font:700 24px/1.18 Arial,'Microsoft YaHei',sans-serif;color:#074382;background:#fffefd;padding:2px 4px;box-sizing:border-box;width:fit-content;max-width:100%;overflow-wrap:normal;text-wrap:balance;transform:none}
+ html body #root#root#root#root#root .journey-paper-label.journey-label-blue{color:#fff;background:transparent}
+ html body #root#root#root#root#root .os-mascot{left:12px;bottom:26px;max-width:24%;object-fit:contain}
+ html body #root#root#root#root#root .archive-cheese-top{left:auto;right:27%;max-width:20%;object-fit:contain}
+ html body #root#root#root#root#root .archive-cheese-decor .archive-cheese-peek{right:0;width:13%;object-fit:contain}
+ html body #root#root#root#root#root .publicmain .hero-import-photo{right:0;width:min(58vw,850px)}
+}
+@layer type-system{@media(min-width:1024px){
+ html body #root#root#root#root#root .publicmain .journey-paper-label{font-size:24px!important;font-weight:700!important;line-height:1.18!important}
+ html body #root#root#root#root#root .publicmain .detailed-journey-3 .journey-paper-label{font-size:21px!important}
+ html body #root#root#root#root#root .publicmain #before-start>header h2{font-size:clamp(28px,2.65vw,43px)!important}
+}}
+@media(min-width:1024px) and (max-height:800px){
+ html body #root#root#root#root#root .publicmain #how .section-heading{min-height:140px;margin-bottom:12px}
+ html body #root#root#root#root#root .journey-header-mascot{height:84px!important;top:48px!important}
+ html body #root#root#root#root#root .spread-index>button{min-height:64px;padding-block:9px}
+ html body #root#root#root#root#root .spread-index{padding-bottom:130px}
+ html body #root#root#root#root#root .cheese-decor-journey .cheese-decor-first{height:110px;bottom:42px}
+}
+@media(min-width:1024px) and (max-width:1200px){
+ html body #root#root#root#root#root .problem-card-face{padding:20px;min-height:360px}
+ html body #root#root#root#root#root .publicmain #how .section-heading{padding-right:170px}
+ html body #root#root#root#root#root .publicmain .journey-header-mascot{width:145px}
+ html body #root#root#root#root#root #before-start>header{width:52%;min-height:240px}
+}
+@media(forced-colors:active){html body #root#root#root#root#root .cheese-scene-decor{display:none!important}}
+@media(min-width:1024px){
+ html body #root#root#root#root#root #main.publicmain{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:clamp(24px,4vw,100px)!important;box-sizing:border-box}
+ html body #root#root#root#root#root #main.publicmain>.page-surface{width:100%!important;max-width:1440px!important;margin-inline:auto!important}
+}
+@media(min-width:1024px){
+ html body #root#root#root#root#root .cheese-decor-closing{left:0;right:0;width:100%;background-color:transparent}
+}
+@media(min-width:721px) and (max-width:1023px){
+ html body #root#root#root#root#root .publicmain .hero-import{display:flex;flex-direction:column;gap:12px;padding-bottom:0}
+ html body #root#root#root#root#root .publicmain .hero-import-copy{max-width:100%;width:100%}
+ html body #root#root#root#root#root .publicmain .hero-import-photo{position:relative;inset:auto;width:100%;max-width:620px;height:350px;align-self:center;overflow:visible}
+ html body #root#root#root#root#root .publicmain .hero-import-photo img{object-position:center}
+}
+@media(min-width:1024px){
+ html body #root#root#root#root#root .publicmain .hero-import-copy{width:49%;max-width:49%}
+ html body #root#root#root#root#root .publicmain .hero-import-photo{width:49%;right:0;top:0;bottom:0}
+ html body #root#root#root#root#root #case-study .archive-heading>div:first-child{max-width:50%}
+ html body #root#root#root#root#root .archive-cheese-top{right:28%;width:18%;max-width:18%}
+ html body #root#root#root#root#root .cheese-decor-closing .cheese-decor-first{width:29%;height:200px;left:12px;bottom:45px;object-fit:contain}
+ html body #root#root#root#root#root .cheese-decor-closing .cheese-signpost{right:12px;width:16%}
+}
+@media(min-width:1024px) and (max-height:850px){
+ html body #root#root#root#root#root .cheese-decor-entry :is(.cheese-decor-first,.cheese-decor-second){top:calc(100svh - 240px);bottom:auto;height:140px}
+}
+/* Home canvas spans the window; only the content gutter remains inset.
+ * The public shell also hosts standalone pages, so scope this to the homepage. */
+@media(min-width:1024px){
+ html body #root#root#root#root#root #main.publicmain:has(.hero-import){--home-gutter:clamp(32px,4vw,96px);padding-inline:var(--home-gutter)!important;background:#fff}
+ html body #root#root#root#root#root #main.publicmain:has(.hero-import)>.page-surface{max-width:none!important;background:#fff;border-radius:0;box-shadow:none}
+ html body #root#root#root#root#root .publicmain .hero-import{display:block;min-height:560px}
+ html body #root#root#root#root#root .publicmain .hero-import-copy{width:49%;max-width:49%}
+ html body #root#root#root#root#root .publicmain .hero-import-photo{width:49%;height:100%;max-height:none;top:0;bottom:0}
+ html body #root#root#root#root#root .publicmain .hero-import-actions{flex-wrap:wrap}
+ html body #root#root#root#root#root .cheese-decor-entry .cheese-decor-entry-header{right:var(--home-gutter,4vw)}
+ html body #root#root#root#root#root .cheese-decor-faq .cheese-decor-first{left:var(--home-gutter,4vw)}
+ html body #root#root#root#root#root .cheese-decor-faq .cheese-decor-second{right:var(--home-gutter,4vw)}
+ html body #root#root#root#root#root .cheese-decor-journey .cheese-decor-first{left:var(--home-gutter,4vw)}
+ html body #root#root#root#root#root .publicmain #outcomes{background:#fff}
+ html body #root#root#root#root#root .publicmain #case-study{background:#fff}
+ html body #root#root#root#root#root .publicmain .tail-closing{min-height:0;padding-block:48px 30px;background:#fff}
+ html body #root#root#root#root#root .publicmain .tail-closing-frame{width:100%;max-width:none;min-height:550px;padding-inline:22%;box-sizing:border-box}
+ html body #root#root#root#root#root .publicmain .tail-closing-frame h2{white-space:normal;text-wrap:balance;text-align:center}
+ html body #root#root#root#root#root .publicmain .tail-closing-frame :is(p,small){text-align:center}
+}

@@ -1,0 +1,72 @@
+/* v55: shared type roles and boundaries for distinct areas of work. */
+#root:has(>#main.workspace){font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
+#main.workspace{
+ --type-page:30px;--type-section:22px;--type-subsection:18px;--type-detail:16px;
+ --type-body:14px;--type-control:14px;--type-note:13px;
+ --font-workspace:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+ font-family:var(--font-workspace);font-size:var(--type-body);line-height:1.6;
+}
+#main.workspace :is(button,input,select,textarea){font-family:var(--font-workspace)}
+#main.workspace :is(h1,h2,h3,h4,h5,h6){font-family:var(--font-workspace);font-weight:400;text-wrap:pretty;overflow-wrap:anywhere}
+#main.workspace h1{font-size:var(--type-page);line-height:1.32;letter-spacing:-.025em}
+#main.workspace h2{font-size:var(--type-section);line-height:1.45;letter-spacing:-.015em}
+#main.workspace h3{font-size:var(--type-subsection);line-height:1.55;letter-spacing:-.01em}
+#main.workspace h4{font-size:var(--type-detail);line-height:1.6;letter-spacing:0}
+#main.workspace :is(h5,h6){font-size:14px;line-height:1.6;letter-spacing:0}
+#main.workspace :is(.screen-heading,.assistant-page-header,.home-hub-heading,.atlas-head) h1,#main.workspace .page-surface>h1{font-size:var(--type-page);line-height:1.32;min-height:0}
+#main.workspace :is(.section-heading,.section-head,.home-section-title) h2{font-size:var(--type-section);line-height:1.45;margin:0}
+#main.workspace :is(.workspace-section,.completion-panel,.panel)>h2{margin:0 0 20px}
+#main.workspace :is(.home-entry-description,.home-section-title p,.home-records-empty p,.home-map-entry p,.workspace-section>p,.completion-panel>.section-head p,.learning-card-body>p){font-size:var(--type-body);line-height:1.8;max-width:72ch}
+#main.workspace :is(.field>span,.tabs a,.tabs button,.home-catalogue-tabs button,.report-theme-navigation button>span:last-child){font-size:var(--type-control)}
+#main.workspace :is(.home-entry-cta,.home-recent-row small,.home-map-entry>a,.home-records-empty>a,.report-directory-row p,.report-directory-row small,.report-topic-intro p){font-size:var(--type-note);line-height:1.75}
+#main.workspace .home-entry-heading{font-size:var(--type-subsection);line-height:1.55}
+#main.workspace .home-next .home-section-title h2{font-size:16px;line-height:1.6}
+#main.workspace .home-next h3{font-size:26px;line-height:1.5;letter-spacing:-.02em}
+#main.workspace .home-scope h2,#main.workspace .home-map-entry h2{font-size:20px;line-height:1.5}
+#main.workspace .home-scope h3{font-size:24px;line-height:1.5}
+#main.workspace .home-hub{gap:28px}
+#main.workspace .home-desk-row{padding-top:28px;border-top:1px solid #d6d6d1}
+#main.workspace .home-recent,#main.workspace .home-records-empty{padding:0;border:0}
+#main.workspace .home-map-entry{padding:24px;background:#f5f5f2;border-radius:12px}
+#main.workspace .home-catalogue{margin:0;padding:28px;background:#f6f6f4;border:1px solid #dededa;border-radius:12px;min-width:0}
+#main.workspace .home-catalogue>.home-section-title{border-bottom:1px solid #d8d8d3;padding-bottom:20px;margin:0 0 20px}
+#main.workspace .home-catalogue .home-section-title p{margin:8px 0 0}
+#main.workspace .home-entry-grid{column-gap:32px}
+#main.workspace .home-entry{padding:22px 8px;border-bottom-color:#d8d8d3}
+#main.workspace .home-entry:hover{background:#ededeb}
+#main.workspace .home-help{margin:0;border-color:#d6d6d1}
+#main.workspace .page-surface>.workspace-section+.workspace-section{border-top:1px solid #d6d6d1;margin-top:32px;padding-top:28px}
+#main.workspace .phased-plan{padding-top:28px;margin-bottom:32px}
+#main.workspace .phase-resources{padding-top:28px;margin-top:28px}
+#main.workspace .phase-columns h3{font-size:var(--type-subsection);line-height:1.55}
+#main.workspace .report-center{padding-top:28px;border-top:1px solid #d6d6d1}
+#main.workspace .report-version-trail{margin-block:28px}
+#main.workspace .report-version-trail>header h2{font-size:var(--type-section)}
+#main.workspace .report-preparation h2{font-size:20px}
+#main.workspace .report-preparation li h3{font-size:16px}
+#main.workspace .report-preparation li p{font-size:13px;line-height:1.8}
+#main.workspace .story-studio-head h2{font-size:var(--type-section);line-height:1.45}
+#main.workspace .report-topic-intro h4{font-size:24px;line-height:1.5}
+#main.workspace .report-topic-panel h5{font-size:15px;line-height:1.65;margin-bottom:12px}
+#main.workspace .report-topic-panel p{font-size:15px;line-height:1.95}
+#main.workspace .report-topic-panel[data-slot=goal] p{font-size:20px;line-height:1.8}
+#main.workspace .archive-paper>.archive-edition-cover h3{font-size:42px;line-height:1.25;letter-spacing:-.025em}
+#main.workspace .resume-paper h3{font-size:30px;line-height:1.4}
+#main.workspace .resume-content-module>h4{font-size:16px}
+#main.workspace .report-outline>h2{font-size:18px}
+#main.workspace .report-outline>a{font-size:14px}
+#main.workspace .atlas-brief h2{font-size:var(--type-section)}
+@media(max-width:720px){
+ #main.workspace{--type-page:26px;--type-section:20px;--type-subsection:17px;--type-detail:16px}
+ #main.workspace .home-hub{gap:24px}
+ #main.workspace .home-desk-row{padding-top:24px}
+ #main.workspace .home-catalogue{padding:20px 16px;border-radius:12px}
+ #main.workspace .home-catalogue>.home-section-title{padding-bottom:16px;margin-bottom:16px}
+ #main.workspace .home-entry{padding:20px 0}
+ #main.workspace .home-next h3{font-size:23px}
+ #main.workspace .archive-paper>.archive-edition-cover h3{font-size:32px}
+ #main.workspace .report-topic-intro h4{font-size:22px}
+ #main.workspace .report-topic-panel[data-slot=goal] p{font-size:18px}
+ #main.workspace .report-preparation li h3{font-size:15px}
+ #main.workspace .home-map-entry{padding:20px}
+}

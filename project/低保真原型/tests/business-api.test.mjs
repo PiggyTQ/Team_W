@@ -1,0 +1,61 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,rm,readFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {randomUUID} from 'node:crypto';
+import {DatabaseSync} from 'node:sqlite';
+import {createAuthServer} from '../server/auth-server.mjs';
+import {fresh,makeTask} from '../src/model.js';
+import {AUTH_POLICY} from '../src/auth-contract.js';
+
+test('authenticated business API persists per owner; account actions reauthenticate and revoke',async t=>{
+  const dir=await mkdtemp(join(tmpdir(),'career-business-api-')),database=join(dir,'auth.sqlite'),origin='http://career.test';
+  let server,base;
+  async function start(){server=await createAuthServer({database,origin});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));base=`http://127.0.0.1:${server.address().port}`;}
+  await start();t.after(async()=>{await new Promise(resolve=>server.close(resolve));await rm(dir,{recursive:true,force:true});});
+  function agent(){const jar=new Map();let csrf='';return {async request(path,{data,method=data?'POST':'GET',headers={}}={}){const response=await fetch(base+path,{method,headers:{Origin:origin,Cookie:[...jar].map(([k,v])=>`${k}=${v}`).join('; '),...(data?{'Content-Type':'application/json','X-CSRF-Token':csrf}:{}),...headers},...(data?{body:JSON.stringify(data)}:{})});for(const cookie of response.headers.getSetCookie()){const [key,value]=cookie.split(';')[0].split('=');jar.set(key,value);}const body=await response.json();if(body.csrfToken)csrf=body.csrfToken;return {status:response.status,body};}};}
+  const anonymous=agent(),alice=agent(),bob=agent(),aliceOther=agent();
+  assert.equal((await anonymous.request('/api/workspace')).status,401);
+  const password='A unique test password 2026!';
+  for(const [client,email] of [[alice,'alice@example.com'],[bob,'bob@example.com']]){await client.request('/api/auth/session');assert.equal((await client.request('/api/auth/register',{data:{email,password,agree:true,termsVersion:AUTH_POLICY.termsVersion}})).status,201);}
+  const catalog=(await alice.request('/api/catalog/courses')).body;assert.equal(catalog.courses.length,4);assert.equal(catalog.courses.flatMap(c=>c.chapters).length,16);assert.equal(catalog.courses.flatMap(c=>c.videos).length,4);
+  const original=fresh();original.preferences.interest='Alice only';original.claims=[{id:'private-claim',title:'私有经历',text:'私有原文',contribution:'本人整理',status:'待确认'}];original.tasks=[{...makeTask(original,{title:'手动实践',template:'external',purpose:'了解工作',hours:1}),id:'private-task'}];
+  const actorId=(await alice.request('/api/auth/me')).body.user.id;
+  const save={actorId,state:original,baseVersion:0,mutationId:randomUUID()};
+  assert.equal((await alice.request('/api/workspace',{method:'PUT',data:save,headers:{'X-CSRF-Token':'wrong'}})).status,403);
+  assert.equal((await alice.request('/api/workspace',{method:'PUT',data:save})).body.revision,1);
+  assert.equal((await alice.request('/api/workspace',{method:'PUT',data:save})).body.duplicate,true);
+  assert.equal((await alice.request('/api/workspace',{method:'PUT',data:{...save,mutationId:randomUUID()}})).body.code,'VERSION_CONFLICT');
+  assert.equal((await bob.request('/api/records/claims/private-claim')).status,404);
+  assert.equal((await bob.request('/api/workspace?userId=alice')).body.state.preferences.interest,'');
+  assert.equal((await bob.request('/api/workspace',{method:'PUT',data:save})).body.code,'ACCOUNT_CHANGED');
+  assert.equal((await bob.request('/api/workspace',{headers:{'X-Account-Id':actorId}})).body.code,'ACCOUNT_CHANGED');
+  assert.equal((await alice.request('/api/workspace/export')).body.state.claims[0].text,'私有原文');
+  assert.equal((await alice.request('/api/workspace',{method:'PUT',data:{actorId,state:{...original,reading:{quality:{chapter:0,version:1}}},baseVersion:1,mutationId:randomUUID()}})).body.code,'COURSE_NOT_READY');
+  await new Promise(resolve=>server.close(resolve));await start();
+  const restored=(await alice.request('/api/workspace')).body;assert.equal(restored.state.preferences.interest,'Alice only');assert.equal(restored.state.tasks[0].title,'手动实践');assert.equal(restored.revision,1);
+  await aliceOther.request('/api/auth/session');await aliceOther.request('/api/auth/login',{data:{email:'alice@example.com',password}});
+  assert.equal((await alice.request('/api/auth/sessions')).body.sessions.length,2);
+  assert.equal((await alice.request('/api/auth/revoke-others',{data:{currentPassword:password}})).body.revoked,1);
+  assert.equal((await aliceOther.request('/api/auth/me')).status,401);
+  const nextPassword='A different unique password 2026!';
+  assert.equal((await alice.request('/api/auth/change-password',{data:{currentPassword:'wrong',newPassword:nextPassword}})).status,401);
+  assert.equal((await alice.request('/api/auth/change-password',{data:{currentPassword:password,newPassword:nextPassword}})).status,200);
+  assert.equal((await aliceOther.request('/api/auth/login',{data:{email:'alice@example.com',password}})).status,401);
+  assert.equal((await aliceOther.request('/api/auth/login',{data:{email:'alice@example.com',password:nextPassword}})).status,200);
+  assert.equal((await alice.request('/api/auth/clear-workspace',{data:{currentPassword:nextPassword,baseVersion:0,confirmation:'CLEAR_WORKSPACE'}})).body.code,'VERSION_CONFLICT');
+  assert.equal((await alice.request('/api/auth/clear-workspace',{data:{currentPassword:nextPassword,baseVersion:1,confirmation:'CLEAR_WORKSPACE'}})).status,200);
+  assert.equal((await alice.request('/api/workspace')).body.state.claims.length,0);
+  assert.equal((await bob.request('/api/auth/delete-account',{data:{currentPassword:password,email:'bob@example.com',confirmation:'wrong'}})).status,400);
+  assert.equal((await bob.request('/api/auth/me')).status,200);
+  const faults=new DatabaseSync(database);faults.exec("CREATE TRIGGER qa_delete_failure BEFORE INSERT ON security_events WHEN NEW.code='ACCOUNT_DELETED' BEGIN SELECT RAISE(ABORT,'qa rollback'); END");
+  assert.equal((await bob.request('/api/auth/delete-account',{data:{currentPassword:password,email:'bob@example.com',confirmation:'DELETE_ACCOUNT'}})).status,503);
+  assert.equal((await bob.request('/api/auth/me')).status,200,'failed deletion transaction must keep the account and session');faults.exec('DROP TRIGGER qa_delete_failure');faults.close();
+  assert.equal((await bob.request('/api/auth/delete-account',{data:{currentPassword:password,email:'bob@example.com',confirmation:'DELETE_ACCOUNT'}})).body.deleted,true);
+  assert.equal((await bob.request('/api/workspace')).status,401);
+  assert.equal((await alice.request('/api/auth/me')).status,200);
+  assert.equal((await alice.request('/api/auth/delete-account',{data:{currentPassword:nextPassword,email:'alice@example.com',confirmation:'DELETE_ACCOUNT'}})).body.deleted,true);
+  assert.equal((await aliceOther.request('/api/auth/me')).status,401);
+  assert.equal((await readFile(database)).includes(Buffer.from('私有原文')),false,'deleted private text must not remain in database free pages');
+});

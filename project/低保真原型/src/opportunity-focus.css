@@ -1,0 +1,52 @@
+#main.workspace .personal-opportunity-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 12px;margin:0 0 12px;border:0;border-bottom:1px solid #d1d1d1;background:transparent;border-radius:0}
+#main.workspace .personal-opportunity-summary>.opportunity-counts{display:flex;flex-wrap:wrap;gap:8px 20px}
+#main.workspace .opportunity-counts>button,#main.workspace .opportunity-counts>div{flex-direction:row;align-items:baseline;gap:8px;padding:8px 0;border:0;min-height:44px;background:transparent}
+#main.workspace .opportunity-counts strong{font-size:20px}
+#main.workspace .opportunity-counts span{font-size:13px}
+#main.workspace .opportunity-counts>button:hover{background:#efefef}
+#main.workspace .personal-opportunity-summary>a{font-size:13px;min-height:44px;display:inline-flex;align-items:center}
+#main.workspace .opportunity-toolbar{padding:0 0 14px;border:0;gap:12px;margin-bottom:8px;background:transparent}
+#main.workspace .opportunity-toolbar small{max-width:66ch}
+#main.workspace .opportunities-layout{grid-template-columns:225px minmax(0,1fr);gap:20px}
+#main.workspace .opportunity-detail>header{padding:20px;gap:16px}
+#main.workspace .opportunity-detail>header h2{font-size:22px;margin:0}
+#main.workspace .opportunity-next-actions{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 16px}
+#main.workspace .opportunity-next-actions button{min-height:44px;font-size:13px;white-space:normal}
+#main.workspace .opportunity-record-toggle,#main.workspace .discovery-filter-toggle{display:none}
+#main.workspace .job-discovery .discovery-intro{align-items:center;gap:12px;margin:0 0 10px}
+#main.workspace .job-discovery .discovery-intro p{margin:0;max-width:65ch;font-size:13px;line-height:1.7}
+#main.workspace .discovery-source-note{border:0;border-block:1px solid #d1d1d1;background:transparent;padding:0;margin:0 0 16px}
+#main.workspace .discovery-source-note>summary{font-size:13px;line-height:1.7;padding:10px 0;cursor:pointer;min-height:44px;box-sizing:border-box;list-style-position:inside}
+#main.workspace .discovery-source-note>p{font-size:13px;color:#606060;line-height:1.7;margin:0 0 12px}
+@container workspace (max-width:950px){
+ #main.workspace .discovery-layout{grid-template-columns:175px minmax(0,1fr)}
+ #main.workspace .discovery-detail{grid-column:1/-1}
+}
+@media(max-width:720px){
+ #main.workspace .personal-opportunity-summary{display:block;margin-bottom:8px;padding:0 0 8px}
+ #main.workspace .personal-opportunity-summary>.opportunity-counts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+ #main.workspace .opportunity-counts>button,#main.workspace .opportunity-counts>div{min-height:44px;justify-content:flex-start;padding:6px 0}
+ #main.workspace .personal-opportunity-summary>a{min-height:36px}
+ #main.workspace .opportunity-toolbar{flex-direction:row;align-items:center;flex-wrap:wrap;padding-bottom:8px}
+ #main.workspace .opportunity-toolbar>div{display:none}
+ #main.workspace .opportunity-toolbar>button{min-height:44px;font-size:14px}
+ #main.workspace .opportunity-record-toggle,#main.workspace .discovery-filter-toggle{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:44px;font-size:14px;margin:0 0 12px;text-align:left}
+ #main.workspace .opportunity-record-toggle small,#main.workspace .discovery-filter-toggle small{font-size:12px}
+ #main.workspace .opportunities-layout{grid-template-columns:minmax(0,1fr);gap:12px}
+ #main.workspace .opportunities-layout>.opportunity-list{display:none}
+ #main.workspace .opportunities-layout.records-open>.opportunity-list{display:flex}
+ #main.workspace .opportunity-detail>header{padding:16px}
+ #main.workspace .opportunity-detail>header h2{font-size:21px}
+ #main.workspace .opportunity-next-actions{padding:0 16px 16px;gap:8px}
+ #main.workspace .opportunity-next-actions>button{font-size:13px;flex:1 1 135px}
+ #main.workspace .job-discovery .discovery-intro{justify-content:flex-end;margin-bottom:8px}
+ #main.workspace .job-discovery .discovery-intro>p{display:none}
+ #main.workspace .job-discovery .discovery-intro>.button{min-height:44px}
+ #main.workspace .discovery-source-note{margin-bottom:12px}
+ #main.workspace .discovery-source-note>summary{font-size:12px}
+ #main.workspace .job-discovery .discovery-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+ #main.workspace .job-discovery .discovery-filter{display:none}
+ #main.workspace .job-discovery.filters-open .discovery-filter{display:block}
+ #main.workspace .discovery-filter :is(button,input,select){min-height:44px;font-size:16px}
+ #main.workspace .discovery-job-card .actions>:is(button,a){min-height:44px;font-size:13px}
+}

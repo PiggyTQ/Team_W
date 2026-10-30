@@ -1,0 +1,8 @@
+.deploy-cache/
+.deploy-auth/
+检查记录/
+*.md
+tests/
+scripts/
+.impeccable/
+发布包/

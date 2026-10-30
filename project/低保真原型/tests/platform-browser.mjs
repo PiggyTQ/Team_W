@@ -1,0 +1,30 @@
+import {chromium} from 'playwright';
+import {DatabaseSync} from 'node:sqlite';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {randomUUID} from 'node:crypto';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {localBusinessHarness} from './helpers/local-business-harness.mjs';
+import {loadGuidance} from '../server/agent/library.mjs';
+const out=path.resolve('checks/backend-completeness-20261030');await mkdir(out,{recursive:true});const sent=[],report={syntheticOnly:true,localOnly:true,realEmailsSent:0,realProviderCalls:0,checks:[],pageErrors:[],passed:false};let harness,browser,page;
+const check=s=>report.checks.push(s);
+async function post(route,data){return page.evaluate(async({route,data})=>{const session=await(await fetch('/api/auth/session')).json();const r=await fetch(route,{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':session.csrfToken},body:JSON.stringify(data)});return {status:r.status,body:await r.json()};},{route,data});}
+async function delivered(purpose){for(let n=0;n<100;n++){const row=sent.findLast(s=>s.purpose===purpose);if(row)return row;await new Promise(r=>setTimeout(r,20));}throw Error('TEST_MAIL_NOT_DELIVERED');}
+try{
+ harness=await localBusinessHarness({mailTransport:async m=>sent.push(m),mailKey:'ab'.repeat(32),mailDeliveryIntervalMs:100});browser=await chromium.launch({channel:'msedge',headless:true,args:['--no-proxy-server']});const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+ await context.addInitScript(()=>localStorage.setItem('career-prototype-operation-guide-v1',JSON.stringify({active:null,seen:[],enabled:false,neverPrompt:true})));
+ await context.route('**/*',route=>{const url=new URL(route.request().url());return ['http:','https:'].includes(url.protocol)&&url.origin!==harness.base?route.abort():route.continue();});page=await context.newPage();page.setDefaultTimeout(20000);page.on('pageerror',e=>report.pageErrors.push(e.message));
+ const email='platform-ui-'+randomUUID()+'@example.invalid',password='Synthetic platform UI 2026!';
+ await page.goto(harness.base+'/auth');await page.getByRole('button',{name:'注册',exact:true}).click();await page.locator('#auth-email').fill(email);await page.locator('#auth-password').fill(password);await page.locator('[name=agree]').check();await page.locator('.auth-submit:not(:disabled)').click();await page.waitForURL(harness.base+'/app');await page.locator('.server-save-status[data-status="saved"]').waitFor();
+ await page.goto(harness.base+'/admin/data');await page.getByRole('heading',{name:'此账户未开通管理权限',exact:true}).waitFor();check('student account cannot open content administration');
+ assert.equal((await post('/api/auth/request-verification',{})).status,202);const verification=await delivered('verify');await page.goto(verification.url);await page.getByRole('button',{name:'确认操作',exact:true}).click();await page.getByText('已完成，请重新登录后继续。',{exact:true}).waitFor();assert.equal(await page.evaluate(async()=> (await(await fetch('/api/auth/me')).json()).user.emailVerified),true);check('verification email link completes the real UI flow using an injected mail receiver');
+ assert.equal((await post('/api/auth/recover',{email})).status,202);const reset=await delivered('reset');await page.goto(reset.url);await page.getByLabel('新密码',{exact:true}).fill('Synthetic replacement UI 2026!');await page.getByRole('button',{name:'确认操作',exact:true}).click();await page.getByText('已完成，请重新登录后继续。',{exact:true}).waitFor();assert.equal(await page.evaluate(async()=> (await fetch('/api/auth/me')).status),401);await page.getByRole('button',{name:'返回登录',exact:true}).click();await page.locator('#auth-email').fill(email);await page.locator('#auth-password').fill('Synthetic replacement UI 2026!');await page.locator('.auth-submit:not(:disabled)').click();await page.waitForURL(harness.base+'/app');check('password reset invalidates the old session and the new password signs in');
+ const user=await page.evaluate(async()=> (await(await fetch('/api/auth/me')).json()).user);const fixture=new DatabaseSync(harness.database);for(const role of ['editor','reviewer','publisher'])fixture.prepare('INSERT INTO platform_roles VALUES(?,?)').run(user.id,role);fixture.close();
+ await page.goto(harness.base+'/admin/data');await page.getByRole('heading',{name:'内容管理与发布',exact:true}).waitFor();await page.getByText('提交知识包草稿',{exact:true}).click();await page.getByLabel('公共知识包 JSON',{exact:true}).fill(JSON.stringify(loadGuidance()));await page.getByRole('button',{name:'校验并保存草稿',exact:true}).click();await page.getByRole('button',{name:'确认来源与用途审核',exact:true}).waitFor();
+ page.on('dialog',d=>d.accept());await page.getByRole('button',{name:'确认来源与用途审核',exact:true}).click();await page.getByRole('button',{name:'发布已审核版本',exact:true}).click();
+ await page.waitForFunction(()=>[...document.querySelectorAll('[data-platform-admin] li')].filter(x=>x.textContent.includes('当前使用')).some(x=>x.textContent.includes('v3')));
+ const current=page.locator('[data-platform-admin] li').filter({hasText:'当前使用'}).first();await current.getByRole('button',{name:'撤回此版本',exact:true}).click();await page.waitForFunction(()=>[...document.querySelectorAll('[data-platform-admin] li')].some(x=>x.textContent.includes('v4')&&x.textContent.includes('已撤回')));check('authorized UI validates, reviews, publishes and withdraws a version with server receipts');
+ const knowledge=await page.evaluate(async()=> (await(await fetch('/api/agent/knowledge-status')).json()));assert.equal(knowledge.reviewedChunks,0);check('withdrawal immediately removes the active knowledge from the business retrieval path');
+ await page.screenshot({path:path.join(out,'admin-content.png')});assert.deepEqual(report.pageErrors,[]);report.passed=true;
+}catch(e){report.error={message:e.message};process.exitCode=1;if(page)await page.screenshot({path:path.join(out,'platform-failure.png')}).catch(()=>{});}
+finally{await browser?.close();await harness?.close();await writeFile(path.join(out,'platform-browser.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report));}

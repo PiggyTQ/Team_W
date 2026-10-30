@@ -1,0 +1,5 @@
+[Unit]
+Description=Renew Career Growth IP certificate
+[Service]
+Type=oneshot
+ExecStart=/opt/career-certbot/bin/certbot renew --quiet --deploy-hook "/usr/sbin/nginx -t && /bin/systemctl reload nginx"

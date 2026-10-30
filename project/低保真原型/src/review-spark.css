@@ -1,0 +1,34 @@
+.action-review .review-spark{margin-top:24px;padding:24px;background:#f5f5f5;border:1px solid #d1d1d1}
+.action-review .review-cue-picker{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
+#main.workspace .action-review .review-cue-picker button{background:white;box-shadow:none;border-color:#bcbcbc;padding:12px 18px;min-height:46px}
+#main.workspace .action-review .review-cue-picker button[aria-pressed=true]{background:#353535;color:white;border-color:#353535}
+#main.workspace .action-review .review-example-label{font-size:12px;margin-bottom:14px;color:#606060}
+.action-review .review-spark-demo ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:0;padding:0;border-top:1px solid #c9c9c9}
+.action-review .review-spark-demo li{padding:22px 24px 4px 0;min-width:0}
+.action-review .review-spark-demo li+li{border-left:1px solid #c9c9c9;padding-left:24px}
+#main.workspace .action-review .review-spark-demo h4{font-size:17px;color:#252525;margin-bottom:12px}
+#main.workspace .action-review .review-spark-demo p{font-size:14px}
+.action-review .review-spark-start{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;border-bottom:1px solid #d1d1d1}
+.action-review .review-spark-start>div{min-width:0}
+#main.workspace .action-review .review-spark-start p{margin-bottom:0}
+.action-review .review-spark-start .actions{display:flex;flex-wrap:wrap;gap:10px;flex-shrink:0}
+.action-review .review-cue-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 20px}
+#main.workspace .action-review .review-cue-bar>p{margin:0}
+.action-review .review-cue-bar .review-cue-picker{margin:0}
+#main.workspace .action-cycle .action-review .review-step-content>h4{font-size:23px;line-height:1.6;color:#252525;margin-bottom:10px;max-width:32ch}
+#main.workspace .action-review .review-writing-hint{font-size:13px;margin:0 0 22px}
+.action-review .review-prompt-example{border:0!important;border-radius:0!important;padding:14px 0!important;background:transparent!important;margin:0!important}
+.action-review .review-prompt-example>summary{cursor:pointer;font-size:13px;min-height:44px;padding:10px 0}
+#main.workspace .action-review .review-prompt-example p{font-size:14px;padding:14px;background:#f5f5f5}
+.action-review .review-takeaway{border-bottom:1px solid #c9c9c9;padding-bottom:24px;margin-bottom:24px}
+#main.workspace .action-review .review-takeaway>p{font-size:17px;line-height:1.9;color:#252525;white-space:pre-wrap;overflow-wrap:anywhere;max-height:12em;overflow:auto;scrollbar-color:#8b8b8b #e9e9e9}
+#main.workspace .action-review .review-takeaway>small{display:block;font-size:12px;margin-bottom:14px}
+.action-review .review-takeaway>button{margin-top:14px}
+.action-review .review-receipt-facts{margin:22px 0;padding:0}
+.action-review .review-receipt-facts>div{padding:14px 0;border-top:1px solid #d1d1d1}
+.action-review .review-receipt-facts dt{font-size:12px;color:#606060;margin-bottom:8px}
+.action-review .review-receipt-facts dd{margin:0;font-size:15px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.action-review .review-history-entry>summary>span:first-child>span{display:block;font-size:14px;line-height:1.8;margin-top:10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.action-review .review-receipt-layout .review-takeaway{grid-column:1/-1}
+@media(max-width:1100px){.action-review .review-spark-start{align-items:flex-start;flex-direction:column}.action-review .review-cue-bar{align-items:flex-start;flex-direction:column}}
+@media(max-width:900px){.action-review .review-spark{padding:20px}.action-review .review-spark-demo ol{grid-template-columns:1fr}.action-review .review-spark-demo li{padding:18px 0}.action-review .review-spark-demo li+li{border-left:0;border-top:1px solid #d1d1d1;padding-left:0}.action-review .review-cue-picker{gap:8px}#main.workspace .action-review .review-cue-picker button{padding:10px 12px;flex:1 1 auto}#main.workspace .action-cycle .action-review .review-step-content>h4{font-size:21px}.action-review .action-cycle-heading>div{padding-right:80px}.action-review .review-spark-start .actions{flex-shrink:1}.action-review .review-spark-start .actions>*{flex:1 1 auto}}

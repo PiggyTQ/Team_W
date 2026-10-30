@@ -1,0 +1,75 @@
+/* v68: keep full-screen boundaries; compose content within them at a human scale. */
+.publicmain.publicmain{--home-heading:clamp(28px,2.3vw,38px);--home-body:15px}
+.publicmain.publicmain :is(.section-heading,.before-start>header) h2{font-size:var(--home-heading);line-height:1.4;margin-bottom:12px}
+.publicmain.publicmain :is(.section-heading,.before-start>header) p{font-size:var(--home-body);line-height:1.8;margin-top:0}
+.publicmain.publicmain :is(.section-heading,.before-start>header){margin-bottom:24px}
+.publicmain.publicmain .career-gallery-stage{gap:0}
+.publicmain.publicmain .direction-gallery-toolbar{margin-bottom:24px;gap:20px}
+.publicmain.publicmain .direction-gallery-viewport{flex:0 0 auto;padding-block:0;min-height:0}
+.publicmain.publicmain .direction-gallery-card{box-sizing:border-box;width:var(--direction-card-width,318px);flex:0 0 var(--direction-card-width,318px);min-height:0}
+.publicmain.publicmain .direction-gallery-card figure{margin:20px 20px 0}
+.publicmain.publicmain .direction-gallery-card img{height:clamp(100px,12svh,140px);width:100%;object-fit:cover}
+.publicmain.publicmain .direction-gallery-card figcaption{font-size:11px;line-height:1.6;margin-top:8px}
+.publicmain.publicmain .direction-card-content{padding:18px 24px 20px}
+.publicmain.publicmain .direction-card-content h3{font-size:26px;line-height:1.4;margin:8px 0 20px}
+.publicmain.publicmain .direction-card-content dl{flex:1;margin:0 0 22px}
+.publicmain.publicmain .direction-card-content dt{font-size:12px;line-height:1.6;margin-bottom:8px}
+.publicmain.publicmain .direction-card-content dd{font-size:15px;line-height:1.75;min-height:0}
+.publicmain.publicmain .direction-card-content dl>div:first-child dd{min-height:3.5em}
+.publicmain.publicmain .direction-card-content dl>div+div{margin-top:20px}
+.publicmain.publicmain .direction-card-content button{font-size:14px;padding-top:16px}
+.publicmain.publicmain .direction-gallery-footer{margin-top:24px}
+.publicmain.publicmain .direction-gallery-note{margin-top:16px;font-size:12px;line-height:1.7}
+.publicmain.publicmain .sj-item h3{font-size:26px;line-height:1.4;margin-bottom:10px}
+.publicmain.publicmain .sj-output{font-size:14px;line-height:1.75;margin-bottom:20px}
+.publicmain.publicmain .sj-artifact{min-height:180px;padding:20px 20px 0}
+.publicmain.publicmain .sj-artifact-label{font-size:12px;margin-bottom:14px}
+.publicmain.publicmain .sj-artifact :is(p,.sj-artifact-bottom,.sj-report-lines){font-size:13px;line-height:1.7}
+.publicmain.publicmain .sj-current-detail{padding-block:20px 16px}
+.publicmain.publicmain .sj-current-detail p{font-size:14px;line-height:1.75}
+.publicmain.publicmain .sj-current-label{font-size:18px}
+.publicmain.publicmain .before-start{padding-block:64px 40px}
+.publicmain.publicmain .start-list-toolbar{margin-bottom:20px}
+.publicmain.publicmain #start-answers{display:block}
+.publicmain.publicmain .usage-single-list{border-top:1px solid #d2d2d2;scroll-margin-top:40px}
+.publicmain.publicmain .usage-single-list .start-answer{scroll-margin-top:40px}
+.publicmain.publicmain .usage-single-list summary{min-height:72px}
+.publicmain.publicmain .usage-single-list .start-answer>div{max-width:90ch;padding-bottom:22px}
+.publicmain.publicmain .start-answer-group+.start-answer-group{margin-top:0}
+.publicmain.publicmain .start-answer-group h3{font-size:15px;margin-bottom:16px}
+.publicmain.publicmain .start-answer summary{font-size:17px;line-height:1.6;min-height:64px;padding-block:14px;box-sizing:border-box}
+.publicmain.publicmain .start-answer p{font-size:14px;line-height:1.85}
+.publicmain.publicmain .before-start>footer{margin-top:24px;padding-top:20px;border-top:1px solid #ddd}
+@media(min-width:801px){
+ .publicmain.publicmain .entry-deck{min-height:460px;padding-block:28px 44px}
+ .publicmain.publicmain .problem-card-face{min-height:320px}
+ .publicmain.publicmain .problem-card-description{font-size:15px;line-height:1.8}
+ .publicmain.publicmain .entry-deck-note{margin-top:16px;line-height:1.8}
+ .publicmain.publicmain .scroll-journey[data-journey-mode=scroll] .sj-item{width:clamp(300px,27vw,430px);flex-basis:clamp(300px,27vw,430px)}
+}
+@media(min-width:801px) and (max-height:800px){
+ .publicmain.publicmain .career-gallery-stage{padding-block:44px 16px}
+ .publicmain.publicmain .career-gallery-stage .section-heading{margin-bottom:16px}
+ .publicmain.publicmain .direction-gallery-note{margin-top:10px}
+ .publicmain.publicmain .direction-gallery-card img{height:80px}
+ .publicmain.publicmain .direction-card-content{padding:10px 20px 14px}
+ .publicmain.publicmain .direction-card-content h3{font-size:24px;margin-bottom:12px}
+ .publicmain.publicmain .direction-card-content dd{font-size:14px;line-height:1.7}
+ .publicmain.publicmain .direction-card-content dl{margin-bottom:14px}
+ .publicmain.publicmain .direction-card-content dl>div:first-child dd{min-height:3.5em}
+ .publicmain.publicmain .direction-card-content dl>div+div{margin-top:12px}
+ .publicmain.publicmain .direction-gallery-toolbar{margin-bottom:16px}
+ .publicmain.publicmain .direction-gallery-footer{margin-top:16px}
+ .publicmain.publicmain .sj-artifact{min-height:155px;padding:16px 18px 0}
+}
+@media(max-width:800px){
+ .publicmain.publicmain{--home-heading:26px;--home-body:14px}
+ .publicmain.publicmain #start-answers{grid-template-columns:1fr;gap:32px}
+ .publicmain.publicmain .before-start{padding-block:40px}
+ .publicmain.publicmain .start-answer summary{font-size:16px;min-height:60px}
+ .publicmain.publicmain .direction-card-content{padding:16px 20px 20px}
+ .publicmain.publicmain .direction-card-content h3{font-size:24px}
+ .publicmain.publicmain .direction-gallery-card figure{margin:16px 16px 0}
+ .publicmain.publicmain .sj-item h3{font-size:23px}
+ .publicmain.publicmain .sj-artifact{min-height:0;padding:18px 18px 0}
+}

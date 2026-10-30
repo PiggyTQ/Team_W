@@ -1,0 +1,37 @@
+/* Navigation looks actionable; display-only state labels do not impersonate controls. */
+#main.workspace .home-map-route>a {
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ align-self:stretch;
+ flex:1 1 0;
+ min-width:0;
+ min-height:44px;
+ padding:8px 6px;
+ border:1px solid #bcbcbc;
+ border-radius:5px;
+ background:#fff;
+ color:#252525;
+ font-size:13px;
+ line-height:1.5;
+ text-align:center;
+ text-decoration:underline;
+ text-underline-offset:3px;
+ overflow-wrap:anywhere;
+ cursor:pointer;
+}
+#main.workspace .home-map-route>a:hover {background:#e9e9e9;border-color:#606060}
+#main.workspace .home-map-route>a:focus-visible {outline:3px solid #606060;outline-offset:3px}
+#main.workspace .home-map-route>i {flex:0 1 16px;min-width:4px}
+#main.workspace :is(span.status-chip,span.pill),
+#main.workspace .home-next span.status-chip {
+ min-height:0;
+ padding:2px 0;
+ border:0;
+ border-radius:0;
+ background:transparent;
+ box-shadow:none;
+ color:#606060;
+ cursor:default;
+}
+#main.workspace button:disabled {cursor:not-allowed}

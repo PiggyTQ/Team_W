@@ -1,0 +1,32 @@
+{
+  "raw_rows": 344,
+  "exercise_rows": 346,
+  "mutations": [
+    {
+      "record_id": "Q010",
+      "field": "body_mass_g",
+      "original": "4250",
+      "injected": "-1",
+      "origin": "synthetic_teaching_mutation"
+    },
+    {
+      "record_id": "Q020",
+      "field": "island",
+      "original": "Torgersen",
+      "injected": "Unknown_Island",
+      "origin": "synthetic_teaching_mutation"
+    },
+    {
+      "record_id": "Q030",
+      "field": "species",
+      "original": "Adelie",
+      "injected": " adelie ",
+      "origin": "synthetic_teaching_mutation"
+    }
+  ],
+  "duplicate_rows": {
+    "Q345": "Q001",
+    "Q346": "Q002"
+  },
+  "disclosure": "The exercise is a teaching derivative of SRC-002. Modified values are not original ecological observations."
+}

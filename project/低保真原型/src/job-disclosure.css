@@ -1,0 +1,73 @@
+/* Discovery keeps the list in view; full source records open only on request. */
+#main.workspace .job-discovery.information-discovery .discovery-layout {
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 24px;
+}
+#main.workspace .job-discovery.information-discovery .discovery-results {
+  min-width: 0;
+}
+#main.workspace .job-discovery.information-discovery .discovery-job-card {
+  padding: 20px 22px;
+}
+#main.workspace .job-discovery.information-discovery .discovery-job-card h3 {
+  margin-top: 12px;
+}
+#main.workspace .job-discovery.information-discovery .discovery-job-card .actions {
+  margin-top: 14px;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  color: inherit;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail p {
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 70ch;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .facts {
+  grid-template-columns: 90px minmax(0, 1fr);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .facts dt,
+.job-discovery-drawer .information-drawer-content .discovery-detail .facts dd {
+  padding: 12px 10px;
+  overflow-wrap: anywhere;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .facts dt {
+  background: transparent;
+  color: var(--muted, #606060);
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .salary-context summary {
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 6px;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .salary-context h3 {
+  font-size: 16px;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .actions > :is(button, a) {
+  min-height: 44px;
+  font-size: 14px;
+  white-space: normal;
+}
+.job-discovery-drawer .information-drawer-content .discovery-detail .caption,
+.job-discovery-drawer .information-drawer-content .discovery-detail small {
+  font-size: 13px;
+  line-height: 1.8;
+}
+@media (max-width: 720px) {
+  #main.workspace .job-discovery.information-discovery .discovery-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  #main.workspace .job-discovery.information-discovery .discovery-job-card {
+    padding: 18px;
+  }
+  .job-discovery-drawer .information-drawer-content .discovery-detail .facts {
+    grid-template-columns: 78px minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,41 @@
+import {chromium} from '@playwright/test';import fs from 'node:fs/promises';import assert from 'node:assert/strict';
+import {KEY,scenarioState} from '../src/model.js';
+import {budgetVisual,reportVisual} from '../src/visual-records-model.js';
+const phase=process.argv[2]||'inspection',dir='检查记录/可视化与报告_20261022/'+phase,base='http://127.0.0.1:5184';await fs.mkdir(dir,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--no-proxy-server']}),p=await browser.newPage({reducedMotion:'reduce'}),results=[],errors=[];p.setDefaultTimeout(7000);p.on('pageerror',e=>errors.push(e.message));
+const state=()=>p.evaluate(k=>JSON.parse(localStorage.getItem(k)),KEY);
+async function load(route,s=scenarioState('PT05'),width=1440,lang='zh'){
+ await p.setViewportSize({width,height:width<720?900:1000});await p.goto(base+'/plan');await p.evaluate(({s,k,lang})=>{localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('career-prototype-language',lang);localStorage.setItem('career-prototype-sidebar-v1','expanded');localStorage.setItem('career-prototype-operation-guide-v1','{"active":null,"enabled":false,"neverPrompt":true}');},{s,k:KEY,lang});await p.goto(base+route);await p.locator('#main').waitFor();
+}
+async function shot(name,selector){await p.locator(selector).scrollIntoViewIfNeeded();await p.screenshot({path:dir+'/'+name+'-视口.png'});const v=p.viewportSize(),box=await p.locator(selector).boundingBox();await p.setViewportSize({width:v.width,height:Math.min(4800,Math.ceil(box.height+650))});await p.locator(selector).screenshot({path:dir+'/'+name+'-区域.png'});await p.setViewportSize(v);}
+async function check(name,fn){try{await fn();results.push({name,status:'pass'});console.log('PASS',name);}catch(e){results.push({name,status:'fail',error:e.message});console.log('FAIL',name,e.message.slice(0,800));await p.screenshot({path:dir+'/失败-'+results.length+'.png'});}}
+try{
+ await check('四维环和原明细双向选择，键盘可用，查看不修改业务记录',async()=>{
+  for(const scene of ['PT01','PT05']){await load('/assessment?tab=成果档案',scenarioState(scene));const before=await state();assert.equal(await p.locator('.profile-insight-sector').count(),4);assert.equal(await p.locator('.profile-insight-arc.recorded').count(),scene==='PT01'?0:3);
+   await p.locator('.profile-insight-sector').nth(3).focus();await p.keyboard.press('Space');assert.match(await p.locator('.profile-insight-detail h3').innerText(),/学习与改进/);await p.getByRole('button',{name:/BR.*条件与可行性/}).click();assert.equal(await p.locator('.profile-insight-sector').first().getAttribute('aria-pressed'),'true');assert.deepEqual(await state(),before);await shot('1440-'+scene+'-四维','.profile-insight-layout');}
+ });
+ await check('预算比例、超额标记与未定状态准确，明细和原任务链接保留',async()=>{
+  const s=scenarioState('PT05');s.tasks.push({...s.tasks[0],id:'second',title:'第二项合成任务',hours:1,status:'受阻'});s.budget=4;await load('/plan',s);const before=await state(),rail=p.locator('.capacity-rail');assert.equal(await rail.locator('.capacity-segment').count(),2);assert.equal(await rail.getAttribute('aria-valuenow'),'3');
+  const widths=await rail.evaluate(e=>({whole:e.getBoundingClientRect().width,filled:[...e.children].reduce((n,c)=>n+c.getBoundingClientRect().width,0)}));assert.ok(Math.abs(widths.filled/widths.whole-0.75)<0.01);await p.locator('.capacity-ledger summary').click();assert.equal(await p.locator('.capacity-task').count(),2);await shot('1440-预算明细','.weekly-budget');assert.deepEqual(await state(),before);
+  await p.locator('.capacity-task a').first().click();assert.equal(new URL(p.url()).pathname,'/work/task-demo');s.budget=1;await load('/plan',s);assert.match(await p.locator('.capacity-legend').innerText(),/超出[\s\S]*2/);assert.ok(Math.abs(parseFloat(await p.locator('.capacity-budget-marker').evaluate(e=>e.style.left))-100/3)<0.001);await shot('1440-预算超额','.weekly-budget');
+  s.budget=0;await load('/plan',s);assert.equal(await p.locator('.budget-capacity [role=meter]').count(),0);assert.match(await p.locator('.capacity-unknown').innerText(),/预算未定/);await p.getByRole('button',{name:'调整预算 / 临时推演',exact:true}).click();assert.equal(await p.locator('dialog[open]').count(),1);await shot('1440-预算未定','.weekly-budget');
+ });
+ await check('报告图形统计互斥记录，入口接回原章节与保存区，不暴露私人复盘',async()=>{
+  const s=scenarioState('PT05');s.claims.push({...s.claims[0],id:'pending',status:'待确认'},{...s.claims[0],id:'gone',status:'已撤回'});s.tasks.push({...s.tasks[0],id:'done',status:'完成',completed:true});s.reviews=[{id:'private-review',result:'PRIVATE_RESULT_SENTINEL',reason:'PRIVATE_REASON_SENTINEL'}];await load('/reports',s);await p.locator('.record-material-legend').waitFor();const before=await state();assert.deepEqual(await p.locator('.record-material-legend dd').allTextContents(),['2','1','1']);assert.doesNotMatch(await p.locator('.output-report-desk').innerText(),/PRIVATE_/);await shot('1440-报告分布','.output-report-desk');
+  await p.locator('.report-record-flow').getByRole('button',{name:/经历依据/}).click();assert.equal(await p.locator('.output-evidence-list article').count(),2);await p.locator('.report-record-flow').getByRole('button',{name:/行动记录/}).click();assert.equal(await p.locator('.output-action-list li').count(),2);await p.locator('.report-record-flow').getByRole('button',{name:/保存快照/}).click();assert.equal(await p.locator('.output-report-library').evaluate(e=>e===document.activeElement),true);assert.deepEqual(await state(),before);
+ });
+ await check('简历结构可回查材料、定位岗位要求并查看成稿，不自动确认或改写事实',async()=>{
+  const s=scenarioState('PT05');s.resumeTarget='job-a';await load('/reports?tab=岗位简历',s);const before=await state();assert.ok(await p.locator('.resume-assembly').getAttribute('open')!==null);await p.locator('.assembly-sources li>button').first().click();assert.equal(await p.locator('.output-resume-source').isVisible(),true);await p.getByRole('button',{name:'返回内容编辑',exact:true}).click();
+  await p.locator('.assembly-requirement-cells button').first().click();assert.equal(await p.locator('.output-tailoring').isVisible(),true);assert.equal(await p.locator('.output-tailoring input[type=checkbox]').first().evaluate(e=>document.activeElement===e),true);await p.locator('.output-tailoring input[type=checkbox]').first().check();assert.equal(await p.locator('.assembly-requirement-cells .is-linked').count(),1);assert.deepEqual((await state()).claims,before.claims);assert.equal((await state()).resumes.length,0);
+  await p.locator('.assembly-document').getByRole('button',{name:'成稿结构',exact:false}).click();assert.equal(await p.locator('.output-resume-paper').evaluate(e=>document.activeElement===e),true);await shot('1440-简历结构','.output-resume');
+ });
+ await check('空态、中宽、手机和英文布局不横向溢出，未知不伪装成记录',async()=>{
+  for(const width of [1440,1024,390,320])for(const [id,route,selector]of [['四维','/assessment?tab=成果档案','.profile-insight-layout'],['预算','/plan','.weekly-budget'],['报告','/reports','.output-report-desk'],['简历','/reports?tab=岗位简历','.output-resume']]){
+   await load(route,scenarioState('PT01'),width);await p.locator(selector).waitFor();assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,id+' '+width);assert.equal(await p.locator('#main').evaluate(e=>e.scrollWidth>e.clientWidth+1),false,id+' main '+width);assert.equal(await p.locator(selector).evaluate(e=>e.scrollWidth>e.clientWidth+1),false,id+' panel '+width);if(id==='简历')assert.equal(await p.locator('.resume-empty-outline>div').count(),3);if(width===1440||width===390)await shot(width+'-空态-'+id,selector);
+  }
+  const untranslated=[];for(const [id,route,selector]of [['四维','/assessment?tab=成果档案','.profile-insight'],['预算','/plan','.weekly-budget'],['报告','/reports','.output-report-desk'],['简历','/reports?tab=岗位简历','.output-resume']]){
+   await load(route,scenarioState('PT01'),390,'en');await p.locator(selector).waitFor();const text=await p.locator(selector).innerText();if(/[\u3400-\u9fff]/.test(text))untranslated.push(id+': '+text.match(/[\u3400-\u9fff]+/g));assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);await shot('390-en-'+id,selector);
+  }assert.deepEqual(untranslated,[]);
+ });
+}finally{await fs.writeFile(dir+'/交互验收.json',JSON.stringify({results,errors},null,2));await browser.close();}
+if(errors.length||results.some(r=>r.status==='fail'))process.exitCode=1;

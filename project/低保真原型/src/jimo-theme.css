@@ -1,0 +1,176 @@
+/* Jimo reference adaptation, 2026-10-23. Values and motion are adaptation tokens.
+   Public storytelling has material depth; operating pages keep their geometry. */
+:root {
+  --ink:#071331; --muted:#445581; --line:#e5eaf1; --paper:#fff;
+  --jimo-blue:#1260eb; --jimo-blue-soft:#f3f7fe; --jimo-violet:#f5f2fe;
+  --jimo-orange:#fdf2e6; --jimo-green:#eff9f1; --jimo-pink:#fdf1f5;
+  --jimo-canvas:#f7f9fc; --jimo-radius:16px;
+  --jimo-feedback:140ms; --jimo-switch:280ms; --jimo-enter:480ms;
+  --jimo-ease:cubic-bezier(.22,1,.36,1);
+  --jimo-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;
+  font-family:var(--jimo-font); color:var(--ink); background:#fff;
+}
+body {background:#fff;color:var(--ink)}
+::selection {background:#ddeeff;color:#071331}
+input,textarea {caret-color:var(--jimo-blue)}
+* {scrollbar-color:#bcc9de transparent;-webkit-tap-highlight-color:rgba(18,96,235,.1)}
+#root .prototype-bar {background:#f3f7fe;color:#445581;border-color:var(--line)}
+#root :is(button,.button,input,select,textarea) {border-radius:10px}
+#root :is(button,.button) {transition:background-color var(--jimo-feedback) ease,color var(--jimo-feedback) ease,border-color var(--jimo-feedback) ease,transform var(--jimo-feedback) var(--jimo-ease)}
+#root :is(button,.button):active:not(:disabled) {transform:translateY(1px) scale(.985)}
+#root :is(button,.button):focus-visible,#root a:focus-visible,
+#root :is(input,select,textarea,summary):focus-visible {outline:3px solid #1260eb;outline-offset:3px}
+#root :is(button.primary,a.button.primary) {background:#071331;border-color:#071331;color:#fff;font-weight:500}
+#root :is(button.primary,a.button.primary):hover {background:#162e5b;border-color:#162e5b}
+#root button:disabled {transform:none;opacity:.48}
+
+/* Shared operating surfaces. ID scope wins over the former gray-only rules. */
+#root:has(>#main.workspace) {background:var(--jimo-canvas);color:var(--ink);font-family:var(--jimo-font)}
+#root>.app-header {background:#fff;border-color:var(--line);color:var(--ink)}
+#root>.app-header .brand {color:var(--ink);font-weight:500}
+#root>#workspace-sidebar {background:#f7f9fc;border-color:var(--line);color:var(--ink)}
+#root>#workspace-sidebar :is(.workspace-identity,.sidebar-bottom,.sidebar-toolbar,.nav-note) {border-color:var(--line);color:var(--muted)}
+#root>#workspace-sidebar .sidebar-links a {border-color:transparent;color:#445581;border-radius:10px;transition:background-color 140ms ease,color 140ms ease}
+#root>#workspace-sidebar .sidebar-links a[aria-current=page] {background:#e7effe;color:#104fae;border-color:transparent;font-weight:500}
+#root>#workspace-sidebar .sidebar-links a:hover {background:#edf2fa;color:var(--ink)}
+#root>#workspace-sidebar :is(.sidebar-toggle,.sidebar-switch) {border-radius:10px;color:var(--muted)}
+#root>#workspace-sidebar :is(.workspace-identity-icon,.workspace-brand-icon) {background:#e7effe;color:var(--jimo-blue)}
+#main.workspace {background:#fff;border-color:var(--line);color:var(--ink);--font-workspace:var(--jimo-font)}
+#main.workspace :is(h1,h2,h3,h4) {color:var(--ink);font-weight:500;letter-spacing:-.02em}
+#main.workspace :is(p,dt,dd,small,label) {text-decoration-color:#bdcbe0}
+#main.workspace :is(a,button) {color:var(--ink)}
+#main.workspace :is(input,textarea,select) {background:#fff;color:var(--ink);border-color:#cad4e3;border-radius:10px}
+#main.workspace :is(input,textarea)::placeholder {color:#526585}
+#main.workspace :is(.panel,.workspace-section,.completion-panel,.home-next,.home-scope,.home-recent,.home-map-entry,.assistant-main,.opportunity-detail,.opportunity-list,.weekly-budget,.goal-statement,.research-search,.settings-section,.profile-insights,.assessment-hub,.output-workspace) {
+  border-color:var(--line);border-radius:var(--jimo-radius);color:var(--ink);
+}
+#main.workspace :is(.home-current,.home-action-panel,.home-career-compare) {background:var(--jimo-blue-soft);border-color:#e2eafa}
+#main.workspace :is(.home-scope,.weekly-budget) {background:var(--jimo-violet);border-color:#e9e4f7}
+#main.workspace .home-map-entry {background:var(--jimo-green);border-color:#dfede2}
+#main.workspace .home-recent {background:#fff;border-color:var(--line)}
+#main.workspace :is(.home-next-content>p,.home-scope>p,.home-map-entry>p,.home-hub-heading p,.home-entry-description,.workspace-contextbar,.breadcrumbs,.muted,.caption) {color:var(--muted)}
+#main.workspace .home-entry-icon {background:#e7effe;color:var(--jimo-blue);border-radius:10px}
+#main.workspace :is(.home-entry,.record,.home-recent-row,.section-heading,.home-task-standard,.capacity-ledger) {border-color:var(--line)}
+#main.workspace .home-catalogue {border-color:var(--line);border-radius:16px}
+#main.workspace :is(.tabs,.home-catalogue-tabs) {border-color:var(--line)}
+#main.workspace :is(.tabs,.home-catalogue-tabs) :is(a,button) {border-radius:9px;color:var(--muted)}
+#main.workspace :is(.tabs,.home-catalogue-tabs) :is([aria-current=page],[aria-pressed=true],[aria-selected=true]) {background:#e7effe;border-color:#1260eb;color:#104fae}
+#main.workspace :is(.status-chip,.pill,.artifact-tag) {background:#edf3ff;border-color:#dce7fa;color:#234d8d;border-radius:6px}
+#main.workspace :is(.notice,.empty,.result-card,.linked-preparation,.completion-empty) {background:#f3f7fe;color:#445581;border-color:#d7e2f4;border-radius:12px}
+#main.workspace .error {background:#fff0ef;color:#8c2929;border-color:#eac7c4;border-radius:10px}
+#main.workspace :is(.capacity-used,.capacity-bar-used,.capacity-plot [data-used]) {background:var(--jimo-blue)}
+#main.workspace :is(.phase-columns>section,.schedule-sidebar,.conversation-sidebar) {background:var(--jimo-blue-soft);border-color:var(--line);border-radius:12px}
+#main.workspace .phase-columns>section:nth-child(2) {background:var(--jimo-violet)}
+#main.workspace .phase-columns>section:nth-child(3) {background:var(--jimo-orange)}
+#main.workspace .phase-columns>section:nth-child(4) {background:var(--jimo-green)}
+#main.workspace :is(.user-message,.prompt-starts button) {background:#edf3ff;border-color:#e1e9f7;border-radius:12px;color:var(--ink)}
+#main.workspace .assistant-message {background:#fff;border-color:var(--line);border-radius:12px;color:var(--ink)}
+#main.workspace :is(.opportunity-select[aria-pressed=true],.conversation-item>button[aria-pressed=true]) {background:#e7effe;border-color:#c6d9fb;color:#104fae}
+#root :is(dialog,.guidance-bubble,.operation-guide-panel,.workspace-search-dialog) {border-color:var(--line);color:var(--ink);border-radius:20px;box-shadow:0 16px 48px rgba(7,19,49,.16)}
+#root dialog::backdrop {background:rgba(7,19,49,.32)}
+#root dialog.drawer {border-radius:20px 0 0 20px}
+#root .toast {background:#071331;color:#fff;border-color:#071331;border-radius:12px}
+
+/* Public page: generous white canvas, pastel chapters and tangible records. */
+.publicmain.publicmain {color:var(--ink);font-family:var(--jimo-font);background:#fff}
+.publicmain.publicmain :is(h1,h2,h3,h4) {color:var(--ink);font-family:var(--jimo-font);font-weight:500;letter-spacing:-.025em}
+.publicmain.publicmain .publicnav {background:#fff;border-color:var(--line)}
+.publicmain.publicmain .publicnav a {color:var(--ink)}
+.publicmain.publicmain .landing-intro.hero-import {color:var(--ink);font-family:var(--jimo-font)}
+.publicmain.publicmain .hero-import-eyebrow {border:0;border-radius:0;padding:0;background:transparent;color:var(--muted);font-weight:400}
+.publicmain.publicmain .hero-import-eyebrow>span {background:var(--jimo-blue);box-shadow:none}
+.publicmain.publicmain .hero-import h1 {color:var(--ink);letter-spacing:-.025em}
+.publicmain.publicmain .hero-import-description {color:#445581}
+.publicmain.publicmain .hero-import-footnote {color:#526585}
+.publicmain.publicmain .hero-import-photo {border-radius:20px;box-shadow:0 16px 40px rgba(7,19,49,.12)}
+.publicmain.publicmain .hero-import-actions :is(button,a) {border-radius:12px;font-weight:500;border-width:1px}
+.publicmain.publicmain .hero-import-actions a {border-color:#d7e0ef;background:#f3f7fe;color:#071331}
+.publicmain.publicmain .hero-import-actions .primary {background:#071331;border-color:#071331;color:#fff}
+.publicmain.publicmain :is(.os-stage,.spread-plate,.archive-scene) {border-radius:20px;background:#f3f7fe;border-color:#e1eafa}
+.publicmain.publicmain .showcase-frame[data-chapter="1"] .os-stage {background:#fdf2e6}
+.publicmain.publicmain .showcase-frame[data-chapter="2"] .os-stage {background:#f5f2fe}
+.publicmain.publicmain :is(.os-copy-body>p,.showcase-heading>span,.os-eyebrow,.os-diagram-note,.os-diagram-label,.direction-gallery-note,.direction-card-branch) {color:#445581}
+.publicmain.publicmain .os-finished {background:#fff;border-color:#e5eaf1;border-radius:12px;box-shadow:0 2px 3px rgba(7,19,49,.07),0 16px 40px rgba(7,19,49,.12)}
+.publicmain.publicmain .os-finished>header {background:#f8faff;color:#445581;border-color:#e5eaf1}
+.publicmain.publicmain .os-document {color:var(--ink)}
+.publicmain.publicmain .os-document-rows>div {border-color:#e5eaf1}
+.publicmain.publicmain :is(.os-footer button[aria-current=step],.os-phases button:hover) {color:#104fae;background:#e7effe;border-color:#c6d9fb}
+.publicmain.publicmain .problem-card-face {background:#f3f7fe;border-color:#dbe6f7;color:#071331;box-shadow:0 12px 28px rgba(7,19,49,.08)}
+.publicmain.publicmain .problem-card:nth-child(2n) .problem-card-face {background:#f5f2fe}
+.publicmain.publicmain .problem-card:nth-child(3n) .problem-card-face {background:#fdf2e6}
+.publicmain.publicmain .spread-plate {background:#f5f2fe}
+.publicmain.publicmain .archive-scene {background:#fdf2e6}
+.publicmain.publicmain :is(.archive-mobile-record,.artifact,.dossier-document) {background:#fff;border-color:#e5eaf1;border-radius:12px;box-shadow:0 12px 28px rgba(7,19,49,.08)}
+.publicmain.publicmain .archive-switch nav {background:#fff;border-color:#e2e6ef}
+.publicmain.publicmain .archive-switch button[aria-pressed=true] {background:#071331;color:#fff;border-color:#071331}
+.publicmain.publicmain .tail-closing {background:#f3f7fe;color:#071331;border-radius:20px}
+.publicmain.publicmain .tail-footer-nav {border-color:var(--line);color:var(--muted)}
+
+/* Career catalogue: readable book covers replace the old black placeholders.
+   This represents career information, not a fictional photo or client proof. */
+.publicmain.publicmain .direction-gallery-card {border-radius:16px;background:#f3f7fe;border-color:#e2eafa;overflow:hidden}
+.publicmain.publicmain .direction-gallery-card:nth-child(5n+2) {background:#f5f2fe}
+.publicmain.publicmain .direction-gallery-card:nth-child(5n+3) {background:#fdf2e6}
+.publicmain.publicmain .direction-gallery-card:nth-child(5n+4) {background:#fdf1f5}
+.publicmain.publicmain .direction-gallery-card:nth-child(5n) {background:#eff9f1}
+.publicmain.publicmain .career-book-shelf {height:190px;display:grid;place-items:center;perspective:900px;padding:24px;background:transparent;border:0;margin:0}
+.career-book {position:relative;width:150px;height:145px;transform:rotateY(-12deg) rotateZ(-3deg);transform-style:preserve-3d;transition:transform var(--jimo-switch) var(--jimo-ease);background:#fff;box-shadow:5px 5px 0 #e1e6ee,8px 9px 0 #fff,12px 18px 25px rgba(7,19,49,.13);border-radius:3px 10px 10px 3px;color:#071331}
+.career-book:before {content:'';position:absolute;inset:0 auto 0 10px;width:1px;background:#e1e7f1}
+.career-book-cover {position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:18px 18px 18px 25px;transform-origin:left;transition:transform var(--jimo-switch) var(--jimo-ease);background:#fff;border-radius:3px 10px 10px 3px;border:1px solid #e1e7f1}
+.career-book-cover span {font-size:11px;color:#445581}
+.career-book-cover strong {font-size:22px;line-height:1.3;font-weight:500}
+.career-book-cover i {font-size:11px;font-style:normal;color:#445581}
+.publicmain.publicmain .direction-card-content {background:transparent;color:#071331}
+.publicmain.publicmain .direction-card-content :is(dt,dd) {color:#445581;border-color:#dfe7f2}
+.publicmain.publicmain .direction-card-content button {background:#fff;color:#071331;border-color:#d4dfef;border-radius:10px}
+
+@media(hover:hover) and (pointer:fine) {
+  .publicmain.publicmain .direction-gallery-card:hover .career-book {transform:rotateY(-25deg) rotateZ(-3deg) translateZ(16px)}
+  .publicmain.publicmain .direction-gallery-card:hover .career-book-cover {transform:rotateY(-9deg)}
+  #main.workspace :is(.home-entry,.prompt-starts button):hover {background:#f3f7fe}
+}
+.direction-gallery-card:focus-within .career-book {transform:rotateY(-25deg) rotateZ(-3deg)}
+.direction-gallery-card:focus-within .career-book-cover {transform:rotateY(-9deg)}
+@media(prefers-reduced-motion:no-preference) {
+  #root dialog[open]:not(.drawer) {animation:jimo-dialog 200ms var(--jimo-ease)}
+  @keyframes jimo-dialog {from{opacity:.5;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+}
+@media(max-width:720px) {
+  .publicmain.publicmain .hero-import-photo {border-radius:20px}
+  .publicmain.publicmain .career-book-shelf {height:160px;padding:16px}
+  .career-book {height:125px;width:135px}
+  .career-book-cover strong {font-size:19px}
+  #root dialog.drawer {border-radius:16px 0 0 16px}
+}
+@media(prefers-reduced-motion:reduce) {
+  :root {--jimo-feedback:0ms;--jimo-switch:0ms;--jimo-enter:0ms}
+  #root *,#root *::before,#root *::after {animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  #root :is(.career-book,.career-book-cover) {transform:none!important}
+}
+/* Resolve legacy nested component specificity without changing layout metrics. */
+#root:has(>#main.workspace)>.app-header {background:#fff;border-color:#e5eaf1}
+#root:has(>#main.workspace)>.app-header .global-search {border-color:#d8e1ef;background:#fff;border-radius:12px}
+#root:has(>#main.workspace)>.app-header .global-search button {background:#edf3ff;color:#104fae}
+#root #main.workspace .home-context-column>.home-scope {background:var(--jimo-violet);border-color:#e9e4f7;border-radius:16px}
+#root #main.workspace .home-context-column>.home-map-entry {background:var(--jimo-green);border-color:#dfede2;border-radius:16px}
+#root #main.workspace .home-context-column>.home-recent {background:#fff;border-color:#e5eaf1;border-radius:16px}
+#root #main.workspace .plan-primary .goal-statement {background:var(--jimo-blue-soft);border-radius:16px}
+#root #main.workspace .segmented-control {background:#edf2fa;border-color:#e0e7f2;border-radius:12px}
+#root #main.workspace .segmented-control>.selection-plate {background:#fff;box-shadow:0 2px 5px rgba(7,19,49,.08);border-radius:8px}
+#root #main.workspace .segmented-control>:is(a[aria-current=page],button[aria-pressed=true],.selected) {color:#104fae;font-weight:500}
+#root #main.workspace .capacity-rail {background:#e1e8f6}
+#root #main.workspace .capacity-segment {background:var(--jimo-blue)}
+#root #main.workspace .capacity-segment:nth-child(3n+2) {background:#648de2}
+#root #main.workspace .capacity-segment:nth-child(3n) {background:#9cb8ef}
+#root #main.workspace .capacity-task>i,#root #main.workspace .capacity-legend>span>i {background:#1260eb}
+#root #main.workspace .capacity-task:nth-child(3n+2)>i {background:#648de2!important}
+#root #main.workspace .capacity-task:nth-child(3n)>i {background:#9cb8ef!important}
+#root .operation-guide {border-color:#dce4f1;box-shadow:0 16px 40px rgba(7,19,49,.14);border-radius:16px;color:#071331;font-family:var(--jimo-font)}
+#root .operation-guide :is(h2,p) {color:#071331}
+.publicmain.publicmain .career-book-cover {padding:14px 14px 14px 23px}
+.publicmain.publicmain .career-book-cover i {font-size:10px;line-height:1.5}
+@media print {
+  #main.workspace {background:#fff;color:#000}
+  #main.workspace .page-surface {animation:none}
+  #root .career-book {box-shadow:none;transform:none}
+}
