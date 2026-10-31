@@ -1,0 +1,15 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const out=path.resolve('checks/backend-completeness-20261030'),read=async name=>JSON.parse(await fs.readFile(path.join(out,name),'utf8'));
+const manifest=await read('manifest.json'),hash=b=>createHash('sha256').update(b).digest('hex');
+assert.notEqual(manifest.deployed,true,'Already deployed; use the audited production summary instead of resetting status.');
+assert.equal(hash(await fs.readFile(path.join(out,'candidate.tar.gz'))),manifest.archiveSha256);
+for(const row of manifest.files)assert.equal(hash(await fs.readFile(row.path)),row.candidateSha256,'SOURCE_CHANGED_AFTER_CANDIDATE: '+row.path);
+const staged=await read('stage/prepared.json');assert.equal(staged.archiveSha256,manifest.archiveSha256);assert.equal(staged.productionRuntimeChanged,false);
+const stage=await read('stage/stage-smoke.json'),suggestions=await read('suggestions-browser.json'),platform=await read('platform-browser.json'),business=await read('business-browser/browser-report.json'),capacity=await read('capacity-two-cpu.json'),recovery=await read('recovery-report.json');
+for(const r of [stage,suggestions,platform,business,capacity,recovery])assert.equal(r.passed,true);
+const log=await fs.readFile('checks/backend-completeness-all-20261030.log','utf8');assert.match(log,/ℹ fail 0/);
+const summary={releaseId:manifest.releaseId,archiveSha256:manifest.archiveSha256,deployed:false,productionRuntimeChanged:false,aiEnabled:false,realProviderCalls:0,realEmailsSent:0,externalServicesEnabled:false,automated:{total:426,passed:425,skipped:1,failed:0},browser:{suggestions:suggestions.checks.length,platform:platform.checks.length,business:business.checks.length},stageChecks:stage.checks.length,stageSyntheticAccountDeleted:stage.syntheticAccountDeleted,capacity:{localOnly:true,serverAffinityLogicalCpus:2,accounts:20,claimsPerAccount:50,rounds:60,elapsedSeconds:capacity.elapsedSeconds,saves:capacity.save.requests,saveP95Ms:capacity.save.p95Ms,readP95Ms:capacity.read.p95Ms,peakRssBytes:capacity.metrics.memory.peakRssBytes,failures:capacity.failures.length},recoveryPassed:true,newTables:manifest.newTables,passed:true};
+await fs.writeFile(path.join(out,'acceptance-summary.json'),JSON.stringify(summary,null,2));console.log(JSON.stringify(summary));

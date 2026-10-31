@@ -1,0 +1,4398 @@
+{
+  "version": "existing-authored-candidate-20261028-v1",
+  "publicationStatus": "not_published",
+  "sources": [
+    {
+      "id": "foundation-SW_BE-definition",
+      "title": "后端开发工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "将业务规则实现为服务端接口与数据处理，关注正确性、权限和可维护性。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_BE-tasks",
+      "title": "后端开发工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "澄清业务规则与接口输入输出\n实现接口、数据读写与异常处理\n设计权限、数据校验和测试\n定位运行问题并维护技术说明",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_FE-definition",
+      "title": "前端开发工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "把产品交互实现为可使用的浏览器界面，并管理页面状态和接口协作。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_FE-tasks",
+      "title": "前端开发工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "拆解页面结构、交互和状态\n实现组件、路由与接口连接\n处理加载、空白、失败和权限状态\n验证浏览器兼容、响应式与可访问性",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_TEST-definition",
+      "title": "软件测试工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "用系统化检查与可复现证据发现质量风险，支持软件验证和缺陷闭环。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_TEST-tasks",
+      "title": "软件测试工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "从需求设计场景、边界和异常用例\n执行检查并定位实际与预期差异\n记录复现证据并跟踪修复\n按方向建设接口、自动化或性能检查",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_GENERAL-definition",
+      "title": "通用软件开发工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "在特定平台或应用中分析需求、实现程序并验证维护其行为；当前样本偏向 C/C++ 开发。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-SW_GENERAL-tasks",
+      "title": "通用软件开发工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "明确软件输入、输出与模块边界\n实现数据结构与业务处理\n调试并验证功能与异常\n维护代码、构建和技术文档",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-definition",
+      "title": "IT 实施与交付工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "围绕软件、网络或信息系统完成客户需求确认、配置集成、验收培训和上线支持；按具体领域选择方向。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-tasks",
+      "title": "IT 实施与交付工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "澄清客户流程与使用需求\n配置系统、集成接口和准备数据\n安排联调、培训和验收\n记录上线问题并推动解决",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-ML_AI-definition",
+      "title": "AI／算法工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "围绕模型或 AI 应用完成问题定义、实现和效果评估；当前国内样本明显偏重大模型应用。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-ML_AI-tasks",
+      "title": "AI／算法工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "定义任务、数据和评价方式\n实现模型实验或 AI 应用流程\n分析错误并改善效果\n协作完成服务集成和运行验证",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-DATA_ENG-definition",
+      "title": "数据工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "设计和维护数据采集、转换、存储与交付流程，使数据可用、可追溯和可靠。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-DATA_ENG-tasks",
+      "title": "数据工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "设计采集和转换流程\n建立数据模型与存储组织\n检查质量、调度和失败恢复\n管理数据权限、血缘与交付约定",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-DATA_ANALYST-definition",
+      "title": "数据分析师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "将业务或领域问题转为指标与分析，使用数据形成有依据、有限定条件的解释和建议。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-DATA_ANALYST-tasks",
+      "title": "数据分析师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "明确问题、指标和分析口径\n查询清洗数据并检查质量\n开展分析、可视化与结果解释\n沟通建议并复核分析限制",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-CYBERSEC-definition",
+      "title": "网络安全工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "在明确授权下识别和处理信息系统风险，并形成整改与验证证据。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-CYBERSEC-tasks",
+      "title": "网络安全工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "确认资产、授权和风险范围\n开展安全检查或监测分析\n协作进行响应与整改\n记录证据、复核修复并输出报告",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-definition",
+      "title": "运维／DevOps／SRE 工程师 · 项目整理的功能定义",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "维护 IT 服务的运行与交付，通过监控、自动化和恢复机制改善可靠性。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-tasks",
+      "title": "运维／DevOps／SRE 工程师 · 项目整理的典型任务",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "配置维护系统与服务\n监控状态、定位故障和恢复\n管理部署变更、回滚与备份\n通过脚本、流程和复盘减少重复风险",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-quality-chapter-1",
+      "title": "数据质量小项目 · 业务：哪些数据可以支撑问题",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 业务：哪些数据可以支撑问题\n\n- 课程ID：quality\n- 章节ID：quality-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n文件能回答什么问题，记录数和有效分母有什么区别？\n\n## 核心讲解\n\n本课把“整理数据”限定为可重复的文件分析：确认字段、引用问题记录、说明处理口径。公开源CSV保存原始344行；练习文件另加行号和教学问题。先区分原始观察、后加教学内容，再解释结果。按物种统计记录数与按物种计算体重均值使用不同分母，缺体重记录仍可以参与记录数统计。\n\n## 一个完整例子\n\n若一组有10条记录，其中2条体重未提供，记录数是10，体重均值分母是8；不能把2条缺值替成0后除以10。这个算术例子独立于实际企鹅统计。\n\n## 跟着做\n\n1. 打开practice/input/penguins_source.csv，查看8个表头。\n2. 阅读practice/data_dictionary.md。\n3. 在练习文件中选一条NA记录，写出它能参加哪些统计。\n\n## 本章小练习\n\n交 scope.md：列出问题、输入、统计对象、单位和两个不同分母。\n\n## 自查\n\n- [ ] 能区分原始文件和教学派生文件。\n- [ ] 写明体重单位为克。\n- [ ] 未把缺失体重认定为体重0。\n\n## 常见错误与提示\n\n先做图再找问题会使分母和目标含混。先写问题，再决定统计什么；不要因为有年份列就画未经问题支持的趋势。\n\n## 局限与下一步\n\n这个便利样本和带注入的练习不能代表全国、全部企鹅或任何职业就业趋势；下一章决定处理规则。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-quality-chapter-2",
+      "title": "数据质量小项目 · 方案：保留原值与处理理由",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 方案：保留原值与处理理由\n\n- 课程ID：quality\n- 章节ID：quality-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n哪些问题可以确定修正，哪些应保留待核对？\n\n## 核心讲解\n\n处理决定要能回到原记录。把原值、候选修正、理由分别保存，避免覆盖后无法解释。大小写和前后空格可在明确的标签约定下归一；未知岛屿不应根据物种猜测。负体重与本题正数测量约定冲突，可从均值分母排除，同时保留问题记录。重复必须先定义键，本题比较八个源字段，不比较新加的record_id。\n\n## 一个完整例子\n\nQ030的物种格式可以按本题映射归一为Adelie；Q020的Unknown_Island保留未知；Q010的-1记为无效体重，不直接用同物种均值替换。\n\n## 跟着做\n\n1. 为缺失、重复、格式差异、未知类别、无效测量各写一条处理规则。\n2. 在issues表中保留record_id与observed原值。\n3. 对未知岛屿写“保留并说明”，而不是填一个最常见值。\n\n## 本章小练习\n\n交 decisions.md：至少给出一个能修正和一个不能确定修正的例子。\n\n## 自查\n\n- [ ] 规则在实际处理之前写清。\n- [ ] 重复键不含record_id。\n- [ ] 未知与零有不同表示。\n\n## 常见错误与提示\n\n一键删除含NA的所有行会影响不依赖那些字段的统计。按问题决定排除范围，并同时报告排除数量。\n\n## 局限与下一步\n\n同样测量值未必代表同一真实个体。本题重复规则仅用于演示，采用其他规则须解释差异。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-quality-chapter-3",
+      "title": "数据质量小项目 · 实践：记录质量问题",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 实践：记录质量问题\n\n- 课程ID：quality\n- 章节ID：quality-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样留下别人可以复查的处理记录？\n\n## 核心讲解\n\n无论使用表格、SQL还是Python，处理链都应保持输入、规则与输出一致。先清点输入记录，再逐条标注，最后按已说明的分母汇总。可以一行多问题，问题条目数不等于问题行数；也不能先清掉问题再假称原始文件本来完整。参考结果由附带脚本计算，学生应先独立完成，再对照具体差异。\n\n## 一个完整例子\n\nQ345与Q001的八个源字段相同，新行号不同。本题排除Q345这一教学重复，但问题表保留两条行号关联。\n\n## 跟着做\n\n1. 读入346条练习记录并记录这个起点。\n2. 找出重复并保留对应关系，处理格式差异与无效测量。\n3. 输出各物种总记录数、有效体重数、均值、排除数。\n4. 核对总记录数与排除数是否能解释输入变化。\n\n## 本章小练习\n\n按practice/task.md提交issues、summary与method三项；使用工具的同学说明工具和运行环境。\n\n## 自查\n\n- [ ] 每条问题有稳定行号。\n- [ ] 一条记录可出现多条问题说明。\n- [ ] 统计表同时保留总数与有效分母。\n\n## 常见错误与提示\n\n为凑参考答案而改输入会失去依据。先比较重复规则、无效值处理与分母，再比较最终数值。\n\n## 局限与下一步\n\n脚本运行只能说明对给定文件执行了规则，不等于生态研究验证或职业能力认证。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-quality-chapter-4",
+      "title": "数据质量小项目 · 表达：贡献与局限",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 表达：贡献与局限\n\n- 课程ID：quality\n- 章节ID：quality-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何把结果写成有贡献与局限的交付？\n\n## 核心讲解\n\n成果应让读者看清问题、方法、观察和限制四件事。个人贡献写动作与范围，例如“编写重复检测与字段说明”，不要只写“负责数据分析”。工具辅助应注明，参考脚本的输出不能自动改写为本人独立完成。数值旁给单位、分母和文件版本；结论范围限定到本次输入。\n\n## 一个完整例子\n\n可以写“本练习按八个源字段排除2条教学重复，保留344行”，并链接issues和summary。不要写“数据完全正确，因此本人已具备企业数据治理能力”。\n\n## 跟着做\n\n1. 阅读reference/results/summary.csv并与自己的分母核对。\n2. 将差异归类为规则差异、实现错误或资料不足。\n3. 写本人贡献与仍未知的事项。\n\n## 本章小练习\n\n交 final_note.md：问题、输入版本、关键处理、结果、本人贡献、限制。\n\n## 自查\n\n- [ ] 结果有引用文件与单位。\n- [ ] 参考结果和本人实际运行分开。\n- [ ] 结论没有超出本文件。\n\n## 常见错误与提示\n\n只给漂亮图表没有处理记录不便复查；只说“存在局限”也不够，应点明样本范围、注入内容或缺失信息。\n\n## 局限与下一步\n\n下一步可把自己的交付作为待确认经历，阅读本课本身不能作为掌握证明。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-ai-eval-chapter-1",
+      "title": "AI 调用与评估体验 · 业务与风险",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 业务与风险\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样确定回答允许使用的事实范围？\n\n## 核心讲解\n\n本课不调用模型，只练习阅读预录输入和回答。instruction定义要求，context提供当前可用事实，candidate_answer是待观察的输出。材料里的命令句不自动成为用户授权；回答声称“已修改目标”也不是工具执行证据。先画出信息边界，再判断事实、措辞和操作声明。\n\n## 一个完整例子\n\nE004只给一份本人确认的SQL查询说明，不能因此认定精通SQL。E007资料内的改目标命令不是实际修改授权。\n\n## 跟着做\n\n1. 打开practice/input/eval_cases.jsonl，按case_id找E004和E007。\n2. 分别摘出给定事实与回答新增内容。\n3. 标注哪些信息需要额外证据。\n\n## 本章小练习\n\n交 scope_notes.md：对两条案例分别写允许事实、增加的断言、不能执行的动作。\n\n## 自查\n\n- [ ] 知道这些回答为项目编写。\n- [ ] 不把候选回答当事实来源。\n- [ ] 不把文本中的命令当操作授权。\n\n## 常见错误与提示\n\n回答语气肯定不代表资料充分；先看依据，而非文风或长度。\n\n## 局限与下一步\n\n本课练习不含真实API、模型延迟或调用成本数据，不应补造这些字段。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-ai-eval-chapter-2",
+      "title": "AI 调用与评估体验 · 评估规则",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 评估规则\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样给出可观察且可解释的判断？\n\n## 核心讲解\n\n本题采用F01事实一致、F02无依据新增、F03约束遵守、F04未知处理四类检查。它们检查不同问题，允许同一回答某些项满足、另一些不满足。任务真相未知时，仍可判断回答是否做了无依据肯定；不能把“无法判断实际状态”写成“这条回答没问题”。这是一份题内规则，不是经过校准的通用模型量表。\n\n## 一个完整例子\n\nE010的实际在招状态未知，但“今天肯定仍在招聘”超出快照依据，因此任务状态无法判断，F02仍应指出问题。\n\n## 跟着做\n\n1. 阅读practice/data_dictionary.md中的四项规则。\n2. 为E006与E010分别写任务状态与措辞检查。\n3. 为每条判定引用一句输入或回答。\n\n## 本章小练习\n\n交 rubric_trial.md：两条案例的逐项结果、理由，以及一个仍需补充的问题。\n\n## 自查\n\n- [ ] 区分现实未知与回答越界。\n- [ ] 不用一个总分掩盖不同问题。\n- [ ] 不适用项有说明。\n\n## 常见错误与提示\n\n有参考答案不代表必须只写“错”。要说明错在事实、约束还是未知处理。\n\n## 局限与下一步\n\n规则覆盖范围有限；若要评价真实模型，还需额外的独立题集和运行条件。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-ai-eval-chapter-3",
+      "title": "AI 调用与评估体验 · 离线记录",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 离线记录\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何保存可复查的离线判定记录？\n\n## 核心讲解\n\nJSONL每行一个对象，便于逐条引用和扩充。记录case_id、规则编号、输入依据、观察与理由，比只记一个分数更便于解释差异。先独立标注，再打开reference_judgments对照。保存时不要覆盖原始候选回答，也不要把改写后的回答混入原测试结果。\n\n## 一个完整例子\n\n对E009，可引用context中的“或”与候选回答中的“同时”，指出备选关系被改成全部必需。改写版本另外保存，而不是修改原case。\n\n## 跟着做\n\n1. 逐行阅读12条案例，填写四类检查。\n2. 为E009保存一个独立改写并标原case_id。\n3. 对照reference/results/reference_judgments.jsonl，记录分歧原因。\n\n## 本章小练习\n\n交judgments.jsonl或Markdown表格，加上revisions.md两条改写。\n\n## 自查\n\n- [ ] 12个案例ID没有漏掉或重复。\n- [ ] 改写与原回答分开。\n- [ ] 没有填写不存在的模型运行指标。\n\n## 常见错误与提示\n\n把JSONL多行拼成一个不合法JSON数组会影响后续导入；可先用文本表格，后续再转换。\n\n## 局限与下一步\n\n本题只检查材料读取与判定过程，不提供真实模型排名。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-ai-eval-chapter-4",
+      "title": "AI 调用与评估体验 · 结果表达",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 结果表达\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何汇总问题而不夸大结论？\n\n## 核心讲解\n\n汇总应围绕具体错误类型与改进建议：增加未提供事实、改错约束、越过用户确认或隐藏未知。由于这些案例是为教学挑选的，整体通过比例只描述这批候选记录，不能代表模型的真实准确率，更不能代表用户能力。对无法判断的任务保留缺什么资料的说明。\n\n## 一个完整例子\n\nE008事实内容接近资料，但不符合中文要求；E009改变OR条件。两者改进动作不同，不能只用相同的低分替代解释。\n\n## 跟着做\n\n1. 将自己的问题记录按规则类别归组。\n2. 挑两条说明改写怎样减少无依据内容。\n3. 写出样本选择与未运行模型的局限。\n\n## 本章小练习\n\n交evaluation_note.md：范围、主要问题、例子、改写、局限。\n\n## 自查\n\n- [ ] 汇总能回到case_id。\n- [ ] 不声称真实模型评测已完成。\n- [ ] 未把未知当作零分。\n\n## 常见错误与提示\n\n展示一个百分比容易使人误以为是全面评测。优先展示错误例子与依据，数值必须解释样本和口径。\n\n## 局限与下一步\n\n以后接入Agent时可以沿用记录结构，但仍需另外设计独立评测，不直接把本题参考答案作为效果证明。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-log-chapter-1",
+      "title": "离线合成日志分析 · 分析范围",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 分析范围\n\n- 课程ID：log\n- 章节ID：log-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n哪些对象和时间范围在当前分析中可见？\n\n## 核心讲解\n\n本课日志全部由项目生成，只用于离线分析。JSONL和LOG是同一事件集的两种表示，选一种读取。timestamp包含时区，event_id用于引用，request_id把同一请求关联起来。只看到了demo-api侧的有限事件，没有依赖内部状态，分析范围不能越过这些可见资料。\n\n## 一个完整例子\n\n同一req-001有开始与完成两条事件，它是一个请求、两个事件；把两种文件都合并会把数量翻倍。\n\n## 跟着做\n\n1. 阅读字段说明，任选一种输入格式。\n2. 按event_id确认记录唯一。\n3. 列出没有提供的环境资料。\n\n## 本章小练习\n\n交scope.md：时间范围、时区、事件/请求区别和缺失资料。\n\n## 自查\n\n- [ ] 知道日志是合成的。\n- [ ] 不把事件数当请求数。\n- [ ] 没有对真实主机做操作。\n\n## 常见错误与提示\n\n文件名叫app.log不表示真实生产日志；来源和生成方式比扩展名更重要。\n\n## 局限与下一步\n\n原始字段完整性也受本题设计限制；下一章只在范围内寻找异常线索。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-log-chapter-2",
+      "title": "离线合成日志分析 · 异常线索",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 异常线索\n\n- 课程ID：log\n- 章节ID：log-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何从观察到的事件形成可定位的线索？\n\n## 核心讲解\n\n先按时间与请求关联，再看级别和消息。ERROR表示本日志记录了错误事件，不自动告诉根因；WARN也不等同安全攻击。一次请求可能有多条日志，统计时应说明统计事件还是请求。形成时间线时把事件编号、时间、请求与消息放在一起，让别人能够回查。\n\n## 一个完整例子\n\nreq-021的开始和后续dependency_timeout可关联，但这个组合只能说明该请求记录了依赖超时，不能证明依赖服务器损坏。\n\n## 跟着做\n\n1. 筛选ERROR和WARN，保留原事件ID。\n2. 找各错误事件对应的请求开始。\n3. 记录首个与末个ERROR时间，另列WARN。\n\n## 本章小练习\n\n交timeline表：event_id、timestamp、request_id、level、message。\n\n## 自查\n\n- [ ] 时间带时区。\n- [ ] ERROR与WARN没有混为同一种现象。\n- [ ] 每条线索都有事件ID。\n\n## 常见错误与提示\n\n只搜索“error”可能遗漏其他级别的线索；也不要因为某条级别高就跳过上下文。\n\n## 局限与下一步\n\n时间相近不等于因果关系；下一章列出可区分的解释。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-log-chapter-3",
+      "title": "离线合成日志分析 · 替代解释",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 替代解释\n\n- 课程ID：log\n- 章节ID：log-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何提出不止一种解释，并知道还缺什么？\n\n## 核心讲解\n\n替代解释不是随意猜测清单。每个假设都要说明它怎样解释已见现象、还有哪些观察可以支持或排除它。依赖处理慢、链路延迟、超时配置不合适都可能产生超时消息；仅凭当前API侧日志不能选择唯一根因。区分假设需要额外记录，而不是更肯定的语气。\n\n## 一个完整例子\n\n若要检验“依赖处理慢”，需要依赖侧处理时间或队列观察；若要检验“超时设置变更”，需要配置版本和变更时间。当前输入都没有。\n\n## 跟着做\n\n1. 为超时现象提出两种解释。\n2. 为每种写一个需要补充的可观察记录。\n3. 检查有没有把未提供信息当成已经发生。\n\n## 本章小练习\n\n交hypotheses.md：假设、可解释线索、待补证据、当前结论。\n\n## 自查\n\n- [ ] 每种解释对应具体线索。\n- [ ] 缺资料时保留未知。\n- [ ] 不把日志关键词当攻击证据。\n\n## 常见错误与提示\n\n“可能是任何问题”没有帮助，应将缺失信息写到具体字段、时间或对象。\n\n## 局限与下一步\n\n本题不包含真实排障授权；提出需要的数据不等于可以自动访问那些系统。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-log-chapter-4",
+      "title": "离线合成日志分析 · 结论边界",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 结论边界\n\n- 课程ID：log\n- 章节ID：log-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样写一份可用于讨论而不越界的分析？\n\n## 核心讲解\n\n报告把观察、假设、未知和下一步分开。观察直接引用事件；假设说明证据还不够；未知列出缺失资料；下一步给有限范围的核对建议。个人贡献可写整理时间线、关联请求和提出验证问题，不能把合成分析写成处置了真实事故。\n\n## 一个完整例子\n\n可以写“合成文件中req-021至req-025出现依赖超时事件”；不能写“已查明攻击并恢复所有服务”。\n\n## 跟着做\n\n1. 将时间线中的两条关键引用写进结论。\n2. 加上两种替代解释与缺失信息。\n3. 说明使用工具和自己完成的部分。\n\n## 本章小练习\n\n交analysis_note.md：范围、观察、假设、待补资料、贡献、局限。\n\n## 自查\n\n- [ ] 关键结论都有引用。\n- [ ] 没有将合成素材写成真实经历。\n- [ ] 没有把观察不足写成系统正常。\n\n## 常见错误与提示\n\n没有发现更多错误只是当前文件中的观察，不代表其他服务和时间范围没有问题。\n\n## 局限与下一步\n\n可以把自己的交付存成待确认材料；阅读、提交或对上参考计数都不等于安全能力实核。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-restore-chapter-1",
+      "title": "模拟恢复记录 · 故障背景",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 故障背景\n\n- 课程ID：restore\n- 章节ID：restore-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n故障描述里哪些是已知，哪些需要继续核对？\n\n## 核心讲解\n\n本课是离线桌面推演。输入包括系统简述、版本变更时间线和合成监控；它们足以练习组织恢复判断，不代表你获得真实服务器操作权限。影响应尽可能落到业务路径、时间和观察范围。健康接口只覆盖一个检查路径，不能代替所有业务请求。\n\n## 一个完整例子\n\n输入中的health_http_status始终为200，业务错误数却在v2窗口上升，因此“进程或健康路径可访问”与“业务请求表现正常”是不同观察。\n\n## 跟着做\n\n1. 阅读incident.md和字段说明。\n2. 找出版本变更、业务指标变化和健康路径结果。\n3. 列出没有提供的依赖内部状态与更长观察。\n\n## 本章小练习\n\n交incident_summary.md：系统范围、观察影响、时间线与未知。\n\n## 自查\n\n- [ ] 写明合成桌面推演。\n- [ ] 没有只凭健康接口判断恢复。\n- [ ] 版本变化与根因推断分开。\n\n## 常见错误与提示\n\n把时间顺序直接写成根因会掩盖其他可能。先记录变更与观察之间的关系，再说明还缺什么。\n\n## 局限与下一步\n\n本题的数字和阈值由项目编写，不是外部组织的生产标准。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-restore-chapter-2",
+      "title": "模拟恢复记录 · 恢复方案",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 恢复方案\n\n- 课程ID：restore\n- 章节ID：restore-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何组织包含前提和停止条件的恢复选择？\n\n## 核心讲解\n\n恢复方案应说明为什么采取动作、需要什么前提、怎样观察以及什么时候停止。可先冻结进一步变更、保留观察、核对可用版本与兼容性，再考虑切换。不同方案应比较业务影响和可验证性。课程输出是计划文本，不自动执行命令；没有提供的备份或权限不能假定存在。\n\n## 一个完整例子\n\n考虑回到v1之前，先核对本题给出的schema-1标签和可用版本。即使标签相同，真实系统仍需另行验证兼容性；本题只练习把前提写出来。\n\n## 跟着做\n\n1. 列出继续观察与考虑切回已知版本两种选择。\n2. 给每步补前提、预期观察与停止条件。\n3. 把尚未核对的依赖与权限列为待确认。\n\n## 本章小练习\n\n交recovery_plan.md，使用“步骤/前提/观察/停止条件”表格。\n\n## 自查\n\n- [ ] 没有执行真实操作。\n- [ ] 方案有明确适用条件。\n- [ ] 没有承诺资料未支持的无损恢复。\n\n## 常见错误与提示\n\n只写重启或回滚三个字不能说明可行性。最重要的是执行前有什么依据和执行后看什么。\n\n## 局限与下一步\n\n在真实部署中还需要具体系统的授权和操作规程，本题不替代它们。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-restore-chapter-3",
+      "title": "模拟恢复记录 · 回退条件",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 回退条件\n\n- 课程ID：restore\n- 章节ID：restore-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样定义并检查回退后的观察条件？\n\n## 核心讲解\n\n本题规定切回v1后连续两个完整60秒窗口：errors/requests小于1%，p95小于300ms。先确认分子分母在同一窗口，再判断阈值；不能从已有p95平均得到真实整体p95。两个窗口条件用于本题自查，不构成通用恢复保证。\n\n## 一个完整例子\n\n09:08窗口4/1000=0.4%，09:09窗口3/1000=0.3%，且对应p95为190ms、180ms，版本均为v1；这些给定合成观察满足本题条件。\n\n## 跟着做\n\n1. 在monitoring.csv中计算每个窗口的错误率。\n2. 只在I09切换之后查两个连续完整窗口。\n3. 保留版本、窗口边界、分母和单位。\n\n## 本章小练习\n\n交verification.md：引用窗口、计算、结果以及未覆盖范围。\n\n## 自查\n\n- [ ] 百分比换算正确。\n- [ ] 没有把健康200当唯一条件。\n- [ ] 没有将观察达标写成永远恢复。\n\n## 常见错误与提示\n\n错误率0.4%不是0.4，也不是40%；写出4/1000可以帮助复查。\n\n## 局限与下一步\n\n观察仅覆盖本题时段与指标。根因和长期状态仍未知。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    },
+    {
+      "id": "course-restore-chapter-4",
+      "title": "模拟恢复记录 · 复盘表达",
+      "version": "candidate-20261028-v1",
+      "status": "draft",
+      "reviewStatus": "pending",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "# 复盘表达\n\n- 课程ID：restore\n- 章节ID：restore-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何复盘过程并保持事实与推演边界？\n\n## 核心讲解\n\n复盘应说明发生顺序、决策依据、给定观察、尚缺证据与可执行改进。目标是让下次更容易识别和验证，避免用虚构责任人或凭空定责替代分析。引用时间线编号与窗口能帮助读者看清叙事；资料不足时把根因列未知。\n\n## 一个完整例子\n\n可以提出“补充业务路径观测、记录兼容性检查、明确观察窗口”等改进；不能声称这些措施已经由真实团队完成。\n\n## 跟着做\n\n1. 按I编号梳理变更、异常、讨论、合成切换与观察。\n2. 分别列出做得清楚与缺少记录的地方。\n3. 给两项改进写完成证据，责任人先标待小组确定。\n\n## 本章小练习\n\n交postmortem.md：范围、经过、决策、验证、未知、改进、个人贡献。\n\n## 自查\n\n- [ ] 根因未知没有被删掉。\n- [ ] 改进包含可观察的完成方式。\n- [ ] 合成记录与真实操作明确区分。\n\n## 常见错误与提示\n\n复盘不应只写“加强意识”；把问题落到记录、检查或观察步骤才能在下一次核对。\n\n## 局限与下一步\n\n本课完成后留下的是一次推演交付，不是生产运维经历或自动能力认证。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "structuralExtraction": true,
+        "semanticReviewCompleted": false,
+        "humanApprovalClaimed": false
+      }
+    }
+  ],
+  "chunks": [
+    {
+      "id": "foundation-SW_BE-definition-p1",
+      "sourceId": "foundation-SW_BE-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 33,
+      "sha256": "1fff5ac25fe28c209dee9bf52d7da08a288bad7e27cfcec31ccfb7e983eaba25",
+      "career": "backend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_BE-tasks-p1",
+      "sourceId": "foundation-SW_BE-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 55,
+      "sha256": "4e9526fc9bd8d0eb4b62e384316207d9d89981c8ac6d8a13bd1b4038a14f28cc",
+      "career": "backend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_FE-definition-p1",
+      "sourceId": "foundation-SW_FE-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 31,
+      "sha256": "0a974207526de05e28460a1d2b43a17b7d648542ef2e27176e79cfbf73901a16",
+      "career": "frontend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_FE-tasks-p1",
+      "sourceId": "foundation-SW_FE-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 58,
+      "sha256": "418d525d99af372fdb6e7bdbd3449a26b045e747a7fadccd985aa9ef21cdf3da",
+      "career": "frontend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_TEST-definition-p1",
+      "sourceId": "foundation-SW_TEST-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 31,
+      "sha256": "4909d885f5581c304c58ff2038f7b02b3ec4ea0407bf1e49f4aa2e8f5e9d0d93",
+      "career": "testing",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_TEST-tasks-p1",
+      "sourceId": "foundation-SW_TEST-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 59,
+      "sha256": "15aa0cfe8fff7a947daf238af0b87fc4474b727b77f0d13d7865c809251280a3",
+      "career": "testing",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_GENERAL-definition-p1",
+      "sourceId": "foundation-SW_GENERAL-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 43,
+      "sha256": "7a87fd6726c24b70882a07e9ccc71098ca1feb7e66f2a5b573520addfe6d3dcd",
+      "career": "software",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_GENERAL-tasks-p1",
+      "sourceId": "foundation-SW_GENERAL-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 50,
+      "sha256": "a64c8e0f56fb6a6ae51e3ce771f5217080fa7db77b32e6ab190c8f1721d5a9c4",
+      "career": "software",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-definition-p1",
+      "sourceId": "foundation-IMPLEMENTATION-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 46,
+      "sha256": "ed62437405bb54b7a708f247f451629535fb7b1d02b20d5bc4de762061663774",
+      "career": "delivery",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-tasks-p1",
+      "sourceId": "foundation-IMPLEMENTATION-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 49,
+      "sha256": "2ef8685eb5c7e7249ea5ff97e61bf0ca2c73c2b74f8fb7b8bb04139314bb0617",
+      "career": "delivery",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-ML_AI-definition-p1",
+      "sourceId": "foundation-ML_AI-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 42,
+      "sha256": "99240eabbb23ee1117759cc09bb5e36627e95abc466e7aa7256592d122a6d7d8",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-ML_AI-tasks-p1",
+      "sourceId": "foundation-ML_AI-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 52,
+      "sha256": "2548d082c38f809489059910a46d88a2d5aebaf5425490c79f7fea25dda4f9cb",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ENG-definition-p1",
+      "sourceId": "foundation-DATA_ENG-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 34,
+      "sha256": "d4719cacb2c3add7f845a3bec32d931c029c87cafc1009fd3d2874dc47e1f268",
+      "career": "engineering",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ENG-tasks-p1",
+      "sourceId": "foundation-DATA_ENG-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 49,
+      "sha256": "4a9916eb2f8800b084bf6209947c4a21a65660a1816d14b85b2a350ea9390091",
+      "career": "engineering",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-definition-p1",
+      "sourceId": "foundation-DATA_ANALYST-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 38,
+      "sha256": "b351e97e8ae6c3831ce18e4f5b012b800c025f33dd68517c940f2ed49b23e8b9",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-tasks-p1",
+      "sourceId": "foundation-DATA_ANALYST-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 50,
+      "sha256": "4823b153b298a99a61d15ff03121f49bd7f82f98eb912b6ba6906449a11752af",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-CYBERSEC-definition-p1",
+      "sourceId": "foundation-CYBERSEC-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 29,
+      "sha256": "dc5b844cbcc5ad84c37cb28bd9a267df0dfc2f9fd962fbefe994686184c709f5",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-CYBERSEC-tasks-p1",
+      "sourceId": "foundation-CYBERSEC-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 49,
+      "sha256": "7f78f210ac527f10a2de2f149cae26d8fb36337892ff3aac41b1e0689e0ffa14",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-definition-p1",
+      "sourceId": "foundation-DEVOPS_SRE-definition",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 34,
+      "sha256": "67492973a541f0034ca4ce01bc176a3cf40345e87ae19af7abc3c1e09c968751",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-tasks-p1",
+      "sourceId": "foundation-DEVOPS_SRE-tasks",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 52,
+      "sha256": "792ea13b8df0fc57a9ecd7727138099bbb01c76983dd360f751783a362514dc6",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p1",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 15,
+      "sha256": "1b199521c9b5c6a7a13435ab04d4588dfb7e812a549c20206ef0ed94eb0ca636",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p2",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 17,
+      "end": 192,
+      "sha256": "e3511d74f3cc7e80d8c0241a9d02f27b3b0a93978aa67127759ca53e723afd2f",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p3",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 194,
+      "end": 205,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p4",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 207,
+      "end": 231,
+      "sha256": "2517a493589ae9570c803b0c2cd36081a2c3a923a3c59452c3c6dc4a6f8563e4",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p5",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 233,
+      "end": 240,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p6",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 242,
+      "end": 373,
+      "sha256": "163cac09b81d01b2f8b54c742aeb6c300fd4bc643d6e6f3cb490bf71f66135d1",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p7",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 375,
+      "end": 384,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p8",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 386,
+      "end": 454,
+      "sha256": "8f825fe5b83758eeb33708f2971973ef174ee6536abcfc0bd9c7ba6976a99cbd",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p9",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 456,
+      "end": 462,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p10",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 464,
+      "end": 574,
+      "sha256": "12eced25d53d54b019493dc2840403b1de2cc91eba3814e047ca01e08c44f714",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p11",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 576,
+      "end": 584,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p12",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 586,
+      "end": 620,
+      "sha256": "04b6dabb60a64564ee05ab0cc74688a75aba39829db0ba8a2ac3d757c863b8b2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p13",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 622,
+      "end": 627,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p14",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 629,
+      "end": 686,
+      "sha256": "d40c56902a6180a428dd01388a916e9f3c416b9f9068beb313485ceb0df13c49",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p15",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 688,
+      "end": 698,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p16",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 700,
+      "end": 750,
+      "sha256": "e95ac040eef2d3262bfc515e2cb98d4ab93ee60cb2619ccc2029c645d70d0a22",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p17",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 752,
+      "end": 761,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-p18",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 763,
+      "end": 808,
+      "sha256": "e4a9d09ec8a5b4ed4f49ac5cf065010239c415c825ec95487bca5e2b10699ad1",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p1",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 14,
+      "sha256": "db115046b5d2bb1eafce209a45e806d0d2e46e9f66e0d24327f828881e8769ce",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p2",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 16,
+      "end": 191,
+      "sha256": "22dfb38e9e50cf3ab358e21d4a2b93d0c029f4a41bedaa8e15218e5f4a1143d2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p3",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 193,
+      "end": 204,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p4",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 206,
+      "end": 226,
+      "sha256": "19ace386d9b7b75b2d54f787a371838a32bea2ba5f85ec41895780cb1bb6e5c5",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p5",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 228,
+      "end": 235,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p6",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 237,
+      "end": 377,
+      "sha256": "37c49f7726036b8dba040493ac24df936a66caa75cc881dbdf87648d66c171c9",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p7",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 379,
+      "end": 388,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p8",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 390,
+      "end": 466,
+      "sha256": "5b12434c669aa3eb7a86342f58fcb5f96254e91599705d1948c9a1ef3d2e5ef2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p9",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 468,
+      "end": 474,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p10",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 476,
+      "end": 574,
+      "sha256": "09293c11d5d7dd6995ca10f64f3ca10a073f7a2fee136ce9447ece3f9cc6834b",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p11",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 576,
+      "end": 584,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p12",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 586,
+      "end": 623,
+      "sha256": "8c80280604f1f738c1b68ba0a69d2ee1e21cf5c241cdbd3734a7b1c19064dae5",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p13",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 625,
+      "end": 630,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p14",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 632,
+      "end": 689,
+      "sha256": "020a7a332d7ce1656807a05ca967063d8fa49cc44c7f7852798e12cbbb7c6e17",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p15",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 691,
+      "end": 701,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p16",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 703,
+      "end": 748,
+      "sha256": "d2479fdb6f9644f54f2e95a2ac56aaa803e37fbc118df0fb3c18c7ab4a60755f",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p17",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 750,
+      "end": 759,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-p18",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 761,
+      "end": 802,
+      "sha256": "4b2e7d64847a17b8ec3c7443f9f4824d8fe03d5c4c1dffd7138f0a9191bc187b",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p1",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 11,
+      "sha256": "1eaea1365326e7b1c30037e2b40662981e511b899a043fd2fbd68aae664f0b9a",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p2",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 13,
+      "end": 188,
+      "sha256": "205ebfbf4f981e704a4eb0d6ed40ade55289f089856954ed78b916dbc2bb6a2b",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p3",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 190,
+      "end": 201,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p4",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 203,
+      "end": 219,
+      "sha256": "55f7cde14a4858092110007bc82822985441af6defe667fb63e9e62b311a1804",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p5",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 221,
+      "end": 228,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p6",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 230,
+      "end": 363,
+      "sha256": "3dd2290a02d250bd34de5ed352f677e3b798f00c0ec04a918d5d6a346760f0cf",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p7",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 365,
+      "end": 374,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p8",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 376,
+      "end": 428,
+      "sha256": "fc18fd037d5b111d83b5757d2fe0cb2c5128e9ef9532756b7e758e487e0aa638",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p9",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 430,
+      "end": 436,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p10",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 438,
+      "end": 538,
+      "sha256": "c30f3e1b68873720b3ae3372445fea08cb9cf75b6dedd846dc128c6a4770b015",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p11",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 540,
+      "end": 548,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p12",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 550,
+      "end": 610,
+      "sha256": "4549cef3b670ece20ad962b84f30d4f7657cc48d0530a8e229798c89b2dacb64",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p13",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 612,
+      "end": 617,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p14",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 619,
+      "end": 678,
+      "sha256": "b8980e1aa7034da04b3a7db1e308a88d25f00247df3b8602f8dbaed1f8396947",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p15",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 680,
+      "end": 690,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p16",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 692,
+      "end": 733,
+      "sha256": "ca8651f6be3ec4557c3a273961a88401351d316cb2905643ff5aa1b2fda8cacc",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p17",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 735,
+      "end": 744,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-p18",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 746,
+      "end": 783,
+      "sha256": "e23a5520569c6f37cae9992f54b8112e25c63ddb495fda2ff62a5622ed7f1382",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p1",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 10,
+      "sha256": "0bccf325ac741b4dc71350c324c000b6c058f0c8ff8b632c12d3fe7b2c980139",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p2",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 12,
+      "end": 187,
+      "sha256": "69a3a1579a1b7355e674cb64a50c4e6d7572f9a467253b0ffdec914773cab4e7",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p3",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 189,
+      "end": 200,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p4",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 202,
+      "end": 219,
+      "sha256": "b7c009629073759150f185cfafeaf4a79a34434cd7dc6b93675b5ab55020f8f2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p5",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 221,
+      "end": 228,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p6",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 230,
+      "end": 349,
+      "sha256": "0707f5da6a1cebcc6ec1e2fa66c84606d60a1a3da55b32c256cc566afc24b3c5",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p7",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 351,
+      "end": 360,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p8",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 362,
+      "end": 438,
+      "sha256": "83225fb308dab6ed9a9b8248781dda017f7dd41dcbc6e4ccd4a9d15578e9282f",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p9",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 440,
+      "end": 446,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p10",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 448,
+      "end": 534,
+      "sha256": "1d20f4beb07659f9efb5e356073acaeabcfc4947f9aaf89ac9cc5eac89b41296",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p11",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 536,
+      "end": 544,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p12",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 546,
+      "end": 586,
+      "sha256": "c03a6111e779db468e0c7a2719a6763b21489e6a3f66c5bbcdc960f39553df7b",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p13",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 588,
+      "end": 593,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p14",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 595,
+      "end": 650,
+      "sha256": "7b1a88abf8e27e3ff30367c54a94428de51b375219dd6dbced016987d3c4f56b",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p15",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 652,
+      "end": 662,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p16",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 664,
+      "end": 711,
+      "sha256": "13f3f734063120730a4162d1d043852d9b48e12588a15240458d4e7a7f05dc8b",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p17",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 713,
+      "end": 722,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-p18",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 724,
+      "end": 758,
+      "sha256": "f0fc975ab1a5d216737d34778d742373a0ae9b7365bfd47206a0d3f1364e14e0",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p1",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 7,
+      "sha256": "2ec837ed317ed7a20a86b37632081bd3ff6c02899affe173562993103dcc9951",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p2",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 9,
+      "end": 157,
+      "sha256": "fcc38a5f7cba1ea479979c1d0da56edcae55c407897c3374d7762498f393ed66",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p3",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 159,
+      "end": 170,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p4",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 172,
+      "end": 188,
+      "sha256": "84a7d5a44026e607562449971c4049156cf93e2e345f6ca6e3f07fb6e6287731",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p5",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 190,
+      "end": 197,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p6",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 199,
+      "end": 336,
+      "sha256": "08c01981e7b675efb637ae703667b9f295f291b55dd46574fa349e835ab6ae53",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p7",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 338,
+      "end": 347,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p8",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 349,
+      "end": 404,
+      "sha256": "c837eb4f7f69f71da2add378320f2bd59e8488088117f62453ff11286c8de760",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p9",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 406,
+      "end": 412,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p10",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 414,
+      "end": 507,
+      "sha256": "9d5d8f2847e443f174ec5dde3bee16a68f4ec5270da64c6acf3b6d24cda5d937",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p11",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 509,
+      "end": 517,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p12",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 519,
+      "end": 563,
+      "sha256": "0ce79c4c92fafbbcc9ae1973aad719d230e41089012b91c6dfef43845fe4b6c9",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p13",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 565,
+      "end": 570,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p14",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 572,
+      "end": 630,
+      "sha256": "b610e5bfc1c38c65135a14f3a3589e096c990ac05cc4075c3f4cf88279cd084c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p15",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 632,
+      "end": 642,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p16",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 644,
+      "end": 671,
+      "sha256": "7e66f4dec9e8d0917f10c176bea5421708ac674695abc46e04c1b4259705b1d5",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p17",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 673,
+      "end": 682,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-p18",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 684,
+      "end": 718,
+      "sha256": "4fb6e711494bd462710ab5e9759724e44c2366674def5de0d9e8506856b8b19a",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p1",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "b9a06b25aa357d22d55d41c6df5dfe57154e3c7aaf19a9c567f565de07cea56f",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p2",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 156,
+      "sha256": "ef290e462cbadbee11c367dc12f1a374e5c415855b7bed14f891c326ba676dfc",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p3",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 158,
+      "end": 169,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p4",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 171,
+      "end": 186,
+      "sha256": "10c52da832fcac34ec4d33c89d4b321a9f415ad4998e1ac7e824c36893ef34b8",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p5",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 188,
+      "end": 195,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p6",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 197,
+      "end": 338,
+      "sha256": "8c6ecdae016c5a364dbc51536c4cf97ce612a4579bb847d2041edb3e1c445921",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p7",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 340,
+      "end": 349,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p8",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 351,
+      "end": 404,
+      "sha256": "9c0b4e2426180cfa07b8069d3628970ed53207042da1eca786e4d39b4ac7919e",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p9",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 406,
+      "end": 412,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p10",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 414,
+      "end": 499,
+      "sha256": "52b6aa05ffd499654b80b95aaa50a097d1a6b7dd22bdd9a0ce8cab72e4d32875",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p11",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 501,
+      "end": 509,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p12",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 511,
+      "end": 554,
+      "sha256": "92939b7bb081b6d20167433c57ceaff19bc78ab9aef5a4eb54b6d4afb6d72d5d",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p13",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 556,
+      "end": 561,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p14",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 563,
+      "end": 616,
+      "sha256": "fb2e191435c92b45f6d48c0b1dbb472073c268ac212bd2cbb38d07ba151a8ec8",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p15",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 618,
+      "end": 628,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p16",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 630,
+      "end": 663,
+      "sha256": "3ca41f6499dbab48da06ab3fdd35e40896767dbe0e13407bff4412995fe45975",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p17",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 665,
+      "end": 674,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-p18",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 676,
+      "end": 710,
+      "sha256": "1cf8d021780c0aacdef0459bc47a2973ffcc3fb66b64d470fc5c3de948b4a882",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p1",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "b1d0486e58e6262eedb4ed1fe0aeffa3ea5523ba08285fa287cda236f5bd3b22",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p2",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 156,
+      "sha256": "fc7a64278e81aaf80e00781a59eadfda8ebda1dca28ab7d833b3a70cfbb39979",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p3",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 158,
+      "end": 169,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p4",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 171,
+      "end": 186,
+      "sha256": "bee2a903a7aa5de63546c8e6cddb09ea544b1567414a20d2ceaa02a1e4c8cf6b",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p5",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 188,
+      "end": 195,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p6",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 197,
+      "end": 323,
+      "sha256": "600cd0c0747257945514c1f0d0926b167ee4ba43681f52c82912e91482ed1f19",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p7",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 325,
+      "end": 334,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p8",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 336,
+      "end": 403,
+      "sha256": "841a830f869fd56107b7ca24f1fb0626d9b6ee90a5f1385c9ad6b8c3d7fa8afc",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p9",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 405,
+      "end": 411,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p10",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 413,
+      "end": 518,
+      "sha256": "6d3d2afbe318d063781e7faf8fd8135a3be93f4a8710ebf1245f9082fd719a22",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p11",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 520,
+      "end": 528,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p12",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 530,
+      "end": 577,
+      "sha256": "c217ed07cc74c8f8caa962614e13eae37cc8b1ab64bac469107813c7ec6c99bb",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p13",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 579,
+      "end": 584,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p14",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 586,
+      "end": 645,
+      "sha256": "c3b4219e4f1dd7fd87747c03888c73bd402b31b09ca685faa28c9baba52d6a58",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p15",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 647,
+      "end": 657,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p16",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 659,
+      "end": 702,
+      "sha256": "bc3446ae3f4fc520a8337c53ca11752ec398063e3744a5ddc056e71bec553d1c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p17",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 704,
+      "end": 713,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-p18",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 715,
+      "end": 741,
+      "sha256": "131b873405a2f2138c250fbd9cf2893c6ee6171c49e127ee3fcd270e9ca12c9e",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p1",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "cd3ad75cbb9a523946e51e4691b40d20c2f85839152998385c5b1a6ea6d6a08d",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p2",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 156,
+      "sha256": "f91fbd14fa9877cff0e90e56709be32f4e7120b3733568d85060d8ecfbeb3b45",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p3",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 158,
+      "end": 169,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p4",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 171,
+      "end": 184,
+      "sha256": "092831ef67b014cd83ae0b295712c5c15aab4cda35e58454d7c1928b9deca612",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p5",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 186,
+      "end": 193,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p6",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 195,
+      "end": 309,
+      "sha256": "ed03c7369346379d78112e0e300a5b26db35ed75d9abf0f53c69915795c846a0",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p7",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 311,
+      "end": 320,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p8",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 322,
+      "end": 378,
+      "sha256": "72f0d8fe83e3be405071f36965d8f131bed7f5f7a5042fad82b109da32913f54",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p9",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 380,
+      "end": 386,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p10",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 388,
+      "end": 448,
+      "sha256": "3f1cc2d5fda89bf78014be05c2d4d66f6de57d22ff35ff523246c4e045086e01",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p11",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 450,
+      "end": 458,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p12",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 460,
+      "end": 497,
+      "sha256": "59301bace537f0600ae12fbe9d190df4abc69834de98dbc51db3d33b4c16d4aa",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p13",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 499,
+      "end": 504,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p14",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 506,
+      "end": 561,
+      "sha256": "ae92a13e879d430ed7864b7d77ab5ceb6da6273a12858b18f6b3ab176e43203f",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p15",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 563,
+      "end": 573,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p16",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 575,
+      "end": 619,
+      "sha256": "5fd64cffc38941adb4f4868771d5742a00424a84b704c39f9ea4dbd5178c8160",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p17",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 621,
+      "end": 630,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-p18",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 632,
+      "end": 681,
+      "sha256": "39568868aef20250ed611abfdb4be6c9bc1edf1ee93a4279d812a97f1b3c8c9c",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p1",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "e2978a4da2e88359f50b54545b44f2c636c6514766ecd874bd8c300f272c465e",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p2",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 157,
+      "sha256": "f86f747c86c01a2f8d958456828fe479b0283f19c2c8355c3dd443f6f5696865",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p3",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 159,
+      "end": 170,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p4",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 172,
+      "end": 190,
+      "sha256": "821f48fd62dfc0266fe33330ad58f0ad26623115eaf1eca425fece06925f0bdb",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p5",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 192,
+      "end": 199,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p6",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 201,
+      "end": 338,
+      "sha256": "81b4af8414b048d7d48cdb7464e918846a7f83b3b0f52f0d8b355352e15a9d63",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p7",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 340,
+      "end": 349,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p8",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 351,
+      "end": 398,
+      "sha256": "46837f68b41a5d1a2b93484b9d34ca38350d7684dce2f87e6f0ba5f52cbad502",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p9",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 400,
+      "end": 406,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p10",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 408,
+      "end": 463,
+      "sha256": "5a0d8369607b7cdf55cb6ad6b2c7c919d78e7501decae04a6f5387efe76d282e",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p11",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 465,
+      "end": 473,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p12",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 475,
+      "end": 506,
+      "sha256": "914731c91d65e019c81aa1238b4768419d774f105464c9be37f329d69241a7d5",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p13",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 508,
+      "end": 513,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p14",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 515,
+      "end": 565,
+      "sha256": "22e48db13fb204a1e305f65814befa1777850a17e73fae01ae354b80d91a392f",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p15",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 567,
+      "end": 577,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p16",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 579,
+      "end": 615,
+      "sha256": "67359c949e3569518bd14b347b0c6f6b586fa1ed26e65bcd7e51e773f47d0123",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p17",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 617,
+      "end": 626,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-p18",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 628,
+      "end": 660,
+      "sha256": "884377ad9d85d4a5f19e30da20238962fe6e17d63f246cd4df2a31ddf37ef5eb",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p1",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "5f9214289b3ef85a2348c73884292be0f92dab69b2a63dfc3dd103e4eefab454",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p2",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 157,
+      "sha256": "41cab75d2e57158fca6717f104e495665189626d041e3cad55806dcd95baf901",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p3",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 159,
+      "end": 170,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p4",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 172,
+      "end": 190,
+      "sha256": "92229b295d0132b7ad2064006e5dafbf2c60be2897970a100699993520cef149",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p5",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 192,
+      "end": 199,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p6",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 201,
+      "end": 318,
+      "sha256": "0ca8abba3b1da7d62bd16cb8b1d305ac950b0a3430edfc39ba99698a67dc2938",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p7",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 320,
+      "end": 329,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p8",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 331,
+      "end": 398,
+      "sha256": "d55ade8762de49f963a30037f4a05e9c3ddb4e2741a94e8d69c3f5cd2f557ecb",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p9",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 400,
+      "end": 406,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p10",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 408,
+      "end": 476,
+      "sha256": "b673a16b45ffff723fecf875ee34c863e7152a33bafb7281c1f4f148ee2e3394",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p11",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 478,
+      "end": 486,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p12",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 488,
+      "end": 543,
+      "sha256": "481d8d3dcabb34b16261b8f9c72791c2e58a2bcd9a25231f0fa6c67db83d811f",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p13",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 545,
+      "end": 550,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p14",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 552,
+      "end": 609,
+      "sha256": "68203ef5234bfb24e2a1b4a5abfa38678973673f0b54fffc466b41d714e9c1b2",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p15",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 611,
+      "end": 621,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p16",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 623,
+      "end": 662,
+      "sha256": "b48e464d4df84678f80b3513a30cd088db92bf580a848a87c87ef9c37b9f4202",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p17",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 664,
+      "end": 673,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-p18",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 675,
+      "end": 700,
+      "sha256": "2835893320b3d8272b2c1167e5b1ca5b56d95b07af753c7074ccad6a98d9b61f",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p1",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "9a65f0c59fe3cddb186a1583b0c1978c8fdcc07cf30c73eb13175ac24fd5cb3c",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p2",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 157,
+      "sha256": "2cbd07b6663a4760bf473f03fedba279aa6dd9531d4b5a2f5a60b1f1149f3962",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p3",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 159,
+      "end": 170,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p4",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 172,
+      "end": 191,
+      "sha256": "ae524ba7119d397c3c6e647407c1caeb3abd9179dac05af7bcd1cce66b1180af",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p5",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 193,
+      "end": 200,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p6",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 202,
+      "end": 316,
+      "sha256": "10bad81b85dcc7884fddd1e7128a4ecc36994ae554110c84c47dd53192f27f8f",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p7",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 318,
+      "end": 327,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p8",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 329,
+      "end": 389,
+      "sha256": "dff0bd46af899adc57a198254450bdd45c591b08e234299da0c4804613fbb1ff",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p9",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 391,
+      "end": 397,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p10",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 399,
+      "end": 457,
+      "sha256": "8dcdcbe0ea4576b7717682e61a14139bfd6498ea3adb9fb1b489b290c97fdd3e",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p11",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 459,
+      "end": 467,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p12",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 469,
+      "end": 503,
+      "sha256": "6e919d13ca4678928e7f07e22184835705ed0b2e3db70003c7bc62cbd856ca75",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p13",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 505,
+      "end": 510,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p14",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 512,
+      "end": 565,
+      "sha256": "a699216fc32b271c7c0568107f6ebb742b93aa05b661b1d5894687b4c80e04bf",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p15",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 567,
+      "end": 577,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p16",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 579,
+      "end": 612,
+      "sha256": "83912d2e21c80388f1dd56f46dd6e8a2a561b7cd929a37f2f64308cc4b117def",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p17",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 614,
+      "end": 623,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-p18",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 625,
+      "end": 659,
+      "sha256": "e30819fe6a0a19b212b443292fe07f1def8e595a9059e24583fc15899c0f9a9a",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p1",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "218ce02a11b8caaabec995d2ec1fbb126113c3ba2b688e79b46b3e64f8473f50",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p2",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 157,
+      "sha256": "ac684ad80a185be4b6bafd2790dc47f41ee58c3f070282d4c3f7d34a6ac7627e",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p3",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 159,
+      "end": 170,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p4",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 172,
+      "end": 190,
+      "sha256": "f29d3284d8820b598e2f5e36a8466be4d6c86d863dd1d2b630aa9991f803c696",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p5",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 192,
+      "end": 199,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p6",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 201,
+      "end": 302,
+      "sha256": "cd504c4ad97b28830aee2737b6bccc987defbf86b7712f06e280f38d812f25b3",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p7",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 304,
+      "end": 313,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p8",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 315,
+      "end": 367,
+      "sha256": "73156f65fd95f341f95deface84e36fc1652203af906281a16f4a3715f4fa16c",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p9",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 369,
+      "end": 375,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p10",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 377,
+      "end": 434,
+      "sha256": "9c6a1149700b9df3a81ea29acd8acc771956f78cbdf278391bdc06b2f3d884e4",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p11",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 436,
+      "end": 444,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p12",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 446,
+      "end": 484,
+      "sha256": "465bc49867ecf480dd4b0778d173800a9fb204a3310c0db60caf5396aa79116b",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p13",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 486,
+      "end": 491,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p14",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 493,
+      "end": 550,
+      "sha256": "ba649d7514870f3a4b176b48a36f5956aba334c84849555e40437ea19fd685ca",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p15",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 552,
+      "end": 562,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p16",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 564,
+      "end": 600,
+      "sha256": "cd03c73d25c17f13dd1e70e3a37f52e904a49ca6af941e6375011cbd72c4a8a8",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p17",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 602,
+      "end": 611,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-p18",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 613,
+      "end": 653,
+      "sha256": "225192d28687699a9e53330211589c077a2f0aaf08a76177e03944030f6cafa0",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p1",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "4068b80c163f3391264ea0b981022efcfa5396cd61a4953914c8935e63454aba",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p2",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 174,
+      "sha256": "a62fe94dcd3607a5c2a4bbd18c9d195dd68f3133406c4e920b41c75e72c05cc4",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p3",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 176,
+      "end": 187,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p4",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 189,
+      "end": 209,
+      "sha256": "22df0f39a14d9c78742211cc38687a445187701e238216dc0c538e0e17d29bda",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p5",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 211,
+      "end": 218,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p6",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 220,
+      "end": 327,
+      "sha256": "54cdd30e0bf20ed77a94dc3f287c2056937764d08688017a07ce9d279e515712",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p7",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 329,
+      "end": 338,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p8",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 340,
+      "end": 414,
+      "sha256": "d550c867c8c3f4d8c26681a5c0c7785e796eb8f7656e02c78dd96421ee21d486",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p9",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 416,
+      "end": 422,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p10",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 424,
+      "end": 494,
+      "sha256": "641a45ad75e307178427ad00c4ef87f8d1627dd51c4631a239adbdaaf962be18",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p11",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 496,
+      "end": 504,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p12",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 506,
+      "end": 544,
+      "sha256": "751ab02175cca44c13d96d66f6a647d4ebc61ece640032fba5f65d6dd8f430e4",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p13",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 546,
+      "end": 551,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p14",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 553,
+      "end": 607,
+      "sha256": "20eec04e9b8df9b1be3f9f7956d66c2de54f63d7e34fa8337774ee7dc7f2d081",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p15",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 609,
+      "end": 619,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p16",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 621,
+      "end": 662,
+      "sha256": "23bddcf4f6203972f1be8c87377fcc5d3d3a327f5bc276ea228bc004fb204bae",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p17",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 664,
+      "end": 673,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-p18",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 675,
+      "end": 702,
+      "sha256": "01bc55251cbd259bc95b1bcf5ecc1668f6b9796b0f47fc3da786b155b39ed672",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p1",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "01fbcbb4f1d05c04284fc59e49d095e5a6ea5ecf0e6ffd920d915b3cbe693d1b",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p2",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 174,
+      "sha256": "00e67ac23a301c59b3f7ee309d5808b35cca64de78f2ed5655e5d746b5fec4f5",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p3",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 176,
+      "end": 187,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p4",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 189,
+      "end": 208,
+      "sha256": "5377f63a9b189b0a1a8cf2014cb2077fe4e283f64c620cd05ae70ce457d2b8ce",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p5",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 210,
+      "end": 217,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p6",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 219,
+      "end": 338,
+      "sha256": "5bd86ec07547cf6cbcb40a37a8061d95580b4cfbef478ee95ed3a0af84590a7a",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p7",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 340,
+      "end": 349,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p8",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 351,
+      "end": 417,
+      "sha256": "188dfc5d67e8dd8fdd9e697a41c9e1e7b8d6388afd1008c35a7886c384eecf71",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p9",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 419,
+      "end": 425,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p10",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 427,
+      "end": 492,
+      "sha256": "4018c9def35430d3deb623f582f93127650f245b94088f7d0135d9c4d4a7c7b7",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p11",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 494,
+      "end": 502,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p12",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 504,
+      "end": 542,
+      "sha256": "8c8027c8dbcf9bb0ebca6e1c5f7967d49558fa2900954073dc5668b5d3462e69",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p13",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 544,
+      "end": 549,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p14",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 551,
+      "end": 605,
+      "sha256": "605ca2e5f83adfee87f546327c0b4a0d34f6e76eedf285493336ad890013dcba",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p15",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 607,
+      "end": 617,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p16",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 619,
+      "end": 658,
+      "sha256": "35a4bb9b9a6b4b43524b95cb251b40f269a20485679e7fb05651303d7ceda863",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p17",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 660,
+      "end": 669,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-p18",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 671,
+      "end": 702,
+      "sha256": "f1a01f6bef1ec64b397ec8d75e020161573d8fd5d5c743b81a0baac03e6b9b49",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p1",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "4d0ce6b3a64ae0301f8ef2517a3c097bdb3b290d69340fbf667a2018851f9830",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p2",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 174,
+      "sha256": "6e14ba31bf73999b1097dcdb15faf8f5977c4467dd9e839c8a8afdcca1762765",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p3",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 176,
+      "end": 187,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p4",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 189,
+      "end": 205,
+      "sha256": "c0cb896e65932a4914dd14fdd19e6ae5b7306f743aecc9d1c94bb3e8a7b84f8f",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p5",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 207,
+      "end": 214,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p6",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 216,
+      "end": 330,
+      "sha256": "eec78c8ded51669fd24f017645c338cc78044c540fa5ee3eb31e25a82d30aef6",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p7",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 332,
+      "end": 341,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p8",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 343,
+      "end": 422,
+      "sha256": "98efb56102d7f80d58f076de96e6e2b7681a56a15bbb818f72b7ad59a221ae1b",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p9",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 424,
+      "end": 430,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p10",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 432,
+      "end": 505,
+      "sha256": "bf969a488bb21e67acc2bdc9475c136d0dba3a953cf98df0aa08185bfd8a1a88",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p11",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 507,
+      "end": 515,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p12",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 517,
+      "end": 552,
+      "sha256": "6894b50db098e5e9d1f29c068c6cac2b5e522290646b32756f829005073a9d5f",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p13",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 554,
+      "end": 559,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p14",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 561,
+      "end": 617,
+      "sha256": "57c6eae7ecd6f442ca1856b94e1610673759f1d06a02d6b0169c55cb65338ad5",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p15",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 619,
+      "end": 629,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p16",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 631,
+      "end": 666,
+      "sha256": "eae976a029e855a7621bf3e001e413a5d8428fa23426be6f23dbcca219a1b036",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p17",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 668,
+      "end": 677,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-p18",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 679,
+      "end": 704,
+      "sha256": "c877c81f262e3c6b9f2233413321746127bb5c486c7dded01845c31f255b62a5",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p1",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 0,
+      "end": 6,
+      "sha256": "592f6eab69f29d93fd1fcb198e00e71fa96f577abfb6cfdedee7e1eeae47cccb",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p2",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 8,
+      "end": 174,
+      "sha256": "cb67280e522428c2a6656b6c037ca230878468db4da562957a2717ebc1e760ca",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p3",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 176,
+      "end": 187,
+      "sha256": "ad437a5c4f0fd1356bb6960b23a74cb32d19e87eb2dbbebd6f23ee81615002ba",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p4",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 189,
+      "end": 206,
+      "sha256": "d2f13895688eb542f1b9eb3e330a08d7f601a522e9fc645573d6480182307b62",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p5",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 208,
+      "end": 215,
+      "sha256": "bb3edd7adc6afd7a9de89a059510f944cdf2766ddac7d52c20e49eb91364028c",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p6",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 217,
+      "end": 313,
+      "sha256": "51902a6b1adba869ba0d8a3a6faa176b538e58211e17cc970343410fd5996335",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p7",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 315,
+      "end": 324,
+      "sha256": "987b5d277ba5ffddb3b80085d6d103b27877f4e1defbe2a61c5f6a4d8f542f32",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p8",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 326,
+      "end": 377,
+      "sha256": "31c5bcab964396cc49cfc8d87bcc7bdf2bc85c2f0de2b33521109e9e1fafb89f",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p9",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 379,
+      "end": 385,
+      "sha256": "aef98fb406ed8bd34e7008e774cffe8bc4573c0e215f4c2dcdae41c9635cc4c7",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p10",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 387,
+      "end": 460,
+      "sha256": "5a4b23febaa321c9a2c72cb4639d959091417214bf4a2ff7269c6b3b6500860e",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p11",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 462,
+      "end": 470,
+      "sha256": "4408e809fe753d9d6d64bfb885138086a46580926e68a7d617257de0cb8453f2",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p12",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 472,
+      "end": 510,
+      "sha256": "1e724a5f5fd5589ba14827918578fc76acbc53cd2d91f0b1c4b4764c21bf1c55",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p13",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 512,
+      "end": 517,
+      "sha256": "bfb3a282b1186b6a58c7db58308cca58c206c0ee144a8d7e9fe0bc0c5d137972",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p14",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 519,
+      "end": 576,
+      "sha256": "942980535a669b9f39f16400fc90b9ea6616e3dc90d60233854cce9a88449bd1",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p15",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 578,
+      "end": 588,
+      "sha256": "de7230fc3ed1d9a0d170c9bc5fe24cf4a86298bc9d85a244891003f0c199b6f4",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p16",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 590,
+      "end": 627,
+      "sha256": "ab854a2337db4606a6f537f65275a38111c217dbca744b0c37c2b1dc4477b024",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p17",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 629,
+      "end": 638,
+      "sha256": "daa2f2ca80bc0fa2c44ffdfd736538a36d0440155931778e560fcf5d3393bc19",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-p18",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "candidate-20261028-v1",
+      "start": 640,
+      "end": 673,
+      "sha256": "c5e61c90492797d95faada8388e752047cb5baa748003afb992510e49abc5c11",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+/* Local AI interaction states. Reuse the existing workspace surface and type. */
+.ai-chat-surface.is-live .chat-service-status{color:var(--reference-primary,#4b5148)}
+.ai-chat-surface.is-live .chat-service-status.is-disabled{color:var(--reference-muted,#62564a)}
+.ai-chat-surface .agent-pending{margin:12px 0 18px;font-size:13px;line-height:1.8;color:var(--reference-muted,#51483e)}
+.ai-chat-surface .agent-inline-status{font-size:12px;line-height:1.8;margin:0 0 9px;color:var(--reference-muted,#51483e)}
+.ai-chat-surface .agent-status-action{margin:0 0 9px;min-height:34px;font-size:12px}
+.ai-chat-surface .chat-send:disabled{cursor:not-allowed;opacity:.55}
+.ai-chat-surface .agent-cancel{margin-left:auto;min-height:36px;font-size:12px}
+.ai-chat-surface .agent-cancel+.chat-send{margin-left:0}
+.agent-statements{display:grid;gap:16px}
+.agent-statement h4,.agent-reference-details h4{font-size:12px;font-weight:500;line-height:1.7;margin:0 0 5px;color:var(--reference-primary,#5a5146)}
+.agent-statement p,.agent-citation-original{overflow-wrap:anywhere;word-break:normal}
+.agent-statement-fact p{padding-left:12px;border-left:1px solid var(--reference-line,#b9afa0)}
+.agent-citation{margin:14px 0;padding-bottom:12px;border-bottom:1px solid var(--reference-line,#ddd5c8);min-width:0}
+.agent-citation:last-of-type{border-bottom:0}
+.agent-citation h4{display:flex;flex-wrap:wrap;gap:5px 12px}
+.agent-citation .agent-citation-type{color:var(--reference-muted,#62594e);font-size:11px}
+.agent-citation small{display:block;overflow-wrap:anywhere;font-size:10px;color:var(--reference-muted,#62594e);margin-top:7px}
+.agent-limitations{padding-left:20px;margin:7px 0 12px}
+.agent-limitations li{font-size:12px;line-height:1.85;overflow-wrap:anywhere;margin:5px 0}
+.agent-message-unavailable .agent-retracted{font-size:12px;line-height:1.9;color:var(--reference-muted,#62594e)}
+.agent-save-note{margin-top:12px;min-height:34px;font-size:12px}
+.external-ai-scope .agent-egress-summary{margin:12px 0 17px;line-height:1.85;font-size:13px}
+.external-ai-scope .agent-consent-check{align-items:flex-start;padding-top:12px;border-top:1px solid var(--reference-line,#d7cdbd);margin-top:16px;line-height:1.8}
+.external-ai-scope .agent-consent-check input{flex:none;margin-top:5px}
+.external-ai-scope .agent-scope-footnote{font-size:12px;line-height:1.85;color:var(--reference-muted,#62594e)}
+.cheese-context-drawer .ai-chat-surface{height:auto;min-height:560px;grid-template-rows:auto auto minmax(150px,1fr) auto}
+.cheese-context-drawer .ai-chat-surface.is-empty{grid-template-rows:auto auto auto}
+.cheese-context-drawer .ai-chat-surface .chat-toolbar{padding:12px 0;gap:8px;align-items:flex-start}
+.cheese-context-drawer .ai-chat-surface .chat-session-symbol{display:none}
+.cheese-context-drawer .ai-chat-surface .chat-toolbar h2{font-size:14px}
+.cheese-context-drawer .ai-chat-surface .chat-scope-button-label{font-size:11px}
+.cheese-context-drawer .ai-chat-surface .chat-scope-summary{padding:9px 0;gap:5px 12px}
+.cheese-context-drawer .ai-chat-surface .chat-stream{padding:15px 0;max-height:48dvh;min-height:150px}
+.cheese-context-drawer .ai-chat-surface .chat-composer{width:100%;margin:0 0 8px;padding:12px}
+.cheese-context-drawer .ai-chat-surface .empty-chat-home{min-height:0;padding:15px 0;gap:15px}
+.cheese-context-drawer .ai-chat-surface .empty-chat-intro h3{font-size:19px}
+.cheese-context-drawer .ai-chat-surface .empty-prompt-rail{padding:0}
+.cheese-context-drawer .ai-chat-surface .empty-prompt-starts{grid-template-columns:1fr}
+/* A context drawer has one scrolling transcript and always-reachable composer. */
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer[open]{display:flex;flex-direction:column;height:100dvh;max-height:100dvh;max-width:100vw;min-height:0;box-sizing:border-box;overflow:hidden}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.section-head{flex:none;gap:8px;padding-bottom:10px;margin-bottom:10px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.section-head>h2{flex:1 1 150px;min-width:0;font-size:16px;line-height:1.5}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.cheese-panel-companion{flex:none;min-height:0;height:45px;gap:10px;margin:0 0 8px;padding:0 8px 5px;overflow:hidden}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .cheese-panel-character{flex-basis:70px;width:70px;height:45px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .cheese-panel-caption{padding:0;gap:2px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .cheese-panel-caption>span{font-size:11px;line-height:1.5}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .cheese-panel-caption>.cheese-panel-name{font-size:13px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.agent-side-actions{flex:none;margin-bottom:6px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.agent-side-actions>button{min-height:32px;padding:5px 10px;font-size:12px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.ai-chat-surface{flex:1 1 auto;min-height:0;height:auto;overflow:hidden;grid-template-rows:auto auto minmax(0,1fr) auto}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer>.ai-chat-surface.is-empty{grid-template-rows:auto auto minmax(0,1fr)}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .chat-stream{min-height:0;max-height:none;overflow-y:auto}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .empty-chat-home{align-self:stretch;overflow-y:auto;overscroll-behavior:contain;padding-block:10px}
+#root>dialog.cheese-context-drawer.cheese-assisted-panel.drawer .chat-composer{margin-bottom:0;max-height:52dvh;overflow-y:auto;overscroll-behavior:contain}
+.cheese-context-drawer .ai-chat-surface.is-live .composer-controls{flex-wrap:wrap}
+.cheese-context-drawer .ai-chat-surface.is-live .composer-controls>label{display:flex;align-items:center;gap:8px;flex:1 0 100%;width:100%;max-width:none}
+.cheese-context-drawer .ai-chat-surface.is-live .composer-controls select{flex:1;min-width:0;width:100%;max-width:none}
+@media(max-width:720px){
+  #root #main.student-workspace.assistant-workspace .assistant-page.assistant-page-focused .ai-chat-surface.is-live .chat-composer .composer-controls>label{flex:1 0 100%;width:100%;max-width:none}
+  #root #main.student-workspace.assistant-workspace .assistant-page.assistant-page-focused .ai-chat-surface.is-live .chat-composer .composer-controls select{flex:1;width:100%;min-width:0;max-width:none}
+  .ai-chat-surface.is-live .composer-controls{flex-wrap:wrap;gap:8px}
+  .ai-chat-surface.is-live .composer-controls>label{display:flex;align-items:center;gap:8px;flex:1 0 100%;width:100%;max-width:none}
+  .ai-chat-surface.is-live .composer-controls select{flex:1;min-width:0;width:100%;max-width:none}
+  .ai-chat-surface.is-live .agent-cancel{margin-left:auto}
+  .ai-chat-surface .agent-cancel,.ai-chat-surface .chat-send{min-height:40px}
+  .agent-citation h4{display:block}
+  .agent-citation h4 span{display:block}
+}

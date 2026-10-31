@@ -1,0 +1,1060 @@
+{
+  "version": "authored-guidance-20261028-v1",
+  "reviewedAt": "2026-10-28",
+  "paidCalls": 0,
+  "productionPublished": false,
+  "originalApprovalFieldsUnchanged": true,
+  "sourceCount": 46,
+  "careerCount": 10,
+  "chapters": 16,
+  "referencesChecked": [
+    "https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html",
+    "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html",
+    "https://opentelemetry.io/docs/specs/otel/logs/data-model/"
+  ],
+  "corrections": {
+    "SW_GENERAL": "在特定平台或应用中分析需求、实现程序并验证维护其行为。",
+    "ML_AI": "围绕模型或 AI 应用完成问题定义、实现和效果评估。"
+  },
+  "excluded": [
+    "raw recruitment text",
+    "observed job counts",
+    "salary/degree/market popularity",
+    "unverified video claims",
+    "expert approval claims"
+  ],
+  "sources": [
+    {
+      "id": "foundation-SW_BE-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "1fff5ac25fe28c209dee9bf52d7da08a288bad7e27cfcec31ccfb7e983eaba25",
+        "derivativeDigest": "ddb67ba7d30088ff176b92d33fb0981a5baf4c0348f0ae891de8423c39071dbd"
+      },
+      "sha256": "ddb67ba7d30088ff176b92d33fb0981a5baf4c0348f0ae891de8423c39071dbd"
+    },
+    {
+      "id": "foundation-SW_BE-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4e9526fc9bd8d0eb4b62e384316207d9d89981c8ac6d8a13bd1b4038a14f28cc",
+        "derivativeDigest": "cc4e1ccf07fd7021c71ce2dbe19a866818407df2b70c1855c45b328208e946d0"
+      },
+      "sha256": "cc4e1ccf07fd7021c71ce2dbe19a866818407df2b70c1855c45b328208e946d0"
+    },
+    {
+      "id": "foundation-SW_BE-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "b79861ea838ccf89b332b71c9a4a59238c87a4bddff8476814e4c7c3e903b343",
+        "derivativeDigest": "c234809fbb299c5b7ce15be28dd3ba828487efe4077982544737ac2e2f2f8e08"
+      },
+      "sha256": "c234809fbb299c5b7ce15be28dd3ba828487efe4077982544737ac2e2f2f8e08"
+    },
+    {
+      "id": "foundation-SW_FE-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "0a974207526de05e28460a1d2b43a17b7d648542ef2e27176e79cfbf73901a16",
+        "derivativeDigest": "27e214bff28c971638f9f764b551d90031440b25284fbd259cba468bc07cbb51"
+      },
+      "sha256": "27e214bff28c971638f9f764b551d90031440b25284fbd259cba468bc07cbb51"
+    },
+    {
+      "id": "foundation-SW_FE-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "418d525d99af372fdb6e7bdbd3449a26b045e747a7fadccd985aa9ef21cdf3da",
+        "derivativeDigest": "7b2977c2fdd55fd492fd6ff99d9d94283e52b6caf1c5801b820ecfb68d541172"
+      },
+      "sha256": "7b2977c2fdd55fd492fd6ff99d9d94283e52b6caf1c5801b820ecfb68d541172"
+    },
+    {
+      "id": "foundation-SW_FE-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "97fd8922404ff88a7ebe1d6a20edf1a0dc6c02428d735a3c21e6fc1ebbe58157",
+        "derivativeDigest": "f9d14ace4a61fa89363b35ac071a2ef02b6201e849c47127383ae128c059ef2b"
+      },
+      "sha256": "f9d14ace4a61fa89363b35ac071a2ef02b6201e849c47127383ae128c059ef2b"
+    },
+    {
+      "id": "foundation-SW_TEST-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4909d885f5581c304c58ff2038f7b02b3ec4ea0407bf1e49f4aa2e8f5e9d0d93",
+        "derivativeDigest": "1b398110f28ffec72c234219335e6a80f868ed739c0c65a8bad9f9c6301c1155"
+      },
+      "sha256": "1b398110f28ffec72c234219335e6a80f868ed739c0c65a8bad9f9c6301c1155"
+    },
+    {
+      "id": "foundation-SW_TEST-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "15aa0cfe8fff7a947daf238af0b87fc4474b727b77f0d13d7865c809251280a3",
+        "derivativeDigest": "e5a1b4b8ea29863e7f447cb8985eb7ff0a4944a048441a5a614c0e3bd6773b50"
+      },
+      "sha256": "e5a1b4b8ea29863e7f447cb8985eb7ff0a4944a048441a5a614c0e3bd6773b50"
+    },
+    {
+      "id": "foundation-SW_TEST-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "85e6836976be811e6836049807df20047e4df3bb7838fc8707b7e6e5156788b5",
+        "derivativeDigest": "508cf9505533caffbf6a4eb47f5971e772d32654db6566e72c1aea0f3c6542e6"
+      },
+      "sha256": "508cf9505533caffbf6a4eb47f5971e772d32654db6566e72c1aea0f3c6542e6"
+    },
+    {
+      "id": "foundation-SW_GENERAL-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Removed sample-specific suffix from general definition. Previous text: 在特定平台或应用中分析需求、实现程序并验证维护其行为；当前样本偏向 C/C++ 开发。",
+        "originalDigest": "2795ee9e4ba4c265256e0bfc523c7659fd9d8f165ee962786afa5acb5aa7c867",
+        "derivativeDigest": "fa2db9ee5aa2c1a18db254d4ee43033b9e1efc6d8cf1c9e6c82f2d98cca2477f"
+      },
+      "sha256": "fa2db9ee5aa2c1a18db254d4ee43033b9e1efc6d8cf1c9e6c82f2d98cca2477f"
+    },
+    {
+      "id": "foundation-SW_GENERAL-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "a64c8e0f56fb6a6ae51e3ce771f5217080fa7db77b32e6ab190c8f1721d5a9c4",
+        "derivativeDigest": "2fe054dc827cf37bdb0cfa50c9e2fd95b5972197e105c6ba5624b49bb36be783"
+      },
+      "sha256": "2fe054dc827cf37bdb0cfa50c9e2fd95b5972197e105c6ba5624b49bb36be783"
+    },
+    {
+      "id": "foundation-SW_GENERAL-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "c4069537b9798c0bee0defc99c7734068c84c2b0a8ca33ed908a2c1e5c64e7b8",
+        "derivativeDigest": "9b4e389d6d91308beda466db73fb3483deb4bf4b34b99d87ff2c76556cdd109a"
+      },
+      "sha256": "9b4e389d6d91308beda466db73fb3483deb4bf4b34b99d87ff2c76556cdd109a"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "ed62437405bb54b7a708f247f451629535fb7b1d02b20d5bc4de762061663774",
+        "derivativeDigest": "818eedd6b88569e26e404b110d8d2ede5508d0f2e890bdf0024be64e6e0ec5e8"
+      },
+      "sha256": "818eedd6b88569e26e404b110d8d2ede5508d0f2e890bdf0024be64e6e0ec5e8"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "2ef8685eb5c7e7249ea5ff97e61bf0ca2c73c2b74f8fb7b8bb04139314bb0617",
+        "derivativeDigest": "50f27245db1cc782f7e943e6cb6c9a71dd2f7371c4cb196e4b6e19fc59330de4"
+      },
+      "sha256": "50f27245db1cc782f7e943e6cb6c9a71dd2f7371c4cb196e4b6e19fc59330de4"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "03bdbdb2faafd2cb1f8caeb4c55f8e716335bc17adc1d9a3123b5ff3a04e29ba",
+        "derivativeDigest": "a3049c05144d30870243c1595e229dd93588819ba54b251b1e738cf73026fb59"
+      },
+      "sha256": "a3049c05144d30870243c1595e229dd93588819ba54b251b1e738cf73026fb59"
+    },
+    {
+      "id": "foundation-ML_AI-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Removed sample-specific suffix from general definition. Previous text: 围绕模型或 AI 应用完成问题定义、实现和效果评估；当前国内样本明显偏重大模型应用。",
+        "originalDigest": "fc60761a937673a5ea21e1c83e3813d234d872976127b3b9114955754f0f68dd",
+        "derivativeDigest": "d6c434ca4692b92ed64ec8d77b883483281b371b32e55e02e6afb47f0e3e02b9"
+      },
+      "sha256": "d6c434ca4692b92ed64ec8d77b883483281b371b32e55e02e6afb47f0e3e02b9"
+    },
+    {
+      "id": "foundation-ML_AI-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "2548d082c38f809489059910a46d88a2d5aebaf5425490c79f7fea25dda4f9cb",
+        "derivativeDigest": "34dfe2f1870c4066a7510b865e343a53d42431f6a7d52e6366ea926bf590197b"
+      },
+      "sha256": "34dfe2f1870c4066a7510b865e343a53d42431f6a7d52e6366ea926bf590197b"
+    },
+    {
+      "id": "foundation-ML_AI-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "90ec7c451e926e160726f938058c5e27eafce9919af483f7550b8d90387555ac",
+        "derivativeDigest": "59c3e8d110e01cdfdc941ca6142ad029d80bba1919872a0b0f021dcc18c92e78"
+      },
+      "sha256": "59c3e8d110e01cdfdc941ca6142ad029d80bba1919872a0b0f021dcc18c92e78"
+    },
+    {
+      "id": "foundation-DATA_ENG-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "d4719cacb2c3add7f845a3bec32d931c029c87cafc1009fd3d2874dc47e1f268",
+        "derivativeDigest": "8569f536158db356d20aeb9abea38c8fe2fc8b5ec9f0855b38d0577b30c5e17f"
+      },
+      "sha256": "8569f536158db356d20aeb9abea38c8fe2fc8b5ec9f0855b38d0577b30c5e17f"
+    },
+    {
+      "id": "foundation-DATA_ENG-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4a9916eb2f8800b084bf6209947c4a21a65660a1816d14b85b2a350ea9390091",
+        "derivativeDigest": "09f4dd0e929730b64bc5fec8583cd338cfffc3c79047cd19fccae4d84b322b4b"
+      },
+      "sha256": "09f4dd0e929730b64bc5fec8583cd338cfffc3c79047cd19fccae4d84b322b4b"
+    },
+    {
+      "id": "foundation-DATA_ENG-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "0899ccaef03adefe678078cfd3ff3487871c61006d518269d16312e3eb68699f",
+        "derivativeDigest": "437c1dcc3682b66550c4dc8f63d1ec0a7460d25ea2985b5aa6a2e07c8ed6c790"
+      },
+      "sha256": "437c1dcc3682b66550c4dc8f63d1ec0a7460d25ea2985b5aa6a2e07c8ed6c790"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "b351e97e8ae6c3831ce18e4f5b012b800c025f33dd68517c940f2ed49b23e8b9",
+        "derivativeDigest": "ac287d705a01dcc7d6c9590f2730fd71961562022a6fd8bc01724d5edf273365"
+      },
+      "sha256": "ac287d705a01dcc7d6c9590f2730fd71961562022a6fd8bc01724d5edf273365"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4823b153b298a99a61d15ff03121f49bd7f82f98eb912b6ba6906449a11752af",
+        "derivativeDigest": "cd027601a80a7fa25207154aaa872c8b14984f6f785af8de1767d699ae984710"
+      },
+      "sha256": "cd027601a80a7fa25207154aaa872c8b14984f6f785af8de1767d699ae984710"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "300a6ab148363c24ee44cb49cd3d8147a4af7baf4264e3eb3fd38964a0ac9b9d",
+        "derivativeDigest": "3b87530f7295012b333000e2e77f8a8f91e9ea763825375f0b75021a544e8245"
+      },
+      "sha256": "3b87530f7295012b333000e2e77f8a8f91e9ea763825375f0b75021a544e8245"
+    },
+    {
+      "id": "foundation-CYBERSEC-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "dc5b844cbcc5ad84c37cb28bd9a267df0dfc2f9fd962fbefe994686184c709f5",
+        "derivativeDigest": "f7272b08e951f9c0a797e0e85e9e1eb5c6207988e70e7ff2d8b1686811c12708"
+      },
+      "sha256": "f7272b08e951f9c0a797e0e85e9e1eb5c6207988e70e7ff2d8b1686811c12708"
+    },
+    {
+      "id": "foundation-CYBERSEC-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "7f78f210ac527f10a2de2f149cae26d8fb36337892ff3aac41b1e0689e0ffa14",
+        "derivativeDigest": "fac732f478e686455821f57803c3fd494fc9b01209e9c0aa6278b2249832ec10"
+      },
+      "sha256": "fac732f478e686455821f57803c3fd494fc9b01209e9c0aa6278b2249832ec10"
+    },
+    {
+      "id": "foundation-CYBERSEC-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "77ee17e57137f09b2229d7c06f472cd74afb22a7664485f64d2280a9fe873038",
+        "derivativeDigest": "c03042e47e05615e221bc074f409aa761b949ca8d82a1ca7719f660109bc014d"
+      },
+      "sha256": "c03042e47e05615e221bc074f409aa761b949ca8d82a1ca7719f660109bc014d"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-definition",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "67492973a541f0034ca4ce01bc176a3cf40345e87ae19af7abc3c1e09c968751",
+        "derivativeDigest": "8332f4a468339fb2a1879e9f445294ecff4e26065ed9a156129feda57929664b"
+      },
+      "sha256": "8332f4a468339fb2a1879e9f445294ecff4e26065ed9a156129feda57929664b"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-tasks",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "792ea13b8df0fc57a9ecd7727138099bbb01c76983dd360f751783a362514dc6",
+        "derivativeDigest": "bd0a9a1353f8544d1648abdc8667622eed53326ad867e3e6273fc6d9a86bc355"
+      },
+      "sha256": "bd0a9a1353f8544d1648abdc8667622eed53326ad867e3e6273fc6d9a86bc355"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-learning",
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "57625f059d1fd782a131f6f92f71e67cf04f0b330827d4ee91a1cc1d6f05b4d8",
+        "derivativeDigest": "4934916ea07a2b4a1dbdd574a2c355c0a0f88c2f9a396fbad50cad039caa8830"
+      },
+      "sha256": "4934916ea07a2b4a1dbdd574a2c355c0a0f88c2f9a396fbad50cad039caa8830"
+    },
+    {
+      "id": "course-quality-chapter-1",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "2d7722cea736dd09ee154076954e288f77ec8a205202a183cb33a610c8568b49",
+        "derivativeDigest": "e43ebb8698f0390b47376799d197dd6d5a2669177f24a95f474ee0566b72a6bc"
+      },
+      "sha256": "e43ebb8698f0390b47376799d197dd6d5a2669177f24a95f474ee0566b72a6bc"
+    },
+    {
+      "id": "course-quality-chapter-2",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "ebca8e032a0d3e03766a5af2d9b0b00813f21bf54edfa39c4411bbba165a47f1",
+        "derivativeDigest": "8c82186195f8c2046634c7c7aae88a006dfd8fe534853071cfa7b0c4534215d4"
+      },
+      "sha256": "8c82186195f8c2046634c7c7aae88a006dfd8fe534853071cfa7b0c4534215d4"
+    },
+    {
+      "id": "course-quality-chapter-3",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "661fb1d70ec1fe878c7deb5988d9462c3ee9674cbb84c4b433762f7bfd779220",
+        "derivativeDigest": "aa2bfb54125dda699ec3ba25bfed6a29b602baff76651567a1b9d4b61cd3429c"
+      },
+      "sha256": "aa2bfb54125dda699ec3ba25bfed6a29b602baff76651567a1b9d4b61cd3429c"
+    },
+    {
+      "id": "course-quality-chapter-4",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "7bc4e95f5dbc79fdc2981516fd2c8c20c8ea75ca09c1ab5dbb27a2a4a8fab5a7",
+        "derivativeDigest": "f8e8cb041856a12267373868595d0d6edc20dc5b37330075aa1a2d97c26b41ff"
+      },
+      "sha256": "f8e8cb041856a12267373868595d0d6edc20dc5b37330075aa1a2d97c26b41ff"
+    },
+    {
+      "id": "course-ai-eval-chapter-1",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "8f6bf3a2cc54b90f510c003a6b166f1f41118c3b2a4b8bdd5e83c0b9526b06b2",
+        "derivativeDigest": "043e56f852ffe723007874ac02eb7feec1a7a65d94c74ecc8c7f2eb86ffeeaf5"
+      },
+      "sha256": "043e56f852ffe723007874ac02eb7feec1a7a65d94c74ecc8c7f2eb86ffeeaf5"
+    },
+    {
+      "id": "course-ai-eval-chapter-2",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "ec28942b19ea891f097e471325ad4571fd05e4dbd31af2e794041860c01aaf7f",
+        "derivativeDigest": "6fc50de48515fe686372f824716d3b081e90eb8d5e7d666e3d6cb6792111c371"
+      },
+      "sha256": "6fc50de48515fe686372f824716d3b081e90eb8d5e7d666e3d6cb6792111c371"
+    },
+    {
+      "id": "course-ai-eval-chapter-3",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "3643f20325db52157c44f77e7aa98a07cf78cbfc4742e90fed79763e316648ab",
+        "derivativeDigest": "7761bbbd17521f241571ba1b8da4588c8a5ee22881a81c059d8ef44963a5a3ac"
+      },
+      "sha256": "7761bbbd17521f241571ba1b8da4588c8a5ee22881a81c059d8ef44963a5a3ac"
+    },
+    {
+      "id": "course-ai-eval-chapter-4",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "d9e9dfaa7196f7ead7248af497f601a2cd6fa89e579c0d2deec421ca63d709b2",
+        "derivativeDigest": "900854d90a902ec032a5b3ca3f47e185d5e0022793246b4af06d812d7ad77562"
+      },
+      "sha256": "900854d90a902ec032a5b3ca3f47e185d5e0022793246b4af06d812d7ad77562"
+    },
+    {
+      "id": "course-log-chapter-1",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "b172cd3cae5e7dd956138208b2712c25a2884f752165cfae0ccabbee0591e425",
+        "derivativeDigest": "b801ed1d7621a6043176594c91a7c86941ad18856f09498270aa20cbf9ec3d31"
+      },
+      "sha256": "b801ed1d7621a6043176594c91a7c86941ad18856f09498270aa20cbf9ec3d31"
+    },
+    {
+      "id": "course-log-chapter-2",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "5b085de859c519f57c029b44960b371eb7868b6ab65484df544077f592d53c57",
+        "derivativeDigest": "461480027cb733a3e13b6ee2246a0356f878b6b0c8484e9f0ef9b21d2f57fd42"
+      },
+      "sha256": "461480027cb733a3e13b6ee2246a0356f878b6b0c8484e9f0ef9b21d2f57fd42"
+    },
+    {
+      "id": "course-log-chapter-3",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "c9dcb0fa6f26f27cc05c74824b6e6ab9b779ae0082fb0449f3c6b3cf04f25bd3",
+        "derivativeDigest": "1ceef4a82af80d0229ae4c8853794f385904ecc81c789dace751768a767f8480"
+      },
+      "sha256": "1ceef4a82af80d0229ae4c8853794f385904ecc81c789dace751768a767f8480"
+    },
+    {
+      "id": "course-log-chapter-4",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "1c096f647171c5ff928562155de1d9bf8827b022bdb665de93431ff363315912",
+        "derivativeDigest": "348a35fa25f093546a74eb1db0bb86539341a161d79fbdf502a4dcfdcde6c361"
+      },
+      "sha256": "348a35fa25f093546a74eb1db0bb86539341a161d79fbdf502a4dcfdcde6c361"
+    },
+    {
+      "id": "course-restore-chapter-1",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "452652e33b6766337a9985768f313a2f262dcaeba1c4520787fa26ac4dbf0933",
+        "derivativeDigest": "0bd5d3fbfb8e9f2c45465fb6ab971fad65c06d747e5e9ad2682bab6693f1b011"
+      },
+      "sha256": "0bd5d3fbfb8e9f2c45465fb6ab971fad65c06d747e5e9ad2682bab6693f1b011"
+    },
+    {
+      "id": "course-restore-chapter-2",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "11e7ebc6b6fd4b903fa7c0551193c9ee073cb00b341835e7a2de049dc8c736b1",
+        "derivativeDigest": "e14e00a6e1624ca3ed0794650b359520b0baf6207785fc13d3a3f14f4d93bbdc"
+      },
+      "sha256": "e14e00a6e1624ca3ed0794650b359520b0baf6207785fc13d3a3f14f4d93bbdc"
+    },
+    {
+      "id": "course-restore-chapter-3",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "17e160011d639a32d150b5e623d5a6deaed0ab5041dea31f972be19807b3d236",
+        "derivativeDigest": "9c35ec2d7f1f5c627f054f44d95a26b99733ad10df221fd9dc93f7846cafe9d3"
+      },
+      "sha256": "9c35ec2d7f1f5c627f054f44d95a26b99733ad10df221fd9dc93f7846cafe9d3"
+    },
+    {
+      "id": "course-restore-chapter-4",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "c8f228c38300fb826afbecd179f9225571810ba2627bec619827cb7d0645e637",
+        "derivativeDigest": "9fbd240baf020c15795673b23d434efe34515915b1d02bba1d7522cf9b86f9e0"
+      },
+      "sha256": "9fbd240baf020c15795673b23d434efe34515915b1d02bba1d7522cf9b86f9e0"
+    }
+  ]
+}

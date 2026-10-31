@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.log
+server/data/*
+!server/data/public-content-en.json
+.env*
+!.env*.example
+.deploy-cache/
+.deploy-auth/
+.vercel/
+checks/
+检查记录/
+_backup/
+发布包/

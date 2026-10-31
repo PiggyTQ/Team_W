@@ -1,0 +1,68 @@
+/* From the career directory onward, content sets the height and scroll rhythm. */
+#root .publicmain.publicmain #directions.direction-directory{display:block;min-height:0;margin:0;padding:56px 0 48px;scroll-margin-top:24px}
+#root .publicmain.publicmain .direction-directory>.section-heading{align-items:flex-end;gap:24px;margin-bottom:28px}
+#root .publicmain.publicmain .direction-directory>.section-heading h2{margin:0 0 16px}
+#root .publicmain.publicmain .direction-directory>.section-heading p{max-width:62ch;margin:0;line-height:1.65}
+#root .publicmain.publicmain .direction-directory .gallery-skip{flex:0 0 auto;text-decoration:none;white-space:normal;max-width:24ch;line-height:1.6}
+#root .publicmain.publicmain .direction-directory-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;border:1px solid #e4e9f1;border-radius:28px;padding:28px;align-items:start;min-width:0;background:#fff}
+#root .publicmain.publicmain .direction-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;min-width:0}
+#root .publicmain.publicmain .direction-index button{display:flex;align-items:center;justify-content:flex-start;gap:12px;min-height:64px;width:100%;padding:12px 14px;text-align:left;white-space:normal;line-height:1.5;background:#fff;border:1px solid transparent;border-radius:14px;color:#52617b;box-shadow:none}
+#root .publicmain.publicmain .direction-index button[aria-pressed=true]{background:#eaf1fb;border-color:#eaf1fb;color:#234c83;font-weight:600}
+#root .publicmain.publicmain .direction-index-number{color:#65738a;flex:none;font-variant-numeric:tabular-nums}
+#root .publicmain.publicmain .direction-index-name{min-width:0;overflow-wrap:anywhere}
+#root .publicmain.publicmain .direction-summary{min-width:0;border-left:1px solid #e4e9f1;padding-left:32px;background:transparent}
+#root .publicmain.publicmain .direction-summary header{margin:0 0 22px}
+#root .publicmain.publicmain .direction-summary-branch{color:#52617b;margin:0 0 8px;line-height:1.6}
+#root .publicmain.publicmain .direction-summary h3{margin:0;color:#071331}
+#root .publicmain.publicmain .direction-summary dl{margin:0}
+#root .publicmain.publicmain .direction-summary dt{color:#52617b;margin:0 0 6px;line-height:1.5}
+#root .publicmain.publicmain .direction-summary dd{margin:0;color:#071331;line-height:1.65;overflow-wrap:anywhere}
+#root .publicmain.publicmain .direction-work{display:grid;gap:18px}
+#root .publicmain.publicmain .direction-context{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:24px;margin-top:22px!important;padding-top:20px;border-top:1px solid #e4e9f1}
+#root .publicmain.publicmain .direction-preview{margin-top:24px;min-height:48px;padding:11px 22px;border-radius:999px;gap:20px}
+#root .publicmain.publicmain .direction-directory-footer{display:flex;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:18px;margin:0;border:0;flex-wrap:wrap;color:#52617b}
+#root .publicmain.publicmain .direction-directory-footer>span{font-variant-numeric:tabular-nums}
+#root .publicmain.publicmain .direction-directory-footer p{margin:0;max-width:68ch;line-height:1.65}
+#root .publicmain.publicmain .direction-mobile-select{display:none}
+#root .publicmain.publicmain #case-study.archive-stage{min-height:0;display:block;justify-content:normal;padding:48px 0}
+#root .publicmain.publicmain #case-study .archive-heading{margin-bottom:24px}
+#root .publicmain.publicmain #case-study .archive-drawing{max-height:340px}
+#root .publicmain.publicmain #case-study .archive-caption{margin-top:0;padding:24px;gap:24px}
+#root .publicmain.publicmain #before-start{min-height:0;display:block;padding:48px 0}
+#root .publicmain.publicmain #before-start>header{margin-bottom:24px}
+#root .publicmain.publicmain #before-start .start-list-toolbar{margin-bottom:12px}
+#root .publicmain.publicmain #before-start .usage-single-list{gap:12px}
+#root .publicmain.publicmain .tail-closing{min-height:0;display:block;padding:40px 0 32px;margin-top:24px}
+#root .publicmain.publicmain .tail-closing-frame{max-width:100%;padding:0 24px 12px;margin:0 auto}
+#root .publicmain.publicmain .tail-closing .story-end-line{height:28px;margin-bottom:24px}
+#root .publicmain.publicmain .tail-closing h2{margin-bottom:20px}
+#root .publicmain.publicmain .tail-closing p{margin-bottom:24px}
+#root .publicmain.publicmain .tail-closing a{margin-top:20px}
+#root .publicmain.publicmain .tail-closing small{margin-top:20px}
+#root .publicmain.publicmain .tail-footer-nav{margin-top:24px;padding-top:24px;padding-bottom:12px}
+@media(hover:hover) and (pointer:fine){#root .publicmain.publicmain .direction-index button:not([aria-pressed=true]):hover{background:#f7f9fc;color:#234c83}}
+@media(max-width:1100px){
+ #root .publicmain.publicmain .direction-directory>.section-heading{display:block}
+ #root .publicmain.publicmain .direction-directory .gallery-skip{display:inline-block;max-width:none;margin-top:18px}
+ #root .publicmain.publicmain .direction-directory-layout{gap:24px;padding:24px}
+ #root .publicmain.publicmain .direction-summary{padding-left:24px}
+ #root .publicmain.publicmain .direction-index button{padding:12px 10px;gap:8px}
+}
+@media(max-width:900px){
+ #root .publicmain.publicmain .direction-directory-layout{display:block}
+ #root .publicmain.publicmain .direction-index{display:none}
+ #root .publicmain.publicmain .direction-mobile-select{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+ #root .publicmain.publicmain .direction-mobile-select select{width:100%;min-width:0;max-width:100%;min-height:48px;box-sizing:border-box;padding:10px 14px}
+ #root .publicmain.publicmain .direction-summary{padding:24px 0 0;border-left:0;border-top:1px solid #e4e9f1}
+ #root .publicmain.publicmain #case-study .archive-drawing{max-height:none}
+}
+@media(max-width:520px){
+ #root .publicmain.publicmain #directions.direction-directory{padding:36px 0}
+ #root .publicmain.publicmain .direction-directory-layout{padding:20px;border-radius:24px}
+ #root .publicmain.publicmain .direction-context{grid-template-columns:1fr;gap:18px}
+ #root .publicmain.publicmain .direction-preview{width:100%;white-space:normal}
+ #root .publicmain.publicmain #case-study.archive-stage{padding:36px 0}
+ #root .publicmain.publicmain #before-start{padding:36px 0}
+ #root .publicmain.publicmain .tail-closing{padding:32px 0 24px}
+ #root .publicmain.publicmain .tail-closing-frame{padding-inline:18px}
+}

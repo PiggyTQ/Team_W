@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {fresh,scenarioState,checkStart,makeTask,usedHours,makeAnalysis,confirmed} from '../src/model.js';
+test('独立任务允许无职业目标，但必须有预算且所有任务共享预算',()=>{const s=fresh(),d={purpose:'验证问题',hours:2,association:'独立探索'};assert.equal(checkStart(s,d),'');s.tasks=[makeTask(s,{...d,template:'quality'})];assert.equal(usedHours(s),2);assert.match(checkStart(s,d),/超过/);s.tasks[0].status='取消';assert.equal(usedHours(s),0);s.budget=null;assert.match(checkStart(s,d),/预算未定/);});
+test('候选和冲突不能进入模拟分析快照，未知不变为数值',()=>{const s=scenarioState('PT03');const a=makeAnalysis(s);assert.equal(a.claims.length,confirmed(s).length);assert.ok(!a.claims.some(c=>c.id==='claim-conflict'||c.id==='claim-dup'));assert.equal(a.score,undefined);});
+test('S1 在计划执行，S2 内容进入任务区；手编任务始终 S1',()=>{const s=fresh();s.stage='S1';assert.equal(makeTask(s,{template:'quality'}).mode,'S1');s.stage='S2';assert.equal(makeTask(s,{template:'quality'}).mode,'S2');assert.equal(makeTask(s,{template:'external'}).mode,'S1');});
+test('七个场景独立初始化，PT05 共享任务只计一次预算',()=>{const a=scenarioState('PT05'),b=scenarioState('PT05');assert.equal(a.jobs[0].taskId,a.jobs[1].taskId);assert.equal(usedHours(a),2);a.claims.length=0;assert.notEqual(a.claims.length,b.claims.length);assert.equal(scenarioState('PT01').claims.length,0);});
+
+test('评估快照冻结材料与复盘引用，不将后来改动回填到旧版本',()=>{const s=scenarioState('PT05');s.reviews=[{id:'review-a',taskId:'task-demo',date:'2026-10-17',reason:'私人反思不应进入引用'}];const a=makeAnalysis(s);const original=a.claimSnapshots[0].text;s.claims[0].text='后来改写';s.claims.push({...s.claims[0],id:'later'});s.reviews[0].reason='后来改变';assert.equal(a.claimSnapshots[0].text,original);assert.equal(a.claimSnapshots.length,2);assert.equal(a.reviewRefs[0].reason,undefined);assert.equal(a.reviewRefs.length,1);assert.equal(a.score,undefined);});

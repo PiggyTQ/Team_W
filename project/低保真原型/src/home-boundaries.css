@@ -1,0 +1,8 @@
+/* Each introduction belongs to its own screen; pinned stages keep their rails. */
+.publicmain .landing-intro{
+ box-sizing:border-box;min-height:calc(100svh - var(--home-intro-offset,160px));
+ display:flex;flex-direction:column;justify-content:center;align-items:center;
+ overflow:clip;isolation:isolate;
+}
+.publicmain :is(.outcomes-heading,#starting-points .section-heading,#how .section-heading,#directions .section-heading,.story-bridge,.before-start>header,.tail-closing-frame){overflow:clip;isolation:isolate}
+.publicmain>section{isolation:isolate}

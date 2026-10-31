@@ -1,0 +1,5 @@
+# 事故记录字段
+
+monitoring.csv与同名JSONL是等价输入，任选一种。window_start为+08:00时区的窗口起点；window_seconds固定60；requests为该窗口合成请求数；errors为同范围错误数；p95_ms为给定的合成指标；health_http_status只是健康路径结果；release和schema是本题给定版本标签。
+
+错误率=errors/requests。p95是已提供的窗口统计，不能从均值或这些12个p95重算真实整体p95。timeline.csv的I编号用于引用，不等于生产工单。

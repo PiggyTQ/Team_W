@@ -1,0 +1,11 @@
+{
+  "events": 120,
+  "requests": 60,
+  "error_events": 5,
+  "warn_events": 2,
+  "first_error_event": "L042",
+  "first_error_at": "2026-10-01T09:03:23+08:00",
+  "last_error_at": "2026-10-01T09:04:03+08:00",
+  "root_cause": "unknown",
+  "actual_incident": false
+}

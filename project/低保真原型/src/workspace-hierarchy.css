@@ -1,0 +1,97 @@
+/* The primary task uses the full text column after its support path moves to details. */
+#root #main.workbench-home .workspace-layered .workbench-focus{display:flex;flex-direction:column;justify-content:flex-start;grid-template-columns:minmax(0,1fr);gap:0}
+
+/* Three compact, named entry points replace the permanently expanded support panels. */
+.workspace-detail-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;min-width:0;background:#fffdf8;border:1px solid #e2dfd3;border-radius:16px;overflow:hidden}
+#root #main .workspace-layered .workspace-detail-shortcut{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;min-width:0;min-height:88px;margin:0;padding:16px 18px;border:0;border-inline-end:1px solid #e2dfd3;border-radius:0;background:transparent;box-shadow:none;color:#374434;line-height:1.6;text-align:start}
+#root #main .workspace-layered .workspace-detail-shortcut:last-child{border-inline-end:0}
+#root #main .workspace-layered .workspace-detail-shortcut:hover,#root #main .workspace-layered .workspace-detail-shortcut[aria-expanded=true]{background:#f0f3e9;color:#2f594c}
+#root #main .workspace-layered .workspace-detail-shortcut:focus-visible{outline:2px solid #567762;outline-offset:-4px}
+.workspace-detail-copy{display:grid;gap:5px;min-width:0;flex:1}
+.workspace-detail-title{font-weight:600;line-height:1.5}
+.workspace-detail-summary{display:block;color:#626c60;line-height:1.6;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.workspace-detail-shortcut>svg{flex:0 0 18px;margin-top:3px;color:#567762}
+@layer type-system{
+ #root .workspace-layered .workspace-detail-title{font-size:var(--ui-type-card)!important;line-height:1.5!important}
+}
+
+/* DetailDrawer is portaled to body. Recreate only the panel rules that used to
+   depend on #main, with flat sections rather than an extra layer of cards. */
+.workspace-detail-drawer .workbench-panel{margin:0;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;min-width:0}
+.workspace-detail-drawer .workbench-panel-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;margin:0 0 16px}
+.workspace-detail-drawer .workbench-panel-heading h2{margin:0;font-size:18px;font-weight:600;color:#374434}
+.workspace-detail-drawer .workbench-panel-heading>a{display:inline-flex;align-items:center;min-height:44px;max-width:100%;line-height:1.6}
+.workspace-detail-drawer :is(p,span,a,small,strong,dt,dd){overflow-wrap:anywhere}
+.workspace-detail-drawer strong{font-weight:600;font-variant-numeric:tabular-nums}
+.workspace-detail-drawer .dashboard-coverage-summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:0 0 16px;color:#626c60}
+.workspace-detail-drawer .dashboard-coverage-summary strong{font-size:18px;color:#374434}
+.workspace-detail-drawer .dashboard-dimension-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.workspace-detail-drawer .dimension-entry{--dimension-ink:#965340;--dimension-soft:#f2e5d9;display:grid;gap:6px;padding:18px 14px;min-width:0;border:0;border-bottom:1px solid #e5e4da;color:#374434;text-decoration:none;line-height:1.6}
+.workspace-detail-drawer .dimension-entry:nth-child(odd){border-inline-end:1px solid #e5e4da}
+.workspace-detail-drawer .dimension-entry:nth-last-child(-n+2){border-bottom:0}
+.workspace-detail-drawer .dimension-entry[data-dimension=PS]{--dimension-ink:#427b67;--dimension-soft:#e0ece3}
+.workspace-detail-drawer .dimension-entry[data-dimension=TQ]{--dimension-ink:#8d7338;--dimension-soft:#f0e8d1}
+.workspace-detail-drawer .dimension-entry[data-dimension=DP]{--dimension-ink:#5c7b79;--dimension-soft:#e3ece7}
+.workspace-detail-drawer .dimension-entry:hover{background:#f4f2e9;color:#374434}
+.workspace-detail-drawer .dimension-entry-art{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;color:var(--dimension-ink)}
+.workspace-detail-drawer .preparation-symbol{display:block;width:52px;height:52px;padding:3px;border-radius:12px;background:var(--dimension-soft);flex:none}
+.workspace-detail-drawer .dimension-entry-art>svg:last-child{flex:none;margin-top:4px}
+.workspace-detail-drawer .dimension-entry-label{font-weight:600}
+.workspace-detail-drawer .dimension-entry-count{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;color:#626c60}
+.workspace-detail-drawer .dimension-entry-count strong{font-size:18px;color:#374434}
+.workspace-detail-drawer .dimension-entry-state{display:flex;align-items:center;gap:7px;color:#626c60}
+.workspace-detail-drawer .dimension-entry-state>i{display:block;width:6px;height:6px;border-radius:50%;background:#999887;flex:none}
+.workspace-detail-drawer .dimension-entry[data-recorded=true] .dimension-entry-state>i{background:var(--dimension-ink)}
+.workspace-detail-drawer .workspace-material-path-detail{margin-top:26px;padding-top:22px;border-top:1px solid #e5e4da}
+.workspace-detail-drawer .workspace-material-path-detail h3{margin:0 0 14px;color:#374434}
+.workspace-detail-drawer .dashboard-material-path{display:flex;align-items:center;gap:10px;min-width:0}
+.workspace-detail-drawer .dashboard-material-path>div{display:flex;flex:1;flex-direction:column;align-items:center;gap:6px;min-width:0;color:#626c60;text-align:center}
+.workspace-detail-drawer .dashboard-material-path>div>span{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#f0eee4;color:#727361}
+.workspace-detail-drawer .dashboard-material-path>div[data-recorded=true]>span{background:#e0ece3;color:#376f60}
+.workspace-detail-drawer .dashboard-material-path small{font-size:14px;color:#626c60}
+.workspace-detail-drawer .dashboard-path-connector{display:block;width:20px;height:1px;background:#d2d5c7;flex:0 1 20px;margin-bottom:28px}
+.workspace-detail-drawer .dashboard-action-total{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:0 0 12px;color:#626c60}
+.workspace-detail-drawer .dashboard-action-total strong{font-size:22px;color:#374434}
+.workspace-detail-drawer .dashboard-status-strip{display:flex;gap:3px;width:100%;height:14px;overflow:hidden;border-radius:5px;background:#efe8dc;margin-bottom:18px}
+.workspace-detail-drawer .dashboard-status-strip>span{display:block;min-width:0;flex-basis:0;height:100%}
+.workspace-detail-drawer .workbench-status-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin:0}
+.workspace-detail-drawer .workbench-status-legend>div{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
+.workspace-detail-drawer .workbench-status-legend dt{display:flex;align-items:center;gap:8px;color:#626c60;min-width:0}
+.workspace-detail-drawer .workbench-status-legend i{display:block;width:7px;height:7px;border-radius:50%;flex:none}
+.workspace-detail-drawer .workbench-status-legend dd{margin:0;color:#374434;font-variant-numeric:tabular-nums}
+.workspace-detail-drawer .workbench-chart-note{display:flex;flex-wrap:wrap;gap:4px 6px;color:#626c60;margin:18px 0 0}
+.workspace-detail-drawer .workbench-status-empty{display:grid;gap:12px}
+.workspace-detail-drawer .workbench-status-empty p{margin:0;color:#626c60}
+.workspace-detail-drawer .workbench-status-empty ol{display:grid;gap:6px;margin:0;padding-inline-start:22px;color:#626c60}
+.workspace-detail-drawer .workbench-status-empty>a{display:inline-flex;align-items:center;min-height:44px}
+.workspace-detail-drawer .workbench-record-grid{display:grid;gap:24px;padding:0;background:transparent}
+.workspace-detail-drawer .workbench-record-grid>.workbench-panel+.workbench-panel{padding-top:24px;border-top:1px solid #e5e4da}
+.workspace-detail-drawer :is(.workbench-material-row,.workbench-saved-report){display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:start;gap:8px 12px}
+.workspace-detail-drawer :is(.workbench-material-row,.workbench-saved-report)>div{min-width:0}
+.workspace-detail-drawer :is(.workbench-material-row,.workbench-saved-report) p{margin:0 0 5px;color:#374434}
+.workspace-detail-drawer :is(.workbench-material-row,.workbench-saved-report)>a{display:inline-flex;align-items:center;min-height:44px;max-width:100%;line-height:1.6}
+.workspace-detail-drawer .workbench-record-icon{display:flex;align-items:center;justify-content:center;width:32px;height:38px;border-radius:9px;background:#e9efdf;color:#567762}
+.workspace-detail-drawer .workbench-inline-empty p{margin:0 0 5px;color:#374434}
+.workspace-detail-drawer .workbench-inline-empty>span{display:block;color:#626c60}
+.workspace-detail-drawer .workbench-inline-empty>a{display:inline-flex;align-items:center;min-height:44px;margin-top:6px}
+.workspace-detail-drawer :is(.workbench-state,.workbench-saved-report>div>span){display:block;color:#626c60}
+.workspace-detail-drawer .home-reading-resume{display:flex;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid #e5e4da}
+.workspace-detail-drawer .home-reading-resume>svg{flex:none;margin-top:3px;color:#567762}
+.workspace-detail-drawer .home-reading-resume>div{flex:1;min-width:0}
+.workspace-detail-drawer .home-reading-resume p{margin:4px 0 0;color:#374434}
+.workspace-detail-drawer .home-reading-resume button{border:1px solid #dcddd3;border-radius:22px;padding:8px 14px;color:#374434;background:#f7f6f0}
+.workspace-detail-drawer .home-reading-resume button:hover{background:#eaf0e3}
+.workspace-detail-drawer .dashboard-resume-preview{display:none}
+
+@container workspace (max-width:700px){
+ .workspace-detail-shortcuts{grid-template-columns:minmax(0,1fr)}
+ #root #main .workspace-layered .workspace-detail-shortcut{min-height:76px;padding:14px 16px;border-inline-end:0;border-bottom:1px solid #e2dfd3}
+ #root #main .workspace-layered .workspace-detail-shortcut:last-child{border-bottom:0}
+}
+@media(max-width:460px){
+ .workspace-detail-drawer .workbench-status-legend{grid-template-columns:minmax(0,1fr)}
+ .workspace-detail-drawer :is(.workbench-material-row,.workbench-saved-report){grid-template-columns:32px minmax(0,1fr)}
+ .workspace-detail-drawer :is(.workbench-material-row,.workbench-saved-report)>a{grid-column:2}
+ .workspace-detail-drawer .dashboard-material-path{gap:6px}
+ .workspace-detail-drawer .dashboard-path-connector{width:10px;flex-basis:10px}
+}

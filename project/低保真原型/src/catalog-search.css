@@ -1,0 +1,87 @@
+/* A two-column working surface; no reserved detail column. Full records stay in the drawer. */
+#root #main.workspace .job-discovery.catalog-jobs { --catalog-ink:var(--reference-primary,#174e4f); --catalog-muted:#566171; min-width:0; }
+#root #main.workspace .job-discovery.catalog-jobs .catalog-purpose {display:flex;align-items:center;justify-content:space-between;gap:24px;margin:24px 0 20px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-purpose h2 {font-size:26px;line-height:1.4;margin:0 0 8px;letter-spacing:-.025em;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-purpose p {font-size:15px;line-height:1.8;color:var(--catalog-muted);margin:0;max-width:75ch;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-purpose>.button {flex-shrink:0;font-size:14px;min-height:44px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-workflow {list-style:none;counter-reset:research;display:flex;gap:32px;margin:0 0 16px;padding:0;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-workflow li {counter-increment:research;display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:10px;row-gap:4px;align-content:start;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-workflow li::before {content:counter(research);grid-row:span 2;color:var(--catalog-ink);font-size:14px;border:1px solid #d1d5dc;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-workflow strong {font-size:14px;font-weight:500;color:var(--catalog-ink);}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-workflow span {font-size:13px;line-height:1.6;color:var(--catalog-muted);}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-capability {font-size:13px;color:var(--catalog-muted);margin:0 0 12px;line-height:1.7;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-source-note {margin-bottom:22px;border-color:#d1d5dc;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-source-note>summary {color:var(--catalog-muted);font-size:13px;}
+#root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-layout {grid-template-columns:264px minmax(0,1fr);gap:24px;align-items:start;width:100%;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter {padding:22px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;min-width:0;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter form {display:flex;flex-direction:column;gap:18px;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter h3 {font-size:18px;line-height:1.5;margin:0;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter .field {display:flex;flex-direction:column;gap:8px;margin:0;min-width:0;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter .field>span {font-size:14px;line-height:1.6;color:#374151;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter :is(input,select) {width:100%;min-width:0;min-height:44px;padding:10px 12px;margin:0;font-size:14px;line-height:1.5;box-sizing:border-box;border-radius:8px;border:1px solid #d1d5dc;background:#fff;color:#111827;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-filter input::placeholder {color:#6a7282;opacity:1;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-filter-actions {display:grid;gap:10px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-filter-actions>button,#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker>button {width:100%;margin:0;min-height:44px;font-size:14px;line-height:1.5;padding:10px 12px;border-radius:8px;white-space:normal;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-filter-actions>.catalog-reset {background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-draft-note {font-size:13px;line-height:1.65;margin:0;color:var(--catalog-ink);}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker {border-top:1px solid #e5e7eb;padding-top:22px;margin-top:22px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker h3 {display:flex;justify-content:space-between;gap:8px;align-items:baseline;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker h3 span {font-size:14px;font-weight:400;font-variant-numeric:tabular-nums;color:var(--catalog-muted);}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker p {font-size:13px;line-height:1.7;color:var(--catalog-muted);margin:8px 0 14px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker ul {padding:0;margin:0 0 14px;list-style:none;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker li {display:flex;align-items:flex-start;gap:6px;border-top:1px solid #e5e7eb;padding:8px 0;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker li span {font-size:13px;line-height:1.6;overflow-wrap:anywhere;flex:1;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-compare-picker li button {flex:none;min-height:32px;padding:4px;font-size:12px;background:transparent;border:0;color:var(--catalog-ink);text-decoration:underline;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-result-heading {display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:0 0 18px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-result-heading h2 {font-size:22px;line-height:1.5;margin:0 0 5px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-result-heading p {margin:0;font-size:13px;line-height:1.7;color:var(--catalog-muted);overflow-wrap:anywhere;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-result-heading>span {font-size:14px;line-height:1.6;color:var(--catalog-muted);flex-shrink:0;font-variant-numeric:tabular-nums;padding-top:4px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-result-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px;}
+#root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-job-card {display:flex;flex-direction:column;min-width:0;margin:0;padding:22px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-job-card .status-chip {align-self:flex-start;font-size:12px;line-height:1.6;white-space:normal;}
+#root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-job-card h3 {font-size:19px;line-height:1.5;letter-spacing:-.015em;margin:14px 0 8px;overflow-wrap:anywhere;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-job-card p {font-size:14px;line-height:1.7;color:var(--catalog-muted);margin:0;overflow-wrap:anywhere;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-job-card .catalog-job-organization {color:#374151;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-job-card .catalog-job-location {font-size:13px;margin-top:5px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-excerpt {margin:18px 0;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-excerpt h4 {font-size:13px;line-height:1.6;font-weight:500;margin:0 0 6px;color:#374151;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-excerpt p {display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-job-facts {display:flex;flex-wrap:wrap;gap:10px 24px;padding:14px 0 0;margin:auto 0 0;border-top:1px solid #e5e7eb;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-job-facts div {min-width:0;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-job-facts dt {font-size:12px;color:var(--catalog-muted);margin-bottom:4px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-job-facts dd {font-size:14px;color:#374151;margin:0;overflow-wrap:anywhere;}
+#root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-job-card .actions {display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-job-card .actions>:is(button,a) {min-height:44px;font-size:14px;line-height:1.5;padding:10px 14px;border-radius:8px;white-space:normal;text-align:center;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-job-card [aria-pressed=true] {background:color-mix(in srgb,var(--catalog-ink) 8%,white);color:var(--catalog-ink);border-color:var(--catalog-ink);}
+#root #main.workspace .job-discovery.catalog-jobs :is(button,a,input,select):focus-visible {outline:2px solid var(--catalog-ink);outline-offset:3px;}
+#root #main.workspace .job-discovery.catalog-jobs button:disabled {opacity:1;background:#f3f4f6;color:#6a7282;border-color:#e5e7eb;cursor:not-allowed;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-pagination {display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:16px;margin:24px 0 12px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-pagination :is(button,span) {font-size:14px;min-height:44px;line-height:1.6;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-pagination span {display:flex;align-items:center;font-variant-numeric:tabular-nums;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-comparison {margin:0 0 24px;padding:20px;border-color:#e5e7eb;border-radius:12px;min-width:0;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-comparison h2 {font-size:21px;margin:0;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-comparison .table-wrap {max-height:440px;overflow:auto;margin-top:16px;}
+#root #main.workspace .job-discovery.catalog-jobs .discovery-comparison th,#root #main.workspace .job-discovery.catalog-jobs .discovery-comparison td {min-width:150px;max-width:400px;font-size:13px;line-height:1.7;overflow-wrap:anywhere;vertical-align:top;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-empty {background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-empty h3 {font-size:20px;margin:0 0 10px;}
+#root #main.workspace .job-discovery.catalog-jobs .catalog-empty p {font-size:14px;line-height:1.7;color:var(--catalog-muted);}
+@media(max-width:1000px){
+ #root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-layout {grid-template-columns:240px minmax(0,1fr);gap:18px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-purpose {align-items:flex-start;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-workflow {gap:20px;}
+}
+@media(max-width:720px){
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-purpose {flex-direction:column;gap:14px;margin:20px 0 18px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-purpose h2 {font-size:23px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-purpose p {font-size:14px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-workflow {flex-direction:column;gap:14px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-workflow li {grid-template-columns:24px minmax(0,1fr);}
+ #root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-layout {grid-template-columns:minmax(0,1fr);gap:18px;}
+ #root #main.workspace .job-discovery.catalog-jobs .discovery-filter {padding:20px;}
+ #root #main.workspace .job-discovery.catalog-jobs .discovery-filter :is(input,select) {font-size:16px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-result-heading {gap:12px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-result-heading h2 {font-size:20px;}
+ #root #main.workspace .job-discovery.information-discovery.catalog-jobs .discovery-job-card {padding:20px;}
+ #root #main.workspace .job-discovery.catalog-jobs .catalog-pagination {gap:10px;}
+ #root #main.workspace .job-discovery.catalog-jobs .discovery-results {scroll-margin-top:100px;}
+}

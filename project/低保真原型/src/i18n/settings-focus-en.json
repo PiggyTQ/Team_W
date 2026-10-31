@@ -1,0 +1,15 @@
+{
+  "选填；先查看已有设置，需要时再编辑。": "Optional. Review your current settings and edit when needed.",
+  "编辑长期偏好": "Edit long-term preferences",
+  "收起偏好编辑": "Close preference editor",
+  "地域偏好": "Location preference",
+  "未填写": "Not provided",
+  "完成编辑并收起": "Finish editing and close",
+  "修改随本机设置自动保存。计划和评估不会自动改变。": "Changes save automatically with your local settings. Plans and assessments do not change automatically.",
+  "查看保存回执": "View save confirmation",
+  "站内复盘提醒": "In-app review reminders",
+  "只显示站内提醒，不发送邮件或外部消息。": "Show reminders in this app only. No emails or external messages are sent.",
+  "开启站内复盘提醒": "Enable in-app review reminders",
+  "已开启": "On",
+  "已关闭": "Off"
+}

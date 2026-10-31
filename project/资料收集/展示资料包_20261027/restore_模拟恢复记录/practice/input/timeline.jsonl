@@ -1,0 +1,12 @@
+{"event_id":"I01","timestamp":"2026-10-01T09:00:00+08:00","event":"开始观察v1基线","origin":"synthetic_tabletop"}
+{"event_id":"I02","timestamp":"2026-10-01T09:01:00+08:00","event":"记录基线","origin":"synthetic_tabletop"}
+{"event_id":"I03","timestamp":"2026-10-01T09:02:00+08:00","event":"记录基线","origin":"synthetic_tabletop"}
+{"event_id":"I04","timestamp":"2026-10-01T09:03:00+08:00","event":"示例发布v2","origin":"synthetic_tabletop"}
+{"event_id":"I05","timestamp":"2026-10-01T09:04:00+08:00","event":"错误增多，继续记录","origin":"synthetic_tabletop"}
+{"event_id":"I06","timestamp":"2026-10-01T09:05:00+08:00","event":"告警，尚未确认根因","origin":"synthetic_tabletop"}
+{"event_id":"I07","timestamp":"2026-10-01T09:06:00+08:00","event":"讨论恢复选择，未执行真实操作","origin":"synthetic_tabletop"}
+{"event_id":"I08","timestamp":"2026-10-01T09:07:00+08:00","event":"合成记录：准备回到v1","origin":"synthetic_tabletop"}
+{"event_id":"I09","timestamp":"2026-10-01T09:08:00+08:00","event":"合成记录：流量切回v1","origin":"synthetic_tabletop"}
+{"event_id":"I10","timestamp":"2026-10-01T09:09:00+08:00","event":"观察业务窗口","origin":"synthetic_tabletop"}
+{"event_id":"I11","timestamp":"2026-10-01T09:10:00+08:00","event":"继续观察","origin":"synthetic_tabletop"}
+{"event_id":"I12","timestamp":"2026-10-01T09:11:00+08:00","event":"保留复盘记录","origin":"synthetic_tabletop"}

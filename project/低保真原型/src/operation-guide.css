@@ -1,0 +1,23 @@
+/* v51: guidance follows the actual control and waits for a successful action. */
+[data-operation-guide-target]{outline:2px solid #333!important;outline-offset:5px!important;scroll-margin:130px 24px 120px!important}
+.operation-guide{position:fixed;inset:auto;margin:0;padding:18px;width:320px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;background:#fff;color:#303030;border:1px solid #aaa;border-radius:12px;box-shadow:0 12px 30px #0002;font:400 13px/1.9 Arial,'Microsoft YaHei',sans-serif;z-index:1300;overflow-wrap:anywhere}
+.operation-guide-progress{display:flex;justify-content:space-between;align-items:center;gap:15px;color:#666;font-size:11px;font-variant-numeric:tabular-nums}
+.operation-guide-progress>button{display:flex;align-items:center;justify-content:center;min-height:28px;width:28px;padding:3px;background:none;border:0;box-shadow:none;color:#555}
+.operation-guide h2{font-size:17px;line-height:1.6;font-weight:400;margin:8px 0 12px;color:#303030}
+.operation-guide>p{font-size:13px;line-height:1.95;margin:0 0 14px;color:#505050;max-width:65ch}
+.operation-guide footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 0 0;padding:10px 0 0;border-top:1px solid #ddd;background:none;position:static}
+.operation-guide footer>button{border:0;background:none;box-shadow:none;padding:4px 0;min-height:32px;font-size:12px;color:#555}
+.operation-guide footer>span{font-size:11px;color:#666}
+.operation-guide .operation-guide-wait{background:#eee;padding:8px 10px;font-size:12px}
+.operation-guide :focus-visible,.operation-guide-dock :focus-visible{outline:2px solid #555;outline-offset:3px}
+.operation-guide-dock{position:fixed;right:24px;bottom:calc(var(--flow-nav-height,0px) + 18px);max-width:calc(100vw - 32px);padding:12px 16px;border:1px solid #bbb;border-radius:8px;background:#fff;color:#333;box-shadow:0 6px 20px #0001;z-index:101;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font:400 12px/1.8 Arial,'Microsoft YaHei',sans-serif}
+.operation-guide-dock p{margin:0;flex-basis:100%;color:#606060;font-size:11px}
+.operation-guide-dock button{font-size:12px;padding:5px 9px;min-height:34px;background:#f5f5f5;color:#333;border:1px solid #bbb;box-shadow:none;display:inline-flex;align-items:center;gap:8px}
+.workspace:not(.atlas-workspace) .workspace-guide>.workspace-guide-trigger{border:0;box-shadow:none;background:none;min-height:36px;font-size:12px;display:flex;align-items:center;gap:7px;padding:5px 7px;color:#555}
+@media(max-width:720px){.operation-guide{padding:16px}.operation-guide-progress>button{min-height:36px;width:36px}.operation-guide footer>button{min-height:40px}.operation-guide-dock{right:16px;bottom:calc(var(--flow-nav-height,0px) + 12px);padding:10px 14px}.operation-guide-dock button{min-height:40px}.workspace:not(.atlas-workspace) .workspace-guide>.workspace-guide-trigger{min-height:40px}}
+@media print{.operation-guide,.operation-guide-dock{display:none!important}[data-operation-guide-target]{outline:none!important}}
+
+.operation-guide footer{flex-direction:row;align-items:center}.resume-expression-studio [data-operation-guide-target]{outline-color:#ddd!important}
+.operation-guide-preference{display:flex;align-items:center;gap:8px;min-height:36px;margin:4px 0 0;font-size:12px;line-height:1.7;color:#555;cursor:pointer}
+.operation-guide-preference input{width:16px;height:16px;min-height:16px;padding:0;margin:0;accent-color:#333;flex:none}
+.operation-guide-dock>.operation-guide-preference{margin:0}

@@ -1,0 +1,13 @@
+event_id,timestamp,event,origin
+I01,2026-10-01T09:00:00+08:00,开始观察v1基线,synthetic_tabletop
+I02,2026-10-01T09:01:00+08:00,记录基线,synthetic_tabletop
+I03,2026-10-01T09:02:00+08:00,记录基线,synthetic_tabletop
+I04,2026-10-01T09:03:00+08:00,示例发布v2,synthetic_tabletop
+I05,2026-10-01T09:04:00+08:00,错误增多，继续记录,synthetic_tabletop
+I06,2026-10-01T09:05:00+08:00,告警，尚未确认根因,synthetic_tabletop
+I07,2026-10-01T09:06:00+08:00,讨论恢复选择，未执行真实操作,synthetic_tabletop
+I08,2026-10-01T09:07:00+08:00,合成记录：准备回到v1,synthetic_tabletop
+I09,2026-10-01T09:08:00+08:00,合成记录：流量切回v1,synthetic_tabletop
+I10,2026-10-01T09:09:00+08:00,观察业务窗口,synthetic_tabletop
+I11,2026-10-01T09:10:00+08:00,继续观察,synthetic_tabletop
+I12,2026-10-01T09:11:00+08:00,保留复盘记录,synthetic_tabletop

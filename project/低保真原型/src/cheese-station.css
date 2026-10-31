@@ -1,0 +1,55 @@
+/* The scholar's own small desk: local to assistant artwork and surfaces. */
+#root > #workspace-sidebar .sidebar-companion[data-cheese="true"] {
+  position:relative;padding:8px 9px 6px;border:1px solid #e1d6c0;border-radius:16px;
+  background:linear-gradient(145deg,#fffaf0,#f3ead8);color:#25415f;box-shadow:inset 0 1px 0 #fffdf8,0 3px 8px #5d472908;
+  & .sidebar-companion-presence {display:grid;grid-template-columns:minmax(0,1fr);gap:2px;}
+  & .sidebar-companion-pet {position:relative;justify-self:center;display:grid;place-items:center;width:146px;height:78px;min-height:78px;min-width:0;background:transparent;color:#25415f;border-radius:10px;overflow:visible;}
+  & .sidebar-companion-pet::after {content:'';position:absolute;left:-9px;right:-9px;bottom:3px;height:5px;border-radius:3px;background:linear-gradient(#f4e1bd,#ceb48c);box-shadow:0 3px 5px #6c4c2920;z-index:0;}
+  & .cheese-companion-figure {position:relative;width:136px;height:94px;max-width:none;object-fit:contain;transform:translateY(-8px);z-index:1;transition:transform 180ms var(--ease-out,cubic-bezier(.23,1,.32,1));}
+  & .sidebar-companion-copy {text-align:center;padding:0 2px;}
+  & .sidebar-companion-copy strong {color:#25415f;font-size:13px;line-height:1.4;margin:0 0 3px;}
+  & .sidebar-companion-copy small {color:#6c675d;font-size:11px;line-height:1.45;}
+  & .sidebar-companion-controls {gap:1px;margin-top:5px;border-top:1px solid #e9deca;padding-top:2px;}
+  & .sidebar-companion-controls button {min-height:44px;min-width:0;gap:4px;padding:5px 4px;font-size:11px;color:#536171;}
+  & .sidebar-companion-controls button:last-child {min-width:38px;}
+  & .sidebar-companion-controls button[aria-pressed=true] {background:#f7e9c5;color:#173958;}
+  &[data-petting=true] .cheese-companion-figure {transform:translateY(-10px) rotate(-3deg);}
+  &[data-hidden=true] {padding:4px 7px;background:#f2eadb;}
+  & .sidebar-companion-restore {font-size:11px;color:#536171;}
+  &[data-collapsed=true] {padding:0;border:0;box-shadow:none;background:transparent;width:44px;}
+  &[data-collapsed=true] .sidebar-companion-pet {width:44px;height:44px;min-height:44px;background:#fff8e7;}
+  &[data-collapsed=true] .sidebar-companion-pet::after {content:none;}
+  &[data-collapsed=true] .sidebar-companion-restore {padding:0;}
+}
+#root #main.student-workspace.assistant-workspace .assistant-page.assistant-page-focused .ai-chat-surface {
+  background:linear-gradient(135deg,#fffdf7,#f7f1e6);border:1px solid #e8decb;border-radius:18px;box-shadow:0 8px 24px #6a543309,inset 0 1px 0 #fff;
+  & .chat-toolbar {border-bottom-color:#e6dbc6;}
+  & .chat-session-symbol {border-radius:12px;background:linear-gradient(#fff8df,#f4e6c2);box-shadow:inset 0 1px 0 #fff,0 2px 4px #6c4d2210;}
+  & .chat-session-symbol .cheese-avatar {width:38px;height:38px;}
+  & .empty-chat-intro {grid-template-columns:112px minmax(0,1fr);column-gap:15px;}
+  & .chat-welcome-symbol {position:relative;width:112px;height:116px;align-self:center;}
+  & .chat-welcome-symbol::after {content:'';position:absolute;left:1px;right:1px;bottom:5px;height:4px;border-radius:3px;background:linear-gradient(#efdbb6,#ceb48e);box-shadow:0 3px 5px #70523013;}
+  & .chat-welcome-symbol .cheese-pose {position:relative;z-index:1;width:112px;height:116px;}
+  & .chat-welcome-symbol .cheese-pose[data-cheese-pose=q-perch] {transform:translateY(20px);}
+  & .chat-composer {background:#fffefa;border:1px solid #e5dccb;box-shadow:0 6px 16px #65502b07;}
+  & .empty-prompt-rail {border-color:#e9dfcc;}
+  & .chat-input-label,& .empty-chat-intro h3,& .chat-session-title h2 {color:#24415e;}
+  & .chat-message-assistant .chat-message-body {border-color:#e8ddc8;background:#fffcf4;}
+}
+@media (hover:hover) and (pointer:fine) {
+  #root > #workspace-sidebar .sidebar-companion[data-cheese=true] .sidebar-companion-pet:hover {background:#fcf2d6;}
+  #root > #workspace-sidebar .sidebar-companion[data-cheese=true] :is(.sidebar-companion-controls button,.sidebar-companion-restore):hover {background:#f4e5c3;}
+}
+@media (max-width:720px) {
+  #root #main.student-workspace.assistant-workspace .assistant-page.assistant-page-focused .ai-chat-surface {
+    & .empty-chat-intro {grid-template-columns:76px minmax(0,1fr);column-gap:10px;}
+    & .chat-welcome-symbol,& .chat-welcome-symbol .cheese-pose {width:76px;height:84px;}
+    & .chat-welcome-symbol::after {bottom:3px;}
+    & .chat-welcome-symbol .cheese-pose[data-cheese-pose=q-perch] {transform:translateY(14px);}
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  #root > #workspace-sidebar .sidebar-companion[data-cheese=true] .cheese-companion-figure,
+  #root > #workspace-sidebar .sidebar-companion[data-cheese=true][data-petting=true] .cheese-companion-figure {transition:none;transform:translateY(-8px);}
+}
+@media print {.sidebar-companion {display:none!important;}}

@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,rm,readFile,readdir,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {createAuthServer} from '../server/auth-server.mjs';
+import {AUTH_POLICY} from '../src/auth-contract.js';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
+test('HTTP platform boundaries: protected metrics, shared-IP refresh, durable mail reset, session revocation and disabled external default',async t=>{
+ const dir=await mkdtemp(join(tmpdir(),'career-platform-api-')),origin='http://platform.test',sent=[],token='x'.repeat(40);
+ const server=await createAuthServer({database:join(dir,'auth.sqlite'),origin,opsToken:token,mailTransport:async m=>sent.push(m),mailKey:'ef'.repeat(32),mailDeliveryIntervalMs:100});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(async()=>{await new Promise(r=>server.close(r));await rm(dir,{recursive:true,force:true});});const base=`http://127.0.0.1:${server.address().port}`,jar=new Map();let csrf='';
+ async function request(path,{data,headers={}}={}){const r=await fetch(base+path,{method:data?'POST':'GET',headers:{Origin:origin,Cookie:[...jar].map(([k,v])=>`${k}=${v}`).join('; '),...(data?{'Content-Type':'application/json','X-CSRF-Token':csrf}:{}),...headers},...(data?{body:JSON.stringify(data)}:{})});for(const c of r.headers.getSetCookie()){const [k,v]=c.split(';')[0].split('=');jar.set(k,v);}const body=await r.json();if(body.csrfToken)csrf=body.csrfToken;return {status:r.status,body};}
+ assert.equal((await request('/api/ops/metrics')).status,404);await request('/api/auth/session');
+ const email='platform@example.invalid',password='Synthetic platform secret 2026!';assert.equal((await request('/api/auth/register',{data:{email,password,agree:true,termsVersion:AUTH_POLICY.termsVersion}})).status,201);
+ for(let i=0;i<70;i++)assert.equal((await request('/api/auth/refresh',{data:{}})).status,200);
+ assert.equal((await request('/api/admin/status')).status,403);assert.equal((await request('/api/admin/operations')).status,403);assert.equal((await request('/api/system/capabilities')).body.ai,false);
+ assert.equal((await request('/api/auth/recover',{data:{email}})).status,202);assert.equal((await request('/api/auth/recover',{data:{email:'unknown@example.invalid'}})).status,202);
+ for(let i=0;i<100&&!sent.length;i++)await new Promise(r=>setTimeout(r,20));assert.equal(sent.length,1);const reset=sent[0].url.split('=')[1];
+ assert.equal((await request('/api/auth/reset-password',{data:{token:reset,newPassword:'weak'}})).status,400);
+ const next='Synthetic replacement 2026!';assert.equal((await request('/api/auth/reset-password',{data:{token:reset,newPassword:next}})).status,200);
+ assert.equal((await request('/api/auth/me')).status,401);assert.equal((await request('/api/auth/reset-password',{data:{token:reset,newPassword:next}})).status,400);
+ assert.equal((await request('/api/auth/login',{data:{email,password:next}})).status,200);
+ const metrics=await request('/api/ops/metrics',{headers:{Authorization:'Bearer '+token}});assert.equal(metrics.status,200);assert.doesNotMatch(JSON.stringify(metrics.body),/platform@example|Synthetic|Bearer|password_hash|efefef/);
+ const probeEnv={...process.env,OPS_BASE_URL:base,OPS_READ_TOKEN:token,OPS_ALERT_URL:'',OPS_STATE_FILE:join(dir,'probe.json'),OPS_BACKUP_RECEIPT:'',OPS_HISTORY_DIRECTORY:join(dir,'history'),OPS_TLS_CERT_FILE:''};
+ const probe=await promisify(execFile)(process.execPath,['scripts/ops-probe.mjs'],{env:probeEnv});assert.deepEqual(JSON.parse(probe.stdout).issues,[]);
+ const history=(await readdir(join(dir,'history'))).find(name=>name.endsWith('.jsonl'));assert.ok(history);assert.doesNotMatch(await readFile(join(dir,'history',history),'utf8'),/platform@example|Synthetic|Bearer/);
+ const badReceipt=join(dir,'bad-receipt.json');await writeFile(badReceipt,JSON.stringify({restoreCheck:false,verifiedAt:new Date().toISOString()}));
+ const bad=await promisify(execFile)(process.execPath,['scripts/ops-probe.mjs'],{env:{...probeEnv,OPS_BACKUP_RECEIPT:badReceipt}}).then(()=>assert.fail('invalid receipt must fail the probe'),error=>error);assert.equal(bad.code,1);assert.ok(JSON.parse(bad.stdout).issues.includes('BACKUP_RECEIPT_INVALID'));
+});

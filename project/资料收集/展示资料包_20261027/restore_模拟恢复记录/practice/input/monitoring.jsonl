@@ -1,0 +1,12 @@
+{"window_start":"2026-10-01T09:00:00+08:00","window_seconds":60,"requests":1000,"errors":2,"p95_ms":160,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:01:00+08:00","window_seconds":60,"requests":1000,"errors":1,"p95_ms":155,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:02:00+08:00","window_seconds":60,"requests":1000,"errors":2,"p95_ms":165,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:03:00+08:00","window_seconds":60,"requests":1000,"errors":60,"p95_ms":420,"health_http_status":200,"release":"v2","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:04:00+08:00","window_seconds":60,"requests":1000,"errors":180,"p95_ms":900,"health_http_status":200,"release":"v2","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:05:00+08:00","window_seconds":60,"requests":1000,"errors":240,"p95_ms":1200,"health_http_status":200,"release":"v2","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:06:00+08:00","window_seconds":60,"requests":1000,"errors":220,"p95_ms":1100,"health_http_status":200,"release":"v2","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:07:00+08:00","window_seconds":60,"requests":1000,"errors":150,"p95_ms":800,"health_http_status":200,"release":"v2","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:08:00+08:00","window_seconds":60,"requests":1000,"errors":4,"p95_ms":190,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:09:00+08:00","window_seconds":60,"requests":1000,"errors":3,"p95_ms":180,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:10:00+08:00","window_seconds":60,"requests":1000,"errors":2,"p95_ms":175,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}
+{"window_start":"2026-10-01T09:11:00+08:00","window_seconds":60,"requests":1000,"errors":2,"p95_ms":170,"health_http_status":200,"release":"v1","schema":"schema-1","synthetic":true}

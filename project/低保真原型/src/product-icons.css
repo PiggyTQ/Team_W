@@ -1,0 +1,10 @@
+:root {--icon-ink:#142d49;--icon-accent-cyan:#cceff4;--icon-accent-blue:#bdd7fa}
+.product-icon {display:inline-block;vertical-align:middle;flex-shrink:0;overflow:visible;color:var(--icon-ink);shape-rendering:geometricPrecision}
+.product-icon.product-icon-action {color:inherit}
+.product-icon .product-icon-line {stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.product-icon .product-icon-accent {pointer-events:none}
+:is(button,.button)[disabled] .product-icon {opacity:.45}
+html body #root#root#root#root#root .product-icon path {stroke-width:inherit;stroke:currentColor}
+html body #root#root#root#root#root .home-capability-icon.product-icon {background:none;object-fit:contain}
+html body #root#root#root#root#root .learning-cover-art.product-icon {padding:10px;box-sizing:border-box}
+@media(forced-colors:active){.product-icon{color:CanvasText}.product-icon-accent{display:none}}

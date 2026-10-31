@@ -1,0 +1,19 @@
+@font-face{font-family:"Avemly Inter";src:url('/fonts/inter-variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Avemly Noto Sans SC";src:url('/fonts/noto-sans-sc-site.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+:root{--avemly-font:"Avemly Inter","Avemly Noto Sans SC","Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--jimo-font:var(--avemly-font);--font-workspace:var(--avemly-font)}
+html body,html body #root#root#root,html body #root#root#root *{font-family:var(--avemly-font)!important;font-optical-sizing:auto}
+html body #root#root#root :is(h1,h2,h3,h4,h5,h6){font-weight:500!important}
+html body #root#root#root :is(pre,code,kbd,samp){font-family:ui-monospace,Consolas,monospace!important}
+html body #root .avemly-lockup{display:inline-flex;align-items:center;gap:10px;flex:none;white-space:nowrap;line-height:1;color:#174e4f}
+html body #root .avemly-symbol{display:block;width:44px!important;height:32px!important;flex:none;overflow:visible}
+html body #root#root#root .avemly-wordmark{font-family:"Helvetica Now Display","Helvetica Now Text","Avemly Inter",Helvetica,Arial,sans-serif!important;font-weight:700!important;font-size:29px!important;letter-spacing:-.06em;line-height:1.05;color:#174e4f}
+html body #root :is(.brand,.auth-brand):has(.avemly-lockup){text-decoration:none;background:transparent}
+html body #root .app-header .brand:has(.avemly-lockup){overflow:visible}
+html body #root .publicnav .brand:has(.avemly-lockup){min-width:0}
+@media(max-width:520px){html body #root .avemly-lockup{gap:7px}html body #root .avemly-symbol{width:35px!important;height:27px!important}html body #root#root#root .avemly-wordmark{font-size:25px!important}}
+@media print{html body #root .avemly-symbol{print-color-adjust:exact}}
+@layer type-system {
+ #root :is(h1,h2,h3,h4,h5,h6){font-weight:500!important}
+ #root .avemly-wordmark{font-size:29px!important;font-weight:700!important;line-height:1.05}
+ @media(max-width:520px){#root .avemly-wordmark{font-size:25px!important}}
+}

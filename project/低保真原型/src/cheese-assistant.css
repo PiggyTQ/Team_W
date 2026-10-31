@@ -1,0 +1,53 @@
+/* Assistant-only artwork: the website logo, names, copy and functional symbols stay intact. */
+.cheese-avatar {display:block;flex:none;object-fit:contain;max-width:none;user-select:none;}
+.cheese-pose {display:block;flex:none;object-fit:contain;max-width:100%;user-select:none;}
+
+#root > #workspace-sidebar .sidebar-companion[data-cheese="true"] {
+  background:#eee8da;
+  & .sidebar-companion-pet {background:#fff8e7;color:#233d5e;}
+  & .sidebar-companion-restore {background:transparent;}
+  & .sidebar-companion-pet .cheese-avatar {width:42px;height:42px;transform:rotate(0);transition:transform 180ms var(--ease-out,cubic-bezier(.23,1,.32,1));}
+  & .sidebar-companion-restore .cheese-avatar {width:30px;height:30px;}
+  &[data-collapsed="true"] {background:transparent;}
+  &[data-collapsed="true"] .sidebar-companion-restore {background:#eee8da;}
+  &[data-petting="true"] .sidebar-companion-pet .cheese-avatar {transform:rotate(-7deg) translateY(-1px);}
+}
+@media (hover:hover) and (pointer:fine) {
+  #root > #workspace-sidebar .sidebar-companion[data-cheese="true"] .sidebar-companion-pet:hover {background:#ffefc7;}
+  #root > #workspace-sidebar .sidebar-companion[data-cheese="true"] :is(.sidebar-companion-controls button,.sidebar-companion-restore):hover {background:#e7ddc5;}
+}
+
+#root #main.student-workspace.assistant-workspace .assistant-page.assistant-page-focused .ai-chat-surface {
+  & .chat-session-symbol {background:#fff4d8;}
+  & .chat-session-symbol .cheese-avatar {width:38px;height:38px;}
+  & .empty-chat-intro {grid-template-columns:104px minmax(0,1fr);column-gap:16px;min-height:116px;}
+  & .chat-welcome-symbol {width:104px;height:116px;}
+  & .chat-welcome-symbol .cheese-pose {width:104px;height:116px;}
+  & .chat-message-author .cheese-avatar {display:inline-block;vertical-align:-3px;width:17px;height:17px;}
+}
+
+#root #main .learning-focus .cheese-learning-empty {
+  display:grid;grid-template-columns:140px minmax(0,1fr);gap:20px;align-items:center;text-align:left;
+  & > .cheese-pose {width:140px;height:168px;}
+  & .cheese-learning-copy {min-width:0;}
+  & h3 {margin-top:0;}
+  & p {margin-bottom:14px;}
+  & .cheese-learning-actions {display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;}
+}
+@media (max-width:720px) {
+  #root #main.student-workspace.assistant-workspace .assistant-page.assistant-page-focused .ai-chat-surface {
+    & .empty-chat-intro {grid-template-columns:72px minmax(0,1fr);column-gap:10px;min-height:84px;}
+    & .chat-welcome-symbol,.chat-welcome-symbol .cheese-pose {width:72px;height:84px;}
+  }
+  #root #main .learning-focus .cheese-learning-empty {grid-template-columns:88px minmax(0,1fr);gap:12px;}
+  #root #main .learning-focus .cheese-learning-empty > .cheese-pose {width:88px;height:116px;}
+  #root #main .learning-focus .cheese-learning-actions {align-items:stretch;}
+}
+@media (max-width:380px) {
+  #root #main .learning-focus .cheese-learning-empty {grid-template-columns:minmax(0,1fr);}
+  #root #main .learning-focus .cheese-learning-empty > .cheese-pose {justify-self:start;}
+}
+@media (prefers-reduced-motion:reduce) {
+  #root > #workspace-sidebar .sidebar-companion[data-cheese="true"] .sidebar-companion-pet .cheese-avatar {transition:none;transform:none;}
+  #root > #workspace-sidebar .sidebar-companion[data-cheese="true"][data-petting="true"] .sidebar-companion-pet .cheese-avatar {transform:none;}
+}

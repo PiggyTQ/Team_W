@@ -1,0 +1,47 @@
+.sidebar-nav-icon {display:inline-flex;align-items:center;justify-content:center;flex:none;width:22px;height:22px}
+.sidebar-item-label {white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;transition:opacity 140ms cubic-bezier(0.23,1,0.32,1)}
+.sidebar-tooltip {position:fixed;z-index:2000;max-width:240px;padding:8px 12px;background:#292929;color:#fff;border-radius:6px;font:13px/1.55 system-ui,"Microsoft YaHei",sans-serif;pointer-events:none;overflow-wrap:anywhere}
+.workspace-brand-icon {display:none;align-items:center;justify-content:center}
+#root>#workspace-sidebar .sidebar-toggle {display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#606060;border-radius:6px}
+#root>#workspace-sidebar .sidebar-toggle:hover {background:#e5e5e2;color:#252525}
+#root>#workspace-sidebar .sidebar-toggle:focus-visible,#workspace-sidebar .sidebar-switch:focus-visible {outline:3px solid #606060;outline-offset:2px}
+#root>#workspace-sidebar .sidebar-toolbar {display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;margin:0 3px 14px;font-size:12px;color:#606060}
+#root>#workspace-sidebar .sidebar-links {min-width:0;scrollbar-width:thin;scrollbar-color:#b8b8b4 transparent}
+#root>#workspace-sidebar .sidebar-links a {white-space:nowrap}
+#root>#workspace-sidebar .sidebar-switch {display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px}
+
+@media(min-width:721px){
+ #root:has(>#workspace-sidebar) {--sidebar-expanded:224px;--sidebar-size:var(--sidebar-expanded);grid-template-columns:var(--sidebar-size) minmax(0,1fr);overflow:clip}
+ #root:has(>#workspace-sidebar[data-collapsed=true]) {--sidebar-size:76px}
+ #root:has(>#workspace-sidebar)>.sidebar {display:flex;flex-direction:column;min-width:0;padding:12px 10px 16px;overflow:hidden;scrollbar-gutter:auto}
+ #root>#workspace-sidebar .sidebar-links {flex:1;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+ #root>#workspace-sidebar .workspace-identity {flex:none;margin-bottom:14px;padding:0 10px 20px}
+ #root>#workspace-sidebar .sidebar-bottom {flex:none;margin:14px 6px 0;padding:14px 3px 0}
+ #root>#workspace-sidebar .sidebar-bottom>.caption {font-size:11px}
+ #root>#workspace-sidebar .sidebar-switch {width:100%;margin-bottom:8px}
+ #root>#workspace-sidebar .nav-group>a {min-height:44px}
+ #root>#workspace-sidebar[data-collapsed=true] .sidebar-toolbar {justify-content:center;margin-inline:0;margin-bottom:14px}
+ #root>#workspace-sidebar[data-collapsed=true] .workspace-identity,
+ #root>#workspace-sidebar[data-collapsed=true] .nav-label,
+ #root>#workspace-sidebar[data-collapsed=true] .sidebar-goal,
+ #root>#workspace-sidebar[data-collapsed=true] .sidebar-bottom>.caption {display:none}
+ #root>#workspace-sidebar[data-collapsed=true] .sidebar-item-label {position:absolute;opacity:0;width:0;overflow:hidden;pointer-events:none}
+ #root>#workspace-sidebar[data-collapsed=true] .nav-group {margin:0 0 10px;padding:0}
+ #root>#workspace-sidebar[data-collapsed=true] .nav-group+.nav-group {border-top:1px solid #d7d7d3;padding-top:10px}
+ #root>#workspace-sidebar[data-collapsed=true] .nav-group>a {justify-content:center;gap:0;width:44px;min-height:44px;margin:4px auto;padding:10px}
+ #root>#workspace-sidebar[data-collapsed=true] .nav-group>a[aria-current=page] {padding:9px}
+ #root>#workspace-sidebar[data-collapsed=true] .sidebar-bottom {padding:12px 0 0;margin-inline:0}
+ #root>#workspace-sidebar[data-collapsed=true] .sidebar-switch {width:44px;gap:0;margin:0 auto;padding:10px;border-color:transparent;background:transparent}
+ #root:has(>#workspace-sidebar[data-collapsed=true])>.app-header>.brand {width:24px;flex:none}
+ #root:has(>#workspace-sidebar[data-collapsed=true])>.app-header .workspace-brand-label {display:none}
+ #root:has(>#workspace-sidebar[data-collapsed=true])>.app-header .workspace-brand-icon {display:inline-flex}
+ #root:has(>#workspace-sidebar[data-collapsed=true])>#main.workspace {--layout-content:1360px}
+}
+@media(min-width:721px) and (max-width:1150px){#root:has(>#workspace-sidebar){--sidebar-expanded:190px}}
+@media(max-width:720px){
+ #root>#workspace-sidebar .sidebar-toolbar {display:none}
+ #root>#workspace-sidebar .sidebar-links {overflow:visible}
+ #root>#workspace-sidebar .sidebar-switch {justify-content:flex-start;padding-inline:12px}
+ .sidebar-tooltip {display:none}
+}
+@media(prefers-reduced-motion:reduce){.sidebar-item-label {transition:none}}

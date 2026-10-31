@@ -1,0 +1,39 @@
+/* Yellow / Prussian blue / cream: color and decorative illustration only.
+   Existing glass blur, opacity, shadows, geometry and motion remain owned by
+   liquiglass-material.css and the original components. */
+:root{
+ --cheese-yellow:#f5b70a;--cheese-blue:#013e75;--cheese-sky:#86c5ff;
+ --cheese-paper:#fffcf6;--cheese-cream:#f6e4c8;--cheese-ink:#18202a;
+ --lg-tint:rgb(255 252 246 / .86);--lg-tint-strong:rgb(255 254 250 / .97);
+ --lg-tint-air:rgb(246 236 215 / .8);--lg-border:rgb(158 144 113 / .36);
+ --lg-sheen:linear-gradient(135deg,rgb(255 255 255 / .6),rgb(255 255 255 / .08) 42%,rgb(246 228 200 / .18));
+}
+html body #root#root#root#root :is(.avemly-wordmark,.career-cover-skill,.career-tile-open,.career-tile-return){color:var(--cheese-blue)}
+html body #root#root#root#root :is(button.primary,a.button.primary,.auth-submit,.hero-import-actions .primary){background-color:var(--cheese-yellow)!important;color:var(--cheese-blue)!important;border-color:#c59308!important}
+html body #root#root#root#root :is(button.primary,a.button.primary,.auth-submit,.hero-import-actions .primary) *{color:inherit!important}
+html body #root#root#root#root :is(.home-action-panel,.workbench-focus){background-color:var(--cheese-yellow)!important;color:var(--cheese-blue)!important}
+html body #root#root#root#root :is(.home-action-panel,.workbench-focus) :is(h2,h3,p,li,dt,dd,small,span,svg){color:var(--cheese-blue)!important}
+html body #root#root#root#root :is(.home-action-panel,.workbench-focus) .primary{background-color:var(--cheese-blue)!important;color:#fffdf7!important;border-color:var(--cheese-blue)!important}
+html body #root#root#root#root :is(.home-action-panel,.workbench-focus) .primary *{color:#fffdf7!important}
+html body #root#root#root#root .workbench-focus .actions :is(button.primary,a.button.primary){background-color:var(--cheese-blue)!important;color:#fffdf7!important;border-color:var(--cheese-blue)!important}
+html body #root#root#root#root .workbench-focus .actions :is(button.primary,a.button.primary) *{color:#fffdf7!important}
+html body #root#root#root#root :is(button.primary:disabled,.auth-submit:disabled){background-color:#e8e3da!important;color:#68676a!important;border-color:#d9d2c5!important}
+html body #root#root#root#root .home-action-context{border-color:rgb(1 62 117 / .25)}
+html body #root#root#root#root :is(.home-career-board,.explore-filter,.atlas-dock){background-color:rgb(228 241 253 / .9)}
+html body #root#root#root#root :is(.home-output-board,.schedule-budget,.tail-closing){background-color:rgb(246 228 200 / .9)}
+html body #root#root#root#root .learning-card{background-color:rgb(240 247 254 / .94)}
+html body #root#root#root#root .publicmain .problem-card[data-card="0"]{background-color:rgb(246 228 200 / .94)}
+html body #root#root#root#root .publicmain .problem-card[data-card="1"]{background-color:rgb(228 241 253 / .94)}
+html body #root#root#root#root .publicmain .problem-card[data-card="2"]{background-color:rgb(255 249 226 / .94)}
+html body #root#root#root#root .career-tile-back{background-color:rgb(228 241 253 / .94)}
+html body #root#root#root#root .career-cover-portrait{background-color:#fff4ce;border-color:#e8d19d;color:var(--cheese-blue)}
+html body #root#root#root#root .hero-import-photo{background-color:#f6e4c8}
+html body #root#root#root#root .hero-import-photo img{object-fit:contain}
+/* Original transparent logo pixels remain the supplied brand artwork. */
+html body #root#root#root#root .career-board-symbol{color:var(--cheese-blue)}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+ html body #root#root#root#root :is(.app-header,.publicnav,#workspace-sidebar,.flow-progress,.atlas-toolbar,.workspace-search-results,.workspace-utilities .header-right){background-color:rgb(255 252 246 / .84)}
+}
+@media(max-width:720px){:root{--lg-tint:rgb(255 252 246 / .94);--lg-tint-air:rgb(246 236 215 / .94)}html body #root#root#root#root #workspace-sidebar{background-color:rgb(255 252 246 / .97)}}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){:root{--lg-tint:#fffcf6;--lg-tint-strong:#fff;--lg-tint-air:#f6eedf}html body #root#root#root#root :is(.app-header,.publicnav,#workspace-sidebar,.flow-progress,.atlas-toolbar,.workspace-search-results,.workspace-utilities .header-right,.home-career-board,.explore-filter,.atlas-dock,.home-output-board,.schedule-budget,.tail-closing,.learning-card,.career-tile-back){background-color:#fff}}
+@media(forced-colors:active){html body #root#root#root#root [class]{background-color:Canvas;color:CanvasText;border-color:CanvasText}}

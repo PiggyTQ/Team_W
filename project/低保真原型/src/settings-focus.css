@@ -1,0 +1,48 @@
+/* U12 only: keep settings compact and optional without changing shared tokens. */
+#main.workspace .surface-U12:has(>.settings-focus-page){display:block}
+#main.workspace .settings-focus-page{min-width:0}
+#main.workspace .settings-focus-page>.screen-heading{margin:0 0 16px;min-height:0}
+#main.workspace .settings-focus-page>.tabs.segmented-control{position:relative;inset:auto;display:inline-flex;flex-direction:row;flex-wrap:wrap;gap:4px;width:auto;max-width:100%;margin:0 0 24px;grid-column:auto;grid-row:auto}
+#main.workspace .settings-focus-page>.tabs a{white-space:normal;min-height:44px}
+#main.workspace .settings-focus-page :is(button,input,select,textarea){font-weight:400;min-height:44px}
+#main.workspace .settings-focus-page :is(button,a,input,select,textarea):focus-visible{outline:3px solid #555;outline-offset:3px}
+#main.workspace .settings-focus-preferences{padding:0 0 20px;border-bottom:1px solid #d1d1d1;margin:0}
+#main.workspace .settings-focus-title{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:0 0 16px}
+#main.workspace .settings-focus-title h2,#main.workspace .settings-focus-notifications h2{font-size:20px;line-height:1.5;margin:0;font-weight:400}
+#main.workspace .settings-focus-title p,#main.workspace .settings-focus-notifications p{font-size:14px;line-height:1.7;color:#606060;margin:6px 0 0;max-width:72ch}
+#main.workspace .settings-focus-title>button{flex:none;margin:0}
+#main.workspace .settings-focus-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px;margin:0}
+#main.workspace .settings-focus-summary>div{min-width:0;padding:10px 0 14px;border-bottom:1px solid #e1e1e1}
+#main.workspace .settings-focus-summary dt{color:#606060;font-size:13px;line-height:1.6;margin:0 0 6px}
+#main.workspace .settings-focus-summary dd{font-size:14px;line-height:1.7;margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+#main.workspace .settings-focus-summary .settings-focus-summary-wide{grid-column:1/-1;display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:12px 0}
+#main.workspace .settings-focus-summary-wide dt{margin:0}
+#main.workspace .settings-focus-editor{margin:0 0 16px}
+#main.workspace .settings-focus-editor .cols3{gap:20px}
+#main.workspace .settings-focus-editor .field{margin:0 0 16px;max-width:none}
+#main.workspace .settings-focus-editor :is(input,select,textarea){max-width:none}
+#main.workspace .settings-focus-editor textarea{min-height:96px}
+#main.workspace .settings-focus-save-note{font-size:13px;line-height:1.7;color:#606060;max-width:72ch;margin:14px 0 0}
+#main.workspace .settings-focus-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 24px;margin:8px 0 0}
+#main.workspace .settings-focus-actions :is(a,button){display:inline-flex;align-items:center;min-height:44px;font-size:14px;text-decoration:underline;text-underline-offset:4px}
+#main.workspace .settings-focus-actions button{border:0;background:transparent;color:#292929;padding:0;box-shadow:none}
+#main.workspace .settings-focus-actions button:hover{color:#000;text-decoration-thickness:2px}
+#main.workspace .settings-focus-notifications{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;border-bottom:1px solid #d1d1d1}
+#main.workspace .settings-focus-notification-switch{flex:none;align-items:center;gap:10px;margin:0;padding:0;min-height:44px;font-size:14px}
+#main.workspace .settings-focus-notification-switch .preference-switch{min-height:22px;margin:0}
+#main.workspace .settings-focus-page>.settings-feedback{margin:0;padding:8px 0 0;border-top:0}
+#main.workspace .settings-focus-page>.settings-feedback>summary{display:list-item;min-height:44px;align-content:center;padding-block:10px;font-size:14px}
+@media(max-width:720px){
+ #main.workspace .settings-focus-page>.screen-heading{margin-bottom:14px}
+ #main.workspace .settings-focus-page>.tabs.segmented-control{margin-bottom:20px}
+ #main.workspace .settings-focus-title{flex-wrap:wrap;gap:12px;margin-bottom:12px}
+ #main.workspace .settings-focus-title>button{width:100%}
+ #main.workspace .settings-focus-summary{grid-template-columns:minmax(0,1fr);gap:0}
+ #main.workspace .settings-focus-summary>div,#main.workspace .settings-focus-summary .settings-focus-summary-wide{display:grid;grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr);gap:12px;padding:12px 0}
+ #main.workspace .settings-focus-summary dt{margin:0}
+ #main.workspace .settings-focus-editor .cols3{grid-template-columns:minmax(0,1fr);gap:0}
+ #main.workspace .settings-focus-editor :is(input,select,textarea){font-size:16px}
+ #main.workspace .settings-focus-notifications{align-items:flex-start;gap:16px}
+ #main.workspace .settings-focus-notification-switch{gap:6px}
+ #main.workspace .settings-focus-title h2,#main.workspace .settings-focus-notifications h2{font-size:18px}
+}

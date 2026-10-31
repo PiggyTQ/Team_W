@@ -1,0 +1,133 @@
+/* v52: common page geometry. Canvas and document internals keep their own layout. */
+#main.workspace{
+ --layout-content:1260px;
+ --layout-gutter:24px;
+ --layout-gap:20px;
+ --layout-section-gap:24px;
+ container:workspace / inline-size;
+ padding:20px var(--layout-gutter) 28px;
+}
+#main.workspace>.workspace-contextbar,#main.workspace>.page-surface,#main.workspace>.route-recovery,#main.workspace>footer{
+ width:100%;max-width:var(--layout-content);margin-inline:auto;min-width:0;
+}
+#main.workspace>.workspace-contextbar{
+ display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 20px;
+ min-height:28px;margin-bottom:8px;
+}
+#main.workspace>.workspace-contextbar .breadcrumbs{margin:0;min-height:28px;align-content:center;line-height:1.7;font-size:12px}
+#main.workspace .page-surface>.screen-heading,#main.workspace .assistant-page-header,#main.workspace .home-hub-heading,#main.workspace .atlas-head{
+ display:flex;align-items:flex-start;justify-content:space-between;gap:24px;
+ min-height:42px;margin:0 0 16px;padding:0;border:0;
+}
+#main.workspace :is(.screen-heading,.assistant-page-header,.home-hub-heading,.atlas-head) h1{
+ font-size:28px;font-weight:400;line-height:1.45;letter-spacing:-.025em;margin:0;
+}
+#main.workspace :is(.screen-heading,.assistant-page-header,.home-hub-heading,.atlas-head)>div{min-width:0}
+#main.workspace :is(.screen-heading,.assistant-page-header,.atlas-head)>:is(button,.button,nav){margin-top:0}
+#main.workspace .page-surface>.tabs.segmented-control,#main.workspace .assistant-section-bar>.tabs.segmented-control{
+ margin-top:0;margin-bottom:16px;
+}
+#main.workspace .assistant-section-bar{align-items:flex-start;min-height:54px;margin:0 0 28px;padding:0;flex:none}
+#main.workspace .assistant-section-bar>.tabs.segmented-control{margin-bottom:0}
+#main.workspace .segmented-control{scrollbar-width:thin;scrollbar-color:#aaa transparent}
+#main.workspace .segmented-control::-webkit-scrollbar{display:block;height:4px}
+#main.workspace .segmented-control::-webkit-scrollbar-thumb{background:#aaa;border-radius:3px}
+#main.workspace .field{min-width:0}
+#main.workspace .field>span{display:block;line-height:1.65;margin-bottom:8px}
+#main.workspace :is(.cols2,.cols3)>*{min-width:0}
+#main.workspace :is(input,select):not([type=checkbox]):not([type=radio]):not([type=range]){min-height:44px}
+#main.workspace .actions{align-items:center;gap:12px;flex-wrap:wrap}
+#main.workspace :is(.panel,.workspace-section,.completion-panel) .section-head{align-items:flex-start;gap:16px}
+#main.workspace .section-head>:is(button,.button){flex-shrink:0;margin-top:0}
+#main.workspace .route-recovery{margin-bottom:24px}
+#main.workspace .assessment-context{margin:0 0 24px;padding:16px 20px;gap:20px;min-height:76px}
+#main.workspace .assessment-context small{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#main.workspace .assessment-profile-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:28px;align-items:start}
+#main.workspace .assessment-source-group{margin:0;padding:0;border:0}
+#main.workspace .assessment-source-group>summary{display:none}
+#main.workspace .assessment-profile-sources>.completion-panel{
+ margin:0;padding:18px 20px;border:1px solid #deded9;border-radius:8px;background:#fafaf8;min-width:0;
+}
+#main.workspace .assessment-profile-sources>.completion-panel:has(form){grid-column:1/-1}
+#main.workspace .assessment-profile-sources .section-head{margin-bottom:10px;gap:12px}
+#main.workspace .assessment-profile-sources h2{font-size:17px;line-height:1.5;margin:0 0 4px}
+#main.workspace .assessment-profile-sources .section-head button{font-size:12px;padding:8px 11px}
+#main.workspace .assessment-profile-sources p{font-size:13px;line-height:1.8;margin:8px 0;overflow-wrap:anywhere}
+#main.workspace .assessment-profile-sources>section>a{display:inline-flex;align-items:center;font-size:12px;min-height:36px}
+#main.workspace .assessment-profile-sources .context-help>.workspace-guide-trigger{padding-left:0;min-height:30px}
+#main.workspace .plan-overview{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(280px,1fr);gap:24px;align-items:start;margin-bottom:28px}
+#main.workspace .plan-primary{min-width:0;display:grid;gap:24px;align-content:start}
+#main.workspace .plan-primary .goal-statement{margin:0;padding:24px;gap:20px}
+#main.workspace .plan-primary .phased-plan{margin:0;padding:24px 0 0;border:0;border-top:1px solid #deded9;border-radius:0;background:transparent}
+#main.workspace .plan-primary .phase-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#main.workspace .plan-primary .phase-columns>section{min-width:0}
+#main.workspace .plan-primary .phase-columns :is(h3,strong,p,small){overflow-wrap:anywhere}
+#main.workspace .plan-primary .phase-resources{margin-top:24px;padding-top:24px}
+#main.workspace .plan-overview>.weekly-budget{margin:0;min-width:0;padding:24px}
+#main.workspace .plan-overview>.weekly-budget .section-heading{margin-bottom:20px}
+#main.workspace .surface-U12>.screen-heading{grid-column:1/-1}
+#main.workspace .report-outline a{overflow-wrap:anywhere}
+#main.workspace .page-surface>h1{font-size:28px;line-height:1.45;min-height:48px;margin:0 0 24px;font-weight:400}
+#main.workspace .report-topic-panel[id]{scroll-margin-top:24px}
+#main.workspace.atlas-workspace{
+ background:#fff;border:1px solid #deded9;border-right:0;border-bottom:0;border-radius:14px 0 0 0;
+ padding:24px 36px 36px!important;
+}
+#main.workspace.atlas-workspace .atlas-head>div:last-child{display:flex;gap:12px;align-items:center;flex-shrink:0}
+#main.workspace.atlas-workspace .atlas-toolbar{margin:0 0 20px;min-height:54px}
+#main.workspace.atlas-workspace .workspace-guide{border:0;margin:0}
+#main.workspace.atlas-workspace .workspace-guide-trigger{border:0;background:transparent;box-shadow:none;color:#555;font-size:12px}
+#main.workspace.atlas-workspace>.workspace-contextbar .breadcrumbs{font-size:12px}
+#root:has(>#main.workspace)>.app-header .global-search{min-height:46px;height:46px}
+#root:has(>#main.workspace)>.app-header .workspace-search :is(.search-clear,.search-submit){min-width:40px;min-height:40px;height:40px}
+#root:has(>#main.workspace)>.app-header .workspace-search select{min-height:40px}
+@media(min-width:721px){
+ #main.workspace.assistant-workspace{padding-top:24px!important}
+ #main.workspace.assistant-workspace>.workspace-contextbar{flex:none;margin-bottom:24px}
+}
+@media(min-width:721px) and (max-width:1150px){
+ #main.workspace{--layout-gutter:24px}
+ #main.workspace.atlas-workspace{padding:24px!important}
+ #main.workspace .plan-overview{grid-template-columns:minmax(0,1fr) 260px;gap:20px}
+ #main.workspace .plan-primary .goal-statement{display:block;padding:20px}
+ #main.workspace .plan-primary .goal-statement>button{margin-top:16px}
+ #main.workspace .plan-overview>.weekly-budget{padding:20px}
+ #main.workspace .assessment-profile-sources{gap:20px}
+ #main.workspace .assessment-profile-sources .section-head{flex-wrap:wrap}
+}
+@media(max-width:720px){
+ #main.workspace{--layout-gutter:18px;--layout-gap:16px;--layout-section-gap:24px}
+ #main.workspace.atlas-workspace{padding:20px 18px 28px!important;border:0;border-radius:0}
+ #main.workspace>.workspace-contextbar,#main.workspace.assistant-workspace>.workspace-contextbar{min-height:36px;margin-bottom:16px;gap:0 10px}
+ #main.workspace>.workspace-contextbar .breadcrumbs{font-size:11px}
+ #main.workspace .page-surface>.screen-heading,#main.workspace .assistant-page-header,#main.workspace .home-hub-heading,#main.workspace .atlas-head{min-height:44px;gap:12px;margin-bottom:20px}
+ #main.workspace :is(.screen-heading,.assistant-page-header,.home-hub-heading,.atlas-head) h1{font-size:25px;line-height:1.45}
+ #main.workspace .page-surface>.tabs.segmented-control{margin-bottom:24px}
+ #main.workspace .assistant-section-bar{margin-bottom:24px;gap:12px}
+ #main.workspace .assessment-context{padding:14px 0;margin-bottom:20px;gap:12px 16px;background:transparent;border-block:1px solid #deded9;border-radius:0}
+ #main.workspace .assessment-context .context-caption{margin-left:0;text-align:left}
+ #main.workspace .assessment-profile-sources{gap:12px;margin-bottom:24px}
+ #main.workspace .assessment-source-group{margin-bottom:24px;border-block:1px solid #deded9}
+ #main.workspace .assessment-source-group>summary{display:list-item;min-height:48px;align-content:center;font-size:13px;list-style-position:inside;padding:10px 0}
+ #main.workspace .assessment-source-group[open]>.assessment-profile-sources{margin:12px 0 16px}
+ #main.workspace .assessment-profile-sources>.completion-panel{padding:16px;grid-column:1/-1}
+ #main.workspace .assessment-profile-sources .section-head{gap:10px;align-items:center;margin-bottom:4px}
+ #main.workspace .assessment-profile-sources .section-head .context-help{margin-top:4px}
+ #main.workspace .assessment-profile-sources h2{font-size:16px;margin:0}
+ #main.workspace .assessment-profile-sources .section-head button{min-height:44px;font-size:12px;padding:8px}
+ #main.workspace .assessment-profile-sources>section>a{min-height:36px}
+ #main.workspace .plan-overview{grid-template-columns:minmax(0,1fr);gap:24px}
+ #main.workspace .plan-primary{gap:24px}
+ #main.workspace .plan-primary .goal-statement{padding:22px 18px}
+ #main.workspace .plan-primary .phased-plan{padding-top:24px}
+ #main.workspace .plan-primary .phase-columns{grid-template-columns:minmax(0,1fr)}
+ #main.workspace .plan-overview>.weekly-budget{grid-row:2;padding:22px 18px}
+ #main.workspace .plan-primary .phase-columns .actions{gap:8px}
+ #main.workspace.atlas-workspace .atlas-head{flex-wrap:wrap}
+ #main.workspace.atlas-workspace .atlas-head>div:last-child{width:100%;justify-content:space-between;gap:10px}
+ #main.workspace.atlas-workspace .atlas-head>div:last-child>a{display:inline}
+ #main.workspace.atlas-workspace .atlas-toolbar{margin-bottom:16px}
+ #root:has(>#main.workspace)>.app-header .workspace-search :is(.search-clear,.search-submit){min-width:44px;min-height:44px}
+ #root:has(>#main.workspace)>.app-header .global-search{min-height:48px;height:48px}
+ #root:has(>#main.workspace)>.app-header .workspace-search select{min-height:44px}
+}

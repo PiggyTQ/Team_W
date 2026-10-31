@@ -1,0 +1,28 @@
+[Unit]
+Description=Career Growth account service
+After=network.target
+
+[Service]
+Type=simple
+User=career
+Group=career
+WorkingDirectory=/srv/career-growth/source
+Environment=NODE_ENV=production
+Environment=PUBLIC_ORIGIN=https://47.250.133.180
+Environment=TRUST_PROXY=1
+Environment=AUTH_DATABASE=/var/lib/career-growth/auth.sqlite
+Environment=PORT=3001
+ExecStart=/usr/local/bin/node server/auth-server.mjs
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/career-growth
+MemoryMax=650M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

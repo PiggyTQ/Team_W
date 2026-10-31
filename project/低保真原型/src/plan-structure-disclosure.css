@@ -1,0 +1,115 @@
+#main.workspace .plan-structure-disclosure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 20px 0 24px;
+}
+#main.workspace .plan-structure-disclosure > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  min-width: 0;
+}
+#main.workspace .plan-structure-disclosure p {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0;
+  color: var(--muted, #606060);
+  font-size: 14px;
+  line-height: 1.8;
+}
+#main.workspace .plan-structure-disclosure button {
+  max-width: 100%;
+  min-height: 44px;
+  white-space: normal;
+}
+.plan-structure-drawer .information-drawer-content .phased-plan {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.plan-structure-drawer .information-drawer-content .phase-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  margin: 22px 0;
+}
+.plan-structure-drawer .information-drawer-content .phase-columns > section {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.plan-structure-drawer .information-drawer-content .phase-columns > section > header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e4da;
+}
+.plan-structure-drawer .information-drawer-content .phase-columns article {
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e4da;
+}
+.plan-structure-drawer .information-drawer-content .phase-columns strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.plan-structure-drawer .information-drawer-content .phase-resources {
+  display: block;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e4da;
+}
+.plan-structure-drawer .information-drawer-content .phase-resources article {
+  display: block;
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e4da;
+  border-radius: 0;
+  background: transparent;
+}
+.plan-structure-drawer .information-drawer-content .phased-plan p {
+  color: inherit;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.plan-structure-drawer .information-drawer-content .phased-plan small {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.plan-structure-drawer .information-drawer-content .phased-plan button {
+  min-height: 44px;
+  margin-right: 0;
+  font-size: 14px;
+}
+.plan-structure-drawer .information-drawer-content .phased-plan form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+.plan-structure-drawer .information-drawer-content .stage-name {
+  flex-wrap: wrap;
+  margin: 0;
+}
+.plan-structure-drawer .information-drawer-content .stage-name input {
+  flex: 1 1 180px;
+}
+.plan-structure-drawer .information-drawer-content .phase-start ol {
+  display: block;
+  margin-block: 16px;
+}
+.plan-structure-drawer .information-drawer-content .phase-start li {
+  margin: 8px 0;
+}
+@media (max-width: 640px) {
+  #main.workspace .plan-structure-disclosure,
+  #main.workspace .plan-structure-disclosure > div {
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

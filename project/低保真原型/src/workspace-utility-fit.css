@@ -1,0 +1,20 @@
+/* Auxiliary actions sit with the content they explain, without full-width bands. */
+#root #main.workbench-home .workbench-heading-tools{min-width:0;max-width:100%;flex-wrap:wrap;justify-content:flex-end;gap:4px 12px}
+#root #main.workbench-home .workbench-heading-tools time{color:#626c60}
+#root #main.workbench-home .workbench-help .workspace-guide-trigger{min-height:44px}
+#root #main.workbench-home #workspace-help{max-width:100%}
+#root #main.workbench-home .workbench-heading-tools .workspace-guide-trigger{white-space:normal;text-align:start}
+#root #main.workbench-home .workbench-status-empty{align-content:start;gap:10px}
+#root #main.workbench-home .workbench-status-empty ol{display:grid;gap:4px;padding-inline-start:22px}
+#root #main.student-workspace>footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 16px;min-height:0;margin-top:12px;padding:0;border:0;background:transparent;box-shadow:none;color:#626c60}
+#root #main.student-workspace>footer>span{min-width:0;max-width:75ch;line-height:1.6}
+#root #main.student-workspace>footer>button{min-height:44px;flex:none;padding:6px 0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#5b6251;text-decoration:underline;text-underline-offset:4px}
+.guidance-bubble .workspace-help-path{display:grid;gap:0;margin:14px 0}
+.guidance-bubble .workspace-help-path>a{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px;padding:10px 0;min-height:44px;box-sizing:border-box;border-bottom:1px solid #e7e1d5;color:#376f60;text-decoration:none}
+.guidance-bubble .workspace-help-path small{color:#626c60}
+.guidance-bubble:has(.workspace-help-path) :is(button,a):focus-visible{outline:2px solid #567762;outline-offset:3px}
+@media(max-width:720px){
+ #root #main.workbench-home .workbench-heading-tools{justify-content:flex-start;gap:4px 12px;width:100%}
+ #root #main.workbench-home .workbench-heading-tools time{width:100%}
+ #root #main.student-workspace>footer{justify-content:flex-start}
+}

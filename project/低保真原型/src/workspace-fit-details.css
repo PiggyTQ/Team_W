@@ -1,0 +1,212 @@
+/* Workspace fit, 2026-10-23. Keep the existing 18px body and four type roles.
+   Density comes from useful columns, content-height rows and local chart flow.
+   Load after workspace-page-proportions.css / workspace-warm-details.css. */
+#root #main.student-workspace:not(.workbench-home) {
+  /* Each status column ends with its own content, including empty states. */
+  & .plan-board {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    align-items:start;
+    gap:16px;
+  }
+  & .plan-board > section {
+    display:block;
+    align-self:start;
+    min-height:0;
+    height:auto;
+    padding:16px;
+  }
+  & .plan-board > section > header { align-items:baseline; gap:12px; padding-bottom:8px; }
+  & .plan-board > section > header h3 { min-width:0; }
+  & .plan-board > section > header > span { flex:none; }
+  & .board-column-actions { padding:0 0 12px; gap:8px 12px; }
+  & .board-empty-action { padding:12px 0 0; }
+  & .board-empty-action p { margin:0 0 10px; }
+  & .plan-task { min-width:0; margin:12px 0 0; padding:16px; }
+  & .plan-task :is(h3,p) { margin-top:8px; margin-bottom:8px; }
+  & .plan-task .task-object-actions { margin:12px 0; gap:8px; }
+
+  /* Maintain breathing room inside a card without adding margin and padding
+     on both sides of every rule. The content and its actions remain intact. */
+  & .occupation-grid { gap:16px; }
+  & .occupation-grid > article { padding:16px; }
+  & .occupation-grid h3 { margin:8px 0 6px; }
+  & .occupation-grid > article > p { margin:0 0 8px; }
+  & .occupation-output { margin:8px 0; padding:8px 0; }
+  & .occupation-output p { margin:4px 0 0; }
+  & .occupation-tags { margin:8px 0; gap:6px; flex-wrap:wrap; }
+  & .occupation-actions { margin:8px 0 0; padding-top:8px; gap:8px 12px; }
+  & .occupation-actions > :is(a,button) { min-height:44px; }
+
+  /* A bounded budget column gives the actual goal/question room to read.
+     The previous two nested breakpoints are replaced by a single transition. */
+  & .plan-overview {
+    grid-template-columns:minmax(0,1fr) minmax(320px,340px);
+    gap:16px;
+    align-items:start;
+    margin-bottom:16px;
+  }
+  & .plan-primary .goal-statement {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px 20px;
+    align-items:start;
+    padding:20px;
+  }
+  & .plan-primary .goal-statement > .plan-goal-context {
+    margin:0;
+    padding:0 0 0 20px;
+    border-top:0;
+    border-left:1px solid #e7e1d5;
+  }
+  & .plan-primary .goal-statement > button { grid-column:1/-1; justify-self:start; margin:0; }
+  & .plan-goal-summary > p { margin:8px 0; }
+  & .plan-goal-context p { margin-bottom:8px; }
+  & .plan-goal-context nav { gap:4px 16px; }
+  & .plan-overview > .weekly-budget { padding:20px; }
+  & .plan-overview > .weekly-budget > .section-heading { margin-bottom:12px; }
+  & .weekly-budget .capacity-plot { margin:12px 0 8px; }
+  & .weekly-budget .capacity-header { gap:12px; }
+  & .weekly-budget .capacity-header > div { display:flex; align-items:baseline; flex-wrap:wrap; gap:2px 6px; min-width:0; }
+  & .weekly-budget .capacity-header strong { line-height:1.5; }
+  & .weekly-budget .capacity-note { margin:8px 0; }
+  & .weekly-budget .capacity-ledger { margin:4px 0 12px; }
+  & .weekly-budget .capacity-ledger > summary {
+    display:grid;
+    grid-template-columns:16px minmax(0,1fr) auto 15px;
+    align-items:center;
+    gap:8px;
+    padding:6px 0;
+  }
+  & .weekly-budget .capacity-task > :is(a,span) { min-width:0; overflow-wrap:anywhere; }
+
+  /* A report can be narrow inside a wide display. Measure the figure itself
+     before deciding whether five status columns can carry readable labels. */
+  & .report-action-chart { container:report-action / inline-size; }
+  & .report-record-charts header { flex-wrap:wrap; align-items:baseline; gap:4px 12px; }
+  & .report-record-charts header > h3 { min-width:0; }
+  & .report-record-charts header > span { white-space:normal; }
+
+  /* This native details remains user-controlled. Only its relationship diagram
+     changes shape; the document preview keeps its established readable width. */
+  & .output-workspace .resume-assembly { container:resume-assembly / inline-size; }
+  & .resume-assembly > summary { flex-wrap:wrap; gap:8px 16px; }
+  & .resume-assembly > summary > h3 { min-width:0; }
+  & .resume-assembly > summary > span { min-width:0; overflow-wrap:anywhere; }
+  & .resume-assembly-flow { gap:16px; }
+  & .resume-assembly-flow .assembly-heading { gap:8px; white-space:normal; }
+  & .assembly-document li > span:first-child { min-width:0; overflow-wrap:anywhere; }
+}
+
+@layer type-system {
+ #root #main.student-workspace:not(.workbench-home) .weekly-budget .section-heading h2 { font-size:var(--ui-type-card)!important; }
+}
+
+@container workspace (min-width:1120px) {
+  #root #main.student-workspace:not(.workbench-home) .occupation-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@container workspace (max-width:1000px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .plan-overview { grid-template-columns:minmax(0,1fr); }
+    & .weekly-budget > .budget-capacity {
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:4px 24px;
+      align-items:start;
+    }
+    & .weekly-budget .capacity-header { grid-column:1; grid-row:1; }
+    & .weekly-budget .capacity-plot { grid-column:1; grid-row:2; }
+    & .weekly-budget .capacity-legend { grid-column:1; grid-row:3; }
+    & .weekly-budget .capacity-note { grid-column:2; grid-row:1; margin:0; }
+    & .weekly-budget .capacity-ledger { grid-column:2; grid-row:2/4; margin:0; }
+    & .weekly-budget > button { margin-top:12px; }
+  }
+}
+
+@container workspace (max-width:900px) {
+  #root #main.student-workspace:not(.workbench-home) .plan-board {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@container workspace (max-width:640px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .plan-board { grid-template-columns:minmax(0,1fr); }
+    & .plan-primary .goal-statement { grid-template-columns:minmax(0,1fr); padding:18px; }
+    & .plan-primary .goal-statement > .plan-goal-context {
+      border-left:0;
+      border-top:1px solid #e7e1d5;
+      padding:12px 0 0;
+    }
+    & .weekly-budget > .budget-capacity { display:block; }
+    & .weekly-budget .capacity-note { margin:8px 0; }
+    & .weekly-budget .capacity-ledger { margin:4px 0 12px; }
+    & .plan-overview > .weekly-budget { padding:18px; }
+  }
+}
+
+@container report-action (max-width:440px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .report-action-chart .record-columns {
+      display:grid;
+      gap:12px;
+      min-height:0;
+      padding:0;
+      border:0;
+    }
+    & .report-action-chart .record-column {
+      display:grid;
+      grid-template-columns:minmax(104px,1fr) minmax(0,1.6fr);
+      gap:12px;
+      align-items:center;
+      text-align:left;
+    }
+    & .report-action-chart .record-column > span {
+      grid-column:1;
+      grid-row:1;
+      min-height:0;
+      margin:0;
+      overflow-wrap:normal;
+    }
+    & .report-action-chart .record-column-track {
+      grid-column:2;
+      grid-row:1;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:center;
+      gap:12px;
+      height:auto;
+    }
+    & .report-action-chart .record-column-track i {
+      width:calc(var(--record-share)*100%);
+      min-width:0;
+      max-width:none;
+      height:10px;
+      min-height:0;
+      border-radius:5px;
+    }
+    & .report-action-chart .record-column-track > span { text-align:right; min-width:1ch; }
+  }
+}
+
+@container resume-assembly (max-width:820px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .resume-assembly-flow { grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr); gap:12px 16px; }
+    & .resume-assembly-flow > svg:nth-of-type(2) { grid-column:1/-1; justify-self:center; transform:rotate(90deg); }
+    & .resume-assembly-flow > .assembly-document { grid-column:1/-1; }
+    & .resume-assembly-flow > .assembly-document > ul { display:flex; flex-wrap:wrap; gap:8px 20px; }
+    & .resume-assembly-flow > .assembly-document > ul > li { flex:1 1 200px; min-width:0; }
+  }
+}
+
+@container resume-assembly (max-width:560px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .resume-assembly-flow { grid-template-columns:minmax(0,1fr); gap:12px; }
+    & .resume-assembly-flow > svg { grid-column:1; justify-self:center; transform:rotate(90deg); }
+    & .resume-assembly-flow > .assembly-document { grid-column:1; }
+    & .resume-assembly > summary > span { margin-left:0; }
+    & .resume-assembly > summary > svg { margin-left:auto; }
+  }
+}

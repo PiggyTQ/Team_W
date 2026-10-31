@@ -1,0 +1,22 @@
+{
+  "id": "restore-video",
+  "course_id": "restore",
+  "chapter_ids": [
+    "restore-chapter-4"
+  ],
+  "title": "Storytelling as an Incident Management Skill",
+  "provider": "USENIX / Laura de Vesine",
+  "source_id": "VID-004",
+  "source_url": "https://www.usenix.org/conference/srecon24americas/presentation/devesine",
+  "delivery": "external_reference",
+  "local_file": null,
+  "duration_seconds": null,
+  "language": "en",
+  "source_page_http_status": 200,
+  "source_page_verified": true,
+  "playback_verified": false,
+  "media_candidates": [
+    "https://www.youtube.com/embed/PesInXd9G6c"
+  ],
+  "viewing_guide_zh": "视频用于复盘表达与事件叙事补充，不是本课真实恢复操作演示。先完成自己的时间线，再比较叙事结构。"
+}

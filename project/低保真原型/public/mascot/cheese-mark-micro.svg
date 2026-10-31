@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" role="img" aria-labelledby="cheese-micro-title cheese-micro-desc">
+  <title id="cheese-micro-title">芝识分子微型头像</title>
+  <desc id="cheese-micro-desc">简化黄色奶酪轮廓、额头问号孔和深蓝色双圆眼镜，适用于16至24像素。</desc>
+  <rect x="3" y="1" width="26" height="30" rx="7.5" fill="#F7C84B"/>
+  <path d="M13.9 6.4c0-1.3 1-2.1 2.3-2.1 1.4 0 2.3.8 2.3 2s-.8 1.7-1.6 2.2c-.7.4-1 .8-1 1.5" stroke="#D99826" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="15.9" cy="12" r="1.05" fill="#D99826"/>
+  <circle cx="10.4" cy="19.5" r="5.15" fill="#FFF1C2" stroke="#233D5E" stroke-width="2.25"/>
+  <circle cx="21.6" cy="19.5" r="5.15" fill="#FFF1C2" stroke="#233D5E" stroke-width="2.25"/>
+  <path d="M15.6 19.2h.8M3.7 18l1.5.5m21.6 0 1.5-.5" stroke="#233D5E" stroke-width="2.25" stroke-linecap="round"/>
+  <circle cx="10.4" cy="19.5" r="1.25" fill="#233D5E"/>
+  <circle cx="21.6" cy="19.5" r="1.25" fill="#233D5E"/>
+  <path d="M14 27c1.2.9 2.8.9 4 0" stroke="#233D5E" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
+

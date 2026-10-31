@@ -1,0 +1,26 @@
+/* Resource introductions and useful reading navigation share the available width. */
+#main.workspace .learning-card-body{container-type:inline-size;container-name:learning-body}
+#main.workspace .learning-card-content{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(240px,.85fr);gap:24px 28px;align-items:start}
+#main.workspace .learning-card-intro{min-width:0}
+#main.workspace .learning-card-intro>h3{margin:12px 0;font-size:22px}
+#main.workspace .learning-card-intro>p{font-size:15px;line-height:1.85;max-width:62ch}
+#main.workspace .learning-card-intro>.caption{font-size:13px}
+#main.workspace .learning-reading-guide{min-width:0;border-left:1px solid #d9d9d3;padding-left:24px}
+#main.workspace .learning-reading-guide h4{font-size:17px;line-height:1.6;margin:0 0 10px}
+#main.workspace .learning-reading-guide p{font-size:13px;line-height:1.85;margin:0 0 20px;color:#5d5d58;overflow-wrap:anywhere}
+#main.workspace .learning-reading-guide h5{font-size:14px;margin:0 0 8px}
+#main.workspace .learning-reading-guide ol{list-style:none;padding:0;margin:0}
+#main.workspace .learning-reading-guide li{border-top:1px solid #deded8}
+#main.workspace .learning-reading-guide button{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:baseline;width:100%;text-align:left;border:0;border-radius:0;background:transparent;box-shadow:none;padding:11px 0;min-height:44px;font-size:13px;line-height:1.7}
+#main.workspace .learning-reading-guide button:hover{background:#f3f3ef}
+#main.workspace .learning-reading-guide button>span:first-child{color:#6a6a65;font-size:12px;font-variant-numeric:tabular-nums}
+#main.workspace .learning-reading-guide>small{display:block;font-size:12px;line-height:1.8;margin-top:12px;color:#62625d}
+#main.workspace .learning-card-content>:is(.learning-related,.project-preview,small){grid-column:1/-1}
+@container learning-body (max-width:620px){
+ #main.workspace .learning-card-content{grid-template-columns:minmax(0,1fr);gap:24px}
+ #main.workspace .learning-reading-guide{border-left:0;border-top:1px solid #d9d9d3;padding:20px 0 0}
+}
+@media(max-width:720px){
+ #main.workspace .learning-card-intro .actions{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+ #main.workspace .learning-card-intro .actions>button{width:100%;min-height:44px;white-space:normal}
+}

@@ -1,0 +1,55 @@
+/* v60: viewport-sized stages, fluid content width, natural mobile reading. */
+.publicmain.publicmain{max-width:none;width:100%;box-sizing:border-box;padding-inline:clamp(18px,4vw,104px)}
+.publicmain.publicmain>.page-surface{max-width:none;width:100%}
+.publicmain.publicmain :is(#starting-points,#before-start,.tail-closing){box-sizing:border-box;min-height:calc(100svh - 32px)}
+.publicmain.publicmain #starting-points{display:flex;flex-direction:column;justify-content:center}
+.publicmain.publicmain #before-start{display:flex;flex-direction:column;justify-content:center}
+.publicmain.publicmain .tail-closing{display:flex;flex-direction:column;justify-content:center}
+@media(min-width:1024px) and (min-height:850px){
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll]{padding-top:0}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-pinned-panel{box-sizing:border-box;height:calc(100svh - 32px);min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;padding-block:12px}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-stage-layout{height:100%;min-height:0}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-aperture{height:auto;min-height:0;display:flex;flex-direction:column}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-canvas{flex:1;min-height:0}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-motion-body{height:auto;flex:1}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-slide{height:100%}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-visual{box-sizing:border-box;height:100%;min-height:300px}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-visual>:is(.formation-paper,.artifact-paper){box-sizing:border-box;height:auto;min-height:clamp(300px,48svh,680px);max-height:100%;align-self:center}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-stage-copy{display:flex;flex-direction:column;gap:16px;overflow:visible}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-stage-copy>:is(h3,p){max-height:none;overflow:visible;align-self:auto;margin:0}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-stage-copy>*{flex-shrink:0}
+ .publicmain.publicmain .scroll-journey[data-journey-mode=scroll] .sj-stage{box-sizing:border-box;min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center}
+ .publicmain.publicmain .scroll-journey[data-journey-mode=scroll] .sj-viewport{flex:1;min-height:380px;display:flex;align-items:center}
+ .publicmain.publicmain .career-gallery-stage{box-sizing:border-box;min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center}
+ .publicmain.publicmain .direction-gallery-viewport{flex:1;display:flex;align-items:center}
+ .publicmain.publicmain .direction-gallery-card{min-height:clamp(440px,64svh,900px)}
+ .publicmain.publicmain .story-scene{box-sizing:border-box;min-height:calc(100svh - 48px)}
+}
+@media(min-width:1600px){
+ .publicmain.publicmain :is(.outcomes-heading,.section-heading,.story-bridge,.before-start>header) h2{font-size:clamp(30px,2vw,46px);line-height:1.4}
+ .publicmain.publicmain .landing-outcomes[data-outcome-mode=scroll] .outcome-stage-copy>h3{font-size:clamp(26px,1.6vw,36px)}
+ .publicmain.publicmain .outcomes-heading p,.publicmain.publicmain .outcome-stage-copy>p{font-size:16px;line-height:1.9}
+ .publicmain.publicmain .outcome-canvas .formation-paper h3{font-size:26px}
+ .publicmain.publicmain .formation-rows>div{padding-block:20px;font-size:16px}
+ .publicmain.publicmain .formation-rows p{font-size:16px;line-height:1.8}
+ .publicmain.publicmain .scroll-journey[data-journey-mode=scroll] .sj-item{width:clamp(300px,28vw,700px);flex-basis:clamp(300px,28vw,700px)}
+ .publicmain.publicmain .sj-item h3{font-size:32px}
+ .publicmain.publicmain .sj-artifact{min-height:230px;padding:24px}
+ .publicmain.publicmain .direction-gallery-card img{height:clamp(160px,20svh,280px)}
+ .publicmain.publicmain .direction-gallery-card{width:clamp(360px,26vw,680px);flex-basis:clamp(360px,26vw,680px)}
+ .publicmain.publicmain .direction-card-content h3{font-size:32px}
+ .publicmain.publicmain .direction-card-content dd{font-size:16px}
+}
+@media(max-width:720px){
+ .publicmain.publicmain :is(#starting-points,#before-start,.tail-closing){min-height:0}
+}
+
+/* v64: a settled viewport belongs entirely to its current section. */
+@media(min-width:721px) and (min-height:600px){
+ .publicmain.publicmain :is(#starting-points,#before-start,.tail-closing,.career-gallery-stage){box-sizing:border-box;min-height:100svh}
+ .publicmain.publicmain .career-gallery-stage{padding:56px 0 32px;display:flex;flex-direction:column;justify-content:center}
+ .publicmain.publicmain :is(#starting-points,#before-start,.tail-closing,#directions,#how,#outcomes){scroll-margin-top:0}
+ .publicmain.publicmain .scroll-journey[data-journey-mode=scroll] .sj-stage{box-sizing:border-box;min-height:100svh;padding-top:56px}
+}
+
+@media(min-width:1024px) and (min-height:680px){.publicmain .outcome-showcase[data-os-mode=scroll] .showcase-frame{padding-top:56px}}

@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {DatabaseSync} from 'node:sqlite';
+const database=process.env.AUTH_DATABASE;
+if(!database||!process.argv[2])throw new Error('Set AUTH_DATABASE and pass a browser QA report');
+const accounts=process.argv.slice(2).flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')).accounts||[]);
+if(accounts.some(account=>!/^auth-qa-[0-9]+@example\.com$/.test(account.email)||!/^[-a-f0-9]{36}$/.test(account.id)))throw new Error('Only generated QA identities may be removed');
+const db=new DatabaseSync(database);db.exec('PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;');
+let removed=0;
+for(const account of accounts)removed+=db.prepare('DELETE FROM users WHERE id=? AND email=?').run(account.id,account.email).changes;
+db.close();console.log(`Removed ${removed} generated QA accounts; no other identities changed.`);

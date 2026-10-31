@@ -1,0 +1,33 @@
+/* Additive motion system: explicit CSS scroll timeline, native sticky groups. */
+@keyframes home-reading-progress{from{width:0%}to{width:100%}}
+.home-reading-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,#ffce32,#0874b9);pointer-events:none}
+@supports(animation-timeline:scroll(root block)){
+ .home-reading-progress{animation:home-reading-progress linear both;animation-timeline:scroll(root block)}
+}
+html body #root#root#root#root#root#root .publicmain .publicnav{
+ position:sticky;top:0;z-index:60;transform:translateY(0);transition:transform 200ms ease-out;will-change:auto;
+}
+html body #root#root#root#root#root#root .publicnav[data-motion-hidden=true]{transform:translateY(-100%)}
+html body #root#root#root#root#root#root .publicnav:has(:focus-visible){transform:translateY(0)!important}
+html[data-home-native-snap] .language-switch-floating{transition:transform 200ms ease-out}
+html[data-home-navigation-hidden=true] .language-switch-floating{transform:translateY(calc(-100% - 16px))}
+html[data-home-navigation-hidden=true] .language-switch-floating:has(:focus-visible){transform:none}
+/* Keep original visible overflow: decorative backdrops extend to viewport edges. */
+html body #root#root#root#root#root#root .publicmain :is(#starting-points>.section-heading,#directions>.section-heading,#before-start>header){
+ position:sticky;top:var(--home-sticky-top,0px);z-index:15;
+}
+/* Native snapping reuses existing section sizes and the window scroller. */
+html[data-home-native-snap=true]{scroll-snap-type:y mandatory}
+html[data-home-native-snap=true] .publicmain :is(.hero-import,#outcomes,#starting-points,#how,#directions,#case-study,#before-start,.tail-closing){scroll-snap-align:start;scroll-snap-stop:normal}
+html[data-home-native-snap=true] .publicmain .hero-import{scroll-margin-top:var(--home-nav-height,82px)}
+html[data-home-native-snap=true] .publicmain>.page-surface>.tail-footer-nav,
+html[data-home-native-snap=true] .publicmain>footer{scroll-snap-align:end}
+/* Existing outcomes/how/story stages already have bounded sticky containers. */
+html body #root#root#root#root#root#root .publicmain #how[data-journey-mode=scroll] .sj-stage{top:var(--home-sticky-top,0px)!important}
+@media(prefers-reduced-motion:reduce){
+ html body #root#root#root#root#root#root .publicmain .publicnav{transition:none;transform:none!important}
+ .home-reading-progress{display:none}
+ [data-home-mask]{clip-path:none!important}
+ html[data-home-native-snap] .language-switch-floating{transition:none;transform:none}
+}
+@media print{.home-reading-progress{display:none}html body #root#root#root#root#root#root .publicmain .publicnav{position:static;transform:none!important}}

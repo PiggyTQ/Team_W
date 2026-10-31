@@ -1,0 +1,1410 @@
+{
+  "baseline": "PRD3.5+Teal20261016",
+  "type": "prototype_only_not_service_acceptance",
+  "templates": 15,
+  "views": [
+    {
+      "id": "LF01",
+      "title": "公开首页与示例",
+      "route": "/",
+      "scenario": "PT01",
+      "interactions": "九区、公开案例、认证入口"
+    },
+    {
+      "id": "LF02",
+      "title": "认证/选填/取消恢复",
+      "route": "/onboarding",
+      "scenario": "PT01",
+      "interactions": "登录注册找回、跳过、过期恢复"
+    },
+    {
+      "id": "LF03",
+      "title": "新用户/续办/失效工作区",
+      "route": "/app",
+      "scenario": "PT01 / PT02 / PT06 / PT07",
+      "interactions": "下一动作、未确认、已有任务、失效"
+    },
+    {
+      "id": "LF04",
+      "title": "职业列表与详情",
+      "route": "/careers",
+      "scenario": "PT01",
+      "interactions": "筛选、详情、未知、返回筛选"
+    },
+    {
+      "id": "LF05",
+      "title": "比较/疑问/先验证",
+      "route": "/careers?tab=比较",
+      "scenario": "PT02",
+      "interactions": "2—3 项比较、理由、未知、先验证"
+    },
+    {
+      "id": "LF06",
+      "title": "输入与解析失败",
+      "route": "/assessment",
+      "scenario": "PT01",
+      "interactions": "手填、文件检查、模拟解析、失败取消"
+    },
+    {
+      "id": "LF07",
+      "title": "重复冲突/确认回执",
+      "route": "/assessment?tab=原文确认",
+      "scenario": "PT03",
+      "interactions": "局部确认、重复关联、矛盾修正、拒绝重审"
+    },
+    {
+      "id": "LF08",
+      "title": "分析与差距分流",
+      "route": "/assessment?tab=四维与差距",
+      "scenario": "PT03",
+      "interactions": "四维条目、未知、覆盖口径、差距分流"
+    },
+    {
+      "id": "LF09",
+      "title": "双图/列表/节点先修",
+      "route": "/career-map",
+      "scenario": "PT03",
+      "interactions": "职业/技能分图、列表、节点、AND/OR"
+    },
+    {
+      "id": "LF10",
+      "title": "目标或独立探索、预算计划",
+      "route": "/plan",
+      "scenario": "PT01",
+      "interactions": "独立或主计划、任务预算和确认"
+    },
+    {
+      "id": "LF11",
+      "title": "预算变化/方案对比",
+      "route": "/plan?tab=方案调整",
+      "scenario": "PT04",
+      "interactions": "副本、延期/缩小、冲突、取消、成果保留"
+    },
+    {
+      "id": "LF12",
+      "title": "S1手工外部行动",
+      "route": "/plan?tab=执行",
+      "scenario": "PT06 + S1",
+      "interactions": "同页状态/日期/外部行动结果、补录"
+    },
+    {
+      "id": "LF13",
+      "title": "内容最小/标准范围与成果矩阵",
+      "route": "/learning?tab=综合项目",
+      "scenario": "PT06",
+      "interactions": "四方向原创任务、最小/标准、资源替代"
+    },
+    {
+      "id": "LF14",
+      "title": "实践预检/重复/预算阻断",
+      "route": "/plan?precheck=1",
+      "scenario": "PT01",
+      "interactions": "预检、续用、超额阻止、预算未定、存草稿"
+    },
+    {
+      "id": "LF15",
+      "title": "S2任务笔记与尝试",
+      "route": "/work/task-demo",
+      "scenario": "PT06",
+      "interactions": "目的、笔记、阅读与提交分开"
+    },
+    {
+      "id": "LF16",
+      "title": "v1反馈/故障/v2修订",
+      "route": "/work/task-demo?tab=尝试与反馈",
+      "scenario": "PT06",
+      "interactions": "v1/v2 版本、文本待修订/服务故障/自检"
+    },
+    {
+      "id": "LF17",
+      "title": "完成与确认双回执",
+      "route": "/work/task-demo?tab=完成回执",
+      "scenario": "PT06",
+      "interactions": "完成范围、选成果、确认候选、返回"
+    },
+    {
+      "id": "LF18",
+      "title": "复盘/调研回原疑问",
+      "route": "/plan?tab=复盘",
+      "scenario": "PT06",
+      "interactions": "真实类型/模拟类型、复盘反馈、回原疑问"
+    },
+    {
+      "id": "LF19",
+      "title": "报告中心与创建",
+      "route": "/reports",
+      "scenario": "PT01",
+      "interactions": "无报告创建预检、多份目录"
+    },
+    {
+      "id": "LF20",
+      "title": "更新合并/保存/导出；求职简历输出模式及版本",
+      "route": "/reports/report-demo",
+      "scenario": "PT07",
+      "interactions": "人工另存、冲突、新旧快照、选择片段；岗位简历"
+    },
+    {
+      "id": "LF21",
+      "title": "AI范围/侧栏展开/卡片/失败；筛选确认/检索/保存条件",
+      "route": "/assistant",
+      "scenario": "PT03",
+      "interactions": "六模式、范围、同会话、提议/取消、可修改检索"
+    },
+    {
+      "id": "LF22",
+      "title": "岗位与共享任务同步；本人申请进展与材料快照",
+      "route": "/careers?tab=我的机会",
+      "scenario": "PT05",
+      "interactions": "多岗位、共享任务、本人申请事件、材料快照"
+    },
+    {
+      "id": "LF23",
+      "title": "薪酬口径/不足",
+      "route": "/careers?tab=薪酬参考",
+      "scenario": "PT05",
+      "interactions": "原口径、未知、无样本不聚合"
+    },
+    {
+      "id": "LF24",
+      "title": "授权删除与反馈查询",
+      "route": "/settings",
+      "scenario": "PT07",
+      "interactions": "偏好、撤授权、删除确认、本地处理状态、反馈"
+    },
+    {
+      "id": "LF25",
+      "title": "反馈处理与本人回执",
+      "route": "/admin/quality",
+      "scenario": "运营质量职责",
+      "interactions": "工单处置、用户回执、质量/服务、权限拒绝"
+    },
+    {
+      "id": "LF26",
+      "title": "来源用途/语义审核与撤回",
+      "route": "/admin/data",
+      "scenario": "来源审核职责",
+      "interactions": "用途/语义分审、理由、隔离/发布/撤回"
+    },
+    {
+      "id": "LF27",
+      "title": "先修/任务标准发布",
+      "route": "/admin/content",
+      "scenario": "内容审核职责",
+      "interactions": "任务标准/许可/依赖、循环阻断、模拟发布撤回"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "FR01",
+      "name": "意图分流与断点继续",
+      "pages": [
+        "U01",
+        "U03"
+      ],
+      "implementation": "工作区：下一步、暂缓、替代、续办"
+    },
+    {
+      "id": "FR02",
+      "name": "账户和会话",
+      "pages": [
+        "U01",
+        "U12"
+      ],
+      "implementation": "公开入口：模拟登录注册找回；设置可跳过；/auth 刷新恢复"
+    },
+    {
+      "id": "FR03",
+      "name": "背景与偏好",
+      "pages": [
+        "U02",
+        "U12",
+        "U04"
+      ],
+      "implementation": "首次设置/账户：自述与未知保存，不更改能力"
+    },
+    {
+      "id": "FR04",
+      "name": "手填经历",
+      "pages": [
+        "U04"
+      ],
+      "implementation": "个人评估：课程/作品/实习类型、贡献手填，保存候选"
+    },
+    {
+      "id": "FR05",
+      "name": "安全导入与恢复",
+      "pages": [
+        "U04"
+      ],
+      "implementation": "导入弹窗：类型/限额校验、作业开始/失败/取消/重试；不解析真实文件"
+    },
+    {
+      "id": "FR06",
+      "name": "抽取规范化",
+      "pages": [
+        "U04",
+        "B03"
+      ],
+      "implementation": "导入合成候选/原文；技能本人选择；B03 规则说明，真实抽取待服务"
+    },
+    {
+      "id": "FR07",
+      "name": "本人确认与撤回",
+      "pages": [
+        "U04"
+      ],
+      "implementation": "原文确认：逐项修改/拒绝/明确重审/重复关联/撤回；冲突不参与快照"
+    },
+    {
+      "id": "FR08",
+      "name": "材料与成果档案",
+      "pages": [
+        "U04",
+        "U09"
+      ],
+      "implementation": "成果档案/任务回流：多技能逐项保存产物位置、支持范围、贡献与辅助；候选不重复，仍待本人确认"
+    },
+    {
+      "id": "FR09",
+      "name": "职业搜索与收藏",
+      "pages": [
+        "U05"
+      ],
+      "implementation": "职业：关键词、材料筛选、收藏与空态放宽"
+    },
+    {
+      "id": "FR10",
+      "name": "三层职业画像",
+      "pages": [
+        "U05",
+        "B03"
+      ],
+      "implementation": "职业详情：基础/细分/责任、工作/环境/示例/范围限定"
+    },
+    {
+      "id": "FR11",
+      "name": "技能与先修解释",
+      "pages": [
+        "U05",
+        "U06",
+        "U08",
+        "B03"
+      ],
+      "implementation": "技能抽屉：用途、建议/必要、AND/OR、已有材料/学习/验证出口"
+    },
+    {
+      "id": "FR12",
+      "name": "候选建议分流",
+      "pages": [
+        "U05"
+      ],
+      "implementation": "原创精选/自选、材料关联候选；没有伪总排名"
+    },
+    {
+      "id": "FR13",
+      "name": "四维准备分析",
+      "pages": [
+        "U04"
+      ],
+      "implementation": "个人评估：冻结确认版本、四维示例快照、引用与未知；无真实分析"
+    },
+    {
+      "id": "FR14",
+      "name": "局部量化口径",
+      "pages": [
+        "U04"
+      ],
+      "implementation": "分母未审时不可计算；没有总匹配分或能力百分比"
+    },
+    {
+      "id": "FR15",
+      "name": "差距分类转行动",
+      "pages": [
+        "U04",
+        "U07"
+      ],
+      "implementation": "缺材料回录入；未知预检；知识回学习；条件回比较"
+    },
+    {
+      "id": "FR16",
+      "name": "同口径职业比较",
+      "pages": [
+        "U05"
+      ],
+      "implementation": "比较：2—3 方向、理由、疑问、暂不决定、先验证"
+    },
+    {
+      "id": "FR17",
+      "name": "职业地图与技能路线双视图",
+      "pages": [
+        "U06",
+        "B03"
+      ],
+      "implementation": "双图/等价列表/节点；不表示升职或转岗承诺"
+    },
+    {
+      "id": "FR18",
+      "name": "主备目标和阶段范围",
+      "pages": [
+        "U07"
+      ],
+      "implementation": "目标变更预览：唯一主目标/备用/理由；独立探索不抢目标"
+    },
+    {
+      "id": "FR19",
+      "name": "计划生成与预算",
+      "pages": [
+        "U07"
+      ],
+      "implementation": "统一预检与原任务安排编辑：共计预算，恢复暂停任务先预览确认，不复制taskId"
+    },
+    {
+      "id": "FR20",
+      "name": "计划变更预览",
+      "pages": [
+        "U07",
+        "U11"
+      ],
+      "implementation": "预算/范围方案及任务编辑：前置任务/计划版本校验，过期重预览，原成果保留"
+    },
+    {
+      "id": "FR21",
+      "name": "任务执行与阻塞",
+      "pages": [
+        "U07",
+        "U09"
+      ],
+      "implementation": "三列看板/执行列表/日程/岗位共用状态动作；可编辑安排，完成查看不重启，暂停恢复受预算约束"
+    },
+    {
+      "id": "FR22",
+      "name": "有限学习目录",
+      "pages": [
+        "U08",
+        "U05",
+        "B03"
+      ],
+      "implementation": "四方向有限原创目录、成本/投入/目标筛选、资源不可用替代"
+    },
+    {
+      "id": "FR23",
+      "name": "学习笔记与练习",
+      "pages": [
+        "U09",
+        "U11"
+      ],
+      "implementation": "阅读检查点、当前笔记/尝试草稿、多次提交保存"
+    },
+    {
+      "id": "FR24",
+      "name": "职业体验",
+      "pages": [
+        "U09",
+        "U07"
+      ],
+      "implementation": "外部实践/补录：实际类型、发生日期、方式、出处、结果/反馈/未知，返回原疑问；不虚构实习"
+    },
+    {
+      "id": "FR25",
+      "name": "综合作品与检查",
+      "pages": [
+        "U08",
+        "U09",
+        "U04"
+      ],
+      "implementation": "项目最小/标准、尝试产物、多技能支持范围和位置、贡献/辅助、自检；无运行器"
+    },
+    {
+      "id": "FR26",
+      "name": "周期复盘与进展",
+      "pages": [
+        "U07"
+      ],
+      "implementation": "复盘表单与历史修订：版本和旧内容保留，回原任务，报告提示依据更新"
+    },
+    {
+      "id": "FR27",
+      "name": "AI工作台、上下文侧栏与六种模式",
+      "pages": [
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U09",
+        "U10",
+        "U11"
+      ],
+      "implementation": "逐项ID/版本范围、六模式共会话、模拟回答及本人笔记编辑/来源返回"
+    },
+    {
+      "id": "FR28",
+      "name": "AI结果卡与可确认的行动提议",
+      "pages": [
+        "U11",
+        "U05",
+        "U04",
+        "U07",
+        "U10"
+      ],
+      "implementation": "比较/方案/任务提议：计划与材料双版本预览、取消；保存笔记不应用业务更改"
+    },
+    {
+      "id": "FR29",
+      "name": "报告生成与人工编辑",
+      "pages": [
+        "U10"
+      ],
+      "implementation": "内容范围/咨询摘要预检、冻结原文及引用、人工另存、逐章节冲突和取消恢复"
+    },
+    {
+      "id": "FR30",
+      "name": "报告导出",
+      "pages": [
+        "U10"
+      ],
+      "implementation": "已保存报告章节选择、本地TXT、私人复盘逐条选择、失效旧引用阻止导出"
+    },
+    {
+      "id": "FR31",
+      "name": "资料授权与删除",
+      "pages": [
+        "U12",
+        "U04",
+        "U11"
+      ],
+      "implementation": "逐项范围/撤回、历史及未知派生缓存清理、脱敏任务、本机演示注销/确认与本地处理状态；真实服务待接"
+    },
+    {
+      "id": "FR32",
+      "name": "复盘通知控制",
+      "pages": [
+        "U12",
+        "U03",
+        "U07"
+      ],
+      "implementation": "可开关站内提醒，不发邮件、不替保存搜索自动开启通知"
+    },
+    {
+      "id": "FR33",
+      "name": "来源用途与批次管理",
+      "pages": [
+        "B02"
+      ],
+      "implementation": "B02：来源用途、日期、理由与发布状态；真实数据不受影响"
+    },
+    {
+      "id": "FR34",
+      "name": "职业与条件审核",
+      "pages": [
+        "B02",
+        "B03"
+      ],
+      "implementation": "B02 语义/职责/例外归类、B03 职业规则，合成原句示例"
+    },
+    {
+      "id": "FR35",
+      "name": "关系与学习内容发布",
+      "pages": [
+        "B03",
+        "U06",
+        "U08"
+      ],
+      "implementation": "B03 标准/许可/依赖/循环标记、发布阻断、撤回，真实内容未审"
+    },
+    {
+      "id": "FR36",
+      "name": "反馈纠错与质量评价",
+      "pages": [
+        "B01",
+        "U04",
+        "U11"
+      ],
+      "implementation": "评估/AI/设置反馈原页回执 → B01 处理 → U12 状态"
+    },
+    {
+      "id": "FR37",
+      "name": "对象权限与审计",
+      "pages": [
+        "U12",
+        "B01"
+      ],
+      "implementation": "演示角色拒绝/脱敏审计，真实对象/接口权限未实现"
+    },
+    {
+      "id": "FR38",
+      "name": "一致性与可访问操作",
+      "pages": [
+        "U03",
+        "U06",
+        "U07",
+        "U10"
+      ],
+      "implementation": "空列、过滤空态、草稿、历史记录有入口和返回；编辑预览/取消，手机与键盘焦点可达"
+    },
+    {
+      "id": "FR39",
+      "name": "企业探索与目标岗位准备",
+      "pages": [
+        "U05",
+        "U07",
+        "U04",
+        "B02"
+      ],
+      "implementation": "发现目录/本人研究卡独立，来源快照、字段比较、共享任务与预算；归档列出任务影响"
+    },
+    {
+      "id": "FR40",
+      "name": "有口径的招聘标注薪酬参考",
+      "pages": [
+        "U05",
+        "B02",
+        "B01"
+      ],
+      "implementation": "薪酬原文手填/未知/无样本不发聚合，真实统计/数据源待接"
+    },
+    {
+      "id": "FR41",
+      "name": "基于确认经历的岗位简历",
+      "pages": [
+        "U04",
+        "U05",
+        "U10",
+        "U11"
+      ],
+      "implementation": "岗位/通用简历选确认经历、调整顺序与措辞、基于已有版本另存修订，原快照保留"
+    },
+    {
+      "id": "FR42",
+      "name": "本人记录求职进展",
+      "pages": [
+        "U03",
+        "U05",
+        "U07",
+        "U12"
+      ],
+      "implementation": "本人申请/面试/结果/撤回事件和材料快照独立，编辑归档/恢复一致，下一步共计预算"
+    },
+    {
+      "id": "FR43",
+      "name": "自然语言检索与保存条件",
+      "pages": [
+        "U05",
+        "U11"
+      ],
+      "implementation": "可改筛选草稿、改条件重确认、分层检索、具体job ID返回、空态恢复和保存不通知"
+    }
+  ],
+  "flows": [
+    {
+      "flow_id": "FL01",
+      "title": "公开入口、认证与返回意图",
+      "requirement_ids": [
+        "FR01",
+        "FR02",
+        "FR03",
+        "FR37",
+        "FR38"
+      ],
+      "page_ids": [
+        "U01",
+        "U02",
+        "U03",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1"
+      ],
+      "preconditions": "公开样例有独立用途投影；私人操作须本人会话。",
+      "steps": [
+        {
+          "source_page": "U01",
+          "action": "选案例/职业起点或开始",
+          "persisted_result": "仅非敏感站内意图、对象与锚点",
+          "destination_page": "U01"
+        },
+        {
+          "source_page": "U01",
+          "action": "完成认证，首次设置可跳过",
+          "persisted_result": "owner会话、选填偏好版本及返回意图",
+          "destination_page": "U02"
+        },
+        {
+          "source_page": "U02",
+          "action": "完成或跳过后恢复有效对象",
+          "persisted_result": "不伪造个性化的下一行动",
+          "destination_page": "U03"
+        }
+      ],
+      "cancel_and_recovery": "认证取消回同锚点；对象失效或阶段不可用回U03解释，越权拒绝；退出清私人缓存。",
+      "exit_links": [
+        "恢复U05/U06等安全意图或U03",
+        "长期偏好到U12"
+      ],
+      "upgrade_cases": [
+        "UX01",
+        "UX02",
+        "UX03",
+        "UX04",
+        "UX05",
+        "UX33"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL02",
+      "title": "材料输入、冲突确认与返回回执",
+      "requirement_ids": [
+        "FR04",
+        "FR05",
+        "FR06",
+        "FR07",
+        "FR08",
+        "FR31",
+        "FR37"
+      ],
+      "page_ids": [
+        "U04",
+        "U09",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "owner材料及允许处理范围；来源任务可空。",
+      "steps": [
+        {
+          "source_page": "U04",
+          "action": "手填/允许的文件解析",
+          "persisted_result": "材料、作业、候选及原文位置",
+          "destination_page": "U04"
+        },
+        {
+          "source_page": "U04",
+          "action": "处理重复/冲突/拒绝并局部确认",
+          "persisted_result": "本人确认声明与画像新版本，保留未确认项",
+          "destination_page": "U04"
+        },
+        {
+          "source_page": "U04",
+          "action": "查看确认回执并选择下一步",
+          "persisted_result": "受影响分析需更新、originTask/returnLocation",
+          "destination_page": "U09"
+        }
+      ],
+      "cancel_and_recovery": "解析失败可手填，取消无晚到覆盖；未确认/冲突不作为确定事实；未开放U09则回U07/来源。",
+      "exit_links": [
+        "回原任务或U07",
+        "按明确选择更新U04分析",
+        "到U12撤回/删除"
+      ],
+      "upgrade_cases": [
+        "UX08",
+        "UX12",
+        "UX13",
+        "UX21",
+        "UX39"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL03",
+      "title": "职业理解、比较与暂未决定",
+      "requirement_ids": [
+        "FR09",
+        "FR10",
+        "FR12",
+        "FR16",
+        "FR18"
+      ],
+      "page_ids": [
+        "U05",
+        "U07"
+      ],
+      "delivery_stages": [
+        "S1"
+      ],
+      "preconditions": "已批准职业内容；本人资料不足时为精选或自选，不伪称完整推荐。",
+      "steps": [
+        {
+          "source_page": "U05",
+          "action": "看任务、条件范围与最多三项比较",
+          "persisted_result": "职业候选和偏好/材料理由",
+          "destination_page": "U05"
+        },
+        {
+          "source_page": "U05",
+          "action": "保存取舍、未知、待验证问题",
+          "persisted_result": "DecisionRecord草稿与依据版本",
+          "destination_page": "U05"
+        },
+        {
+          "source_page": "U05",
+          "action": "选目标或先验证",
+          "persisted_result": "目标/探索草稿，不自动决定",
+          "destination_page": "U07"
+        }
+      ],
+      "cancel_and_recovery": "无结果可重置过滤；未决定可暂存/退出；不按最高分强迫选择。",
+      "exit_links": [
+        "U07目标预览",
+        "FL07独立验证预检",
+        "继续U05收藏与比较"
+      ],
+      "upgrade_cases": [
+        "UX05",
+        "UX12",
+        "UX15",
+        "UX24",
+        "UX35",
+        "UX40"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL04",
+      "title": "准备分析、差距分流与纠错",
+      "requirement_ids": [
+        "FR13",
+        "FR14",
+        "FR15",
+        "FR36"
+      ],
+      "page_ids": [
+        "U04",
+        "U07",
+        "U12",
+        "B01"
+      ],
+      "delivery_stages": [
+        "S1"
+      ],
+      "preconditions": "确认个人版本、合法可用于该用途的职业范围和分析规则版本。",
+      "steps": [
+        {
+          "source_page": "U04",
+          "action": "创建分析快照",
+          "persisted_result": "四维条目、个人/职业依据、未知与可选不适用",
+          "destination_page": "U04"
+        },
+        {
+          "source_page": "U04",
+          "action": "按差距选择补材料/验证/学习/决策",
+          "persisted_result": "有原因的候选行动，不是自动课程",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U04",
+          "action": "质疑职业内容或个人结论",
+          "persisted_result": "原页反馈回执，个人声明纠正另确认",
+          "destination_page": "U04",
+          "handoff_target": "B01",
+          "receipt_target": "U12"
+        }
+      ],
+      "cancel_and_recovery": "依据不足不输出完整总分；反馈不直接改事实；规则变更不当能力进步。",
+      "exit_links": [
+        "补材料回U04",
+        "行动到U07",
+        "反馈状态在U12可查"
+      ],
+      "upgrade_cases": [
+        "UX08",
+        "UX12",
+        "UX13",
+        "UX39"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL05",
+      "title": "双地图、技能节点与先修解释",
+      "requirement_ids": [
+        "FR10",
+        "FR11",
+        "FR17",
+        "FR35"
+      ],
+      "page_ids": [
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "B03"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "发布的职业学习关系、技能依赖与满足方法分类型。",
+      "steps": [
+        {
+          "source_page": "U05",
+          "action": "进入职业关系/技能先修视图",
+          "persisted_result": "当前职业与选中节点、图/列表位置",
+          "destination_page": "U06"
+        },
+        {
+          "source_page": "U06",
+          "action": "看用途、现有材料/未知、建议/必需依赖与AND/OR",
+          "persisted_result": "可解释学习/验证选择，资源与成果标准",
+          "destination_page": "U06"
+        },
+        {
+          "source_page": "U06",
+          "action": "开始或加入计划预检",
+          "persisted_result": "ActionStartDraft或续原taskId",
+          "destination_page": "U07"
+        }
+      ],
+      "cancel_and_recovery": "无关系不造线；建议未知不禁阅读；必需交付按标准，资源不可用可替代/存草稿。",
+      "exit_links": [
+        "U05职业详情",
+        "U07统一预检",
+        "S2 U08内容预览"
+      ],
+      "upgrade_cases": [
+        "UX06",
+        "UX07",
+        "UX09",
+        "UX37"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL06",
+      "title": "目标、计划、方案与S1手工执行",
+      "requirement_ids": [
+        "FR18",
+        "FR19",
+        "FR20",
+        "FR21"
+      ],
+      "page_ids": [
+        "U03",
+        "U07"
+      ],
+      "delivery_stages": [
+        "S1"
+      ],
+      "preconditions": "可无职业主目标；真实资料与Scenario副本分开；同周期预算版本明确。",
+      "steps": [
+        {
+          "source_page": "U07",
+          "action": "选主目标/备用或独立探索，编任务",
+          "persisted_result": "目标/计划草稿、差距/疑问、任务标准与预算",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "比较预算/范围方案并本人应用",
+          "persisted_result": "白名单对象新版本；真实声明不变",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "S1开始外部行动、记录受阻或成果",
+          "persisted_result": "同页TaskExecution与外部行动自述",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "回访继续",
+          "persisted_result": "基于真实对象版本的一个下一动作",
+          "destination_page": "U03"
+        }
+      ],
+      "cancel_and_recovery": "超额或循环拒绝静默应用；版本冲突重预览；完成成果保留，跳过不计完成。",
+      "exit_links": [
+        "U07任务/复盘",
+        "S2可用任务转U09",
+        "U10报告中心"
+      ],
+      "upgrade_cases": [
+        "UX09",
+        "UX13",
+        "UX17",
+        "UX18",
+        "UX22",
+        "UX33",
+        "UX35"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL07",
+      "title": "自主实践开始预检与阅读分流",
+      "requirement_ids": [
+        "FR16",
+        "FR19",
+        "FR21",
+        "FR22",
+        "FR24"
+      ],
+      "page_ids": [
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "已审内容/任务标准；未开放S2只能阅读、草稿或手编外部行动。",
+      "steps": [
+        {
+          "source_page": "U08",
+          "action": "看最小/标准范围、先修、资源；纯阅读另记位置",
+          "persisted_result": "ReadingCheckpoint或实践预检草稿",
+          "destination_page": "U08"
+        },
+        {
+          "source_page": "U08",
+          "action": "实践选择目的/独立或主计划/投入",
+          "persisted_result": "同周期总预算校验、重复任务续用提示",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "明确确认开始",
+          "persisted_result": "taskId、标准版本、来源/返回位置",
+          "destination_page": "U09"
+        }
+      ],
+      "cancel_and_recovery": "无主目标可独立；预算未定/超额先存草稿；取消返回来源，S1不跳U09；纯阅读不建任务。",
+      "exit_links": [
+        "S2 U09工作区",
+        "S1 U07手工行动",
+        "回原U05疑问/U06节点/U08预览"
+      ],
+      "upgrade_cases": [
+        "UX07",
+        "UX09",
+        "UX10",
+        "UX16",
+        "UX19",
+        "UX33",
+        "UX35",
+        "UX37"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL08",
+      "title": "尝试、检查、修订、成果与确认",
+      "requirement_ids": [
+        "FR08",
+        "FR21",
+        "FR23",
+        "FR24",
+        "FR25"
+      ],
+      "page_ids": [
+        "U04",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "delivery_stages": [
+        "S2"
+      ],
+      "preconditions": "taskId、completionPolicy、标准与可接受检查方式；本人贡献可记录。",
+      "steps": [
+        {
+          "source_page": "U09",
+          "action": "保存尝试并提交v1",
+          "persisted_result": "不可覆盖的Attempt/产物/贡献/辅助",
+          "destination_page": "U09"
+        },
+        {
+          "source_page": "U09",
+          "action": "查看对应检查，创建v2再提交",
+          "persisted_result": "CheckRecord绑attemptId；job状态与结果分开",
+          "destination_page": "U09"
+        },
+        {
+          "source_page": "U09",
+          "action": "按类型与标准记录完成范围",
+          "persisted_result": "完成回执，任务/检查/声明状态独立",
+          "destination_page": "U09"
+        },
+        {
+          "source_page": "U09",
+          "action": "选择成果版本和技能候选，去确认",
+          "persisted_result": "EvidenceCandidate及来源taskId",
+          "destination_page": "U04"
+        },
+        {
+          "source_page": "U04",
+          "action": "逐条确认或稍后，返回",
+          "persisted_result": "画像新版本/未确认项/需更新分析回执",
+          "destination_page": "U07"
+        }
+      ],
+      "cancel_and_recovery": "检查服务故障可重试不判能力；必要标准不符待修订，不能伪标完成；无运行器不说运行成功。",
+      "exit_links": [
+        "回原U09尝试",
+        "回U07复盘",
+        "体验回U05原疑问"
+      ],
+      "upgrade_cases": [
+        "UX08",
+        "UX10",
+        "UX12",
+        "UX20",
+        "UX24",
+        "UX31",
+        "UX32",
+        "UX39",
+        "UX40"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL09",
+      "title": "复盘、下一行动与提醒",
+      "requirement_ids": [
+        "FR01",
+        "FR26",
+        "FR32"
+      ],
+      "page_ids": [
+        "U03",
+        "U05",
+        "U07",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "真实行动/材料引用与用户叙述分开，反馈允许缺失。",
+      "steps": [
+        {
+          "source_page": "U03",
+          "action": "继续可解释的一个下一行动",
+          "persisted_result": "原因/暂缓/替代选择",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "记录行动、结果、收获/困难和取舍",
+          "persisted_result": "Review与调整提议；S1手工记录，S2成长闭环",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "体验/调研后回原疑问更新判断",
+          "persisted_result": "DecisionRecord新草稿，不自动判适合或换目标",
+          "destination_page": "U05"
+        }
+      ],
+      "cancel_and_recovery": "无行动不补造过程；提醒默认站内可关；偏好变化不自动改能力。",
+      "exit_links": [
+        "U07应用新计划",
+        "U05继续未知/选目标",
+        "U12通知控制"
+      ],
+      "upgrade_cases": [
+        "UX12",
+        "UX13",
+        "UX40"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL10",
+      "title": "企业岗位研究、目标关系与准备同步",
+      "requirement_ids": [
+        "FR18",
+        "FR19",
+        "FR39",
+        "FR42"
+      ],
+      "page_ids": [
+        "U03",
+        "U04",
+        "U05",
+        "U07",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "批准内容或本人允许输入；职业范围、来源时效和研究状态明确。",
+      "steps": [
+        {
+          "source_page": "U05",
+          "action": "收藏多个岗位、核对条件、记关注理由",
+          "persisted_result": "TargetRoleResearch，不是投递记录",
+          "destination_page": "U05"
+        },
+        {
+          "source_page": "U05",
+          "action": "加入准备清单并选择归属",
+          "persisted_result": "PreparationItem→同一taskId，跨职业默认独立",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "改期/开始/取消并查看影响",
+          "persisted_result": "统一任务状态与预算，原岗位卡同步",
+          "destination_page": "U05"
+        }
+      ],
+      "cancel_and_recovery": "岗位过期不删通用成果；归档先看共享任务；改主目标另走预览，不隐式切换。",
+      "exit_links": [
+        "U07执行/改目标预览",
+        "U04引用本人材料",
+        "回U05同一岗位卡"
+      ],
+      "upgrade_cases": [
+        "UX25",
+        "UX26",
+        "UX27",
+        "UX36",
+        "UX42"
+      ],
+      "validation_status": "specified_not_executed",
+      "supplemental_path": "U05本人记录申请/面试/结果及所用材料快照→下一任务进U07并计预算→复盘回差距"
+    },
+    {
+      "flow_id": "FL11",
+      "title": "薪酬参考及数据不足出口",
+      "requirement_ids": [
+        "FR33",
+        "FR34",
+        "FR40"
+      ],
+      "page_ids": [
+        "U05",
+        "B01",
+        "B02"
+      ],
+      "delivery_stages": [
+        "S2"
+      ],
+      "preconditions": "批准且已审薪酬来源、去重/单位/日期/最低样本发布策略已登记；未满足不发聚合。",
+      "steps": [
+        {
+          "source_page": "B02",
+          "action": "审核原值/单位/币种/时效/去重及排除",
+          "persisted_result": "SalaryObservation与可发布参考快照",
+          "destination_page": "B02"
+        },
+        {
+          "source_page": "U05",
+          "action": "按地点/职业/条件查看范围与局限",
+          "persisted_result": "过滤选择及口径，不生成个人收入预测",
+          "destination_page": "U05"
+        }
+      ],
+      "cancel_and_recovery": "缺样本显示不足；面议不是零；私人JD不混公开统计；缺换算条件保留原口径。",
+      "exit_links": [
+        "U05继续条件/职业比较",
+        "B01反馈质量问题"
+      ],
+      "upgrade_cases": [
+        "UX28",
+        "UX29",
+        "UX30"
+      ],
+      "validation_status": "specified_not_executed"
+    },
+    {
+      "flow_id": "FL12",
+      "title": "报告中心、更新合并与选择导出",
+      "requirement_ids": [
+        "FR29",
+        "FR30",
+        "FR31",
+        "FR41"
+      ],
+      "page_ids": [
+        "U04",
+        "U05",
+        "U07",
+        "U10",
+        "U11",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "本人所选对象版本与有效引用；可缺项但明确标示。",
+      "steps": [
+        {
+          "source_page": "U10",
+          "action": "/reports空态或目录选择创建/已有报告",
+          "persisted_result": "输入范围、冻结引用与新草稿ID",
+          "destination_page": "U10"
+        },
+        {
+          "source_page": "U10",
+          "action": "阅读/编辑；事实或计划修改回原页",
+          "persisted_result": "段落人工编辑及来源版本",
+          "destination_page": "U04"
+        },
+        {
+          "source_page": "U10",
+          "action": "按新依据建新草稿，逐段处理冲突",
+          "persisted_result": "旧快照保留，冲突确认后新保存版本",
+          "destination_page": "U10"
+        },
+        {
+          "source_page": "U10",
+          "action": "选择章节和允许片段导出",
+          "persisted_result": "ExportSelection/作业与本人下载",
+          "destination_page": "U10"
+        }
+      ],
+      "cancel_and_recovery": "取消不覆盖旧稿；失效引用阻导出，私人反思默认不选；失败可重试，删除权限各处生效。",
+      "exit_links": [
+        "U04改事实/U07改计划后返回",
+        "U10目录/历史",
+        "U12撤回与删除"
+      ],
+      "upgrade_cases": [
+        "UX13",
+        "UX14",
+        "UX23",
+        "UX24",
+        "UX34",
+        "UX38",
+        "UX40",
+        "UX41"
+      ],
+      "validation_status": "specified_not_executed",
+      "supplemental_path": "U04确认事实→U05目标岗位→U10简历模式选经历/措辞预览→保存输出快照→PDF导出并关联岗位"
+    },
+    {
+      "flow_id": "FL13",
+      "title": "AI侧栏与独立页、提议的闭环",
+      "requirement_ids": [
+        "FR27",
+        "FR28",
+        "FR31",
+        "FR38",
+        "FR43"
+      ],
+      "page_ids": [
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U09",
+        "U10",
+        "U11",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "用户选定对象/版本与材料范围；没有授权可通用解释，不能读取私人全文。",
+      "steps": [
+        {
+          "source_page": "U04",
+          "action": "在当前对象问AI并展开同一会话",
+          "persisted_result": "conversationId、contextVersion、source/returnLocation",
+          "destination_page": "U11"
+        },
+        {
+          "source_page": "U11",
+          "action": "解释/比较/方案/任务/证据/复盘/报告卡，用户选形成草稿",
+          "persisted_result": "类型化提议及前置版本；不改事实",
+          "destination_page": "U07"
+        },
+        {
+          "source_page": "U07",
+          "action": "业务页预览/本人确认或取消",
+          "persisted_result": "允许对象新版本或未应用提议；回原会话可继续",
+          "destination_page": "U11"
+        }
+      ],
+      "cancel_and_recovery": "卡片按类型到U05/U04/U07/U10，未开放S2任务只草稿；基线更新重预览；AI故障手动主线不阻断。",
+      "exit_links": [
+        "原U04/U05/U06/U07/U09/U10标签与位置",
+        "U12撤授权",
+        "同一U11会话"
+      ],
+      "upgrade_cases": [
+        "UX09",
+        "UX11",
+        "UX13",
+        "UX17",
+        "UX18",
+        "UX23",
+        "UX33",
+        "UX35",
+        "UX38",
+        "UX39",
+        "UX43"
+      ],
+      "validation_status": "specified_not_executed",
+      "supplemental_path": "U11描述需求→确认筛选→检索获准范围→显示来源/时效/无结果→保存查询或U05岗位研究卡"
+    },
+    {
+      "flow_id": "FL14",
+      "title": "内容发布、依赖撤回、反馈与职责",
+      "requirement_ids": [
+        "FR33",
+        "FR34",
+        "FR35",
+        "FR36",
+        "FR37"
+      ],
+      "page_ids": [
+        "B01",
+        "B02",
+        "B03",
+        "U12"
+      ],
+      "delivery_stages": [
+        "S1",
+        "S2"
+      ],
+      "preconditions": "管理职责鉴权；内容正确性与用途批准分开，私人材料无默认管理读取权限。",
+      "steps": [
+        {
+          "source_page": "B02",
+          "action": "来源批次/语义审核与用途处置",
+          "persisted_result": "审核记录、隔离/批准内容版本",
+          "destination_page": "B02",
+          "handoff_target": "B03"
+        },
+        {
+          "source_page": "B03",
+          "action": "职业/技能/任务标准和许可/依赖审核发布",
+          "persisted_result": "发布版本、维护人、下游依赖",
+          "destination_page": "B03"
+        },
+        {
+          "source_page": "B01",
+          "action": "处理具体结论/版本反馈或撤回通知",
+          "persisted_result": "原管理页处置记录、影响范围与脱敏审计",
+          "destination_page": "B01",
+          "receipt_target": "U12"
+        }
+      ],
+      "cancel_and_recovery": "缺用途/循环/依赖失效阻发布；撤回使相关引用/新结论失效，晚到作业不回写；反馈不直接改事实。",
+      "exit_links": [
+        "U12看本人反馈状态",
+        "B02/B03修订复审",
+        "各页失效提示与恢复"
+      ],
+      "upgrade_cases": [
+        "UX13",
+        "UX37",
+        "UX38"
+      ],
+      "validation_status": "specified_not_executed"
+    }
+  ]
+}

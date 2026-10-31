@@ -1,0 +1,4 @@
+species,records_after_duplicate_exclusion,valid_body_mass_records,body_mass_mean_g,body_mass_excluded_records,population
+Adelie,152,150,3697,2,this teaching file only
+Chinstrap,68,68,3733.09,0,this teaching file only
+Gentoo,124,123,5076.02,1,this teaching file only

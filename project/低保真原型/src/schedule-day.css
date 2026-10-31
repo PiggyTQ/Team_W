@@ -1,0 +1,73 @@
+/* U07: the selected week date becomes the left anchor of one day workspace. */
+#root #main.student-workspace .unified-plan .schedule-workspace{
+ & .calendar-area{overflow-anchor:none}
+ & .calendar-stage{position:relative}
+ & .calendar-stage [hidden]{display:none!important}
+ & .schedule-date-tile{position:relative;min-width:0}
+ & .calendar-stage>.selected-day{z-index:2}
+ & .calendar-stage:not(.is-day)>.schedule-date-tile:last-of-type{border-right:0}
+ & .calendar-day-frame{position:relative;z-index:3;background:#fff;transform-origin:0 0}
+ & .selected-day .calendar-day-frame{background:#f1e8d9}
+ & .calendar-day:active:not(:disabled){transform:none}
+ & .calendar-day-month{display:none}
+ & .schedule-day-more{border:0;border-radius:8px;box-shadow:none;background:transparent;justify-content:flex-start;text-align:left}
+ & .week-task-shortcuts{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:10px 20px;background:#faf7f0;border-bottom:1px solid var(--surface-border);color:#686d60}
+ & .week-task-shortcuts>span{flex:1 1 220px}
+ & .week-task-shortcuts>button{border:0;box-shadow:none;background:transparent;min-height:40px;padding:4px 0;color:#8c4937}
+ & .calendar-scroll[data-mode=day]{overflow:visible}
+ & .calendar-stage.is-day{grid-template-columns:clamp(96px,14%,160px) minmax(0,1fr);min-width:0;gap:24px;padding:20px;align-items:start;box-sizing:border-box}
+ & .calendar-stage.is-day>.schedule-date-tile{border:1px solid var(--surface-border);border-radius:12px;overflow:visible;background:#faf7f0}
+ & .calendar-stage.is-day .calendar-day-frame{border-radius:11px 11px 0 0;overflow:hidden}
+ & .calendar-stage.is-day .calendar-day{min-height:132px;flex-direction:column;gap:3px;border:0;padding:14px 8px}
+ & .calendar-stage.is-day .calendar-day-month{display:block;color:#686d60}
+ & .calendar-stage.is-day .calendar-day-content{display:none}
+ & .day-rail{padding:8px 12px;border-top:1px solid var(--surface-border);color:#686d60}
+ & .day-return{border:0;border-radius:8px;padding:8px 0;min-height:40px;box-shadow:none;background:transparent;color:#8c4937;white-space:normal;width:100%;margin:0}
+ & .day-workbench{min-width:0;position:relative;z-index:1}
+ & .day-workbench-heading{margin:0 0 12px}
+ & .day-workbench-heading h3{margin:0 0 4px}
+ & .day-workbench-heading p{margin:0;color:#686d60}
+ & .day-task-tabs{display:flex;align-items:center;gap:4px;flex-wrap:nowrap;background:#f5f1e9;border:0;border-radius:10px;margin:0 0 16px;padding:4px;width:fit-content;max-width:100%;overflow-x:auto;box-sizing:border-box}
+ & .day-task-tabs>button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:38px;flex:0 0 auto;padding:6px 12px;margin:0;background:transparent;border:0;border-radius:8px;box-shadow:none;color:#686d60}
+ & .day-task-tabs>button.selected{color:#594a38;background:#e9ddcb}
+ & .day-task-tabs>button>span{font-variant-numeric:tabular-nums}
+ & .day-task-panel{padding:0;margin:0;border:0;min-width:0;background:transparent}
+ & .day-task-panel .schedule-task-list{padding:0}
+ & .day-task-panel .schedule-task{display:grid;grid-template-columns:64px minmax(0,1fr) max-content;align-items:center;gap:8px 12px;padding:12px;position:static}
+ & .day-task-panel .schedule-task-state{position:static}
+ & .day-panel-empty{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:18px 0;color:#686d60}
+ & .day-panel-empty>p{margin:0}
+ & .day-panel-empty>button{min-height:40px;padding:6px 0;border:0;box-shadow:none;background:transparent;color:#8c4937;text-align:left}
+ & .day-panel-note{color:#686d60;margin:0 0 12px}
+ & .day-workbench .schedule-editor{margin:0 0 16px;padding:14px 16px;border:1px solid #e5d8c6;border-radius:12px;background:#faf7f0}
+ & .day-workbench .schedule-editor-content{grid-template-columns:minmax(0,1fr) minmax(250px,1fr);gap:16px}
+ & .day-workbench .schedule-editor .actions{display:flex;flex-wrap:wrap}
+}
+@container plan (max-width:900px){#root #main.student-workspace .unified-plan .schedule-workspace{
+ & .calendar-stage.is-day{gap:20px;padding:16px;grid-template-columns:112px minmax(0,1fr)}
+ & .day-workbench .schedule-editor-content{grid-template-columns:minmax(0,1fr)}
+ & .day-task-panel .schedule-task{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px}
+ & .day-task-panel .schedule-task-state{grid-column:1;grid-row:1}
+ & .day-task-panel .schedule-task-effort{grid-column:2;grid-row:1}
+ & .day-task-panel .schedule-task>span{grid-column:1/-1;grid-row:2}
+}}
+@container plan (max-width:520px){#root #main.student-workspace .unified-plan .schedule-workspace{
+ & .calendar-stage.is-day{grid-template-columns:76px minmax(0,1fr);gap:12px;padding:12px}
+ & .calendar-stage.is-day .calendar-day{min-height:132px;padding:12px 4px}
+ & .day-rail{padding:8px}
+ & .day-return{line-height:1.5}
+ & .day-workbench-heading p{display:none}
+ & .day-task-tabs{gap:0;padding:3px;width:100%;margin-bottom:12px}
+ & .day-task-tabs>button{padding:6px;gap:4px;min-height:36px;flex:1 0 auto}
+ & .day-workbench .schedule-editor{padding:12px;margin-inline:0}
+ & .day-workbench .schedule-editor .actions>button{flex:1 1 100%}
+ & .day-workbench .schedule-detail-links>button{flex:1 1 100%;white-space:normal}
+ & .day-task-panel .schedule-task{grid-template-columns:minmax(0,1fr);gap:4px;padding:10px}
+ & .day-task-panel .schedule-task-state{grid-column:1;grid-row:1}
+ & .day-task-panel .schedule-task>span{grid-column:1;grid-row:2}
+ & .day-task-panel .schedule-task-effort{grid-column:1;grid-row:3}
+ & .week-task-shortcuts{padding:10px 14px;gap:4px 16px}
+}}
+@media(prefers-reduced-motion:reduce){
+ #root #main.student-workspace .unified-plan .schedule-workspace .calendar-day-frame{transition:none;animation:none}
+}

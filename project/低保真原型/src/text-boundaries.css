@@ -1,0 +1,59 @@
+/* Content boundaries apply to both languages; never hide overflowing copy. */
+#root #main.workspace {min-width:0;box-sizing:border-box}
+#root #main.workspace :is(.page-surface,.panel,.workspace-section,.completion-panel,.phased-plan,.phase-columns,.phase-columns>section,.learning-card,.learning-card-body,.library-results,.library-layout,.learning-layout,.plan-primary,.plan-overview,.field,.cols2,.cols3,.main-grid) {min-width:0;max-width:100%;box-sizing:border-box}
+#root #main.workspace :is(.panel,.workspace-section,.completion-panel) {padding:24px}
+#root #main.workspace :is(.section-head,.section-heading,.screen-heading,.actions,.toolbar,.phase-columns>section>header) {min-width:0;max-width:100%;flex-wrap:wrap;height:auto;gap:12px 18px}
+#root #main.workspace :is(.section-head,.section-heading,.screen-heading)>div {min-width:0;max-width:100%;flex:1 1 240px}
+#root #main.workspace :is(h1,h2,h3,h4,p,small,dt,dd,label,legend,summary) {white-space:normal;overflow-wrap:anywhere;max-width:100%;height:auto}
+#root #main.workspace :is(button,.button) {white-space:normal;max-width:100%;min-width:0;height:auto;line-height:1.65;overflow-wrap:anywhere;flex-shrink:1}
+#root #main.workspace :is(input,textarea,select) {min-width:0;max-width:100%;box-sizing:border-box}
+#root #main.workspace .field {width:100%}
+#root #main.workspace :is(.phased-plan,.phase-empty,.plan-empty) {padding:24px}
+#root #main.workspace .phase-columns {grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+#root #main.workspace .phase-columns>section {padding:20px}
+#root #main.workspace .learning-card {overflow:visible}
+#root #main.workspace .learning-card-body {flex:1 1 200px}
+#root #main.workspace .learning-focus .learning-card {padding:22px;grid-template-columns:minmax(0,96px) minmax(0,1fr);gap:20px}
+#root #main.workspace :is(.learning-card-content,.learning-card-intro,.learning-output,.phase-start,.phase-resources) {min-width:0;max-width:100%;box-sizing:border-box}
+#root #main.workspace .learning-output {flex-wrap:wrap}
+@media(max-width:720px){#root #main.workspace .learning-focus .learning-card{display:flex;flex-direction:column;padding:20px}#root #main.workspace .learning-card-content{width:100%}#root #main.workspace .phase-resources{grid-template-columns:minmax(0,1fr)}}
+#root #main.workspace .learning-card :is(figure,img) {max-width:100%;flex-shrink:1}
+#root #main.workspace .segmented-control {max-width:100%;box-sizing:border-box}
+@media(max-width:1050px){#root #main.workspace :is(.cols2,.cols3,.main-grid){grid-template-columns:minmax(0,1fr)}#root #main.workspace .plan-overview{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:720px){#root #main.workspace :is(.panel,.workspace-section,.completion-panel,.phased-plan,.phase-empty,.plan-empty){padding:20px}#root #main.workspace .learning-card{display:flex;flex-direction:column;align-items:stretch}#root #main.workspace .learning-card-body{flex:auto;width:100%}#root #main.workspace .learning-card :is(figure,img){width:100%;max-width:100%}#root #main.workspace .actions{align-items:stretch}#root #main.workspace .actions>*{max-width:100%}}
+#root #main.publicmain {background:#fff}
+#root .publicmain.publicmain :is(.page-surface,.landing-section,.entry-section,.outcome-showcase,.showcase-frame,.career-gallery-stage,.sj-stage,.tail-closing,.tail-closing-frame,.before-start,.direction-gallery-viewport,.spread-plates,.archive-stage,.archive-scene) {background:#fff;background-image:none}
+#root .publicmain.publicmain :is(.section-heading,.before-start>header,.showcase-heading) {display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px 28px;overflow:visible;height:auto;min-width:0}
+#root .publicmain.publicmain .section-heading>div {flex:1 1 480px;min-width:0;max-width:100%}
+#root .publicmain.publicmain .section-heading>a {flex:0 1 330px;max-width:100%;white-space:normal;overflow-wrap:anywhere;line-height:1.7;align-self:flex-start;text-align:left;padding:4px 0}
+#root .publicmain.publicmain :is(.section-heading,.before-start>header) :is(h2,p) {max-width:100%;white-space:normal;height:auto}
+#root .publicmain.publicmain .direction-gallery-toolbar {flex-wrap:wrap;gap:16px;height:auto}
+#root .publicmain.publicmain .direction-playback {display:flex;flex-wrap:wrap;gap:10px;min-width:0;max-width:100%}
+#root .publicmain.publicmain .direction-playback>span {white-space:normal;line-height:1.7;min-width:0}
+#root .publicmain.publicmain .direction-gallery-toolbar>label {max-width:100%;min-width:0;flex-wrap:wrap}
+#root .publicmain.publicmain .direction-gallery-toolbar select {max-width:100%;min-width:0}
+#root .publicmain.publicmain :is(.archive-caption,.spread-caption,.os-layout,.journey-spread-layout)>* {min-width:0}
+#root #main :is(h1,h2,h3,h4,p,dt,dd,small,label,a,button,summary) {overflow-wrap:anywhere}
+#root #main :is(button,.button) {white-space:normal;height:auto}
+#root #main :is(.section-heading,.section-head,.archive-caption,.archive-actions,.os-footer,.direction-gallery-footer,.spread-index,.spread-index button,.spread-step-title,.os-footer nav,.os-footer nav button,.direction-gallery-footer>div,.archive-method,.archive-plan) {min-width:0;max-width:100%;box-sizing:border-box}
+#root .publicmain.publicmain .spread-index button {display:grid;grid-template-columns:auto minmax(0,1fr) auto;width:100%;height:auto;min-height:100px;white-space:normal;text-align:left;gap:16px;padding:20px}
+#root .publicmain.publicmain .spread-index button>span {min-width:0;white-space:normal}
+#root .publicmain.publicmain .spread-step-title {display:block;white-space:normal;line-height:1.4;overflow-wrap:anywhere}
+#root .publicmain.publicmain .spread-index small {display:block;white-space:normal;line-height:1.6}
+#root .publicmain.publicmain .direction-gallery-footer {flex-wrap:wrap;gap:16px;height:auto}
+#root .publicmain.publicmain .direction-gallery-footer>div {display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+#root .publicmain.publicmain .direction-gallery-footer a {white-space:normal;flex:1 1 180px;line-height:1.6}
+#root .publicmain.publicmain .direction-gallery-footer button {flex:none}
+#root .publicmain.publicmain .os-footer {flex-wrap:wrap;height:auto;gap:16px}
+#root .publicmain.publicmain .os-footer nav {display:flex;flex-wrap:wrap;gap:10px}
+#root .publicmain.publicmain .os-footer nav button {white-space:normal;min-height:44px;height:auto;flex:0 1 auto;line-height:1.6;padding:10px 14px;gap:10px}
+#root .publicmain.publicmain .archive-caption {display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(180px,.8fr);gap:24px;padding:24px;height:auto;min-height:0}
+#root .publicmain.publicmain .archive-caption>div {min-width:0;max-width:100%;height:auto}
+#root .publicmain.publicmain .archive-caption :is(p,button,a) {white-space:normal;overflow-wrap:anywhere;height:auto;line-height:1.65}
+#root .publicmain.publicmain .archive-plan nav {display:flex;flex-wrap:wrap;gap:10px}
+#root .publicmain.publicmain .archive-actions {display:flex;flex-direction:column;align-items:stretch;gap:14px}
+#root .publicmain.publicmain .archive-actions button {min-height:48px;padding:12px 18px}
+#root .publicmain.publicmain .archive-footer {flex-wrap:wrap;gap:16px;height:auto}
+#root #main :is(.home-entry-copy,.occupation-grid>article,.phase-columns>section,.output-report-nav button,.segmented-control>a,.segmented-control>button) {min-width:0}
+@media(max-width:1000px){#root .publicmain.publicmain .archive-caption{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}#root .publicmain.publicmain .archive-actions{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center}}
+@media(max-width:720px){#root .publicmain.publicmain .archive-caption{grid-template-columns:minmax(0,1fr);padding:20px;gap:22px}#root .publicmain.publicmain .archive-actions{grid-column:1;flex-direction:column;align-items:stretch}#root .publicmain.publicmain .spread-index button{gap:12px;padding:16px;min-height:96px}#root .publicmain.publicmain .spread-step-title{font-size:20px}#root .publicmain.publicmain .direction-gallery-footer>div{width:100%}}

@@ -1,0 +1,245 @@
+/* Per-page operating proportions. Type, colour and document paper stay independent.
+   Container breakpoints use the space left after the sidebar, so collapsing the
+   sidebar adds useful columns without shrinking text or controls. */
+#root #main.student-workspace:not(.workbench-home) {
+  & .page-surface > .screen-heading,
+  & .assistant-page-header { gap:16px; margin-bottom:12px; min-height:0; }
+  & .page-surface > .tabs.segmented-control { margin-bottom:16px; }
+
+  /* U04: short action strip, four real entry points, then the record diagram. */
+  & .assessment-context { padding:12px 16px; margin-bottom:14px; min-height:0; }
+  & .assessment-hub .hub-next { padding:18px 20px; margin:0 0 14px; gap:20px; }
+  & .assessment-hub .assessment-hub-jumps { margin-bottom:16px; }
+  & .assessment-hub .assessment-hub-jumps > a { padding:12px 16px; gap:4px; }
+  & .assessment-hub .hub-section { padding:20px 0; }
+  & .assessment-hub .hub-section > header { gap:20px; margin-bottom:14px; }
+  & .assessment-hub .hub-direction { gap:20px; margin-bottom:14px; }
+  & .assessment-hub .hub-direction > .field { width:min(260px,100%); }
+  & .assessment-hub .profile-insight-heading { padding-bottom:14px; }
+  & .assessment-hub .profile-insight-layout { grid-template-columns:240px minmax(0,1fr); gap:20px; padding:18px 0; }
+  & .assessment-hub .profile-insight-ring svg { width:min(100%,240px); margin-bottom:10px; }
+  & .assessment-hub .profile-insight-dimensions { gap:0 12px; }
+  & .assessment-hub .profile-insight-dimensions button { min-height:64px; padding:8px 12px; gap:4px 10px; }
+  & .assessment-hub .profile-insight-dimension-name { gap:8px; }
+  & .assessment-hub .profile-insight-detail { padding:16px 18px; margin-top:12px; }
+  & .assessment-hub .profile-insight-detail .actions { margin-top:12px; gap:8px; }
+  & .assessment-hub .profile-insight-counts { padding:12px 0; gap:16px; }
+  & .assessment-hub .profile-insight-counts > div { padding-left:16px; }
+  & .assessment-hub .profile-insight-counts > div:first-child { padding-left:0; }
+  & .assessment-hub .profile-insight-counts dt { margin-bottom:6px; }
+  & .assessment-hub .hub-text-action { margin-top:8px; }
+  & .assessment-hub .hub-gap-layout { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:20px; }
+  & .assessment-hub .hub-career-brief { padding:18px 20px; }
+  & .assessment-hub .hub-gap-list > li { padding:12px 0; }
+  & .assessment-hub .hub-snapshot-state { padding:12px 16px; margin-top:14px; }
+  & .assessment-hub :is(.hub-review-empty,.hub-resume-layout > div,.hub-resume-layout > aside) { padding:18px 20px; }
+  & .assessment-hub .hub-review-list > li { padding:14px 0; gap:20px; }
+  & .assessment-hub .hub-actions { gap:10px 16px; margin-top:16px; }
+  & .assessment-hub :is(.profile-insight-gaps,.profile-insight-archive) { padding:24px 0; }
+  & .assessment-hub .profile-insight-records > li { padding:18px 0; }
+  & .assessment-profile-sources { gap:16px; margin-bottom:20px; }
+
+  /* U07: the goal remains the larger column; budget is a readable summary. */
+  & .plan-overview { grid-template-columns:minmax(0,1.8fr) minmax(300px,1fr); gap:18px; align-items:start; margin-bottom:18px; }
+  & .plan-primary .goal-statement { padding:20px 22px; gap:14px 20px; min-height:0; height:auto; }
+  & .goal-statement h2 { margin:6px 0 10px; }
+  & .plan-goal-context { margin-top:12px; padding-top:12px; }
+  & .plan-overview > .weekly-budget { padding:20px; }
+  & .plan-overview > .weekly-budget > .section-heading { gap:12px; margin-bottom:12px; }
+  & .weekly-budget .capacity-plot { margin:14px 0 10px; }
+  & .weekly-budget .capacity-note { margin:12px 0; }
+  & .weekly-budget .capacity-ledger { margin:8px 0 12px; }
+  & .plan-adjustment { margin:18px 0; }
+  & .plan-adjustment > summary { padding:14px 0; gap:16px; }
+  & .phased-plan { padding-top:18px; margin-bottom:20px; }
+  & .phased-plan > .section-head { margin-bottom:14px; }
+  & .phase-columns { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
+  & .phase-columns > section { padding:18px; min-height:0; }
+  & .phase-columns:has(article) { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }
+  & .phase-columns:has(article) > section { grid-template-columns:minmax(180px,.6fr) minmax(0,2fr); gap:14px 20px; }
+  & .phase-resources { gap:0 20px; margin-top:18px; padding-top:18px; }
+  & .action-cycle-heading { gap:20px; padding-bottom:18px; }
+  & .action-capacity { gap:12px 20px; padding:14px 0; }
+  & .action-starter-layout { margin-top:18px; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); }
+  & :is(.action-start-brief,.action-start-guide,.action-focus-paper,.review-journal,.review-action-context) { padding:20px; }
+  & .action-focus-layout { grid-template-columns:minmax(240px,.65fr) minmax(0,1.35fr); }
+  & .action-queue { padding:18px; }
+  & .action-queue-filters { margin:18px 0; }
+  & .review-task-selector { padding:18px 0; gap:20px; }
+  & .review-writing-layout { grid-template-columns:minmax(0,1.5fr) minmax(270px,.9fr); }
+  & .review-step-tabs { margin-bottom:18px; }
+
+  /* U05: scan directions two at a time; filters do not consume the main area. */
+  & .explore-layout { grid-template-columns:210px minmax(0,1fr); gap:20px; align-items:start; }
+  & .explore-filter { padding-right:18px; }
+  & .occupation-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 20px; align-items:start; }
+  & .occupation-grid > article { padding:18px 20px; min-height:0; }
+  & .occupation-grid h3 { margin:10px 0 8px; }
+  & .occupation-grid > article > p { min-height:0; margin-bottom:12px; }
+  & .occupation-output { padding-top:12px; margin-top:12px; }
+  & .occupation-actions { gap:10px; margin-top:14px; flex-wrap:wrap; }
+  & .discovery-intro { gap:20px; margin-bottom:16px; }
+  & .discovery-layout { grid-template-columns:190px minmax(0,1.4fr) minmax(280px,.9fr); gap:18px; }
+  & .discovery-filter { padding:18px 14px; }
+  & .discovery-job-card { padding:18px 20px; margin-bottom:14px; }
+  & .discovery-detail { grid-column:auto; padding:18px 20px; }
+  & .personal-opportunity-summary { padding:20px; gap:20px; margin-bottom:18px; }
+
+  /* U08: keep resource images beside the reading action and enough room for it. */
+  & .library-layout.learning-focus { grid-template-columns:190px minmax(0,1fr); gap:20px; align-items:start; }
+  & .learning-focus .library-filters { padding-right:18px; }
+  & .learning-focus .catalog-intent { margin-bottom:14px; }
+  & .learning-focus .learning-continuation { padding:14px 16px; gap:16px; margin-bottom:14px; }
+  & .learning-focus .learning-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }
+  & .learning-focus .learning-card { grid-template-columns:112px minmax(0,1fr); gap:18px; padding:18px 20px; }
+  & .learning-focus .learning-media img { height:88px; width:100%; object-fit:cover; }
+  & .learning-focus .learning-card-intro > h3 { margin-bottom:6px; }
+  & .learning-focus .task-meta { gap:6px 16px; }
+  & .learning-focus .learning-output { margin:10px 0 12px; gap:12px; }
+  & .learning-focus .learning-card-intro .actions { gap:8px; margin-bottom:4px; }
+  & .learning-focus .learning-reading-guide { gap:20px; padding-top:14px; }
+  & .learning-focus .project-preview { padding-top:14px; margin-top:10px; }
+
+  /* U10: compact index and live record diagrams; the printable paper is intact. */
+  & .output-workspace .output-purpose { padding-bottom:16px; gap:20px; }
+  & .output-workspace .report-record-flow { margin-top:16px; }
+  & .output-workspace .report-record-node { min-height:0; padding:14px 16px; gap:4px; }
+  & .output-workspace .output-report-layout { grid-template-columns:176px minmax(0,1fr); gap:20px; padding-top:18px; }
+  & .output-workspace .output-report-nav { gap:4px; }
+  & .output-workspace .output-report-nav button { padding:10px 12px; }
+  & .output-workspace .output-report-document { padding:20px 22px; }
+  & .output-workspace .output-document-title { padding-bottom:14px; margin-bottom:18px; }
+  & .output-workspace .report-record-charts { gap:18px; margin:18px 0; padding-bottom:18px; }
+  & .output-workspace .report-record-charts figure + figure { padding-left:18px; }
+  & .output-workspace .report-record-charts header { gap:10px; margin-bottom:12px; }
+  & .output-workspace .output-report-conclusion dl { margin:14px 0; }
+  & .output-workspace .output-report-conclusion dl > div { grid-template-columns:150px minmax(0,1fr); gap:14px; padding:12px 0; }
+  & .output-workspace .output-report-takeaways { gap:20px; margin-top:20px; padding-top:18px; }
+  & .output-workspace .output-next-action { padding:18px 20px; margin-top:20px; gap:18px; }
+  & .output-workspace .output-report-library { margin-top:24px; padding-top:20px; }
+  & .output-workspace .output-report-library > header { margin-bottom:14px; gap:16px; }
+  & .output-workspace .output-saved-row { padding:16px 0; gap:20px; }
+  & .output-workspace .output-resume-layout { grid-template-columns:minmax(320px,.9fr) minmax(0,1.2fr); gap:20px; padding-top:18px; }
+  & .output-workspace .output-resume-editor { padding:20px; }
+  & .output-workspace .output-resume-toolbar { padding:14px 0; gap:16px; }
+
+  /* U11: give the conversation space while keeping the actual input visible. */
+  & .assistant-section-bar { min-height:0; gap:12px; margin-bottom:14px; }
+  & .assistant-page-focused .chat-toolbar { padding:12px 20px 10px; gap:12px; }
+  & .assistant-page-focused .chat-scope-summary { padding:8px 20px; gap:6px 16px; }
+  & .assistant-page-focused .empty-chat-home { max-width:800px; padding:20px 28px; }
+  & .assistant-page-focused .empty-chat-home h3 { margin-bottom:8px; }
+  & .assistant-page-focused .empty-chat-home > div > p { margin-bottom:18px; }
+  & .assistant-page-focused .empty-chat-home .chat-composer { margin-bottom:12px; }
+  & .assistant-page-focused .empty-prompt-starts { gap:8px; }
+  & .assistant-page-focused .has-messages .chat-stream { padding:20px 24px; }
+  & .assistant-page-focused .chat-composer { padding:12px 16px 10px; margin-bottom:12px; }
+
+  /* U12: a summary has rows; optional editing gets the whole content width. */
+  & .settings-focus-page > .screen-heading { margin-bottom:12px; }
+  & .settings-focus-page > .tabs.segmented-control { margin-bottom:18px; }
+  & .settings-focus-title { gap:16px; margin-bottom:12px; }
+  & .settings-focus-preferences { padding-bottom:16px; }
+  & .settings-focus-summary { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 20px; }
+  & .settings-focus-summary > div { padding:10px 0 12px; }
+  & .settings-focus-summary .settings-focus-summary-wide { grid-template-columns:200px minmax(0,1fr); padding:12px 0; gap:20px; }
+  & .settings-focus-editor .cols3 { gap:16px; }
+  & .settings-focus-editor .field { margin-bottom:14px; }
+  & .settings-focus-actions { gap:8px 20px; margin-top:6px; }
+  & .settings-focus-notifications { padding:18px 0; gap:20px; }
+}
+
+@container workspace (min-width:1180px) {
+  #root #main.student-workspace:not(.workbench-home) .phase-columns:not(:has(article)) { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@container workspace (min-width:1350px) {
+  #root #main.student-workspace:not(.workbench-home) .occupation-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@container workspace (max-width:1080px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .plan-primary .goal-statement { display:flex; flex-direction:column; align-items:stretch; }
+    & .plan-primary .goal-statement > .plan-goal-context { border-left:0; margin:0; padding:12px 0 0; border-top-width:1px; border-top-style:solid; }
+    & .plan-primary .goal-statement > button { align-self:start; }
+    & .discovery-layout { grid-template-columns:190px minmax(0,1fr); }
+    & .discovery-detail { grid-column:1/-1; }
+    & .personal-opportunity-summary { grid-template-columns:minmax(0,1fr); }
+  }
+}
+@container workspace (max-width:980px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .plan-overview { grid-template-columns:minmax(0,1fr); }
+    & .assessment-hub .profile-insight-layout { grid-template-columns:210px minmax(0,1fr); gap:18px; }
+    & .assessment-hub .profile-insight-ring svg { width:min(100%,210px); }
+    & .assessment-hub .hub-gap-layout { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    & .output-workspace .output-report-layout { grid-template-columns:156px minmax(0,1fr); gap:16px; }
+    & .output-workspace .report-record-charts { grid-template-columns:minmax(0,1fr); }
+    & .output-workspace .report-record-charts figure + figure { padding:16px 0 0; border-left:0; border-top-width:1px; border-top-style:solid; }
+    & .output-workspace .output-resume-layout { grid-template-columns:minmax(0,1fr); }
+    & .output-workspace .output-resume-preview { position:static; }
+  }
+}
+@container workspace (max-width:820px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .explore-layout { grid-template-columns:190px minmax(0,1fr); gap:18px; }
+    & .occupation-grid { grid-template-columns:minmax(0,1fr); }
+    & .library-layout.learning-focus { grid-template-columns:170px minmax(0,1fr); gap:18px; }
+    & .learning-focus .learning-card { grid-template-columns:80px minmax(0,1fr); padding:18px; gap:14px; }
+    & .learning-focus .learning-media img { height:72px; }
+    & :is(.action-starter-layout,.action-focus-layout,.review-writing-layout) { grid-template-columns:minmax(0,1fr); }
+    & .review-action-context { border-left:0; }
+    & .action-queue { border-right:0; }
+    & .settings-focus-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    & .settings-focus-summary .settings-focus-summary-wide { grid-template-columns:170px minmax(0,1fr); }
+  }
+}
+@container workspace (max-width:700px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .assessment-hub .profile-insight-layout { grid-template-columns:minmax(0,1fr); }
+    & .assessment-hub .profile-insight-ring svg { width:220px; }
+    & .assessment-hub .hub-gap-layout { grid-template-columns:minmax(0,1fr); gap:16px; }
+    & .output-workspace .output-report-layout { grid-template-columns:minmax(0,1fr); }
+    & .output-workspace .output-report-nav { position:static; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+    & .output-workspace .output-report-nav :is(p,a) { grid-column:1/-1; }
+    & .output-workspace .output-report-conclusion dl > div { grid-template-columns:minmax(0,1fr); gap:6px; }
+    & .phase-columns:has(article) > section { display:block; }
+  }
+}
+@media(max-width:720px) {
+  #root #main.student-workspace:not(.workbench-home) {
+    & .page-surface > .screen-heading { margin-bottom:14px; gap:12px; }
+    & .assessment-hub .hub-next { padding:18px; gap:14px; }
+    & .assessment-hub .hub-section { padding:18px 0; }
+    & .assessment-hub .hub-direction > .field { width:100%; }
+    & .assessment-hub :is(.hub-career-brief,.hub-review-empty,.hub-resume-layout > div,.hub-resume-layout > aside) { padding:16px; }
+    & .assessment-hub .profile-insight-counts { gap:10px; }
+    & .assessment-hub .profile-insight-counts > div { padding-left:10px; }
+    & .assessment-hub .profile-insight-counts > div:first-child { padding-left:0; }
+    & .plan-primary .goal-statement { padding:18px; }
+    & .plan-overview > .weekly-budget { padding:18px; }
+    & .phase-columns { grid-template-columns:minmax(0,1fr); }
+    & .phase-resources { grid-template-columns:minmax(0,1fr); }
+    & .explore-layout { grid-template-columns:minmax(0,1fr); gap:16px; }
+    & .explore-filter { padding:18px; }
+    & .occupation-grid > article { padding:18px; }
+    & .discovery-layout { grid-template-columns:minmax(0,1fr); gap:16px; }
+    & .discovery-detail { grid-column:auto; }
+    & .library-layout.learning-focus { grid-template-columns:minmax(0,1fr); gap:16px; }
+    & .learning-focus .library-filters { padding-right:0; }
+    & .learning-focus .learning-card { display:flex; flex-direction:column; padding:18px; }
+    & .learning-focus .learning-continuation { padding:14px; }
+    & .output-workspace .report-record-node { padding:14px; }
+    & .output-workspace .output-report-document { padding:18px; }
+    & .output-workspace .output-report-takeaways { grid-template-columns:minmax(0,1fr); }
+    & .output-workspace .output-next-action { padding:18px; }
+    & .output-workspace .output-resume-editor { padding:18px 16px; }
+    & .assistant-page-focused .empty-chat-home { padding:22px 16px; }
+    & .assistant-page-focused .chat-toolbar { padding:12px 16px; }
+    & .assistant-page-focused .chat-scope-summary { padding:8px 16px; }
+    & .assistant-page-focused .has-messages .chat-stream { padding:18px 16px; }
+    & .assistant-page-focused .chat-composer { padding:10px 12px; }
+    & .settings-focus-summary { grid-template-columns:minmax(0,1fr); gap:0; }
+    & .settings-focus-summary > div,
+    & .settings-focus-summary .settings-focus-summary-wide { grid-template-columns:minmax(110px,.8fr) minmax(0,1.2fr); gap:12px; }
+    & .settings-focus-editor .cols3 { gap:0; }
+  }
+}

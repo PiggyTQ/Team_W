@@ -1,0 +1,65 @@
+{
+  "source": "C:\\Users\\tsnbx\\Desktop\\team\\project\\cheese+block+character+3d+model\\材质边界修正_20261024\\Cheese_original_shape_clean_materials.glb",
+  "source_sha256": "bc93d96c615b11e55854813585cea02029d3d0ac409c7875daa36c8d77d5a210",
+  "source_changed": false,
+  "inspected_baseline": "C:\\Users\\tsnbx\\Desktop\\team\\project\\低保真原型\\检查记录\\芝识分子表面修复_20261025\\cheese-web-repaired.glb",
+  "baseline_sha256": "c31edc67af8a211476fa91d984a0ecfe3a8359c824387611d28e4b56bc6431c3",
+  "target": "C:\\Users\\tsnbx\\Desktop\\team\\project\\低保真原型\\public\\mascot\\cheese-source-faithful.glb",
+  "target_sha256": "c31edc67af8a211476fa91d984a0ecfe3a8359c824387611d28e4b56bc6431c3",
+  "byte_identical_to_baseline": true,
+  "triangles": 90242,
+  "bytes": 18490868,
+  "method": "Exact file copy of intact source-derived baseline. Original integrated hands, eyes, brows, mouth and frame silhouette are retained. No new sculpting, torso contact reconstruction, replacement limbs or frame arcs. Baseline used exact-position welding before .18 connected quadric decimation and retained original UV/PBR atlas mapping with 2048px lossless PNG textures.",
+  "materials": [
+    "Cheddar v1 | original UV PBR",
+    "CheeseIP / Warm orange smile recess | portable PBR",
+    "Eyes analytic | independent atlas PBR",
+    "Accessories analytic | original UV PBR"
+  ],
+  "surface_fidelity": {
+    "coordinate_space": "glTF y-up, original character height approximately 1.0 unit",
+    "source_height": 1.0,
+    "bbox_component_absolute_delta": [
+      [
+        3.0428171157836914e-05,
+        3.324041699670488e-06,
+        1.913309097290039e-05
+      ],
+      [
+        9.953975677490234e-06,
+        3.4332275390625e-05,
+        1.4603137969970703e-05
+      ]
+    ],
+    "bbox_max_absolute_delta": 3.4332275390625e-05,
+    "method": "Exact closest point on triangle-surface BVH for deterministic samples: per-material vertices and area-weighted barycentric points plus all axis extrema. Sampling is not an exhaustive Hausdorff bound.",
+    "source_to_faithful": {
+      "samples": 10321,
+      "mean": 3.166316328429042e-05,
+      "rms": 4.159657097577329e-05,
+      "p50": 2.467610283929389e-05,
+      "p95": 8.524258009856567e-05,
+      "p99": 0.00011890666792169124,
+      "sampled_max": 0.0002000376262003556
+    },
+    "faithful_to_source": {
+      "samples": 9608,
+      "mean": 3.2690524646102015e-05,
+      "rms": 4.286012524204175e-05,
+      "p50": 2.5766221369849518e-05,
+      "p95": 8.799384704616384e-05,
+      "p99": 0.0001175768989924109,
+      "sampled_max": 0.0001685808674665168
+    }
+  },
+  "material_parameters_and_texture_roles_identical_to_source": true,
+  "topology": {
+    "position_welded_boundary_edges": 0,
+    "position_welded_nonmanifold_edges": 0,
+    "degenerate_triangles_area2_below_1e-15": 0
+  },
+  "audit": "../../checks/芝识分子原型动效_20261025/model-audit.json",
+  "poster": "cheese-source-poster.png",
+  "poster_source_sha256": "36e64d12eedace51937b192fb444d74b8bbcd42d41ce1bec5ec567694cab67b8",
+  "runtime_constraint": "Preserve fused original arm contacts; use bounded whole-character transforms, not procedural replacement limbs."
+}

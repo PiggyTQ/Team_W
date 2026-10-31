@@ -1,0 +1,109 @@
+/* v49: thematic report spreads and optional, source-backed resume sections. */
+.thematic-report{min-width:0}
+.report-topic-spread{padding:30px 0 24px;scroll-margin-top:24px;color:#303030}
+.report-topic-spread+.report-topic-spread{border-top:1px solid #bdbdbd;margin-top:22px}
+.report-topic-intro{display:flex;gap:17px;align-items:baseline;margin-bottom:28px}
+.report-topic-intro>span{font-size:30px;color:#777;font-variant-numeric:tabular-nums;line-height:1}
+.report-topic-intro h4{font-size:26px;line-height:1.4;margin:0 0 10px;letter-spacing:-.025em}
+.report-topic-intro p{font-size:12px;line-height:1.9;color:#666;margin:0;max-width:64ch}
+.report-topic-panels{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;grid-template-areas:'goal start' 'choices choices'}
+.report-topic-panel{min-width:0;padding:20px 0 5px;border-top:1px solid #b9b9b9;scroll-margin-top:25px}
+.report-topic-panel[data-slot=extra]{grid-column:1/-1}
+.report-topic-panel h5{font-size:14px;line-height:1.7;margin:0 0 14px;color:#555}
+.report-topic-panel p{font-size:14px;line-height:2.05;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;max-width:74ch}
+.report-topic-panel[data-slot=goal]{grid-area:goal;border-top:2px solid #393939}
+.report-topic-panel[data-slot=goal] p{font-size:19px;line-height:1.95}
+.report-topic-panel[data-slot=start]{grid-area:start;background:#f1f1f1;padding:21px 23px;border:0}
+.report-topic-panel[data-slot=choices]{grid-area:choices;max-width:none}
+.report-topic-spread[data-theme=evidence] .report-topic-panels{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);grid-template-areas:'requirements materials' 'dimensions dimensions'}
+.report-topic-panel[data-slot=requirements]{grid-area:requirements}
+.report-topic-panel[data-slot=materials]{grid-area:materials;background:#f1f1f1;padding:21px 23px;border:0}
+.report-topic-panel[data-slot=dimensions]{grid-area:dimensions}
+.report-topic-spread[data-theme=action] .report-topic-panels{grid-template-areas:'route budget' 'practice practice'}
+.report-topic-panel[data-slot=route]{grid-area:route}
+.report-topic-panel[data-slot=budget]{grid-area:budget;background:#f1f1f1;padding:21px 23px;border:0}
+.report-topic-panel[data-slot=practice]{grid-area:practice;border-top:2px solid #393939}
+.report-topic-panel[data-slot=practice] p{font-size:17px}
+.report-topic-spread[data-theme=review] .report-topic-panels{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);grid-template-areas:'reflection limits'}
+.report-topic-panel[data-slot=reflection]{grid-area:reflection;border-top:2px solid #393939}
+.report-topic-panel[data-slot=limits]{grid-area:limits;background:#f1f1f1;padding:21px 23px;border:0}
+.report-topic-spread[data-theme=extra] .report-topic-panels{grid-template-areas:none}
+.report-topic-original{font-size:11px;margin-top:28px;border-top:1px solid #d5d5d5;padding-top:15px;color:#656565}
+.report-topic-original summary{cursor:pointer;min-height:34px;line-height:1.8}
+.report-topic-original p{font-size:12px;line-height:2;white-space:pre-wrap;overflow-wrap:anywhere}
+.resume-contact-line{display:flex;gap:7px 16px;flex-wrap:wrap;font-size:11px;line-height:1.8;color:#555;margin-top:14px;overflow-wrap:anywhere}
+.resume-contact-line a{color:inherit;max-width:100%}
+.resume-content-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start}
+.resume-content-grid[data-main-empty=true]{grid-template-columns:1fr}
+.resume-content-grid>*,.resume-content-module{min-width:0}
+.resume-content-module{margin:0 0 28px;scroll-margin-top:25px}
+.resume-content-module>h4,.resume-content-module .education-output>h3{font-size:14px;line-height:1.6;padding-bottom:11px;margin:0;border-bottom:1px solid #969696;color:#343434}
+.resume-content-module .education-output{padding:0;border:0;margin:0}
+.resume-content-module .education-output>div{padding:16px 0 0;margin:0;background:none;border:0}
+.resume-content-module .education-output h4{font-size:14px;margin:0 0 10px}
+.resume-content-module .education-output p{font-size:12px;line-height:1.9;margin:7px 0;overflow-wrap:anywhere}
+.resume-content-module .education-output small{font-size:10px;line-height:1.8;color:#676767}
+.resume-skill-words{display:flex;gap:8px 15px;flex-wrap:wrap;padding:16px 0 10px}
+.resume-skill-words>button,.resume-skill-words>span{font-size:12px;line-height:1.8;color:#343434;background:none;border:0;border-bottom:1px solid #aaa;border-radius:0;padding:3px 0;box-shadow:none;min-height:32px}
+.resume-content-module>small{font-size:10px;line-height:1.8;color:#666;display:block}
+.workspace:not(.atlas-workspace){
+ & .archive-paper>.thematic-report{margin-inline:38px}
+ & .report-theme-navigation button{display:grid;grid-template-columns:22px 1fr;gap:7px;text-align:left;padding-block:18px}
+ & .report-theme-navigation button small{display:block;margin-top:8px;color:#6a6a6a;font-size:10px}
+ & .report-reading-layout{grid-template-columns:145px minmax(0,1fr);gap:26px}
+ & .report-reference{grid-column:2;border-top:1px solid #c5c5c5;padding-top:22px}
+ & .report-paper .report-topic-spread:first-child{padding-top:0}
+ & .report-paper .report-topic-intro h4{font-size:26px}
+ & .report-paper .report-topic-panel p{font-size:14px;line-height:2.05}
+ & .report-paper .report-topic-panel[data-slot=goal] p{font-size:19px}
+ & .resume-module-outline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;border-top:1px solid #717171;margin:0 0 10px}
+ & .resume-module-outline :is(button,a){display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 12px;min-height:48px;align-items:center;padding:12px 0;border:0;border-bottom:1px solid #666;border-radius:0;color:#ededed;background:none;box-shadow:none;font-size:12px;text-decoration:none;text-align:left}
+ & .resume-module-outline :is(button,a)>small{font-size:10px;color:#c6c6c6}
+ & .resume-module-outline :is(button,a):hover{color:#fff;background:#363636}
+ & .resume-module-guidance{font-size:11px;line-height:1.9;color:#c6c6c6;margin:0 0 28px}
+ & .resume-content-module>.resume-experience-sheet,& .resume-content-module>.resume-experience-sheet[data-selected=true]{padding:18px 0;margin:0;border:0;border-bottom:1px solid #ddd;background:none;outline:0}
+ & .resume-content-module .resume-experience-sheet>header{margin-bottom:0;display:flex;align-items:start;gap:10px;flex-wrap:wrap}
+ & .resume-content-module .resume-experience-sheet>p{font-size:13px;line-height:2;margin:12px 0;overflow-wrap:anywhere}
+ & .resume-content-module .resume-experience-sheet>small{font-size:10px;line-height:1.8;color:#666}
+ & .resume-content-module button.resume-experience-title{font-size:17px;line-height:1.65}
+ & .resume-support-content button.resume-experience-title{font-size:14px}
+ & .resume-support-content .resume-experience-sheet>p{font-size:12px;line-height:1.9}
+ & .resume-support-content .resume-experience-order{display:flex;gap:8px;flex-wrap:wrap}
+ & .resume-composition-controls{border:1px solid #bdbdbd;padding:18px;margin:24px 0;color:#333;min-width:0}
+ & .resume-composition-controls legend{font-size:15px;padding-inline:7px}
+ & .resume-composition-controls p,& .resume-composition-controls label{font-size:12px;line-height:1.9}
+ & .resume-composition-controls select{min-height:40px;font-size:12px;width:100%}
+ & .resume-composition-controls .field{margin:14px 0}
+ & .resume-profile-source .field{min-width:0}
+}
+#printable .resume-content-grid{margin-top:25px}
+#printable .resume-content-module section{padding:14px 0;border-bottom:1px solid #ddd}
+#printable .resume-content-module section h3{font-size:15px;line-height:1.7;margin:0 0 10px}
+#printable .resume-content-module section p{font-size:12px;line-height:1.9;margin:8px 0;overflow-wrap:anywhere}
+@media(max-width:1150px){.workspace:not(.atlas-workspace) .archive-paper>.thematic-report{margin-inline:28px}}
+@media(max-width:700px){
+ .report-topic-panels,.report-topic-spread[data-theme] .report-topic-panels{display:flex;flex-direction:column;gap:22px}
+ .report-topic-intro{gap:12px;margin-bottom:22px}.report-topic-intro h4{font-size:23px}.report-topic-intro>span{font-size:25px}
+ .report-topic-panel p{font-size:14px}.report-topic-panel[data-slot=goal] p{font-size:17px}
+ .report-topic-panel[data-slot=practice] p{font-size:15px}
+ .resume-content-grid{grid-template-columns:1fr;gap:0}
+ .workspace:not(.atlas-workspace){
+ & .archive-paper>.thematic-report{margin-inline:22px}
+ & .report-reading-layout{grid-template-columns:1fr;gap:20px}
+ & .report-reference{grid-column:auto}
+ & .resume-module-outline{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+ & .resume-module-outline :is(button,a){min-height:50px;font-size:12px}
+ & .resume-content-module button.resume-experience-title{font-size:16px}
+ & .resume-content-module>.resume-experience-sheet{padding-block:20px}
+ & .resume-skill-words>button{min-height:40px}
+ & .resume-composition-controls{padding:14px}
+ }
+}
+@media print{#printable .resume-content-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:25px}#printable .resume-content-module{break-inside:avoid}}
+
+.workspace:not(.atlas-workspace){
+ & .resume-content-module .resume-skill-words>button{border:0;border-bottom:1px solid #aaa;border-radius:0;background:none;box-shadow:none;color:#343434;min-height:36px;padding:3px 0;font-size:12px}
+ & .resume-content-module .resume-skill-words>button:hover{color:#111;border-color:#333;background:none}
+ & .archive-paper>footer{padding-bottom:8px}
+}
+@media(max-width:700px){.workspace:not(.atlas-workspace) .resume-content-module .resume-skill-words>button{min-height:40px}}

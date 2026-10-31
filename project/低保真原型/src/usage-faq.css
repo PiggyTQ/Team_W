@@ -1,0 +1,29 @@
+/* User reference: centered heading and separate, lightly outlined FAQ rows. */
+#root .publicmain.publicmain #before-start{position:relative;z-index:1;padding:88px 0 64px;min-height:0;display:block}
+#root .publicmain.publicmain #before-start>header{display:block;text-align:center;margin:0 auto 38px;max-width:100%}
+#root .publicmain.publicmain #before-start h2{font-size:clamp(28px,3.4vw,44px);line-height:1.4;font-weight:500;letter-spacing:-.025em;margin:0 0 16px;text-wrap:balance}
+#root .publicmain.publicmain #before-start h2 span{display:inline}
+#root .publicmain.publicmain #before-start>header p{font-size:14px;line-height:1.8;margin:0;color:#65738a}
+#root .publicmain.publicmain #before-start .start-list-toolbar{margin:0 0 16px}
+#root .publicmain.publicmain #before-start .usage-single-list{display:grid;gap:16px;border:0}
+#root .publicmain.publicmain #before-start .start-answer{border:1px solid #e7e9ee;border-radius:20px;background:#fff;box-shadow:none;padding:0;min-width:0;scroll-margin-top:24px}
+#root .publicmain.publicmain #before-start .start-answer summary{min-height:80px;padding:24px 28px;box-sizing:border-box;font-size:18px;line-height:1.6;color:#071331;gap:24px;font-weight:400}
+#root .publicmain.publicmain #before-start .start-answer summary>span{min-width:0;white-space:normal;overflow-wrap:anywhere}
+#root .publicmain.publicmain #before-start .usage-chevron{color:#071331;flex-shrink:0}
+#root .publicmain.publicmain #before-start .start-answer>div{padding:0 28px 26px;max-width:78ch;box-sizing:border-box}
+#root .publicmain.publicmain #before-start .start-answer p{color:#52627a;font-size:14px;line-height:1.9;overflow-wrap:anywhere}
+#root .publicmain.publicmain #before-start .start-answer[open]{border-color:#cfd9e8}
+#root .publicmain.publicmain #before-start summary:focus-visible{outline:2px solid #3b6ba5;outline-offset:4px;border-radius:18px}
+#root .publicmain.publicmain #before-start>footer{padding-top:24px}
+@media(hover:hover) and (pointer:fine){#root .publicmain.publicmain #before-start .start-answer:hover{border-color:#cfd9e8}}
+@media(max-width:720px){
+ #root .publicmain.publicmain #before-start{padding:56px 0 40px}
+ #root .publicmain.publicmain #before-start>header{margin-bottom:26px}
+ #root .publicmain.publicmain #before-start h2{font-size:28px}
+ #root .publicmain.publicmain #before-start>header p{font-size:13px}
+ #root .publicmain.publicmain #before-start .usage-single-list{gap:12px}
+ #root .publicmain.publicmain #before-start .start-answer{border-radius:18px}
+ #root .publicmain.publicmain #before-start .start-answer summary{min-height:76px;padding:20px 18px;font-size:16px;gap:16px}
+ #root .publicmain.publicmain #before-start .start-answer>div{padding:0 18px 22px}
+ #root .publicmain.publicmain #before-start .start-answer p{font-size:13px}
+}

@@ -1,0 +1,43 @@
+/* v4: rounded single-edge controls, comfortable measure, quiet blue selection. */
+:root {--control-selected:#eaf1fb;--control-selected-ink:#234c83;--radius-action:18px}
+#root #main.publicmain {width:calc(100% - clamp(48px,15vw,288px));max-width:1280px;margin-inline:auto;padding-inline:0;box-sizing:border-box}
+#root #main.publicmain>.page-surface {width:100%;max-width:100%;margin:0}
+@media(min-width:1001px){#root .publicmain.publicmain .hero-import h1{font-size:clamp(32px,3.2vw,52px);line-height:1.25}html:lang(en) #root .publicmain.publicmain .hero-import h1{font-size:clamp(28px,2.7vw,44px)}}
+#root .publicmain.publicmain :is(.os-stage,.spread-plate,.direction-gallery-card,.archive-scene,.archive-mobile-record,.tail-closing) {border-radius:30px}
+#root :is(button,.button) {border-radius:18px}
+#root :is(button.primary,a.button.primary,.auth-submit),
+#root .publicmain.publicmain :is(.hero-import-actions .primary,.publicnav>button,.archive-actions button.primary) {
+ border-radius:999px;background:radial-gradient(ellipse at 50% 125%,#263f66 0%,#11213e 48%,#071331 100%);color:#fff;border:1px solid #182b4a;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(0,0,0,.12),0 2px 4px rgba(7,19,49,.08)
+}
+#root .publicmain.publicmain .hero-import-actions :is(button,a) {border-radius:999px;min-height:52px;padding:13px 26px;font-weight:500}
+#root .publicmain.publicmain .hero-import-actions a {background:linear-gradient(#fff,#f5f7fa);border:1px solid #dce3ed;color:#314867;box-shadow:inset 0 1px 0 #fff,0 2px 3px rgba(7,19,49,.025)}
+#root .publicmain.publicmain :is(.os-reveal,.archive-method button,.direction-card-content button,.meta-cta-secondary) {border-radius:999px;border:1px solid #dce3ed;background:linear-gradient(#fff,#f8f9fc);color:#314867;box-shadow:0 2px 4px rgba(7,19,49,.025);padding:11px 20px}
+#root #main.workspace .occupation-actions>button {border-radius:999px;border:1px solid #dce3ed;background:linear-gradient(#fff,#f5f7fb);color:#314867;box-shadow:0 2px 3px #07133106}
+#root #main.workspace .occupation-actions>button[aria-pressed=true] {background:#eaf1fb;color:#234c83;border-color:#dce6f5;box-shadow:none}
+#root .publicmain.publicmain .spread-index button {border-radius:20px;border:1px solid transparent;box-shadow:none;background:#fff;color:#65738a}
+#root .publicmain.publicmain .spread-index button[aria-pressed=true] {background:#eaf1fb;border-color:#eaf1fb;color:#234c83;box-shadow:none}
+#root .publicmain.publicmain .spread-index button[aria-pressed=true] :is(small,.spread-step-number) {color:#46658e}
+#root .publicmain.publicmain :is(.archive-switch button,.os-footer button,.os-footer nav button) {border-radius:999px;border:1px solid transparent;background:#fff;box-shadow:none;color:#65738a}
+#root .publicmain.publicmain :is(.archive-switch button[aria-pressed=true],.os-footer button[aria-current=step],.os-footer nav button[aria-current=step]) {background:#eaf1fb;color:#234c83;border-color:#eaf1fb;box-shadow:none}
+#root #main.workspace .output-workspace .output-report-nav button {border-radius:16px;background:#fff;border-color:transparent;box-shadow:none}
+#root #main.workspace .output-workspace .output-report-nav button[aria-pressed=true] {background:#eaf1fb;color:#234c83;border-color:#eaf1fb;box-shadow:none}
+#root>#workspace-sidebar .sidebar-links a {border-radius:15px;box-shadow:none;color:#65738a;transition:background-color 160ms ease,color 160ms ease}
+#root>#workspace-sidebar .sidebar-links a[aria-current=page] {background:#e7effb;color:#234c83;border-color:transparent;box-shadow:none;font-weight:500}
+#root>#workspace-sidebar .sidebar-links a[aria-current=page] .sidebar-nav-icon {color:#315d98}
+#root #main.workspace .segmented-control {background:#f2f4f8;border:0;border-radius:18px;padding:5px}
+#root #main.workspace .segmented-control>.selection-plate {background:#e7effb;border-radius:13px;box-shadow:none}
+#root #main.workspace .segmented-control>:is(a[aria-current=page],button[aria-pressed=true],.selected) {color:#234c83;font-weight:500;box-shadow:none}
+#root .language-switch {border-radius:999px;background:#f2f4f8;border:1px solid #e8ecf2}
+#root .language-switch button {border-radius:999px;background:transparent;color:#65738a}
+#root .language-switch button[aria-pressed=true] {background:#e0eafb;color:#234c83}
+@media(hover:hover) and (pointer:fine) {
+ #root :is(button.primary,a.button.primary,.auth-submit):hover,#root .publicmain.publicmain .hero-import-actions .primary:hover {background:radial-gradient(ellipse at 50% 125%,#34547d 0%,#192d4d 52%,#0d1c36 100%);border-color:#294366;color:#fff}
+ #root .publicmain.publicmain :is(.hero-import-actions a,.os-reveal,.archive-method button,.direction-card-content button):hover,#root #main.workspace .occupation-actions>button:not([aria-pressed=true]):hover {background:#f0f4fa;border-color:#cbd7e8;color:#234c83}
+ #root>#workspace-sidebar .sidebar-links a:not([aria-current=page]):hover {background:#eef2f8;color:#314867}
+ #root .publicmain.publicmain .spread-index button:not([aria-pressed=true]):hover {background:#f5f7fb;color:#314867}
+}
+@media(max-width:1000px){#root #main.publicmain{width:calc(100% - 64px)}}
+@media(max-width:720px){#root #main.publicmain{width:calc(100% - 36px)}#root .publicmain.publicmain .hero-import-actions :is(button,a){padding:12px 20px;min-height:50px}#root .publicmain.publicmain :is(.os-stage,.spread-plate,.direction-gallery-card,.archive-scene,.tail-closing){border-radius:26px}}
+@media(max-width:360px){#root #main.publicmain{width:calc(100% - 28px)}}
+@media(prefers-reduced-motion:reduce){#root>#workspace-sidebar .sidebar-links a{transition:none}}

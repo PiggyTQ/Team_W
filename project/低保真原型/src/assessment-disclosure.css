@@ -1,0 +1,7 @@
+#main.workspace .hub-gap-layout.hub-gap-focused,#main.workspace .hub-resume-layout.hub-resume-focused{grid-template-columns:minmax(0,1fr)}
+#main.workspace .hub-detail-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+#main.workspace .hub-review-empty{padding:12px 0;background:transparent}
+.information-drawer .hub-career-brief{padding:0;background:transparent}
+.information-drawer .hub-career-brief h3:not(:first-child){margin-top:22px}
+.assessment-detail-drawer .current-resumes{padding:0;border:0}
+.assessment-detail-drawer aside{margin-top:24px;padding-top:20px;border-top:1px solid #e5e4da}

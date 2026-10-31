@@ -1,0 +1,41 @@
+{
+  "source_rows": 344,
+  "exercise_rows": 346,
+  "prepared_rows": 344,
+  "excluded_teaching_duplicates": 2,
+  "issue_entries": 24,
+  "original_missing_cells_after_deduplication": {
+    "bill_length_mm": 2,
+    "bill_depth_mm": 2,
+    "flipper_length_mm": 2,
+    "body_mass_g": 2,
+    "sex": 11
+  },
+  "invalid_body_mass_entries": 1,
+  "statistics": [
+    {
+      "species": "Adelie",
+      "records_after_duplicate_exclusion": 152,
+      "valid_body_mass_records": 150,
+      "body_mass_mean_g": 3697.0,
+      "body_mass_excluded_records": 2,
+      "population": "this teaching file only"
+    },
+    {
+      "species": "Chinstrap",
+      "records_after_duplicate_exclusion": 68,
+      "valid_body_mass_records": 68,
+      "body_mass_mean_g": 3733.09,
+      "body_mass_excluded_records": 0,
+      "population": "this teaching file only"
+    },
+    {
+      "species": "Gentoo",
+      "records_after_duplicate_exclusion": 124,
+      "valid_body_mass_records": 123,
+      "body_mass_mean_g": 5076.02,
+      "body_mass_excluded_records": 1,
+      "population": "this teaching file only"
+    }
+  ]
+}

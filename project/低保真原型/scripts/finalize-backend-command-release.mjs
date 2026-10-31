@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const out='checks/后端闭环_20261029',read=name=>JSON.parse(fs.readFileSync(path.join(out,name),'utf8'));
+const manifest=read('release-manifest.json'),deployment=read('production/deployment-result.json'),api=read('production/production-smoke.json'),stage=read('production/stage-smoke.json'),browser=read('production/browser-report.json'),audit=read('production/final-audit.json'),local=read('acceptance-summary.json');
+assert.ok(deployment.deployed&&api.passed&&stage.passed&&browser.passed&&audit.passed&&local.passed);
+assert.ok(api.syntheticAccountDeleted&&browser.syntheticAccountDeleted);assert.equal(browser.realProviderCalls,0);assert.deepEqual(browser.pageErrors,[]);
+for(const row of manifest.files)assert.equal(row.candidateSha256,deployment.files[row.path]);
+assert.equal(createHash('sha256').update(fs.readFileSync(path.join(out,manifest.archive.filename))).digest('hex'),manifest.archive.sha256);
+manifest.deployed=true;manifest.actualDeployment=deployment;manifest.productionEvidence='production/acceptance-summary.json';fs.writeFileSync(path.join(out,'release-manifest.json'),JSON.stringify(manifest,null,2));
+const log=fs.readFileSync(path.join(out,'unit-and-http.log'),'utf8'),counts=Object.fromEntries(['tests','pass','fail','skipped'].map(key=>[key,Number(log.match(new RegExp('ℹ '+key+' (\\d+)'))[1])]));
+const summary={deployed:true,aiEnabled:false,realProviderCalls:0,localAutomatedTests:counts,localAcceptancePassed:true,serverStageChecks:stage.checks.length,productionApiChecks:api.checks.length,productionBrowserChecks:browser.checks.length,pageErrors:browser.pageErrors,syntheticAccountsDeleted:true,newTables:deployment.newTables,staticRelease:deployment.staticRelease,unrelatedSourcePreserved:deployment.unrelatedSourcePreserved,budget:audit.budget,budgetUnchanged:true,forPublicLaunch:false,externalGates:['mail service/domain authorization','real student pilot','independent domain review','approved current job sources when recruitment claims are offered'],passed:true};
+fs.writeFileSync(path.join(out,'production/acceptance-summary.json'),JSON.stringify(summary,null,2));console.log(JSON.stringify(summary));

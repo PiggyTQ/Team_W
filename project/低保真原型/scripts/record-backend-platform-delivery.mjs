@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const out=path.resolve('checks/backend-completeness-20261030'),read=async name=>JSON.parse(await fs.readFile(path.join(out,name),'utf8'));
+const manifest=await read('manifest.json'),before=await read('acceptance-summary.json'),deployment=await read('production/deployment-result.json'),audit=await read('production/audit.json'),ops=await read('production/operations-result.json'),api=await read('production/production-smoke.json'),suggestions=await read('production/suggestions-browser.json'),business=await read('production/business-browser/browser-report.json');
+for(const r of [audit,api,suggestions,business])assert.equal(r.passed,true);
+for(const r of [api,suggestions,business])assert.equal(r.syntheticAccountDeleted,true);
+for(const row of manifest.files)assert.equal(deployment.files[row.path],row.candidateSha256);
+assert.equal(ops.localMonitoringActive,true);assert.equal(audit.aiEnabled,false);assert.equal(audit.budgetUnchanged,true);assert.equal(audit.adminRolesGranted,0);assert.equal(audit.mailQueued,0);
+manifest.approvedForProduction=true;manifest.deployed=true;manifest.productionRelease=deployment.staticRelease;manifest.userAuthorization='允许上线，AI 和外部服务保持关闭';
+const summary={...before,deployed:true,productionRuntimeChanged:true,production:{apiChecks:api.checks.length,browserChecks:suggestions.checks.length+business.checks.length,syntheticAccountsDeleted:true,runtimeHashesMatched:audit.runtimeHashesMatched,staticRelease:deployment.staticRelease,servicePid:deployment.servicePid,localMonitoringActive:true,externalAlertsConfigured:false,mailEnabled:false,remoteUploadsEnabled:false,adminRolesGranted:0,probeIssues:audit.probeIssues,backupRestoreCheck:true,budget:audit.budget,budgetUnchanged:true,productionUserRowsInspected:false},passed:true};
+await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify(manifest,null,2));await fs.writeFile(path.join(out,'production/acceptance-summary.json'),JSON.stringify(summary,null,2));await fs.writeFile(path.join(out,'acceptance-summary.json'),JSON.stringify(summary,null,2));console.log(JSON.stringify({deployed:true,apiChecks:summary.production.apiChecks,browserChecks:summary.production.browserChecks,aiEnabled:false,externalServicesEnabled:false}));

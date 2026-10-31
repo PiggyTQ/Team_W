@@ -1,0 +1,130 @@
+/* U01 refinement: one visual rhythm, preserving the approved gray wireframe. */
+.publicmain {
+  --public-ink:#252525;
+  --public-muted:#595959;
+  --public-space:clamp(48px,6vw,88px);
+  --public-title:clamp(28px,2.7vw,38px);
+  color:var(--public-ink);
+}
+.publicmain :is(h1,h2,h3){text-wrap:balance}
+.publicmain p{ text-wrap:pretty }
+.publicmain :is(a,button,summary){-webkit-tap-highlight-color:#dedede}
+.publicmain :is(a,button,summary,select,[tabindex]):focus-visible{
+  outline:2px solid var(--public-ink);outline-offset:5px;
+}
+.publicmain a{text-underline-offset:5px;text-decoration-thickness:1px}
+.publicnav-v5{padding-block:20px;gap:24px}
+@media(max-width:720px){
+  html[lang|="en"] .publicnav-v5{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;height:auto;min-height:0}
+  html[lang|="en"] .publicnav-v5>.brand{grid-column:1;grid-row:1}
+  html[lang|="en"] .publicnav-v5>.public-mobile-menu{grid-column:2;grid-row:1;margin-left:0}
+  html[lang|="en"] .publicnav-v5>button{grid-column:1 / -1;grid-row:2;justify-self:end}
+}
+.publicnav-v5>.public-links{gap:clamp(12px,1.4vw,22px);font-size:13px}
+.publicnav-v5>.public-links a{position:relative;padding-block:10px}
+.publicnav-v5>.public-links a::after{
+  content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;
+  transition:transform 180ms var(--landing-ease-out);
+}
+.publicnav-v5>button{min-height:44px;font-size:13px}
+.landing-intro{padding-block:clamp(64px,7vw,104px) clamp(56px,6vw,88px)}
+.landing-intro h1{font-size:clamp(40px,4.8vw,64px);max-width:1000px;line-height:1.28;letter-spacing:-.035em;margin-block:22px 28px}
+.intro-audience{font-size:14px;letter-spacing:0;color:var(--public-muted)}
+.landing-intro>p{font-size:17px;line-height:1.9;color:var(--public-muted);margin-bottom:32px;max-width:650px}
+.intro-actions{gap:16px}
+.intro-actions button,.intro-actions a{min-height:52px;padding:13px 24px;font-size:15px}
+.intro-actions span{display:inline-block;transition:transform 180ms var(--landing-ease-out)}
+.intro-footnote,.home-scroll-hint{font-size:13px;color:var(--public-muted)}
+.entry-deck-section h2,.career-gallery h2,.story-bridge h2,.before-start h2{font-size:var(--public-title);line-height:1.45;letter-spacing:-.025em}
+.entry-deck-section>.section-heading p,.career-gallery .section-heading p,.story-bridge p,.before-start>header p{font-size:15px;color:var(--public-muted);line-height:1.9}
+.entry-section.entry-deck-section{padding-top:var(--public-space)}
+.entry-deck-section>.section-heading{margin-bottom:26px}
+.problem-card-top,.problem-card-description,.problem-card-output{font-size:14px}
+.problem-pick,.problem-card-output small{font-size:12px}
+.problem-card-enter{font-size:14px}
+.entry-deck-note{font-size:13px;line-height:1.8}
+.entry-deck[data-selection-motion=true] .problem-card{transition-duration:240ms}
+.entry-deck[data-keyboard=true] .problem-card{transition:none}
+.direction-gallery-toolbar,.direction-gallery-footer,.gallery-skip{font-size:13px}
+.direction-card-content dd{font-size:14px;line-height:1.85}
+.direction-card-content dt,.direction-card-branch{font-size:12px}
+.direction-card-content button{min-height:44px;font-size:13px}
+.direction-gallery-footer button,.sj-bottom button{min-width:44px;min-height:44px}
+.story-continuation{--story-scene-gap:80px}
+.story-scene-intro>p,.tail-route-detail>p,.tail-chat-example>p,.tail-report-fragment>p{font-size:15px;line-height:1.9;color:var(--public-muted)}
+.before-start{padding-block:var(--public-space)}
+.before-start>header{max-width:900px;margin-bottom:24px}
+.start-list-toolbar{margin-bottom:24px}
+.start-answer-group h3{font-size:14px;color:var(--public-muted)}
+.start-answer-group+.start-answer-group{margin-top:32px}
+.start-answer summary{min-height:48px;font-size:17px;padding-block:10px}
+.start-answer p{font-size:15px;line-height:1.9;color:var(--public-muted)}
+.start-answer>div{max-width:72ch;padding-block:4px 20px}
+.before-start>footer a,.before-start>footer button,.tail-footer-nav a{min-height:44px;font-size:13px}
+.tail-closing h2{font-size:clamp(34px,4.4vw,56px);letter-spacing:-.025em}
+.tail-closing p{font-size:16px;line-height:1.9}
+.tail-closing .primary{min-height:50px;font-size:15px}
+@media(hover:hover) and (pointer:fine){
+  .publicnav-v5>.public-links a:hover::after{transform:scaleX(1)}
+  .intro-actions button:hover>span{transform:translateX(4px)}
+  .intro-actions a:hover>span{transform:translateY(3px)}
+  .publicmain button.primary:hover{background:#111}
+  .problem-card-enter a:hover{text-decoration:underline}
+  .start-answer summary:hover{color:#111}
+}
+@media(min-width:1024px) and (max-width:1200px){
+  .publicnav-v5{gap:14px}.publicnav-v5>.public-links{gap:11px;font-size:12px}
+}
+@media(max-width:1300px){
+  .publicnav-v5{padding-top:64px}
+}
+@media(max-width:1023px){
+  .publicnav-v5{padding-top:64px}
+  .landing-intro h1{font-size:clamp(34px,4.8vw,48px)}
+}
+@media(max-width:720px){
+  .publicmain{--public-space:48px;--public-title:27px}
+  .publicnav-v5{padding-top:64px;padding-bottom:16px;gap:10px;flex-wrap:wrap}
+  .publicnav-v5>.brand{margin-right:auto}
+  .publicnav-v5>button{font-size:12px;min-height:42px;padding:8px 12px}
+  .publicnav-v5>.public-mobile-menu>summary{min-height:44px;display:flex;align-items:center;font-size:13px}
+  .landing-intro{padding-block:48px}
+  .landing-intro h1{font-size:clamp(27px,7.7vw,36px);line-height:1.4;letter-spacing:-.03em;margin-block:20px 24px}
+  .intro-audience{font-size:12px}
+  .landing-intro>p{font-size:15px;max-width:32ch;line-height:1.85;margin-bottom:28px}
+  .intro-actions{gap:12px}.intro-actions button,.intro-actions a{font-size:14px;min-height:48px}
+  .intro-footnote{font-size:11px;line-height:1.9;max-width:30ch;margin:22px auto 0}
+  .entry-deck-section>.section-heading p,.career-gallery .section-heading p,.story-bridge p,.before-start>header p{font-size:14px}
+  .problem-card-title{font-size:24px}.problem-card-description{font-size:14px}
+  .problem-card-top{font-size:13px}.problem-card-face{padding:24px}
+  .entry-deck-note{font-size:12px}
+  .story-scene-intro>p,.tail-route-detail>p,.tail-chat-example>p,.tail-report-fragment>p{font-size:14px}
+  .start-answer summary{font-size:16px;min-height:48px;padding-block:10px}
+  .start-answer p{font-size:14px}
+  .before-start h2 span{display:inline}
+  .before-start>footer a,.before-start>footer button,.tail-footer-nav a{font-size:12px}
+  .tail-closing p{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .publicnav-v5>.public-links a::after,.intro-actions span{transition:none}
+  .entry-deck[data-selection-motion=true] .problem-card{transition:none}
+}
+
+/* Keep the complete horizontal stage inside a small laptop viewport. */
+@media(min-width:1024px) and (min-height:720px) and (max-height:850px){
+  .career-gallery h2{font-size:28px}
+  .career-gallery .section-heading{margin-bottom:10px}
+  .career-gallery .section-heading p{font-size:13px;margin-top:8px}
+  .career-gallery .career-gallery-stage{padding-block:8px}
+  .career-gallery .direction-gallery-card img{height:64px}
+  .career-gallery .direction-gallery-card figure{margin:12px 12px 0}
+  .career-gallery .direction-card-content{padding:10px 16px 12px}
+  .career-gallery .direction-card-content h3{font-size:23px;margin:6px 0 10px}
+  .career-gallery .direction-card-content dd{font-size:13px;line-height:1.7}
+  .career-gallery .direction-card-content dt,.career-gallery .direction-card-branch{font-size:11px}
+  .career-gallery .direction-card-content dl{margin-bottom:10px}
+  .career-gallery .direction-card-content dl>div+div{margin-top:8px}
+  .career-gallery footer.direction-gallery-footer{margin-top:8px}
+}
+

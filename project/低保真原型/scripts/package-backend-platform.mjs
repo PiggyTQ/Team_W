@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const root=process.cwd(),out=path.resolve('checks/backend-completeness-20261030'),base=path.join(out,'production-baseline'),payload=path.join(out,'payload');
+try{if(JSON.parse(await fs.readFile(path.join(out,'manifest.json'),'utf8')).deployed)throw Error('ALREADY_DEPLOYED_USE_NEW_RELEASE_ID');}catch(error){if(error.code!=='ENOENT')throw error;}
+const modified=['server/auth-server.mjs','server/agent/service.mjs','server/agent/library.mjs','server/backup-db.py','src/main.jsx','src/experience.jsx','src/WorkspaceHome.jsx','src/LoginPage.jsx','src/AccountSecurityPanel.jsx','src/i18n/reviewed-en.json'];
+const added=['server/runtime-operations.mjs','server/concurrency-gate.mjs','server/account-mail.mjs','server/platform-admin.mjs','server/encrypted-backup.mjs','src/personal-suggestions-controller.js','src/PersonalSuggestions.jsx','src/personal-suggestions.css','src/AccountMailActions.jsx','src/AdminConsole.jsx','scripts/manage-platform-role.mjs','scripts/ops-probe.mjs','scripts/secure-backup.mjs','deploy/career-ops-probe.service','deploy/career-ops-probe.timer','deploy/platform-services.env.example'];
+const hash=b=>createHash('sha256').update(b).digest('hex'),rows=[];
+for(const name of [...modified,...added]){const bytes=await fs.readFile(path.join(root,name));await fs.mkdir(path.dirname(path.join(payload,name)),{recursive:true});await fs.writeFile(path.join(payload,name),bytes);rows.push({path:name,baselineSha256:modified.includes(name)?hash(await fs.readFile(path.join(base,name))):null,candidateSha256:hash(bytes)});}
+const manifest={releaseId:'backend-platform-20261030-04',approvedForProduction:false,deployed:false,aiEnabled:false,mailEnabled:false,adminRolesGranted:false,modelBudgetUnchanged:true,files:rows,newTables:['account_email_verifications','account_mail_tokens','account_mail_outbox','account_mail_schema','platform_roles','managed_knowledge','managed_knowledge_head','platform_receipts','platform_audit','platform_course_revisions'],frontendIntegration:'additive hooks and independent components; preserve current source baseline'};
+await fs.writeFile(path.join(payload,'manifest.json'),JSON.stringify(manifest,null,2));
+execFileSync('tar',['-czf',path.join(out,'candidate.tar.gz'),'-C',payload,...rows.map(r=>r.path),'manifest.json']);manifest.archiveSha256=hash(await fs.readFile(path.join(out,'candidate.tar.gz')));await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify(manifest,null,2));console.log(JSON.stringify({files:rows.length,archiveSha256:manifest.archiveSha256,approvedForProduction:false}));

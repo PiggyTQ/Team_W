@@ -1,0 +1,23 @@
+{
+  "id": "log-video",
+  "course_id": "log",
+  "chapter_ids": [
+    "log-chapter-1",
+    "log-chapter-2"
+  ],
+  "title": "Parsing 101 with Fluent Bit",
+  "provider": "CNCF member post / Sharad Regoti",
+  "source_id": "VID-003",
+  "source_url": "https://www.cncf.io/blog/2025/01/06/parsing-101-with-fluent-bit/",
+  "delivery": "external_reference",
+  "local_file": null,
+  "duration_seconds": null,
+  "language": "en",
+  "source_page_http_status": 200,
+  "source_page_verified": true,
+  "playback_verified": false,
+  "media_candidates": [
+    "https://www.youtube.com/watch?v=PZaL70vaCrg"
+  ],
+  "viewing_guide_zh": "来源文章内有视频链接。观看日志格式解析的思路；本课不要求安装Fluent Bit，不把解析成功视为确定根因。"
+}

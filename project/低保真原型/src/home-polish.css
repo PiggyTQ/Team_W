@@ -1,0 +1,129 @@
+/* Public home refinement: one ivory canvas, navy actions, sage selection.
+   Original images and illustrated SVG artwork retain their authored colors. */
+#root:has(#main.publicmain){background:#fffdf8}
+#root #main.publicmain.publicmain{
+ --surface-canvas:#fffdf8;--surface-card:#fff;--surface-inset:#f3f4ed;
+ --surface-border:#dedfd4;--surface-ink:#153657;--surface-copy:#516476;
+ --action-main:#153657;--action-explore:#153657;--action-record:#56735a;
+ --control-selected:#e8eee5;--control-selected-ink:#36553c;
+ --public-muted:#516476;--home-muted:#516476;
+ --jimo-feedback:160ms;--jimo-switch:280ms;--jimo-enter:560ms;
+ --jimo-ease:cubic-bezier(.23,1,.32,1);
+ --landing-ease-out:var(--jimo-ease);
+ background:#fffdf8;color:#153657;scrollbar-color:#8b9a89 #f3f4ed;
+}
+#root #main.publicmain.publicmain ::selection{background:#e9ba58;color:#153657}
+#root #main.publicmain.publicmain :is(a,button,summary){-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#root #main.publicmain.publicmain :is(a,button,summary,input,select):focus-visible{outline:3px solid #56735a;outline-offset:4px}
+#root #main.publicmain.publicmain :is(button,.button){
+ transition:transform var(--jimo-feedback) var(--jimo-ease),background-color var(--jimo-feedback) ease,color var(--jimo-feedback) ease,border-color var(--jimo-feedback) ease;
+}
+#root #main.publicmain.publicmain :is(a,summary){transition:color var(--jimo-feedback) ease,background-color var(--jimo-feedback) ease;text-underline-offset:.25em}
+#root #main.publicmain.publicmain :is(button.primary,a.button.primary,.publicnav>button,.archive-actions button.primary,.hero-import-actions .primary){background:#153657;border-color:#153657;color:#fffdf8;box-shadow:none}
+#root #main.publicmain.publicmain :is(button,.button):disabled{transform:none;opacity:.45;cursor:not-allowed}
+#root #main.publicmain.publicmain :is(button,.button):not(:disabled):not(.problem-card-face):not(.auth-nook-scene):active{transform:scale(.97);transition-duration:100ms}
+#root #main.publicmain.publicmain :is(.hero-import-actions a,.os-reveal,.archive-method button,.direction-preview){background:#fffdf8;border-color:#cbd2c6;color:#153657;box-shadow:none}
+#root #main.publicmain.publicmain .publicnav{background:transparent;color:#153657;border-color:#dedfd4}
+#root #main.publicmain.publicmain .publicnav :is(.brand,.brand-mark){color:#153657}
+#root #main.publicmain.publicmain .public-links a{color:#516476}
+#root #main.publicmain.publicmain .public-links a::after{background:#56735a;transform-origin:0 50%;transition:transform 250ms var(--jimo-ease)}
+#root #main.publicmain.publicmain .public-links a[aria-current=location]{color:#153657}
+#root #main.publicmain.publicmain .public-links a[aria-current=location]::after{transform:scaleX(1)}
+#root #main.publicmain.publicmain .public-mobile-menu>div{background:#fffdf8;border-color:#dedfd4;color:#153657}
+#root #main.publicmain.publicmain .public-mobile-menu a[aria-current=location]{background:#e8eee5;color:#36553c}
+#root #main.publicmain.publicmain .landing-intro.hero-import{background:#fffdf8;color:#153657;box-shadow:0 0 0 100vmax #fffdf8}
+#root #main.publicmain.publicmain .hero-import h1{color:#153657}
+#root #main.publicmain.publicmain .hero-import-eyebrow{background:#f0f3ea;color:#36553c;border-color:transparent;box-shadow:none}
+#root #main.publicmain.publicmain .hero-import-eyebrow>span{background:#56735a;box-shadow:none}
+#root #main.publicmain.publicmain .hero-import-description{color:#516476}
+#root #main.publicmain.publicmain .hero-import-footnote{color:#5b6a75}
+#root #main.publicmain.publicmain .hero-import-photo{background:#eeeee6;box-shadow:none}
+#root #main.publicmain.publicmain .hero-import-photo img{transform-origin:50% 60%;backface-visibility:hidden}
+#root #main.publicmain.publicmain :is(.hero-import-actions button,.direction-preview,.tail-closing button)>span[aria-hidden=true]{display:inline-block;transition:transform 250ms var(--jimo-ease)}
+#root #main.publicmain.publicmain :is(.section-heading h2,.archive-heading h2,.before-start h2,.tail-closing h2){color:#153657}
+#root #main.publicmain.publicmain :is(.section-heading p,.archive-heading p,.entry-deck-note,.entry-deck-note span,.before-start>header p){color:#516476}
+
+/* The existing scroll choreography stays in place; only its material changes. */
+#root #main.publicmain.publicmain .outcome-showcase{color:#153657;--os-line:#dedfd4;--os-muted:#516476;border-color:#dedfd4}
+#root #main.publicmain.publicmain :is(.showcase-frame,.sj-stage){background:#fffdf8}
+#root #main.publicmain.publicmain :is(.os-stage,.showcase-frame[data-chapter] .os-stage,.spread-plate,.archive-scene,.archive-mobile-record){background:#f0f3eb;border-color:transparent;box-shadow:none}
+#root #main.publicmain.publicmain .os-stage{--os-muted:#516476}
+#root #main.publicmain.publicmain .os-copy-body :is(h3,.os-reveal){color:#153657}
+#root #main.publicmain.publicmain .os-count>span+span{color:#6d8075}
+#root #main.publicmain.publicmain .os-finished{background:#fffdf8;color:#153657;border-color:#d7ddd0;box-shadow:none}
+#root #main.publicmain.publicmain .os-finished :is(header,footer,.os-document-rows>div>span){color:#516476}
+#root #main.publicmain.publicmain .os-finished :is(header,footer,.os-document-rows>div){border-color:#dedfd4}
+#root #main.publicmain.publicmain .os-finished footer button{color:#36553c}
+#root #main.publicmain.publicmain .os-phases button:before{background:#d6dece}
+#root #main.publicmain.publicmain .os-phases i{background:#56735a}
+#root #main.publicmain.publicmain :is(.os-footer button,.archive-switch button){background:transparent;border-color:transparent;color:#516476;box-shadow:none}
+#root #main.publicmain.publicmain :is(.os-footer button[aria-current=step],.archive-switch button[aria-pressed=true]){background:#e8eee5;color:#36553c;border-color:transparent;box-shadow:none;opacity:1}
+#root #main.publicmain.publicmain .problem-card{background:#fffdf8;box-shadow:0 18px 34px -22px #15365740}
+#root #main.publicmain.publicmain .problem-card:nth-child(n) .problem-card-face{background:#fffdf8;color:#153657;border-color:#dedfd4;box-shadow:none}
+#root #main.publicmain.publicmain .problem-card[data-selected=true] .problem-card-face{background:#f0f3ea;border-color:#56735a}
+#root #main.publicmain.publicmain .problem-card-enter{background:#fffdf8;border-color:#dedfd4}
+#root #main.publicmain.publicmain .problem-card-enter a{color:#36553c}
+#root #main.publicmain.publicmain .problem-card :is(.problem-card-top,.problem-card-description,.problem-card-output small){color:#516476}
+#root #main.publicmain.publicmain .problem-card-output{border-color:#dedfd4}
+#root #main.publicmain.publicmain .problem-pick{color:#36553c}
+#root #main.publicmain.publicmain .entry-deck[data-selection-motion=true] .problem-card{transition-duration:280ms;transition-timing-function:var(--jimo-ease)}
+#root #main.publicmain.publicmain .entry-deck[data-keyboard=true] .problem-card{transition:none}
+#root #main.publicmain.publicmain .spread-index button{background:transparent;border-color:transparent;color:#516476}
+#root #main.publicmain.publicmain .spread-index button[aria-pressed=true]{background:#e8eee5;color:#36553c;border-color:transparent}
+#root #main.publicmain.publicmain .spread-index button[aria-pressed=true] :is(small,.spread-step-number){color:#36553c}
+#root #main.publicmain.publicmain .spread-caption{background:#fffdf8}
+#root #main.publicmain.publicmain .spread-plate>header{background:#f0f3eb;border-color:#dedfd4;color:#153657}
+#root #main.publicmain.publicmain .spread-description{border-color:#dedfd4}
+#root #main.publicmain.publicmain .spread-description>p{color:#516476}
+#root #main.publicmain.publicmain .spread-description>button{color:#36553c}
+#root #main.publicmain.publicmain .direction-directory-layout{background:#fffdf8;border-color:#dedfd4;box-shadow:none}
+#root #main.publicmain.publicmain .direction-index button{background:transparent;color:#516476}
+#root #main.publicmain.publicmain .direction-index button[aria-pressed=true]{background:#e8eee5;color:#36553c;border-color:transparent}
+#root #main.publicmain.publicmain .direction-summary{border-color:#dedfd4}
+#root #main.publicmain.publicmain .direction-summary :is(h3,dd){color:#153657}
+#root #main.publicmain.publicmain :is(.direction-summary dt,.direction-summary-branch,.direction-directory-footer,.direction-index-number){color:#516476}
+#root #main.publicmain.publicmain .direction-context{border-color:#dedfd4}
+#root #main.publicmain.publicmain .archive-switch nav{background:#eef1e8}
+#root #main.publicmain.publicmain .archive-caption{background:transparent;border-color:#dedfd4}
+#root #main.publicmain.publicmain .archive-caption :is(p,small),#root #main.publicmain.publicmain .archive-caption>div>span{color:#516476}
+#root #main.publicmain.publicmain .archive-plan button{color:#516476}
+#root #main.publicmain.publicmain .archive-plan button[aria-pressed=true]{color:#36553c;border-color:#56735a}
+#root #main.publicmain.publicmain .archive-footer :is(span,button){color:#516476}
+#root #main.publicmain.publicmain .start-answer{background:#fffdf8;border-color:#dedfd4;box-shadow:none}
+#root #main.publicmain.publicmain .start-answer summary{color:#153657}
+#root #main.publicmain.publicmain .start-answer[open]{background:#f0f3eb}
+#root #main.publicmain.publicmain .start-answer p{color:#516476}
+#root #main.publicmain.publicmain .tail-closing{background:#f0f3eb;border-color:transparent;box-shadow:none}
+#root #main.publicmain.publicmain .tail-closing p{color:#516476}
+#root #main.publicmain.publicmain .tail-closing :is(a,small){color:#36553c}
+#root #main.publicmain.publicmain .tail-footer-nav{border-color:#dedfd4;color:#516476}
+#root #main.publicmain.publicmain .tail-footer-nav a{color:#516476}
+#root #main.publicmain.publicmain .story-end-line>span{background:#e9ba58}
+#root #main.publicmain.publicmain .publicnav.publicnav-v5{background:#fffdf8;box-shadow:none}
+#root:has(#main.publicmain) .prototype-bar{background:#f3f4ed;color:#516476;border-color:#dedfd4}
+#root:has(#main.publicmain) .language-switch-floating{background:#eef1e8;border-color:#dedfd4}
+#root:has(#main.publicmain) .language-switch-floating button{color:#516476}
+#root:has(#main.publicmain) .language-switch-floating button[aria-pressed=true]{background:#dfe8da;color:#36553c}
+#root #main.publicmain.publicmain .home-companion .auth-nook-scene:focus-visible{outline-offset:-6px}
+
+@media(hover:hover) and (pointer:fine){
+ #root #main.publicmain.publicmain :is(button.primary,a.button.primary,.publicnav>button,.archive-actions button.primary,.hero-import-actions .primary):hover{background:#23496c;color:#fffdf8;border-color:#23496c}
+ #root #main.publicmain.publicmain :is(.hero-import-actions a,.os-reveal,.archive-method button,.direction-preview):hover{background:#e8eee5!important;color:#36553c;border-color:#b2c0ab}
+ #root #main.publicmain.publicmain :is(.spread-index button,.direction-index button):not([aria-pressed=true]):hover{background:#f0f3eb;color:#36553c}
+ #root #main.publicmain.publicmain .public-links a:hover{color:#153657}
+ #root #main.publicmain.publicmain .public-links a:hover::after{transform:scaleX(1)}
+ #root #main.publicmain.publicmain :is(.hero-import-actions button,.direction-preview,.tail-closing button):hover>span[aria-hidden=true]{transform:translateX(3px)}
+ #root #main.publicmain.publicmain .problem-card-face:hover{background:#f5f6ef}
+ #root #main.publicmain.publicmain .start-answer summary:hover{color:#36553c}
+}
+@media(prefers-reduced-motion:reduce){
+ #root #main.publicmain.publicmain :is(button,.button,a,summary){transition-property:background-color,color,border-color;transition-duration:120ms}
+ #root #main.publicmain.publicmain :is(button,.button):not(:disabled):not(.problem-card-face):not(.auth-nook-scene):active{transform:none}
+ #root #main.publicmain.publicmain .hero-import-photo img{transform:none!important}
+ #root #main.publicmain.publicmain .public-links a::after{transition:none}
+ #root #main.publicmain.publicmain :is(.hero-import-actions button,.direction-preview,.tail-closing button)>span[aria-hidden=true]{transform:none!important;transition:none}
+ #root #main.publicmain.publicmain .entry-deck[data-selection-motion=true] .problem-card{transition:none}
+}
+@media print{
+ #root #main.publicmain.publicmain .hero-import-photo img{transform:none!important}
+}

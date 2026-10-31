@@ -1,0 +1,86 @@
+/* v54: short summaries precede full-width work; no reserved empty side columns. */
+#main.workspace .plan-overview{grid-template-columns:minmax(0,1fr) minmax(300px,340px);gap:20px;align-items:start;margin-bottom:20px}
+#main.workspace .plan-primary{display:block}
+#main.workspace .plan-primary .goal-statement{height:auto;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:16px;padding:20px}
+#main.workspace .plan-overview>.weekly-budget{padding:20px}
+#main.workspace .weekly-budget .capacity-header{margin-bottom:12px}
+#main.workspace .weekly-budget .capacity-note{margin:12px 0;font-size:12px;line-height:1.8}
+#main.workspace .weekly-budget .capacity-ledger{margin:12px 0}
+#main.workspace .weekly-budget>.section-heading{margin-bottom:16px}
+#main.workspace .phased-plan{width:100%;min-width:0;box-sizing:border-box;padding:24px 0;margin:0 0 28px;border:0;border-top:1px solid #d8d8d3;border-radius:0;background:transparent}
+#main.workspace .phased-plan>.section-head{margin-bottom:20px}
+#main.workspace .phased-plan>.section-head p{max-width:76ch;font-size:13px;line-height:1.9;margin-bottom:0}
+#main.workspace .phase-columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
+#main.workspace .phase-columns>section{min-width:0;padding:18px;background:#f5f5f2;border-radius:8px;min-height:0}
+#main.workspace .phase-columns>section>header{margin:0;padding:0;border:0}
+#main.workspace .phase-columns h3{font-size:17px;margin:0 0 10px;line-height:1.6;overflow-wrap:anywhere}
+#main.workspace .phase-columns>section>p{font-size:12px;line-height:1.8;margin:12px 0 0;color:#626262}
+#main.workspace .phase-columns>section:has(>article){grid-column:1/-1;display:grid;grid-template-columns:minmax(160px,.65fr) minmax(0,2fr);gap:16px 24px}
+#main.workspace .phase-columns:has(article){display:flex;flex-direction:column}
+#main.workspace .phase-columns:has(article)>section{width:100%;box-sizing:border-box;display:grid;grid-template-columns:minmax(160px,.65fr) minmax(0,2fr);gap:16px 24px}
+#main.workspace .phase-columns:has(article)>section>p{margin:0;align-self:center}
+#main.workspace .phase-columns>section>article{grid-column:2;margin:0;padding:16px 0;background:transparent;border:0;border-top:1px solid #d4d4cf;border-radius:0;min-width:0}
+#main.workspace .phase-columns>section>header+article{border-top:0;padding-top:0}
+#main.workspace .phase-columns :is(strong,p,small){overflow-wrap:anywhere}
+#main.workspace .phase-resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;margin-top:24px;padding-top:24px;border-top:1px solid #d8d8d3}
+#main.workspace .phase-resources>:is(h3,p,a){grid-column:1/-1}
+#main.workspace .phase-resources>article{min-width:0;margin:12px 0 0;padding:18px 0;border:0;border-top:1px solid #d8d8d3;border-radius:0;background:transparent}
+#main.workspace .archive-reading-desk{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+#main.workspace .archive-chapter-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0;border-bottom:1px solid #bdbdb8}
+#main.workspace .archive-chapter-nav>h3{grid-column:1/-1;margin:0;padding:0;font-size:13px}
+#main.workspace .report-theme-navigation button{display:flex;align-items:baseline;min-width:0;min-height:64px;padding:12px;gap:10px;margin:0;border-radius:6px 6px 0 0}
+#main.workspace .report-theme-navigation button>span:last-child{font-size:14px;min-width:0}
+#main.workspace .report-theme-navigation button small{margin-top:4px;font-size:11px}
+#main.workspace .archive-paper{grid-column:1/-1;width:100%;min-height:0;box-sizing:border-box}
+#main.workspace .archive-record-drawer{grid-column:1/-1;margin:0;min-width:0}
+#main.workspace .archive-paper>.thematic-report{margin-inline:32px}
+#main.workspace .report-topic-panels{display:flex;flex-direction:row;flex-wrap:wrap;align-items:flex-start;gap:20px 28px}
+#main.workspace .report-topic-panel{flex:1 1 300px;min-width:0;box-sizing:border-box;min-height:0;padding-top:18px}
+#main.workspace .report-topic-panel[data-slot=goal]{flex-grow:1.4}
+#main.workspace .report-topic-panel:is([data-slot=choices],[data-slot=dimensions],[data-slot=practice],[data-slot=extra],[data-density=long]){flex-basis:100%}
+#main.workspace .report-topic-panel p{max-width:74ch}
+#main.workspace .report-topic-spread{padding:24px 0 12px}
+#main.workspace .report-topic-intro{margin-bottom:20px}
+#main.workspace .report-topic-original{margin-top:20px;padding-top:12px}
+#main.workspace .report-center{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+#main.workspace .report-center>.workspace-section{width:100%;min-height:0}
+#main.workspace .report-preparation{padding:22px 24px;min-width:0}
+#main.workspace .report-preparation h2{font-size:18px;margin:0 0 16px}
+#main.workspace .report-preparation ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:0}
+#main.workspace .report-preparation li{border:0;border-top:1px solid #cececa;min-width:0;padding:14px 0 0}
+#main.workspace .report-preparation li h3{font-size:14px;line-height:1.7;margin:0 0 8px}
+#main.workspace .report-preparation li p{font-size:12px;line-height:1.9;overflow-wrap:anywhere}
+#main.workspace .report-preparation>a{margin-top:16px;display:inline-flex;align-items:center;min-height:44px}
+#main.workspace .report-reading-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+#main.workspace .report-outline{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:16px 0;border-block:1px solid #d5d5d0;overflow:visible}
+#main.workspace .report-outline>h2{width:100%;margin:0;font-size:16px}
+#main.workspace .report-outline>a{display:inline-flex;align-items:center;min-height:44px;padding:6px 0;margin:0;font-size:13px}
+#main.workspace .report-outline>hr{width:100%;margin:0;border:0}
+#main.workspace .report-outline>p{margin:0}
+#main.workspace .report-reference{grid-column:1/-1}
+#main.workspace .report-paper{min-height:0}
+@media(min-width:721px) and (max-width:1150px){
+ #main.workspace .phase-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #main.workspace .report-theme-navigation button{padding:10px 6px;gap:6px}
+ #main.workspace .report-preparation ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+ #main.workspace .plan-overview{grid-template-columns:minmax(0,1fr);gap:16px}
+ #main.workspace .plan-primary .goal-statement{padding:20px 18px}
+ #main.workspace .plan-overview>.weekly-budget{padding:20px 18px}
+ #main.workspace .phase-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ #main.workspace .phase-columns>section{padding:16px 12px}
+ #main.workspace .phase-columns h3{font-size:15px}
+ #main.workspace .phase-columns>section:has(>article){display:block}
+ #main.workspace .phase-columns:has(article)>section{display:block}
+ #main.workspace .phase-columns:has(article)>section>p{margin-top:12px}
+ #main.workspace .phase-columns>section>header+article{padding-top:16px;margin-top:16px;border-top:1px solid #d4d4cf}
+ #main.workspace .phase-resources{grid-template-columns:minmax(0,1fr)}
+ #main.workspace .archive-chapter-nav{display:none}
+ #main.workspace .archive-mobile-chapter{display:block;margin:0}
+ #main.workspace .archive-paper>.thematic-report{margin-inline:20px}
+ #main.workspace .report-topic-panel{flex-basis:100%}
+ #main.workspace .report-preparation{padding:20px 16px}
+ #main.workspace .report-preparation ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+ #main.workspace .report-outline{gap:4px 16px;white-space:normal;overflow:visible}
+}

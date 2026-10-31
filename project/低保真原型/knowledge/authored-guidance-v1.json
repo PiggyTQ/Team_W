@@ -1,0 +1,2255 @@
+{
+  "version": "authored-guidance-20261028-v1",
+  "publicationStatus": "local_reviewed_release",
+  "reviewKind": "engineering_and_ai_assisted_not_expert",
+  "sources": [
+    {
+      "id": "foundation-SW_BE-definition",
+      "title": "后端开发工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "后端开发工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n将业务规则实现为服务端接口与数据处理，关注正确性、权限和可维护性。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "1fff5ac25fe28c209dee9bf52d7da08a288bad7e27cfcec31ccfb7e983eaba25",
+        "derivativeDigest": "ddb67ba7d30088ff176b92d33fb0981a5baf4c0348f0ae891de8423c39071dbd"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_BE-tasks",
+      "title": "后端开发工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "后端开发工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n澄清业务规则与接口输入输出\n实现接口、数据读写与异常处理\n设计权限、数据校验和测试\n定位运行问题并维护技术说明",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4e9526fc9bd8d0eb4b62e384316207d9d89981c8ac6d8a13bd1b4038a14f28cc",
+        "derivativeDigest": "cc4e1ccf07fd7021c71ce2dbe19a866818407df2b70c1855c45b328208e946d0"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_BE-learning",
+      "title": "后端开发工程师 · 入门学习方向",
+      "content": "后端开发工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n数据结构与算法（SK_DSALGO）\nAPI Design（SK_APIDESIGN）\nSQL（SK_SQL）\nGit（SK_GIT）\nUnit Testing（SK_UNITTEST）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_BE.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "b79861ea838ccf89b332b71c9a4a59238c87a4bddff8476814e4c7c3e903b343",
+        "derivativeDigest": "c234809fbb299c5b7ce15be28dd3ba828487efe4077982544737ac2e2f2f8e08"
+      }
+    },
+    {
+      "id": "foundation-SW_FE-definition",
+      "title": "前端开发工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "前端开发工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n把产品交互实现为可使用的浏览器界面，并管理页面状态和接口协作。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "0a974207526de05e28460a1d2b43a17b7d648542ef2e27176e79cfbf73901a16",
+        "derivativeDigest": "27e214bff28c971638f9f764b551d90031440b25284fbd259cba468bc07cbb51"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_FE-tasks",
+      "title": "前端开发工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "前端开发工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n拆解页面结构、交互和状态\n实现组件、路由与接口连接\n处理加载、空白、失败和权限状态\n验证浏览器兼容、响应式与可访问性",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "418d525d99af372fdb6e7bdbd3449a26b045e747a7fadccd985aa9ef21cdf3da",
+        "derivativeDigest": "7b2977c2fdd55fd492fd6ff99d9d94283e52b6caf1c5801b820ecfb68d541172"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_FE-learning",
+      "title": "前端开发工程师 · 入门学习方向",
+      "content": "前端开发工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nHTML（SK_HTML）\nCSS（SK_CSS）\nJavaScript（SK_JAVASCRIPT）\nGit（SK_GIT）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_FE.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "97fd8922404ff88a7ebe1d6a20edf1a0dc6c02428d735a3c21e6fc1ebbe58157",
+        "derivativeDigest": "f9d14ace4a61fa89363b35ac071a2ef02b6201e849c47127383ae128c059ef2b"
+      }
+    },
+    {
+      "id": "foundation-SW_TEST-definition",
+      "title": "软件测试工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "软件测试工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n用系统化检查与可复现证据发现质量风险，支持软件验证和缺陷闭环。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4909d885f5581c304c58ff2038f7b02b3ec4ea0407bf1e49f4aa2e8f5e9d0d93",
+        "derivativeDigest": "1b398110f28ffec72c234219335e6a80f868ed739c0c65a8bad9f9c6301c1155"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_TEST-tasks",
+      "title": "软件测试工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "软件测试工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n从需求设计场景、边界和异常用例\n执行检查并定位实际与预期差异\n记录复现证据并跟踪修复\n按方向建设接口、自动化或性能检查",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "15aa0cfe8fff7a947daf238af0b87fc4474b727b77f0d13d7865c809251280a3",
+        "derivativeDigest": "e5a1b4b8ea29863e7f447cb8985eb7ff0a4944a048441a5a614c0e3bd6773b50"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_TEST-learning",
+      "title": "软件测试工程师 · 入门学习方向",
+      "content": "软件测试工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n软件测试（SK_SOFTWARETEST）\n测试用例（SK_TESTCASE）\n功能测试（SK_FUNCTIONALTEST）\n技术文档（SK_DOC）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_TEST.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "85e6836976be811e6836049807df20047e4df3bb7838fc8707b7e6e5156788b5",
+        "derivativeDigest": "508cf9505533caffbf6a4eb47f5971e772d32654db6566e72c1aea0f3c6542e6"
+      }
+    },
+    {
+      "id": "foundation-SW_GENERAL-definition",
+      "title": "通用软件开发工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "通用软件开发工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n在特定平台或应用中分析需求、实现程序并验证维护其行为。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Removed sample-specific suffix from general definition. Previous text: 在特定平台或应用中分析需求、实现程序并验证维护其行为；当前样本偏向 C/C++ 开发。",
+        "originalDigest": "2795ee9e4ba4c265256e0bfc523c7659fd9d8f165ee962786afa5acb5aa7c867",
+        "derivativeDigest": "fa2db9ee5aa2c1a18db254d4ee43033b9e1efc6d8cf1c9e6c82f2d98cca2477f"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_GENERAL-tasks",
+      "title": "通用软件开发工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "通用软件开发工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n明确软件输入、输出与模块边界\n实现数据结构与业务处理\n调试并验证功能与异常\n维护代码、构建和技术文档",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "a64c8e0f56fb6a6ae51e3ce771f5217080fa7db77b32e6ab190c8f1721d5a9c4",
+        "derivativeDigest": "2fe054dc827cf37bdb0cfa50c9e2fd95b5972197e105c6ba5624b49bb36be783"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-SW_GENERAL-learning",
+      "title": "通用软件开发工程师 · 入门学习方向",
+      "content": "通用软件开发工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n数据结构与算法（SK_DSALGO）\nGit（SK_GIT）\nUnit Testing（SK_UNITTEST）\n技术文档（SK_DOC）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "SW_GENERAL.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "c4069537b9798c0bee0defc99c7734068c84c2b0a8ca33ed908a2c1e5c64e7b8",
+        "derivativeDigest": "9b4e389d6d91308beda466db73fb3483deb4bf4b34b99d87ff2c76556cdd109a"
+      }
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-definition",
+      "title": "IT 实施与交付工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "IT 实施与交付工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n围绕软件、网络或信息系统完成客户需求确认、配置集成、验收培训和上线支持；按具体领域选择方向。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "ed62437405bb54b7a708f247f451629535fb7b1d02b20d5bc4de762061663774",
+        "derivativeDigest": "818eedd6b88569e26e404b110d8d2ede5508d0f2e890bdf0024be64e6e0ec5e8"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-tasks",
+      "title": "IT 实施与交付工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "IT 实施与交付工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n澄清客户流程与使用需求\n配置系统、集成接口和准备数据\n安排联调、培训和验收\n记录上线问题并推动解决",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "2ef8685eb5c7e7249ea5ff97e61bf0ca2c73c2b74f8fb7b8bb04139314bb0617",
+        "derivativeDigest": "50f27245db1cc782f7e943e6cb6c9a71dd2f7371c4cb196e4b6e19fc59330de4"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-learning",
+      "title": "IT 实施与交付工程师 · 入门学习方向",
+      "content": "IT 实施与交付工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nSQL（SK_SQL）\n技术文档（SK_DOC）\nAPI Design（SK_APIDESIGN）\nData Modeling（SK_DATAMODEL）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "IMPLEMENTATION.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "03bdbdb2faafd2cb1f8caeb4c55f8e716335bc17adc1d9a3123b5ff3a04e29ba",
+        "derivativeDigest": "a3049c05144d30870243c1595e229dd93588819ba54b251b1e738cf73026fb59"
+      }
+    },
+    {
+      "id": "foundation-ML_AI-definition",
+      "title": "AI／算法工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "AI／算法工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n围绕模型或 AI 应用完成问题定义、实现和效果评估。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Removed sample-specific suffix from general definition. Previous text: 围绕模型或 AI 应用完成问题定义、实现和效果评估；当前国内样本明显偏重大模型应用。",
+        "originalDigest": "fc60761a937673a5ea21e1c83e3813d234d872976127b3b9114955754f0f68dd",
+        "derivativeDigest": "d6c434ca4692b92ed64ec8d77b883483281b371b32e55e02e6afb47f0e3e02b9"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-ML_AI-tasks",
+      "title": "AI／算法工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "AI／算法工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n定义任务、数据和评价方式\n实现模型实验或 AI 应用流程\n分析错误并改善效果\n协作完成服务集成和运行验证",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "2548d082c38f809489059910a46d88a2d5aebaf5425490c79f7fea25dda4f9cb",
+        "derivativeDigest": "34dfe2f1870c4066a7510b865e343a53d42431f6a7d52e6366ea926bf590197b"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-ML_AI-learning",
+      "title": "AI／算法工程师 · 入门学习方向",
+      "content": "AI／算法工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nPython（SK_PYTHON）\n模型评估（SK_MODELEVAL）\n数据质量（SK_DATAQUALITY）\nGit（SK_GIT）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "ML_AI.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "90ec7c451e926e160726f938058c5e27eafce9919af483f7550b8d90387555ac",
+        "derivativeDigest": "59c3e8d110e01cdfdc941ca6142ad029d80bba1919872a0b0f021dcc18c92e78"
+      }
+    },
+    {
+      "id": "foundation-DATA_ENG-definition",
+      "title": "数据工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n设计和维护数据采集、转换、存储与交付流程，使数据可用、可追溯和可靠。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "d4719cacb2c3add7f845a3bec32d931c029c87cafc1009fd3d2874dc47e1f268",
+        "derivativeDigest": "8569f536158db356d20aeb9abea38c8fe2fc8b5ec9f0855b38d0577b30c5e17f"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-DATA_ENG-tasks",
+      "title": "数据工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n设计采集和转换流程\n建立数据模型与存储组织\n检查质量、调度和失败恢复\n管理数据权限、血缘与交付约定",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4a9916eb2f8800b084bf6209947c4a21a65660a1816d14b85b2a350ea9390091",
+        "derivativeDigest": "09f4dd0e929730b64bc5fec8583cd338cfffc3c79047cd19fccae4d84b322b4b"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-DATA_ENG-learning",
+      "title": "数据工程师 · 入门学习方向",
+      "content": "数据工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nSQL（SK_SQL）\nPython（SK_PYTHON）\nETL / ELT（SK_ETL）\nData Warehousing（SK_DWH）\n数据质量（SK_DATAQUALITY）\nData Modeling（SK_DATAMODEL）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ENG.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "0899ccaef03adefe678078cfd3ff3487871c61006d518269d16312e3eb68699f",
+        "derivativeDigest": "437c1dcc3682b66550c4dc8f63d1ec0a7460d25ea2985b5aa6a2e07c8ed6c790"
+      }
+    },
+    {
+      "id": "foundation-DATA_ANALYST-definition",
+      "title": "数据分析师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据分析师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n将业务或领域问题转为指标与分析，使用数据形成有依据、有限定条件的解释和建议。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "b351e97e8ae6c3831ce18e4f5b012b800c025f33dd68517c940f2ed49b23e8b9",
+        "derivativeDigest": "ac287d705a01dcc7d6c9590f2730fd71961562022a6fd8bc01724d5edf273365"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-tasks",
+      "title": "数据分析师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据分析师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n明确问题、指标和分析口径\n查询清洗数据并检查质量\n开展分析、可视化与结果解释\n沟通建议并复核分析限制",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "4823b153b298a99a61d15ff03121f49bd7f82f98eb912b6ba6906449a11752af",
+        "derivativeDigest": "cd027601a80a7fa25207154aaa872c8b14984f6f785af8de1767d699ae984710"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-learning",
+      "title": "数据分析师 · 入门学习方向",
+      "content": "数据分析师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nSQL（SK_SQL）\nStatistics（SK_STATS）\nData Visualization（SK_DATAVIZ）\n数据质量（SK_DATAQUALITY）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DATA_ANALYST.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "300a6ab148363c24ee44cb49cd3d8147a4af7baf4264e3eb3fd38964a0ac9b9d",
+        "derivativeDigest": "3b87530f7295012b333000e2e77f8a8f91e9ea763825375f0b75021a544e8245"
+      }
+    },
+    {
+      "id": "foundation-CYBERSEC-definition",
+      "title": "网络安全工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "网络安全工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n在明确授权下识别和处理信息系统风险，并形成整改与验证证据。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "dc5b844cbcc5ad84c37cb28bd9a267df0dfc2f9fd962fbefe994686184c709f5",
+        "derivativeDigest": "f7272b08e951f9c0a797e0e85e9e1eb5c6207988e70e7ff2d8b1686811c12708"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-CYBERSEC-tasks",
+      "title": "网络安全工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "网络安全工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n确认资产、授权和风险范围\n开展安全检查或监测分析\n协作进行响应与整改\n记录证据、复核修复并输出报告",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "7f78f210ac527f10a2de2f149cae26d8fb36337892ff3aac41b1e0689e0ffa14",
+        "derivativeDigest": "fac732f478e686455821f57803c3fd494fc9b01209e9c0aa6278b2249832ec10"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-CYBERSEC-learning",
+      "title": "网络安全工程师 · 入门学习方向",
+      "content": "网络安全工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nNetworking（SK_NETWORKING）\nLinux（SK_LINUX）\n访问控制（SK_ACCESSCONTROL）\n技术文档（SK_DOC）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "CYBERSEC.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "77ee17e57137f09b2229d7c06f472cd74afb22a7664485f64d2280a9fe873038",
+        "derivativeDigest": "c03042e47e05615e221bc074f409aa761b949ca8d82a1ca7719f660109bc014d"
+      }
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-definition",
+      "title": "运维／DevOps／SRE 工程师 · 项目整理的功能定义",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "运维／DevOps／SRE 工程师 · 项目整理的功能定义\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n维护 IT 服务的运行与交付，通过监控、自动化和恢复机制改善可靠性。",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/definition"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "67492973a541f0034ca4ce01bc176a3cf40345e87ae19af7abc3c1e09c968751",
+        "derivativeDigest": "8332f4a468339fb2a1879e9f445294ecff4e26065ed9a156129feda57929664b"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-tasks",
+      "title": "运维／DevOps／SRE 工程师 · 项目整理的典型任务",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "运维／DevOps／SRE 工程师 · 项目整理的典型任务\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n配置维护系统与服务\n监控状态、定位故障和恢复\n管理部署变更、回滚与备份\n通过脚本、流程和复盘减少重复风险",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/职业画像最终版_V3/基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "profileVersion": "2.0.0",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false,
+        "pointer": "/typical_tasks/items",
+        "transform": "join newline"
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed scope and four functional tasks; no empirical hiring claims.",
+        "originalDigest": "792ea13b8df0fc57a9ecd7727138099bbb01c76983dd360f751783a362514dc6",
+        "derivativeDigest": "bd0a9a1353f8544d1648abdc8667622eed53326ad867e3e6273fc6d9a86bc355"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-learning",
+      "title": "运维／DevOps／SRE 工程师 · 入门学习方向",
+      "content": "运维／DevOps／SRE 工程师 · 入门学习方向\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\nLinux（SK_LINUX）\nNetworking（SK_NETWORKING）\n监控与告警（SK_MONITOR）\n备份与恢复（SK_BACKUP）\nShell/Bash（SK_SHELL）",
+      "purposes": [
+        "agent_advice"
+      ],
+      "origin": {
+        "file": "C:\\Users\\tsnbx\\Desktop\\team\\project\\职业画像最终版_V3\\基础职业画像_最终.json",
+        "fileSha256": "bf1c34a2fa89a2eac630ccfbf32cae6b90989843447c866871f590a2d17a8b19",
+        "profileId": "DEVOPS_SRE.base.2.0",
+        "pointer": "/dimensions/PS/learning_focus",
+        "transform": "only competency_id and name; observed_job_count excluded",
+        "originalHumanApproved": false,
+        "originalPublicDisplayAllowed": false
+      },
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z",
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Reviewed as optional learning directions; neither mandatory job requirements nor evidence of proficiency.",
+        "originalDigest": "57625f059d1fd782a131f6f92f71e67cf04f0b330827d4ee91a1cc1d6f05b4d8",
+        "derivativeDigest": "4934916ea07a2b4a1dbdd574a2c355c0a0f88c2f9a396fbad50cad039caa8830"
+      }
+    },
+    {
+      "id": "course-quality-chapter-1",
+      "title": "数据质量小项目 · 业务：哪些数据可以支撑问题",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据质量小项目 · 业务：哪些数据可以支撑问题\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 业务：哪些数据可以支撑问题\n\n- 课程ID：quality\n- 章节ID：quality-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n文件能回答什么问题，记录数和有效分母有什么区别？\n\n## 核心讲解\n\n本课把“整理数据”限定为可重复的文件分析：确认字段、引用问题记录、说明处理口径。公开源CSV保存原始344行；练习文件另加行号和教学问题。先区分原始观察、后加教学内容，再解释结果。按物种统计记录数与按物种计算体重均值使用不同分母，缺体重记录仍可以参与记录数统计。\n\n## 一个完整例子\n\n若一组有10条记录，其中2条体重未提供，记录数是10，体重均值分母是8；不能把2条缺值替成0后除以10。这个算术例子独立于实际企鹅统计。\n\n## 跟着做\n\n1. 打开practice/input/penguins_source.csv，查看8个表头。\n2. 阅读practice/data_dictionary.md。\n3. 在练习文件中选一条NA记录，写出它能参加哪些统计。\n\n## 本章小练习\n\n交 scope.md：列出问题、输入、统计对象、单位和两个不同分母。\n\n## 自查\n\n- [ ] 能区分原始文件和教学派生文件。\n- [ ] 写明体重单位为克。\n- [ ] 未把缺失体重认定为体重0。\n\n## 常见错误与提示\n\n先做图再找问题会使分母和目标含混。先写问题，再决定统计什么；不要因为有年份列就画未经问题支持的趋势。\n\n## 局限与下一步\n\n这个便利样本和带注入的练习不能代表全国、全部企鹅或任何职业就业趋势；下一章决定处理规则。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "2d7722cea736dd09ee154076954e288f77ec8a205202a183cb33a610c8568b49",
+        "derivativeDigest": "e43ebb8698f0390b47376799d197dd6d5a2669177f24a95f474ee0566b72a6bc"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-quality-chapter-2",
+      "title": "数据质量小项目 · 方案：保留原值与处理理由",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据质量小项目 · 方案：保留原值与处理理由\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 方案：保留原值与处理理由\n\n- 课程ID：quality\n- 章节ID：quality-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n哪些问题可以确定修正，哪些应保留待核对？\n\n## 核心讲解\n\n处理决定要能回到原记录。把原值、候选修正、理由分别保存，避免覆盖后无法解释。大小写和前后空格可在明确的标签约定下归一；未知岛屿不应根据物种猜测。负体重与本题正数测量约定冲突，可从均值分母排除，同时保留问题记录。重复必须先定义键，本题比较八个源字段，不比较新加的record_id。\n\n## 一个完整例子\n\nQ030的物种格式可以按本题映射归一为Adelie；Q020的Unknown_Island保留未知；Q010的-1记为无效体重，不直接用同物种均值替换。\n\n## 跟着做\n\n1. 为缺失、重复、格式差异、未知类别、无效测量各写一条处理规则。\n2. 在issues表中保留record_id与observed原值。\n3. 对未知岛屿写“保留并说明”，而不是填一个最常见值。\n\n## 本章小练习\n\n交 decisions.md：至少给出一个能修正和一个不能确定修正的例子。\n\n## 自查\n\n- [ ] 规则在实际处理之前写清。\n- [ ] 重复键不含record_id。\n- [ ] 未知与零有不同表示。\n\n## 常见错误与提示\n\n一键删除含NA的所有行会影响不依赖那些字段的统计。按问题决定排除范围，并同时报告排除数量。\n\n## 局限与下一步\n\n同样测量值未必代表同一真实个体。本题重复规则仅用于演示，采用其他规则须解释差异。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "ebca8e032a0d3e03766a5af2d9b0b00813f21bf54edfa39c4411bbba165a47f1",
+        "derivativeDigest": "8c82186195f8c2046634c7c7aae88a006dfd8fe534853071cfa7b0c4534215d4"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-quality-chapter-3",
+      "title": "数据质量小项目 · 实践：记录质量问题",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据质量小项目 · 实践：记录质量问题\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 实践：记录质量问题\n\n- 课程ID：quality\n- 章节ID：quality-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样留下别人可以复查的处理记录？\n\n## 核心讲解\n\n无论使用表格、SQL还是Python，处理链都应保持输入、规则与输出一致。先清点输入记录，再逐条标注，最后按已说明的分母汇总。可以一行多问题，问题条目数不等于问题行数；也不能先清掉问题再假称原始文件本来完整。参考结果由附带脚本计算，学生应先独立完成，再对照具体差异。\n\n## 一个完整例子\n\nQ345与Q001的八个源字段相同，新行号不同。本题排除Q345这一教学重复，但问题表保留两条行号关联。\n\n## 跟着做\n\n1. 读入346条练习记录并记录这个起点。\n2. 找出重复并保留对应关系，处理格式差异与无效测量。\n3. 输出各物种总记录数、有效体重数、均值、排除数。\n4. 核对总记录数与排除数是否能解释输入变化。\n\n## 本章小练习\n\n按practice/task.md提交issues、summary与method三项；使用工具的同学说明工具和运行环境。\n\n## 自查\n\n- [ ] 每条问题有稳定行号。\n- [ ] 一条记录可出现多条问题说明。\n- [ ] 统计表同时保留总数与有效分母。\n\n## 常见错误与提示\n\n为凑参考答案而改输入会失去依据。先比较重复规则、无效值处理与分母，再比较最终数值。\n\n## 局限与下一步\n\n脚本运行只能说明对给定文件执行了规则，不等于生态研究验证或职业能力认证。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "661fb1d70ec1fe878c7deb5988d9462c3ee9674cbb84c4b433762f7bfd779220",
+        "derivativeDigest": "aa2bfb54125dda699ec3ba25bfed6a29b602baff76651567a1b9d4b61cd3429c"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-quality-chapter-4",
+      "title": "数据质量小项目 · 表达：贡献与局限",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "数据质量小项目 · 表达：贡献与局限\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 表达：贡献与局限\n\n- 课程ID：quality\n- 章节ID：quality-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-001, SRC-002, SRC-003, SRC-004。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何把结果写成有贡献与局限的交付？\n\n## 核心讲解\n\n成果应让读者看清问题、方法、观察和限制四件事。个人贡献写动作与范围，例如“编写重复检测与字段说明”，不要只写“负责数据分析”。工具辅助应注明，参考脚本的输出不能自动改写为本人独立完成。数值旁给单位、分母和文件版本；结论范围限定到本次输入。\n\n## 一个完整例子\n\n可以写“本练习按八个源字段排除2条教学重复，保留344行”，并链接issues和summary。不要写“数据完全正确，因此本人已具备企业数据治理能力”。\n\n## 跟着做\n\n1. 阅读reference/results/summary.csv并与自己的分母核对。\n2. 将差异归类为规则差异、实现错误或资料不足。\n3. 写本人贡献与仍未知的事项。\n\n## 本章小练习\n\n交 final_note.md：问题、输入版本、关键处理、结果、本人贡献、限制。\n\n## 自查\n\n- [ ] 结果有引用文件与单位。\n- [ ] 参考结果和本人实际运行分开。\n- [ ] 结论没有超出本文件。\n\n## 常见错误与提示\n\n只给漂亮图表没有处理记录不便复查；只说“存在局限”也不够，应点明样本范围、注入内容或缺失信息。\n\n## 局限与下一步\n\n下一步可把自己的交付作为待确认经历，阅读本课本身不能作为掌握证明。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "quality",
+        "chapterId": "quality-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "7bc4e95f5dbc79fdc2981516fd2c8c20c8ea75ca09c1ab5dbb27a2a4a8fab5a7",
+        "derivativeDigest": "f8e8cb041856a12267373868595d0d6edc20dc5b37330075aa1a2d97c26b41ff"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-ai-eval-chapter-1",
+      "title": "AI 调用与评估体验 · 业务与风险",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "AI 调用与评估体验 · 业务与风险\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 业务与风险\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样确定回答允许使用的事实范围？\n\n## 核心讲解\n\n本课不调用模型，只练习阅读预录输入和回答。instruction定义要求，context提供当前可用事实，candidate_answer是待观察的输出。材料里的命令句不自动成为用户授权；回答声称“已修改目标”也不是工具执行证据。先画出信息边界，再判断事实、措辞和操作声明。\n\n## 一个完整例子\n\nE004只给一份本人确认的SQL查询说明，不能因此认定精通SQL。E007资料内的改目标命令不是实际修改授权。\n\n## 跟着做\n\n1. 打开practice/input/eval_cases.jsonl，按case_id找E004和E007。\n2. 分别摘出给定事实与回答新增内容。\n3. 标注哪些信息需要额外证据。\n\n## 本章小练习\n\n交 scope_notes.md：对两条案例分别写允许事实、增加的断言、不能执行的动作。\n\n## 自查\n\n- [ ] 知道这些回答为项目编写。\n- [ ] 不把候选回答当事实来源。\n- [ ] 不把文本中的命令当操作授权。\n\n## 常见错误与提示\n\n回答语气肯定不代表资料充分；先看依据，而非文风或长度。\n\n## 局限与下一步\n\n本课练习不含真实API、模型延迟或调用成本数据，不应补造这些字段。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "8f6bf3a2cc54b90f510c003a6b166f1f41118c3b2a4b8bdd5e83c0b9526b06b2",
+        "derivativeDigest": "043e56f852ffe723007874ac02eb7feec1a7a65d94c74ecc8c7f2eb86ffeeaf5"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-ai-eval-chapter-2",
+      "title": "AI 调用与评估体验 · 评估规则",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "AI 调用与评估体验 · 评估规则\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 评估规则\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样给出可观察且可解释的判断？\n\n## 核心讲解\n\n本题采用F01事实一致、F02无依据新增、F03约束遵守、F04未知处理四类检查。它们检查不同问题，允许同一回答某些项满足、另一些不满足。任务真相未知时，仍可判断回答是否做了无依据肯定；不能把“无法判断实际状态”写成“这条回答没问题”。这是一份题内规则，不是经过校准的通用模型量表。\n\n## 一个完整例子\n\nE010的实际在招状态未知，但“今天肯定仍在招聘”超出快照依据，因此任务状态无法判断，F02仍应指出问题。\n\n## 跟着做\n\n1. 阅读practice/data_dictionary.md中的四项规则。\n2. 为E006与E010分别写任务状态与措辞检查。\n3. 为每条判定引用一句输入或回答。\n\n## 本章小练习\n\n交 rubric_trial.md：两条案例的逐项结果、理由，以及一个仍需补充的问题。\n\n## 自查\n\n- [ ] 区分现实未知与回答越界。\n- [ ] 不用一个总分掩盖不同问题。\n- [ ] 不适用项有说明。\n\n## 常见错误与提示\n\n有参考答案不代表必须只写“错”。要说明错在事实、约束还是未知处理。\n\n## 局限与下一步\n\n规则覆盖范围有限；若要评价真实模型，还需额外的独立题集和运行条件。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "ec28942b19ea891f097e471325ad4571fd05e4dbd31af2e794041860c01aaf7f",
+        "derivativeDigest": "6fc50de48515fe686372f824716d3b081e90eb8d5e7d666e3d6cb6792111c371"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-ai-eval-chapter-3",
+      "title": "AI 调用与评估体验 · 离线记录",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "AI 调用与评估体验 · 离线记录\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 离线记录\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何保存可复查的离线判定记录？\n\n## 核心讲解\n\nJSONL每行一个对象，便于逐条引用和扩充。记录case_id、规则编号、输入依据、观察与理由，比只记一个分数更便于解释差异。先独立标注，再打开reference_judgments对照。保存时不要覆盖原始候选回答，也不要把改写后的回答混入原测试结果。\n\n## 一个完整例子\n\n对E009，可引用context中的“或”与候选回答中的“同时”，指出备选关系被改成全部必需。改写版本另外保存，而不是修改原case。\n\n## 跟着做\n\n1. 逐行阅读12条案例，填写四类检查。\n2. 为E009保存一个独立改写并标原case_id。\n3. 对照reference/results/reference_judgments.jsonl，记录分歧原因。\n\n## 本章小练习\n\n交judgments.jsonl或Markdown表格，加上revisions.md两条改写。\n\n## 自查\n\n- [ ] 12个案例ID没有漏掉或重复。\n- [ ] 改写与原回答分开。\n- [ ] 没有填写不存在的模型运行指标。\n\n## 常见错误与提示\n\n把JSONL多行拼成一个不合法JSON数组会影响后续导入；可先用文本表格，后续再转换。\n\n## 局限与下一步\n\n本题只检查材料读取与判定过程，不提供真实模型排名。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "3643f20325db52157c44f77e7aa98a07cf78cbfc4742e90fed79763e316648ab",
+        "derivativeDigest": "7761bbbd17521f241571ba1b8da4588c8a5ee22881a81c059d8ef44963a5a3ac"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-ai-eval-chapter-4",
+      "title": "AI 调用与评估体验 · 结果表达",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "AI 调用与评估体验 · 结果表达\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 结果表达\n\n- 课程ID：ai-eval\n- 章节ID：ai-eval-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-005。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何汇总问题而不夸大结论？\n\n## 核心讲解\n\n汇总应围绕具体错误类型与改进建议：增加未提供事实、改错约束、越过用户确认或隐藏未知。由于这些案例是为教学挑选的，整体通过比例只描述这批候选记录，不能代表模型的真实准确率，更不能代表用户能力。对无法判断的任务保留缺什么资料的说明。\n\n## 一个完整例子\n\nE008事实内容接近资料，但不符合中文要求；E009改变OR条件。两者改进动作不同，不能只用相同的低分替代解释。\n\n## 跟着做\n\n1. 将自己的问题记录按规则类别归组。\n2. 挑两条说明改写怎样减少无依据内容。\n3. 写出样本选择与未运行模型的局限。\n\n## 本章小练习\n\n交evaluation_note.md：范围、主要问题、例子、改写、局限。\n\n## 自查\n\n- [ ] 汇总能回到case_id。\n- [ ] 不声称真实模型评测已完成。\n- [ ] 未把未知当作零分。\n\n## 常见错误与提示\n\n展示一个百分比容易使人误以为是全面评测。优先展示错误例子与依据，数值必须解释样本和口径。\n\n## 局限与下一步\n\n以后接入Agent时可以沿用记录结构，但仍需另外设计独立评测，不直接把本题参考答案作为效果证明。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "ai-eval",
+        "chapterId": "ai-eval-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-005"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "d9e9dfaa7196f7ead7248af497f601a2cd6fa89e579c0d2deec421ca63d709b2",
+        "derivativeDigest": "900854d90a902ec032a5b3ca3f47e185d5e0022793246b4af06d812d7ad77562"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-log-chapter-1",
+      "title": "离线合成日志分析 · 分析范围",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "离线合成日志分析 · 分析范围\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 分析范围\n\n- 课程ID：log\n- 章节ID：log-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n哪些对象和时间范围在当前分析中可见？\n\n## 核心讲解\n\n本课日志全部由项目生成，只用于离线分析。JSONL和LOG是同一事件集的两种表示，选一种读取。timestamp包含时区，event_id用于引用，request_id把同一请求关联起来。只看到了demo-api侧的有限事件，没有依赖内部状态，分析范围不能越过这些可见资料。\n\n## 一个完整例子\n\n同一req-001有开始与完成两条事件，它是一个请求、两个事件；把两种文件都合并会把数量翻倍。\n\n## 跟着做\n\n1. 阅读字段说明，任选一种输入格式。\n2. 按event_id确认记录唯一。\n3. 列出没有提供的环境资料。\n\n## 本章小练习\n\n交scope.md：时间范围、时区、事件/请求区别和缺失资料。\n\n## 自查\n\n- [ ] 知道日志是合成的。\n- [ ] 不把事件数当请求数。\n- [ ] 没有对真实主机做操作。\n\n## 常见错误与提示\n\n文件名叫app.log不表示真实生产日志；来源和生成方式比扩展名更重要。\n\n## 局限与下一步\n\n原始字段完整性也受本题设计限制；下一章只在范围内寻找异常线索。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "b172cd3cae5e7dd956138208b2712c25a2884f752165cfae0ccabbee0591e425",
+        "derivativeDigest": "b801ed1d7621a6043176594c91a7c86941ad18856f09498270aa20cbf9ec3d31"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-log-chapter-2",
+      "title": "离线合成日志分析 · 异常线索",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "离线合成日志分析 · 异常线索\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 异常线索\n\n- 课程ID：log\n- 章节ID：log-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何从观察到的事件形成可定位的线索？\n\n## 核心讲解\n\n先按时间与请求关联，再看级别和消息。ERROR表示本日志记录了错误事件，不自动告诉根因；WARN也不等同安全攻击。一次请求可能有多条日志，统计时应说明统计事件还是请求。形成时间线时把事件编号、时间、请求与消息放在一起，让别人能够回查。\n\n## 一个完整例子\n\nreq-021的开始和后续dependency_timeout可关联，但这个组合只能说明该请求记录了依赖超时，不能证明依赖服务器损坏。\n\n## 跟着做\n\n1. 筛选ERROR和WARN，保留原事件ID。\n2. 找各错误事件对应的请求开始。\n3. 记录首个与末个ERROR时间，另列WARN。\n\n## 本章小练习\n\n交timeline表：event_id、timestamp、request_id、level、message。\n\n## 自查\n\n- [ ] 时间带时区。\n- [ ] ERROR与WARN没有混为同一种现象。\n- [ ] 每条线索都有事件ID。\n\n## 常见错误与提示\n\n只搜索“error”可能遗漏其他级别的线索；也不要因为某条级别高就跳过上下文。\n\n## 局限与下一步\n\n时间相近不等于因果关系；下一章列出可区分的解释。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "5b085de859c519f57c029b44960b371eb7868b6ab65484df544077f592d53c57",
+        "derivativeDigest": "461480027cb733a3e13b6ee2246a0356f878b6b0c8484e9f0ef9b21d2f57fd42"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-log-chapter-3",
+      "title": "离线合成日志分析 · 替代解释",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "离线合成日志分析 · 替代解释\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 替代解释\n\n- 课程ID：log\n- 章节ID：log-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何提出不止一种解释，并知道还缺什么？\n\n## 核心讲解\n\n替代解释不是随意猜测清单。每个假设都要说明它怎样解释已见现象、还有哪些观察可以支持或排除它。依赖处理慢、链路延迟、超时配置不合适都可能产生超时消息；仅凭当前API侧日志不能选择唯一根因。区分假设需要额外记录，而不是更肯定的语气。\n\n## 一个完整例子\n\n若要检验“依赖处理慢”，需要依赖侧处理时间或队列观察；若要检验“超时设置变更”，需要配置版本和变更时间。当前输入都没有。\n\n## 跟着做\n\n1. 为超时现象提出两种解释。\n2. 为每种写一个需要补充的可观察记录。\n3. 检查有没有把未提供信息当成已经发生。\n\n## 本章小练习\n\n交hypotheses.md：假设、可解释线索、待补证据、当前结论。\n\n## 自查\n\n- [ ] 每种解释对应具体线索。\n- [ ] 缺资料时保留未知。\n- [ ] 不把日志关键词当攻击证据。\n\n## 常见错误与提示\n\n“可能是任何问题”没有帮助，应将缺失信息写到具体字段、时间或对象。\n\n## 局限与下一步\n\n本题不包含真实排障授权；提出需要的数据不等于可以自动访问那些系统。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "c9dcb0fa6f26f27cc05c74824b6e6ab9b779ae0082fb0449f3c6b3cf04f25bd3",
+        "derivativeDigest": "1ceef4a82af80d0229ae4c8853794f385904ecc81c789dace751768a767f8480"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-log-chapter-4",
+      "title": "离线合成日志分析 · 结论边界",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "离线合成日志分析 · 结论边界\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 结论边界\n\n- 课程ID：log\n- 章节ID：log-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-006, VID-003。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样写一份可用于讨论而不越界的分析？\n\n## 核心讲解\n\n报告把观察、假设、未知和下一步分开。观察直接引用事件；假设说明证据还不够；未知列出缺失资料；下一步给有限范围的核对建议。个人贡献可写整理时间线、关联请求和提出验证问题，不能把合成分析写成处置了真实事故。\n\n## 一个完整例子\n\n可以写“合成文件中req-021至req-025出现依赖超时事件”；不能写“已查明攻击并恢复所有服务”。\n\n## 跟着做\n\n1. 将时间线中的两条关键引用写进结论。\n2. 加上两种替代解释与缺失信息。\n3. 说明使用工具和自己完成的部分。\n\n## 本章小练习\n\n交analysis_note.md：范围、观察、假设、待补资料、贡献、局限。\n\n## 自查\n\n- [ ] 关键结论都有引用。\n- [ ] 没有将合成素材写成真实经历。\n- [ ] 没有把观察不足写成系统正常。\n\n## 常见错误与提示\n\n没有发现更多错误只是当前文件中的观察，不代表其他服务和时间范围没有问题。\n\n## 局限与下一步\n\n可以把自己的交付存成待确认材料；阅读、提交或对上参考计数都不等于安全能力实核。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "log",
+        "chapterId": "log-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-006",
+          "VID-003"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "1c096f647171c5ff928562155de1d9bf8827b022bdb665de93431ff363315912",
+        "derivativeDigest": "348a35fa25f093546a74eb1db0bb86539341a161d79fbdf502a4dcfdcde6c361"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-restore-chapter-1",
+      "title": "模拟恢复记录 · 故障背景",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "模拟恢复记录 · 故障背景\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 故障背景\n\n- 课程ID：restore\n- 章节ID：restore-chapter-1\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n故障描述里哪些是已知，哪些需要继续核对？\n\n## 核心讲解\n\n本课是离线桌面推演。输入包括系统简述、版本变更时间线和合成监控；它们足以练习组织恢复判断，不代表你获得真实服务器操作权限。影响应尽可能落到业务路径、时间和观察范围。健康接口只覆盖一个检查路径，不能代替所有业务请求。\n\n## 一个完整例子\n\n输入中的health_http_status始终为200，业务错误数却在v2窗口上升，因此“进程或健康路径可访问”与“业务请求表现正常”是不同观察。\n\n## 跟着做\n\n1. 阅读incident.md和字段说明。\n2. 找出版本变更、业务指标变化和健康路径结果。\n3. 列出没有提供的依赖内部状态与更长观察。\n\n## 本章小练习\n\n交incident_summary.md：系统范围、观察影响、时间线与未知。\n\n## 自查\n\n- [ ] 写明合成桌面推演。\n- [ ] 没有只凭健康接口判断恢复。\n- [ ] 版本变化与根因推断分开。\n\n## 常见错误与提示\n\n把时间顺序直接写成根因会掩盖其他可能。先记录变更与观察之间的关系，再说明还缺什么。\n\n## 局限与下一步\n\n本题的数字和阈值由项目编写，不是外部组织的生产标准。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-1",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "452652e33b6766337a9985768f313a2f262dcaeba1c4520787fa26ac4dbf0933",
+        "derivativeDigest": "0bd5d3fbfb8e9f2c45465fb6ab971fad65c06d747e5e9ad2682bab6693f1b011"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-restore-chapter-2",
+      "title": "模拟恢复记录 · 恢复方案",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "模拟恢复记录 · 恢复方案\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 恢复方案\n\n- 课程ID：restore\n- 章节ID：restore-chapter-2\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何组织包含前提和停止条件的恢复选择？\n\n## 核心讲解\n\n恢复方案应说明为什么采取动作、需要什么前提、怎样观察以及什么时候停止。可先冻结进一步变更、保留观察、核对可用版本与兼容性，再考虑切换。不同方案应比较业务影响和可验证性。课程输出是计划文本，不自动执行命令；没有提供的备份或权限不能假定存在。\n\n## 一个完整例子\n\n考虑回到v1之前，先核对本题给出的schema-1标签和可用版本。即使标签相同，真实系统仍需另行验证兼容性；本题只练习把前提写出来。\n\n## 跟着做\n\n1. 列出继续观察与考虑切回已知版本两种选择。\n2. 给每步补前提、预期观察与停止条件。\n3. 把尚未核对的依赖与权限列为待确认。\n\n## 本章小练习\n\n交recovery_plan.md，使用“步骤/前提/观察/停止条件”表格。\n\n## 自查\n\n- [ ] 没有执行真实操作。\n- [ ] 方案有明确适用条件。\n- [ ] 没有承诺资料未支持的无损恢复。\n\n## 常见错误与提示\n\n只写重启或回滚三个字不能说明可行性。最重要的是执行前有什么依据和执行后看什么。\n\n## 局限与下一步\n\n在真实部署中还需要具体系统的授权和操作规程，本题不替代它们。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-2",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "11e7ebc6b6fd4b903fa7c0551193c9ee073cb00b341835e7a2de049dc8c736b1",
+        "derivativeDigest": "e14e00a6e1624ca3ed0794650b359520b0baf6207785fc13d3a3f14f4d93bbdc"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-restore-chapter-3",
+      "title": "模拟恢复记录 · 回退条件",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "模拟恢复记录 · 回退条件\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 回退条件\n\n- 课程ID：restore\n- 章节ID：restore-chapter-3\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n怎样定义并检查回退后的观察条件？\n\n## 核心讲解\n\n本题规定切回v1后连续两个完整60秒窗口：errors/requests小于1%，p95小于300ms。先确认分子分母在同一窗口，再判断阈值；不能从已有p95平均得到真实整体p95。两个窗口条件用于本题自查，不构成通用恢复保证。\n\n## 一个完整例子\n\n09:08窗口4/1000=0.4%，09:09窗口3/1000=0.3%，且对应p95为190ms、180ms，版本均为v1；这些给定合成观察满足本题条件。\n\n## 跟着做\n\n1. 在monitoring.csv中计算每个窗口的错误率。\n2. 只在I09切换之后查两个连续完整窗口。\n3. 保留版本、窗口边界、分母和单位。\n\n## 本章小练习\n\n交verification.md：引用窗口、计算、结果以及未覆盖范围。\n\n## 自查\n\n- [ ] 百分比换算正确。\n- [ ] 没有把健康200当唯一条件。\n- [ ] 没有将观察达标写成永远恢复。\n\n## 常见错误与提示\n\n错误率0.4%不是0.4，也不是40%；写出4/1000可以帮助复查。\n\n## 局限与下一步\n\n观察仅覆盖本题时段与指标。根因和长期状态仍未知。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-3",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "17e160011d639a32d150b5e623d5a6deaed0ab5041dea31f972be19807b3d236",
+        "derivativeDigest": "9c35ec2d7f1f5c627f054f44d95a26b99733ad10df221fd9dc93f7846cafe9d3"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    },
+    {
+      "id": "course-restore-chapter-4",
+      "title": "模拟恢复记录 · 复盘表达",
+      "version": "authored-guidance-20261028-v1",
+      "status": "published",
+      "reviewStatus": "approved",
+      "purposes": [
+        "agent_advice"
+      ],
+      "content": "模拟恢复记录 · 复盘表达\n\n适用范围：项目整理的入门职业学习参考，不是全国统一招聘门槛、市场统计、能力认证或就业承诺。\n\n# 复盘表达\n\n- 课程ID：restore\n- 章节ID：restore-chapter-4\n- 内容版本：1.0\n- 整理日期：2026-10-27\n- 内容性质：针对本资料包独立编写的中文教学正文，练习与外部参考分开标记。\n- 参考来源编号：SRC-007, SRC-008, SRC-009。完整链接与用途见根目录 sources.csv。\n\n## 本章要解决的问题\n\n如何复盘过程并保持事实与推演边界？\n\n## 核心讲解\n\n复盘应说明发生顺序、决策依据、给定观察、尚缺证据与可执行改进。目标是让下次更容易识别和验证，避免用虚构责任人或凭空定责替代分析。引用时间线编号与窗口能帮助读者看清叙事；资料不足时把根因列未知。\n\n## 一个完整例子\n\n可以提出“补充业务路径观测、记录兼容性检查、明确观察窗口”等改进；不能声称这些措施已经由真实团队完成。\n\n## 跟着做\n\n1. 按I编号梳理变更、异常、讨论、合成切换与观察。\n2. 分别列出做得清楚与缺少记录的地方。\n3. 给两项改进写完成证据，责任人先标待小组确定。\n\n## 本章小练习\n\n交postmortem.md：范围、经过、决策、验证、未知、改进、个人贡献。\n\n## 自查\n\n- [ ] 根因未知没有被删掉。\n- [ ] 改进包含可观察的完成方式。\n- [ ] 合成记录与真实操作明确区分。\n\n## 常见错误与提示\n\n复盘不应只写“加强意识”；把问题落到记录、检查或观察步骤才能在下一次核对。\n\n## 局限与下一步\n\n本课完成后留下的是一次推演交付，不是生产运维经历或自动能力认证。\n",
+      "contentScope": "project_authored_learning_not_universal_job_requirements",
+      "origin": {
+        "file": "project/资料收集/展示资料包_20261027/catalog-ready.json",
+        "fileSha256": "93b7e000c4a3699414c9a9c7c0111bc6454e74661ec713a4f8bb08e331c40043",
+        "courseId": "restore",
+        "chapterId": "restore-chapter-4",
+        "contentVersion": 1,
+        "sourceIds": [
+          "SRC-007",
+          "SRC-008",
+          "SRC-009"
+        ],
+        "note": "Original collection metadata is historical; the existing website course release is documented separately."
+      },
+      "review": {
+        "method": "source-by-source editorial and technical review",
+        "humanApprovalClaimed": false,
+        "expertCertification": false,
+        "note": "Read all teaching sections and limitations; checked independent input/reference calculations with validate_materials.py. Original authored offline exercise, not actual model/incident results or competence certification. External video playback is not verified.",
+        "originalDigest": "c8f228c38300fb826afbecd179f9225571810ba2627bec619827cb7d0645e637",
+        "derivativeDigest": "9fbd240baf020c15795673b23d434efe34515915b1d02bba1d7522cf9b86f9e0"
+      },
+      "reviewer": "Codex engineering and AI-assisted editorial review (not human expert certification)",
+      "reviewedAt": "2026-10-28T12:59:37.686Z"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "foundation-SW_BE-definition-whole",
+      "sourceId": "foundation-SW_BE-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 101,
+      "sha256": "ddb67ba7d30088ff176b92d33fb0981a5baf4c0348f0ae891de8423c39071dbd",
+      "career": "backend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_BE-tasks-whole",
+      "sourceId": "foundation-SW_BE-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 123,
+      "sha256": "cc4e1ccf07fd7021c71ce2dbe19a866818407df2b70c1855c45b328208e946d0",
+      "career": "backend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_BE-learning-whole",
+      "sourceId": "foundation-SW_BE-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 158,
+      "sha256": "c234809fbb299c5b7ce15be28dd3ba828487efe4077982544737ac2e2f2f8e08",
+      "career": "backend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_FE-definition-whole",
+      "sourceId": "foundation-SW_FE-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 99,
+      "sha256": "27e214bff28c971638f9f764b551d90031440b25284fbd259cba468bc07cbb51",
+      "career": "frontend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_FE-tasks-whole",
+      "sourceId": "foundation-SW_FE-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 126,
+      "sha256": "7b2977c2fdd55fd492fd6ff99d9d94283e52b6caf1c5801b820ecfb68d541172",
+      "career": "frontend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_FE-learning-whole",
+      "sourceId": "foundation-SW_FE-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 128,
+      "sha256": "f9d14ace4a61fa89363b35ac071a2ef02b6201e849c47127383ae128c059ef2b",
+      "career": "frontend",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_TEST-definition-whole",
+      "sourceId": "foundation-SW_TEST-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 99,
+      "sha256": "1b398110f28ffec72c234219335e6a80f868ed739c0c65a8bad9f9c6301c1155",
+      "career": "testing",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_TEST-tasks-whole",
+      "sourceId": "foundation-SW_TEST-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 127,
+      "sha256": "e5a1b4b8ea29863e7f447cb8985eb7ff0a4944a048441a5a614c0e3bd6773b50",
+      "career": "testing",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_TEST-learning-whole",
+      "sourceId": "foundation-SW_TEST-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 141,
+      "sha256": "508cf9505533caffbf6a4eb47f5971e772d32654db6566e72c1aea0f3c6542e6",
+      "career": "testing",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_GENERAL-definition-whole",
+      "sourceId": "foundation-SW_GENERAL-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 97,
+      "sha256": "fa2db9ee5aa2c1a18db254d4ee43033b9e1efc6d8cf1c9e6c82f2d98cca2477f",
+      "career": "software",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_GENERAL-tasks-whole",
+      "sourceId": "foundation-SW_GENERAL-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 120,
+      "sha256": "2fe054dc827cf37bdb0cfa50c9e2fd95b5972197e105c6ba5624b49bb36be783",
+      "career": "software",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-SW_GENERAL-learning-whole",
+      "sourceId": "foundation-SW_GENERAL-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 136,
+      "sha256": "9b4e389d6d91308beda466db73fb3483deb4bf4b34b99d87ff2c76556cdd109a",
+      "career": "software",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-definition-whole",
+      "sourceId": "foundation-IMPLEMENTATION-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 118,
+      "sha256": "818eedd6b88569e26e404b110d8d2ede5508d0f2e890bdf0024be64e6e0ec5e8",
+      "career": "delivery",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-tasks-whole",
+      "sourceId": "foundation-IMPLEMENTATION-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 121,
+      "sha256": "50f27245db1cc782f7e943e6cb6c9a71dd2f7371c4cb196e4b6e19fc59330de4",
+      "career": "delivery",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-IMPLEMENTATION-learning-whole",
+      "sourceId": "foundation-IMPLEMENTATION-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 146,
+      "sha256": "a3049c05144d30870243c1595e229dd93588819ba54b251b1e738cf73026fb59",
+      "career": "delivery",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-ML_AI-definition-whole",
+      "sourceId": "foundation-ML_AI-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 95,
+      "sha256": "d6c434ca4692b92ed64ec8d77b883483281b371b32e55e02e6afb47f0e3e02b9",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-ML_AI-tasks-whole",
+      "sourceId": "foundation-ML_AI-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 121,
+      "sha256": "34dfe2f1870c4066a7510b865e343a53d42431f6a7d52e6366ea926bf590197b",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-ML_AI-learning-whole",
+      "sourceId": "foundation-ML_AI-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 135,
+      "sha256": "59c3e8d110e01cdfdc941ca6142ad029d80bba1919872a0b0f021dcc18c92e78",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ENG-definition-whole",
+      "sourceId": "foundation-DATA_ENG-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 100,
+      "sha256": "8569f536158db356d20aeb9abea38c8fe2fc8b5ec9f0855b38d0577b30c5e17f",
+      "career": "engineering",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ENG-tasks-whole",
+      "sourceId": "foundation-DATA_ENG-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 115,
+      "sha256": "09f4dd0e929730b64bc5fec8583cd338cfffc3c79047cd19fccae4d84b322b4b",
+      "career": "engineering",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ENG-learning-whole",
+      "sourceId": "foundation-DATA_ENG-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 184,
+      "sha256": "437c1dcc3682b66550c4dc8f63d1ec0a7460d25ea2985b5aa6a2e07c8ed6c790",
+      "career": "engineering",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-definition-whole",
+      "sourceId": "foundation-DATA_ANALYST-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 104,
+      "sha256": "ac287d705a01dcc7d6c9590f2730fd71961562022a6fd8bc01724d5edf273365",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-tasks-whole",
+      "sourceId": "foundation-DATA_ANALYST-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 116,
+      "sha256": "cd027601a80a7fa25207154aaa872c8b14984f6f785af8de1767d699ae984710",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DATA_ANALYST-learning-whole",
+      "sourceId": "foundation-DATA_ANALYST-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 147,
+      "sha256": "3b87530f7295012b333000e2e77f8a8f91e9ea763825375f0b75021a544e8245",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-CYBERSEC-definition-whole",
+      "sourceId": "foundation-CYBERSEC-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 97,
+      "sha256": "f7272b08e951f9c0a797e0e85e9e1eb5c6207988e70e7ff2d8b1686811c12708",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-CYBERSEC-tasks-whole",
+      "sourceId": "foundation-CYBERSEC-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 117,
+      "sha256": "fac732f478e686455821f57803c3fd494fc9b01209e9c0aa6278b2249832ec10",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-CYBERSEC-learning-whole",
+      "sourceId": "foundation-CYBERSEC-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 142,
+      "sha256": "c03042e47e05615e221bc074f409aa761b949ca8d82a1ca7719f660109bc014d",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-definition-whole",
+      "sourceId": "foundation-DEVOPS_SRE-definition",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 112,
+      "sha256": "8332f4a468339fb2a1879e9f445294ecff4e26065ed9a156129feda57929664b",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-tasks-whole",
+      "sourceId": "foundation-DEVOPS_SRE-tasks",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 130,
+      "sha256": "bd0a9a1353f8544d1648abdc8667622eed53326ad867e3e6273fc6d9a86bc355",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "foundation-DEVOPS_SRE-learning-whole",
+      "sourceId": "foundation-DEVOPS_SRE-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 172,
+      "sha256": "4934916ea07a2b4a1dbdd574a2c355c0a0f88c2f9a396fbad50cad039caa8830",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-1-whole",
+      "sourceId": "course-quality-chapter-1",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 880,
+      "sha256": "e43ebb8698f0390b47376799d197dd6d5a2669177f24a95f474ee0566b72a6bc",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-2-whole",
+      "sourceId": "course-quality-chapter-2",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 873,
+      "sha256": "8c82186195f8c2046634c7c7aae88a006dfd8fe534853071cfa7b0c4534215d4",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-3-whole",
+      "sourceId": "course-quality-chapter-3",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 851,
+      "sha256": "aa2bfb54125dda699ec3ba25bfed6a29b602baff76651567a1b9d4b61cd3429c",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-quality-chapter-4-whole",
+      "sourceId": "course-quality-chapter-4",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 825,
+      "sha256": "f8e8cb041856a12267373868595d0d6edc20dc5b37330075aa1a2d97c26b41ff",
+      "career": "data",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-1-whole",
+      "sourceId": "course-ai-eval-chapter-1",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 785,
+      "sha256": "043e56f852ffe723007874ac02eb7feec1a7a65d94c74ecc8c7f2eb86ffeeaf5",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-2-whole",
+      "sourceId": "course-ai-eval-chapter-2",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 776,
+      "sha256": "6fc50de48515fe686372f824716d3b081e90eb8d5e7d666e3d6cb6792111c371",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-3-whole",
+      "sourceId": "course-ai-eval-chapter-3",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 807,
+      "sha256": "7761bbbd17521f241571ba1b8da4588c8a5ee22881a81c059d8ef44963a5a3ac",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-ai-eval-chapter-4-whole",
+      "sourceId": "course-ai-eval-chapter-4",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 747,
+      "sha256": "900854d90a902ec032a5b3ca3f47e185d5e0022793246b4af06d812d7ad77562",
+      "career": "ai",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-1-whole",
+      "sourceId": "course-log-chapter-1",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 724,
+      "sha256": "b801ed1d7621a6043176594c91a7c86941ad18856f09498270aa20cbf9ec3d31",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-2-whole",
+      "sourceId": "course-log-chapter-2",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 764,
+      "sha256": "461480027cb733a3e13b6ee2246a0356f878b6b0c8484e9f0ef9b21d2f57fd42",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-3-whole",
+      "sourceId": "course-log-chapter-3",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 723,
+      "sha256": "1ceef4a82af80d0229ae4c8853794f385904ecc81c789dace751768a767f8480",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-log-chapter-4-whole",
+      "sourceId": "course-log-chapter-4",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 717,
+      "sha256": "348a35fa25f093546a74eb1db0bb86539341a161d79fbdf502a4dcfdcde6c361",
+      "career": "security",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-1-whole",
+      "sourceId": "course-restore-chapter-1",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 764,
+      "sha256": "0bd5d3fbfb8e9f2c45465fb6ab971fad65c06d747e5e9ad2682bab6693f1b011",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-2-whole",
+      "sourceId": "course-restore-chapter-2",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 764,
+      "sha256": "e14e00a6e1624ca3ed0794650b359520b0baf6207785fc13d3a3f14f4d93bbdc",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-3-whole",
+      "sourceId": "course-restore-chapter-3",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 766,
+      "sha256": "9c35ec2d7f1f5c627f054f44d95a26b99733ad10df221fd9dc93f7846cafe9d3",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    },
+    {
+      "id": "course-restore-chapter-4-whole",
+      "sourceId": "course-restore-chapter-4",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "start": 0,
+      "end": 735,
+      "sha256": "9fbd240baf020c15795673b23d434efe34515915b1d02bba1d7522cf9b86f9e0",
+      "career": "ops",
+      "market": "CN",
+      "language": "zh"
+    }
+  ],
+  "standards": [
+    {
+      "career": "backend",
+      "name": "后端开发工程师",
+      "sourceId": "foundation-SW_BE-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_DSALGO",
+          "name": "数据结构与算法"
+        },
+        {
+          "id": "SK_APIDESIGN",
+          "name": "API Design"
+        },
+        {
+          "id": "SK_SQL",
+          "name": "SQL"
+        },
+        {
+          "id": "SK_GIT",
+          "name": "Git"
+        },
+        {
+          "id": "SK_UNITTEST",
+          "name": "Unit Testing"
+        }
+      ]
+    },
+    {
+      "career": "frontend",
+      "name": "前端开发工程师",
+      "sourceId": "foundation-SW_FE-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_HTML",
+          "name": "HTML"
+        },
+        {
+          "id": "SK_CSS",
+          "name": "CSS"
+        },
+        {
+          "id": "SK_JAVASCRIPT",
+          "name": "JavaScript"
+        },
+        {
+          "id": "SK_GIT",
+          "name": "Git"
+        }
+      ]
+    },
+    {
+      "career": "testing",
+      "name": "软件测试工程师",
+      "sourceId": "foundation-SW_TEST-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_SOFTWARETEST",
+          "name": "软件测试"
+        },
+        {
+          "id": "SK_TESTCASE",
+          "name": "测试用例"
+        },
+        {
+          "id": "SK_FUNCTIONALTEST",
+          "name": "功能测试"
+        },
+        {
+          "id": "SK_DOC",
+          "name": "技术文档"
+        }
+      ]
+    },
+    {
+      "career": "software",
+      "name": "通用软件开发工程师",
+      "sourceId": "foundation-SW_GENERAL-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_DSALGO",
+          "name": "数据结构与算法"
+        },
+        {
+          "id": "SK_GIT",
+          "name": "Git"
+        },
+        {
+          "id": "SK_UNITTEST",
+          "name": "Unit Testing"
+        },
+        {
+          "id": "SK_DOC",
+          "name": "技术文档"
+        }
+      ]
+    },
+    {
+      "career": "delivery",
+      "name": "IT 实施与交付工程师",
+      "sourceId": "foundation-IMPLEMENTATION-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_SQL",
+          "name": "SQL"
+        },
+        {
+          "id": "SK_DOC",
+          "name": "技术文档"
+        },
+        {
+          "id": "SK_APIDESIGN",
+          "name": "API Design"
+        },
+        {
+          "id": "SK_DATAMODEL",
+          "name": "Data Modeling"
+        }
+      ]
+    },
+    {
+      "career": "ai",
+      "name": "AI／算法工程师",
+      "sourceId": "foundation-ML_AI-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_PYTHON",
+          "name": "Python"
+        },
+        {
+          "id": "SK_MODELEVAL",
+          "name": "模型评估"
+        },
+        {
+          "id": "SK_DATAQUALITY",
+          "name": "数据质量"
+        },
+        {
+          "id": "SK_GIT",
+          "name": "Git"
+        }
+      ]
+    },
+    {
+      "career": "engineering",
+      "name": "数据工程师",
+      "sourceId": "foundation-DATA_ENG-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_SQL",
+          "name": "SQL"
+        },
+        {
+          "id": "SK_PYTHON",
+          "name": "Python"
+        },
+        {
+          "id": "SK_ETL",
+          "name": "ETL / ELT"
+        },
+        {
+          "id": "SK_DWH",
+          "name": "Data Warehousing"
+        },
+        {
+          "id": "SK_DATAQUALITY",
+          "name": "数据质量"
+        },
+        {
+          "id": "SK_DATAMODEL",
+          "name": "Data Modeling"
+        }
+      ]
+    },
+    {
+      "career": "data",
+      "name": "数据分析师",
+      "sourceId": "foundation-DATA_ANALYST-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_SQL",
+          "name": "SQL"
+        },
+        {
+          "id": "SK_STATS",
+          "name": "Statistics"
+        },
+        {
+          "id": "SK_DATAVIZ",
+          "name": "Data Visualization"
+        },
+        {
+          "id": "SK_DATAQUALITY",
+          "name": "数据质量"
+        }
+      ]
+    },
+    {
+      "career": "security",
+      "name": "网络安全工程师",
+      "sourceId": "foundation-CYBERSEC-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_NETWORKING",
+          "name": "Networking"
+        },
+        {
+          "id": "SK_LINUX",
+          "name": "Linux"
+        },
+        {
+          "id": "SK_ACCESSCONTROL",
+          "name": "访问控制"
+        },
+        {
+          "id": "SK_DOC",
+          "name": "技术文档"
+        }
+      ]
+    },
+    {
+      "career": "ops",
+      "name": "运维／DevOps／SRE 工程师",
+      "sourceId": "foundation-DEVOPS_SRE-learning",
+      "sourceVersion": "authored-guidance-20261028-v1",
+      "skills": [
+        {
+          "id": "SK_LINUX",
+          "name": "Linux"
+        },
+        {
+          "id": "SK_NETWORKING",
+          "name": "Networking"
+        },
+        {
+          "id": "SK_MONITOR",
+          "name": "监控与告警"
+        },
+        {
+          "id": "SK_BACKUP",
+          "name": "备份与恢复"
+        },
+        {
+          "id": "SK_SHELL",
+          "name": "Shell/Bash"
+        }
+      ]
+    }
+  ]
+}

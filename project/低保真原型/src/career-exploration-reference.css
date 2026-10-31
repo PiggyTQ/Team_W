@@ -1,0 +1,114 @@
+/* U05: user's supplied reference and ten original transparent backgrounds.
+   Scope is limited to the career browser; shared navigation stays untouched. */
+html body #root#root#root#root #main.student-workspace:has(.explore-layout) {
+ color:#082d54;
+ background:#fcf9f1;
+ & .page-surface:has(.explore-layout) {
+  position:relative;isolation:isolate;
+  background-image:url('/illustrations/career-backgrounds/exploration-waves.svg');
+  background-repeat:no-repeat;background-position:center 75px;background-size:100% 190px;
+ }
+ & .screen-heading {position:relative;z-index:1;padding:0;margin:8px 0 16px;min-height:58px}
+ & .screen-heading h1 {font-size:34px!important;font-weight:750!important;letter-spacing:-.035em;line-height:1.18;color:#082d54}
+ & .screen-heading p {display:block;color:#526783;font-size:14px;line-height:1.5;margin:9px 0 0;max-width:700px}
+ & .explore-layout {grid-template-columns:262px minmax(0,1fr);gap:20px;align-items:start;position:relative}
+ & .explore-filter {
+  background:#f8fbfe;background-image:linear-gradient(125deg,#fcfeff,#f6faff);
+  border:1px solid #e7ebee;border-radius:24px;padding:25px 24px 24px;
+  box-shadow:0 4px 12px -5px #46617a19;backdrop-filter:none;
+ }
+ & .explore-filter>h2 {position:relative;padding:0 25px 0 0;margin:0 0 22px;color:#082d54;font-size:23px!important;line-height:1.25;font-weight:750!important;letter-spacing:-.035em;max-width:215px}
+ & .filter-title-flourish {position:absolute;width:37px;height:45px;right:20px;top:0;color:#ffd33d;transform:translateX(12px)}
+ & .explore-filter .field {display:block;margin:0 0 24px}
+ & .explore-filter .field>span {display:block;color:#526783;font-size:14px;line-height:1.5;margin:0 0 15px;max-width:180px}
+ & .explore-filter .search-input {display:flex;gap:10px;height:44px;padding:0 13px;border:1px solid #dfe3e8;border-radius:10px;background:#ffffff9c;color:#6d819e;box-shadow:none}
+ & .explore-filter .search-input input {border:0;border-radius:0;outline:0;min-width:0;width:100%;height:42px;min-height:0;padding:0;background:transparent;box-shadow:none;font-size:13px;color:#193f67}
+ & .explore-filter .search-input:focus-within {outline:2px solid #1972be;outline-offset:2px}
+ & .explore-filter .search-input svg {flex:none;width:17px}
+ & .explore-filter input::placeholder {color:#617594;opacity:1}
+ & .explore-filter select {width:100%;height:40px;min-height:40px;border:1px solid #dfe3e8;border-radius:10px;padding:0 13px;background-color:#ffffffa8;color:#315579;box-shadow:none;font-size:14px}
+ & .explore-filter fieldset {display:block;border:0;margin:2px 0 0;padding:0;min-width:0}
+ & .explore-filter legend {color:#526783;font-size:14px;margin:0 0 12px;padding:0}
+ & .explore-filter .check {display:flex;align-items:flex-start;font-size:14px;line-height:1.5;color:#526783;padding:5px 0;gap:12px;min-height:30px}
+ & .explore-filter .check:has(:checked) {color:#193f67}
+ & .explore-filter .check input {appearance:auto;flex:none;width:15px;height:15px;min-height:15px;margin:3px 0 0;padding:0;accent-color:#0067be;box-shadow:none}
+ & .explore-invitation {display:block;margin:18px 0 0;padding:15px 5px 0;border-top:1px solid #e9eef3;font-size:14px;line-height:1.5;color:#617594}
+ & .comparison-pocket {margin:20px 0 0;padding:14px 0 0;border-top:1px solid #e9eef3;background:none;box-shadow:none}
+ & .comparison-pocket summary {cursor:pointer;color:#315579;font-size:14px;line-height:1.6}
+ & .comparison-pocket summary span {float:right;color:#617594}
+ & .comparison-pocket h3 {display:none}
+ & .comparison-pocket[open]>h3 {display:block;font-size:14px;margin:16px 0 8px}
+ & .comparison-pocket p {font-size:13px;color:#526783}
+ & .exploration-section-heading {position:relative;isolation:isolate;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;min-height:64px;margin:0 0 0;padding:0 0 14px;background:none}
+ & .exploration-section-heading h2 {font-size:22px!important;line-height:1.3;font-weight:700!important;letter-spacing:-.025em;margin:0 0 5px;color:#082d54}
+ & .exploration-section-heading p {font-size:13px;color:#526783;line-height:1.5;margin:0}
+ & .exploration-section-heading .status-chip {border:0;box-shadow:none;background:none;color:#315579;font-size:14px;white-space:nowrap;padding:0}
+ & .exploration-mascot {position:absolute;z-index:-1;pointer-events:none;width:200px;height:145px;object-fit:contain;left:34%;bottom:28px;filter:drop-shadow(0 5px 3px #c9b47715)}
+ & .occupation-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:none;padding:0;align-items:stretch}
+ & .occupation-grid>article {
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;
+  padding:22px 24px 18px;min-height:286px;min-width:0;border:1px solid #ffe0a1;border-radius:24px;
+  background:#fcf8ee;box-shadow:none;backdrop-filter:none;
+ }
+ /* Move each source image's baked-in rim beyond the common rounded clip.
+    One CSS border supplies the same fine edge on all ten cards. */
+ & .career-card-background {position:absolute;z-index:-1;max-width:none;pointer-events:none;left:-6%;top:-12%;width:112%;height:126%;object-fit:fill}
+ & .occupation-card-top {display:flex;justify-content:space-between;align-items:center;margin:0 0 10px}
+ & .occupation-avatar {display:grid;place-items:center;width:41px;height:41px;min-height:0;border:0;border-radius:50%;background:#e9f3fc;color:#0061ae}
+ & .occupation-avatar svg {width:24px;height:24px}
+ & .occupation-card-top>button {display:flex;align-items:center;gap:7px;border:0;border-radius:20px;background:#fffffff0;color:#526783;font-size:13px;min-height:34px;padding:5px 12px;box-shadow:none}
+ & .occupation-card-top>button[aria-pressed=true] {color:#0756a5;background:#e6f3ff}
+ & .occupation-grid h3 {font-size:18px!important;font-weight:700!important;letter-spacing:-.025em;line-height:1.3;margin:0 0 7px;color:#082d54}
+ & .occupation-grid h3 a {color:inherit;text-decoration:none}
+ & .occupation-grid>article>p {font-size:14px;line-height:1.45;min-height:40px;margin:0 0 10px;color:#526783;max-width:none}
+ & .occupation-output {border:0;padding:0;margin:0;background:none}
+ & .occupation-output>span {font-size:14px;line-height:1.4;color:#405674}
+ & .occupation-output p {font-size:14px;color:#526783;margin:2px 0 8px;line-height:1.45}
+ & .occupation-tags {display:flex;gap:6px;margin:0 0 13px;flex-wrap:wrap;background:none}
+ & .occupation-tags span {padding:3px 7px;border:0;border-radius:5px;background:#fffdf7d9;color:#526783;font-size:12px;line-height:1.3}
+ & .occupation-actions {display:flex;flex-direction:row;align-items:center;justify-content:space-between;border:0;gap:10px;margin-top:auto;padding:0;background:none;font-size:14px}
+ & .occupation-actions a {color:#005bac;text-decoration:none;font-size:14px;line-height:1.4}
+ & .occupation-actions button {flex:none;border:1px solid #dfe6ed;border-radius:22px;min-height:36px;padding:6px 13px;background:#fffffff0;font-size:13px;line-height:1.4;color:#005bac;box-shadow:none}
+ & .occupation-actions button[aria-pressed=true] {background:#e6f3ff;border-color:#91bfe6}
+ & :is(.explore-layout a,.explore-layout button,.explore-layout select,.explore-layout summary):focus-visible {outline:2px solid #1677c8;outline-offset:3px}
+ & .occupation-grid a:hover {text-decoration:underline;text-underline-offset:3px}
+ & .occupation-grid button:hover {background:#eaf4fd}
+}
+@container workspace (max-width:1250px) {
+ html body #root#root#root#root #main.student-workspace:has(.explore-layout) {
+  & .explore-layout {grid-template-columns:240px minmax(0,1fr)}
+  & .occupation-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  & .exploration-mascot {display:none}
+  & .exploration-section-heading {flex-wrap:wrap;gap:5px;min-height:83px}
+ }
+}
+/* Match the reference's strong title hierarchy within the existing type layer. */
+@layer type-system {
+ html body #root #main.student-workspace:has(.explore-layout) {
+  & .screen-heading h1 {font-size:34px!important;font-weight:750!important}
+  & .explore-filter>h2 {font-size:23px!important;font-weight:750!important}
+  & .exploration-section-heading h2 {font-size:22px!important;font-weight:700!important}
+  & .occupation-grid h3 {font-size:18px!important;font-weight:700!important}
+ }
+ @media(max-width:760px) {
+  html body #root #main.student-workspace:has(.explore-layout) {
+   & .screen-heading h1 {font-size:28px!important}
+   & .exploration-section-heading h2 {font-size:21px!important}
+  }
+ }
+}
+@media (max-width:760px) {
+ html body #root#root#root#root #main.student-workspace:has(.explore-layout) {
+  & .screen-heading h1 {font-size:28px!important}
+  & .screen-heading p {font-size:13px}
+  & .explore-layout {grid-template-columns:minmax(0,1fr);gap:16px}
+  & .explore-filter {padding:24px;max-width:none}
+  & .explore-filter>h2 {max-width:215px}
+  & .occupation-grid {grid-template-columns:minmax(0,1fr)}
+  & .occupation-grid>article {min-height:300px;padding:24px}
+  & .exploration-section-heading h2 {font-size:21px!important}
+  & .exploration-section-heading {padding-top:4px;min-height:85px}
+  & .exploration-mascot {display:none}
+  & .occupation-actions {flex-wrap:wrap}
+ }
+}

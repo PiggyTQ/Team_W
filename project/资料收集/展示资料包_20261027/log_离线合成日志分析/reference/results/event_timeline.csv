@@ -1,0 +1,8 @@
+event_id,timestamp,request_id,level,message
+L042,2026-10-01T09:03:23+08:00,req-021,ERROR,dependency_timeout
+L044,2026-10-01T09:03:33+08:00,req-022,ERROR,dependency_timeout
+L046,2026-10-01T09:03:43+08:00,req-023,ERROR,dependency_timeout
+L048,2026-10-01T09:03:53+08:00,req-024,ERROR,dependency_timeout
+L050,2026-10-01T09:04:03+08:00,req-025,ERROR,dependency_timeout
+L072,2026-10-01T09:05:51+08:00,req-036,WARN,slow_response
+L074,2026-10-01T09:06:01+08:00,req-037,WARN,slow_response
