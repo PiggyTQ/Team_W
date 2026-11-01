@@ -9,8 +9,8 @@ export function useAgentSession({user,state,workspace,context,update,language}){
   const [capability,setCapability]=useState({owner:null,loading:false,enabled:false,error:null});
   const [status,setStatus]=useState({pending:false,error:null});
   const [capabilityEpoch,setCapabilityEpoch]=useState(0);
-  const current=useRef(null),session=useRef(null);
-  current.current={user,state,workspace,context,update,language};
+  const current=useRef(null),session=useRef(null),handoffContext=useRef(null);
+  current.current={user,state,workspace,context:handoffContext.current||context,update,language};
   if(!session.current)session.current=createAgentSession({
     getCurrent:()=>{
       const value=current.current,sync=value.workspace.current();
@@ -18,7 +18,7 @@ export function useAgentSession({user,state,workspace,context,update,language}){
     },
     flush:()=>current.current.workspace.flush(),
     request:(input,{signal})=>apiRequest('/api/agent/respond',{data:input,signal}),
-    onStatus:setStatus,
+    onStatus:next=>{if(!next.pending)handoffContext.current=null;setStatus(next);},
     onResult:({userMessage,assistantMessage,conversationId,ownerId})=>{
       if(current.current.user?.id!==ownerId)return;
       if(assistantMessage.agentResponse?.meta?.knowledgeUsed&&assistantMessage.agentResponse.knowledgeDigest!==getAgentKnowledgeDigest())setCapabilityEpoch(value=>value+1);
@@ -54,10 +54,14 @@ export function useAgentSession({user,state,workspace,context,update,language}){
     enabled,loading:capability.loading,pending:status.pending,
     error:status.error?authMessage(status.error,language):capability.error?authMessage(capability.error,language):'',
     draft:state.aiDraft,setDraft:value=>update({aiDraft:value}),
-    send:()=>{
+    // Preserve the request origin only for an explicit companion → workspace handoff.
+    prepareHandoff:()=>{if(status.pending)handoffContext.current=current.current.context;},
+    send:(message=state.aiDraft)=>{
       if(!enabled)return;
+      // Quick prompts use the same recoverable draft as typed questions.
+      if(message!==state.aiDraft)update({aiDraft:message});
       const mode=state.conversations.find(c=>c.id===state.conversationId)?.mode||'职业咨询';
-      session.current.send({message:state.aiDraft,mode,context}).catch(()=>{});
+      session.current.send({message,mode,context}).catch(()=>{});
     },cancel:()=>session.current.cancel(),reload:()=>setCapabilityEpoch(value=>value+1),
     report:async data=>{const owner=current.current.user?.id;await current.current.workspace.flush();if(!owner||current.current.user?.id!==owner)throw {code:'ACCOUNT_CHANGED'};return apiRequest('/api/agent/feedback',{data});}
   };

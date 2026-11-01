@@ -11,7 +11,7 @@ export function SidebarSymbol({type='toggle',collapsed=false,size=20}){
  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={path}/></svg>;
 }
 
-export default function WorkspaceSidebar({s,page,admin,mobile,collapsed,toggle,go,open,Icon:unusedIcon,navIcons}){
+export default function WorkspaceSidebar({s,page,admin,mobile,collapsed,toggle,go,open,Icon:unusedIcon,navIcons,ai,route}){
  const Icon=NavigationIcon;
  const [tip,setTip]=useState(null),timer=useRef(null),sidebar=useRef(null);
  const hide=()=>{clearTimeout(timer.current);setTip(null);};
@@ -40,6 +40,6 @@ export default function WorkspaceSidebar({s,page,admin,mobile,collapsed,toggle,g
   <nav className="sidebar-links" id="sidebar-destinations" aria-label={displayText(admin?'管理职责导航':'工作区主导航')}>
    {admin?<div className="nav-group"><span className="nav-label">管理职责</span>{pages.filter(p=>p[0].startsWith('B')).map(item)}</div>:groups.map(([name,ids])=><div className="nav-group" key={name}>{name!=='工作台'&&<span className="nav-label">{name}</span>}{ids.map(id=>item(pages.find(p=>p[0]===id)))}</div>)}
   </nav>
-  <div className="sidebar-bottom">{!admin&&<SidebarCompanion collapsed={collapsed} page={page}/>} {s.goal&&!admin&&<div className="sidebar-goal"><span className="caption">当前探索目标</span><p>{cname(s.goal)}</p></div>}{!admin&&<div className="nav-group sidebar-account">{item(pages.find(p=>p[0]==='U12'))}</div>}<button type="button" className="sidebar-switch" aria-label={displayText('切换工作区')} {...hint('切换工作区')} onClick={()=>{hide();open('workspaceSwitch');}}><span className="sidebar-nav-icon" data-nav-icon="switch"><SidebarSymbol type="switch"/></span><span className="sidebar-item-label">切换工作区</span></button><span className="caption">任务从计划或学习进入。<br/>当前为 {s.stage} 本地模拟。</span></div>
+  <div className="sidebar-bottom">{!admin&&<SidebarCompanion collapsed={collapsed} page={page} route={route} ai={ai} go={go}/>} {s.goal&&!admin&&<div className="sidebar-goal"><span className="caption">当前探索目标</span><p>{cname(s.goal)}</p></div>}{!admin&&<div className="nav-group sidebar-account">{item(pages.find(p=>p[0]==='U12'))}</div>}<button type="button" className="sidebar-switch" aria-label={displayText('切换工作区')} {...hint('切换工作区')} onClick={()=>{hide();open('workspaceSwitch');}}><span className="sidebar-nav-icon" data-nav-icon="switch"><SidebarSymbol type="switch"/></span><span className="sidebar-item-label">切换工作区</span></button><span className="caption">任务从计划或学习进入。<br/>当前为 {s.stage} 本地模拟。</span></div>
  </aside>{tip&&createPortal(<div className="sidebar-tooltip" role="tooltip" style={{left:tip.left,top:tip.top}}>{tip.text}</div>,document.body)}</>;
 }

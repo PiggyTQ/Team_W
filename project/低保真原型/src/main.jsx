@@ -567,14 +567,14 @@ function App() {
     tell(result === "\u670D\u52A1\u6545\u969C" ? "\u68C0\u67E5\u670D\u52A1\u6545\u969C\uFF08\u6A21\u62DF\uFF09\uFF0C\u53EF\u5BF9\u540C\u4E00\u7248\u672C\u91CD\u8BD5\uFF1B\u672A\u6539\u53D8\u80FD\u529B\u5224\u65AD\u3002" : "\u5DF2\u4FDD\u5B58\u6B64\u7248\u672C\u5BF9\u5E94\u7684\u793A\u4F8B\u53CD\u9988 / \u81EA\u68C0\u8BB0\u5F55\u3002");
   }
   const conv = s.conversations.find((c) => c.id === s.conversationId) || s.conversations[0];
-  const sendAI = () => {
-      if(SERVER_AUTH){liveAgent.send();return;}
-      if (!s.aiDraft.trim()) {
+  const sendAI = (question = s.aiDraft) => {
+      if(SERVER_AUTH){liveAgent.send(question);return;}
+      if (!question.trim()) {
         tell("\u8BF7\u5148\u8F93\u5165\u95EE\u9898\u3002");
         return;
       }
       const refs=validScopeRefs(s),scope=refs.length?s.aiScope:s.aiScope.filter(x=>x!=='本人确认片段');
-      const msg = [{ id:uid('msg'),role:'user',text:s.aiDraft,scope,claimRefs:refs }, { id:uid('msg'),role:'assistant',text:'模拟回答：先确认要回答的问题，再比较有限范围的行动。预算、先修和已有材料需在业务页预览确认；未知仍保持未知。',scope,claimRefs:refs }];
+      const msg = [{ id:uid('msg'),role:'user',text:question,scope,claimRefs:refs }, { id:uid('msg'),role:'assistant',text:'模拟回答：先确认要回答的问题，再比较有限范围的行动。预算、先修和已有材料需在业务页预览确认；未知仍保持未知。',scope,claimRefs:refs }];
       update({ conversations: s.conversations.map((c) => c.id === conv.id ? { ...c, messages: [...c.messages, ...msg] } : c), aiDraft: "", aiClaimRefs:refs, aiScope:scope, authorized:refs.length>0, proposal: { id: uid("proposal"), base: s.planVersion, context: s.profileVersion } });
   };
   const proposalContent = () => (s.proposal && <article className="result-card"><h3>可确认的行动卡（模拟提议）</h3><p>基线计划 v{s.proposal.base}；本人材料 v{s.proposal.context}。尚未应用。</p><div className="actions"><B onClick={() => {
@@ -1167,7 +1167,7 @@ function App() {
     update({ logged: false, authorized: false, aiClaimRefs:[], aiScope: ["\u804C\u4E1A\u539F\u521B\u77E5\u8BC6"] });
     setAiSide(false);
     move("/");
-  })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} open={open} Icon={Icon} navIcons={navIcons}/></>}
+  })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} open={open} Icon={Icon} navIcons={navIcons} route={url} ai={{s,conv,update,onOpen:()=>setAiSide(false),send:sendAI,liveAgent:SERVER_AUTH?liveAgent:null}}/></>}
  <PageGuidanceProvider routeKey={path+tab}><main id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={page[2]} admin={admin} hideGuide={path==="/career-map"} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
  {!publicRoute&&<FlowNavigation s={s} path={path} tab={tab} search={urlObj.search} link={link} />}
  {!publicRoute&&<OperationGuide s={s} path={path} tab={tab} search={urlObj.search} modal={modal?.type} error={error} toast={toast} go={go}/>}

@@ -1,0 +1,62 @@
+/* Portaled outside #root: independent of the sidebar's overflow and global button theme. */
+.ai-companion-popover {position:fixed;z-index:1900;display:flex;flex-direction:column;box-sizing:border-box;max-width:calc(100vw - 24px);border:1px solid #ede5d6;border-radius:24px;background:#fffcf6;color:#17324d;box-shadow:0 24px 64px #73521e24,0 5px 18px #73521e12;transform-origin:bottom left;overflow:hidden;font:14px/1.6 system-ui,'Microsoft YaHei',sans-serif;isolation:isolate;}
+.ai-companion-popover * {box-sizing:border-box;}
+.ai-companion-popover button,.ai-companion-popover textarea {font:inherit;}
+.ai-companion-popover button {cursor:pointer;box-shadow:none;}
+.ai-companion-popover button:disabled {opacity:.45;cursor:default;}
+.ai-companion-popover :focus-visible {outline:3px solid #f6b91a;outline-offset:2px;}
+.ai-companion-popover[data-phase=closing] {pointer-events:none;}
+.companion-header {display:flex;align-items:center;gap:10px;padding:20px 18px 16px;background:radial-gradient(ellipse at top left,#ffe4a5aa,transparent 75%),linear-gradient(#fff0bf,#fffcf6);flex:none;}
+.companion-header>div {flex:1;min-width:0;}
+.companion-header h2 {margin:0;font-size:17px;color:#06477e;letter-spacing:.02em;}
+.companion-header p {margin:0;font-size:12px;}
+.companion-header small {display:block;color:#738196;font-size:10px;}
+.ai-companion-popover .companion-close {align-self:flex-start;border:0;background:transparent;color:#738196;width:36px;height:36px;padding:0;font-size:26px;line-height:1;border-radius:50%;}
+.companion-close:hover {background:#fff0bf;}
+.companion-stream {flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:6px 20px 16px;scrollbar-width:thin;overflow-wrap:anywhere;}
+.companion-welcome {animation:companion-content 320ms 60ms both;}
+.companion-eyebrow {font-size:9px;color:#967738;letter-spacing:.18em;}
+.companion-welcome h3 {margin:8px 0;font-size:21px;line-height:1.5;}
+.companion-welcome p {margin:0 0 10px;color:#586a7e;font-size:13px;}
+.companion-welcome small {font-size:11px;color:#738196;}
+.companion-prompts {display:grid;gap:8px;margin-top:16px;}
+.companion-prompts button {border:1px solid #ede5d6;border-radius:12px;background:#fffaf0;padding:10px 12px;text-align:left;color:#17324d;font-size:12px;animation:companion-content 280ms both;animation-delay:calc(90ms + var(--prompt-index)*35ms);transition:background 150ms,border-color 150ms;}
+.companion-prompts button:hover {background:#fff2d5;border-color:#e8c66c;}
+.companion-stream .chat-message {max-width:94%;width:fit-content;padding:10px 13px;margin:10px 0;border:0;border-radius:16px 16px 16px 4px;background:#fff2d5;color:#17324d;font-size:13px;}
+.companion-stream .chat-message-user {margin-left:auto;background:#e9f3fc;border-radius:16px 16px 4px 16px;}
+.companion-stream .chat-message-author {font-size:10px;color:#738196;display:flex;gap:4px;align-items:center;}
+.companion-stream .chat-message-body p {white-space:pre-wrap;margin:6px 0;overflow-wrap:anywhere;}
+.companion-stream .agent-reference-details {font-size:10px;color:#738196;}
+.companion-stream .agent-statement h4 {margin:6px 0;font-size:12px;}
+.companion-pending {font-size:12px;color:#738196;}
+.companion-composer {flex:none;padding:12px 18px 8px;border-top:1px solid #ede5d6;background:#fffcf6;}
+.companion-input-row {display:flex;gap:8px;align-items:flex-end;border:1px solid #e5dfd3;background:white;border-radius:15px;padding:8px;}
+.companion-input-row:focus-within {border-color:#d8b758;box-shadow:0 0 0 3px #f6b91a12;}
+.ai-companion-popover textarea {flex:1;min-width:0;resize:vertical;max-height:110px;min-height:42px;border:0;background:transparent;color:#17324d;padding:4px;outline:none;line-height:1.5;}
+.ai-companion-popover textarea::placeholder {color:#738196;}
+.companion-input-row button {flex:none;width:38px;height:38px;border:0;border-radius:12px;background:#06477e;color:white;font-size:24px;}
+.companion-composer>small {font-size:10px;color:#738196;display:block;margin:5px 3px 0;}
+.companion-composer>p {margin:0 0 8px;font-size:11px;color:#8b6035;max-height:64px;overflow:auto;}
+.companion-footer {flex:none;text-align:center;padding:4px 16px max(12px,env(safe-area-inset-bottom));}
+.companion-footer button {border:0;background:transparent;color:#06477e;padding:5px 14px;font-weight:600;}
+.companion-footer small {display:block;color:#738196;font-size:10px;}
+#root>#workspace-sidebar .sidebar-companion[data-cheese=true] .sidebar-companion-pet {transition:transform 200ms,box-shadow 200ms;}
+@media(hover:hover) {#root>#workspace-sidebar .sidebar-companion[data-cheese=true] .sidebar-companion-pet:hover {transform:translateY(-3px) scale(1.03);box-shadow:0 0 25px #f6b91a26;}}
+@keyframes companion-content {from {opacity:0;transform:translateY(5px)} to {opacity:1;transform:translateY(0)}}
+@media(max-width:720px) {.ai-companion-popover {transform-origin:bottom center;border-radius:24px 24px 18px 18px;}.companion-header {padding-top:14px;}}
+@media(max-height:520px) {.companion-header {padding:8px 14px;}.companion-header img {width:32px;height:32px;}.companion-footer small,.companion-composer>small {display:none;}.companion-composer {padding:6px 12px;}.companion-footer {padding:0 8px 4px;}}
+@media(prefers-reduced-motion:reduce) {.ai-companion-popover * {animation:none!important;transition:none!important;}#root>#workspace-sidebar .sidebar-companion[data-cheese=true] .sidebar-companion-pet {transition:none;transform:none;}}
+@media print {.ai-companion-popover {display:none;}}
+/* Reset inherited document footer and free-text decoration inside the compact surface. */
+.ai-companion-popover .companion-footer {display:block;margin:0;gap:0;border-top:0;}
+.ai-companion-popover .chat-message-body p {background:transparent;padding:0;border:0;box-shadow:none;}
+.ai-companion-popover textarea:focus-visible {outline:none;}
+.ai-companion-popover .companion-header {padding-top:16px;padding-bottom:12px;}
+.ai-companion-popover .companion-welcome h3 {font-weight:650;}
+@media(max-width:720px) {.ai-companion-popover textarea {font-size:16px;}}
+.ai-companion-popover .companion-header {min-height:0;}
+.ai-companion-popover .companion-prompts {gap:7px;margin-top:12px;}
+.ai-companion-popover .companion-prompts button {min-height:36px;padding:8px 12px;text-align:left;line-height:1.4;}
+.ai-companion-popover .companion-footer button {min-height:32px;line-height:1.4;}
+.ai-companion-popover .companion-footer small {margin:0;line-height:1.4;}
+.ai-companion-popover .companion-stream {padding-bottom:10px;}

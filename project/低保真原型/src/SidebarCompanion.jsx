@@ -2,13 +2,14 @@ import React, {useEffect, useRef, useState} from 'react';
 import {useLanguage} from './i18n/render';
 import CheeseAvatar, {CheesePose} from './CheeseAvatar';
 import './sidebar-companion.css';
+import AiCompanionPopover from './AiCompanionPopover';
 
 const STORAGE_KEY = 'career-prototype-sidebar-companion-v1';
 const copy = {
   zh: {
     region: '桌边伙伴', name: '芝识分子', idle: '陪你理清下一个想法',
     sleeping: '休息中，点我唤醒', pet: '招呼收到。', awake: '醒啦，一起继续。',
-    touch: '和芝识分子打招呼', wake: '唤醒芝识分子', rest: '让芝识分子休息',
+    touch: '打开芝识分子对话', wake: '唤醒芝识分子', rest: '让芝识分子休息',
     readLabel: '看书', loungeLabel: '趴着', read: '让芝识分子看书', lounge: '让芝识分子趴一会儿', reading: '翻翻书，陪你继续。',
     restLabel: '休息', wakeLabel: '唤醒', hide: '隐藏桌边伙伴', hideLabel: '隐藏',
     restore: '显示桌边伙伴', settingsHint: '展开侧栏可设置',
@@ -16,7 +17,7 @@ const copy = {
   en: {
     region: 'Desk companion', name: 'Cheese Scholar', idle: 'One thought at a time.',
     sleeping: 'Resting. Tap to wake.', pet: 'A little hello, received.', awake: 'Awake. Ready when you are.',
-    touch: 'Say hello to Cheese Scholar', wake: 'Wake Cheese Scholar', rest: 'Let Cheese Scholar rest',
+    touch: 'Open Cheese Scholar conversation', wake: 'Wake Cheese Scholar', rest: 'Let Cheese Scholar rest',
     readLabel: 'Read', loungeLabel: 'Lounge', read: 'Let Cheese Scholar read', lounge: 'Let Cheese Scholar lounge', reading: 'A little reading, together.',
     restLabel: 'Rest', wakeLabel: 'Wake', hide: 'Hide desk companion', hideLabel: 'Hide',
     restore: 'Show desk companion', settingsHint: 'Expand the sidebar for settings',
@@ -40,8 +41,11 @@ function RestSymbol({sleeping = false}) {
   </svg>;
 }
 
-/** A local, optional companion. It never reads or writes career or chat records. */
-export default function SidebarCompanion({collapsed = false, page = ''}) {
+/** Optional entry to the existing shared AI conversation. */
+export default function SidebarCompanion({collapsed = false, page = '', ai, go, route = page}) {
+  const [phase, setPhase] = useState('closed');
+  const closingIntent = useRef(null);
+  const close = (focus = false) => {closingIntent.current = focus ? 'focus' : null; setPhase(value => value === 'closed' ? value : 'closing');};
   const language = useLanguage();
   const text = copy[language] || copy.zh;
   const [preference, setPreference] = useState(readPreference);
@@ -55,7 +59,7 @@ export default function SidebarCompanion({collapsed = false, page = ''}) {
   const {hidden, sleeping} = preference;
   const scene = sleeping ? 'rest' : activity || (page === 'U08' || page === 'U10' ? 'read' : page === 'U05' || page === 'U06' ? 'track' : page === 'U07' || page === 'U04' ? 'note' : 'perch');
   const status = reaction ? text[reaction] : sleeping ? text.sleeping : scene === 'read' ? text.reading : text.idle;
-  useEffect(() => {setActivity(null);}, [page]);
+  useEffect(() => {setActivity(null);close();}, [route]);
 
   useEffect(() => {
     try {
@@ -94,11 +98,13 @@ export default function SidebarCompanion({collapsed = false, page = ''}) {
 
   const toggleRest = event => {
     if (sleeping) { greet(event, true); return; }
+    close();
     clearFeedback();
     setPreference(value => ({...value, sleeping: true}));
   };
 
   const hide = () => {
+    close();
     clearFeedback();
     pendingFocus.current = 'restore';
     setPreference(value => ({...value, hidden: true}));
@@ -112,12 +118,12 @@ export default function SidebarCompanion({collapsed = false, page = ''}) {
 
   const toggleReading = () => {clearFeedback();setPreference(value=>({...value,sleeping:false}));setActivity(scene==='read'?'perch':'read');};
 
-  return <section className="sidebar-companion" data-cheese="true" data-scene={scene} data-collapsed={collapsed} data-hidden={hidden} data-sleeping={sleeping} data-petting={petting} role="group" aria-label={text.region}>
+  return <><section className="sidebar-companion" data-cheese="true" data-scene={scene} data-collapsed={collapsed} data-hidden={hidden} data-sleeping={sleeping} data-petting={petting} role="group" aria-label={text.region}>
     {hidden ? <button ref={restoreButton} className="sidebar-companion-restore" data-testid="companion-restore" type="button" onClick={restore} aria-label={text.restore} title={text.restore}>
       <CheeseAvatar sleeping size={30}/>{!collapsed && <span>{text.restore}</span>}
     </button> : <>
       <div className="sidebar-companion-presence">
-        <button ref={petButton} className="sidebar-companion-pet" data-testid="companion-pet" type="button" onClick={greet} aria-label={sleeping ? text.wake : text.touch} title={`${sleeping ? text.wake : text.touch}${collapsed ? ` · ${text.settingsHint}` : ''}`}>
+        <button ref={petButton} className="sidebar-companion-pet" data-testid="companion-pet" type="button" onClick={event => {if(page==='U11'){go('/assistant');return;}greet(event);if(phase!=='open')ai?.onOpen?.();closingIntent.current=null;setPhase(value=>value==='open'?'closing':'open');}} aria-controls="ai-companion-popover" aria-expanded={phase==='open'} aria-haspopup="dialog" aria-label={text.touch} title={`${sleeping ? text.wake : text.touch}${collapsed ? ` · ${text.settingsHint}` : ''}`}>
           {collapsed ? <CheeseAvatar sleeping={sleeping} size={42}/> : <CheesePose pose={scene} width={136} height={94} className="cheese-companion-figure"/>}
         </button>
         {!collapsed && <div className="sidebar-companion-copy"><strong>{text.name}</strong><small role="status" aria-live="polite" aria-atomic="true">{status}</small></div>}
@@ -132,5 +138,5 @@ export default function SidebarCompanion({collapsed = false, page = ''}) {
         <button data-testid="companion-hide" type="button" onClick={hide} aria-label={text.hide}>{text.hideLabel}</button>
       </div>}
     </>}
-  </section>;
+  </section>{phase!=='closed'&&ai&&<AiCompanionPopover {...ai} phase={phase} trigger={petButton} onClose={close} onWorkspace={()=>{ai.liveAgent?.prepareHandoff?.();closingIntent.current='workspace';setPhase('closing');}} onClosed={()=>{const intent=closingIntent.current;closingIntent.current=null;setPhase('closed');if(intent==='workspace')go('/assistant');else if(intent==='focus')petButton.current?.focus({preventScroll:true});}}/>}</>;
 }
