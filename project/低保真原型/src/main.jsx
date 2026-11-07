@@ -211,6 +211,10 @@ function Modal({ title, children, onClose, drawer = false, className = '', compa
   }, []);
   return <dialog ref={ref} className={[drawer ? 'drawer' : '',className,companion ? 'cheese-assisted-panel' : ''].filter(Boolean).join(' ')} aria-labelledby={className==='auth-dialog'?'auth-heading':'dialog-title'} onFocusCapture={companion ? e=>setCompanionActive(isEditor(e.target)) : undefined} onBlurCapture={companion ? e=>setCompanionActive(isEditor(e.relatedTarget)&&e.currentTarget.contains(e.relatedTarget)) : undefined}><header className="section-head"><h2 id="dialog-title">{title}</h2><LanguageSwitch/><B onClick={onClose} aria-label="关闭面板">关闭</B></header>{companion&&<CheesePanelCompanion scene={companion} active={companionActive}/>} {children}</dialog>;
 }
+function readBrowserRoute() {
+  // Mail tokens stay in the dedicated mail-link state, outside workspace routes.
+  return location.pathname + location.search + (readMailLink() ? '' : location.hash);
+}
 function App() {
   useEffect(()=>{
     const dismiss=e=>document.querySelectorAll('.workspace-utilities[open]').forEach(menu=>{if(!menu.contains(e.target))menu.open=false;});
@@ -221,10 +225,10 @@ function App() {
   const [initialStorage]=useState(()=>loadPrototypeState(prototypeStorage));
   const [storageStatus,setStorageStatus]=useState(initialStorage.status);
   const storageBlocked=useRef(initialStorage.status!=='ready'),originalStorage=useRef(initialStorage.raw);
-  const [s, setS] = useState(initialStorage.state), [url, setUrl] = useState(() => normalizeWorkspaceRoute(location.pathname + location.search).to), [modal, setModal] = useState(null), [form, setForm] = useState({}), [error, setError] = useState(""), [toast, setToast] = useState(""), [aiSide, setAiSide] = useState(false), [mobile, setMobile] = useState(false), [search, setSearch] = useState(""), [careerFilter, setCareerFilter] = useState("\u5168\u90E8"), [claimFilter, setClaimFilter] = useState("\u5168\u90E8"), [authMode, setAuthMode] = useState("\u767B\u5F55"), [importState, setImportState] = useState("idle");
-  const [navigationNotice,setNavigationNotice]=useState(() => normalizeWorkspaceRoute(location.pathname+location.search).invalidTab);
+  const [s, setS] = useState(initialStorage.state), [url, setUrl] = useState(() => normalizeWorkspaceRoute(readBrowserRoute()).to), [modal, setModal] = useState(null), [form, setForm] = useState({}), [error, setError] = useState(""), [toast, setToast] = useState(""), [aiSide, setAiSide] = useState(false), [mobile, setMobile] = useState(false), [search, setSearch] = useState(""), [careerFilter, setCareerFilter] = useState("\u5168\u90E8"), [claimFilter, setClaimFilter] = useState("\u5168\u90E8"), [authMode, setAuthMode] = useState("\u767B\u5F55"), [importState, setImportState] = useState("idle");
+  const [navigationNotice,setNavigationNotice]=useState(() => normalizeWorkspaceRoute(readBrowserRoute()).invalidTab);
   useEffect(()=>{const u=new URL(url,location.origin),section=u.searchParams.get('section');const anchor=u.pathname!=='/'&&u.hash?workspaceAnchor(u.hash):null;const target=anchor|| (u.pathname==='/plan'&&u.searchParams.get('adjust')==='1'?'plan-adjustment':u.pathname==='/careers'&&u.searchParams.get('focus')==='salary'?'salary-context':u.pathname==='/settings'?{'feedback':'settings-feedback','data':'settings-data','authorization':'settings-authorization'}[section]:null);if(!target)return;const frame=requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start'}));return()=>cancelAnimationFrame(frame);},[url]);
-  useEffect(()=>{const canonical=normalizeWorkspaceRoute(location.pathname+location.search);if(canonical.to!==location.pathname+location.search)history.replaceState({},"",canonical.to+location.hash);},[]);
+  useEffect(()=>{const current=readBrowserRoute(),canonical=normalizeWorkspaceRoute(current);if(canonical.to!==current)history.replaceState({},"",canonical.to);},[]);
   protectUserContent(s,form,{query:search});
   const timer = useRef(null), urlObj = new URL(url, location.origin), path = urlObj.pathname, tab = urlObj.searchParams.get("tab") || "", id = path.split("/")[2], page = pages.find((p) => p[1] === (path.startsWith("/work") ? "/work" : path.startsWith("/reports") ? "/reports" : path)) || pages[2];
   const publicRoute=path==='/'||path==='/companion';
@@ -356,15 +360,18 @@ function App() {
   }, [s]);
   useEffect(() => {
     const pop = () => {
-      const canonical=normalizeWorkspaceRoute(location.pathname+location.search);
-      if(canonical.to!==location.pathname+location.search)history.replaceState({},"",canonical.to+location.hash);
+      if(readMailLink())return;
+      const current=readBrowserRoute(),canonical=normalizeWorkspaceRoute(current);
+      if(canonical.to!==current)history.replaceState({},"",canonical.to);
       setUrl(canonical.to);
       setNavigationNotice(canonical.invalidTab);
       setModal(null);
     };
     addEventListener("popstate", pop);
+    addEventListener("hashchange", pop);
     return () => {
       removeEventListener("popstate", pop);
+      removeEventListener("hashchange", pop);
       clearTimeout(timer.current);
     };
   }, []);
