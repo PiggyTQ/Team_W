@@ -1,0 +1,78 @@
+[
+  {
+    "route": "assessment",
+    "text": "我的经历与职业准备",
+    "color": "rgb(8, 47, 104)",
+    "weight": "750",
+    "size": "32px",
+    "lineHeight": "40px",
+    "x": 244,
+    "y": 137,
+    "height": 40,
+    "heading": {
+      "x": 244,
+      "y": 137,
+      "height": 40,
+      "alignItems": "center",
+      "margin": "0px 0px 12px"
+    },
+    "parentClass": "page-surface surface-U04"
+  },
+  {
+    "route": "careers",
+    "text": "职业探索与比较",
+    "color": "rgb(8, 45, 84)",
+    "weight": "750",
+    "size": "34px",
+    "lineHeight": "40.12px",
+    "x": 244,
+    "y": 145,
+    "height": 40.109375,
+    "heading": {
+      "x": 244,
+      "y": 145,
+      "height": 70.109375,
+      "alignItems": "center",
+      "margin": "8px 0px 16px"
+    },
+    "parentClass": "page-surface surface-U05"
+  },
+  {
+    "route": "learning",
+    "text": "学习与实践中心",
+    "color": "rgb(7, 60, 115)",
+    "weight": "750",
+    "size": "32px",
+    "lineHeight": "44.8px",
+    "x": 244,
+    "y": 137,
+    "height": 44.796875,
+    "heading": {
+      "x": 244,
+      "y": 137,
+      "height": 44.796875,
+      "alignItems": "center",
+      "margin": "0px 0px 14px"
+    },
+    "parentClass": "page-surface surface-U08"
+  },
+  {
+    "route": "plan",
+    "text": "目标与行动计划",
+    "color": "rgb(24, 32, 42)",
+    "weight": "500",
+    "size": "30px",
+    "lineHeight": "42px",
+    "x": 244,
+    "y": 138.546875,
+    "height": 42,
+    "heading": {
+      "x": 244,
+      "y": 137,
+      "height": 45.09375,
+      "alignItems": "center",
+      "margin": "0px 0px 12px"
+    },
+    "parentClass": "page-surface surface-U07"
+  }
+]

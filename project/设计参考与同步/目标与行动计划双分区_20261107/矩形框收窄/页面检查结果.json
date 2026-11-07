@@ -1,0 +1,221 @@
+{
+  "results": [
+    {
+      "name": "桌面",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "rows": [
+          {
+            "x": 265,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 265,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 265,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 854,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 854,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 854,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          }
+        ],
+        "icons": [
+          {
+            "x": 669,
+            "y": 301.09375
+          },
+          {
+            "x": 1257,
+            "y": 301.09375
+          }
+        ],
+        "buttons": [
+          {
+            "x": 265,
+            "y": 459.09375
+          },
+          {
+            "x": 854,
+            "y": 459.09375
+          }
+        ]
+      }
+    },
+    {
+      "name": "宽桌面",
+      "width": 1920,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "rows": [
+          {
+            "x": 265,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 265,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 265,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 1094,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 1094,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 1094,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48,
+            "overflow": false
+          }
+        ],
+        "icons": [
+          {
+            "x": 909,
+            "y": 301.09375
+          },
+          {
+            "x": 1737,
+            "y": 301.09375
+          }
+        ],
+        "buttons": [
+          {
+            "x": 265,
+            "y": 459.09375
+          },
+          {
+            "x": 1094,
+            "y": 459.09375
+          }
+        ]
+      }
+    },
+    {
+      "name": "英文窄桌面",
+      "width": 1024,
+      "language": "en",
+      "status": "pass",
+      "geometry": {
+        "rows": [
+          {
+            "x": 241,
+            "y": 391.09375,
+            "width": 216,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 241,
+            "y": 447.09375,
+            "width": 216,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 241,
+            "y": 503.09375,
+            "width": 216,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 634,
+            "y": 391.09375,
+            "width": 215,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 634,
+            "y": 447.09375,
+            "width": 215,
+            "height": 48,
+            "overflow": false
+          },
+          {
+            "x": 634,
+            "y": 503.09375,
+            "width": 215,
+            "height": 48,
+            "overflow": false
+          }
+        ],
+        "icons": [
+          {
+            "x": 473,
+            "y": 421.09375
+          },
+          {
+            "x": 865,
+            "y": 421.09375
+          }
+        ],
+        "buttons": [
+          {
+            "x": 241,
+            "y": 567.09375
+          },
+          {
+            "x": 634,
+            "y": 567.09375
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

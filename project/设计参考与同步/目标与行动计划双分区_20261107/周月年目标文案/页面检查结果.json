@@ -1,0 +1,85 @@
+{
+  "results": [
+    {
+      "name": "空白起点",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": [
+        {
+          "width": 560,
+          "titleY": 231.140625,
+          "centerY": 352.640625,
+          "iconCenterY": 352.640625
+        },
+        {
+          "width": 560,
+          "titleY": 231.140625,
+          "centerY": 352.640625,
+          "iconCenterY": 352.640625
+        }
+      ]
+    },
+    {
+      "name": "已有目标",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": [
+        {
+          "width": 560,
+          "titleY": 231.140625,
+          "centerY": 352.640625,
+          "iconCenterY": 352.640625
+        },
+        {
+          "width": 560,
+          "titleY": 231.140625,
+          "centerY": 352.640625,
+          "iconCenterY": 352.640625
+        }
+      ]
+    },
+    {
+      "name": "窄桌面",
+      "width": 1024,
+      "language": "zh",
+      "status": "pass",
+      "geometry": [
+        {
+          "width": 364,
+          "titleY": 339.140625,
+          "centerY": 460.640625,
+          "iconCenterY": 460.640625
+        },
+        {
+          "width": 364,
+          "titleY": 339.140625,
+          "centerY": 460.640625,
+          "iconCenterY": 460.640625
+        }
+      ]
+    },
+    {
+      "name": "英文桌面",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "geometry": [
+        {
+          "width": 560,
+          "titleY": 231.140625,
+          "centerY": 352.640625,
+          "iconCenterY": 352.640625
+        },
+        {
+          "width": 560,
+          "titleY": 231.140625,
+          "centerY": 352.640625,
+          "iconCenterY": 352.640625
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

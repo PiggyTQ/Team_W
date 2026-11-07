@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+ <defs>
+  <pattern id="blue" width="280" height="48" patternUnits="userSpaceOnUse"><rect width="280" height="48" fill="#e8f1fa"/><circle cx="193" cy="-13" r="57" fill="#dae7f6"/><g fill="none" stroke="#c0d5eb"><circle cx="193" cy="-13" r="46"/><circle cx="193" cy="-13" r="35"/><path d="m117 48 22-22m-12 22 18-18"/></g><g fill="#b1cce5"><circle cx="174" cy="35" r="1.5"/><circle cx="182" cy="35" r="1.5"/><circle cx="190" cy="35" r="1.5"/></g></pattern>
+  <pattern id="gold" width="280" height="48" patternUnits="userSpaceOnUse"><rect width="280" height="48" fill="#f6df91"/><circle cx="193" cy="-13" r="57" fill="#f9e9b2"/><g fill="none" stroke="#dfc26e"><circle cx="193" cy="-13" r="46"/><circle cx="193" cy="-13" r="35"/><path d="m117 48 22-22m-12 22 18-18"/></g><g fill="#d7b55c"><circle cx="174" cy="35" r="1.5"/><circle cx="182" cy="35" r="1.5"/><circle cx="190" cy="35" r="1.5"/></g></pattern>
+ </defs>
+ <rect width="1200" height="470" fill="#faf8f2"/>
+ <g font-family="Microsoft YaHei, sans-serif">
+ <text x="20" y="30" font-size="15" fill="#55687c">实施前局部方案：背景几何装饰与蓝 / 黄两套纹样，非用户确认稿</text>
+ <rect x="20" y="45" width="1160" height="318" rx="16" fill="#fff" stroke="#dad9cf"/>
+ <path d="M600 66v276" stroke="#dfd8cc"/>
+ <g fill="#eff5fa"><circle cx="504" cy="204" r="91"/><circle cx="1085" cy="204" r="91"/></g>
+ <g fill="none" stroke="#e0eaf3"><circle cx="504" cy="204" r="113"/><circle cx="1085" cy="204" r="113"/></g>
+ <g fill="none" stroke="#d6b85d" stroke-width="1.5" stroke-dasharray="3 6"><path d="M385 315q-6-42 35-59"/><path d="M974 315q-6-42 35-59"/></g>
+ <g fill="#f1d98e"><path d="m442 102 4 8 9 2-7 6 1 9-7-5-8 5 2-9-7-6 9-2z"/><circle cx="1008" cy="111" r="4"/></g>
+ <g fill="#c8dcea"><circle cx="405" cy="183" r="2"/><circle cx="405" cy="193" r="2"/><circle cx="405" cy="203" r="2"/><circle cx="415" cy="183" r="2"/><circle cx="415" cy="193" r="2"/><circle cx="415" cy="203" r="2"/><circle cx="994" cy="183" r="2"/><circle cx="994" cy="193" r="2"/><circle cx="994" cy="203" r="2"/></g>
+ <g fill="#082f68" font-size="26" font-weight="700"><text x="41" y="94">我的目标</text><text x="630" y="94">我的计划</text></g>
+ <g fill="url(#blue)" stroke="#c9dceb"><rect x="41" y="122" width="280" height="48" rx="6"/><rect x="41" y="178" width="280" height="48" rx="6"/><rect x="41" y="234" width="280" height="48" rx="6"/><rect x="630" y="122" width="280" height="48" rx="6"/><rect x="630" y="178" width="280" height="48" rx="6"/><rect x="630" y="234" width="280" height="48" rx="6"/></g>
+ <g fill="#264d75" font-size="16"><text x="54" y="153">周目标</text><text x="54" y="209">月目标</text><text x="54" y="265">年目标</text><text x="643" y="153">待行动</text><text x="643" y="209">待排期</text><text x="643" y="265">待复查</text></g>
+ <g fill="#082f68" font-size="24" font-weight="650"><text x="276" y="154">0</text><text x="276" y="210">0</text><text x="276" y="266">0</text><text x="865" y="154">0</text><text x="865" y="210">0</text><text x="865" y="266">0</text></g>
+ <g fill="#6a7282" font-size="13"><text x="298" y="154">个</text><text x="298" y="210">个</text><text x="298" y="266">个</text><text x="887" y="154">项</text><text x="887" y="210">项</text><text x="887" y="266">项</text></g>
+ <g fill="none" stroke="#16334f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="508" cy="204" r="47"/><circle cx="508" cy="204" r="22"/><path d="m508 204 45-45m-25 0h25v25"/><rect x="1043" y="166" width="85" height="80" rx="7"/><path d="M1043 185h85m-63-32v24m42-24v24m-41 28h9m18 0h9m-36 22h9"/></g>
+ <g fill="#f6f7f8" stroke="#dfe3e8"><rect x="41" y="298" width="148" height="44" rx="18"/><rect x="630" y="298" width="148" height="44" rx="18"/></g>
+ <g fill="#6a7282" font-size="14" text-anchor="middle"><text x="115" y="326">编辑目标并预览</text><text x="704" y="326">预览学习实践</text></g>
+ <text x="20" y="393" font-size="14" fill="#55687c">黄色操作态同样有完整纹样，沿现有小波浪显现：</text>
+ <g fill="url(#gold)" stroke="#d8ba62"><rect x="20" y="407" width="280" height="48" rx="6"/><rect x="320" y="407" width="280" height="48" rx="6"/></g>
+ <g fill="#67511b" text-anchor="middle" font-size="16" font-weight="650"><text x="160" y="437">查看周目标 →</text><text x="460" y="437">去行动 →</text></g>
+ </g>
+</svg>

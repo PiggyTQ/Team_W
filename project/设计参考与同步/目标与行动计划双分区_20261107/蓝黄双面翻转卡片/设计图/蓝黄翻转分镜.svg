@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="370" viewBox="0 0 1060 370">
+ <rect width="1060" height="370" fill="#fffefa"/>
+ <g font-family="Microsoft YaHei,sans-serif" fill="#082f68">
+  <text x="24" y="28" font-size="16">实施前局部设计 · 六张独立双面卡片，保留 280 × 48px 外部布局</text>
+  <text x="24" y="65" font-size="13" fill="#6a7282">正面 0°：浅蓝统计</text><text x="428" y="65" font-size="13" fill="#6a7282">中段 90°：竖轴侧面</text><text x="732" y="65" font-size="13" fill="#6a7282">背面 180°：奶油黄操作</text>
+  <rect x="24" y="84" width="280" height="48" rx="6" fill="#edf6ff" stroke="#c8ddee"/><text x="38" y="114" font-size="16">周目标</text><text x="251" y="114" font-size="20">0 个</text>
+  <path d="M480 84v48" stroke="#aabac7" stroke-width="3"/><path d="M329 108h104m-8-5 8 5-8 5M529 108h167m-8-5 8 5-8 5" stroke="#9aabba" fill="none"/>
+  <rect x="732" y="82" width="280" height="48" rx="6" fill="#fff1bd" stroke="#e7ce8b"/><text x="814" y="112" font-size="16" font-weight="650" fill="#664c18">查看周目标 →</text>
+  <g font-size="14" fill="#36546f"><text x="24" y="180">周目标 0 个 → 查看周目标</text><text x="24" y="214">月目标 0 个 → 查看月目标</text><text x="24" y="248">年目标 0 个 → 查看年目标</text><text x="450" y="180">待行动 n 项 → 去行动</text><text x="450" y="214">待排期 n 项 → 去排期</text><text x="450" y="248">待复查 n 项 → 去审查</text></g>
+  <text x="24" y="298" font-size="13" fill="#6a7282">固定命中区域 + 内层 preserve-3d；绕 Y 轴 0° ↔ 180°，600ms 对称缓入缓出；背面先旋转 180°，文字正向。</text>
+  <text x="24" y="327" font-size="13" fill="#6a7282">悬停/键盘聚焦仅影响当前卡片；上浮 2px，柔和投影；减少动态效果时直接切换两面，点击不等待动画。</text>
+  <text x="24" y="352" font-size="13" fill="#6a7282">计划复用执行和日程定位；周期目标暂无已有条目，复用详情抽屉展示对应的 0 个空列表，不创建目标编辑流程。</text>
+ </g>
+</svg>

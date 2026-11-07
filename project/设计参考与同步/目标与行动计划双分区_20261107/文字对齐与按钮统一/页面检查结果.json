@@ -1,0 +1,515 @@
+{
+  "results": [
+    {
+      "name": "默认模块",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "headings": [
+          {
+            "y": 231.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          },
+          {
+            "y": 231.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          }
+        ],
+        "left": [
+          {
+            "y": 295.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 347.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 399.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "right": [
+          {
+            "y": 295.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 347.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 399.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "buttons": [
+          {
+            "y": 447.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          },
+          {
+            "y": 447.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          }
+        ],
+        "numbers": [
+          "24px",
+          "24px",
+          "24px"
+        ],
+        "icons": [
+          {
+            "areaCenter": 359.09375,
+            "iconCenter": 359.09375
+          },
+          {
+            "areaCenter": 359.09375,
+            "iconCenter": 359.09375
+          }
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "已有计划",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "headings": [
+          {
+            "y": 231.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          },
+          {
+            "y": 231.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          }
+        ],
+        "left": [
+          {
+            "y": 295.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 347.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 399.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "right": [
+          {
+            "y": 295.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 347.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 399.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "buttons": [
+          {
+            "y": 447.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          },
+          {
+            "y": 447.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          }
+        ],
+        "numbers": [
+          "24px",
+          "24px",
+          "24px"
+        ],
+        "icons": [
+          {
+            "areaCenter": 359.09375,
+            "iconCenter": 359.09375
+          },
+          {
+            "areaCenter": 359.09375,
+            "iconCenter": 359.09375
+          }
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "窄桌面",
+      "width": 1024,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "headings": [
+          {
+            "y": 339.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          },
+          {
+            "y": 339.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          }
+        ],
+        "left": [
+          {
+            "y": 403.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 455.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 507.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "right": [
+          {
+            "y": 403.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 455.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 507.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "buttons": [
+          {
+            "y": 555.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          },
+          {
+            "y": 555.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          }
+        ],
+        "numbers": [
+          "24px",
+          "24px",
+          "24px"
+        ],
+        "icons": [
+          {
+            "areaCenter": 467.09375,
+            "iconCenter": 467.09375
+          },
+          {
+            "areaCenter": 467.09375,
+            "iconCenter": 467.09375
+          }
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "英文窄桌面",
+      "width": 1024,
+      "language": "en",
+      "status": "pass",
+      "geometry": {
+        "headings": [
+          {
+            "y": 339.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          },
+          {
+            "y": 339.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          }
+        ],
+        "left": [
+          {
+            "y": 403.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 455.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 507.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "right": [
+          {
+            "y": 403.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 455.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 507.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "buttons": [
+          {
+            "y": 555.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          },
+          {
+            "y": 555.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          }
+        ],
+        "numbers": [
+          "24px",
+          "24px",
+          "24px"
+        ],
+        "icons": [
+          {
+            "areaCenter": 467.09375,
+            "iconCenter": 467.09375
+          },
+          {
+            "areaCenter": 467.09375,
+            "iconCenter": 467.09375
+          }
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "宽桌面",
+      "width": 1920,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "headings": [
+          {
+            "y": 231.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          },
+          {
+            "y": 231.546875,
+            "height": 31,
+            "fontSize": "26px",
+            "fontWeight": "700"
+          }
+        ],
+        "left": [
+          {
+            "y": 295.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 347.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 399.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "right": [
+          {
+            "y": 295.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 347.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          },
+          {
+            "y": 399.09375,
+            "height": 20,
+            "fontSize": "16px",
+            "fontWeight": "500"
+          }
+        ],
+        "buttons": [
+          {
+            "y": 447.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          },
+          {
+            "y": 447.09375,
+            "height": 44,
+            "background": "rgb(246, 247, 248)",
+            "image": "none",
+            "color": "rgb(106, 114, 130)",
+            "border": "1px solid rgb(223, 227, 232)",
+            "borderRadius": "18px",
+            "padding": "10px 16px",
+            "fontSize": "14px"
+          }
+        ],
+        "numbers": [
+          "24px",
+          "24px",
+          "24px"
+        ],
+        "icons": [
+          {
+            "areaCenter": 359.09375,
+            "iconCenter": 359.09375
+          },
+          {
+            "areaCenter": 359.09375,
+            "iconCenter": 359.09375
+          }
+        ],
+        "overflow": false
+      }
+    }
+  ],
+  "errors": []
+}

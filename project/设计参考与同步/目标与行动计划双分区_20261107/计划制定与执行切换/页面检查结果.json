@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "name": "空白起点",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "title": {
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "x": 244,
+        "y": 137
+      },
+      "labels": [
+        "计划制定",
+        "计划执行"
+      ]
+    },
+    {
+      "name": "已有计划",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "title": {
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "x": 244,
+        "y": 137
+      },
+      "labels": [
+        "计划制定",
+        "计划执行"
+      ]
+    },
+    {
+      "name": "窄桌面",
+      "width": 1024,
+      "language": "zh",
+      "status": "pass",
+      "title": {
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "x": 220,
+        "y": 193
+      },
+      "labels": [
+        "计划制定",
+        "计划执行"
+      ]
+    },
+    {
+      "name": "英文桌面",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "title": {
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "x": 244,
+        "y": 137
+      },
+      "labels": [
+        "Plan creation",
+        "Plan execution"
+      ]
+    }
+  ],
+  "errors": []
+}

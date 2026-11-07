@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "name": "flat-colors-icons-decoration-and-hover",
+      "status": "pass"
+    },
+    {
+      "name": "selected-zoom-stacking-and-right-column-centering",
+      "status": "pass"
+    },
+    {
+      "name": "flat-keyboard-and-state-persistence",
+      "status": "pass"
+    },
+    {
+      "name": "flat-responsive-zh",
+      "status": "pass"
+    },
+    {
+      "name": "flat-responsive-en",
+      "status": "pass"
+    }
+  ],
+  "pageErrors": []
+}

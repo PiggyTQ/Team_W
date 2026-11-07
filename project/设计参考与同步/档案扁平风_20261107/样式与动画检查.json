@@ -1,0 +1,1594 @@
+{
+  "results": [
+    {
+      "name": "中文桌面",
+      "status": "pass",
+      "initial": {
+        "heading": "个人经历档案",
+        "upperFrame": "none",
+        "base": {
+          "color": "rgb(36, 74, 112)",
+          "image": "none",
+          "shadow": "none",
+          "height": "14px",
+          "border": "0px"
+        },
+        "controls": [
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0s",
+            "opacity": "0.00499789",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.065s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.13s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.195s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-create-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.26s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          }
+        ],
+        "spineStyles": [
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          }
+        ],
+        "depthLayers": 0
+      },
+      "animationSamples": [
+        {
+          "time": 0,
+          "sample": [
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            }
+          ]
+        },
+        {
+          "time": 330,
+          "sample": [
+            {
+              "opacity": "0.989948",
+              "transform": "matrix(1, 0, 0, 1, 0, 0.12062)"
+            },
+            {
+              "opacity": "0.939592",
+              "transform": "matrix(1, 0, 0, 1, 0, 0.7249)"
+            },
+            {
+              "opacity": "0.827328",
+              "transform": "matrix(1, 0, 0, 1, 0, 2.07206)"
+            },
+            {
+              "opacity": "0.61361",
+              "transform": "matrix(1, 0, 0, 1, 0, 4.63668)"
+            },
+            {
+              "opacity": "0.25945",
+              "transform": "matrix(1, 0, 0, 1, 0, 8.88661)"
+            }
+          ]
+        },
+        {
+          "time": 1000,
+          "sample": [
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "geometry": {
+        "baseGap": 0,
+        "pageOverflow": false,
+        "moduleOverflow": false,
+        "rowScrolls": false,
+        "tiltedGray": true
+      },
+      "keyboardFocus": "pass",
+      "openClose": "pass",
+      "recordsUnchanged": true
+    },
+    {
+      "name": "多本档案",
+      "status": "pass",
+      "initial": {
+        "heading": "个人经历档案\n查看演示经历",
+        "upperFrame": "none",
+        "base": {
+          "color": "rgb(36, 74, 112)",
+          "image": "none",
+          "shadow": "none",
+          "height": "14px",
+          "border": "0px"
+        },
+        "controls": [
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0s",
+            "opacity": "0.407988",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.065s",
+            "opacity": "0.0647502",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.13s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.195s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.26s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-create-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.39s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          }
+        ],
+        "spineStyles": [
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          }
+        ],
+        "depthLayers": 0
+      },
+      "animationSamples": [
+        {
+          "time": 0,
+          "sample": [
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            }
+          ]
+        },
+        {
+          "time": 330,
+          "sample": [
+            {
+              "opacity": "0.989948",
+              "transform": "matrix(1, 0, 0, 1, 0, 0.12062)"
+            },
+            {
+              "opacity": "0.939592",
+              "transform": "matrix(1, 0, 0, 1, 0, 0.7249)"
+            },
+            {
+              "opacity": "0.827328",
+              "transform": "matrix(1, 0, 0, 1, 0, 2.07206)"
+            },
+            {
+              "opacity": "0.61361",
+              "transform": "matrix(1, 0, 0, 1, 0, 4.63668)"
+            },
+            {
+              "opacity": "0.25945",
+              "transform": "matrix(1, 0, 0, 1, 0, 8.88661)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            }
+          ]
+        },
+        {
+          "time": 1000,
+          "sample": [
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "geometry": {
+        "baseGap": 0,
+        "pageOverflow": false,
+        "moduleOverflow": false,
+        "rowScrolls": true,
+        "tiltedGray": true
+      },
+      "keyboardFocus": "pass",
+      "openClose": "pass",
+      "recordsUnchanged": true
+    },
+    {
+      "name": "英文档案",
+      "status": "pass",
+      "initial": {
+        "heading": "PERSONAL RECORDS\nView demo experiences",
+        "upperFrame": "none",
+        "base": {
+          "color": "rgb(36, 74, 112)",
+          "image": "none",
+          "shadow": "none",
+          "height": "14px",
+          "border": "0px"
+        },
+        "controls": [
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0s",
+            "opacity": "0.437943",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.065s",
+            "opacity": "0.083497",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.13s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.195s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.26s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.325s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          },
+          {
+            "kind": "folder-create-trigger",
+            "name": "folder-arrive",
+            "duration": "0.38s",
+            "delay": "0.39s",
+            "opacity": "0",
+            "keyframes": [
+              {
+                "offset": 0,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(12px)",
+                "opacity": "0",
+                "computedOffset": 0
+              },
+              {
+                "offset": 1,
+                "easing": "ease",
+                "composite": "auto",
+                "transform": "translateY(0px)",
+                "opacity": "1",
+                "computedOffset": 1
+              }
+            ]
+          }
+        ],
+        "spineStyles": [
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          }
+        ],
+        "depthLayers": 0
+      },
+      "animationSamples": [
+        {
+          "time": 0,
+          "sample": [
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            }
+          ]
+        },
+        {
+          "time": 330,
+          "sample": [
+            {
+              "opacity": "0.989948",
+              "transform": "matrix(1, 0, 0, 1, 0, 0.12062)"
+            },
+            {
+              "opacity": "0.939592",
+              "transform": "matrix(1, 0, 0, 1, 0, 0.7249)"
+            },
+            {
+              "opacity": "0.827328",
+              "transform": "matrix(1, 0, 0, 1, 0, 2.07206)"
+            },
+            {
+              "opacity": "0.61361",
+              "transform": "matrix(1, 0, 0, 1, 0, 4.63668)"
+            },
+            {
+              "opacity": "0.25945",
+              "transform": "matrix(1, 0, 0, 1, 0, 8.88661)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0.00611197",
+              "transform": "matrix(1, 0, 0, 1, 0, 11.9267)"
+            },
+            {
+              "opacity": "0",
+              "transform": "matrix(1, 0, 0, 1, 0, 12)"
+            }
+          ]
+        },
+        {
+          "time": 1000,
+          "sample": [
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            },
+            {
+              "opacity": "1",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "geometry": {
+        "baseGap": 0,
+        "pageOverflow": false,
+        "moduleOverflow": false,
+        "rowScrolls": true,
+        "tiltedGray": true
+      },
+      "keyboardFocus": "pass",
+      "openClose": "pass",
+      "recordsUnchanged": true
+    },
+    {
+      "name": "减少动态效果",
+      "status": "pass",
+      "initial": {
+        "heading": "个人经历档案",
+        "upperFrame": "none",
+        "base": {
+          "color": "rgb(36, 74, 112)",
+          "image": "none",
+          "shadow": "none",
+          "height": "14px",
+          "border": "0px"
+        },
+        "controls": [
+          {
+            "kind": "folder-trigger",
+            "name": "none",
+            "duration": "0s",
+            "delay": "0s",
+            "opacity": "1"
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "none",
+            "duration": "0s",
+            "delay": "0s",
+            "opacity": "1"
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "none",
+            "duration": "0s",
+            "delay": "0s",
+            "opacity": "1"
+          },
+          {
+            "kind": "folder-trigger",
+            "name": "none",
+            "duration": "0s",
+            "delay": "0s",
+            "opacity": "1"
+          },
+          {
+            "kind": "folder-create-trigger",
+            "name": "none",
+            "duration": "0s",
+            "delay": "0s",
+            "opacity": "1"
+          }
+        ],
+        "spineStyles": [
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-spine",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          },
+          {
+            "class": "binder-ring",
+            "image": "none",
+            "shadow": "none",
+            "edgeHighlight": "none"
+          }
+        ],
+        "depthLayers": 0
+      },
+      "geometry": {
+        "baseGap": 0,
+        "pageOverflow": false,
+        "moduleOverflow": false,
+        "rowScrolls": false,
+        "tiltedGray": true
+      },
+      "keyboardFocus": "pass",
+      "openClose": "pass",
+      "recordsUnchanged": true
+    }
+  ],
+  "pageErrors": []
+}

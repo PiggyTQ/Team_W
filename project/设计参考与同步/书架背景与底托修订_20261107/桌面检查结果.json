@@ -1,0 +1,164 @@
+{
+  "results": [
+    {
+      "name": "背景评估",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "frameBackground": "rgba(0, 0, 0, 0)",
+        "frameImage": "none",
+        "frameWidth": "8px",
+        "panelBackground": "rgb(255, 254, 250)",
+        "baseHeight": "14px",
+        "baseShadow": "rgba(255, 255, 255, 0.65) 0px 1px 0px 0px inset, rgba(40, 78, 116, 0.25) 0px 4px 6px -3px",
+        "baseRadius": "8px",
+        "bookBaseGap": 0,
+        "alignment": "flex-start",
+        "firstInset": 18,
+        "overflow": false,
+        "pageOverflow": false
+      },
+      "colors": [
+        {
+          "id": "demo:campus-web",
+          "tone": "gold",
+          "color": "#e5b84a"
+        },
+        {
+          "id": "demo:data-course",
+          "tone": "vanilla",
+          "color": "#f5e39e"
+        },
+        {
+          "id": "demo:club-event",
+          "tone": "straw",
+          "color": "#dfc771"
+        },
+        {
+          "id": "demo:product-intern",
+          "tone": "honey",
+          "color": "#e8be45"
+        }
+      ],
+      "stableAfterOpenClose": true
+    },
+    {
+      "name": "多本档案",
+      "width": 1280,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "frameBackground": "rgba(0, 0, 0, 0)",
+        "frameImage": "none",
+        "frameWidth": "8px",
+        "panelBackground": "rgb(255, 254, 250)",
+        "baseHeight": "14px",
+        "baseShadow": "rgba(255, 255, 255, 0.65) 0px 1px 0px 0px inset, rgba(40, 78, 116, 0.25) 0px 4px 6px -3px",
+        "baseRadius": "8px",
+        "bookBaseGap": 0,
+        "alignment": "flex-start",
+        "firstInset": 18,
+        "overflow": true,
+        "pageOverflow": false
+      },
+      "colors": [
+        {
+          "id": "claim:shelf-0",
+          "tone": "gold",
+          "color": "#e5b84a"
+        },
+        {
+          "id": "claim:shelf-1",
+          "tone": "honey",
+          "color": "#e8be45"
+        },
+        {
+          "id": "claim:shelf-2",
+          "tone": "lemon",
+          "color": "#f3d45e"
+        },
+        {
+          "id": "claim:shelf-3",
+          "tone": "maize",
+          "color": "#efcf70"
+        },
+        {
+          "id": "claim:shelf-4",
+          "tone": "vanilla",
+          "color": "#f5e39e"
+        },
+        {
+          "id": "claim:shelf-5",
+          "tone": "straw",
+          "color": "#dfc771"
+        },
+        {
+          "id": "claim:shelf-6",
+          "tone": "butter",
+          "color": "#f2d77a"
+        },
+        {
+          "id": "claim:shelf-7",
+          "tone": "saffron",
+          "color": "#ebca55"
+        },
+        {
+          "id": "claim:shelf-8",
+          "tone": "gold",
+          "color": "#e5b84a"
+        },
+        {
+          "id": "claim:shelf-9",
+          "tone": "honey",
+          "color": "#e8be45"
+        }
+      ],
+      "stableAfterOpenClose": true
+    },
+    {
+      "name": "英文档案",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "geometry": {
+        "frameBackground": "rgba(0, 0, 0, 0)",
+        "frameImage": "none",
+        "frameWidth": "8px",
+        "panelBackground": "rgb(255, 254, 250)",
+        "baseHeight": "14px",
+        "baseShadow": "rgba(255, 255, 255, 0.65) 0px 1px 0px 0px inset, rgba(40, 78, 116, 0.25) 0px 4px 6px -3px",
+        "baseRadius": "8px",
+        "bookBaseGap": 0,
+        "alignment": "flex-start",
+        "firstInset": 18,
+        "overflow": false,
+        "pageOverflow": false
+      },
+      "colors": [
+        {
+          "id": "demo:campus-web",
+          "tone": "gold",
+          "color": "#e5b84a"
+        },
+        {
+          "id": "demo:data-course",
+          "tone": "vanilla",
+          "color": "#f5e39e"
+        },
+        {
+          "id": "demo:club-event",
+          "tone": "straw",
+          "color": "#dfc771"
+        },
+        {
+          "id": "demo:product-intern",
+          "tone": "honey",
+          "color": "#e8be45"
+        }
+      ],
+      "stableAfterOpenClose": true
+    }
+  ],
+  "pageErrors": []
+}

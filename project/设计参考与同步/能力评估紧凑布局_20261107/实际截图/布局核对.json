@@ -1,0 +1,463 @@
+{
+  "beforeHeight": 1007.65625,
+  "afterHeight": 717.96875,
+  "reduction": 0.28748643200496204,
+  "results": [
+    {
+      "language": "zh",
+      "width": 1440,
+      "height": 1000,
+      "metrics": {
+        "#assessment-analysis": {
+          "width": 1162,
+          "height": 717.96875,
+          "padding": "20px",
+          "margin": "16px 0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        "#assessment-analysis>header": {
+          "width": 1120,
+          "height": 59.390625,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "16px",
+          "columns": "none"
+        },
+        ".hub-direction": {
+          "width": 1120,
+          "height": 44,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "16px",
+          "columns": "none"
+        },
+        ".capability-puzzle-heading": {
+          "width": 1120,
+          "height": 27,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "16px",
+          "columns": "none"
+        },
+        ".capability-puzzle-layout": {
+          "width": 1120,
+          "height": 370,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "18px",
+          "columns": "415.844px 686.141px"
+        },
+        ".capability-detail": {
+          "width": 415.84375,
+          "height": 281.28125,
+          "padding": "18px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-board": {
+          "width": 686.140625,
+          "height": 370,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-support-row": {
+          "width": 1120,
+          "height": 54.09375,
+          "padding": "8px 0px 0px",
+          "margin": "12px 0px 0px",
+          "gap": "8px 16px",
+          "columns": "none"
+        },
+        ".hub-snapshot-state": {
+          "width": 1120,
+          "height": 41.09375,
+          "padding": "8px 12px",
+          "margin": "8px 0px 0px",
+          "gap": "normal",
+          "columns": "none"
+        }
+      },
+      "checks": {
+        "horizontalOverflow": false,
+        "labelFont": "13px",
+        "selectHeight": 44,
+        "selectWidth": 272,
+        "railCount": 3,
+        "shapes": 9,
+        "buttons": [
+          {
+            "text": "展开模拟评估",
+            "width": 116,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "已掌握",
+            "width": 183.921875,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "未掌握",
+            "width": 183.921875,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "查看职业要求与产物",
+            "width": 158,
+            "overflow": false,
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 1280,
+      "height": 1000,
+      "metrics": {
+        "#assessment-analysis": {
+          "width": 1002,
+          "height": 699.59375,
+          "padding": "20px",
+          "margin": "16px 0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        "#assessment-analysis>header": {
+          "width": 960,
+          "height": 59.390625,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "16px",
+          "columns": "none"
+        },
+        ".hub-direction": {
+          "width": 960,
+          "height": 46.1875,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "16px",
+          "columns": "none"
+        },
+        ".capability-puzzle-heading": {
+          "width": 960,
+          "height": 27,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "16px",
+          "columns": "none"
+        },
+        ".capability-puzzle-layout": {
+          "width": 960,
+          "height": 349.4375,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "18px",
+          "columns": "355.469px 586.516px"
+        },
+        ".capability-detail": {
+          "width": 355.46875,
+          "height": 328.875,
+          "padding": "18px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-board": {
+          "width": 586.515625,
+          "height": 349.4375,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-support-row": {
+          "width": 960,
+          "height": 54.09375,
+          "padding": "8px 0px 0px",
+          "margin": "12px 0px 0px",
+          "gap": "8px 16px",
+          "columns": "none"
+        },
+        ".hub-snapshot-state": {
+          "width": 960,
+          "height": 41.09375,
+          "padding": "8px 12px",
+          "margin": "8px 0px 0px",
+          "gap": "normal",
+          "columns": "none"
+        }
+      },
+      "checks": {
+        "horizontalOverflow": false,
+        "labelFont": "13px",
+        "selectHeight": 44,
+        "selectWidth": 206.96875,
+        "railCount": 3,
+        "shapes": 9,
+        "buttons": [
+          {
+            "text": "Expand simulated assessment",
+            "width": 231.96875,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Mastered",
+            "width": 153.734375,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Not mastered",
+            "width": 153.734375,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "View role requirements and outputs",
+            "width": 266.96875,
+            "overflow": false,
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "language": "zh",
+      "width": 390,
+      "height": 1650,
+      "metrics": {
+        "#assessment-analysis": {
+          "width": 354,
+          "height": 1234.390625,
+          "padding": "16px",
+          "margin": "16px 0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        "#assessment-analysis>header": {
+          "width": 320,
+          "height": 143.75,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "12px",
+          "columns": "none"
+        },
+        ".hub-direction": {
+          "width": 320,
+          "height": 132.9375,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "12px",
+          "columns": "none"
+        },
+        ".capability-puzzle-heading": {
+          "width": 320,
+          "height": 87,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "8px",
+          "columns": "none"
+        },
+        ".capability-puzzle-layout": {
+          "width": 320,
+          "height": 559.453125,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "12px",
+          "columns": "320px"
+        },
+        ".capability-detail": {
+          "width": 320,
+          "height": 315.046875,
+          "padding": "18px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-board": {
+          "width": 320,
+          "height": 232.40625,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-support-row": {
+          "width": 320,
+          "height": 103.75,
+          "padding": "8px 0px 0px",
+          "margin": "12px 0px 0px",
+          "gap": "4px 12px",
+          "columns": "none"
+        },
+        ".hub-snapshot-state": {
+          "width": 320,
+          "height": 67.5,
+          "padding": "8px 12px",
+          "margin": "8px 0px 0px",
+          "gap": "normal",
+          "columns": "none"
+        }
+      },
+      "checks": {
+        "horizontalOverflow": false,
+        "labelFont": "13px",
+        "selectHeight": 46,
+        "selectWidth": 320,
+        "railCount": 0,
+        "shapes": 9,
+        "buttons": [
+          {
+            "text": "展开模拟评估",
+            "width": 320,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "已掌握",
+            "width": 136,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "未掌握",
+            "width": 136,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "查看职业要求与产物",
+            "width": 167,
+            "overflow": false,
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 320,
+      "height": 2200,
+      "metrics": {
+        "#assessment-analysis": {
+          "width": 284,
+          "height": 1507.796875,
+          "padding": "16px",
+          "margin": "16px 0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        "#assessment-analysis>header": {
+          "width": 250,
+          "height": 167.75,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "12px",
+          "columns": "none"
+        },
+        ".hub-direction": {
+          "width": 250,
+          "height": 207.1875,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "12px",
+          "columns": "none"
+        },
+        ".capability-puzzle-heading": {
+          "width": 250,
+          "height": 111,
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "gap": "8px",
+          "columns": "none"
+        },
+        ".capability-puzzle-layout": {
+          "width": 250,
+          "height": 608.359375,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "12px",
+          "columns": "250px"
+        },
+        ".capability-detail": {
+          "width": 250,
+          "height": 414.796875,
+          "padding": "18px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-board": {
+          "width": 250,
+          "height": 181.5625,
+          "padding": "0px",
+          "margin": "0px",
+          "gap": "normal",
+          "columns": "none"
+        },
+        ".capability-support-row": {
+          "width": 250,
+          "height": 132.5,
+          "padding": "8px 0px 0px",
+          "margin": "12px 0px 0px",
+          "gap": "4px 12px",
+          "columns": "none"
+        },
+        ".hub-snapshot-state": {
+          "width": 250,
+          "height": 117,
+          "padding": "8px 12px",
+          "margin": "8px 0px 0px",
+          "gap": "normal",
+          "columns": "none"
+        }
+      },
+      "checks": {
+        "horizontalOverflow": false,
+        "labelFont": "13px",
+        "selectHeight": 46,
+        "selectWidth": 250,
+        "railCount": 0,
+        "shapes": 9,
+        "buttons": [
+          {
+            "text": "Expand simulated assessment",
+            "width": 250,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Mastered",
+            "width": 101,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Not mastered",
+            "width": 101,
+            "overflow": false,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "View role requirements and outputs",
+            "width": 250,
+            "overflow": false,
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}

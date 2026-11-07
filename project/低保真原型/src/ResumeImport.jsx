@@ -2,12 +2,13 @@ import React,{useEffect,useRef,useState} from 'react';
 import {resumeSegments,storeResumeImport,validateResumeFile,MAX_RESUME_TEXT} from './resume-import-model.js';
 import {extractResumePdf} from './pdf-resume.js';
 const types=['课程项目','自主作品','科研成果','实习（本人记录）','工作经历','校园经历','志愿服务','社会实践','荣誉奖项','证书','技能记录','个人简介','外部行动','教育经历','个人信息'];
-export default function ResumeImport({s,update,link,onClose,onSaved}){
+export default function ResumeImport({s,update,link,onClose,onSaved,active=true}){
  const d=s.resumeImportDraft||{},[file,setFile]=useState(null),[busy,setBusy]=useState(false),[status,setStatus]=useState(''),[error,setError]=useState(''),[allSegments,setAllSegments]=useState(false),abort=useRef(null),sequence=useRef(0);
  useEffect(()=>()=>{sequence.current++;abort.current?.abort();},[]);
  const patch=value=>update(x=>({...x,resumeImportDraft:{...x.resumeImportDraft,...value}}));
  const candidate=(key,value)=>patch({segments:(d.segments||[]).map(c=>c.key===key?{...c,...value}:c)});
  const cancel=()=>{sequence.current++;abort.current?.abort();setBusy(false);setStatus('提取已取消，可重新选择文件或继续整理已保留的文字。');};
+ useEffect(()=>{if(!active)cancel();},[active]);
  async function extract(){
   setError('');try{validateResumeFile(file);}catch(e){setError(e.message);return;}
   const token=++sequence.current,controller=new AbortController();abort.current?.abort();abort.current=controller;setBusy(true);setStatus('正在读取 PDF…');

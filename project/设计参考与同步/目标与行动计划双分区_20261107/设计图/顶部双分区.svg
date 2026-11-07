@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350">
+ <rect width="1200" height="350" fill="#faf7ef"/>
+ <rect x="20" y="40" width="1160" height="286" rx="16" fill="#fff" stroke="#ddd4c5"/>
+ <path d="M600 60V306" stroke="#ddd4c5"/>
+ <g font-family="Microsoft YaHei, sans-serif" fill="#202834">
+  <text x="20" y="24" font-size="13" fill="#6a7282">实施前局部设计图 · 顶部摘要共用一个外框，内部等宽双分区</text>
+  <text x="44" y="88" font-size="22">我的目标</text>
+  <text x="628" y="88" font-size="22">代行动计划</text>
+  <text x="44" y="128" font-size="18">当前目标名称 / 独立探索起点</text>
+  <text x="44" y="160" font-size="14" fill="#6a7282">目标理由、备用方向与计划版本</text>
+  <rect x="44" y="185" width="140" height="42" rx="18" fill="#fff" stroke="#ddd4c5"/>
+  <text x="59" y="211" font-size="14" fill="#6a7282">编辑目标并预览</text>
+  <text x="44" y="269" font-size="14" fill="#6a7282">⌄ 待验证的问题（按需展开，保留比较方向入口）</text>
+  <g font-size="14">
+   <text x="628" y="137" fill="#6a7282">待进行动</text><text x="810" y="137">真实记录数</text><text x="1010" y="137" fill="#013e75">进入执行 →</text>
+   <text x="628" y="187" fill="#6a7282">未排期</text><text x="810" y="187">真实记录数</text><text x="1010" y="187" fill="#013e75">安排日期 →</text>
+   <text x="628" y="237" fill="#6a7282">需复查</text><text x="810" y="237">真实记录数</text><text x="1010" y="237" fill="#013e75">查看原因 →</text>
+   <text x="628" y="282" fill="#013e75">预览学习实践 →</text>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,382 @@
+{
+  "results": [
+    {
+      "name": "宽桌面",
+      "width": 1440,
+      "language": "zh",
+      "reducedMotion": "no-preference",
+      "status": "pass",
+      "geometry": {
+        "overflow": false,
+        "areas": [
+          {
+            "area": {
+              "x": 265,
+              "y": 227.09375,
+              "width": 560,
+              "height": 251.765625
+            },
+            "copy": {
+              "x": 265,
+              "right": 645
+            },
+            "icon": {
+              "x": 669,
+              "y": 288.96875,
+              "width": 128,
+              "height": 128,
+              "centerY": 352.96875
+            },
+            "titleY": 231.140625,
+            "contentCenterY": 352.9765625
+          },
+          {
+            "area": {
+              "x": 825,
+              "y": 227.09375,
+              "width": 560,
+              "height": 251.765625
+            },
+            "copy": {
+              "x": 854,
+              "right": 1233
+            },
+            "icon": {
+              "x": 1257,
+              "y": 288.96875,
+              "width": 128,
+              "height": 128,
+              "centerY": 352.96875
+            },
+            "titleY": 231.140625,
+            "contentCenterY": 352.9765625
+          }
+        ]
+      },
+      "hover": [
+        {
+          "transform": "matrix(1.07149, -0.130608, 0.130608, 1.07149, 0, -5.95688)",
+          "transition": "0.38s"
+        },
+        {
+          "transform": "matrix(1.07154, 0.130712, -0.130712, 1.07154, 0, -5.96131)",
+          "transition": "0.38s"
+        }
+      ]
+    },
+    {
+      "name": "窄桌面",
+      "width": 1024,
+      "language": "zh",
+      "reducedMotion": "no-preference",
+      "status": "pass",
+      "geometry": {
+        "overflow": false,
+        "areas": [
+          {
+            "area": {
+              "x": 241,
+              "y": 335.09375,
+              "width": 364,
+              "height": 308.546875
+            },
+            "copy": {
+              "x": 241,
+              "right": 457
+            },
+            "icon": {
+              "x": 473,
+              "y": 437.359375,
+              "width": 104,
+              "height": 104,
+              "centerY": 489.359375
+            },
+            "titleY": 339.140625,
+            "contentCenterY": 489.3671875
+          },
+          {
+            "area": {
+              "x": 605,
+              "y": 335.09375,
+              "width": 364,
+              "height": 308.546875
+            },
+            "copy": {
+              "x": 634,
+              "right": 849
+            },
+            "icon": {
+              "x": 865,
+              "y": 437.359375,
+              "width": 104,
+              "height": 104,
+              "centerY": 489.359375
+            },
+            "titleY": 339.140625,
+            "contentCenterY": 489.3671875
+          }
+        ]
+      },
+      "hover": [
+        {
+          "transform": "matrix(1.07155, -0.130727, 0.130727, 1.07155, 0, -5.96194)",
+          "transition": "0.38s"
+        },
+        {
+          "transform": "matrix(1.07154, 0.130703, -0.130703, 1.07154, 0, -5.96092)",
+          "transition": "0.38s"
+        }
+      ]
+    },
+    {
+      "name": "英文桌面",
+      "width": 1440,
+      "language": "en",
+      "reducedMotion": "no-preference",
+      "status": "pass",
+      "geometry": {
+        "overflow": false,
+        "areas": [
+          {
+            "area": {
+              "x": 265,
+              "y": 227.09375,
+              "width": 560,
+              "height": 308.546875
+            },
+            "copy": {
+              "x": 265,
+              "right": 645
+            },
+            "icon": {
+              "x": 669,
+              "y": 317.359375,
+              "width": 128,
+              "height": 128,
+              "centerY": 381.359375
+            },
+            "titleY": 231.140625,
+            "contentCenterY": 381.3671875
+          },
+          {
+            "area": {
+              "x": 825,
+              "y": 227.09375,
+              "width": 560,
+              "height": 308.546875
+            },
+            "copy": {
+              "x": 854,
+              "right": 1233
+            },
+            "icon": {
+              "x": 1257,
+              "y": 317.359375,
+              "width": 128,
+              "height": 128,
+              "centerY": 381.359375
+            },
+            "titleY": 231.140625,
+            "contentCenterY": 381.3671875
+          }
+        ]
+      },
+      "hover": [
+        {
+          "transform": "matrix(1.07155, -0.130726, 0.130726, 1.07155, 0, -5.96193)",
+          "transition": "0.38s"
+        },
+        {
+          "transform": "matrix(1.07156, 0.130761, -0.130761, 1.07156, 0, -5.96339)",
+          "transition": "0.38s"
+        }
+      ]
+    },
+    {
+      "name": "减少动态效果",
+      "width": 1440,
+      "language": "zh",
+      "reducedMotion": "reduce",
+      "status": "pass",
+      "geometry": {
+        "overflow": false,
+        "areas": [
+          {
+            "area": {
+              "x": 265,
+              "y": 227.09375,
+              "width": 560,
+              "height": 251.765625
+            },
+            "copy": {
+              "x": 265,
+              "right": 645
+            },
+            "icon": {
+              "x": 669,
+              "y": 288.96875,
+              "width": 128,
+              "height": 128,
+              "centerY": 352.96875
+            },
+            "titleY": 231.140625,
+            "contentCenterY": 352.9765625
+          },
+          {
+            "area": {
+              "x": 825,
+              "y": 227.09375,
+              "width": 560,
+              "height": 251.765625
+            },
+            "copy": {
+              "x": 854,
+              "right": 1233
+            },
+            "icon": {
+              "x": 1257,
+              "y": 288.96875,
+              "width": 128,
+              "height": 128,
+              "centerY": 352.96875
+            },
+            "titleY": 231.140625,
+            "contentCenterY": 352.9765625
+          }
+        ]
+      },
+      "hover": [
+        {
+          "transform": "none",
+          "transition": "0s"
+        },
+        {
+          "transform": "none",
+          "transition": "0s"
+        }
+      ]
+    },
+    {
+      "name": "窄窗口",
+      "width": 390,
+      "language": "zh",
+      "reducedMotion": "reduce",
+      "status": "pass",
+      "geometry": {
+        "overflow": false,
+        "areas": [
+          {
+            "area": {
+              "x": 37,
+              "y": 377.25,
+              "width": 316,
+              "height": 316.640625
+            },
+            "copy": {
+              "x": 37,
+              "right": 261
+            },
+            "icon": {
+              "x": 273,
+              "y": 495.5625,
+              "width": 80,
+              "height": 80,
+              "centerY": 535.5625
+            },
+            "titleY": 381.296875,
+            "contentCenterY": 535.5703125
+          },
+          {
+            "area": {
+              "x": 37,
+              "y": 713.890625,
+              "width": 316,
+              "height": 247
+            },
+            "copy": {
+              "x": 37,
+              "right": 261
+            },
+            "icon": {
+              "x": 273,
+              "y": 805.890625,
+              "width": 80,
+              "height": 80,
+              "centerY": 845.890625
+            },
+            "titleY": 734.9375,
+            "contentCenterY": 845.890625
+          }
+        ]
+      },
+      "hover": [
+        {
+          "transform": "none",
+          "transition": "0s"
+        },
+        {
+          "transform": "none",
+          "transition": "0s"
+        }
+      ]
+    },
+    {
+      "name": "最窄窗口",
+      "width": 320,
+      "language": "zh",
+      "reducedMotion": "reduce",
+      "status": "pass",
+      "geometry": {
+        "coordinateSystem": "relative-to-card",
+        "overflow": false,
+        "areas": [
+          {
+            "area": {
+              "x": 19,
+              "y": 21,
+              "width": 246,
+              "height": 380.640625
+            },
+            "copyRight": 173,
+            "icon": {
+              "x": 185,
+              "y": 171.3125,
+              "width": 80,
+              "height": 80,
+              "centerY": 211.3125
+            },
+            "contentCenterY": 211.3203125
+          },
+          {
+            "area": {
+              "x": 19,
+              "y": 421.640625,
+              "width": 246,
+              "height": 247
+            },
+            "copyRight": 173,
+            "icon": {
+              "x": 185,
+              "y": 513.640625,
+              "width": 80,
+              "height": 80,
+              "centerY": 553.640625
+            },
+            "contentCenterY": 553.640625
+          }
+        ]
+      },
+      "hover": [
+        {
+          "transform": "none",
+          "transition": "0s"
+        },
+        {
+          "transform": "none",
+          "transition": "0s"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

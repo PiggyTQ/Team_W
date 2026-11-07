@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="190" viewBox="0 0 520 190">
+ <rect width="520" height="190" fill="#fffefa"/>
+ <g font-family="Microsoft YaHei,sans-serif">
+  <text x="20" y="27" font-size="14" fill="#6a7282">实施前局部设计：左边缘固定，六个矩形框统一收窄</text>
+  <rect x="20" y="53" width="380" height="48" rx="6" fill="none" stroke="#cad5df" stroke-dasharray="5 5"/>
+  <rect x="20" y="53" width="280" height="48" rx="6" fill="#f9fbfd" stroke="#dce5ed"/>
+  <text x="32" y="83" font-size="16" fill="#36546f">周目标</text><text x="246" y="83" font-size="20" fill="#082f68">... 个</text>
+  <path d="M394 120h-88m10-6-10 6 10 6" fill="none" stroke="#7c93a9" stroke-width="1.5"/>
+  <text x="20" y="165" font-size="13" fill="#6a7282">宽窗口由约 380px 收到 280px；原可用空间更小时保持完整容纳内容。</text>
+ </g>
+</svg>

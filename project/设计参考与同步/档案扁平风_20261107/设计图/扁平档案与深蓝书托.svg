@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="440" viewBox="0 0 920 440" role="img" aria-labelledby="title desc">
+  <title id="title">个人经历档案：扁平文件夹与深蓝书托，实施前局部设计</title>
+  <desc id="desc">移除演示数量标记与书架上、左、右边框；书本使用纯色与细描边，底部仅保留深蓝书托。灰色斜靠入口与黄色档案依次入场。</desc>
+  <rect width="920" height="440" fill="#ffffff"/>
+  <g font-family="Microsoft YaHei,sans-serif" fill="#244a70">
+    <text x="28" y="32" font-size="20">扁平档案与深蓝书托 · 实施前局部设计</text>
+    <rect x="25" y="52" width="870" height="346" rx="18" fill="#fffefa" stroke="#e9e4d9"/>
+    <text x="45" y="86" font-size="18">个人经历档案</text>
+    <g transform="translate(55 111)">
+      <g fill="#e5b84a" stroke="#c49a32"><rect width="76" height="236" rx="5"/><rect x="252" width="76" height="236" rx="5"/></g>
+      <rect x="84" width="76" height="236" rx="5" fill="#f5e39e" stroke="#d5c17a"/>
+      <rect x="168" width="76" height="236" rx="5" fill="#dfc771" stroke="#bda450"/>
+      <g fill="#fffefa" stroke="#e9e4d9"><rect x="10" y="17" width="56" height="136"/><rect x="94" y="17" width="56" height="136"/><rect x="178" y="17" width="56" height="136"/><rect x="262" y="17" width="56" height="136"/></g>
+      <path d="M10 58h56m28 0h56m28 0h56m28 0h56M10 80h56m28 0h56m28 0h56m28 0h56M10 102h56m28 0h56m28 0h56m28 0h56M10 124h56m28 0h56m28 0h56m28 0h56" stroke="#d8dee4" fill="none"/>
+      <g text-anchor="middle" font-size="11" fill="#6b531b"><text x="38" y="32">01</text><text x="122" y="32">02</text><text x="206" y="32">03</text><text x="290" y="32">04</text></g>
+      <g text-anchor="middle" font-size="12"><text x="38" y="55">校园活动<tspan x="38" dy="22">网站</tspan></text><text x="122" y="55">数据分析<tspan x="122" dy="22">课程</tspan></text><text x="206" y="55">社团活动<tspan x="206" dy="22">策划</tspan></text><text x="290" y="55">产品设计<tspan x="290" dy="22">实习</tspan></text></g>
+      <g text-anchor="middle" font-size="10" fill="#5d471d"><text x="38" y="175">演示</text><text x="122" y="175">演示</text><text x="206" y="175">演示</text><text x="290" y="175">演示</text></g>
+      <g fill="#33424b" stroke="#efe4c3" stroke-width="3"><circle cx="38" cy="201" r="16"/><circle cx="122" cy="201" r="16"/><circle cx="206" cy="201" r="16"/><circle cx="290" cy="201" r="16"/></g>
+      <g transform="translate(381 -9) rotate(-13 38 236)">
+        <rect width="76" height="236" rx="5" fill="#d9dde2" stroke="#adb6bf"/>
+        <rect x="10" y="17" width="56" height="136" fill="#f8fafb" stroke="#e9e4d9"/>
+        <path d="M26 85h24M38 73v24" stroke="#526576" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="38" cy="201" r="16" fill="#52626f" stroke="#e7ebee" stroke-width="3"/>
+      </g>
+    </g>
+    <rect x="37" y="347" width="846" height="14" rx="3" fill="#244a70"/>
+    <text x="863" y="385" font-size="12" text-anchor="end">没有经历？先了解实践</text>
+    <text x="28" y="425" font-size="12">统一淡入上移动效：380ms，依次延迟 65ms；灰色入口在最后入场。减少动态效果时直接显示。</text>
+  </g>
+</svg>

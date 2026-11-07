@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="150" viewBox="0 0 1160 150">
+ <rect width="1160" height="150" fill="#fcf9f1"/>
+ <g font-family="Microsoft YaHei,sans-serif">
+  <text x="20" y="22" fill="#6a7282" font-size="13">实施前局部设计 · 移除独立“查看本周日程”按钮，右上角仅保留两项计划切换</text>
+  <text x="20" y="83" fill="#082f68" font-size="32" font-weight="750">目标与行动计划</text>
+  <rect x="878" y="47" width="262" height="52" rx="18" fill="#f6f1e5"/>
+  <rect x="882" y="51" width="127" height="44" rx="14" fill="#e2edf0"/>
+  <text x="915" y="79" fill="#0756a5" font-size="14">计划制定</text>
+  <text x="1045" y="79" fill="#6a7282" font-size="14">计划执行</text>
+  <text x="20" y="133" fill="#6a7282" font-size="13">沿用原有制定与执行路由、选中滑块及键盘导航；复盘仍可从执行工作台中的原入口访问。</text>
+ </g>
+</svg>

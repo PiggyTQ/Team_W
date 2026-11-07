@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "after": [
+    {
+      "id": "undated",
+      "label": "待排期",
+      "href": "#schedule-undated",
+      "x": 854,
+      "y": 283.09375,
+      "width": 280,
+      "height": 48
+    },
+    {
+      "id": "actions",
+      "label": "待行动",
+      "href": "/plan?tab=执行",
+      "x": 854,
+      "y": 339.09375,
+      "width": 280,
+      "height": 48
+    },
+    {
+      "id": "review",
+      "label": "待复查",
+      "href": "#schedule-overdue",
+      "x": 854,
+      "y": 395.09375,
+      "width": 280,
+      "height": 48
+    }
+  ],
+  "tabOrder": [
+    "undated",
+    "actions",
+    "review"
+  ],
+  "errors": []
+}

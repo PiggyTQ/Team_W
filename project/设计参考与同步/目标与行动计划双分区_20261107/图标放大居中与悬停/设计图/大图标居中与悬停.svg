@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="350" viewBox="0 0 1160 350">
+ <rect width="1160" height="350" fill="#fcf9f1"/>
+ <rect x="12" y="40" width="1136" height="286" rx="16" fill="#fff" stroke="#e6dfd2"/>
+ <path d="M580 60V306" stroke="#e6dfd2"/>
+ <g font-family="Microsoft YaHei,sans-serif">
+  <text x="12" y="24" font-size="13" fill="#6a7282">实施前局部设计 · 两个图标放大到桌面 128px，各自在右侧独立图标栏内纵向居中</text>
+  <text x="34" y="83" font-size="22" fill="#18202a">我的目标</text><text x="608" y="83" font-size="22" fill="#18202a">我的计划</text>
+  <text x="34" y="128" font-size="16" fill="#18202a">目标、理由与备用方向</text>
+  <text x="34" y="176" font-size="14" fill="#6a7282">编辑目标与待验证的问题</text>
+  <g font-size="14" fill="#0756a5"><text x="608" y="130">待进行动</text><text x="608" y="180">未排期</text><text x="608" y="230">需复查</text></g>
+  <g fill="none" stroke="#142d49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+   <g transform="translate(418 119) scale(5.333)"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m12 12 9-9m-5 0h5v5"/></g>
+   <g transform="translate(998 119) scale(5.333)"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4m8-4v4M3 10h18m-13 4h2m4 0h2m-8 4h2"/></g>
+  </g>
+  <text x="34" y="294" font-size="13" fill="#6a7282">悬停时轻微上浮、放大与倾转，移出后平滑复原；只改变图标变换，不移动文字或数字。减少动态效果时静态呈现。</text>
+ </g>
+</svg>

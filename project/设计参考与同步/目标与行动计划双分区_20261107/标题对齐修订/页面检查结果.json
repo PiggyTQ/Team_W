@@ -1,0 +1,129 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "reference": {
+        "text": "我的经历与职业准备",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "32px",
+        "lineHeight": "40px",
+        "x": 244,
+        "y": 137,
+        "height": 40
+      },
+      "plan": {
+        "text": "目标与行动计划",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "32px",
+        "lineHeight": "40px",
+        "x": 244,
+        "y": 137,
+        "height": 40
+      },
+      "card": {
+        "count": 1,
+        "columns": "560px 560px",
+        "divider": "1px",
+        "overflow": false
+      }
+    },
+    {
+      "width": 1024,
+      "language": "zh",
+      "status": "pass",
+      "reference": {
+        "text": "我的经历与职业准备",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "32px",
+        "lineHeight": "40px",
+        "x": 220,
+        "y": 193,
+        "height": 40
+      },
+      "plan": {
+        "text": "目标与行动计划",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "32px",
+        "lineHeight": "40px",
+        "x": 220,
+        "y": 193,
+        "height": 40
+      },
+      "card": {
+        "count": 1,
+        "columns": "364px 364px",
+        "divider": "1px",
+        "overflow": false
+      }
+    },
+    {
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "reference": {
+        "text": "My experience and career preparation",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "32px",
+        "lineHeight": "40px",
+        "x": 244,
+        "y": 137,
+        "height": 40
+      },
+      "plan": {
+        "text": "Goals and action plan",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "32px",
+        "lineHeight": "40px",
+        "x": 244,
+        "y": 137,
+        "height": 40
+      },
+      "card": {
+        "count": 1,
+        "columns": "560px 560px",
+        "divider": "1px",
+        "overflow": false
+      }
+    },
+    {
+      "width": 390,
+      "language": "zh",
+      "status": "pass",
+      "reference": {
+        "text": "我的经历与职业准备",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "26px",
+        "lineHeight": "32.5px",
+        "x": 18,
+        "y": 239,
+        "height": 32.5
+      },
+      "plan": {
+        "text": "目标与行动计划",
+        "color": "rgb(8, 47, 104)",
+        "weight": "750",
+        "size": "26px",
+        "lineHeight": "32.5px",
+        "x": 18,
+        "y": 239,
+        "height": 32.5
+      },
+      "card": {
+        "count": 1,
+        "columns": "316px",
+        "divider": "0px",
+        "overflow": false
+      }
+    }
+  ],
+  "errors": []
+}

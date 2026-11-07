@@ -1,0 +1,534 @@
+{
+  "results": [
+    {
+      "name": "六卡独立正反翻转与侧面",
+      "status": "pass",
+      "samples": [
+        {
+          "id": "week",
+          "side": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": 0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "reverse": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": -0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "orientation": {
+            "x": 0.99998,
+            "y": 1,
+            "text": "查看周目标",
+            "hidden": true
+          }
+        },
+        {
+          "id": "month",
+          "side": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": 0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "reverse": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": -0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "orientation": {
+            "x": 1,
+            "y": 1,
+            "text": "查看月目标",
+            "hidden": true
+          }
+        },
+        {
+          "id": "year",
+          "side": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": 0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "reverse": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": -0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "orientation": {
+            "x": 0.999988,
+            "y": 1,
+            "text": "查看年目标",
+            "hidden": true
+          }
+        },
+        {
+          "id": "actions",
+          "side": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": 0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "reverse": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": -0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "orientation": {
+            "x": 0.999979,
+            "y": 1,
+            "text": "去行动",
+            "hidden": true
+          }
+        },
+        {
+          "id": "undated",
+          "side": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": 0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "reverse": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": -0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "orientation": {
+            "x": 0.99998,
+            "y": 1,
+            "text": "去排期",
+            "hidden": true
+          }
+        },
+        {
+          "id": "review",
+          "side": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": 0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "reverse": {
+            "duration": 600,
+            "perspective": "900px",
+            "style": "preserve-3d",
+            "is2D": false,
+            "m11": -0.00000944466,
+            "m13": -1,
+            "m22": 1,
+            "m23": 0,
+            "width": 0.00274658203125,
+            "time": 232.4993133544922
+          },
+          "orientation": {
+            "x": 0.999988,
+            "y": 1,
+            "text": "去审查",
+            "hidden": true
+          }
+        }
+      ],
+      "geometry": {
+        "module": {
+          "x": 244,
+          "y": 206.09375,
+          "width": 1162,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 265,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 854,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 854,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 854,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 669,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          },
+          {
+            "x": 1257,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          }
+        ],
+        "buttons": [
+          {
+            "x": 265,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          },
+          {
+            "x": 854,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "目标查看与翻转中点击",
+      "status": "pass",
+      "clickedAt90Degrees": true
+    },
+    {
+      "name": "原计划操作与真实统计",
+      "status": "pass"
+    },
+    {
+      "name": "键盘聚焦与快速移入移出",
+      "status": "pass"
+    },
+    {
+      "name": "中文窄桌面",
+      "status": "pass",
+      "geometry": {
+        "module": {
+          "x": 220,
+          "y": 314.09375,
+          "width": 770,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 241,
+            "y": 391.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 447.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 503.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 391.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 447.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 503.09375,
+            "width": 215,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 473,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          },
+          {
+            "x": 865,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          }
+        ],
+        "buttons": [
+          {
+            "x": 241,
+            "y": 567.09375,
+            "width": 148,
+            "height": 44
+          },
+          {
+            "x": 634,
+            "y": 567.09375,
+            "width": 148,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "英文窄桌面",
+      "status": "pass",
+      "geometry": {
+        "module": {
+          "x": 220,
+          "y": 314.09375,
+          "width": 770,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 241,
+            "y": 391.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 447.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 503.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 391.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 447.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 503.09375,
+            "width": 215,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 473,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          },
+          {
+            "x": 865,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          }
+        ],
+        "buttons": [
+          {
+            "x": 241,
+            "y": 567.09375,
+            "width": 177.296875,
+            "height": 44
+          },
+          {
+            "x": 634,
+            "y": 567.09375,
+            "width": 203.84375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "宽桌面",
+      "status": "pass",
+      "geometry": {
+        "module": {
+          "x": 244,
+          "y": 206.09375,
+          "width": 1642,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 265,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 1094,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 1094,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 1094,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 909,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          },
+          {
+            "x": 1737,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          }
+        ],
+        "buttons": [
+          {
+            "x": 265,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          },
+          {
+            "x": 1094,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "减少动态效果",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

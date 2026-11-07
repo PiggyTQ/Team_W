@@ -1,35 +1,47 @@
 /* U07: goal context and the same task objects share one weekly workspace. */
+#root #main.student-workspace .surface-U07>.screen-heading>div{align-self:flex-start}
+#root #main.student-workspace .surface-U07>.screen-heading h1{color:#082f68;line-height:1.25;margin:0;letter-spacing:-.025em}
 #root #main.student-workspace .unified-plan{
  color:var(--surface-ink,#30362e);min-width:0;container-type:inline-size;container-name:plan;
  & :is(button,a,input,summary):focus-visible{outline:2px solid #8c4937;outline-offset:3px}
  & :is(#weekly-actions,#schedule-undated,#schedule-overdue,.schedule-editor){scroll-margin-top:20px}
- & .plan-context{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr);gap:0;padding:20px 20px 0;border:1px solid var(--surface-border);border-radius:16px;background:#fff;margin:0 0 8px}
+ & .plan-context{--plan-context-art-size:128px;position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:20px;border:1px solid var(--surface-border);border-radius:16px;background:#fff;margin:0 0 8px}
+ & .plan-context-decoration{position:absolute;inset:0;z-index:-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:hidden;border-radius:inherit;pointer-events:none}
+ & .plan-context-motif{display:block;width:100%;height:100%;overflow:hidden}
+ & :is(.plan-context-main,.plan-context-plans){display:grid;grid-template-columns:minmax(0,1fr) var(--plan-context-art-size);column-gap:24px;align-items:start;min-width:0}
  & .plan-context-main{min-width:0;padding-right:28px}
- & .plan-direction-heading{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
- & .plan-direction-heading h2{margin:0}
- & .plan-direction-heading>span{color:#686d60;border-left:1px solid #ded8cc;padding-left:12px}
- & .plan-choice-reason{margin:10px 0 8px;max-width:65ch;color:#535b4d}
- & .plan-context-meta{display:flex;gap:16px;flex-wrap:wrap;color:#686d60;margin:0 0 16px}
- & .plan-context-meta>span{color:#686d60}
- & .plan-context-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:start;margin-bottom:16px}
+ & .plan-context-copy{display:grid;grid-template-rows:auto 1fr auto;row-gap:16px;align-self:stretch;min-width:0}
+ & .plan-context-illustration{display:grid;place-items:center;align-self:center;justify-self:end;width:var(--plan-context-art-size);height:var(--plan-context-art-size)}
+ & .plan-context-illustration>.product-icon{display:block;width:100%;height:100%;transform-origin:center;transition:transform 380ms cubic-bezier(.22,1,.36,1)}
+ & .plan-context-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0;min-height:40px}
+ & .plan-context-heading h2{margin:0;color:#082f68;line-height:1.35;letter-spacing:-.025em}
+ & .plan-goal-periods{display:grid;grid-template-rows:repeat(3,minmax(48px,1fr));gap:8px;list-style:none;margin:0;padding:0}
+ & .plan-context .plan-summary-row{position:relative;display:block;justify-self:start;box-sizing:border-box;width:min(100%,280px);height:48px;min-height:48px;margin:0;padding:0;border:0;list-style:none;background:transparent}
+ & .plan-context .plan-wave-card{position:relative;display:block;box-sizing:border-box;width:100%;height:48px;min-height:48px!important;min-width:0;margin:0;padding:0!important;border:1px solid #c9dceb!important;border-radius:6px;background:#e8f1fa!important;color:#264d75;box-shadow:none!important;text-align:left;text-decoration:none;cursor:pointer;overflow:hidden;transition:border-color 180ms ease}
+ & .plan-context .plan-wave-card:focus-visible{outline:2px solid #0756a5;outline-offset:4px}
+ & .plan-wave-base{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;box-sizing:border-box;width:100%;height:100%;padding:0 12px;line-height:1.5;pointer-events:none}
+ & .plan-wave-label{min-width:0;overflow-wrap:anywhere}
+ & .plan-wave-cover{position:absolute;top:0;bottom:0;left:0;width:calc(100% + 24px);background:#f6df91;color:#67511b;mask-image:url('/illustrations/plan-wave-mask.svg');mask-size:100% 100%;mask-repeat:no-repeat;-webkit-mask-image:url('/illustrations/plan-wave-mask.svg');-webkit-mask-size:100% 100%;-webkit-mask-repeat:no-repeat;transform:translateX(-100%);transition:transform 600ms cubic-bezier(.45,0,.25,1);pointer-events:none}
+ & .plan-wave-content{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:8px;width:calc(100% - 24px);height:100%;line-height:1.5;text-align:center;transform:translateX(calc(100% + 24px));transition:transform 600ms cubic-bezier(.45,0,.25,1)}
+ & .plan-wave-content>.product-icon{color:inherit}
+ & .plan-card-pattern{--plan-pattern-fill:#dae7f6;--plan-pattern-line:#c0d5eb;--plan-pattern-dot:#b1cce5;position:absolute;inset:0;z-index:-1;display:block;width:100%;height:100%;overflow:hidden;pointer-events:none}
+ & .plan-card-pattern-yellow{--plan-pattern-fill:#f9e9b2;--plan-pattern-line:#dfc26e;--plan-pattern-dot:#d7b55c}
+ & .plan-context .plan-summary-count{display:flex;align-items:baseline;gap:6px;min-width:0;margin:0;white-space:nowrap}
+ & .plan-context .plan-summary-count strong{color:#082f68;line-height:1.2;font-variant-numeric:tabular-nums}
+ & .plan-context .plan-summary-count>span{color:#6a7282}
+ & .plan-context-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:start}
+ & .plan-context .plan-context-button{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:148px;min-height:44px;margin:0;padding:10px 16px;border:1px solid #dfe3e8;border-radius:18px;background:#f6f7f8;color:#6a7282;box-shadow:none;line-height:1.5;letter-spacing:0;text-decoration:none;cursor:pointer;overflow:hidden;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease}
+ & .plan-context .plan-context-button::before{content:'';position:absolute;z-index:-1;left:-19px;bottom:-26px;width:42px;height:42px;border:1px solid #dce5ee;border-radius:50%;pointer-events:none}
+ & .plan-context .plan-context-button::after{content:'';position:absolute;z-index:-1;right:-24px;top:-27px;width:42px;height:42px;border:5px solid #e7edf3;border-radius:50%;pointer-events:none}
+ & .plan-context .plan-context-button:hover{background:#eef1f4;border-color:#ccd5df;color:#38526e;text-decoration:none}
  & .plan-context-adjustment{margin:0 0 20px;min-width:0}
  & .plan-context-adjustment>.plan-adjustment{min-width:0;margin:0;padding:0;border:0;border-radius:0;background:transparent}
  & .plan-context-adjustment>.plan-adjustment>summary{padding:8px 0;gap:8px;justify-content:flex-start;min-height:40px;color:#535b4d}
  & .plan-context-adjustment .plan-adjustment-body{padding:12px 0 16px;border-bottom:1px solid var(--surface-border)}
  & .plan-context-adjustment .plan-adjustment-body .section-heading{flex-wrap:wrap}
- & .plan-context-question{border-left:1px solid var(--surface-border);padding:0 0 20px 28px;min-width:0}
- & .plan-context-question h3{margin:0 0 10px}
- & .plan-context-question p{margin:0 0 14px;max-width:48ch;color:#686d60}
- & .plan-context-question nav{display:flex;gap:12px;flex-wrap:wrap}
- & .plan-context-question a{color:#8c4937;text-decoration:none}
- & .plan-context-records{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-top:1px solid var(--surface-border);margin:0;padding:12px 0}
- & .plan-context-records>div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
- & .plan-context-records dt{color:#686d60}
- & .plan-context-records dd{margin:0;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
- & .plan-context-records strong{font-weight:600;font-variant-numeric:tabular-nums}
- & .plan-context-records dd>span{color:#686d60}
- & .plan-context-records a{color:#686d60;text-decoration:none;margin-left:8px}
- & .plan-context-records a:hover{color:#8c4937;text-decoration:underline}
+ & .plan-context-plans{border-left:1px solid var(--surface-border);padding-left:28px;min-width:0}
+ & .plan-context-records{display:grid;grid-template-rows:repeat(3,minmax(48px,1fr));gap:8px;border:0;margin:0;padding:0;list-style:none}
+ & .plan-context-next{display:flex;flex-wrap:wrap;align-items:start;margin:0}
  & .plan-draft-strip{display:flex;align-items:center;gap:12px;background:#f6f1e8;border-radius:12px;padding:12px 16px;margin:0 0 24px}
  & .plan-draft-strip>div{display:flex;gap:12px;flex-wrap:wrap;flex:1;min-width:0}
  & .plan-draft-strip span{color:#686d60}
@@ -138,25 +150,56 @@
  & .plan-structure-disclosure{margin:20px 0 0}
 }
 @layer type-system{
- #root #main.student-workspace .unified-plan :is(.calendar-day strong,.plan-context-records strong){font-size:22px!important}
+ #root #main.student-workspace .surface-U07>.screen-heading h1{font-size:32px!important;font-weight:750!important}
+ #root #main.student-workspace .unified-plan .plan-context-heading h2{font-size:26px!important;font-weight:700!important}
+ #root #main.student-workspace .unified-plan .plan-wave-label{font-size:16px!important;font-weight:500!important}
+ #root #main.student-workspace .unified-plan .plan-wave-action{font-size:16px!important;font-weight:650!important}
+ #root #main.student-workspace .unified-plan .plan-summary-count strong{font-size:24px!important;font-weight:650!important}
+ #root #main.student-workspace .unified-plan .plan-summary-count>span{font-size:13px!important}
+ #root #main.student-workspace .unified-plan .plan-context-button{font-size:14px!important;font-weight:500!important}
+ #root #main.student-workspace .unified-plan .calendar-day strong{font-size:22px!important}
  #root #main.student-workspace .unified-plan .capacity-header strong{font-size:24px!important}
  #root #main.student-workspace .unified-plan .capacity-header strong small{font-size:12px!important}
  #root #main.student-workspace .unified-plan :is(.schedule-budget,.schedule-task-lists,.schedule-editor) h3{font-size:16px!important}
 }
+@media(max-width:600px){@layer type-system{
+ #root #main.student-workspace .surface-U07>.screen-heading h1{font-size:26px!important}
+}}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){#root #main.student-workspace .unified-plan{
+ & .plan-context-illustration-goal:hover>.product-icon{transform:translateY(-6px) scale(1.08) rotate(-7deg)}
+ & .plan-context-illustration-calendar:hover>.product-icon{transform:translateY(-6px) scale(1.08) rotate(7deg)}
+}}
+@media(prefers-reduced-motion:reduce){#root #main.student-workspace .unified-plan .plan-context-illustration>.product-icon{transition:none;transform:none}}
+/* The cover and its content move by equal and opposite distances. */
+#root #main.student-workspace .unified-plan{
+ & .plan-wave-card:focus-visible{border-color:#e2c77a!important}
+ & .plan-wave-card:focus-visible .plan-wave-cover{transform:translateX(0)}
+ & .plan-wave-card:focus-visible .plan-wave-content{transform:translateX(0)}
+}
+@media(hover:hover) and (pointer:fine){#root #main.student-workspace .unified-plan{
+ & .plan-wave-card:hover{border-color:#e2c77a!important}
+ & .plan-wave-card:hover .plan-wave-cover{transform:translateX(0)}
+ & .plan-wave-card:hover .plan-wave-content{transform:translateX(0)}
+}}
+@media(prefers-reduced-motion:reduce){#root #main.student-workspace .unified-plan{
+ & :is(.plan-wave-card,.plan-wave-cover,.plan-wave-content){transition:none}
+}}
+.plan-goal-period-drawer .plan-period-empty{display:grid;justify-items:center;align-content:center;gap:16px;min-height:200px;padding:24px;border:1px solid #dce5ed;border-radius:12px;background:#f4f8fc;color:#36546f;text-align:center}
+.plan-goal-period-drawer .plan-period-total{display:flex;align-items:baseline;gap:6px;color:#082f68}
+.plan-goal-period-drawer .plan-period-total strong{font-size:32px;font-weight:650;line-height:1.2}
+.plan-goal-period-drawer .plan-period-empty p{margin:0}
+@container plan (max-width:1050px){#root #main.student-workspace .unified-plan{
+ & .plan-context{--plan-context-art-size:104px}
+ & :is(.plan-context-main,.plan-context-plans){column-gap:16px}
+}}
 @container plan (max-width:900px){#root #main.student-workspace .unified-plan{
- & .plan-context-records>div{gap:8px}
- & .plan-context-records a{margin-left:0}
+ & .plan-wave-base{gap:10px}
  & .schedule-budget>.budget-capacity{gap:2px 20px}
 }}
 @container plan (max-width:720px){#root #main.student-workspace .unified-plan{
- & .plan-context{grid-template-columns:1fr;padding:20px 18px 0;border-radius:16px}
+ & .plan-context{grid-template-columns:1fr;row-gap:20px;padding:20px 18px;border-radius:16px}
  & .plan-context-main{padding:0}
- & .plan-context-question{border-left:0;border-top:1px solid var(--surface-border);padding:16px 0 20px}
- & .plan-context-records{gap:12px;padding:14px 0}
- & .plan-context-records>div{display:block}
- & .plan-context-records dt{margin-bottom:4px}
- & .plan-context-records dd{gap:4px}
- & .plan-context-records a{flex:1 1 100%;margin:2px 0 0}
+ & .plan-context-plans{border-left:0;border-top:1px solid var(--surface-border);padding:16px 0 0}
  & .plan-context-actions{gap:8px}
  & .plan-context-adjustment>.plan-adjustment>summary{flex-wrap:wrap}
  & .schedule-caption{align-items:start}
@@ -185,4 +228,8 @@
  & .schedule-task-list .schedule-task>span{grid-column:1/-1;grid-row:2}
  & .plan-draft-strip{flex-wrap:wrap}
  & .calendar-empty-guide{padding:16px}
+}}
+@container plan (max-width:520px){#root #main.student-workspace .unified-plan{
+ & .plan-context{--plan-context-art-size:80px}
+ & :is(.plan-context-main,.plan-context-plans){column-gap:12px}
 }}

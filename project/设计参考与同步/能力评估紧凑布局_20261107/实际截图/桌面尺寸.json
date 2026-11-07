@@ -1,0 +1,79 @@
+{
+  "beforeHeight": 1007.65625,
+  "afterHeight": 730.96875,
+  "metrics": {
+    "#assessment-analysis": {
+      "width": 1162,
+      "height": 730.96875,
+      "padding": "24px",
+      "margin": "16px 0px",
+      "gap": "normal",
+      "columns": "none"
+    },
+    "#assessment-analysis>header": {
+      "width": 1112,
+      "height": 59.390625,
+      "padding": "0px",
+      "margin": "0px 0px 10px",
+      "gap": "16px",
+      "columns": "none"
+    },
+    ".hub-direction": {
+      "width": 1112,
+      "height": 43,
+      "padding": "0px",
+      "margin": "0px 0px 16px",
+      "gap": "16px",
+      "columns": "none"
+    },
+    ".capability-puzzle-heading": {
+      "width": 1112,
+      "height": 27,
+      "padding": "0px",
+      "margin": "0px 0px 10px",
+      "gap": "16px",
+      "columns": "none"
+    },
+    ".capability-puzzle-layout": {
+      "width": 1112,
+      "height": 370,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "18px",
+      "columns": "412.828px 681.172px"
+    },
+    ".capability-detail": {
+      "width": 412.828125,
+      "height": 281.28125,
+      "padding": "18px",
+      "margin": "0px",
+      "gap": "normal",
+      "columns": "none"
+    },
+    ".capability-board": {
+      "width": 681.171875,
+      "height": 370,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "columns": "none"
+    },
+    ".capability-support-row": {
+      "width": 1112,
+      "height": 54.09375,
+      "padding": "8px 0px 0px",
+      "margin": "12px 0px 0px",
+      "gap": "8px 16px",
+      "columns": "none"
+    },
+    ".hub-snapshot-state": {
+      "width": 1112,
+      "height": 41.09375,
+      "padding": "8px 12px",
+      "margin": "8px 0px 0px",
+      "gap": "normal",
+      "columns": "none"
+    }
+  },
+  "errors": []
+}

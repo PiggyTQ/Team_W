@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+  <rect width="1200" height="540" fill="#faf8f1"/>
+  <g font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#244a70">
+    <text x="32" y="42" font-size="23">背景评估 · 经历档案布局（实施前设计）</text>
+    <rect x="28" y="68" width="360" height="382" rx="18" fill="#fffefa" stroke="#e7e1d6"/>
+    <text x="50" y="106" font-size="20">核对经历与个人贡献</text><text x="50" y="151" font-size="15">处理队列 / 原材料核对操作</text>
+    <rect x="410" y="68" width="762" height="382" rx="18" fill="#f8f7f1" stroke="#e7e1d6"/>
+    <text x="432" y="107" font-size="19">个人经历档案</text>
+    <rect x="851" y="84" width="162" height="40" rx="20" fill="#edf5fc" stroke="#cbdcea"/><text x="872" y="110" font-size="15">手填已有经历</text>
+    <rect x="1027" y="84" width="123" height="40" rx="20" fill="#fffefa" stroke="#dfd7c9"/><text x="1055" y="110" font-size="15">导入文件</text>
+    <g transform="translate(642 155)"><path d="M0 0h69l16 7v201l-16 7H0Z" fill="#c7dff3" stroke="#a9c7df"/><rect x="23" y="27" width="30" height="145" rx="4" fill="#fffefa"/><text x="38" y="45" writing-mode="vertical-rl" font-size="15">经历标题 A</text></g>
+    <g transform="translate(750 155)"><path d="M0 0h69l16 7v201l-16 7H0Z" fill="#ecd9ad" stroke="#d8c18e"/><rect x="23" y="27" width="30" height="145" rx="4" fill="#fffefa"/><text x="38" y="45" writing-mode="vertical-rl" font-size="15">经历标题 B</text></g>
+    <g transform="translate(858 155)"><path d="M0 0h69l16 7v201l-16 7H0Z" fill="#cadee7" stroke="#afc8d4"/><rect x="23" y="27" width="30" height="145" rx="4" fill="#fffefa"/><text x="38" y="45" writing-mode="vertical-rl" font-size="15">经历标题 C</text></g>
+    <text x="1148" y="428" text-anchor="end" font-size="13" text-decoration="underline">没有经历？先了解实践</text>
+    <text x="32" y="492" font-size="14">每条实存经历对应一份档案，展开原文、本人贡献与原核对操作；标题 A/B/C 仅为结构示意。</text>
+    <text x="32" y="519" font-size="14">空态不生成示例经历；新增与导入在右上角，实践文字入口在右下角；多份档案在容器内横向浏览。</text>
+  </g>
+</svg>

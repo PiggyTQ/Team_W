@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+ <rect width="1200" height="360" fill="#fcf9f1"/>
+ <g font-family="Microsoft YaHei,sans-serif">
+  <text x="24" y="25" font-size="13" fill="#6a7282">实施前局部设计 · 标题对齐个人评估页；单一模块与中间竖线延续</text>
+  <text x="24" y="85" font-size="32" font-weight="750" fill="#082f68">目标与行动计划</text>
+  <rect x="24" y="118" width="1152" height="218" rx="16" fill="#fff" stroke="#e6dfd2"/>
+  <path d="M600 138V316" stroke="#e6dfd2"/>
+  <text x="46" y="170" font-size="22" fill="#18202a">我的目标</text>
+  <text x="628" y="170" font-size="22" fill="#18202a">我的计划</text>
+  <text x="46" y="212" font-size="16" fill="#6a7282">目标名称、理由、备用方向与编辑入口</text>
+  <text x="628" y="212" font-size="16" fill="#6a7282">原待进行动、未排期、需复查及跳转入口</text>
+  <text x="46" y="299" font-size="13" fill="#6a7282">页面标题采用与个人评估页相同的 32px、750 字重、深蓝 #082f68；左边界与顶部内容起点对齐。</text>
+ </g>
+</svg>

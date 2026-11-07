@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "name": "explicit-mastery-save-reload-and-reverse",
+      "status": "pass"
+    },
+    {
+      "name": "confirmed-records-stay-unmarked-and-existing-actions-remain",
+      "status": "pass"
+    },
+    {
+      "name": "career-switch-keeps-shared-skill-and-snapshot",
+      "status": "pass"
+    },
+    {
+      "name": "english-desktop-text-and-piece-size",
+      "status": "pass"
+    }
+  ],
+  "pageErrors": []
+}

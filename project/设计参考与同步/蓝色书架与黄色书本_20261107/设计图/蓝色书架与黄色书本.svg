@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460">
+  <rect width="1000" height="460" fill="#ffffff"/>
+  <g font-family="Microsoft YaHei,sans-serif" fill="#244a70">
+    <text x="28" y="36" font-size="22">个人经历档案 · 蓝色书架与黄色书本（实施前局部设计）</text>
+    <rect x="25" y="59" width="950" height="352" rx="18" fill="#f3f7fc" stroke="#d8e4ef"/>
+    <text x="45" y="95" font-size="18">个人经历档案</text>
+    <rect x="182" y="77" width="68" height="24" rx="12" fill="#fff8e6" stroke="#e7dfcb"/>
+    <text x="216" y="94" text-anchor="middle" font-size="12" fill="#73623d">4段演示</text>
+    <text x="938" y="94" text-anchor="end" font-size="14">手填已有经历　导入文件</text>
+    <rect x="43" y="116" width="914" height="254" rx="9" fill="#c8ddf0" stroke="#8ab0d2" stroke-width="8"/>
+    <path d="M48 125v229h903V125" fill="#dcebf8"/>
+    <g transform="translate(64 124)">
+      <rect width="76" height="236" rx="5" fill="#f2d77a" stroke="#d2b455"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">01</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">校园活动</text><text x="38" y="79" font-size="12" text-anchor="middle">网站</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <g transform="translate(148 124)">
+      <rect width="76" height="236" rx="5" fill="#e8be45" stroke="#c59e31"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">02</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">数据分析</text><text x="38" y="79" font-size="12" text-anchor="middle">课程</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <g transform="translate(232 124)">
+      <rect width="76" height="236" rx="5" fill="#f5e39e" stroke="#d5c17a"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">03</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">社团活动</text><text x="38" y="79" font-size="12" text-anchor="middle">策划</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <g transform="translate(316 124)">
+      <rect width="76" height="236" rx="5" fill="#ebca55" stroke="#c6a73c"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">04</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">产品设计</text><text x="38" y="79" font-size="12" text-anchor="middle">实习</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <path d="M43 360h914v11H43Z" fill="#5c85b0"/><path d="M43 360h914" stroke="#a2c2df" stroke-width="4"/>
+    <text x="938" y="396" text-anchor="end" font-size="12">没有经历？先了解实践</text>
+    <text x="28" y="443" font-size="13">书本从左向右排列；黄色深浅按档案标识稳定分配。保留原有标签、圆孔和展开交互。</text>
+  </g>
+</svg>

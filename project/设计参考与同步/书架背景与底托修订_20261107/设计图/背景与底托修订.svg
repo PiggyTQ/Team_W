@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460">
+  <defs>
+    <linearGradient id="shelf-base" x2="0" y2="1"><stop stop-color="#c5d9eb"/><stop offset=".28" stop-color="#8fb0d0"/><stop offset=".4" stop-color="#749ac0"/><stop offset="1" stop-color="#5e85ad"/></linearGradient>
+    <filter id="base-shadow" x="-10%" y="-50%" width="120%" height="250%"><feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#284e74" flood-opacity=".2"/></filter>
+  </defs>
+  <rect width="1000" height="460" fill="#ffffff"/>
+  <g font-family="Microsoft YaHei,sans-serif" fill="#244a70">
+    <text x="28" y="36" font-size="22">个人经历档案 · 书架背景与底托修订（实施前局部设计）</text>
+    <rect x="25" y="59" width="950" height="352" rx="18" fill="#fffefa" stroke="#e9e4d9"/>
+    <text x="45" y="95" font-size="18">个人经历档案</text>
+    <rect x="182" y="77" width="68" height="24" rx="12" fill="#fff8e6" stroke="#e7dfcb"/>
+    <text x="216" y="94" text-anchor="middle" font-size="12" fill="#73623d">4段演示</text>
+    <text x="938" y="94" text-anchor="end" font-size="14">手填已有经历　导入文件</text>
+    <path d="M43 360V125q0-9 9-9h896q9 0 9 9v235" fill="none" stroke="#8ab0d2" stroke-width="8"/>
+    <g transform="translate(64 124)">
+      <rect width="76" height="236" rx="5" fill="#f2d77a" stroke="#d2b455"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">01</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">校园活动</text><text x="38" y="79" font-size="12" text-anchor="middle">网站</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <g transform="translate(148 124)">
+      <rect width="76" height="236" rx="5" fill="#e8be45" stroke="#c59e31"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">02</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">数据分析</text><text x="38" y="79" font-size="12" text-anchor="middle">课程</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <g transform="translate(232 124)">
+      <rect width="76" height="236" rx="5" fill="#f5e39e" stroke="#d5c17a"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">03</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">社团活动</text><text x="38" y="79" font-size="12" text-anchor="middle">策划</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <g transform="translate(316 124)">
+      <rect width="76" height="236" rx="5" fill="#ebca55" stroke="#c6a73c"/>
+      <rect x="10" y="17" width="56" height="136" fill="#fffefa"/>
+      <path d="M10 38h56M10 60h56M10 82h56M10 104h56M10 126h56M10 148h56" stroke="#d8dee4"/>
+      <text x="38" y="32" font-size="11" text-anchor="middle">04</text>
+      <text x="38" y="57" font-size="12" text-anchor="middle">产品设计</text><text x="38" y="79" font-size="12" text-anchor="middle">实习</text>
+      <text x="38" y="174" font-size="11" text-anchor="middle" fill="#5d471d">演示</text>
+      <circle cx="38" cy="201" r="16" fill="#33424b" stroke="#efe4c3" stroke-width="3"/>
+    </g>
+    <rect x="40" y="360" width="920" height="14" rx="4" fill="url(#shelf-base)" stroke="#648bb1" filter="url(#base-shadow)"/><path d="M44 361h912" stroke="#ffffff" stroke-opacity=".65"/>
+    <text x="938" y="396" text-anchor="end" font-size="12">没有经历？先了解实践</text>
+    <text x="28" y="443" font-size="13">保留蓝色书架边框，去除浅蓝背板；底托轻薄圆角、柔和高光与阴影，文件夹保持黄色和左对齐。</text>
+  </g>
+</svg>
