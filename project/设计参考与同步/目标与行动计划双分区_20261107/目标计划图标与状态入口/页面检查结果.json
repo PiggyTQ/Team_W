@@ -1,0 +1,60 @@
+{
+  "results": [
+    {
+      "name": "空白起点",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "hints": [
+        "进入执行",
+        "安排日期",
+        "查看原因"
+      ]
+    },
+    {
+      "name": "已有计划",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "hints": [
+        "进入执行",
+        "安排日期",
+        "查看原因"
+      ]
+    },
+    {
+      "name": "窄桌面",
+      "width": 1024,
+      "language": "zh",
+      "status": "pass",
+      "hints": [
+        "进入执行",
+        "安排日期",
+        "查看原因"
+      ]
+    },
+    {
+      "name": "英文桌面",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "hints": [
+        "Enter execution",
+        "Schedule date",
+        "View the reason"
+      ]
+    },
+    {
+      "name": "窄窗口",
+      "width": 390,
+      "language": "zh",
+      "status": "pass",
+      "hints": [
+        "进入执行",
+        "安排日期",
+        "查看原因"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,465 @@
+{
+  "results": [
+    {
+      "name": "默认模块",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "left": [
+          {
+            "y": 283.09375,
+            "height": 48,
+            "width": 380,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 297.09375,
+            "overflow": false
+          },
+          {
+            "y": 339.09375,
+            "height": 48,
+            "width": 380,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 353.09375,
+            "overflow": false
+          },
+          {
+            "y": 395.09375,
+            "height": 48,
+            "width": 380,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 409.09375,
+            "overflow": false
+          }
+        ],
+        "right": [
+          {
+            "y": 283.09375,
+            "height": 48,
+            "width": 379,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 297.09375,
+            "overflow": false
+          },
+          {
+            "y": 339.09375,
+            "height": 48,
+            "width": 379,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 353.09375,
+            "overflow": false
+          },
+          {
+            "y": 395.09375,
+            "height": 48,
+            "width": 379,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 409.09375,
+            "overflow": false
+          }
+        ],
+        "buttons": [
+          {
+            "y": 459.09375,
+            "height": 44
+          },
+          {
+            "y": 459.09375,
+            "height": 44
+          }
+        ],
+        "icons": [
+          {
+            "center": 365.09375,
+            "iconCenter": 365.09375
+          },
+          {
+            "center": 365.09375,
+            "iconCenter": 365.09375
+          }
+        ]
+      }
+    },
+    {
+      "name": "已有计划",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "left": [
+          {
+            "y": 283.09375,
+            "height": 48,
+            "width": 380,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 297.09375,
+            "overflow": false
+          },
+          {
+            "y": 339.09375,
+            "height": 48,
+            "width": 380,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 353.09375,
+            "overflow": false
+          },
+          {
+            "y": 395.09375,
+            "height": 48,
+            "width": 380,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 409.09375,
+            "overflow": false
+          }
+        ],
+        "right": [
+          {
+            "y": 283.09375,
+            "height": 48,
+            "width": 379,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 297.09375,
+            "overflow": false
+          },
+          {
+            "y": 339.09375,
+            "height": 48,
+            "width": 379,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 353.09375,
+            "overflow": false
+          },
+          {
+            "y": 395.09375,
+            "height": 48,
+            "width": 379,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 409.09375,
+            "overflow": false
+          }
+        ],
+        "buttons": [
+          {
+            "y": 459.09375,
+            "height": 44
+          },
+          {
+            "y": 459.09375,
+            "height": 44
+          }
+        ],
+        "icons": [
+          {
+            "center": 365.09375,
+            "iconCenter": 365.09375
+          },
+          {
+            "center": 365.09375,
+            "iconCenter": 365.09375
+          }
+        ]
+      }
+    },
+    {
+      "name": "窄桌面",
+      "width": 1024,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "left": [
+          {
+            "y": 391.09375,
+            "height": 48,
+            "width": 216,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 405.09375,
+            "overflow": false
+          },
+          {
+            "y": 447.09375,
+            "height": 48,
+            "width": 216,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 461.09375,
+            "overflow": false
+          },
+          {
+            "y": 503.09375,
+            "height": 48,
+            "width": 216,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 517.09375,
+            "overflow": false
+          }
+        ],
+        "right": [
+          {
+            "y": 391.09375,
+            "height": 48,
+            "width": 215,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 405.09375,
+            "overflow": false
+          },
+          {
+            "y": 447.09375,
+            "height": 48,
+            "width": 215,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 461.09375,
+            "overflow": false
+          },
+          {
+            "y": 503.09375,
+            "height": 48,
+            "width": 215,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 517.09375,
+            "overflow": false
+          }
+        ],
+        "buttons": [
+          {
+            "y": 567.09375,
+            "height": 44
+          },
+          {
+            "y": 567.09375,
+            "height": 44
+          }
+        ],
+        "icons": [
+          {
+            "center": 473.09375,
+            "iconCenter": 473.09375
+          },
+          {
+            "center": 473.09375,
+            "iconCenter": 473.09375
+          }
+        ]
+      }
+    },
+    {
+      "name": "英文窄桌面",
+      "width": 1024,
+      "language": "en",
+      "status": "pass",
+      "geometry": {
+        "left": [
+          {
+            "y": 391.09375,
+            "height": 48,
+            "width": 216,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 405.09375,
+            "overflow": false
+          },
+          {
+            "y": 447.09375,
+            "height": 48,
+            "width": 216,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 461.09375,
+            "overflow": false
+          },
+          {
+            "y": 503.09375,
+            "height": 48,
+            "width": 216,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 517.09375,
+            "overflow": false
+          }
+        ],
+        "right": [
+          {
+            "y": 391.09375,
+            "height": 48,
+            "width": 215,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 405.09375,
+            "overflow": false
+          },
+          {
+            "y": 447.09375,
+            "height": 48,
+            "width": 215,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 461.09375,
+            "overflow": false
+          },
+          {
+            "y": 503.09375,
+            "height": 48,
+            "width": 215,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 517.09375,
+            "overflow": false
+          }
+        ],
+        "buttons": [
+          {
+            "y": 567.09375,
+            "height": 44
+          },
+          {
+            "y": 567.09375,
+            "height": 44
+          }
+        ],
+        "icons": [
+          {
+            "center": 473.09375,
+            "iconCenter": 473.09375
+          },
+          {
+            "center": 473.09375,
+            "iconCenter": 473.09375
+          }
+        ]
+      }
+    },
+    {
+      "name": "宽桌面",
+      "width": 1920,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "left": [
+          {
+            "y": 283.09375,
+            "height": 48,
+            "width": 620,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 297.09375,
+            "overflow": false
+          },
+          {
+            "y": 339.09375,
+            "height": 48,
+            "width": 620,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 353.09375,
+            "overflow": false
+          },
+          {
+            "y": 395.09375,
+            "height": 48,
+            "width": 620,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 409.09375,
+            "overflow": false
+          }
+        ],
+        "right": [
+          {
+            "y": 283.09375,
+            "height": 48,
+            "width": 619,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 297.09375,
+            "overflow": false
+          },
+          {
+            "y": 339.09375,
+            "height": 48,
+            "width": 619,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 353.09375,
+            "overflow": false
+          },
+          {
+            "y": 395.09375,
+            "height": 48,
+            "width": 619,
+            "border": "1px solid rgb(220, 229, 237)",
+            "borderRadius": "6px",
+            "background": "rgb(249, 251, 253)",
+            "textY": 409.09375,
+            "overflow": false
+          }
+        ],
+        "buttons": [
+          {
+            "y": 459.09375,
+            "height": 44
+          },
+          {
+            "y": 459.09375,
+            "height": 44
+          }
+        ],
+        "icons": [
+          {
+            "center": 365.09375,
+            "iconCenter": 365.09375
+          },
+          {
+            "center": 365.09375,
+            "iconCenter": 365.09375
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

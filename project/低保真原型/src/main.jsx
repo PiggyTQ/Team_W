@@ -19,6 +19,7 @@ import {authMessage,validateCredentials,safeAuthTarget} from './auth-contract';
 import SettingsPreferences from './SettingsPreferences';
 import AccountWorkspace,{AccountAvatar} from './AccountWorkspace';
 import AssessmentHub from './AssessmentHub';
+import FolderImportContent from './FolderImportContent';
 import {assessmentEntryMode} from './assessment-hub-model';
 import './assessment-hub.css';
 import ExperienceWriter from './ExperienceWriter';
@@ -457,24 +458,76 @@ function App() {
       } else open(type, data);
     }} precheck={precheck} startTask={startTask} update={update} tell={tell} suggestions={<PersonalSuggestions owner={authUser?.id} workspace={workspace} state={s} link={link}/>}/>;
   }
+  function renderPrototypeImport({f,set,setForm,importState,setImportState,timer,fail,onSaved,onManual,canAdopt=()=>true}) {
+    return <><Notice>不解析真实文件。文件仅检查扩展名与大小，随后生成明确标注的合成候选；可随时手填。</Notice><label className="check"><input type="checkbox" checked={f.consent || false} onChange={(e) => set("consent", e.target.checked)} />允许演示读取文件名与类型（不上传，不发送外部模型）</label><Field label="选择文本型 PDF / DOCX（演示限额 10 MB）"><input type="file" accept=".pdf,.docx" onChange={(e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          if (!/\.(pdf|docx)$/i.test(file.name) || file.size > 10 * 1024 * 1024) {
+            setImportState("unsupported");
+            fail("\u683C\u5F0F\u4E0D\u652F\u6301\u6216\u8D85\u8FC7 10 MB\uFF0C\u8BF7\u9009\u62E9 PDF / DOCX\uFF0C\u6216\u4F7F\u7528\u624B\u586B\u3002");
+            return;
+          }
+          set("file", file.name);
+          setImportState("ready");
+          setError("");
+        }} /></Field><p>状态：{{ idle: "\u7B49\u5F85\u9009\u62E9", ready: "\u6587\u4EF6\u5F85\u89E3\u6790", running: "\u6B63\u5728\u6A21\u62DF\u5904\u7406\u2026", failed: "\u89E3\u6790\u5931\u8D25\uFF08\u6A21\u62DF\uFF09", cancelled: "\u4F5C\u4E1A\u5DF2\u53D6\u6D88", done: "\u5019\u9009\u5DF2\u751F\u6210", unsupported: "\u683C\u5F0F / \u5927\u5C0F\u4E0D\u652F\u6301" }[importState]}</p><div className="actions"><B primary onClick={() => {
+          if (!f.consent || !f.file) {
+            fail("\u8BF7\u9009\u62E9\u5141\u8BB8\u683C\u5F0F\u7684\u6587\u4EF6\u5E76\u786E\u8BA4\u6F14\u793A\u8303\u56F4\u3002");
+            return;
+          }
+          clearTimeout(timer.current);
+          setImportState("running");
+          timer.current = setTimeout(() => {
+            setImportState("done");
+            setForm((x) => ({ ...x, result: true }));
+          }, 600);
+        }}>开始 / 重试模拟解析</B><B onClick={() => {
+          clearTimeout(timer.current);
+          setImportState("failed");
+          fail("\u6A21\u62DF\u89E3\u6790\u670D\u52A1\u5931\u8D25\uFF0C\u53EF\u91CD\u8BD5\u6216\u6539\u624B\u586B\u3002");
+        }}>模拟解析失败</B><B onClick={() => {
+          clearTimeout(timer.current);
+          setImportState("cancelled");
+          setForm((x) => ({ ...x, result: false }));
+          tell("\u89E3\u6790\u5DF2\u53D6\u6D88\uFF0C\u4E0D\u4F1A\u665A\u5230\u56DE\u5199\u3002");
+        }}>取消作业</B></div>{f.result && importState === "done" && <><p>合成候选原文：“在课程练习中整理 Python 表格，贡献待本人说明。”</p><B primary onClick={() => {
+          if (!canAdopt()) return;
+          if (s.claims.some((c) => c.importKey === f.file)) {
+            tell("\u540C\u4E00\u5BFC\u5165\u5DF2\u6709\u5019\u9009\uFF1B\u5DF2\u62D2\u7EDD\u9879\u4E0D\u4F1A\u81EA\u52A8\u590D\u6D3B\uFF0C\u8BF7\u5728\u961F\u5217\u660E\u786E\u91CD\u5BA1\u3002");
+          } else addCandidate({ title: "\u5BFC\u5165\u5019\u9009\uFF08\u5408\u6210\uFF0C\u4E0D\u6765\u81EA\u6587\u4EF6\u5185\u5BB9\uFF09", text: "\u5728\u8BFE\u7A0B\u7EC3\u4E60\u4E2D\u6574\u7406 Python \u8868\u683C\uFF0C\u8D21\u732E\u5F85\u672C\u4EBA\u8BF4\u660E\u3002", contribution: "", skill: "Python", type: "\u8BFE\u7A0B\u9879\u76EE", origin: "\u6A21\u62DF\u89E3\u6790", importKey: f.file });
+          onSaved();
+        }}>保存合成候选并逐项确认</B></>}<p>扫描型 PDF / OCR 不支持，不能生成空白成功。</p><B onClick={() => {
+          onManual();
+        }}>改用手填</B></>;
+  }
+  function renderBackgroundManual({navigate=go,onImport=()=>open('import'),link:contentLink=link,embedded=false}={}) {
+    return <><ExperienceWriter draft={s.claimDraft} change={claimDraft=>update({claimDraft})} importFile={onImport} save={candidate=>{update(x=>({...addClaim(x,candidate),claimDraft:{...fresh().claimDraft,skill:'未知'}}));navigate('/assessment?tab=原文确认#assessment-review');}}/>{embedded&&<div className="folder-full-entry">{contentLink('/assessment?tab=资料经历','打开完整资料录入 →')}</div>}</>;
+  }
+  function renderBackgroundImport({active,navigate,close:closePaper,onManual,link:contentLink}) {
+    if(SERVER_AUTH)return <ResumeImport active={active} s={s} update={update} link={contentLink} onClose={closePaper} onSaved={(record,added)=>{tell(added?'原稿与候选已保存，请逐项确认本人贡献。':'简历原稿已保存。');navigate(added?'/assessment?tab=原文确认#assessment-review':'/assessment?tab=当前简历#assessment-resumes');}}/>;
+    return <FolderImportContent active={active} render={renderPrototypeImport} onSaved={()=>navigate('/assessment?tab=原文确认#assessment-review')} onManual={onManual}/>;
+  }
+  function renderBackgroundExperience(c, {inFolder=false}={}) {
+    return <article className={inFolder ? "record folder-experience" : "record"} key={c.id}><div className="section-head">{inFolder ? <span className="muted">{c.type || '经历'}</span> : <h3 translate="no">{c.title}</h3>}<Pill>{c.status} · v{c.version}</Pill></div><div className="cols2"><div><span className="muted">原文 / {c.origin} / {c.id}</span><p translate="no">{c.text}</p></div><div><p>本人贡献：{c.contribution || "\u5F85\u8865\u5145"}</p><p>关联技能：{c.skill}；辅助：{c.aid || "\u672A\u8BF4\u660E"}</p><p>实际核验：未核验</p></div></div><div className="actions">{!["\u5DF2\u786E\u8BA4", "\u5DF2\u64A4\u56DE"].includes(c.status) && <B primary onClick={() => open("claim", { claimId: c.id, text: c.text, contribution: c.contribution || "", skill: c.skill, resolve: c.status === "\u7591\u4F3C\u91CD\u590D" ? "\u4FDD\u7559\u4E3A\u72EC\u7ACB\u6750\u6599" : "\u4FEE\u6B63\u4E3A\u672C\u4EBA\u9648\u8FF0" })}>{c.status === "\u5DF2\u62D2\u7EDD" ? "\u660E\u786E\u91CD\u65B0\u5BA1\u9605" : "\u4FEE\u6B63 / \u786E\u8BA4\u6B64\u9879"}</B>}{canRejectClaim(c) && <B onClick={() => update((x) => rejectClaimCandidate(x,c.id))}>拒绝此候选</B>}{c.status === "\u5DF2\u786E\u8BA4" && <B onClick={() => open("claim", { claimId: c.id, text: c.text, contribution: c.contribution || "", skill: c.skill, resolve: "\u4FEE\u6B63\u4E3A\u672C\u4EBA\u9648\u8FF0" })}>编辑确认声明</B>}{c.status === "\u5DF2\u786E\u8BA4" && <B onClick={() => confirmAction("\u64A4\u56DE\u6B64\u58F0\u660E\uFF1F", "\u76F8\u5173\u5206\u6790\u3001\u62A5\u544A\u548C\u7B80\u5386\u5F15\u7528\u5C06\u5931\u6548\uFF1B\u65E7\u5FEB\u7167\u4FDD\u7559\u7248\u672C\u4F46\u4E0D\u80FD\u5BFC\u51FA\u53D7\u9650\u5185\u5BB9\u3002", () => {
+      if(SERVER_AUTH){workspace.command('claim.withdraw',{claimId:c.id,claimVersion:c.version,confirmation:'WITHDRAW_CLAIM'}).then(()=>tell(authMessage('CLAIM_WITHDRAWN',language))).catch(error=>tell(authMessage(error.code,language)));return;}
+      update((x) => ({ ...invalidate(x), profileVersion: x.profileVersion + 1, claims: x.claims.map((y) => y.id === c.id ? { ...y, status: "\u5DF2\u64A4\u56DE", withdrawnThrough:y.version,version: y.version + 1 } : y) }));
+      tell("\u58F0\u660E\u5DF2\u64A4\u56DE\uFF0C\u5173\u8054\u8F93\u51FA\u9700\u66F4\u65B0\u3002");
+    })}>撤回声明</B>}</div></article>;
+  }
   function assessment() {
     const originMapTask=s.tasks.find(t=>t.id===s.originTask);
     const materialReturn=atlasReturn({atlas:{},source:urlObj.searchParams.get('mapReturn')});
     const claims=s.claims.filter(c=>claimFilter==='全部'||c.status===claimFilter);
     const isEntry=assessmentEntryMode(tab,urlObj.search);
-    const entryPanel=<>{['课程项目','实习（本人记录）','校园经历','技能记录','荣誉奖项','个人简介'].includes(urlObj.searchParams.get('resumeType'))&&<Notice>正在为简历补充：{urlObj.searchParams.get('resumeType')}。<B onClick={()=>{const type=urlObj.searchParams.get('resumeType');update({claimDraft:{...s.claimDraft,type,skill:'未知'}});requestAnimationFrame(()=>document.getElementById('resume-material-form')?.querySelector('select')?.focus());}}>选择此资料类型</B></Notice>}<ResumeSourceGroup search={urlObj.search}><ResumeProfileEditor s={s} update={update} link={link}/><EducationEditor s={s} update={update} link={link}/></ResumeSourceGroup><ResumeImportEntry s={s} update={update} link={link} go={go} tell={tell}/><ExperienceWriter draft={s.claimDraft} change={claimDraft=>update({claimDraft})} importFile={()=>open('import')} save={candidate=>{update(x=>({...addClaim(x,candidate),claimDraft:{...fresh().claimDraft,skill:'未知'}}));go('/assessment?tab=原文确认');}}/><Panel title="材料状态"><p>{s.claims.length} 项记录；已确认 {confirmed(s).length} 项。未确认材料不参与确定结论。</p>{link("/assessment?tab=\u539F\u6587\u786E\u8BA4", "\u67E5\u770B\u539F\u6587\u4E0E\u5019\u9009 \u2192")}</Panel></>;
-    const reviewPanel=<><Panel title="核对经历与个人贡献"><Field label="处理队列"><select value={claimFilter} onChange={(e) => setClaimFilter(e.target.value)}>{["\u5168\u90E8", "\u5F85\u786E\u8BA4", "\u7591\u4F3C\u91CD\u590D", "\u77DB\u76FE", "\u5DF2\u62D2\u7EDD", "\u5DF2\u786E\u8BA4", "\u5DF2\u64A4\u56DE"].map((x) => <option key={x}>{x}</option>)}</select></Field>{!claims.length ? <GuidedStart title={s.claims.length?'当前筛选下没有材料':'先记录经历，再逐项确认'} description="逐项核对经历原文、自己负责的部分和材料来源。手填或导入后，先确认内容，再用于分析、报告和简历。" steps={['准备一段课程项目、作品或实际经历。','写清自己负责的部分，未知可以留空。','保存候选后，回到这里逐项修正与确认。']}>{link('/assessment?tab=资料经历','手填已有经历','button primary')}<B onClick={()=>open('import')}>{SERVER_AUTH?"导入 PDF / 粘贴材料":"导入文件（模拟解析）"}</B>{s.claims.length>0?<B onClick={()=>setClaimFilter('全部')}>查看全部材料</B>:link('/learning','没有经历？先了解实践','button')}</GuidedStart> : claims.map((c) => <article className="record" key={c.id}><div className="section-head"><h3>{c.title}</h3><Pill>{c.status} · v{c.version}</Pill></div><div className="cols2"><div><span className="muted">原文 / {c.origin} / {c.id}</span><p>{c.text}</p></div><div><p>本人贡献：{c.contribution || "\u5F85\u8865\u5145"}</p><p>关联技能：{c.skill}；辅助：{c.aid || "\u672A\u8BF4\u660E"}</p><p>实际核验：未核验</p></div></div><div className="actions">{!["\u5DF2\u786E\u8BA4", "\u5DF2\u64A4\u56DE"].includes(c.status) && <B primary onClick={() => open("claim", { claimId: c.id, text: c.text, contribution: c.contribution || "", skill: c.skill, resolve: c.status === "\u7591\u4F3C\u91CD\u590D" ? "\u4FDD\u7559\u4E3A\u72EC\u7ACB\u6750\u6599" : "\u4FEE\u6B63\u4E3A\u672C\u4EBA\u9648\u8FF0" })}>{c.status === "\u5DF2\u62D2\u7EDD" ? "\u660E\u786E\u91CD\u65B0\u5BA1\u9605" : "\u4FEE\u6B63 / \u786E\u8BA4\u6B64\u9879"}</B>}{canRejectClaim(c) && <B onClick={() => update((x) => rejectClaimCandidate(x,c.id))}>拒绝此候选</B>}{c.status === "\u5DF2\u786E\u8BA4" && <B onClick={() => open("claim", { claimId: c.id, text: c.text, contribution: c.contribution || "", skill: c.skill, resolve: "\u4FEE\u6B63\u4E3A\u672C\u4EBA\u9648\u8FF0" })}>编辑确认声明</B>}{c.status === "\u5DF2\u786E\u8BA4" && <B onClick={() => confirmAction("\u64A4\u56DE\u6B64\u58F0\u660E\uFF1F", "\u76F8\u5173\u5206\u6790\u3001\u62A5\u544A\u548C\u7B80\u5386\u5F15\u7528\u5C06\u5931\u6548\uFF1B\u65E7\u5FEB\u7167\u4FDD\u7559\u7248\u672C\u4F46\u4E0D\u80FD\u5BFC\u51FA\u53D7\u9650\u5185\u5BB9\u3002", () => {
-      if(SERVER_AUTH){workspace.command('claim.withdraw',{claimId:c.id,claimVersion:c.version,confirmation:'WITHDRAW_CLAIM'}).then(()=>tell(authMessage('CLAIM_WITHDRAWN',language))).catch(error=>tell(authMessage(error.code,language)));return;}
-      update((x) => ({ ...invalidate(x), profileVersion: x.profileVersion + 1, claims: x.claims.map((y) => y.id === c.id ? { ...y, status: "\u5DF2\u64A4\u56DE", withdrawnThrough:y.version,version: y.version + 1 } : y) }));
-      tell("\u58F0\u660E\u5DF2\u64A4\u56DE\uFF0C\u5173\u8054\u8F93\u51FA\u9700\u66F4\u65B0\u3002");
-    })}>撤回声明</B>}</div></article>)}</Panel>{modal === null && s.lastReceipt && <Notice>{s.lastReceipt} {link(s.originTask ? `/work/${s.originTask}?tab=\u5B8C\u6210\u56DE\u6267` : "/plan", "\u8FD4\u56DE\u6765\u6E90\u4EFB\u52A1 / \u8BA1\u5212 \u2192")} · {link("/assessment?tab=\u56DB\u7EF4\u4E0E\u5DEE\u8DDD", "\u6309\u9700\u66F4\u65B0\u5206\u6790")}</Notice>}</>;
+    const entryPanel=<>{['课程项目','实习（本人记录）','校园经历','技能记录','荣誉奖项','个人简介'].includes(urlObj.searchParams.get('resumeType'))&&<Notice>正在为简历补充：{urlObj.searchParams.get('resumeType')}。<B onClick={()=>{const type=urlObj.searchParams.get('resumeType');update({claimDraft:{...s.claimDraft,type,skill:'未知'}});requestAnimationFrame(()=>document.getElementById('resume-material-form')?.querySelector('select')?.focus());}}>选择此资料类型</B></Notice>}<ResumeSourceGroup search={urlObj.search}><ResumeProfileEditor s={s} update={update} link={link}/><EducationEditor s={s} update={update} link={link}/></ResumeSourceGroup><ResumeImportEntry s={s} update={update} link={link} go={go} tell={tell}/>{renderBackgroundManual()}<Panel title="材料状态"><p>{s.claims.length} 项记录；已确认 {confirmed(s).length} 项。未确认材料不参与确定结论。</p>{link("/assessment?tab=\u539F\u6587\u786E\u8BA4", "\u67E5\u770B\u539F\u6587\u4E0E\u5019\u9009 \u2192")}</Panel></>;
+    const reviewPanel=<><Panel title="核对经历与个人贡献"><Field label="处理队列"><select value={claimFilter} onChange={(e) => setClaimFilter(e.target.value)}>{["\u5168\u90E8", "\u5F85\u786E\u8BA4", "\u7591\u4F3C\u91CD\u590D", "\u77DB\u76FE", "\u5DF2\u62D2\u7EDD", "\u5DF2\u786E\u8BA4", "\u5DF2\u64A4\u56DE"].map((x) => <option key={x}>{x}</option>)}</select></Field>{!claims.length ? <GuidedStart title={s.claims.length?'当前筛选下没有材料':'先记录经历，再逐项确认'} description="逐项核对经历原文、自己负责的部分和材料来源。手填或导入后，先确认内容，再用于分析、报告和简历。" steps={['准备一段课程项目、作品或实际经历。','写清自己负责的部分，未知可以留空。','保存候选后，回到这里逐项修正与确认。']}><p className="background-review-hint">从灰色文件夹添加或导入经历，保存后回到这里核对。</p>{s.claims.length>0&&<B onClick={()=>setClaimFilter('全部')}>查看全部材料</B>}</GuidedStart> : claims.map(c => renderBackgroundExperience(c))}</Panel>{modal === null && s.lastReceipt && <Notice>{s.lastReceipt} {link(s.originTask ? `/work/${s.originTask}?tab=\u5B8C\u6210\u56DE\u6267` : "/plan", "\u8FD4\u56DE\u6765\u6E90\u4EFB\u52A1 / \u8BA1\u5212 \u2192")} · {link("/assessment?tab=\u56DB\u7EF4\u4E0E\u5DEE\u8DDD", "\u6309\u9700\u66F4\u65B0\u5206\u6790")}</Notice>}</>;
     const analysisPanel=<>{!confirmed(s).length&&!s.analysis&&<Notice>先核对一段经历，再主动建立模拟对照。当前未知保持未知。{link('/assessment?tab=资料经历','补充已有经历 →')}</Notice>} {(confirmed(s).length>0||s.analysis)&&<Panel title="对照职业要求，查看准备差距"><p>职业范围：{cname(s.assessmentCareer || s.goal || "data")} · 个人 v{s.profileVersion} · {SERVER_AUTH?"入库职业资料 · 材料对照规则 D1":"原创示例 v1 · 示例规则 R1"}</p>{!confirmed(s).length || s.adminSource.status === "\u5DF2\u64A4\u56DE" ? <Notice>资料不足或来源用途已撤回，不能生成个性化能力判断。可先补材料，或继续自选方向。{link("/assessment?tab=资料经历", "\u8865\u5145\u8D44\u6599")} · {link("/careers", "\u7EE7\u7EED\u63A2\u7D22")}</Notice> : <B primary onClick={async () => {
       if(SERVER_AUTH){try{await workspace.command('assessment.create');tell('已按服务器保存材料与职业库建立规则对照，未调用 AI 或核验能力。');}catch(error){tell(error.code==='VERSION_CONFLICT'?'资料版本已变化，请先处理保存冲突后重试。':'材料对照失败，已有资料保留，请重试。');}return;}
       update(prev => ({...prev, analysisHistory:[...(prev.analysisHistory || []), ...(prev.analysis ? [prev.analysis] : [])].filter((x,i,all)=>all.findIndex(y=>y.id===x.id)===i), analysis:makeAnalysis(prev), analysisStale:false}));
       tell("\u5DF2\u51BB\u7ED3\u8F93\u5165\u5E76\u521B\u5EFA\u6A21\u62DF\u5206\u6790\u5FEB\u7167\uFF1B\u6CA1\u6709\u6267\u884C\u771F\u5B9E\u80FD\u529B\u5206\u6790\u3002");
     }}>{SERVER_AUTH?(s.analysis?"更新职业材料对照":"建立职业材料对照"):(s.analysis ? "显式更新模拟分析" : "创建模拟差距快照")}</B>}{s.analysisStale && <Notice>当前依据已变更，下面是旧快照；请显式更新。</Notice>}{s.analysis && <><p>快照 {s.analysis.id} · 本人画像 v{s.analysis.profileVersion} · {fmt(s.analysis.date)}</p><AssessmentResultView s={s} link={link} precheck={precheck} feedback={feedback} /></>}</Panel>}</>;
     return <>{materialReturn?<div className="atlas-material-return">{link(materialReturn,'返回刚才的地图位置 →')}<span>核对完成后，可回同一支线继续对照。</span></div>:<AtlasPracticeContext task={originMapTask} link={link}/>}
-<PageHead title="我的经历与职业准备" description="在一处核对经历、看清准备缺口，再把确认材料用于简历。"/><SegmentedControl className="tabs assessment-mode-tabs" aria-label="页面模式">{React.cloneElement(link('/assessment?tab=准备总览','准备总览'),{'aria-current':!isEntry?'page':undefined})}{React.cloneElement(link('/assessment?tab=资料经历','资料与经历'),{'aria-current':isEntry?'page':undefined})}</SegmentedControl>{isEntry?entryPanel:<AssessmentHub s={s} tab={tab} hash={urlObj.hash||location.hash} update={update} link={link} go={go} open={open} tell={tell} review={reviewPanel} analysis={analysisPanel}/>}</>;
+<PageHead title="我的经历与职业准备" description="在一处核对经历、看清准备缺口，再把确认材料用于简历。"/><SegmentedControl className="tabs assessment-mode-tabs" aria-label="页面模式">{React.cloneElement(link('/assessment?tab=准备总览','准备总览'),{'aria-current':!isEntry?'page':undefined})}{React.cloneElement(link('/assessment?tab=资料经历','资料与经历'),{'aria-current':isEntry?'page':undefined})}</SegmentedControl>{isEntry?entryPanel:<AssessmentHub s={s} tab={tab} hash={urlObj.hash||location.hash} update={update} link={link} go={go} open={open} tell={tell} review={reviewPanel} analysis={analysisPanel} renderManual={args=>renderBackgroundManual({...args,embedded:true})} renderImport={renderBackgroundImport} renderExperience={renderBackgroundExperience}/>}</>;
   }
   function careerPage() {
     const selectedCompare=validCompareIds(s.compare);
@@ -518,8 +571,8 @@ function App() {
     const practiceId = urlObj.searchParams.get("practice");
     if (tab === "执行" && practiceId !== null) return <ExternalPractice s={s} task={s.tasks.find(t => t.id === practiceId)} record={urlObj.searchParams.get("step") === "record"} link={link} setTask={setTask} open={open} tell={tell} />;
     const unified = tab !== '复盘' && (tab !== '执行' || urlObj.searchParams.get('view') === 'calendar');
-    const planMode = unified ? '计划总览' : tab;
-    return <><PageHead action={unified?<a href="#weekly-actions" className="button">查看本周日程</a>:link('/plan#weekly-actions','查看本周日程','button')} title={tab === '复盘' ? '实践复盘' : unified ? '目标与行动计划' : '行动推进台'} description={tab === '复盘' ? '记录实际结果、反馈、困难与下一步。' : '从目标到每周安排，在同一处规划和推进。'} /><SegmentedControl className="tabs" aria-label="页面模式">{['计划总览','执行','复盘'].map(name=>React.cloneElement(link('/plan?tab='+encodeURIComponent(name),name),{key:name,'aria-current':planMode===name?'page':undefined}))}</SegmentedControl>
+    const planMode = unified ? '计划总览' : '执行';
+    return <><PageHead title={tab === '复盘' ? '实践复盘' : unified ? '目标与行动计划' : '行动推进台'} description={tab === '复盘' ? '记录实际结果、反馈、困难与下一步。' : '从目标到每周安排，在同一处规划和推进。'} /><SegmentedControl className="tabs" aria-label="页面模式">{[['计划总览','计划制定'],['执行','计划执行']].map(([mode,label])=>React.cloneElement(link('/plan?tab='+encodeURIComponent(mode),label),{key:mode,'aria-current':planMode===mode?'page':undefined}))}</SegmentedControl>
  {unified&&SERVER_AUTH&&<CareerKnowledge career={s.goal||'data'} precheck={precheck} link={link}/>}
  {unified && <UnifiedPlan s={s} open={open} link={link} precheck={precheck} startTask={startTask} update={update} adjustment={<PlanAdjustment s={s} open={open} update={update} expanded={urlObj.searchParams.get('adjust')==='1'}/>} />}
  {tab === '执行' && !unified && <div className="action-cycle"><ExecutionDesk s={s} url={url} link={link} open={open} startTask={startTask} precheck={precheck} viewSwitch={<SegmentedControl as="div" className="task-view-switch" role="group" aria-label="行动显示方式">{link('/plan?tab=执行&view=list','列表','button selected')}{link('/plan#weekly-actions','日程','button')}</SegmentedControl>}/></div>}
@@ -777,47 +830,7 @@ function App() {
       case "import":
         if(SERVER_AUTH){title='导入 PDF / 粘贴材料';body=<ResumeImport s={s} update={update} link={link} onClose={close} onSaved={(record,added)=>{close();tell(added?'原稿与候选已保存，请逐项确认本人贡献。':'简历原稿已保存。');go(added?'/assessment?tab=原文确认':'/assessment?tab=当前简历');}}/>;break;}
         title = "\u5BFC\u5165\u6750\u6599 \xB7 \u6A21\u62DF\u89E3\u6790\u4F5C\u4E1A";
-        body = <><Notice>不解析真实文件。文件仅检查扩展名与大小，随后生成明确标注的合成候选；可随时手填。</Notice><label className="check"><input type="checkbox" checked={f.consent || false} onChange={(e) => set("consent", e.target.checked)} />允许演示读取文件名与类型（不上传，不发送外部模型）</label><Field label="选择文本型 PDF / DOCX（演示限额 10 MB）"><input type="file" accept=".pdf,.docx" onChange={(e) => {
-          const file = e.target.files[0];
-          if (!file) return;
-          if (!/\.(pdf|docx)$/i.test(file.name) || file.size > 10 * 1024 * 1024) {
-            setImportState("unsupported");
-            fail("\u683C\u5F0F\u4E0D\u652F\u6301\u6216\u8D85\u8FC7 10 MB\uFF0C\u8BF7\u9009\u62E9 PDF / DOCX\uFF0C\u6216\u4F7F\u7528\u624B\u586B\u3002");
-            return;
-          }
-          set("file", file.name);
-          setImportState("ready");
-          setError("");
-        }} /></Field><p>状态：{{ idle: "\u7B49\u5F85\u9009\u62E9", ready: "\u6587\u4EF6\u5F85\u89E3\u6790", running: "\u6B63\u5728\u6A21\u62DF\u5904\u7406\u2026", failed: "\u89E3\u6790\u5931\u8D25\uFF08\u6A21\u62DF\uFF09", cancelled: "\u4F5C\u4E1A\u5DF2\u53D6\u6D88", done: "\u5019\u9009\u5DF2\u751F\u6210", unsupported: "\u683C\u5F0F / \u5927\u5C0F\u4E0D\u652F\u6301" }[importState]}</p><div className="actions"><B primary onClick={() => {
-          if (!f.consent || !f.file) {
-            fail("\u8BF7\u9009\u62E9\u5141\u8BB8\u683C\u5F0F\u7684\u6587\u4EF6\u5E76\u786E\u8BA4\u6F14\u793A\u8303\u56F4\u3002");
-            return;
-          }
-          clearTimeout(timer.current);
-          setImportState("running");
-          timer.current = setTimeout(() => {
-            setImportState("done");
-            setForm((x) => ({ ...x, result: true }));
-          }, 600);
-        }}>开始 / 重试模拟解析</B><B onClick={() => {
-          clearTimeout(timer.current);
-          setImportState("failed");
-          fail("\u6A21\u62DF\u89E3\u6790\u670D\u52A1\u5931\u8D25\uFF0C\u53EF\u91CD\u8BD5\u6216\u6539\u624B\u586B\u3002");
-        }}>模拟解析失败</B><B onClick={() => {
-          clearTimeout(timer.current);
-          setImportState("cancelled");
-          setForm((x) => ({ ...x, result: false }));
-          tell("\u89E3\u6790\u5DF2\u53D6\u6D88\uFF0C\u4E0D\u4F1A\u665A\u5230\u56DE\u5199\u3002");
-        }}>取消作业</B></div>{f.result && importState === "done" && <><p>合成候选原文：“在课程练习中整理 Python 表格，贡献待本人说明。”</p><B primary onClick={() => {
-          if (s.claims.some((c) => c.importKey === f.file)) {
-            tell("\u540C\u4E00\u5BFC\u5165\u5DF2\u6709\u5019\u9009\uFF1B\u5DF2\u62D2\u7EDD\u9879\u4E0D\u4F1A\u81EA\u52A8\u590D\u6D3B\uFF0C\u8BF7\u5728\u961F\u5217\u660E\u786E\u91CD\u5BA1\u3002");
-          } else addCandidate({ title: "\u5BFC\u5165\u5019\u9009\uFF08\u5408\u6210\uFF0C\u4E0D\u6765\u81EA\u6587\u4EF6\u5185\u5BB9\uFF09", text: "\u5728\u8BFE\u7A0B\u7EC3\u4E60\u4E2D\u6574\u7406 Python \u8868\u683C\uFF0C\u8D21\u732E\u5F85\u672C\u4EBA\u8BF4\u660E\u3002", contribution: "", skill: "Python", type: "\u8BFE\u7A0B\u9879\u76EE", origin: "\u6A21\u62DF\u89E3\u6790", importKey: f.file });
-          close();
-          go("/assessment?tab=\u539F\u6587\u786E\u8BA4");
-        }}>保存合成候选并逐项确认</B></>}<p>扫描型 PDF / OCR 不支持，不能生成空白成功。</p><B onClick={() => {
-          close();
-          go("/assessment");
-        }}>改用手填</B></>;
+        body = renderPrototypeImport({f,set,setForm,importState,setImportState,timer,fail,onSaved:()=>{close();go("/assessment?tab=原文确认");},onManual:()=>{close();go("/assessment");}});
         break;
       case "claim": {
         title = "核对经历原文并确认";

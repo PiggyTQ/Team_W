@@ -1,0 +1,173 @@
+{
+  "results": [
+    {
+      "name": "空白起点-桌面",
+      "status": "pass",
+      "geometry": {
+        "cardWidth": 1160,
+        "scrollWidth": 1160,
+        "left": {
+          "x": 265,
+          "y": 227.09375,
+          "width": 560
+        },
+        "right": {
+          "x": 825,
+          "y": 227.09375,
+          "width": 560
+        },
+        "leftBorder": "1px",
+        "topBorder": "0px",
+        "headingY": [
+          227.09375,
+          227.09375
+        ]
+      },
+      "finalColors": {
+        "practice": "rgb(1, 62, 117)",
+        "question": "rgb(106, 114, 130)"
+      }
+    },
+    {
+      "name": "已有计划-桌面",
+      "status": "pass",
+      "geometry": {
+        "cardWidth": 1160,
+        "scrollWidth": 1160,
+        "left": {
+          "x": 265,
+          "y": 227.09375,
+          "width": 560
+        },
+        "right": {
+          "x": 825,
+          "y": 227.09375,
+          "width": 560
+        },
+        "leftBorder": "1px",
+        "topBorder": "0px",
+        "headingY": [
+          227.09375,
+          227.09375
+        ]
+      },
+      "finalColors": {
+        "practice": "rgb(1, 62, 117)",
+        "question": "rgb(106, 114, 130)"
+      }
+    },
+    {
+      "name": "已有计划-窄桌面",
+      "status": "pass",
+      "geometry": {
+        "cardWidth": 768,
+        "scrollWidth": 768,
+        "left": {
+          "x": 241,
+          "y": 340.1875,
+          "width": 364
+        },
+        "right": {
+          "x": 605,
+          "y": 340.1875,
+          "width": 364
+        },
+        "leftBorder": "1px",
+        "topBorder": "0px",
+        "headingY": [
+          340.1875,
+          340.1875
+        ]
+      },
+      "finalColors": {
+        "practice": "rgb(1, 62, 117)",
+        "question": "rgb(106, 114, 130)"
+      }
+    },
+    {
+      "name": "英文-桌面",
+      "status": "pass",
+      "geometry": {
+        "cardWidth": 1160,
+        "scrollWidth": 1160,
+        "left": {
+          "x": 265,
+          "y": 227.09375,
+          "width": 560
+        },
+        "right": {
+          "x": 825,
+          "y": 227.09375,
+          "width": 560
+        },
+        "leftBorder": "1px",
+        "topBorder": "0px",
+        "headingY": [
+          227.09375,
+          227.09375
+        ]
+      },
+      "finalColors": {
+        "practice": "rgb(1, 62, 117)",
+        "question": "rgb(106, 114, 130)"
+      }
+    },
+    {
+      "name": "中文-窄窗口",
+      "status": "pass",
+      "geometry": {
+        "cardWidth": 352,
+        "scrollWidth": 352,
+        "left": {
+          "x": 37,
+          "y": 439.890625,
+          "width": 316
+        },
+        "right": {
+          "x": 37,
+          "y": 732.421875,
+          "width": 316
+        },
+        "leftBorder": "0px",
+        "topBorder": "1px",
+        "headingY": [
+          439.890625,
+          749.421875
+        ]
+      },
+      "finalColors": {
+        "practice": "rgb(1, 62, 117)",
+        "question": "rgb(106, 114, 130)"
+      }
+    },
+    {
+      "name": "英文-窄窗口",
+      "status": "pass",
+      "geometry": {
+        "cardWidth": 352,
+        "scrollWidth": 352,
+        "left": {
+          "x": 37,
+          "y": 439.890625,
+          "width": 316
+        },
+        "right": {
+          "x": 37,
+          "y": 772.421875,
+          "width": 316
+        },
+        "leftBorder": "0px",
+        "topBorder": "1px",
+        "headingY": [
+          439.890625,
+          789.421875
+        ]
+      },
+      "finalColors": {
+        "practice": "rgb(1, 62, 117)",
+        "question": "rgb(106, 114, 130)"
+      }
+    }
+  ],
+  "errors": []
+}

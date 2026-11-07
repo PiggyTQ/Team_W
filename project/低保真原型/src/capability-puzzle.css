@@ -1,0 +1,97 @@
+#root #main.workspace .capability-puzzle {
+  --capability-ink:#244a70;--capability-muted:#5d728a;
+  --capability-yellow:#f7d77c;--capability-yellow-ink:#685018;
+  --capability-blue:#94b6d6;--capability-blue-ink:#183f63;
+  min-width:0;color:var(--capability-ink);margin-top:4px;
+}
+#root #main.workspace .capability-puzzle-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px}
+#root #main.workspace .capability-puzzle-heading>div:first-child {display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;min-width:0}
+#root #main.workspace .capability-puzzle-heading h3 {display:flex;align-items:center;gap:8px;margin:0;font-size:18px!important;color:var(--capability-ink)}
+#root #main.workspace .capability-puzzle-heading h3::before {content:"";width:5px;height:18px;border-radius:3px;background:var(--capability-yellow)}
+#root #main.workspace .capability-puzzle-heading p {margin:0;color:var(--capability-muted);font-size:12px!important;line-height:1.6}
+#root #main.workspace .capability-legend {display:flex;flex-wrap:wrap;gap:16px;font-size:13px;flex-shrink:0}
+#root #main.workspace .capability-legend>span {display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+#root #main.workspace .capability-legend i {width:14px;height:14px;border-radius:4px;background:var(--capability-blue);border:1px solid #739ac0}
+#root #main.workspace .capability-legend [data-mastered="true"] i {background:var(--capability-yellow);border-color:#cfb15f}
+#root #main.workspace .capability-puzzle-layout {display:grid;grid-template-columns:minmax(280px,1fr) minmax(0,1.65fr);gap:18px;align-items:center;min-width:0}
+#root #main.workspace .capability-board {display:block;width:100%;height:auto;overflow:visible;min-width:0;max-width:560px;max-height:370px;justify-self:center}
+#root #main.workspace .capability-piece {cursor:pointer;outline:none;--piece-fill:#94b6d6;--piece-ink:#183f63}
+#root #main.workspace .capability-piece[data-mastered="true"] {--piece-fill:#f7d77c;--piece-ink:#685018}
+#root #main.workspace .capability-piece-visual {transform-box:view-box;transform-origin:88px 63px;transform:scale(1);transition:transform 280ms cubic-bezier(.22,.8,.3,1)}
+#root #main.workspace .capability-piece[aria-pressed="true"] .capability-piece-visual {transform:scale(1.14);animation:capability-piece-zoom 320ms cubic-bezier(.2,.8,.3,1) both}
+@keyframes capability-piece-zoom {from{transform:scale(.985)}to{transform:scale(1.14)}}
+#root #main.workspace .capability-piece:active .capability-piece-visual {animation:none;transform:scale(.985);transition-duration:100ms}
+#root #main.workspace .capability-piece-shape {fill:var(--piece-fill);stroke:#fffefa;stroke-width:1.6;stroke-opacity:.85;stroke-linejoin:round;transition:fill 220ms ease}
+#root #main.workspace .capability-piece-decoration {pointer-events:none}
+#root #main.workspace .capability-decor-fill {fill:#ffffff;opacity:.18}
+#root #main.workspace .capability-decor-lines {fill:none;stroke:var(--piece-ink);stroke-width:1.6;opacity:.13}
+#root #main.workspace .capability-decor-dots {fill:var(--piece-ink);opacity:.16}
+#root #main.workspace .capability-piece-wash {fill:#fffefa;opacity:0;transition:opacity 160ms ease;pointer-events:none}
+#root #main.workspace .capability-piece-selected {fill:none;stroke:var(--piece-ink);stroke-width:2;stroke-opacity:.55;opacity:0;transition:opacity 160ms ease;pointer-events:none}
+#root #main.workspace .capability-piece[aria-pressed="true"] .capability-piece-selected {opacity:1}
+#root #main.workspace .capability-keyboard-focus {fill:none;stroke:var(--piece-ink);stroke-width:1.8;stroke-dasharray:3 4;opacity:0;pointer-events:none}
+#root #main.workspace .capability-board[data-keyboard-mode="true"] .capability-piece:focus-visible .capability-keyboard-focus {opacity:1}
+#root #main.workspace .capability-piece foreignObject {pointer-events:none;overflow:visible}
+#root #main.workspace .capability-piece-copy {position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:3px;text-align:center;color:var(--piece-ink)}
+#root #main.workspace .capability-skill-icon {display:grid;place-items:center;width:32px;height:32px;padding:6px;border-radius:10px;background:#ffffff4d;flex-shrink:0;color:var(--piece-ink);transition:background-color 160ms ease}
+#root #main.workspace .capability-skill-icon svg {width:100%;height:100%;overflow:visible}
+#root #main.workspace .capability-piece-copy strong {position:relative;z-index:1;font-size:var(--puzzle-label-size,14px)!important;font-weight:600!important;line-height:1.2;overflow-wrap:anywhere;color:var(--piece-ink)!important}
+#root #main.workspace .capability-piece-status {display:inline-flex;align-items:center;gap:4px;font-size:var(--puzzle-state-size,10.5px)!important;line-height:1.3;color:var(--piece-ink)}
+#root #main.workspace .capability-piece-status svg {width:var(--puzzle-state-icon-size,12px);height:var(--puzzle-state-icon-size,12px);stroke:currentColor;stroke-width:1.5;flex-shrink:0}
+#root #main.workspace .capability-board[data-compact="true"] .capability-skill-icon {position:absolute;right:4px;bottom:2px;width:44px;height:44px;padding:0;border-radius:0;background:transparent;opacity:.13}
+#root #main.workspace .capability-board[data-compact="true"] .capability-piece-status {display:none}
+#root #main.workspace .capability-board[data-compact="true"] .capability-piece-copy {gap:0}
+@media(hover:hover){#root #main.workspace .capability-piece:hover .capability-piece-wash {opacity:.1}#root #main.workspace .capability-piece:hover .capability-skill-icon {background-color:#ffffff70}#root #main.workspace .capability-board[data-compact="true"] .capability-piece:hover .capability-skill-icon {background-color:transparent}}
+#root #main.workspace .capability-piece:active .capability-piece-wash {opacity:.18}
+#root #main.workspace .capability-keyboard-help {position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#root #main.workspace .capability-detail-content {animation:capability-detail-in 240ms ease-out both}
+@keyframes capability-detail-in {from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+#root #main.workspace .capability-detail {padding:18px;border:1px solid #d9e5ef;border-radius:16px;background:#f5f8fc;min-width:0}
+#root #main.workspace .capability-detail-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+#root #main.workspace .capability-detail-heading>div {min-width:0}
+#root #main.workspace .capability-level {display:inline-block;font-size:11px;line-height:1.5;color:var(--capability-muted);margin-bottom:4px}
+#root #main.workspace .capability-detail h3 {margin:0;font-size:22px!important;line-height:1.35;color:var(--capability-ink);overflow-wrap:anywhere}
+#root #main.workspace .capability-detail-emblem {position:relative;display:grid;place-items:center;width:46px;height:46px;flex-shrink:0;border-radius:14px;background:#dce8f3;color:#355b7d}
+#root #main.workspace .capability-detail-emblem::after {content:"";position:absolute;right:-3px;top:-3px;width:10px;height:10px;border:2px solid #f5f8fc;border-radius:4px;background:var(--capability-yellow)}
+#root #main.workspace .capability-detail-emblem svg {width:25px;height:25px}
+#root #main.workspace .capability-detail[data-mastered="true"] .capability-detail-emblem {background:#f8e9b6;color:var(--capability-yellow-ink)}
+#root #main.workspace .capability-detail p {margin:0;font-size:13px!important;line-height:1.7;color:var(--capability-muted)}
+#root #main.workspace .capability-current {display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;margin:12px 0;border-block:1px solid #dde6ee;font-size:13px}
+#root #main.workspace .capability-current strong {padding:5px 10px;border-radius:7px;background:var(--capability-blue);color:var(--capability-blue-ink);font-size:12px!important;font-weight:500!important}
+#root #main.workspace .capability-detail[data-mastered="true"] .capability-current strong {background:var(--capability-yellow);color:var(--capability-yellow-ink)}
+#root #main.workspace .capability-record {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#root #main.workspace .capability-record button {min-height:44px;border:1px solid #a6bfd8;border-radius:11px;box-shadow:none;background:#e6effa;color:var(--capability-blue-ink);font-size:13px!important;padding:9px 12px;cursor:pointer}
+#root #main.workspace .capability-record button[data-mastery-choice="true"] {background:#fff4d0;border-color:#ddc47c;color:var(--capability-yellow-ink)}
+#root #main.workspace .capability-record button[aria-pressed="true"] {outline:2px solid currentColor;outline-offset:2px}
+#root #main.workspace .capability-record button:focus-visible {outline:3px solid #244a70;outline-offset:3px}
+#root #main.workspace .capability-detail p.capability-record-status {min-height:20px;margin-top:10px;font-size:12px!important}
+#root #main.workspace .capability-puzzle-note {margin:8px 0 0;color:var(--capability-muted);font-size:12px!important;line-height:1.6}
+#root #main.workspace .hub-capability-gaps {margin:18px 0 0;border-top:1px solid #e6dfd2;padding-top:12px}
+#root #main.workspace .hub-capability-gaps>summary {display:flex;align-items:center;min-height:44px;cursor:pointer;color:#244a70;font-size:13px;list-style:revert}
+#root #main.workspace .hub-capability-gaps .hub-gap-list {margin-top:8px}
+@media(hover:hover){#root #main.workspace .capability-record button:hover {filter:brightness(.98)}}
+/* Keep the compact rhythm local to ability assessment; the other hub sections retain their layout. */
+#root #main.workspace #assessment-analysis {padding:20px!important}
+#root #main.workspace #assessment-analysis>header {gap:16px;margin-bottom:10px}
+#root #main.workspace #assessment-analysis>header h2 {margin:0 0 4px}
+#root #main.workspace #assessment-analysis>header p {font-size:13px!important;line-height:1.6}
+#root #main.workspace #assessment-analysis .hub-direction {flex-direction:row;align-items:center;gap:16px;margin-bottom:10px!important}
+#root #main.workspace #assessment-analysis .hub-direction>.field {display:flex;flex-direction:row;align-items:center;gap:10px;width:min(360px,100%);min-width:0;margin:0}
+#root #main.workspace #assessment-analysis .hub-direction>.field>span {flex-shrink:0;white-space:nowrap;font-size:13px!important;font-weight:600!important;margin:0}
+#root #main.workspace #assessment-analysis .hub-direction select {flex:1;width:0;min-width:0;min-height:44px!important;margin:0;font-size:13px!important}
+#root #main.workspace #assessment-analysis .hub-direction>p {min-width:0;font-size:12px!important;line-height:1.65}
+#root #main.workspace #assessment-analysis .capability-support-row {display:flex;align-items:flex-start;flex-wrap:wrap;gap:8px 16px;margin-top:12px;padding-top:8px;border-top:1px solid #e6dfd2}
+#root #main.workspace #assessment-analysis .hub-capability-gaps {flex:1;min-width:0;margin:0;padding:0;border:0}
+#root #main.workspace #assessment-analysis .hub-capability-gaps[open] {flex-basis:100%}
+#root #main.workspace #assessment-analysis .hub-capability-gaps>summary {gap:8px}
+#root #main.workspace #assessment-analysis .hub-capability-gaps>summary::before {content:"+";display:grid;place-items:center;flex-shrink:0;width:22px;height:22px;border-radius:7px;background:#edf2f7;font-size:16px;color:#476784}
+#root #main.workspace #assessment-analysis .hub-capability-gaps[open]>summary::before {content:"−"}
+#root #main.workspace #assessment-analysis .hub-detail-actions {flex-shrink:0;max-width:100%;min-width:0;margin:0}
+#root #main.workspace #assessment-analysis .hub-detail-actions>button {max-width:100%}
+#root #main.workspace #assessment-analysis .hub-snapshot-state {padding:8px 12px;margin-top:8px;font-size:12px!important;line-height:1.65}
+@container workspace (max-width:850px){#root #main.workspace .capability-puzzle-layout {gap:12px;grid-template-columns:minmax(250px,1fr) minmax(0,1.45fr)}}
+@container workspace (max-width:680px){#root #main.workspace .capability-puzzle-heading {align-items:flex-start;flex-direction:column;gap:8px}#root #main.workspace .capability-puzzle-layout {grid-template-columns:minmax(0,1fr);gap:12px}#root #main.workspace .capability-board {max-height:none;justify-self:center}#root #main.workspace #assessment-analysis {padding:16px!important}#root #main.workspace #assessment-analysis .hub-direction {flex-direction:column;align-items:stretch;gap:6px}#root #main.workspace #assessment-analysis .hub-direction>.field {width:100%}#root #main.workspace #assessment-analysis .capability-support-row {gap:4px 12px}#root #main.workspace #assessment-analysis .hub-capability-gaps {flex-basis:100%}}
+@container workspace (max-width:420px){#root #main.workspace #assessment-analysis .hub-direction>.field {flex-direction:column;align-items:stretch;gap:4px}#root #main.workspace #assessment-analysis .hub-direction select {width:100%;flex:none}}
+/* The existing important type layer controls field labels, so refine this label in the same layer. */
+@layer type-system {#root #main.workspace #assessment-analysis .hub-direction>.field>span {font-size:13px!important;font-weight:600!important}}
+@media(prefers-reduced-motion:reduce){#root #main.workspace .capability-puzzle :is(.capability-piece-visual,.capability-piece-shape,.capability-piece-wash,.capability-piece-selected,.capability-skill-icon) {transition:none!important}#root #main.workspace .capability-piece-visual {animation:none!important;transform:none!important}#root #main.workspace .capability-detail-content {animation:none!important;transform:none;opacity:1}}

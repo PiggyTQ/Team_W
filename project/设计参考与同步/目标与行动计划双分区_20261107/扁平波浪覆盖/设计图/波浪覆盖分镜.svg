@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="270" viewBox="0 0 1040 270">
+ <rect width="1040" height="270" fill="#fffefa"/>
+ <g font-family="Microsoft YaHei,sans-serif">
+  <text x="24" y="28" fill="#082f68" font-size="16">实施前局部设计 · 扁平纯色卡片，黄色沿波浪前沿从左向右覆盖</text>
+  <g fill="#e8f1fa" stroke="#c9dceb"><rect x="24" y="80" width="280" height="48" rx="6"/><rect x="380" y="80" width="280" height="48" rx="6"/><rect x="736" y="80" width="280" height="48" rx="6"/></g>
+  <g font-size="16" fill="#264d75"><text x="38" y="110">周目标</text><text x="257" y="110">0 个</text><text x="394" y="110">周目标</text><text x="613" y="110">0 个</text></g>
+  <path d="M381 81H520C514 89 514 97 520 105S526 121 520 127H381Z" fill="#f6df91"/>
+  <rect x="737" y="81" width="278" height="46" rx="5" fill="#f6df91"/>
+  <g font-size="16" fill="#67511b" font-weight="650"><text x="450" y="110">查看周目标 →</text><text x="810" y="110">查看周目标 →</text></g>
+  <g font-size="13" fill="#6a7282"><text x="24" y="60">默认：蓝色统计</text><text x="380" y="60">中段：平滑波浪前沿</text><text x="736" y="60">完成：黄色操作</text><text x="24" y="174">前沿由连续三次贝塞尔曲线形成，保留可见凹凸；黄色覆盖区域同步裁切操作文字，文字位置不随背景平移。</text><text x="24" y="204">600ms 向右推进，移出后向左退回。纯色、细边框、原 6px 圆角，无投影、渐变、透视、翻转或上浮。</text><text x="24" y="234">六卡分别响应，原查看抽屉与执行 / 排期 / 复查入口保持；键盘聚焦同样可显示操作，减少动态时直接切换。</text></g>
+ </g>
+</svg>

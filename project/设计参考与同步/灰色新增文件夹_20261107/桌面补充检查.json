@@ -1,0 +1,33 @@
+{
+  "results": [
+    {
+      "name": "多份经历新增入口",
+      "width": 1280,
+      "language": "zh",
+      "status": "pass",
+      "placement": {
+        "afterYellow": true,
+        "gap": 8,
+        "overflow": true
+      },
+      "manualAndImport": true,
+      "focusRestored": true,
+      "unchangedRecords": true
+    },
+    {
+      "name": "英文新增入口",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "placement": {
+        "afterYellow": true,
+        "gap": 8,
+        "overflow": false
+      },
+      "manualAndImport": true,
+      "focusRestored": true,
+      "unchangedRecords": true
+    }
+  ],
+  "pageErrors": []
+}

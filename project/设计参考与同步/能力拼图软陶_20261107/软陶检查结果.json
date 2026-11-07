@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "name": "hover-press-selection-and-material-transition",
+      "status": "pass"
+    },
+    {
+      "name": "keyboard-focus-and-reduced-motion",
+      "status": "pass"
+    },
+    {
+      "name": "responsive-geometry-and-text-zh",
+      "status": "pass"
+    },
+    {
+      "name": "responsive-geometry-and-text-en",
+      "status": "pass"
+    }
+  ],
+  "pageErrors": []
+}

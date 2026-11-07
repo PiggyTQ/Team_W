@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "status": "pass",
+      "detail": {
+        "x": 269,
+        "y": 540.421875,
+        "width": 409.046875,
+        "height": 337.578125
+      },
+      "puzzle": {
+        "x": 706.046875,
+        "y": 479.21875,
+        "width": 674.9375,
+        "height": 460
+      },
+      "matchingDomOrder": true,
+      "masteryInteraction": true
+    },
+    {
+      "width": 1280,
+      "status": "pass",
+      "detail": {
+        "x": 269,
+        "y": 521.578125,
+        "width": 348.671875,
+        "height": 337.578125
+      },
+      "puzzle": {
+        "x": 645.671875,
+        "y": 479.21875,
+        "width": 575.328125,
+        "height": 422.3125
+      },
+      "matchingDomOrder": true,
+      "masteryInteraction": true
+    }
+  ],
+  "pageErrors": []
+}

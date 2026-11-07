@@ -1,0 +1,33 @@
+{
+  "results": [
+    {
+      "name": "side-layout-motion-draft-save",
+      "status": "pass"
+    },
+    {
+      "name": "import-cancel-dedupe-practice",
+      "status": "pass"
+    },
+    {
+      "name": "interrupted-animation-keyboard-switch",
+      "status": "pass"
+    },
+    {
+      "name": "responsive-390-zh",
+      "status": "pass"
+    },
+    {
+      "name": "responsive-390-en",
+      "status": "pass"
+    },
+    {
+      "name": "responsive-320-zh",
+      "status": "pass"
+    },
+    {
+      "name": "responsive-320-en",
+      "status": "pass"
+    }
+  ],
+  "pageErrors": []
+}

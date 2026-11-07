@@ -1,0 +1,207 @@
+{
+  "results": [
+    {
+      "name": "蓝色书架与黄色书本",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "alignment": "flex-start",
+        "firstInset": 18,
+        "scrollWidth": 685,
+        "clientWidth": 685,
+        "pageOverflow": false,
+        "backplate": "linear-gradient(rgb(200, 221, 240), rgb(220, 235, 248))",
+        "baseLayer": "0",
+        "rowLayer": "1"
+      },
+      "colors": [
+        {
+          "id": "demo:campus-web",
+          "tone": "gold",
+          "color": "rgb(229, 184, 74)",
+          "text": "rgb(93, 71, 29)",
+          "x": 691.328125,
+          "contrast": 4.73
+        },
+        {
+          "id": "demo:data-course",
+          "tone": "vanilla",
+          "color": "rgb(245, 227, 158)",
+          "text": "rgb(93, 71, 29)",
+          "x": 775.328125,
+          "contrast": 6.86
+        },
+        {
+          "id": "demo:club-event",
+          "tone": "straw",
+          "color": "rgb(223, 199, 113)",
+          "text": "rgb(93, 71, 29)",
+          "x": 859.328125,
+          "contrast": 5.26
+        },
+        {
+          "id": "demo:product-intern",
+          "tone": "honey",
+          "color": "rgb(232, 190, 69)",
+          "text": "rgb(93, 71, 29)",
+          "x": 943.328125,
+          "contrast": 4.98
+        }
+      ],
+      "stableAfterOpenClose": true
+    },
+    {
+      "name": "桌面多本档案",
+      "width": 1280,
+      "language": "zh",
+      "status": "pass",
+      "geometry": {
+        "alignment": "flex-start",
+        "firstInset": 18,
+        "scrollWidth": 864,
+        "clientWidth": 578,
+        "pageOverflow": false,
+        "backplate": "linear-gradient(rgb(200, 221, 240), rgb(220, 235, 248))",
+        "baseLayer": "0",
+        "rowLayer": "1"
+      },
+      "colors": [
+        {
+          "id": "claim:shelf-0",
+          "tone": "gold",
+          "color": "rgb(229, 184, 74)",
+          "text": "rgb(93, 71, 29)",
+          "x": 638,
+          "contrast": 4.73
+        },
+        {
+          "id": "claim:shelf-1",
+          "tone": "honey",
+          "color": "rgb(232, 190, 69)",
+          "text": "rgb(93, 71, 29)",
+          "x": 722,
+          "contrast": 4.98
+        },
+        {
+          "id": "claim:shelf-2",
+          "tone": "lemon",
+          "color": "rgb(243, 212, 94)",
+          "text": "rgb(93, 71, 29)",
+          "x": 806,
+          "contrast": 6.03
+        },
+        {
+          "id": "claim:shelf-3",
+          "tone": "maize",
+          "color": "rgb(239, 207, 112)",
+          "text": "rgb(93, 71, 29)",
+          "x": 890,
+          "contrast": 5.8
+        },
+        {
+          "id": "claim:shelf-4",
+          "tone": "vanilla",
+          "color": "rgb(245, 227, 158)",
+          "text": "rgb(93, 71, 29)",
+          "x": 974,
+          "contrast": 6.86
+        },
+        {
+          "id": "claim:shelf-5",
+          "tone": "straw",
+          "color": "rgb(223, 199, 113)",
+          "text": "rgb(93, 71, 29)",
+          "x": 1058,
+          "contrast": 5.26
+        },
+        {
+          "id": "claim:shelf-6",
+          "tone": "butter",
+          "color": "rgb(242, 215, 122)",
+          "text": "rgb(93, 71, 29)",
+          "x": 1142,
+          "contrast": 6.2
+        },
+        {
+          "id": "claim:shelf-7",
+          "tone": "saffron",
+          "color": "rgb(235, 202, 85)",
+          "text": "rgb(93, 71, 29)",
+          "x": 1226,
+          "contrast": 5.5
+        },
+        {
+          "id": "claim:shelf-8",
+          "tone": "gold",
+          "color": "rgb(229, 184, 74)",
+          "text": "rgb(93, 71, 29)",
+          "x": 1310,
+          "contrast": 4.73
+        },
+        {
+          "id": "claim:shelf-9",
+          "tone": "honey",
+          "color": "rgb(232, 190, 69)",
+          "text": "rgb(93, 71, 29)",
+          "x": 1394,
+          "contrast": 4.98
+        }
+      ],
+      "stableAfterOpenClose": true,
+      "lastBookKeyboardAccessible": true
+    },
+    {
+      "name": "英文桌面书架",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "geometry": {
+        "alignment": "flex-start",
+        "firstInset": 18,
+        "scrollWidth": 685,
+        "clientWidth": 685,
+        "pageOverflow": false,
+        "backplate": "linear-gradient(rgb(200, 221, 240), rgb(220, 235, 248))",
+        "baseLayer": "0",
+        "rowLayer": "1"
+      },
+      "colors": [
+        {
+          "id": "demo:campus-web",
+          "tone": "gold",
+          "color": "rgb(229, 184, 74)",
+          "text": "rgb(93, 71, 29)",
+          "x": 691.328125,
+          "contrast": 4.73
+        },
+        {
+          "id": "demo:data-course",
+          "tone": "vanilla",
+          "color": "rgb(245, 227, 158)",
+          "text": "rgb(93, 71, 29)",
+          "x": 775.328125,
+          "contrast": 6.86
+        },
+        {
+          "id": "demo:club-event",
+          "tone": "straw",
+          "color": "rgb(223, 199, 113)",
+          "text": "rgb(93, 71, 29)",
+          "x": 859.328125,
+          "contrast": 5.26
+        },
+        {
+          "id": "demo:product-intern",
+          "tone": "honey",
+          "color": "rgb(232, 190, 69)",
+          "text": "rgb(93, 71, 29)",
+          "x": 943.328125,
+          "contrast": 4.98
+        }
+      ],
+      "stableAfterOpenClose": true
+    }
+  ],
+  "pageErrors": []
+}

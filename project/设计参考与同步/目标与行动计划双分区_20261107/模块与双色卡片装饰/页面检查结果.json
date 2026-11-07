@@ -1,0 +1,758 @@
+{
+  "results": [
+    {
+      "name": "扁平基色与小波浪遮罩",
+      "status": "pass",
+      "styles": [
+        {
+          "background": "rgb(232, 241, 250)",
+          "image": "none",
+          "shadow": "none",
+          "perspective": "none",
+          "transform": "none",
+          "cover": "rgb(246, 223, 145)",
+          "coverImage": "none"
+        },
+        {
+          "background": "rgb(232, 241, 250)",
+          "image": "none",
+          "shadow": "none",
+          "perspective": "none",
+          "transform": "none",
+          "cover": "rgb(246, 223, 145)",
+          "coverImage": "none"
+        },
+        {
+          "background": "rgb(232, 241, 250)",
+          "image": "none",
+          "shadow": "none",
+          "perspective": "none",
+          "transform": "none",
+          "cover": "rgb(246, 223, 145)",
+          "coverImage": "none"
+        },
+        {
+          "background": "rgb(232, 241, 250)",
+          "image": "none",
+          "shadow": "none",
+          "perspective": "none",
+          "transform": "none",
+          "cover": "rgb(246, 223, 145)",
+          "coverImage": "none"
+        },
+        {
+          "background": "rgb(232, 241, 250)",
+          "image": "none",
+          "shadow": "none",
+          "perspective": "none",
+          "transform": "none",
+          "cover": "rgb(246, 223, 145)",
+          "coverImage": "none"
+        },
+        {
+          "background": "rgb(232, 241, 250)",
+          "image": "none",
+          "shadow": "none",
+          "perspective": "none",
+          "transform": "none",
+          "cover": "rgb(246, 223, 145)",
+          "coverImage": "none"
+        }
+      ],
+      "mask": {
+        "edges": [
+          305,
+          303,
+          302,
+          304,
+          307,
+          310,
+          311,
+          310,
+          308
+        ],
+        "amplitude": 9
+      },
+      "geometry": {
+        "module": {
+          "x": 244,
+          "y": 206.09375,
+          "width": 1162,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 265,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 854,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 854,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 854,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 669,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          },
+          {
+            "x": 1257,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          }
+        ],
+        "buttons": [
+          {
+            "x": 265,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          },
+          {
+            "x": 854,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "模块与蓝黄纹样",
+      "status": "pass",
+      "patterns": [
+        {
+          "id": "week",
+          "tone": "blue",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(218, 231, 246)",
+          "contained": true
+        },
+        {
+          "id": "week",
+          "tone": "yellow",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(249, 233, 178)",
+          "contained": true
+        },
+        {
+          "id": "month",
+          "tone": "blue",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(218, 231, 246)",
+          "contained": true
+        },
+        {
+          "id": "month",
+          "tone": "yellow",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(249, 233, 178)",
+          "contained": true
+        },
+        {
+          "id": "year",
+          "tone": "blue",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(218, 231, 246)",
+          "contained": true
+        },
+        {
+          "id": "year",
+          "tone": "yellow",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(249, 233, 178)",
+          "contained": true
+        },
+        {
+          "id": "actions",
+          "tone": "blue",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(218, 231, 246)",
+          "contained": true
+        },
+        {
+          "id": "actions",
+          "tone": "yellow",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(249, 233, 178)",
+          "contained": true
+        },
+        {
+          "id": "undated",
+          "tone": "blue",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(218, 231, 246)",
+          "contained": true
+        },
+        {
+          "id": "undated",
+          "tone": "yellow",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(249, 233, 178)",
+          "contained": true
+        },
+        {
+          "id": "review",
+          "tone": "blue",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(218, 231, 246)",
+          "contained": true
+        },
+        {
+          "id": "review",
+          "tone": "yellow",
+          "hidden": "true",
+          "focusable": "false",
+          "pointer": "none",
+          "shapeCount": 8,
+          "fill": "rgb(249, 233, 178)",
+          "contained": true
+        }
+      ],
+      "footer": [
+        {
+          "before": "\"\"",
+          "after": "\"\""
+        },
+        {
+          "before": "\"\"",
+          "after": "\"\""
+        }
+      ]
+    },
+    {
+      "name": "六卡独立推进与退回",
+      "status": "pass",
+      "samples": [
+        {
+          "id": "week",
+          "sample": {
+            "duration": 600,
+            "start": -302,
+            "end": 0,
+            "offset": -151.001,
+            "counterOffset": 151.001,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          },
+          "reverse": {
+            "duration": 600,
+            "start": 0,
+            "end": -302,
+            "offset": -150.999,
+            "counterOffset": 150.999,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          }
+        },
+        {
+          "id": "month",
+          "sample": {
+            "duration": 600,
+            "start": -302,
+            "end": 0,
+            "offset": -151.001,
+            "counterOffset": 151.001,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          },
+          "reverse": {
+            "duration": 600,
+            "start": 0,
+            "end": -302,
+            "offset": -150.999,
+            "counterOffset": 150.999,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          }
+        },
+        {
+          "id": "year",
+          "sample": {
+            "duration": 600,
+            "start": -302,
+            "end": 0,
+            "offset": -151.001,
+            "counterOffset": 151.001,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          },
+          "reverse": {
+            "duration": 600,
+            "start": 0,
+            "end": -302,
+            "offset": -150.999,
+            "counterOffset": 150.999,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          }
+        },
+        {
+          "id": "actions",
+          "sample": {
+            "duration": 600,
+            "start": -302,
+            "end": 0,
+            "offset": -151.001,
+            "counterOffset": 151.001,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          },
+          "reverse": {
+            "duration": 600,
+            "start": 0,
+            "end": -302,
+            "offset": -150.999,
+            "counterOffset": 150.999,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          }
+        },
+        {
+          "id": "undated",
+          "sample": {
+            "duration": 600,
+            "start": -302,
+            "end": 0,
+            "offset": -151.001,
+            "counterOffset": 151.001,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          },
+          "reverse": {
+            "duration": 600,
+            "start": 0,
+            "end": -302,
+            "offset": -150.999,
+            "counterOffset": 150.999,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          }
+        },
+        {
+          "id": "review",
+          "sample": {
+            "duration": 600,
+            "start": -302,
+            "end": 0,
+            "offset": -151.001,
+            "counterOffset": 151.001,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          },
+          "reverse": {
+            "duration": 600,
+            "start": 0,
+            "end": -302,
+            "offset": -150.999,
+            "counterOffset": 150.999,
+            "is2D": true,
+            "scaleX": 1,
+            "scaleY": 1,
+            "verticalOffset": 0,
+            "counterError": 0,
+            "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+          }
+        }
+      ]
+    },
+    {
+      "name": "覆盖中点击与三种目标查看",
+      "status": "pass"
+    },
+    {
+      "name": "原计划入口与真实数量",
+      "status": "pass"
+    },
+    {
+      "name": "键盘与快速移入移出",
+      "status": "pass"
+    },
+    {
+      "name": "中文窄桌面",
+      "status": "pass",
+      "geometry": {
+        "module": {
+          "x": 220,
+          "y": 314.09375,
+          "width": 770,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 241,
+            "y": 391.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 447.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 503.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 391.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 447.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 503.09375,
+            "width": 215,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 473,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          },
+          {
+            "x": 865,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          }
+        ],
+        "buttons": [
+          {
+            "x": 241,
+            "y": 567.09375,
+            "width": 148,
+            "height": 44
+          },
+          {
+            "x": 634,
+            "y": 567.09375,
+            "width": 148,
+            "height": 44
+          }
+        ]
+      },
+      "sample": {
+        "duration": 600,
+        "start": -238,
+        "end": 0,
+        "offset": -119.001,
+        "counterOffset": 119.001,
+        "is2D": true,
+        "scaleX": 1,
+        "scaleY": 1,
+        "verticalOffset": 0,
+        "counterError": 0,
+        "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+      }
+    },
+    {
+      "name": "英文窄桌面",
+      "status": "pass",
+      "geometry": {
+        "module": {
+          "x": 220,
+          "y": 314.09375,
+          "width": 770,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 241,
+            "y": 391.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 447.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 241,
+            "y": 503.09375,
+            "width": 216,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 391.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 447.09375,
+            "width": 215,
+            "height": 48
+          },
+          {
+            "x": 634,
+            "y": 503.09375,
+            "width": 215,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 473,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          },
+          {
+            "x": 865,
+            "y": 421.09375,
+            "width": 104,
+            "height": 104
+          }
+        ],
+        "buttons": [
+          {
+            "x": 241,
+            "y": 567.09375,
+            "width": 177.296875,
+            "height": 44
+          },
+          {
+            "x": 634,
+            "y": 567.09375,
+            "width": 203.84375,
+            "height": 44
+          }
+        ]
+      },
+      "sample": {
+        "duration": 600,
+        "start": -238,
+        "end": 0,
+        "offset": -119.001,
+        "counterOffset": 119.001,
+        "is2D": true,
+        "scaleX": 1,
+        "scaleY": 1,
+        "verticalOffset": 0,
+        "counterError": 0,
+        "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+      }
+    },
+    {
+      "name": "宽桌面",
+      "status": "pass",
+      "geometry": {
+        "module": {
+          "x": 244,
+          "y": 206.09375,
+          "width": 1642,
+          "height": 318
+        },
+        "cards": [
+          {
+            "x": 265,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 265,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 1094,
+            "y": 283.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 1094,
+            "y": 339.09375,
+            "width": 280,
+            "height": 48
+          },
+          {
+            "x": 1094,
+            "y": 395.09375,
+            "width": 280,
+            "height": 48
+          }
+        ],
+        "icons": [
+          {
+            "x": 909,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          },
+          {
+            "x": 1737,
+            "y": 301.09375,
+            "width": 128,
+            "height": 128
+          }
+        ],
+        "buttons": [
+          {
+            "x": 265,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          },
+          {
+            "x": 1094,
+            "y": 459.09375,
+            "width": 148,
+            "height": 44
+          }
+        ]
+      },
+      "sample": {
+        "duration": 600,
+        "start": -302,
+        "end": 0,
+        "offset": -151.001,
+        "counterOffset": 151.001,
+        "is2D": true,
+        "scaleX": 1,
+        "scaleY": 1,
+        "verticalOffset": 0,
+        "counterError": 0,
+        "mask": "url(\"http://127.0.0.1:5184/illustrations/plan-wave-mask.svg\")"
+      }
+    },
+    {
+      "name": "减少动态效果",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

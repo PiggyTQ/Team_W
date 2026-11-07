@@ -1,0 +1,173 @@
+{
+  "results": [
+    {
+      "name": "默认档案",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "snapshot": {
+        "height": 378,
+        "stageHeight": 250,
+        "decorationPointerEvents": "none",
+        "wallHidden": "true",
+        "spines": [
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          }
+        ],
+        "prints": 5,
+        "marks": 4
+      }
+    },
+    {
+      "name": "多份档案",
+      "width": 1280,
+      "language": "zh",
+      "status": "pass",
+      "snapshot": {
+        "height": 378,
+        "stageHeight": 250,
+        "decorationPointerEvents": "none",
+        "wallHidden": "true",
+        "spines": [
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          }
+        ],
+        "prints": 11,
+        "marks": 10
+      }
+    },
+    {
+      "name": "英文档案",
+      "width": 1440,
+      "language": "en",
+      "status": "pass",
+      "snapshot": {
+        "height": 378,
+        "stageHeight": 250,
+        "decorationPointerEvents": "none",
+        "wallHidden": "true",
+        "spines": [
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          }
+        ],
+        "prints": 5,
+        "marks": 4
+      }
+    },
+    {
+      "name": "减少动态效果",
+      "width": 1440,
+      "language": "zh",
+      "status": "pass",
+      "snapshot": {
+        "height": 378,
+        "stageHeight": 250,
+        "decorationPointerEvents": "none",
+        "wallHidden": "true",
+        "spines": [
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          },
+          {
+            "image": "none",
+            "shadow": "none"
+          }
+        ],
+        "prints": 5,
+        "marks": 4
+      }
+    }
+  ],
+  "errors": []
+}

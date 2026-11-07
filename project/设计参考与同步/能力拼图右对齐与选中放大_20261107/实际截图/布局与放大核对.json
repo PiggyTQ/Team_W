@@ -1,0 +1,92 @@
+[
+  {
+    "language": "zh",
+    "width": 1920,
+    "height": 1080,
+    "checks": {
+      "horizontalOverflow": false,
+      "twoColumns": true,
+      "centerError": 0,
+      "selectedId": "JavaScript",
+      "selectedScale": 1.13915,
+      "selectedInsideSection": true,
+      "shapeCount": 9,
+      "removedLabelCount": 0,
+      "removedDotCount": 0,
+      "lastPainted": "JavaScript"
+    },
+    "errors": []
+  },
+  {
+    "language": "zh",
+    "width": 1440,
+    "height": 1000,
+    "checks": {
+      "horizontalOverflow": false,
+      "twoColumns": true,
+      "centerError": 0.015625,
+      "selectedId": "JavaScript",
+      "selectedScale": 1.13915,
+      "selectedInsideSection": true,
+      "shapeCount": 9,
+      "removedLabelCount": 0,
+      "removedDotCount": 0,
+      "lastPainted": "JavaScript"
+    },
+    "errors": []
+  },
+  {
+    "language": "en",
+    "width": 1280,
+    "height": 1000,
+    "checks": {
+      "horizontalOverflow": false,
+      "twoColumns": true,
+      "centerError": 0.015625,
+      "selectedId": "JavaScript",
+      "selectedScale": 1.139,
+      "selectedInsideSection": true,
+      "shapeCount": 9,
+      "removedLabelCount": 0,
+      "removedDotCount": 0,
+      "lastPainted": "JavaScript"
+    },
+    "errors": []
+  },
+  {
+    "language": "zh",
+    "width": 390,
+    "height": 1650,
+    "checks": {
+      "horizontalOverflow": false,
+      "twoColumns": false,
+      "centerError": null,
+      "selectedId": "JavaScript",
+      "selectedScale": 1.13915,
+      "selectedInsideSection": true,
+      "shapeCount": 9,
+      "removedLabelCount": 0,
+      "removedDotCount": 0,
+      "lastPainted": "JavaScript"
+    },
+    "errors": []
+  },
+  {
+    "language": "en",
+    "width": 320,
+    "height": 2200,
+    "checks": {
+      "horizontalOverflow": false,
+      "twoColumns": false,
+      "centerError": null,
+      "selectedId": "JavaScript",
+      "selectedScale": 1.13913,
+      "selectedInsideSection": true,
+      "shapeCount": 9,
+      "removedLabelCount": 0,
+      "removedDotCount": 0,
+      "lastPainted": "JavaScript"
+    },
+    "errors": []
+  }
+]

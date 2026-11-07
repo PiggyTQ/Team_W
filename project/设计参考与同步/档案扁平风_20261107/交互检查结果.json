@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "name": "gray-folder-chooser-hover-cancel-keyboard",
+      "status": "pass"
+    },
+    {
+      "name": "demo-default-actions-draft-save",
+      "status": "pass"
+    },
+    {
+      "name": "four-readonly-demo-experiences",
+      "status": "pass"
+    },
+    {
+      "name": "existing-records-hover-details-confirm",
+      "status": "pass"
+    },
+    {
+      "name": "import-cancel-dedupe-practice",
+      "status": "pass"
+    },
+    {
+      "name": "interrupted-animation-keyboard-switch",
+      "status": "pass"
+    }
+  ],
+  "pageErrors": []
+}

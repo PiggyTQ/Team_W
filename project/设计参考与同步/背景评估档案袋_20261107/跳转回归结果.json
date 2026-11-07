@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "name": "PT01/1440",
+      "status": "pass"
+    },
+    {
+      "name": "PT05/1440",
+      "status": "pass"
+    },
+    {
+      "name": "PT03/1440",
+      "status": "pass"
+    },
+    {
+      "name": "PT01/390",
+      "status": "pass"
+    },
+    {
+      "name": "PT05/390",
+      "status": "pass"
+    },
+    {
+      "name": "PT03/390",
+      "status": "pass"
+    }
+  ],
+  "pageErrors": []
+}
