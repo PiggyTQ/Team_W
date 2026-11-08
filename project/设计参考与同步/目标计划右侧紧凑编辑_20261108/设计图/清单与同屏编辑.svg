@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+ <rect width="1200" height="440" fill="#f8f6ef"/>
+ <g font-family="Microsoft YaHei,sans-serif" fill="#153e66">
+ <text x="20" y="31" font-size="21" font-weight="700">六种详情 · 右侧清单与同屏编辑</text><text x="20" y="57" font-size="13" fill="#687d8f">实施前局部方案，非用户确认稿 · 原模块高度、幕布与外部布局保持</text>
+ <rect x="20" y="77" width="1160" height="318" rx="16" fill="#fbfcfe" stroke="#dbded5"/>
+ <path d="M20 143h1160" stroke="#dfe7ee"/>
+ <rect x="40" y="94" width="100" height="38" rx="9" fill="#f2f7fb" stroke="#d8e4ef"/><text x="51" y="118" font-size="13">← 返回总览</text><text x="160" y="112" font-size="21" font-weight="700">我的周目标</text><text x="160" y="132" font-size="12" fill="#6b7e90">当前周期</text>
+ <rect x="40" y="159" width="220" height="218" rx="12" fill="#edf4fb" stroke="#d7e5f1"/><text x="56" y="184" font-size="13">本周整体进度</text><text x="56" y="224" font-size="32" font-weight="700">0%</text><path d="M56 243h182" stroke="#d3e3ef" stroke-width="5"/><text x="56" y="278" font-size="13">已完成   进行中   未开始</text><text x="56" y="314" font-size="12" fill="#6b7e90">统计保留在左侧</text>
+ <rect x="280" y="159" width="880" height="218" rx="10" fill="#f6f9fc" stroke="#d9e5ef"/>
+ <path d="M280 201h880" stroke="#d9e5ef"/><text x="294" y="185" font-size="15" font-weight="650">新增目标</text><rect x="955" y="164" width="115" height="32" rx="6" fill="#173f68"/><text x="967" y="185" font-size="12" fill="#fff">保存目标到本机</text><rect x="1077" y="164" width="73" height="32" rx="6" fill="#fff" stroke="#cdddeb"/><text x="1088" y="185" font-size="12">取消编辑</text>
+ <g font-size="12" fill="#526c83"><text x="293" y="223">目标名称</text><text x="656" y="223">优先级</text><text x="770" y="223">截止日期</text><text x="1010" y="223">完成进度（%）</text><text x="293" y="296">目标说明</text><text x="732" y="296">年度里程碑（年度视图）</text></g>
+ <g fill="#fff" stroke="#ccdae7"><rect x="293" y="230" width="350" height="34" rx="6"/><rect x="655" y="230" width="102" height="34" rx="6"/><rect x="769" y="230" width="227" height="34" rx="6"/><rect x="1008" y="230" width="138" height="34" rx="6"/><rect x="293" y="304" width="426" height="55" rx="6"/><rect x="731" y="304" width="415" height="55" rx="6"/></g>
+ <text x="20" y="426" font-size="13" fill="#657b8e">所有主要操作留在可见区；目标、排期、行动与复查复用统一编辑容器，长文本按需内部滚动。</text>
+ </g>
+</svg>

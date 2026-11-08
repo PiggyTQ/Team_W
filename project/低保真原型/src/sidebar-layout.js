@@ -37,5 +37,5 @@ export function useSidebarLayout(path,blocked=false){
   document.addEventListener('keydown',keys);window.addEventListener('storage',storage);window.addEventListener('resize',resize);
   return()=>{document.removeEventListener('keydown',keys);window.removeEventListener('storage',storage);window.removeEventListener('resize',resize);cancel();};
  },[toggle,cancel]);
- return {collapsed,toggle};
+ return {collapsed,toggle,settle:cancel};
 }

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="870" viewBox="0 0 1320 870">
+ <rect width="1320" height="870" fill="#f4f5f6"/>
+ <g font-family="Microsoft YaHei, sans-serif" fill="#303840">
+  <text x="40" y="42" font-size="24" font-weight="700">目标编辑：统一二级页面</text>
+  <text x="40" y="73" font-size="14">局部先行线框 · 2026-11-08 · 按用户文字要求制作，非确认稿</text>
+  <rect x="40" y="100" width="1240" height="80" rx="12" fill="white" stroke="#bcc5ce"/>
+  <text x="62" y="132" font-size="15">编辑目标并预览　　我的目标大图标　　周 / 月 / 年查看页的去制定</text>
+  <text x="62" y="162" font-size="14">全部跳转到 /plan/goals；周期入口附带 period=week / month / year</text>
+  <rect x="40" y="206" width="1240" height="570" rx="14" fill="white" stroke="#bcc5ce"/>
+  <text x="64" y="239" font-size="14">我的职业规划 / 目标与行动计划 / 目标编辑</text>
+  <text x="64" y="283" font-size="28" font-weight="700">目标编辑</text>
+  <text x="64" y="312" font-size="14">统一制定和管理周、月、年目标。</text>
+  <text x="64" y="351" font-size="14">← 返回目标与行动计划</text>
+  <rect x="64" y="372" width="400" height="45" rx="12" fill="#edf1f5"/>
+  <rect x="69" y="377" width="125" height="35" rx="8" fill="#d4e0ea"/>
+  <text x="132" y="401" font-size="15" text-anchor="middle">周目标 · 数量</text><text x="266" y="401" font-size="15" text-anchor="middle">月目标 · 数量</text><text x="397" y="401" font-size="15" text-anchor="middle">年目标 · 数量</text>
+  <rect x="64" y="438" width="506" height="264" rx="12" fill="#f8fafb" stroke="#ccd4dc"/>
+  <text x="84" y="470" font-size="18" font-weight="700">当前周期目标清单</text><text x="450" y="470" font-size="14">新增目标</text>
+  <rect x="84" y="488" width="466" height="82" rx="8" fill="white" stroke="#ccd4dc"/>
+  <text x="100" y="516" font-size="16">目标名称与进度</text><text x="100" y="549" font-size="14">优先级 · 截止日期　　　　编辑　删除</text>
+  <rect x="84" y="584" width="466" height="98" rx="8" fill="white" stroke="#ccd4dc"/>
+  <text x="100" y="611" font-size="16">目标名称</text><text x="100" y="638" font-size="13">删除确认：关联计划保留，解除目标关联。</text><text x="100" y="664" font-size="14">确认删除　　取消删除</text>
+  <rect x="590" y="438" width="666" height="264" rx="12" fill="#f8fafb" stroke="#ccd4dc"/>
+  <text x="610" y="470" font-size="18" font-weight="700">新增 / 编辑目标</text>
+  <text x="610" y="507" font-size="14">目标名称　　　　　　　　　优先级</text><rect x="610" y="516" width="300" height="34" rx="6" fill="white" stroke="#ccd4dc"/><rect x="926" y="516" width="310" height="34" rx="6" fill="white" stroke="#ccd4dc"/>
+  <text x="610" y="577" font-size="14">截止日期　　　进度　　　　目标说明 / 年度里程碑</text>
+  <text x="610" y="618" font-size="13">保留周期草稿、日期校验与保存反馈</text><text x="610" y="666" font-size="15">保存目标到本机　　取消编辑</text>
+  <text x="64" y="743" font-size="14">职业方向与预览（按需展开，沿用原职业目标调整）</text>
+  <text x="40" y="815" font-size="15">查看页继续只读；新增、编辑、删除均在本二级页完成。删除前就地确认，保存与删除后清单和统计同步更新。</text>
+  <text x="40" y="845" font-size="14">沿用现有桌面蓝黄配色与字体；较窄电脑窗口允许上下排列，未新增手机版适配。</text>
+ </g>
+</svg>

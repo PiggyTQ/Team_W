@@ -1,0 +1,38 @@
+{
+  "module": {
+    "x": 244,
+    "y": 206.09375,
+    "width": 1162,
+    "height": 318
+  },
+  "header": {
+    "x": 0,
+    "y": 0,
+    "width": 1440,
+    "height": 73
+  },
+  "sidebar": {
+    "x": 0,
+    "y": 73,
+    "width": 220,
+    "height": 927
+  },
+  "heading": {
+    "x": 244,
+    "y": 137,
+    "width": 945,
+    "height": 40
+  },
+  "schedule": {
+    "x": 244,
+    "y": 592.09375,
+    "width": 1162,
+    "height": 708.109375
+  },
+  "adjustment": {
+    "x": 244,
+    "y": 532.09375,
+    "width": 1162,
+    "height": 40
+  }
+}

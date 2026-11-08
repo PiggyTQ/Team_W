@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="930" viewBox="0 0 1320 930">
+ <rect width="1320" height="930" fill="#f4f5f6"/>
+ <g font-family="Microsoft YaHei, sans-serif" fill="#303840">
+  <text x="40" y="42" font-size="24" font-weight="700">我的目标：查看与制定分离</text>
+  <text x="40" y="72" font-size="14">局部先行线框 · 2026-11-08 · 按用户文字需求绘制，非用户确认稿</text>
+  <rect x="40" y="100" width="1240" height="230" rx="16" fill="white" stroke="#bac1c8"/>
+  <path d="M40 158h1240" stroke="#d3d7db"/>
+  <text x="62" y="137" font-size="15">← 返回总览</text><text x="235" y="137" font-size="20" font-weight="700">我的周目标 / 我的月目标 / 我的年度目标</text>
+  <text x="660" y="231" font-size="19" font-weight="700" text-anchor="middle">您当前没有指定目标</text>
+  <text x="660" y="268" font-size="16" text-anchor="middle" text-decoration="underline">去制定 →</text>
+  <text x="40" y="367" font-size="16">空状态：隐藏空进度与新增表单；链接进入对应周 / 月 / 年的独立制定界面。</text>
+  <rect x="40" y="394" width="1240" height="220" rx="16" fill="white" stroke="#bac1c8"/>
+  <path d="M40 452h1240" stroke="#d3d7db"/>
+  <text x="62" y="431" font-size="15">← 返回总览</text><text x="235" y="431" font-size="20" font-weight="700">我的周目标 / 我的月目标 / 我的年度目标</text>
+  <rect x="62" y="468" width="220" height="126" rx="10" fill="#eef0f2"/>
+  <text x="82" y="498" font-size="15">当前周期实际进度</text><text x="82" y="532" font-size="14">已完成 / 进行中 / 未开始</text><text x="82" y="568" font-size="13">汇总当前周期已保存目标</text>
+  <text x="308" y="489" font-size="16" font-weight="700">目标清单</text>
+  <rect x="308" y="504" width="438" height="90" rx="8" fill="white" stroke="#d3d7db"/>
+  <text x="325" y="530" font-size="16">⌄ 已制定的目标名称</text><text x="325" y="557" font-size="13">优先级 · 截止日期 · 当前进度</text><text x="325" y="581" font-size="13">展开查看说明与里程碑状态</text>
+  <text x="790" y="535" font-size="15">仅展示当前周期已保存的目标</text><text x="790" y="567" font-size="14">没有新增、编辑、完成或勾选操作</text>
+  <text x="40" y="651" font-size="16">已有目标：保留查看展开、进度与统计；草稿、其他周期和历史周期记录不显示。</text>
+  <rect x="40" y="680" width="1240" height="180" rx="16" fill="white" stroke="#bac1c8"/>
+  <path d="M40 738h1240" stroke="#d3d7db"/>
+  <text x="62" y="717" font-size="15">← 返回目标</text><text x="235" y="717" font-size="20" font-weight="700">制定周目标 / 制定月目标 / 制定年目标</text>
+  <text x="68" y="779" font-size="14">独立制定路由</text><text x="68" y="812" font-size="13">保存到原周期目标记录</text>
+  <rect x="308" y="752" width="946" height="90" rx="8" fill="#eef0f2" stroke="#d3d7db"/>
+  <text x="325" y="778" font-size="14">目标名称　　优先级　　截止日期　　进度　　[保存目标到本机]　[取消编辑]</text><text x="325" y="814" font-size="14">目标说明　　　　　　　　　　　　　年度里程碑（仅年目标）</text>
+  <text x="40" y="900" font-size="14">保存 / 返回后进入对应周期查看页；保留原目标数据、草稿和本机存储约束。</text>
+ </g>
+</svg>

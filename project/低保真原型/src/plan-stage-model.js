@@ -9,10 +9,12 @@ export const goalPeriods=[
  {id:'month',label:'月目标',action:'查看月目标',title:'我的月目标'},
  {id:'year',label:'年目标',action:'查看年目标',title:'我的年度目标'},
 ];
+export const goalEditorUrl=period=>'/plan/goals'+(goalPeriods.some(p=>p.id===period)?`?period=${period}`:'');
 export const stageViewIds=['week','month','year','undated','actions','review'];
 export const emptyStageRecords=()=>({version:1,goals:[],taskMeta:{},drafts:{}});
 export const stageStorageKey=scope=>`${PLAN_STAGE_KEY}:${encodeURIComponent(scope||'local')}`;
 const isoDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&!Number.isNaN(Date.parse(value+'T12:00:00'))&&new Date(value+'T12:00:00').toISOString().slice(0,10)===value;
+const validGoalSchedule=value=>value==null||typeof value==='object'&&!Array.isArray(value)&&isoDate(value.date)&&(!value.time||/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(value.time));
 const shift=(value,days)=>{const d=new Date(value+'T12:00:00');d.setDate(d.getDate()+days);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
 export function periodRange(period,today){
  if(!isoDate(today)||!goalPeriods.some(x=>x.id===period))throw Error('目标周期无效。');
@@ -28,6 +30,7 @@ export function readStageRecords(raw){
  const ids=new Set();
  for(const g of value.goals){
   if(!g||typeof g.id!=='string'||ids.has(g.id)||!goalPeriods.some(p=>p.id===g.period)||!isoDate(g.periodStart)||typeof g.title!=='string'||!g.title.trim()||!Number.isFinite(g.progress)||g.progress<0||g.progress>100||!['高','中','低'].includes(g.priority)||!isoDate(g.due)||!Array.isArray(g.milestones)||g.milestones.some(m=>!m||typeof m.id!=='string'||typeof m.title!=='string'||typeof m.done!=='boolean'))throw Error('本机目标记录无法读取，原记录未覆盖。');
+  if(!validGoalSchedule(g.schedule))throw Error('本机目标排期无法读取，原记录未覆盖。');
   ids.add(g.id);
  }
  return value;
@@ -40,29 +43,49 @@ export function goalStats(goals){
 export const blankGoal=(period,today)=>({id:'',version:0,title:'',priority:'中',due:periodRange(period,today).end,progress:0,notes:'',milestoneText:''});
 export const editableGoal=goal=>({...goal,milestoneText:goal.milestones.map(m=>m.title).join('\n')});
 export function savePeriodGoal(records,period,today,draft){
- const range=periodRange(period,today),prior=records.goals.find(g=>g.id===draft.id),progress=Number(draft.progress);
- if(draft.id&&!prior||prior&&prior.version!==draft.version)throw Error('目标已变化，请重新打开后编辑。');
+ const range=periodRange(period,today),prior=records.goals.find(g=>g.id===draft.id),progress=Number(draft.progress??prior?.progress??0);
+ if(draft.id&&!prior||prior&&(prior.version!==draft.version||prior.period!==period||prior.periodStart!==range.start))throw Error('目标已变化，请重新打开后编辑。');
  if(!draft.title?.trim())throw Error('请填写目标名称。');
  if(!['高','中','低'].includes(draft.priority)||!Number.isFinite(progress)||progress<0||progress>100)throw Error('请填写有效的优先级和 0–100 的进度。');
  if(!isoDate(draft.due)||draft.due<range.start||draft.due>range.end)throw Error('截止日期须在当前目标周期内。');
  const milestones=[...new Set((draft.milestoneText||'').split('\n').map(x=>x.trim()).filter(Boolean))].map(title=>prior?.milestones.find(m=>m.title===title)||{id:uid('milestone'),title,done:false});
- const goal={id:prior?.id||uid('period-goal'),version:(prior?.version||0)+1,period,periodStart:range.start,title:draft.title.trim(),priority:draft.priority,due:draft.due,progress,notes:(draft.notes||'').trim(),milestones,updatedAt:new Date().toISOString()};
+ const recommendationId=prior?.recommendationId||draft.recommendationId;
+ const goal={id:prior?.id||uid('period-goal'),version:(prior?.version||0)+1,period,periodStart:range.start,title:draft.title.trim(),priority:draft.priority,due:draft.due,progress,notes:(draft.notes||'').trim(),milestones,...(recommendationId?{recommendationId}:{}),...(prior?.schedule?{schedule:prior.schedule}:{}),updatedAt:new Date().toISOString()};
  return{...records,goals:prior?records.goals.map(g=>g.id===prior.id?goal:g):[...records.goals,goal]};
 }
-export function updateGoalProgress(records,id,progress){
+export const unscheduledGoals=records=>records.goals.filter(goal=>goal.progress<100&&!goal.schedule?.date);
+export const scheduledActionGoals=records=>records.goals.filter(goal=>goal.progress<100&&!!goal.schedule?.date);
+export function schedulePeriodGoal(records,{id,version},draft){
+ const goal=records.goals.find(item=>item.id===id);
+ if(!goal||goal.version!==version)throw Error('目标已变化，请重新打开后操作。');
+ const schedule=draft.date?{date:draft.date,time:draft.time||''}:null;
+ if(!validGoalSchedule(schedule)||!draft.date&&draft.time)throw Error('请选择有效的目标计划日期与时间。');
+ return{...records,goals:records.goals.map(item=>item.id===id?{...item,schedule,version:item.version+1,updatedAt:new Date().toISOString()}:item),drafts:{...records.drafts,['schedule-goal:'+id]:null}};
+}
+export function updateGoalProgress(records,id,progress,expectedVersion){
+ const goal=records.goals.find(item=>item.id===id);
+ if(!goal||expectedVersion!==undefined&&goal.version!==expectedVersion)throw Error('目标已变化，请重新打开后操作。');
  if(!Number.isFinite(progress)||progress<0||progress>100)throw Error('请填写有效的优先级和 0–100 的进度。');
  return{...records,goals:records.goals.map(g=>g.id===id?{...g,progress,version:g.version+1,updatedAt:new Date().toISOString()}:g)};
 }
 export const activePlanTask=t=>!['完成','延期','取消','跳过'].includes(t.status)&&!t.completed;
+export function deletePeriodGoal(records,period,today,{id,version}){
+ const goal=records.goals.find(g=>g.id===id);
+ if(!goal||goal.version!==version||goal.period!==period||goal.periodStart!==periodRange(period,today).start)throw Error('目标已变化，请重新打开后操作。');
+ const draftKey=period+'-goal';
+ return{...records,goals:records.goals.filter(g=>g.id!==id),taskMeta:Object.fromEntries(Object.entries(records.taskMeta).map(([key,meta])=>[key,meta?.goalId===id?{...meta,goalId:''}:meta])),drafts:Object.fromEntries(Object.entries(records.drafts).map(([key,draft])=>[key,key==='schedule-goal:'+id||key==='action-goal:'+id||key===draftKey&&draft?.id===id?null:draft?.goalId===id?{...draft,goalId:''}:draft]))};
+}
 export const reviewSignature=t=>JSON.stringify([t.version||1,t.status,t.due||'',t.attempts?.at(-1)?.id||'',!!t.completed]);
 export function stageTaskGroups(s,records,today){
  const actions=s.tasks.filter(activePlanTask),undated=actions.filter(t=>!t.due);
  const review=s.tasks.filter(t=>{
   if(stoppedTask(t)||records.taskMeta[t.id]?.review?.signature===reviewSignature(t))return false;
   const finished=t.completed||t.status==='完成';
-  return finished?!s.reviews.some(r=>r.taskId===t.id&&(!t.attempts?.at(-1)?.date||r.date>=t.attempts.at(-1).date.slice(0,10))):t.status==='受阻'||!!(t.due&&t.due<today);
+  const completedAt=records.taskMeta[t.id]?.completedAt||t.completedAt||t.completionReceipt?.createdAt;
+  const alreadyReviewed=s.reviews.some(r=>r.taskId===t.id&&(completedAt?(r.updatedAt?r.updatedAt>=completedAt:r.date>completedAt.slice(0,10)):!t.attempts?.at(-1)?.date||r.date>=t.attempts.at(-1).date.slice(0,10)));
+  return finished?!alreadyReviewed:t.status==='受阻'||!!(t.due&&t.due<today);
  });
- return{actions,undated,review};
+ return{actions,actionGoals:scheduledActionGoals(records),undated,undatedGoals:unscheduledGoals(records),review};
 }
 export const taskEditDraft=t=>({title:t.title,purpose:t.purpose,hours:t.hours,due:t.due||'',deliveryNote:t.deliveryNote||'',status:t.status});
 export function operateStageTask(s,id,type,{base,draft}={}){
@@ -78,6 +101,7 @@ export function operateStageTask(s,id,type,{base,draft}={}){
   return replace({...task,...(task.mode==='S2'?{draft:draft.text}:{note:draft.text}),contribution:draft.contribution,selfcheck:!!draft.selfcheck});
  }
  if(stoppedTask(task))throw Error('这项任务已暂停，请先回计划核对预算并明确恢复。');
+ if(task.completed&&type!=='complete')throw Error('已完成的成果记录保持，调整安排请使用重新调整。');
  if(dependencyBlock(s,task)&&!task.completed)throw Error('交付依赖尚未完成，请先在分阶段计划查看依赖任务。');
  if(type==='start')return replace({...task,status:'进行中',version:(task.version||1)+1});
  if(type==='submit')return submitTaskAttempt(s,id);

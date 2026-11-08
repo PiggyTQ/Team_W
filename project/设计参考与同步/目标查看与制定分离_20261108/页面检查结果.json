@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "name": "三周期空状态只读与链接",
+      "status": "pass"
+    },
+    {
+      "name": "去制定对应周期保存返回与刷新",
+      "status": "pass"
+    },
+    {
+      "name": "制定草稿不进入查看页且返回可续写",
+      "status": "pass"
+    },
+    {
+      "name": "已有目标只读与桌面布局-1024",
+      "status": "pass"
+    },
+    {
+      "name": "已有目标只读与桌面布局-1440",
+      "status": "pass"
+    },
+    {
+      "name": "已有目标只读与桌面布局-1920",
+      "status": "pass"
+    },
+    {
+      "name": "英文空状态链接与独立制定路由",
+      "status": "pass"
+    },
+    {
+      "name": "存储不可写查看与制定",
+      "status": "pass"
+    },
+    {
+      "name": "存储损坏记录查看与制定",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

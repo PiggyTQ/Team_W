@@ -1,0 +1,68 @@
+{
+  "results": [
+    {
+      "name": "五个入口统一跳转与二级页导航",
+      "status": "pass"
+    },
+    {
+      "name": "三个周期增改删取消与查看同步",
+      "status": "pass"
+    },
+    {
+      "name": "周期草稿独立恢复与键盘切换",
+      "status": "pass"
+    },
+    {
+      "name": "弹窗焦点循环与取消不创建",
+      "status": "pass"
+    },
+    {
+      "name": "推荐目标一键加入防重与持久化",
+      "status": "pass"
+    },
+    {
+      "name": "新建与推荐目标进入待排期并安排日期",
+      "status": "pass"
+    },
+    {
+      "name": "删除版本冲突与关联计划保留",
+      "status": "pass"
+    },
+    {
+      "name": "桌面周期编辑布局-1024",
+      "status": "pass"
+    },
+    {
+      "name": "桌面周期编辑布局-1440",
+      "status": "pass"
+    },
+    {
+      "name": "桌面周期编辑布局-1920",
+      "status": "pass"
+    },
+    {
+      "name": "英文页面与原生链接直达",
+      "status": "pass"
+    },
+    {
+      "name": "存储不可写与跨页面暂存",
+      "status": "pass"
+    },
+    {
+      "name": "存储损坏记录与跨页面暂存",
+      "status": "pass"
+    },
+    {
+      "name": "查看页当前周期过滤与只读记录保持",
+      "status": "pass"
+    },
+    {
+      "name": "旧制定地址兼容与无效周期恢复",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "rerunCases": [
+    "新建与推荐目标进入待排期并安排日期"
+  ]
+}

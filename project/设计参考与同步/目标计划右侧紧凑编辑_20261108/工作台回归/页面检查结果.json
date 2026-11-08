@@ -1,0 +1,104 @@
+{
+  "results": [
+    {
+      "name": "原总览布局与底部入口",
+      "status": "pass"
+    },
+    {
+      "name": "六视图往返与外部逐帧稳定",
+      "status": "pass",
+      "frames": 5009,
+      "changes": []
+    },
+    {
+      "name": "幕布阶段遮挡提起与重复点击",
+      "status": "pass",
+      "pixels": [
+        [
+          245,
+          223,
+          163,
+          255
+        ],
+        [
+          255,
+          230,
+          164,
+          255
+        ],
+        [
+          255,
+          230,
+          164,
+          255
+        ]
+      ],
+      "motion": {
+        "leftX": -36.445,
+        "leftY": -32.5846,
+        "rightX": 36.445,
+        "rightY": -32.5846,
+        "overflow": "clip",
+        "contain": "layout paint",
+        "panelBackground": "linear-gradient(rgba(119, 87, 43, 0.2) 0%, rgba(0, 0, 0, 0) 24%, rgba(255, 241, 184, 0.094) 63%, rgba(139, 97, 38, 0.16) 100%), repeating-linear-gradient(90deg, rgb(183, 139, 61) 0px, rgb(209, 166, 80) 9px, rgb(243, 217, 138) 23px, rgb(255, 235, 174) 34px, rgb(228, 193, 109) 48px, rgb(187, 145, 67) 60px, rgb(175, 128, 54) 65px, rgb(235, 204, 128) 79px, rgb(255, 240, 187) 91px, rgb(218, 180, 92) 105px, rgb(183, 139, 61) 116px)",
+        "durations": [
+          400,
+          700
+        ]
+      }
+    },
+    {
+      "name": "三周期目标新增编辑完成与本机持久化",
+      "status": "pass"
+    },
+    {
+      "name": "未提交输入与内部滚动保留",
+      "status": "pass"
+    },
+    {
+      "name": "就地排期同步原任务与日期",
+      "status": "pass"
+    },
+    {
+      "name": "行动执行完成与S2条件保护",
+      "status": "pass"
+    },
+    {
+      "name": "复查通过与重新调整保留成果",
+      "status": "pass"
+    },
+    {
+      "name": "zh-1024窗口与内部滚动",
+      "status": "pass"
+    },
+    {
+      "name": "en-1024窗口与内部滚动",
+      "status": "pass"
+    },
+    {
+      "name": "zh-1920窗口与内部滚动",
+      "status": "pass"
+    },
+    {
+      "name": "zh-900窗口与内部滚动",
+      "status": "pass"
+    },
+    {
+      "name": "窗口缩放与离开页面取消动画",
+      "status": "pass"
+    },
+    {
+      "name": "减少动态效果与运行中切换偏好",
+      "status": "pass"
+    },
+    {
+      "name": "本机存储不可写",
+      "status": "pass"
+    },
+    {
+      "name": "本机存储损坏记录",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "name": "未提交输入保留且不进入查看页",
+      "status": "pass"
+    },
+    {
+      "name": "就地排期同步原任务与日期",
+      "status": "pass"
+    },
+    {
+      "name": "本机存储不可写",
+      "status": "pass"
+    },
+    {
+      "name": "本机存储损坏记录",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,610 @@
+{
+  "results": [
+    {
+      "name": "四层波浪先覆盖再换页并保存动画截图",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 220,
+          "y": 73,
+          "width": 1220,
+          "height": 860,
+          "right": 1440,
+          "bottom": 933
+        },
+        "overlay": {
+          "x": 220,
+          "y": 73,
+          "width": 1220,
+          "height": 860,
+          "right": 1440,
+          "bottom": 933
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 73,
+          "width": 220,
+          "height": 927,
+          "right": 220,
+          "bottom": 1000
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 73,
+          "right": 1440,
+          "bottom": 73
+        },
+        "expected": {
+          "x": 220,
+          "y": 73,
+          "width": 1220,
+          "height": 860
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 110,
+            "y": 165,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 720,
+            "y": 36.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "events": [
+        {
+          "kind": "phase",
+          "phase": "covering",
+          "path": "/plan",
+          "inert": true,
+          "time": 1242.699999988079
+        },
+        {
+          "kind": "push",
+          "phase": "covered",
+          "path": "/plan/goals",
+          "inert": true,
+          "time": 1837.699999988079,
+          "sheets": [
+            "matrix(1, 0, 0, 1, 0, 0)",
+            "matrix(1, 0, 0, 1, 0, 0)",
+            "matrix(1, 0, 0, 1, 0, 0)",
+            "matrix(1, 0, 0, 1, 0, 0)"
+          ]
+        },
+        {
+          "kind": "phase",
+          "phase": "covered",
+          "path": "/plan/goals",
+          "inert": true,
+          "time": 1925.6000000238419
+        },
+        {
+          "kind": "phase",
+          "phase": "revealing",
+          "path": "/plan/goals",
+          "inert": true,
+          "time": 1956.6000000238419
+        },
+        {
+          "kind": "phase",
+          "phase": "idle",
+          "path": "/plan/goals",
+          "inert": false,
+          "time": 2585.5
+        }
+      ],
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    },
+    {
+      "name": "键盘进入与重复激活只写入一次历史",
+      "status": "pass"
+    },
+    {
+      "name": "返回与浏览器前进后退完成转场",
+      "status": "pass"
+    },
+    {
+      "name": "动画期间快速历史后退前进不锁页",
+      "status": "pass"
+    },
+    {
+      "name": "同页周期与新增弹窗不触发整页动画",
+      "status": "pass"
+    },
+    {
+      "name": "模块幕布保留且待排期按钮使用整页波浪",
+      "status": "pass"
+    },
+    {
+      "name": "计划执行模式与预览学习实践使用整页波浪",
+      "status": "pass"
+    },
+    {
+      "name": "减少动态效果直接跳转且深链接无入场动画",
+      "status": "pass"
+    },
+    {
+      "name": "动画中开启减少动态效果立即落地并解除锁定",
+      "status": "pass"
+    },
+    {
+      "name": "转场期间调整电脑窗口立即落地且解除锁定",
+      "status": "pass"
+    },
+    {
+      "name": "目标编辑查看目标后焦点落在可见目标标题",
+      "status": "pass"
+    },
+    {
+      "name": "收起侧栏后立即跳转按最终内容区裁切且快捷键不改布局",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 76,
+          "y": 73,
+          "width": 1364,
+          "height": 860,
+          "right": 1440,
+          "bottom": 933
+        },
+        "overlay": {
+          "x": 76,
+          "y": 73,
+          "width": 1364,
+          "height": 860,
+          "right": 1440,
+          "bottom": 933
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 73,
+          "width": 76,
+          "height": 927,
+          "right": 76,
+          "bottom": 1000
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 73,
+          "right": 1440,
+          "bottom": 73
+        },
+        "expected": {
+          "x": 76,
+          "y": 73,
+          "width": 1364,
+          "height": 860
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 38,
+            "y": 168,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 720,
+            "y": 36.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "1024电脑侧栏展开时波浪仅覆盖内容区",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 196,
+          "y": 129,
+          "width": 828,
+          "height": 699.8125,
+          "right": 1024,
+          "bottom": 828.8125
+        },
+        "overlay": {
+          "x": 196,
+          "y": 129,
+          "width": 828,
+          "height": 699.8125,
+          "right": 1024,
+          "bottom": 828.8125
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 129,
+          "width": 196,
+          "height": 771,
+          "right": 196,
+          "bottom": 900
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 129,
+          "right": 1024,
+          "bottom": 129
+        },
+        "expected": {
+          "x": 196,
+          "y": 129,
+          "width": 828,
+          "height": 699.8125
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 98,
+            "y": 221,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 512,
+            "y": 64.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    },
+    {
+      "name": "1024电脑侧栏收起时波浪仅覆盖内容区",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 76,
+          "y": 129,
+          "width": 948,
+          "height": 704,
+          "right": 1024,
+          "bottom": 833
+        },
+        "overlay": {
+          "x": 76,
+          "y": 129,
+          "width": 948,
+          "height": 704,
+          "right": 1024,
+          "bottom": 833
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 129,
+          "width": 76,
+          "height": 771,
+          "right": 76,
+          "bottom": 900
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 129,
+          "right": 1024,
+          "bottom": 129
+        },
+        "expected": {
+          "x": 76,
+          "y": 129,
+          "width": 948,
+          "height": 704
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 38,
+            "y": 224,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 512,
+            "y": 64.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    },
+    {
+      "name": "1440电脑侧栏展开时波浪仅覆盖内容区",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 220,
+          "y": 73,
+          "width": 1220,
+          "height": 940,
+          "right": 1440,
+          "bottom": 1013
+        },
+        "overlay": {
+          "x": 220,
+          "y": 73,
+          "width": 1220,
+          "height": 940,
+          "right": 1440,
+          "bottom": 1013
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 73,
+          "width": 220,
+          "height": 1007,
+          "right": 220,
+          "bottom": 1080
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 73,
+          "right": 1440,
+          "bottom": 73
+        },
+        "expected": {
+          "x": 220,
+          "y": 73,
+          "width": 1220,
+          "height": 940
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 110,
+            "y": 165,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 720,
+            "y": 36.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    },
+    {
+      "name": "1440电脑侧栏收起时波浪仅覆盖内容区",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 76,
+          "y": 73,
+          "width": 1364,
+          "height": 940,
+          "right": 1440,
+          "bottom": 1013
+        },
+        "overlay": {
+          "x": 76,
+          "y": 73,
+          "width": 1364,
+          "height": 940,
+          "right": 1440,
+          "bottom": 1013
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 73,
+          "width": 76,
+          "height": 1007,
+          "right": 76,
+          "bottom": 1080
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 73,
+          "right": 1440,
+          "bottom": 73
+        },
+        "expected": {
+          "x": 76,
+          "y": 73,
+          "width": 1364,
+          "height": 940
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 38,
+            "y": 168,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 720,
+            "y": 36.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    },
+    {
+      "name": "1920电脑侧栏展开时波浪仅覆盖内容区",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 220,
+          "y": 73,
+          "width": 1700,
+          "height": 940,
+          "right": 1920,
+          "bottom": 1013
+        },
+        "overlay": {
+          "x": 220,
+          "y": 73,
+          "width": 1700,
+          "height": 940,
+          "right": 1920,
+          "bottom": 1013
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 73,
+          "width": 220,
+          "height": 1007,
+          "right": 220,
+          "bottom": 1080
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 73,
+          "right": 1920,
+          "bottom": 73
+        },
+        "expected": {
+          "x": 220,
+          "y": 73,
+          "width": 1700,
+          "height": 940
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 110,
+            "y": 165,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 960,
+            "y": 36.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    },
+    {
+      "name": "1920电脑侧栏收起时波浪仅覆盖内容区",
+      "status": "pass",
+      "geometry": {
+        "main": {
+          "x": 76,
+          "y": 73,
+          "width": 1844,
+          "height": 940,
+          "right": 1920,
+          "bottom": 1013
+        },
+        "overlay": {
+          "x": 76,
+          "y": 73,
+          "width": 1844,
+          "height": 940,
+          "right": 1920,
+          "bottom": 1013
+        },
+        "sidebar": {
+          "x": 0,
+          "y": 73,
+          "width": 76,
+          "height": 1007,
+          "right": 76,
+          "bottom": 1080
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 73,
+          "right": 1920,
+          "bottom": 73
+        },
+        "expected": {
+          "x": 76,
+          "y": 73,
+          "width": 1844,
+          "height": 940
+        },
+        "sidebarOverlap": 0,
+        "headerOverlap": 0,
+        "probes": [
+          {
+            "x": 38,
+            "y": 168,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          },
+          {
+            "x": 960,
+            "y": 36.5,
+            "hitTag": "BODY",
+            "hitByOverlay": false
+          }
+        ]
+      },
+      "timing": {
+        "cover": 406,
+        "hold": 32,
+        "reveal": 361,
+        "total": 799
+      }
+    }
+  ],
+  "errors": []
+}
