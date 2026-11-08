@@ -67,7 +67,7 @@ export function flowNavigation(s, path, tab = '', search = '') {
   }
   if (path.startsWith('/reports/')) return item(entry('/reports', '上一步：报告列表'), entry('/app', '下一步：回工作区继续'), '阅读与跳转不会提交报告编辑；编辑正文请使用原页面的另存操作。');
   if (path === '/reports' && tab === '岗位简历') return item(entry('/careers?tab=我的机会', '上一步：本人求职进展'), entry('/careers?tab=我的机会', '下一步：回岗位记录进展'), '简历只呈现确认过的经历；导出不代表已向企业投递。', entry(assessment, '补充确认经历'));
-  if (path === '/reports') return item(entry(practice, '上一步：返回实践'), entry('/app', '下一步：回工作区继续'), s.reports.length ? '报告记录当前快照；有新行动后可回来检查更新。' : '尚无报告；先在本页检查创建条件，缺项会明确保留。', entry('/plan', '安排下一轮行动'));
+  if (path === '/reports') return item(entry(practice, '上一步：返回实践'), entry('/app', '下一步：回工作区继续'), '阅读综合报告，缺项可回个人评估、目标计划或学习实践补充。', entry('/plan', '安排下一轮行动'));
   if (path === '/assistant') {
     const back = typeof s.aiReturn === 'string' && /^\/(app|assessment|careers|career-map|plan|learning|work|reports)([/?]|$)/.test(s.aiReturn) ? s.aiReturn : '/app';
     return item(entry(back, '返回：原工作页面'), entry(tab === '自然语言检索' ? '/careers' : '/plan', tab === '自然语言检索' ? '下一步：查看职业目录' : '下一步：回计划确认行动'), '讨论与检索使用模拟结果；提议需在原业务页面预览确认。');

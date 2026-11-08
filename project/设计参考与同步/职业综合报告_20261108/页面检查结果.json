@@ -1,0 +1,42 @@
+{
+  "results": [
+    {
+      "name": "综合结果四章与真实项目背景",
+      "status": "pass"
+    },
+    {
+      "name": "推荐依据透明且MBTI只作偏好",
+      "status": "pass"
+    },
+    {
+      "name": "补项目入口只预览不创建任务",
+      "status": "pass"
+    },
+    {
+      "name": "上传项目进入报告保存刷新与相同正文导出",
+      "status": "pass",
+      "reportId": "report-mw7o5ygi-hsox",
+      "chapters": 5
+    },
+    {
+      "name": "缺项保留未知且不生成最高推荐",
+      "status": "pass"
+    },
+    {
+      "name": "1920宽屏长文字与岗位简历入口",
+      "status": "pass"
+    },
+    {
+      "name": "英文综合结果桌面展示",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "supplementalChecks": [
+    {
+      "name": "要求表格显示全部9项技能并刷新实图",
+      "status": "pass",
+      "rows": 9
+    }
+  ]
+}

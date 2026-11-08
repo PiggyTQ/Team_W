@@ -13,7 +13,7 @@ import ServerSaveStatus from './ServerSaveStatus';
 import CoursePlaceholder from './CoursePlaceholder';
 import CourseReader,{CoursePractice,CourseTaskMaterials,CourseTaskReading} from './CourseReader';
 import AccountSecurityPanel from './AccountSecurityPanel';
-import {CareerKnowledge,KnowledgeIndex,ServerReportExport} from './CatalogData';
+import {CareerKnowledge,KnowledgeIndex} from './CatalogData';
 import {SERVER_AUTH,apiRequest,authRequest,credentialsFromForm} from './auth-client';
 import {authMessage,validateCredentials,safeAuthTarget} from './auth-contract';
 import SettingsPreferences from './SettingsPreferences';
@@ -60,7 +60,7 @@ import {targetResumeStudio} from './report-studio-model';
 
 import { KEY, pages, careers, learning, fresh, uid, cname, confirmed, usedHours, checkStart, makeTask, makeAnalysis, addClaim, invalidate, scenarioState } from "./model";
 import spec from "./spec.json";
-import {purgePrivateMaterials,freezeReport,validScopeRefs,consultationBody,reportReferencesUnavailable} from './alignment-model';
+import {purgePrivateMaterials,freezeReport,validScopeRefs,consultationBody,reportReferencesUnavailable,reportBasisKey} from './alignment-model';
 import {ReportRevision,ReportExport,ScopePicker,EvidencePicker,ReportPreflight} from './AlignmentDialogs';
 import './alignment.css';
 import "./style.css";
@@ -74,6 +74,9 @@ import "./landing-continuity.css";
 import "./continuity.css";
 import {SavedSearches,AdminHistory,AdminReviewDraft} from "./ContinuityPanels";
 import {planningReportBody,saveSearchPreset,recordAdminAction} from "./continuity-model";
+import {careerReportBody} from './career-report-model';
+import {captureCareerReportSources} from './career-report-sources';
+import useCareerReportSources from './useCareerReportSources';
 import "./assistant.css";
 import "./map-workspace.css";
 import "./growth.css";
@@ -248,6 +251,8 @@ function App() {
   const [mailLink,setMailLink]=useState(()=>SERVER_AUTH?readMailLink():null);
   useEffect(()=>{const changed=()=>{const next=readMailLink();if(next)setMailLink(next);};window.addEventListener('hashchange',changed);return()=>window.removeEventListener('hashchange',changed);},[]);
   const workspace=useServerWorkspace(SERVER_AUTH?authUser:null,s,setS);
+  const careerSources=useCareerReportSources({enabled:s.logged&&(path.startsWith('/reports')||['reportPreflight','reportMerge','export'].includes(modal?.type)),live:SERVER_AUTH,ownerId:authUser?.id});
+  const reportState={...s,reportSources:careerSources};
   const agentContext={workspace:page[0].startsWith('U')&&page[0]!=='U02'&&page[0]!=='U12'?page[0]:'U11',career:careers.some(c=>c.id===(s.assessmentCareer||s.goal))?(s.assessmentCareer||s.goal):'data'};
   const liveAgent=useAgentSession({user:SERVER_AUTH?authUser:null,state:s,workspace,context:agentContext,update,language});
   const authController=useRef(null),authSubject=useRef(null);
@@ -446,11 +451,15 @@ function App() {
   };
   const createReport = async () => {
     let preview={};
-    if(SERVER_AUTH){try{await workspace.flush();const current=workspace.current();const result=await apiRequest('/api/services/report-preview',{data:{baseVersion:current.revision}});if(workspace.current().owner!==current.owner)return;preview={liveBody:result.body,liveDigest:result.digest,liveBaseVersion:result.baseVersion};}catch(error){tell(authMessage(error.code,language));return;}}
+    try{
+      const sources=await careerSources.reload();if(sources.planError){tell('目标记录无法读取，请先检查目标计划。');return;}
+      preview={format:'career-report-v1',planRecords:sources.planRecords,liveBody:careerReportBody(s,sources),compositeSources:captureCareerReportSources(s,sources),previewReportBasis:reportBasisKey(s)};
+      if(SERVER_AUTH){await workspace.flush();const current=workspace.current();const result=await apiRequest('/api/services/report-preview',{data:{baseVersion:current.revision,format:preview.format,planRecords:preview.planRecords}});if(workspace.current().owner!==current.owner)return;preview={...preview,liveBody:result.body,liveDigest:result.digest,liveBaseVersion:result.baseVersion,compositeSources:result.compositeSources};}
+    }catch(error){tell(resourceProjectErrorMessage(error));return;}
     open('reportPreflight',{title:'我的职业规划报告',allowMissing:false,...preview});
   };
-  const reportSnapshot = (title,body,prior) => {if(prior&&reportReferencesUnavailable(s,prior))throw Error('报告引用已不可访问，请使用有效依据建立新草稿。');const n=freezeReport(s,title,body,prior);return prior?{...n,profileVersion:prior.profileVersion,planVersion:prior.planVersion,claimIds:prior.claimIds,claimRefs:prior.claimRefs,claimSnapshots:prior.claimSnapshots,inputSnapshot:prior.inputSnapshot,sectionRecords:n.sectionRecords.map(row=>({...prior.sectionRecords?.find(old=>old.id===row.id),...row})),retainedOldReferences:true}:n;};
-  const defaultBody = (r) => r?.kind === "consult" ? consultationBody(s,r.help) : planningReportBody(s);
+  const reportSnapshot = (title,body,prior,sources) => {if(prior&&reportReferencesUnavailable(reportState,prior))throw Error('报告引用已不可访问，请使用有效依据建立新草稿。');const n=freezeReport(reportState,title,body,prior);return prior?{...n,profileVersion:prior.profileVersion,planVersion:prior.planVersion,claimIds:prior.claimIds,claimRefs:prior.claimRefs,claimSnapshots:prior.claimSnapshots,inputSnapshot:prior.inputSnapshot,...(prior.format==='career-report-v1'?{compositeSources:prior.compositeSources}:{}),sectionRecords:n.sectionRecords.map(row=>({...prior.sectionRecords?.find(old=>old.id===row.id),...row})),retainedOldReferences:true}:sources?{...n,format:'career-report-v1',compositeSources:captureCareerReportSources(reportState,sources)}:n;};
+  const defaultBody = (r) => r?.kind === "consult" ? consultationBody(s,r.help) : r&&r.format!=='career-report-v1'?planningReportBody(s):careerReportBody(s,careerSources);
   function publicPage() {
     return <PublicView s={s} go={go} open={open} link={link} />;
   }
@@ -728,7 +737,7 @@ function App() {
     })}>撤回内容版本</B></>}<AdminHistory record={s.adminContent}/></Panel></>;
   }
   function reportPage() {
-    return <><ServerReportExport sync={workspace} download={download}/><ReportWorkspace s={s} tab={tab} id={id} link={link} open={open} update={update} go={go} tell={tell} createReport={createReport} reportSnapshot={reportSnapshot} defaultBody={defaultBody} tabs={tabs} /></>;
+    return <ReportWorkspace s={reportState} tab={tab} id={id} link={link} open={open} update={update} go={go} tell={tell} createReport={createReport} reportSnapshot={reportSnapshot} defaultBody={defaultBody} tabs={tabs} />;
   }
   function download(name, text, type = "text/plain;charset=utf-8") {
     const a = document.createElement("a"), u = URL.createObjectURL(new Blob([text], { type }));
@@ -1070,15 +1079,15 @@ function App() {
         break;
       case "reportPreflight":
         title = "报告创建预检";
-        body = <ReportPreflight s={s} f={f} set={set} reportSnapshot={reportSnapshot} defaultBody={defaultBody} update={update} command={SERVER_AUTH?workspace.command:null} close={close} go={go} fail={fail} />;
+        body = <ReportPreflight s={reportState} f={f} set={set} reportSnapshot={reportSnapshot} defaultBody={defaultBody} update={update} command={SERVER_AUTH?workspace.command:null} close={close} go={go} fail={fail} />;
         break;
       case "reportMerge":
         title = "旧人工编辑与新依据逐段对比";
-        body = <ReportRevision s={s} f={f} update={update} close={close} go={go} fail={fail} />;
+        body = <ReportRevision s={reportState} f={f} update={update} close={close} go={go} fail={fail} />;
         break;
       case "export":
         title = "选择报告片段与导出范围";
-        body = <ReportExport s={s} f={f} set={set} download={download} fail={fail} />;
+        body = <ReportExport s={reportState} f={f} set={set} download={download} fail={fail} />;
         break;
       case "resumePreview": {
         title = "\u7B80\u5386\u539F\u6587\u4E0E\u63AA\u8F9E\u5DEE\u5F02\u9884\u89C8";

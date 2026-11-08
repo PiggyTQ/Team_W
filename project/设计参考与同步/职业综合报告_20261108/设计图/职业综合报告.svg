@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1430" viewBox="0 0 1440 1430">
+ <defs><style>text{font-family:'Microsoft YaHei','Noto Sans SC',sans-serif;fill:#114879;font-size:16px}.muted{fill:#7387a1;font-size:14px}.heading{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.small{font-size:13px}.chapter{fill:#f4f9fc;stroke:#dce7ed}.card{fill:#fff;stroke:#e5dfd3}</style></defs>
+ <rect width="1440" height="1430" fill="#fcf9f1"/>
+ <text class="small" x="32" y="28">实施前桌面结构方案 · 非用户确认稿 · 内容为结构占位，未虚构能力、匹配分数或已完成成果</text>
+ <text class="heading" x="32" y="83">职业规划报告</text>
+ <rect x="1120" y="45" width="288" height="48" rx="15" fill="#f1f0e9"/><rect x="1125" y="50" width="137" height="38" rx="12" fill="#e4f1f8"/><text x="1160" y="75">职业报告</text><text x="1300" y="75">岗位简历</text>
+ <text class="muted" x="32" y="121">结合你的项目成果、能力依据和个人背景，了解适合的岗位与下一步准备。</text>
+ <rect x="32" y="151" width="204" height="392" rx="18" fill="#f1f7fb" stroke="#dce7ed"/>
+ <text class="label" x="52" y="189">报告目录</text>
+ <rect x="48" y="207" width="172" height="61" rx="12" fill="#e0effa"/><text x="62" y="233">01 个人背景与能力</text><text class="small" x="62" y="255">已完成项目与能力依据</text>
+ <text x="62" y="302">02 岗位推荐与匹配</text><text class="small" x="62" y="325">推荐原因及缺项</text>
+ <text x="62" y="370">03 岗位工作与要求</text><text class="small" x="62" y="393">工作特点与能力要求</text>
+ <text x="62" y="438">04 下一步学习实践</text><text class="small" x="62" y="461">待补项目与资源入口</text>
+ <text class="small" x="52" y="520">查看不会自动保存报告</text>
+ <rect x="258" y="151" width="1150" height="124" rx="18" class="card"/>
+ <text class="label" x="282" y="188">我的职业综合报告</text><text class="muted" x="282" y="217">基于当前可用资料的预览 · 缺少的信息保留未知</text><text class="small" x="282" y="249">不显示材料状态分布、行动状态分布或重复摘要。</text>
+ <rect x="1228" y="177" width="156" height="44" rx="20" fill="#ffd232" stroke="#d8af1e"/><text x="1271" y="204">保存报告</text><text class="small" x="1196" y="250">导出 / 历史版本 ▾</text>
+ <rect x="258" y="293" width="1150" height="266" rx="18" class="card"/>
+ <text class="label" x="282" y="330">01 个人背景与已有能力</text><text class="muted" x="282" y="357">把项目成果、能力依据与教育背景放在一起，回看每项结论的来源。</text>
+ <rect x="282" y="377" width="352" height="156" rx="12" class="chapter"/><text x="300" y="407">已完成项目</text><text class="muted" x="300" y="436">呈现实际完成的项目与本人贡献</text><text class="small" x="300" y="463">无项目时说明暂无，不补造经历</text><text class="small" x="300" y="510">查看项目成果 →</text>
+ <rect x="646" y="377" width="352" height="156" rx="12" class="chapter"/><text x="664" y="407">已有能力与依据</text><text class="muted" x="664" y="436">关联本人确认材料与项目成果</text><text class="small" x="664" y="463">能力结论标明范围与未核验项</text><text class="small" x="664" y="510">查看能力依据 →</text>
+ <rect x="1010" y="377" width="374" height="156" rx="12" class="chapter"/><text x="1028" y="407">教育与个人背景</text><text class="muted" x="1028" y="436">教育经历、职业意向及工作偏好</text><text class="small" x="1028" y="463">性格 / MBTI仅作本人偏好线索</text><text class="small" x="1028" y="510">补充个人资料 →</text>
+ <rect x="258" y="577" width="1150" height="242" rx="18" class="card"/>
+ <text class="label" x="282" y="614">02 综合推荐岗位与匹配依据</text><text class="muted" x="282" y="641">结合已确认能力、项目、教育和本人偏好推荐；性格类型不决定可从事的岗位。</text>
+ <rect x="282" y="660" width="1102" height="130" rx="12" class="chapter"/><text x="300" y="691">推荐岗位 / 候选方向</text><rect x="1187" y="675" width="174" height="31" rx="14" fill="#fff5cc"/><text class="small" x="1203" y="696">匹配状态：资料不足</text>
+ <text class="small" x="300" y="723">推荐依据：对应项目、已确认能力和本人工作偏好；可回溯到原始记录。</text><text class="small" x="300" y="752">要求覆盖：按明确岗位要求列出已支持、待补证据与未知项，不生成无依据百分比。</text><text class="small" x="300" y="779">材料不足时先展示候选方向，明确仍需补充的条件。</text>
+ <rect x="258" y="837" width="1150" height="218" rx="18" class="card"/>
+ <text class="label" x="282" y="874">03 岗位工作特点与能力要求</text><text class="muted" x="282" y="901">岗位要求与本人已有依据分别呈现，避免把学习建议当成已具备能力。</text>
+ <rect x="282" y="920" width="539" height="108" rx="12" class="chapter"/><text x="300" y="950">工作特点</text><text class="small" x="300" y="978">典型任务、协作方式、工作环境与待核实条件</text><text class="small" x="300" y="1007">具体岗位差异与资料来源按需展开</text>
+ <rect x="833" y="920" width="551" height="108" rx="12" class="chapter"/><text x="851" y="950">能力要求</text><text class="small" x="851" y="978">核心能力、工具方法、沟通表达与交付要求</text><text class="small" x="851" y="1007">每项要求对应已有依据 / 待补 / 未知</text>
+ <rect x="258" y="1073" width="1150" height="244" rx="18" class="card"/>
+ <text class="label" x="282" y="1110">04 待补项目与下一步实践</text><text class="muted" x="282" y="1137">根据匹配缺项安排有限实践，先查看要求和预计投入，再决定是否创建任务。</text>
+ <rect x="282" y="1157" width="1102" height="132" rx="12" class="chapter"/><text x="300" y="1188">待补能力 / 证据缺项</text><text class="small" x="300" y="1218">建议项目与缺项的对应关系、交付内容及预计投入</text><text class="small" x="300" y="1258">资源中心预览项目 →</text><text class="small" x="1000" y="1258">没有可对应项目时说明暂无</text>
+ <text class="small" x="258" y="1360">低频操作：保存报告、导出和历史版本仍明确可达；不自动保存、提交、创建计划或确认能力。</text>
+ <text class="muted" x="32" y="1403">页面局部先行结构图，沿用当前电脑网页视觉；实际截图在实施后单独保存。</text>
+</svg>

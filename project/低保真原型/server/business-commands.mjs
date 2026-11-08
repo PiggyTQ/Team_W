@@ -53,17 +53,18 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         next={...s,analysis,analysisStale:false,analysisHistory:[...(s.analysisHistory||[]),...(s.analysis?[s.analysis]:[])].filter((row,index,all)=>all.findIndex(x=>x.id===row.id)===index)};
         refs={analysisId:analysis.id};
       }else if(type==='report.compose'){
-        fields(payload,['title','kind','help','sections','previewVersion','previewDigest','confirmation']);
+        fields(payload,['title','kind','help','sections','previewVersion','previewDigest','confirmation','format','planRecords']);
         requireValue(payload.confirmation==='COMPOSE_REPORT','CONFIRMATION_REQUIRED');
-        requireValue(!!knowledge,'CATALOG_UNAVAILABLE',503);
+        requireValue(payload.format===undefined||payload.format==='career-report-v1');
+        if(payload.format!=='career-report-v1')requireValue(!!knowledge,'CATALOG_UNAVAILABLE',503);
         requireValue(['report','consult'].includes(payload.kind)&&Array.isArray(payload.sections)&&payload.sections.length>0&&payload.sections.length<=20);
         requireValue(payload.help===undefined||typeof payload.help==='string'&&payload.help.length<=4000);
         requireValue(payload.previewVersion===baseVersion,'VERSION_CONFLICT',409);
-        const preview=planningReportPreview(s,knowledge,payload);
+        const preview=planningReportPreview(s,knowledge,{...payload,...(payload.format==='career-report-v1'?{uploads:business.resourceProjects.list(userId)}:{})});
         requireValue(payload.kind==='consult'||payload.previewDigest===preview.digest,'VERSION_CONFLICT',409);
         const lines=preview.body.split('\n'),titles=lines.map(line=>line.split('：')[0]);
         requireValue(payload.sections.every(section=>typeof section==='string'&&titles.includes(section)));
-        const report={...freezeReport(s,text(payload.title,200),lines.filter((_,index)=>payload.sections.includes(titles[index])).join('\n')),kind:payload.kind,help:payload.help||'',authority,catalogVersion:preview.catalogVersion,compilationNotice:preview.notice};
+        const report={...freezeReport(s,text(payload.title,200),lines.filter((_,index)=>payload.sections.includes(titles[index])).join('\n')),kind:payload.kind,help:payload.help||'',authority,catalogVersion:preview.catalogVersion,compilationNotice:preview.notice,...(preview.format?{format:preview.format,compositeSources:preview.compositeSources}:{})};
         next={...s,reports:[...s.reports,report]};refs={reportId:report.id};
       }else if(type==='report.compile'){
         fields(payload,['language','title','confirmation']);requireValue(payload.confirmation==='COMPILE_REPORT','CONFIRMATION_REQUIRED');

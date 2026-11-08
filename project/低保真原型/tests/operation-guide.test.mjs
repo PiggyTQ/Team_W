@@ -2,6 +2,16 @@ import test from 'node:test';import assert from 'node:assert/strict';import {sce
 const context=(path='/careers',tab='',scene='PT01')=>({s:scenarioState(scene),path,tab,search:tab?'?tab='+encodeURIComponent(tab):'',modal:null});
 test('今日任务和指定学习任务的引导使用原任务入口，不提示另建任务',()=>{const c=context('/plan','执行','PT05'),plan=operationSteps('plan',c);assert.equal(plan.length,1);assert.equal(plan[0].target.scope,'.daily-execution');assert.deepEqual(plan[0].target.text,['去完成']);c.path='/learning';c.search='?task=task-demo&unit=quality';const learning=operationSteps('learning',c);assert.equal(learning.length,1);assert.equal(learning[0].target.selector,'.learning-task-focus .actions .primary');assert.equal(learning[0].route,'/learning?task=task-demo&unit=quality');assert.equal(learning[0].done({...c,path:'/work/task-demo'}),true);});
 
+test('报告引导阅读现有四章，历史报告只使用原导出入口且旧创建检查点可恢复',()=>{
+ const c=context('/reports','','PT05'),steps=operationSteps('report',c);
+ assert.deepEqual(steps.map(step=>step.id),['report.profile','report.recommendations','report.requirements','report.projects']);
+ assert.ok(steps.every(step=>step.target.selector.startsWith('.career-report-nav button')&&step.clickSuccess&&!step.modal));
+ c.path='/reports/saved';const saved=operationSteps('report',c);assert.equal(initialOperationStep('report',c,saved),0);assert.equal(saved[0].id,'report.export');assert.ok(saved.every(step=>step.route==='/reports/saved'));
+ const records=new Map(),storage={getItem:key=>records.get(key),setItem:(key,value)=>records.set(key,value)};
+ records.set(OPERATION_GUIDE_KEY,JSON.stringify({active:{flow:'report',index:5},seen:[],enabled:true}));assert.equal(readOperationGuide(storage).active.index,0);
+ saveOperationGuide(storage,{active:{flow:'report',index:2},seen:[],enabled:true});assert.equal(readOperationGuide(storage).active.index,2);
+});
+
 test('guide target text is a searchable list for every workflow, including career tabs',()=>{
  const c=context();
  for(const flow of Object.keys(operationLabels))for(const step of operationSteps(flow,c)){
