@@ -163,5 +163,8 @@
   "结合现有材料与工作偏好核对岗位。": "Explore roles using your current evidence and work preferences.",
   "岗位任务、协作方式和能力要求。": "Role tasks, collaboration, and skill requirements.",
   "针对材料缺口补充成果，再回目标计划安排。": "Create work to fill evidence gaps, then return to your goal plan to schedule it.",
-  "报告采用的资料范围与匹配方式。": "The sources and matching method used in this report."
+  "报告采用的资料范围与匹配方式。": "The sources and matching method used in this report.",
+  "项目来源读取失败，请重试后查看综合报告。": "Could not load project sources. Try again to view the overview report.",
+  "暂无历史报告。": "No previous reports.",
+  "阅读综合报告，缺项可回个人评估、目标计划或学习实践补充。": "Read the overview report and add missing information in Personal assessment, Goals and plans, or Learning and practice."
 }

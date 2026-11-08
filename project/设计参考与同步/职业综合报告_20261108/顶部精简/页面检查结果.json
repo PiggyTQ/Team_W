@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "status": "pass",
+      "sections": 4,
+      "removedIntro": true,
+      "removedSave": true
+    },
+    {
+      "width": 1920,
+      "status": "pass",
+      "sections": 4,
+      "removedIntro": true,
+      "removedSave": true
+    }
+  ],
+  "errors": []
+}

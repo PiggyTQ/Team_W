@@ -1,18 +1,18 @@
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
-import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
 import {KEY,fresh,makeTask,scenarioState} from '../src/model.js';
 
 const origin=process.env.CAREER_PREVIEW_ORIGIN||'http://127.0.0.1:5184';
 const output='../设计参考与同步/职业综合报告_20261108';
 const browser=await chromium.launch({channel:process.env.CAREER_BROWSER_CHANNEL||'chrome',headless:true});
 const results=[],errors=[];
-const chapterTitles=['已完成项目与能力背景','推荐岗位与匹配依据','岗位工作特点与所需能力','建议补充的项目'];
 await mkdir(output+'/实际截图',{recursive:true});
 const state=page=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)),KEY);
 const capture=(page,name)=>page.screenshot({path:output+'/实际截图/'+name+'.png',fullPage:true,animations:'disabled'});
 const coreState=s=>({tasks:s.tasks,claims:s.claims,education:s.education,preferences:s.preferences});
 const chapter=(page,id)=>page.locator(`[data-report-section="${({background:'profile',recommendation:'recommendations'})[id]||id}"]`);
+const waitForReport=page=>page.waitForFunction(()=>{const report=document.querySelector('.career-report');return report?.querySelector('[data-report-section="profile"]')&&!report.querySelector(':scope>.notice');});
 
 function fixture({empty=false,long=false,language='zh'}={}){
  const s=empty?fresh():scenarioState('PT05');s.logged=true;s.onboard=true;s.budget=20;
@@ -47,7 +47,7 @@ async function setup(options={}){
   localStorage.setItem('career-prototype-operation-guide-v1',JSON.stringify({enabled:false,neverPrompt:true,active:null,seen:[]}));
  },{KEY,s,language:options.language||'zh'});
  await page.goto(origin+(options.route||'/reports'));await page.locator('main h1').waitFor();await page.evaluate(()=>document.fonts.ready);
- await page.waitForFunction(()=>{const button=document.querySelector('.career-report-intro>button');return button&&!button.disabled;});
+ await waitForReport(page);
  return {context,page,s};
 }
 
@@ -64,22 +64,6 @@ async function uploadFixture(page){
  await form.getByLabel('项目文件',{exact:true}).setInputFiles({name:'report-project.md',mimeType:'text/markdown',buffer:Buffer.from('DO_NOT_READ_ATTACHMENT_SENTINEL\n附件只保存，报告应只读取metadata。','utf8')});
  await form.getByRole('button',{name:'保存到我的资源',exact:true}).click();await form.waitFor({state:'hidden'});await page.locator('[data-resource-source="upload"]').waitFor();
  await page.goto(origin+'/reports');
-}
-
-async function saveCurrentReport(page,title='综合报告验收快照'){
- await page.getByRole('button',{name:/创建报告.*检查缺项|保存.*报告/}).first().click();
- const dialog=page.getByRole('dialog');await dialog.getByLabel('报告标题',{exact:true}).fill(title);
- await dialog.getByRole('checkbox',{name:/我了解缺项/}).check();
- await dialog.getByRole('button',{name:/冻结输入并建立.*草稿/}).click();
- await page.waitForURL(url=>/^\/reports\/[^/]+$/.test(url.pathname));
- return (await state(page)).reports.at(-1);
-}
-
-async function downloadCurrentReport(page){
- await page.getByRole('button',{name:'选择片段导出',exact:true}).click();const dialog=page.getByRole('dialog');
- assert.equal(await dialog.getByRole('checkbox',{name:/主动加入本人复盘片段/}).isChecked(),false);
- const downloadEvent=page.waitForEvent('download');await dialog.getByRole('button',{name:'导出选中片段 TXT（本地示例）',exact:true}).click();
- const download=await downloadEvent;return (await readFile(await download.path())).toString('utf8');
 }
 
 async function check(name,options,run){
@@ -120,20 +104,15 @@ try{
   await page.waitForURL(url=>url.pathname==='/learning'||url.pathname==='/career-map');assert.deepEqual(coreState(await state(page)),coreState(before));assert.equal((await state(page)).reports.length,before.reports.length);
   if(new URL(href,origin).searchParams.has('unit'))assert.equal(new URL(page.url()).searchParams.get('unit'),new URL(href,origin).searchParams.get('unit'));
  });
- await check('上传项目进入报告保存刷新与相同正文导出',{},async page=>{
+ await check('上传项目只读汇总且没有说明或保存入口',{},async page=>{
   await uploadFixture(page);await chapter(page,'background').getByText('自主完成的可视化作品',{exact:true}).waitFor();const before=await state(page);
   assert.doesNotMatch(await page.locator('main').innerText(),/DO_NOT_READ_ATTACHMENT_SENTINEL|PRIVATE_REPORT_/);
-  const report=await saveCurrentReport(page);assert.equal(report.format,'career-report-v1');
-  assert.deepEqual(report.sections,[...chapterTitles,'引用与局限']);assert.equal(report.body.split('\n').length,5,'Multiline project descriptions must not create fake report chapters');
-  assert.match(report.body,/自主完成的可视化作品/);assert.match(report.body,/独立项目说明第一行/);assert.match(report.body,/第二行/);assert.match(report.body,/INTJ/);assert.match(report.body,/合成大学/);assert.doesNotMatch(report.body,/DO_NOT_READ_ATTACHMENT_SENTINEL|PRIVATE_REPORT_|UNCONFIRMED_/);
-  assert.deepEqual(coreState(await state(page)),coreState(before));await page.reload();await page.locator('.report-paper').waitFor();assert.equal((await state(page)).reports.at(-1).body,report.body);await capture(page,'1440-综合报告保存快照');
-  const exported=await downloadCurrentReport(page);assert.ok(exported.includes(report.body),'Exported text must contain the saved composite report body');assert.doesNotMatch(exported,/PRIVATE_REPORT_|DO_NOT_READ_ATTACHMENT_SENTINEL/);
-  assert.deepEqual(coreState(await state(page)),coreState(before));
+  assert.equal(await page.locator('.career-report-intro,.career-report-sources').count(),0);assert.equal(await page.getByRole('button',{name:'保存综合报告',exact:true}).count(),0);
+  assert.match(await chapter(page,'background').innerText(),/独立项目说明第一行/);assert.match(await chapter(page,'background').innerText(),/第二行/);
+  assert.deepEqual(coreState(await state(page)),coreState(before));assert.equal((await state(page)).reports.length,before.reports.length);
+  await page.reload();await waitForReport(page);await chapter(page,'background').getByText('自主完成的可视化作品',{exact:true}).waitFor();assert.deepEqual(coreState(await state(page)),coreState(before));assert.equal((await state(page)).reports.length,before.reports.length);
   await page.goto(origin+'/learning?tab='+encodeURIComponent('我的资源')+'&source=upload');const uploaded=page.locator('[data-resource-source="upload"]');await uploaded.waitFor();await uploaded.getByText('项目详情与管理',{exact:true}).click();await uploaded.getByRole('button',{name:'移除上传项目',exact:true}).click();await uploaded.getByRole('button',{name:'确认移除',exact:true}).click();await uploaded.waitFor({state:'hidden'});
-  await page.goto(origin+'/reports/'+report.id);await page.waitForFunction(()=>document.querySelector('.report-paper')?.innerText.includes('引用已不可访问'));
-  assert.doesNotMatch(await page.locator('.report-paper').innerText(),/自主完成的可视化作品|独立项目说明第一行/);await page.getByRole('button',{name:'选择片段导出',exact:true}).click();
-  assert.equal(await page.getByRole('dialog').getByRole('button',{name:'导出选中片段 TXT（本地示例）',exact:true}).isDisabled(),true,'Removed project references must block cached-text export');
-  return {reportId:report.id,chapters:report.sections.length};
+  await page.goto(origin+'/reports');await waitForReport(page);assert.doesNotMatch(await chapter(page,'background').innerText(),/自主完成的可视化作品|独立项目说明第一行/);assert.equal((await state(page)).reports.length,before.reports.length);
  });
  await check('缺项保留未知且不生成最高推荐',{empty:true},async page=>{
   await chapter(page,'background').waitFor();const text=await page.locator('main').innerText();assert.match(text,/尚无已完成|还没有已完成|暂无已完成/);assert.match(text,/材料不足|资料不足|依据不足|暂不.*推荐|尚无.*推荐/);assert.match(text,/未知|待补充|尚未/);

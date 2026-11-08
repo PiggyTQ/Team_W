@@ -2,12 +2,6 @@ html body #root#root#root#root #main .career-report{
  color:#143f6c;
  & :is(button,.button){min-height:44px}
  & :is(button,a,h2):focus-visible{outline:3px solid #438cd0;outline-offset:4px}
- & .career-report-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin:8px 0 16px}
- & .career-report-intro h2{font-size:22px;margin:0 0 8px}
- & .career-report-intro p{font-size:14px;line-height:1.8;margin:0;max-width:75ch}
- & .career-report-intro>button{flex:none;border-radius:12px}
- & .career-report-sources{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 25px;font-size:13px;border-bottom:1px solid #e9e1d3;padding-bottom:18px}
- & .career-report-sources>span:last-child{margin-left:auto;color:#637994}
  & .career-report-layout{display:grid;grid-template-columns:178px minmax(0,1fr);gap:20px;align-items:start}
  & .career-report-nav{position:sticky;top:18px;background:#eff6fd;border:1px solid #dfe9f3;border-radius:16px;padding:10px}
  & .career-report-nav button{display:flex;align-items:center;text-align:left;gap:10px;padding:13px 10px;width:100%;margin:0 0 8px;background:#fffefa;border:1px solid #e2eaf1;border-radius:10px;font-size:13px;line-height:1.6}
