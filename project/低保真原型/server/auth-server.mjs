@@ -193,10 +193,13 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
           return;
         }
         if(req.method==='POST'&&['/api/services/assessment','/api/services/report','/api/services/report-preview'].includes(path)){
-          if(!knowledge)throw failure('CATALOG_UNAVAILABLE',503);
-          const data=await readJSON(req),saved=business.read(user.id);
+          const data=await readJSON(req,path.endsWith('/report-preview')?768*1024:8192),saved=business.read(user.id);
+          if(!knowledge&&!(path.endsWith('/report-preview')&&data.format==='career-report-v1'))throw failure('CATALOG_UNAVAILABLE',503);
           if(data.baseVersion!==saved.revision)throw Object.assign(failure('VERSION_CONFLICT',409),{currentVersion:saved.revision});
-          if(path.endsWith('/report-preview')){send(200,{...planningReportPreview(saved.state,knowledge),baseVersion:saved.revision});return;}
+          if(path.endsWith('/report-preview')){
+            if(!Object.keys(data).every(key=>['baseVersion','format','planRecords','kind','help'].includes(key)))throw failure('INVALID_REQUEST');
+            send(200,{...planningReportPreview(saved.state,knowledge,{...data,...(data.format==='career-report-v1'?{uploads:business.resourceProjects.list(user.id)}:{})}),baseVersion:saved.revision});return;
+          }
           if(path.endsWith('/assessment')){const analysis=knowledge.assess(saved.state);send(200,{analysis,baseVersion:saved.revision,publicTranslations:publicCopy.envelope({skillRows:analysis.skillRows,dimensions:analysis.dimensions,notice:analysis.notice}).publicTranslations});return;}
           send(200,knowledge.report(saved.state,data.language));return;
         }

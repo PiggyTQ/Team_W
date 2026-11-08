@@ -1,9 +1,22 @@
 import {createHash} from 'node:crypto';
 import {planningReportBody} from '../src/continuity-model.js';
 import {consultationBody} from '../src/alignment-model.js';
+import {buildCareerReport,careerReportBody,normalizeReportPlanRecords} from '../src/career-report-model.js';
+import {captureCareerReportSources} from '../src/career-report-sources.js';
+import {businessError} from './business-error.mjs';
+
+const sorted=value=>Array.isArray(value)?value.map(sorted):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,sorted(value[key])])):value;
 
 /** Keep the existing report chapters, but use the actual catalog and saved facts. */
-export function planningReportPreview(state,knowledge,{kind='report',help=''}={}){
+export function planningReportPreview(state,knowledge,{kind='report',help='',format,uploads,planRecords}={}){
+  if(format!==undefined&&format!=='career-report-v1')throw businessError('INVALID_REQUEST');
+  if(format==='career-report-v1'){
+    if(kind!=='report')throw businessError('INVALID_REQUEST');
+    let normalized;try{normalized=normalizeReportPlanRecords(planRecords);}catch{throw businessError('INVALID_REQUEST');}
+    const model=buildCareerReport(state,{uploads,planRecords:normalized}),body=careerReportBody(model),compositeSources=captureCareerReportSources(state,{uploads,planRecords:normalized}),catalogVersion='career-detail-content-v1';
+    const digest=createHash('sha256').update(JSON.stringify(sorted({body,compositeSources,catalogVersion}))).digest('hex');
+    return {body,digest,format,catalogVersion,notice:'依据站内职业任务与技能资料整理；技能依据覆盖不是胜任概率，MBTI 仅用于核对工作偏好。',compositeSources};
+  }
   const catalog=knowledge.summary(),selected=state.goal?knowledge.get('/api/catalog/profiles/'+encodeURIComponent(state.goal),new URLSearchParams()):null;
   const profile=selected?.profile;
   const replacements={

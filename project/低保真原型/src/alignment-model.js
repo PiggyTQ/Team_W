@@ -1,5 +1,6 @@
 import {fresh,makeTask,confirmed,uid,cname} from './model.js';
 import {claimSnapshotsUnavailable} from './reference-contract.js';
+import {captureCareerReportSources,careerReportSourcesChanged,careerReportSourcesUnavailable} from './career-report-sources.js';
 
 // Start from an allowlist so future derived caches cannot survive this deletion.
 export function purgePrivateMaterials(s) {
@@ -14,7 +15,7 @@ export function reportUpdateBody(prior,fullBody) {
 }
 const clone=v=>JSON.parse(JSON.stringify(v));
 export function reportReferencesUnavailable(s,r) {
-  return !r||s.adminSource.status==='已撤回'||claimSnapshotsUnavailable(s,r);
+  return !r||s.adminSource.status==='已撤回'||claimSnapshotsUnavailable(s,r)||careerReportSourcesUnavailable(s,r);
 }
 export function reportPrivateSnippets(s,r) {
   const reviews=s.reviews.map(x=>({id:x.id,title:`${x.date||'日期未知'} · ${s.tasks.find(t=>t.id===x.taskId)?.title||'本人复盘'}`,text:[x.result,x.reason,x.next].filter(Boolean).join('；'),sourceReviewId:x.id,reviewVersion:x.version||1}));
@@ -26,10 +27,10 @@ export function reportPrivateSnippets(s,r) {
 }
 const basis=s=>({goal:s.goal,backup:s.backup,reason:s.decision.reason,question:s.decision.question,decisionResult:s.decision.result,compare:[...s.compare],background:{intent:s.preferences.intent,stage:s.preferences.stage},budget:s.budget,analysis:s.analysis?{id:s.analysis.id,rule:s.analysis.rule,profileVersion:s.analysis.profileVersion}:null,analysisStale:s.analysisStale,sourceVersion:s.adminSource.version,contentVersion:s.adminContent.version,claims:confirmed(s).map(c=>({id:c.id,version:c.version})),tasks:s.tasks.map(t=>({id:t.id,version:t.version,status:t.status,check:t.check,title:t.title,note:t.note,contribution:t.contribution,externalFeedback:t.externalFeedback,observationType:t.observationType,occurredOn:t.occurredOn,investigationMethod:t.investigationMethod,investigationSource:t.investigationSource})),reviews:s.reviews.map(r=>({id:r.id,date:r.date,version:r.version||1}))});
 export const reportBasisKey=s=>JSON.stringify(basis(s));
-export const reportIsStale=(s,r)=>r.profileVersion!==s.profileVersion||r.planVersion!==s.planVersion||!!r.inputSnapshot&&JSON.stringify(r.inputSnapshot)!==reportBasisKey(s);
+export const reportIsStale=(s,r)=>r.profileVersion!==s.profileVersion||r.planVersion!==s.planVersion||!!r.inputSnapshot&&JSON.stringify(r.inputSnapshot)!==reportBasisKey(s)||r.format==='career-report-v1'&&careerReportSourcesChanged(s,r.compositeSources);
 export function freezeReport(s,title,body,prior) {
   const rows=reportRows(body);
-  return {id:uid('report'),title,body,kind:prior?.kind||'report',help:prior?.help||'',version:(prior?.version||0)+1,profileVersion:s.profileVersion,planVersion:s.planVersion,claimIds:confirmed(s).map(c=>c.id),claimRefs:confirmed(s).map(c=>({id:c.id,version:c.version})),claimSnapshots:clone(confirmed(s)),inputSnapshot:clone(basis(s)),sectionRecords:rows,goal:s.goal,sections:rows.map(r=>r.title),saved:true,date:new Date().toISOString(),manual:!!prior,prior:prior?.id};
+  return {id:uid('report'),title,body,kind:prior?.kind||'report',help:prior?.help||'',version:(prior?.version||0)+1,profileVersion:s.profileVersion,planVersion:s.planVersion,claimIds:confirmed(s).map(c=>c.id),claimRefs:confirmed(s).map(c=>({id:c.id,version:c.version})),claimSnapshots:clone(confirmed(s)),inputSnapshot:clone(basis(s)),sectionRecords:rows,goal:s.goal,sections:rows.map(r=>r.title),saved:true,date:new Date().toISOString(),manual:!!prior,prior:prior?.id,...(prior?.format==='career-report-v1'?{format:'career-report-v1',compositeSources:captureCareerReportSources(s)}:{})};
 }
 export function revisionRows(s,prior,oldBody,newBody) {
   // Revoked text must never reach the conflict editor, including a saved merge draft.
@@ -38,7 +39,7 @@ export function revisionRows(s,prior,oldBody,newBody) {
     return reportRows(newBody).filter(row=>allowed.has(row.title)).map(row=>({...row,oldText:'',newText:row.text,affected:true,blocked:true}));
   }
   const old=reportRows(oldBody),next=reportRows(newBody),now=basis(s),before=prior.inputSnapshot;
-  const changed=(title,oldBasis=before)=>{if(!oldBasis)return title==='目标与理由'?prior.goal!==s.goal:title==='行动与成果'||title==='复盘与调整'?prior.planVersion!==s.planVersion:prior.profileVersion!==s.profileVersion;
+  const changed=(title,oldBasis=before)=>{if(prior.format==='career-report-v1'&&careerReportSourcesChanged(s,prior.compositeSources))return true;if(!oldBasis)return title==='目标与理由'?prior.goal!==s.goal:title==='行动与成果'||title==='复盘与调整'?prior.planVersion!==s.planVersion:prior.profileVersion!==s.profileVersion;
     const keys=title==='目标与理由'?['goal','backup','reason','question']:title==='候选与取舍'?['compare','reason','question','decisionResult']:title==='待问问题'?['question']:title==='材料与差距'?['claims']:title==='行动与成果'||title==='已做行动'?['tasks']:title==='复盘与调整'?['reviews']:title==='个人概览与资料范围'?['background','claims']:title==='四维依据'?['analysis','analysisStale','claims','reviews']:title==='计划与预算'?['budget','tasks']:title==='职业要求与范围'||title==='职业桥接与技能路线'?['goal','sourceVersion','contentVersion']:['goal','reason','claims','tasks','reviews','question','compare','sourceVersion','contentVersion'];
     return keys.some(k=>JSON.stringify(now[k])!==JSON.stringify(oldBasis[k]));};
   const rows=old.map(row=>{const n=next.find(r=>r.id===row.id),oldBasis=prior.sectionRecords?.find(r=>r.id===row.id)?.referenceBasis||before;return {...row,referenceBasis:oldBasis,oldText:row.text,newText:n?.text||'',affected:!!n&&changed(row.title,oldBasis)&&(row.text!==n.text||row.title==='四维依据')};});
@@ -61,10 +62,12 @@ export function mergeReport(s,prior,rows,choices,edits) {
   n.claimSnapshots=[...(keepOld?prior.claimSnapshots||[]:[]),...n.claimSnapshots].filter((r,i,all)=>all.findIndex(x=>x.id===r.id&&x.version===r.version)===i);
   n.sectionRecords=kept.map(r=>({...r,text:!r.affected?r.oldText:choices[r.id]==='new'?r.newText:choices[r.id]==='edit'?edits[r.id]:r.oldText,referenceBasis:choices[r.id]==='new'?basis(s):r.referenceBasis,choice:r.affected?choices[r.id]:'unchanged',priorReportId:prior.id}));
   n.retainedOldReferences=keepOld;
+  if(keepOld&&n.format==='career-report-v1')for(const key of ['educationRefs','uploadRefs'])n.compositeSources[key]=[...(prior.compositeSources?.[key]||[]),...n.compositeSources[key]].filter((ref,index,all)=>all.findIndex(item=>JSON.stringify(item)===JSON.stringify(ref))===index);
   n.privateReflections=rows.filter(r=>choices[r.id]==='reflection').map(r=>({id:uid('reflection'),title:r.title,text:r.oldText||r.newText,sourceReportId:prior.id,claimIds:[...(prior.claimIds||[])],claimRefs:clone(prior.claimRefs||[])}));
   return n;
 }
 export function reportExportText(r,selection,privateSnippets=[],s) {
+  if(r.format==='career-report-v1'&&!s)throw new Error('存在失效引用，禁止导出。请使用有效依据更新报告。');
   if(s&&reportReferencesUnavailable(s,r))throw new Error('存在失效引用，禁止导出。请使用有效依据更新报告。');
   if(!s&&privateSnippets.some(x=>x.sourceReportId))throw new Error('私人片段需要核对原报告引用后才能导出。');
   if(s){const allowed=reportPrivateSnippets(s,r);if(privateSnippets.some(x=>!allowed.some(a=>a.id===x.id&&a.text===x.text)))throw new Error('所选私人片段或原引用已变化，请重新选择导出范围。');}
