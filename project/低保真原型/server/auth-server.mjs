@@ -19,6 +19,7 @@ import {createRuntimeOperations} from './runtime-operations.mjs';
 import {createConcurrencyGate} from './concurrency-gate.mjs';
 import {createAccountMail,mailTransportFromEnvironment} from './account-mail.mjs';
 import {createPlatformAdmin} from './platform-admin.mjs';
+import {RESOURCE_PROJECT_MAX_BYTES} from '../src/resource-project-model.js';
 
 const scrypt=promisify(rawScrypt),hash=value=>createHash('sha256').update(value).digest('hex');
 const KDF={N:131072,r:8,p:1,maxmem:192*1024*1024};
@@ -118,6 +119,7 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
       }
       if(!path.startsWith('/api/auth/')) {
         const user=session(req);if(!user)throw failure('SESSION_EXPIRED',401);
+        if(path==='/api/resource-projects'||path.startsWith('/api/resource-projects/')){const expectedOwner=new URL(req.url,'http://localhost').searchParams.get('ownerId');if(expectedOwner&&expectedOwner!==user.id)throw failure('ACCOUNT_CHANGED',409);}
         if(req.method==='POST'&&path.startsWith('/api/agent/')){const started=now(),operation=path.split('/').at(-1);res.once('finish',()=>{try{agentOperations.record(user.id,operation,res.statusCode,now()-started);}catch{console.warn('Agent aggregate metric unavailable');}});}
         if(req.method==='GET') {
           if(path==='/api/agent/workflow'){send(200,{...workflow.health(),...workflow.history(user.id)});return;}
@@ -131,6 +133,12 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
           if(path==='/api/admin/status'){send(200,administration.list(user.id));return;}
           if(path==='/api/admin/operations'){if(!administration.roles(user.id).includes('operator'))throw failure('ADMIN_FORBIDDEN',403);send(200,{...operations.snapshot(),authHashing:hashing.snapshot(),mail:mail.status()});return;}
           if(path==='/api/workspace'){send(200,business.read(user.id));return;}
+          if(path==='/api/resource-projects'){send(200,{ownerId:user.id,items:business.resourceProjects.list(user.id)});return;}
+          const resourceFileMatch=path.match(/^\/api\/resource-projects\/([a-f0-9-]{36})\/file$/);
+          if(resourceFileMatch){
+            const project=business.resourceProjects.get(user.id,resourceFileMatch[1]);
+            res.setHeader('Content-Type','application/octet-stream');res.setHeader('Content-Disposition',`attachment; filename="project-file"; filename*=UTF-8''${encodeURIComponent(project.file.name.toWellFormed()).replace(/['()*]/g,c=>'%'+c.charCodeAt(0).toString(16).toUpperCase())}`);res.setHeader('Content-Length',project.file.size);res.setHeader('Cross-Origin-Resource-Policy','same-origin');res.end(project.body);return;
+          }
           if(path==='/api/commands'){send(200,commands.list(user.id));return;}
           const receiptMatch=path.match(/^\/api\/commands\/([-a-zA-Z0-9]{16,100})$/);
           if(receiptMatch){send(200,commands.get(user.id,receiptMatch[1]));return;}
@@ -141,13 +149,20 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
           if(assetMatch){const asset=business.courseLibrary.asset(assetMatch[1],assetMatch[2],assetMatch[3]);res.setHeader('Content-Type',asset.mime);res.setHeader('Content-Disposition',`attachment; filename="course-material${asset.filename.match(/\.[a-z0-9]+$/)?.[0]||'.txt'}"; filename*=UTF-8''${encodeURIComponent(asset.filename)}`);res.setHeader('Content-Length',asset.bytes);res.setHeader('Cross-Origin-Resource-Policy','same-origin');res.setHeader('X-Content-SHA256',asset.sha256);res.end(Buffer.from(asset.body));return;}
           if(path==='/api/system/capabilities'){const courses=business.courseLibrary.availability(),agentState=agent.capabilities(user.id);send(200,{schemaVersion:4,workspacePersistence:true,businessCommands:commands.types,commandReceiptRetentionDays:30,adminRoles:administration.roles(user.id),emailRecovery:mail.enabled,emailVerification:mail.enabled,ai:agentState.enabled,agent:agentState,coursesPending:courses.published!==courses.count,publishedCourses:courses.published,courseDownloads:courses.published>0,accountDeletion:true,knowledgeCatalog:!!knowledge,demoData:!!knowledge,evidenceComparison:!!knowledge,reportCompilation:!!knowledge});return;}
           if(path.startsWith('/api/catalog/')&&knowledge){const result=knowledge.get(path,new URL(req.url,'http://localhost').searchParams);if(result!==undefined){send(200,publicCopy.envelope(result));return;}}
-          if(path==='/api/workspace/export'){business.audit(user.id,'WORKSPACE_EXPORTED');res.setHeader('Content-Disposition','attachment; filename="career-growth-data.json"');send(200,{exportedAt:new Date(now()).toISOString(),...business.read(user.id),agentWorkflow:workflow.history(user.id),agentMemory:workflow.readMemory(user.id),agentOperations:agentOperations.read(user.id),personalContext:business.personalContext.exportData(user.id)});return;}
+          if(path==='/api/workspace/export'){business.audit(user.id,'WORKSPACE_EXPORTED');res.setHeader('Content-Disposition','attachment; filename="career-growth-data.json"');send(200,{exportedAt:new Date(now()).toISOString(),...business.read(user.id),resourceProjects:business.resourceProjects.exportData(user.id),agentWorkflow:workflow.history(user.id),agentMemory:workflow.readMemory(user.id),agentOperations:agentOperations.read(user.id),personalContext:business.personalContext.exportData(user.id)});return;}
           const match=path.match(/^\/api\/records\/([a-zA-Z]+)(?:\/([^/]+))?$/);
           if(match){send(200,business.records(user.id,match[1],match[2]?decodeURIComponent(match[2]):undefined));return;}
           throw failure('NOT_FOUND',404);
         }
         if(req.headers.origin!==origin||!equal(req.headers['x-csrf-token'],cookies(req)[csrfName]))throw failure('CSRF_REJECTED',403);
         limit(`workspace:${user.id}`,180,60000);
+        if(req.method==='POST'&&path==='/api/resource-projects'){
+          limit(`resource-uploads:${user.id}`,20,60000);
+          const data=await readJSON(req,Math.ceil(RESOURCE_PROJECT_MAX_BYTES/3)*4+65536);if(data.actorId&&data.actorId!==user.id)throw failure('ACCOUNT_CHANGED',409);
+          send(201,{project:business.resourceProjects.upload(user.id,data)});return;
+        }
+        const resourceDeleteMatch=path.match(/^\/api\/resource-projects\/([a-f0-9-]{36})$/);
+        if(req.method==='DELETE'&&resourceDeleteMatch){send(200,business.resourceProjects.remove(user.id,resourceDeleteMatch[1]));return;}
         if(req.method==='POST'&&path==='/api/agent/suggestions/feedback'){
           const input=await readJSON(req),saved=business.read(user.id);
           send(200,business.personalContext.feedback(user.id,saved.state,saved.revision,workflow.health().knowledgeDigest,input));return;

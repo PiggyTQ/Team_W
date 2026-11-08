@@ -5,6 +5,7 @@ import {ensureCourseSchema,createCourseLibrary} from './course-library.mjs';
 import {businessError} from './business-error.mjs';
 import {guardCommandRecords} from './business-commands.mjs';
 import {createPersonalContextStore} from './agent/personal-context.mjs';
+import {createResourceProjectStore} from './resource-project-store.mjs';
 export {businessError} from './business-error.mjs';
 
 export const COLLECTIONS=Object.freeze({education:'education_records',claims:'experience_claims',tasks:'plan_tasks',reviews:'practice_reviews',reports:'career_reports',resumes:'resume_versions',jobs:'job_cards',events:'job_events',presets:'saved_searches',feedback:'feedback_tickets',conversations:'assistant_conversations',resumeImports:'resume_imports',aiNotes:'personal_notes',analysisHistory:'assessment_versions'});
@@ -104,6 +105,7 @@ export function createBusinessStore(db,{now=Date.now}={}) {
   ensureCourseSchema(db,now);
   const personalContext=createPersonalContextStore(db,{now});
   const courseLibrary=createCourseLibrary(db);
+  const resourceProjects=createResourceProjectStore(db,{now});
   const catalogMap=courseLibrary.map;
   function audit(userId,code,kind='workspace') {db.prepare('INSERT INTO security_events VALUES(?,?,?,?,?)').run(randomUUID(),userId,code,kind,now());}
   function read(userId) {
@@ -149,8 +151,14 @@ export function createBusinessStore(db,{now=Date.now}={}) {
     if(id){const row=db.prepare(`SELECT * FROM ${table} WHERE user_id=? AND id=?`).get(userId,id);if(!row)throw businessError('NOT_FOUND',404);return {id:row.id,revision:row.object_revision,updatedAt:row.updated_at,data:JSON.parse(row.payload_json)};}
     return {items:db.prepare(`SELECT id,object_revision,updated_at FROM ${table} WHERE user_id=? ORDER BY updated_at DESC LIMIT 100`).all(userId).map(row=>({id:row.id,revision:row.object_revision,updatedAt:row.updated_at}))};
   }
-  function clear(userId,baseVersion) {const snapshot=read(userId);if(snapshot.revision!==baseVersion)throw businessError('VERSION_CONFLICT',409,{currentVersion:snapshot.revision});const result=save(userId,{state:fresh(),baseVersion,mutationId:randomUUID()},{auditCode:'WORKSPACE_CLEARED'});if(!db.isTransaction)try{db.exec('PRAGMA wal_checkpoint(TRUNCATE)');}catch{console.warn('Database checkpoint deferred after committed workspace clear');}return {...result,state:fresh()};}
+  function clear(userId,baseVersion) {
+    const snapshot=read(userId);if(snapshot.revision!==baseVersion)throw businessError('VERSION_CONFLICT',409,{currentVersion:snapshot.revision});
+    const ownTransaction=!db.isTransaction;if(ownTransaction)db.exec('BEGIN IMMEDIATE');let result;
+    try{result=save(userId,{state:fresh(),baseVersion,mutationId:randomUUID()},{auditCode:'WORKSPACE_CLEARED'});resourceProjects.clear(userId);if(ownTransaction)db.exec('COMMIT');}catch(error){if(ownTransaction)db.exec('ROLLBACK');throw error;}
+    if(!db.isTransaction)try{db.exec('PRAGMA wal_checkpoint(TRUNCATE)');}catch{console.warn('Database checkpoint deferred after committed workspace clear');}
+    return {...result,state:fresh()};
+  }
   function ready() {db.prepare('SELECT revision FROM account_workspaces LIMIT 1').get();return {status:'ok',schemaVersion:1};}
   function maintenance(){db.prepare('DELETE FROM workspace_mutations WHERE created_at<?').run(now()-86400000);personalContext.maintenance();}
-  return {read,save,catalog,courseLibrary,records,clear,audit,ready,maintenance,personalContext};
+  return {read,save,catalog,courseLibrary,resourceProjects,records,clear,audit,ready,maintenance,personalContext};
 }

@@ -13,7 +13,7 @@ import ServerSaveStatus from './ServerSaveStatus';
 import CoursePlaceholder from './CoursePlaceholder';
 import CourseReader,{CoursePractice,CourseTaskMaterials,CourseTaskReading} from './CourseReader';
 import AccountSecurityPanel from './AccountSecurityPanel';
-import {CareerKnowledge,KnowledgeIndex,ServerReportExport,PracticeTemplates} from './CatalogData';
+import {CareerKnowledge,KnowledgeIndex,ServerReportExport} from './CatalogData';
 import {SERVER_AUTH,apiRequest,authRequest,credentialsFromForm} from './auth-client';
 import {authMessage,validateCredentials,safeAuthTarget} from './auth-contract';
 import SettingsPreferences from './SettingsPreferences';
@@ -33,6 +33,9 @@ import {canRejectClaim,rejectClaimCandidate} from './model';
 import {validCompareIds,reviewReminders,workspaceAnchor} from './site-quality-model';
 import './site-quality.css';
 import ExecutionDesk from './ExecutionDesk';
+import LearningTaskFocus from './LearningTaskFocus';
+import MyResources from './MyResources';
+import {clearResourceProjects,resourceProjectErrorMessage} from './resource-project-client';
 import ReviewDesk from './ReviewDesk';
 import './action-cycle.css';
 import React, { useState, useEffect, useRef } from "react";
@@ -397,6 +400,7 @@ function App() {
   }, [pageTitle,language,path]);
   const setTask = (tid, patch) => update((x) => ({ ...x, tasks: x.tasks.map((t) => t.id === tid ? { ...t, ...typeof patch === "function" ? patch(t) : patch } : t) }));
   const confirmAction = (title, impact, action) => open("confirm", { title, impact, action });
+  const clearLocalResourceFiles=async()=>{try{await clearResourceProjects();return true;}catch(error){tell(resourceProjectErrorMessage(error));return false;}};
   const persistCurrentRecords=()=>{
     if(SERVER_AUTH){workspace.flush().catch(error=>tell(authMessage(error.code,language)));return;}
     const result=savePrototypeState(prototypeStorage,s);
@@ -580,19 +584,19 @@ function App() {
   function planPage() {
     const practiceId = urlObj.searchParams.get("practice");
     if (tab === "执行" && practiceId !== null) return <ExternalPractice s={s} task={s.tasks.find(t => t.id === practiceId)} record={urlObj.searchParams.get("step") === "record"} link={link} setTask={setTask} open={open} tell={tell} />;
-    const unified = planSubpage || tab !== '复盘' && (tab !== '执行' || urlObj.searchParams.get('view') === 'calendar');
+    const unified = planSubpage || tab !== '复盘' && tab !== '执行';
     const planMode = unified ? '计划总览' : '执行';
     return <><PageHead title={scheduling ? '计划排期' : goalEditing ? '目标编辑' : tab === '复盘' ? '实践复盘' : unified ? '目标与行动计划' : '行动推进台'} description={scheduling ? '统一安排目标与行动，确认后同步到待行动和日历。' : goalEditing ? '按周、月、年统一制定和管理目标。' : tab === '复盘' ? '记录实际结果、反馈、困难与下一步。' : '从目标到每周安排，在同一处规划和推进。'} />{!planSubpage&&<SegmentedControl className="tabs" aria-label="页面模式">{[['计划总览','计划制定'],['执行','计划执行']].map(([mode,label])=>React.cloneElement(link('/plan?tab='+encodeURIComponent(mode),label),{key:mode,'aria-current':planMode===mode?'page':undefined}))}</SegmentedControl>}
  {unified&&!planSubpage&&SERVER_AUTH&&<CareerKnowledge career={s.goal||'data'} precheck={precheck} link={link}/>}
  {unified && <UnifiedPlan key={SERVER_AUTH?authUser?.id:'local'} storageScope={SERVER_AUTH?authUser?.id:'local'} command={SERVER_AUTH?workspace.command:null} s={s} open={open} link={link} go={go} goalEditing={goalEditing} scheduling={scheduling} scheduleGoalId={urlObj.searchParams.get('goal')} scheduleTaskId={urlObj.searchParams.get('task')} calendarDate={urlObj.searchParams.get('calendarDate')} goalEditPeriod={urlObj.searchParams.get('period')} goalView={urlObj.searchParams.get('goalView')} precheck={precheck} startTask={startTask} update={update} adjustment={<PlanAdjustment s={s} open={open} update={update} expanded={urlObj.searchParams.get('adjust')==='1'}/>} />}
- {tab === '执行' && !unified && <div className="action-cycle"><ExecutionDesk s={s} url={url} link={link} open={open} startTask={startTask} precheck={precheck} viewSwitch={<SegmentedControl as="div" className="task-view-switch" role="group" aria-label="行动显示方式">{link('/plan?tab=执行&view=list','列表','button selected')}{link('/plan#weekly-actions','日程','button')}</SegmentedControl>}/></div>}
+ {tab === '执行' && !unified && <ExecutionDesk s={s} link={link}/>}
  {tab === "复盘" && <div className="action-cycle"><ReviewDesk s={s} taskId={urlObj.searchParams.get("task")} update={update} link={link} open={open} go={go} tell={tell}/></div>}
  </>;
   }
   function taskList() {return <TaskExecutionList s={s} url={url} link={link} open={open} startTask={startTask} precheck={precheck}/>;}
   function recordCoursePosition(index,course){update(prev=>({...prev,reading:{...prev.reading,[course.id]:{chapter:index,chapterId:course.chapters[index].id,version:course.content_version,updatedAt:new Date().toISOString()}}}));}
   function learningPage() {
-    return <><PageHead title="学习与实践中心" description="按目标选内容，先阅读，再决定一次实践的范围与投入。" />{tabs(["\u8DEF\u7EBF\u4E0E\u8D44\u6E90", "\u77ED\u4F53\u9A8C", "\u7EFC\u5408\u9879\u76EE"])}<PracticeTemplates precheck={precheck}/><KnowledgeIndex mode="resources" link={link}/><LearningCatalogue live={SERVER_AUTH} catalog={workspace.catalog} catalogError={workspace.catalogError} retryCatalog={workspace.retryCatalog} s={s} tab={tab} url={url} move={move} link={link} open={open} precheck={precheck} update={update} startTask={startTask} /></>;
+    return <><PageHead title="学习与实践中心" description="选择项目开展实践，将完成的成果积累为自己的资源。" />{tabs(['资源中心','我的资源'])}{tab==='我的资源'?<MyResources key={SERVER_AUTH?authUser?.id:'local'} s={s} url={url} move={move} link={link} live={SERVER_AUTH} ownerId={authUser?.id}/>:<><LearningTaskFocus s={s} url={url} link={link} open={open} startTask={startTask}/><LearningCatalogue live={SERVER_AUTH} catalog={workspace.catalog} catalogError={workspace.catalogError} retryCatalog={workspace.retryCatalog} s={s} url={url} move={move} link={link} open={open} precheck={precheck} startTask={startTask}/></>}</>;
   }
   function workPage() {
     const t = s.tasks.find((t2) => t2.id === id);
@@ -678,14 +682,15 @@ function App() {
     return <AccountWorkspace s={s} user={authUser} update={update} link={link} live={SERVER_AUTH}><KnowledgeIndex accountRole="knowledge" link={link}/><PageHead accountRole="heading" title="个人设置与资料管理" description="管理个人背景、站内提醒、授权范围与本机资料。修改偏好后，可先预览对计划的影响。" />{tabs(["\u504F\u597D\u4E0E\u901A\u77E5", "资料与隐私"])}{SERVER_AUTH&&<AccountSecurityPanel accountRole="security" onNotice={tell} user={authUser} sync={workspace} download={download} onDeleted={()=>{clearTimeout(timer.current);authSubject.current=null;setAuthUser(null);setS(fresh());setForm({});setModal(null);setAiSide(false);sessionStorage.removeItem("intent");move("/");tell("账户及在线业务记录已删除；备份按 14 天保留策略到期清除。");}}/>}{activeTab("\u504F\u597D\u4E0E\u901A\u77E5", "\u504F\u597D\u4E0E\u901A\u77E5") && <SettingsPreferences live={SERVER_AUTH} onReceipt={async()=>{try{await workspace.flush();tell("偏好已保存至账户。");}catch(error){tell(authMessage(error.code,language));}}} s={s} update={update} tell={tell} link={link}/>}{tab === "资料与隐私" && <Panel id="settings-authorization" title="按用途选择范围"><p>目前：{SERVER_AUTH?(hasExternalConsent(s)?"已确认 DeepSeek 外发范围":"尚未同意外部模型处理"):(s.authorized?"允许模拟读取选中确认片段":"未授权个人片段，仅通用知识")}。{SERVER_AUTH?"确认外发授权后，问题及所选范围将发送至 DeepSeek。":"没有真实外部传输。"}</p><B onClick={() => open("scope")}>修改资料范围</B><B onClick={() => confirmAction("\u64A4\u56DE\u8D44\u6599\u5904\u7406\u6388\u6743\uFF1F", "停止后续外发，相关消息与笔记停止展示，未应用提议失效。已发送给外部模型的内容无法通过本地撤回追溯收回。", () => {
       update((x) => ({ ...x, aiExternalConsent:null, authorized: false, aiClaimRefs: [], aiScope: ["\u804C\u4E1A\u539F\u521B\u77E5\u8BC6"], proposal: null, aiDraft: "", conversations: x.conversations.map((c) => ({ ...c, messages: c.messages.filter((m) => !m.scope?.includes("\u672C\u4EBA\u786E\u8BA4\u7247\u6BB5")) })) }));
       tell("\u6388\u6743\u5DF2\u64A4\u56DE\uFF0C\u4E2A\u4EBA\u4E0A\u4E0B\u6587\u5DF2\u505C\u6B62\u4F7F\u7528\u3002");
-    })}>撤回授权</B></Panel>}{tab === "资料与隐私" && <><Panel id="settings-data" title="资料与相关分析、报告"><p>材料 {s.claims.length} 项、任务 {s.tasks.length} 项、报告 {s.reports.length} 份。{SERVER_AUTH?"记录保存至当前账户，其他账户无法访问。":"示例保存在当前浏览器，不具备真实账户隔离。"}</p><B onClick={() => download("\u672C\u4EBA\u6570\u636E_\u539F\u578B\u793A\u4F8B.json", JSON.stringify({ ...s, logged: void 0 }, null, 2), "application/json")}>导出本地示例 JSON</B><B onClick={() => confirmAction("\u5220\u9664\u672C\u4EBA\u6750\u6599\u4E0E\u6D3E\u751F\u5185\u5BB9\uFF1F", "\u6750\u6599\u3001\u5206\u6790\u3001\u4F1A\u8BDD\u6B63\u6587\u53CA\u62A5\u544A / \u7B80\u5386\u5F15\u7528\u505C\u6B62\u8BBF\u95EE\uFF1B\u4EFB\u52A1\u5386\u53F2\u4FDD\u7559\u8131\u654F\u72B6\u6001\u3002\u8FD9\u91CC\u53EA\u80FD\u5220\u9664\u672C\u6D4F\u89C8\u5668\u793A\u4F8B\uFF0C\u4E0D\u4EE3\u8868\u771F\u5B9E\u540E\u7AEF\u6216\u5907\u4EFD\u5DF2\u5220\u9664\u3002", () => {
+    })}>撤回授权</B></Panel>}{tab === "资料与隐私" && <><Panel id="settings-data" title="资料与相关分析、报告"><p>材料 {s.claims.length} 项、任务 {s.tasks.length} 项、报告 {s.reports.length} 份。{SERVER_AUTH?"记录保存至当前账户，其他账户无法访问。":"示例保存在当前浏览器，不具备真实账户隔离。"}</p><B onClick={() => download("\u672C\u4EBA\u6570\u636E_\u539F\u578B\u793A\u4F8B.json", JSON.stringify({ ...s, logged: void 0 }, null, 2), "application/json")}>导出本地示例 JSON</B><B onClick={() => confirmAction("\u5220\u9664\u672C\u4EBA\u6750\u6599\u4E0E\u6D3E\u751F\u5185\u5BB9\uFF1F", "\u6750\u6599\u3001\u5206\u6790\u3001\u4F1A\u8BDD\u6B63\u6587\u53CA\u62A5\u544A / \u7B80\u5386\u5F15\u7528\u505C\u6B62\u8BBF\u95EE\uFF1B\u4EFB\u52A1\u5386\u53F2\u4FDD\u7559\u8131\u654F\u72B6\u6001\u3002\u8FD9\u91CC\u53EA\u80FD\u5220\u9664\u672C\u6D4F\u89C8\u5668\u793A\u4F8B\uFF0C\u4E0D\u4EE3\u8868\u771F\u5B9E\u540E\u7AEF\u6216\u5907\u4EFD\u5DF2\u5220\u9664\u3002", async () => {
       clearTimeout(timer.current);
+      if(!SERVER_AUTH&&!await clearLocalResourceFiles())return;
       update(purgePrivateMaterials);
       setSearch("");
       setForm({});
       setAiSide(false);
       tell("\u672C\u5730\u6750\u6599\u5904\u7406\u5B8C\u6210\uFF0C\u771F\u5B9E\u670D\u52A1\u5220\u9664\u672A\u5B9E\u73B0\u3002");
-    })}>查看影响并删除</B></Panel>{SERVER_AUTH?<Panel title="真实账户"><p>当前邮箱：{authUser?.email}。数据按账户保存；修改密码、导出、清空与注销请使用上方“账户安全与服务器数据”。邮件找回尚未接入。</p></Panel>:<Panel title="本机演示账户范围"><p>注销会清除当前浏览器中的演示设置、材料、任务、讨论、岗位和输出。已下载的文件不能远程收回；真实服务账户和备份不在本原型内。</p><B onClick={()=>confirmAction("注销本机演示账户？","清空本机全部演示数据并返回公开首页；不声称已注销真实后台账户。",()=>{clearTimeout(timer.current);setS(fresh());sessionStorage.removeItem("intent");setSearch("");setForm({});setAiSide(false);move("/");tell("本机演示账户已清空，未调用真实注销服务。");})}>注销本机演示账户</B></Panel>}{s.deletion && <Notice>处理状态：{s.deletion.status} · {s.deletion.date} · {s.deletion.detail}</Notice>}</>}{activeTab("偏好与通知","偏好与通知") && <details className="settings-feedback" id="settings-feedback" open={urlObj.searchParams.get("section")==="feedback"}><summary>反馈与回复（{s.feedback.length}）</summary><Panel title="本人反馈工单">{s.feedback.length ? s.feedback.map((f) => <article className="record" key={f.id}><h3>{f.id} · {f.status}</h3><p>{f.object} · {f.text}</p><p>处理回执：{f.reply || "\u5F85\u5904\u7406\uFF1B\u4E0D\u4F1A\u76F4\u63A5\u4FEE\u6539\u4E2A\u4EBA\u4E8B\u5B9E\u3002"}</p></article>) : <GuidedStart title="查看反馈进度与回复" description="可反馈某个结论、引用或操作问题。提交时说明具体对象与版本；未提交时，这里不会生成工单。" steps={['找到有疑问的页面、对象或版本。','只提交需要处理的片段，不附无关私人资料。','保留工单编号，在此查看状态与回复。']}><B primary onClick={feedback}>提交具体版本反馈</B>{link('/assessment?tab=四维与差距','回看评估依据','button')}{link('/assistant','回看AI讨论','button')}</GuidedStart>}</Panel></details>}</AccountWorkspace>;
+    })}>查看影响并删除</B></Panel>{SERVER_AUTH?<Panel title="真实账户"><p>当前邮箱：{authUser?.email}。数据按账户保存；修改密码、导出、清空与注销请使用上方“账户安全与服务器数据”。邮件找回尚未接入。</p></Panel>:<Panel title="本机演示账户范围"><p>注销会清除当前浏览器中的演示设置、材料、任务、讨论、岗位和输出。已下载的文件不能远程收回；真实服务账户和备份不在本原型内。</p><B onClick={()=>confirmAction("注销本机演示账户？","清空本机全部演示数据并返回公开首页；不声称已注销真实后台账户。",async()=>{if(!await clearLocalResourceFiles())return;clearTimeout(timer.current);setS(fresh());sessionStorage.removeItem("intent");setSearch("");setForm({});setAiSide(false);move("/");tell("本机演示账户已清空，未调用真实注销服务。");})}>注销本机演示账户</B></Panel>}{s.deletion && <Notice>处理状态：{s.deletion.status} · {s.deletion.date} · {s.deletion.detail}</Notice>}</>}{activeTab("偏好与通知","偏好与通知") && <details className="settings-feedback" id="settings-feedback" open={urlObj.searchParams.get("section")==="feedback"}><summary>反馈与回复（{s.feedback.length}）</summary><Panel title="本人反馈工单">{s.feedback.length ? s.feedback.map((f) => <article className="record" key={f.id}><h3>{f.id} · {f.status}</h3><p>{f.object} · {f.text}</p><p>处理回执：{f.reply || "\u5F85\u5904\u7406\uFF1B\u4E0D\u4F1A\u76F4\u63A5\u4FEE\u6539\u4E2A\u4EBA\u4E8B\u5B9E\u3002"}</p></article>) : <GuidedStart title="查看反馈进度与回复" description="可反馈某个结论、引用或操作问题。提交时说明具体对象与版本；未提交时，这里不会生成工单。" steps={['找到有疑问的页面、对象或版本。','只提交需要处理的片段，不附无关私人资料。','保留工单编号，在此查看状态与回复。']}><B primary onClick={feedback}>提交具体版本反馈</B>{link('/assessment?tab=四维与差距','回看评估依据','button')}{link('/assistant','回看AI讨论','button')}</GuidedStart>}</Panel></details>}</AccountWorkspace>;
   }
   function adminPage() {
     if (s.role === "student") return <Empty title="当前演示角色没有管理职责"><p>原型只模拟角色分离，不代表真实鉴权。请在演示设置选择对应职责，再打开工作区。管理员不默认获得私人简历访问权。</p><B onClick={() => open("fixture")}>选择演示职责</B>{link("/app", "\u8FD4\u56DE\u672C\u4EBA\u5DE5\u4F5C\u533A")}</Empty>;
@@ -1166,7 +1171,8 @@ function App() {
           update({ logged: false });
           open("auth", { intent: url });
           tell("\u5DF2\u6A21\u62DF\u4F1A\u8BDD\u8FC7\u671F\uFF0C\u5141\u8BB8\u7684\u672C\u5730\u8349\u7A3F\u4FDD\u7559\uFF0C\u91CD\u65B0\u8BA4\u8BC1\u540E\u6062\u590D\u3002");
-        }}>模拟会话过期</B><B onClick={() => confirmAction("\u91CD\u7F6E\u5168\u90E8\u672C\u5730\u539F\u578B\u6570\u636E\uFF1F", "\u6E05\u7A7A\u5F53\u524D\u793A\u4F8B\u5E76\u8FD4\u56DE\u516C\u5F00\u9996\u9875\u3002", () => {
+        }}>模拟会话过期</B><B onClick={() => confirmAction("\u91CD\u7F6E\u5168\u90E8\u672C\u5730\u539F\u578B\u6570\u636E\uFF1F", "\u6E05\u7A7A\u5F53\u524D\u793A\u4F8B\u5E76\u8FD4\u56DE\u516C\u5F00\u9996\u9875\u3002", async () => {
+          if(!await clearLocalResourceFiles())return;
           setS(fresh());
           move("/");
         })}>重置全部示例</B><B onClick={close}>完成设置并返回</B></div></>;
@@ -1204,18 +1210,3 @@ function App() {
  {aiSide && s.logged && <Modal title="AI 上下文侧栏 · 同一会话" drawer className="cheese-context-drawer" companion="perch" onClose={() => setAiSide(false)}>{aiContent(true)}</Modal>}{dialogContent()}<StatusToast message={toast} revision={toastRevision} onDismiss={()=>setToast("")}/></>;
 }
 createRoot(document.getElementById("root")).render(<App />);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

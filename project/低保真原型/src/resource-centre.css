@@ -1,0 +1,43 @@
+html body #root#root#root#root #main .resource-centre {
+ & .resource-filter-note{font-size:13px;line-height:1.8;margin:25px 0 0;color:#526985}
+ & .learning-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+ & .resource-completed-link{align-self:center;padding:8px;font-size:13px}
+ & .learning-card-intro .actions>button{min-height:44px}
+ & .learning-collections>button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:46px;border:0;border-radius:12px;background:transparent;padding:12px 14px;text-align:left}
+ & .learning-collections>button[aria-pressed=true]{background:#e5f1f9;color:#074d86;font-weight:650}
+ & .learning-collections>button small{font-variant-numeric:tabular-nums;font-weight:400}
+ & .personal-resource-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+ & .personal-resource-heading>button{flex:none;min-height:44px;border-radius:14px}
+ & .personal-resource-heading p{max-width:64ch}
+ & .personal-resource-card .learning-card-body{display:flex;flex-direction:column;align-items:flex-start}
+ & .personal-resource-card h3{margin:10px 0;font-size:20px;line-height:1.55;overflow-wrap:anywhere}
+ & .personal-resource-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;color:#526985}
+ & .resource-source-label{background:#e8f3fb;color:#07518e;padding:4px 9px;border-radius:6px}
+ & .resource-description{margin:0 0 12px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere;max-width:80ch}
+ & .resource-contribution{display:flex;gap:12px;margin:0 0 8px;line-height:1.8;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+ & .resource-contribution strong{flex:none}
+ & .personal-resource-card .actions{margin:8px 0 0;gap:12px;align-items:center;max-width:100%}
+ & .personal-resource-card .actions :is(a,button){min-height:44px;border-radius:22px}
+ & .resource-file-name{font-size:12px;overflow-wrap:anywhere;min-width:0}
+ & .resource-project-details{width:100%;margin-top:12px;border-top:1px solid #e2e8ed;font-size:13px}
+ & .resource-project-details>summary{padding:12px 0;cursor:pointer;min-height:44px;box-sizing:border-box}
+ & .resource-project-details dl{margin:0 0 12px}
+ & .resource-project-details dl>div{display:flex;gap:16px;margin:8px 0}
+ & .resource-project-details dd{margin:0}
+ & .resource-upload-form{padding:24px;margin:0 0 22px;background:#fffefa;border:1px solid #dce7ef;border-radius:18px}
+ & .resource-upload-form h3{margin:0 0 8px;font-size:20px}
+ & .resource-upload-form>p{margin:0 0 18px;font-size:13px;line-height:1.7}
+ & .resource-form-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px}
+ & .resource-upload-form .field{margin-bottom:16px}
+ & .resource-upload-form :is(input:not([type=checkbox]),textarea,select){width:100%;max-width:100%;min-width:0;box-sizing:border-box;border:1px solid #ccd8e2;background:#fff;border-radius:10px;padding:11px 12px;color:#123d6b;font:inherit}
+ & .resource-upload-form textarea{resize:vertical;line-height:1.7}
+ & .resource-upload-form .check{font-size:13px;line-height:1.8;align-items:flex-start}
+ & .resource-upload-form .check input{margin-top:5px}
+ & .resource-upload-form .actions{margin:18px 0 0}
+ & .resource-notice{padding:12px 16px;background:#edf6fc;border:1px solid #d1e5f2;border-radius:10px;color:#124d7c;line-height:1.7}
+ & .resource-error{padding:12px 16px;background:#fff7f1;border:1px solid #c98f69;border-radius:10px;color:#783b20;line-height:1.7}
+ & .resource-remove-confirm{padding:12px 0}
+ & .resource-remove-confirm p{margin:0 0 12px}
+ & .resource-remove-confirm button+button{margin-left:8px}
+ & .resource-upload-form :is(button,a),& .resource-project-details button{min-height:44px}
+}

@@ -1,4 +1,3 @@
-import {executionState} from './action-cycle-model.js';
 import { confirmed } from './model.js';
 
 const entry = (to, label) => ({ to, label });
@@ -44,20 +43,14 @@ export function flowNavigation(s, path, tab = '', search = '') {
       if (params.get('step') === 'record') return item(entry(route, '上一步：实践目标'), entry(`/plan?tab=复盘&task=${encodeURIComponent(task.id)}`, '下一步：整理行动复盘'), task.note.trim() ? '行动结果草稿已保留；接下来整理反馈、困难和调整，不会自动标记完成。' : '请先记录实际行动与结果；尚未发生的部分保留未知，不编造成果。', entry('/plan?tab=执行', '返回任务列表'));
       return item(entry('/plan?tab=执行', '上一步：计划执行'), entry(`${route}&step=record`, '下一步：记录实践结果'), '这是实践验证环节：在站外行动，在本页记录本人实际做过的事。');
     }
-    if (tab === '执行' && params.get('view') !== 'calendar') {
-      const current = executionState(s, params.get('taskFilter') || 'all', params.get('task'));
-      return item(entry('/plan', '上一步：目标计划'), current.selected
-        ? {...entry('#action-selected-detail', '查看选中行动'), action:'selected-action'}
-        : entry(s.tasks.length ? '/plan?tab=执行' : '/learning', s.tasks.length ? '查看全部行动' : '下一步：选择学习实践'),
-        current.selected ? '查看当前选中行动的交付、已有记录与下一步；开始或恢复仍需核对依赖和预算。'
-        : s.tasks.length ? '当前筛选或引用没有可选行动，可返回全部行动重新选择。' : '还没有有效待办；先选一个实践，再按预算确认创建任务。');
-    }
+    if (tab === '执行') return null;
     if (tab === '复盘') {
       const task = s.tasks.find(t => t.id === params.get('task'));
       return item(entry(task ? taskRoute(s, task) : practice, '上一步：实践验证'), entry('/reports', '下一步：整理职业报告'), '请先保存复盘记录，再进入职业报告。');
     }
     return item(entry(tab === '执行' ? '/plan' : gap, tab === '执行' ? '上一步：目标计划' : '上一步：差距与未知'), entry(practice, practice !== '/learning' ? '下一步：进入实践验证' : '下一步：选择学习实践'), active ? `带着“${active.title}”进入实践，先记录产物，再整理反馈与复盘。` : practice !== '/learning' ? '可查看已有行动成果，或在计划中安排下一次实践。' : '还没有有效待办；先选一个实践，再按预算确认创建任务。', s.analysisStale ? entry(gap, '复查变化的依据') : null);
   }
+  if (path === '/learning' && (params.has('task')||tab==='我的资源')) return null;
   if (path === '/learning') return item(entry('/plan', '上一步：目标计划'), entry(active ? practice : '/plan', active ? '下一步：进入实践任务' : '下一步：安排实践任务'), active ? `已有“${active.title}”，可以返回同一任务继续。` : '先查看学习内容，准备实践时再检查每周可用时间并创建任务。', entry('/reports', '先整理已有探索记录'));
   if (path.startsWith('/work/')) {
     let requestedId=null;

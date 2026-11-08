@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080">
+ <defs><style>text{font-family:'Microsoft YaHei','Noto Sans SC',sans-serif;fill:#114879;font-size:16px}.muted{fill:#7387a1;font-size:14px}.heading{font-size:24px;font-weight:700}.label{font-size:18px;font-weight:700}.small{font-size:13px}</style></defs>
+ <rect width="1440" height="1080" fill="#fcf9f1"/>
+ <text class="muted" x="32" y="28">实施前桌面结构方案 · 非用户确认稿 · 条目仅作结构占位</text>
+ <text class="heading" x="32" y="76">学习与实践中心</text>
+ <rect x="1120" y="45" width="288" height="48" rx="15" fill="#f1f0e9"/><rect x="1125" y="50" width="137" height="38" rx="12" fill="#e4f1f8"/><text x="1160" y="75">资源中心</text><text x="1300" y="75">我的资源</text>
+ <rect x="32" y="116" width="214" height="334" rx="18" fill="#fff" stroke="#e5dfd3"/>
+ <text class="label" x="52" y="154">筛选项目</text><text class="muted" x="52" y="196">项目方向</text><rect x="52" y="210" width="174" height="42" rx="10" fill="#fff" stroke="#d9dfdf"/><text x="66" y="237">全部方向</text><text class="muted" x="52" y="292">预计投入</text><rect x="52" y="308" width="174" height="42" rx="10" fill="#fff" stroke="#d9dfdf"/><text x="66" y="335">全部</text><text class="small" x="52" y="405">清除筛选</text>
+ <text class="heading" x="270" y="148">选择一个项目，开始实践</text><text class="muted" x="270" y="178">浏览网站提供的实践项目；完成后的项目会收录到“我的资源”。</text>
+ <rect x="270" y="204" width="1138" height="198" rx="18" fill="#fff" stroke="#e5dfd3"/>
+ <rect x="290" y="224" width="116" height="158" rx="13" fill="#eef4f7"/><path d="M325 267h44v52h-44z M334 279h25 M334 290h25 M334 301h18" fill="none" stroke="#173b5c" stroke-width="5"/>
+ <text class="label" x="430" y="247">实践项目名称</text><text class="muted" x="430" y="278">职业方向 · 预计投入 · 中文</text><text x="430" y="311">项目成果要求与实践范围</text><rect x="430" y="333" width="122" height="42" rx="20" fill="#ffd232" stroke="#d8af1e"/><text x="460" y="360">开始实践</text><rect x="564" y="333" width="118" height="42" rx="20" fill="#eef5fb" stroke="#dceaf5"/><text x="591" y="360">查看详情</text>
+ <rect x="270" y="418" width="1138" height="86" rx="18" fill="#fff" stroke="#e5dfd3"/><text class="label" x="295" y="453">其他平台实践项目</text><text class="muted" x="295" y="481">保留任务范围、基础要求与成果要求；低频说明按需展开。</text>
+ <path d="M32 538h1376" stroke="#dedbd2"/>
+ <text class="heading" x="32" y="580">我的资源</text><text class="muted" x="32" y="610">保存已完成的项目成果，区分平台实践与自主上传。</text>
+ <rect x="1120" y="548" width="288" height="48" rx="15" fill="#f1f0e9"/><rect x="1266" y="553" width="137" height="38" rx="12" fill="#e4f1f8"/><text x="1160" y="578">资源中心</text><text x="1300" y="578">我的资源</text>
+ <rect x="32" y="638" width="214" height="286" rx="18" fill="#fff" stroke="#e5dfd3"/><text class="label" x="52" y="676">项目来源</text><rect x="48" y="697" width="182" height="46" rx="12" fill="#e4f1f8"/><text x="65" y="726">全部项目</text><text x="65" y="780">平台实践</text><text x="65" y="834">自主上传</text>
+ <text class="heading" x="270" y="675">我的项目成果</text><rect x="1250" y="640" width="158" height="44" rx="20" fill="#ffd232" stroke="#d8af1e"/><text x="1282" y="668">＋ 上传项目</text>
+ <rect x="270" y="704" width="1138" height="108" rx="18" fill="#fff" stroke="#e5dfd3"/><text class="label" x="294" y="740">已完成的平台实践项目</text><text class="muted" x="294" y="771">来源：平台实践 · 完成状态来自任务记录</text><text x="1284" y="763">查看成果 →</text>
+ <rect x="270" y="828" width="1138" height="108" rx="18" fill="#fff" stroke="#e5dfd3"/><text class="label" x="294" y="864">用户上传的已完成项目</text><text class="muted" x="294" y="895">来源：自主上传 · 项目说明与成果附件</text><text x="1284" y="887">查看项目 →</text>
+ <text class="small" x="270" y="977">空状态：尚无项目成果时，提供“去资源中心实践”和“上传项目”；不填充示例进度。</text>
+ <text class="small" x="270" y="1006">仅阅读、收藏及进行中的任务不进入“我的资源”；任务执行继续使用原有流程。</text>
+ <text class="muted" x="32" y="1053">页面局部先行结构图，沿用当前电脑网页视觉；没有新增移动端设计。</text>
+</svg>

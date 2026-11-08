@@ -130,7 +130,11 @@ try{
   assert.equal(path(page),'/plan');await capture(page,'1440-匀速卷入-25百分比');
   samples.push(await freezeAt(page,.5));
   await page.waitForFunction(()=>location.pathname==='/plan/goals');
-  await manager(page);await capture(page,'1440-连续扫过中点-50百分比');
+  await manager(page);
+  const coveredSheets=await page.locator('.cheese-page-sheet').evaluateAll(sheets=>sheets.map(sheet=>{const {x,y,right,bottom,width,height}=sheet.getBoundingClientRect();return{x,y,right,bottom,width,height};}));
+  const coveredBounds=await contentBounds(page);
+  assert.ok(coveredSheets.every(sheet=>sheet.x<=coveredBounds.overlay.x&&sheet.y<=coveredBounds.overlay.y&&sheet.right>=coveredBounds.overlay.right&&sheet.bottom>=coveredBounds.overlay.bottom),'each nested sheet must span the visible content at the commit midpoint');
+  await capture(page,'1440-连续扫过中点-50百分比');
   samples.push(await freezeAt(page,.75));await capture(page,'1440-匀速退场-75百分比');
   assert.ok(samples.every(sample=>sample.sameAnimation),'the original plane animation must survive the route commit');
   const firstStep={x:samples[1].x-samples[0].x,y:samples[1].y-samples[0].y},secondStep={x:samples[2].x-samples[1].x,y:samples[2].y-samples[1].y};
@@ -144,7 +148,7 @@ try{
   assert.equal(await page.evaluate(KEY=>localStorage.getItem(KEY),KEY),main);
   assert.equal(await page.evaluate(key=>localStorage.getItem(key),stageStorageKey('local')),records);
   assert.equal(await page.locator('.cheese-page-transition').isVisible(),false);
-  return{geometry,events,samples,firstStep,secondStep,timing:await declaredTiming(page)};
+  return{geometry,events,samples,coveredSheets,firstStep,secondStep,timing:await declaredTiming(page)};
  });
 
  await check('键盘进入与重复激活只写入一次历史',{},async page=>{

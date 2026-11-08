@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {scenarioState} from '../src/model.js';import {operationFlow,operationSteps,initialOperationStep,tourSnapshot,readOperationGuide,saveOperationGuide,finishOperationGuide,operationLabels,operationBubblePosition,OPERATION_GUIDE_KEY} from '../src/operation-guide-model.js';
 const context=(path='/careers',tab='',scene='PT01')=>({s:scenarioState(scene),path,tab,search:tab?'?tab='+encodeURIComponent(tab):'',modal:null});
+test('今日任务和指定学习任务的引导使用原任务入口，不提示另建任务',()=>{const c=context('/plan','执行','PT05'),plan=operationSteps('plan',c);assert.equal(plan.length,1);assert.equal(plan[0].target.scope,'.daily-execution');assert.deepEqual(plan[0].target.text,['去完成']);c.path='/learning';c.search='?task=task-demo&unit=quality';const learning=operationSteps('learning',c);assert.equal(learning.length,1);assert.equal(learning[0].target.selector,'.learning-task-focus .actions .primary');assert.equal(learning[0].route,'/learning?task=task-demo&unit=quality');assert.equal(learning[0].done({...c,path:'/work/task-demo'}),true);});
 
 test('guide target text is a searchable list for every workflow, including career tabs',()=>{
  const c=context();

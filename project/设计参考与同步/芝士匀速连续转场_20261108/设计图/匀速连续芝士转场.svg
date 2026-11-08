@@ -41,15 +41,15 @@
   </g>
   <g id="layers">
    <use href="#melt" fill="#dda43a"/>
-   <use href="#melt" transform="translate(-30,-7)" fill="#f1bf53" stroke="#b67b24" stroke-opacity=".12" stroke-width="6" stroke-linejoin="round"/>
-   <use href="#melt" transform="translate(-65,-4)" fill="#ffdb7c" stroke="#fff7d4" stroke-opacity=".7" stroke-width="5" stroke-linejoin="round"/>
-   <use href="#melt" transform="translate(-102,-12)" fill="#ffedb3" stroke="#fff7d4" stroke-opacity=".85" stroke-width="4" stroke-linejoin="round"/>
+   <use href="#melt" transform="translate(22.5,0) scale(.9,1)" fill="#f1bf53" stroke="#b67b24" stroke-opacity=".12" stroke-width="6" stroke-linejoin="round"/>
+   <use href="#melt" transform="translate(45,0) scale(.8,1)" fill="#ffdb7c" stroke="#fff7d4" stroke-opacity=".7" stroke-width="5" stroke-linejoin="round"/>
+   <use href="#melt" transform="translate(67.5,0) scale(.7,1)" fill="#ffedb3" stroke="#fff7d4" stroke-opacity=".85" stroke-width="4" stroke-linejoin="round"/>
    <g fill="#d4a447" opacity=".16"><ellipse cx="112" cy="91" rx="8" ry="5"/><ellipse cx="235" cy="163" rx="5" ry="4"/><ellipse cx="311" cy="53" rx="8" ry="6"/><ellipse cx="57" cy="224" rx="5" ry="4"/></g>
   </g>
  </defs>
  <rect width="1400" height="970" fill="#f6f7f9"/>
  <text x="40" y="48" class="title">匀速连续芝士波浪 · 分类内页面转场</text>
- <text x="40" y="78" class="sub">先行设计分镜 / 待实现与验收　　方向：左上 → 右下　　总时长：约 480 ms</text>
+ <text x="40" y="78" class="sub">先行设计分镜 / 已实现与验收　　方向：左上 → 右下　　总时长：480 ms</text>
  <g transform="translate(40,130)">
   <text y="-15" class="label">01　匀速卷入 / 0–约 240 ms</text>
   <use href="#shell"/><use href="#oldpage"/>
