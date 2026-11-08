@@ -2,7 +2,7 @@ const tabs={
  '/assessment':['准备总览','资料经历','原文确认','四维与差距','成果档案','当前简历'],
  '/careers':['职业方向','比较','企业与岗位','我的机会'],
  '/plan':['计划总览','执行','复盘'],
- '/learning':['路线与资源','短体验','综合项目'],
+ '/learning':['资源中心','我的资源'],
  '/work':['当前任务','笔记与阅读','尝试与反馈','贡献与表达','完成回执'],
  '/reports':['职业报告','岗位简历'],
  '/assistant':['咨询与方案','自然语言检索'],
@@ -13,6 +13,7 @@ const tabs={
  '/admin/content':['职业技能','关系先修','学习项目','发布历史']
 };
 const aliases={
+ '/learning':{'路线与资源':'资源中心','短体验':'资源中心','综合项目':'资源中心'},
  '/assessment':{'资料与经历':'资料经历','提取与确认':'原文确认','职业评估':'四维与差距','我的画像':'成果档案','我的简历':'当前简历'},
  '/plan':{'日程':'执行','本周日程':'执行'},
  '/career-map':{'职业地图':'职业关系'},
@@ -22,6 +23,11 @@ const aliases={
 // Keep object IDs, filters, return locations and hashes while repairing only tab.
 export function normalizeWorkspaceRoute(value){
  const url=new URL(value,'http://prototype.local');
+ const periods=['week','month','year'];
+ if(url.pathname==='/plan'&&url.searchParams.has('goalForm')){const period=url.searchParams.get('goalForm');url.pathname='/plan/goals';url.searchParams.set('period',periods.includes(period)?period:'week');for(const key of ['goalForm','goalView','tab'])url.searchParams.delete(key);}
+ if(url.pathname==='/plan/goals'){url.searchParams.delete('tab');const period=url.searchParams.get('period');if(period&&!periods.includes(period))url.searchParams.set('period','week');}
+ if(url.pathname==='/plan'&&url.searchParams.get('goalView')==='undated'){url.pathname='/plan/schedule';url.searchParams.delete('goalView');url.searchParams.delete('tab');}
+ if(url.pathname==='/plan/schedule'){url.searchParams.delete('tab');url.searchParams.delete('goalView');if(url.searchParams.get('goal')?.trim())url.searchParams.delete('task');else url.searchParams.delete('goal');}
  const key=url.pathname.startsWith('/work/')?'/work':url.pathname.startsWith('/reports/')?'/reports':url.pathname;
  const folds={'/careers':{'薪酬参考':['企业与岗位','focus','salary']},'/plan':{'方案调整':['计划总览','adjust','1']},'/settings':{'资料授权':['资料与隐私','section','authorization'],'导出与删除':['资料与隐私','section','data'],'反馈状态':['偏好与通知','section','feedback'],'偏好与支持':['偏好与通知']}};
  const folded=folds[key]?.[url.searchParams.get('tab')];

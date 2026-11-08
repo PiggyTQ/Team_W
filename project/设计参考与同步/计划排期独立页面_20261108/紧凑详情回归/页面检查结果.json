@@ -1,0 +1,99 @@
+{
+  "results": [
+    {
+      "name": "三个计划编辑同屏-1024",
+      "status": "pass",
+      "samples": [
+        {
+          "id": "actions",
+          "controls": 11,
+          "clipped": [],
+          "body": {
+            "height": 138,
+            "total": 138,
+            "top": 0
+          }
+        },
+        {
+          "id": "review",
+          "controls": 6,
+          "clipped": [],
+          "body": {
+            "height": 183,
+            "total": 183,
+            "top": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "三个计划编辑同屏-1440",
+      "status": "pass",
+      "samples": [
+        {
+          "id": "actions",
+          "controls": 11,
+          "clipped": [],
+          "body": {
+            "height": 136,
+            "total": 136,
+            "top": 0
+          }
+        },
+        {
+          "id": "review",
+          "controls": 6,
+          "clipped": [],
+          "body": {
+            "height": 181,
+            "total": 181,
+            "top": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "三个计划编辑同屏-1920",
+      "status": "pass",
+      "samples": [
+        {
+          "id": "actions",
+          "controls": 11,
+          "clipped": [],
+          "body": {
+            "height": 136,
+            "total": 136,
+            "top": 0
+          }
+        },
+        {
+          "id": "review",
+          "controls": 6,
+          "clipped": [],
+          "body": {
+            "height": 181,
+            "total": 181,
+            "top": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "长清单返回位置与焦点",
+      "status": "pass"
+    },
+    {
+      "name": "长文本与出错时操作栏可见",
+      "status": "pass"
+    },
+    {
+      "name": "en-窗口-1024",
+      "status": "pass"
+    },
+    {
+      "name": "zh-窗口-900",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

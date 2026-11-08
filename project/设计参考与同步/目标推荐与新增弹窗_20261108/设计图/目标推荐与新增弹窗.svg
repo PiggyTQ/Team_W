@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1280" viewBox="0 0 1440 1280">
+ <style>text{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#183d64;font-size:16px}.title{font-size:30px;font-weight:700}.heading{font-size:21px;font-weight:700}.muted{fill:#61758d;font-size:14px}.button{fill:#214e7f;font-size:14px}.white{fill:white;font-size:14px}.small{font-size:13px}</style>
+ <rect width="1440" height="1280" fill="#faf7ef"/>
+ <text x="40" y="42" class="muted">先行局部设计 · 桌面网页 · 不是用户确认稿 · 2026-11-08</text>
+ <text x="40" y="94" class="title">目标编辑</text><text x="40" y="132" class="muted">← 返回目标与行动计划</text>
+ <rect x="40" y="155" width="348" height="44" rx="18" fill="#f4efdf"/><rect x="40" y="155" width="116" height="44" rx="18" fill="#e7eff5"/>
+ <text x="65" y="183">周目标 0</text><text x="181" y="183">月目标 0</text><text x="297" y="183">年目标 0</text>
+ <text x="40" y="242" class="heading">我的周目标</text><text x="40" y="268" class="muted">当前自然周</text><text x="1300" y="249" class="button">查看目标 →</text>
+ <rect x="40" y="292" width="650" height="310" rx="14" fill="white" stroke="#d2dfed"/><rect x="714" y="292" width="686" height="310" rx="14" fill="white" stroke="#d2dfed"/>
+ <text x="62" y="333" class="heading">目标清单</text><rect x="556" y="311" width="112" height="40" rx="8" fill="#f4f7fb" stroke="#d2dfed"/><text x="575" y="337" class="button">＋ 新增目标</text>
+ <rect x="62" y="372" width="606" height="207" rx="10" fill="#f5f8fc" stroke="#d2dfed" stroke-dasharray="4 3"/><text x="253" y="451" class="heading">您当前没有指定目标</text><text x="185" y="485" class="muted">点击“新增目标”，或从右侧推荐目标中一键加入。</text><text x="245" y="515" class="muted">目标制定后可在“待排期”中安排。</text>
+ <text x="736" y="333" class="heading">推荐加入的目标</text><text x="736" y="360" class="muted">选择适合自己的目标，加入后再安排具体行动。</text>
+ <rect x="736" y="379" width="642" height="88" rx="9" fill="#fafcff" stroke="#dbe5ef"/><text x="754" y="408">推荐目标名称</text><text x="754" y="437" class="muted">展示建议内容与目标说明</text><rect x="1260" y="402" width="100" height="40" rx="8" fill="#183f6a"/><text x="1282" y="428" class="white">一键加入</text>
+ <rect x="736" y="480" width="642" height="88" rx="9" fill="#fafcff" stroke="#dbe5ef"/><text x="754" y="510">推荐目标名称</text><text x="754" y="538" class="muted">已加入的建议保持明确状态，避免重复加入</text><rect x="1260" y="503" width="100" height="40" rx="8" fill="#eaf0f6"/><text x="1289" y="529" class="button">已加入</text>
+ <rect x="40" y="624" width="1360" height="54" rx="10" fill="#f5f8fc" stroke="#d2dfed"/><text x="62" y="657" class="muted">▸ 职业方向与预览</text>
+ <text x="40" y="731" class="heading">点击“＋新增目标”后</text><text x="340" y="731" class="muted">默认不显示表单；编辑已有目标也由相应入口打开。</text>
+ <rect x="40" y="753" width="1360" height="452" rx="14" fill="#183d64" fill-opacity=".12"/>
+ <rect x="360" y="778" width="720" height="400" rx="16" fill="white" stroke="#cad8e6"/>
+ <text x="386" y="820" class="heading">新增目标</text><text x="1033" y="820">×</text>
+ <text x="386" y="857" class="muted">目标名称</text><rect x="386" y="869" width="668" height="42" rx="7" fill="white" stroke="#bfcfe1"/>
+ <text x="386" y="942" class="muted">优先级</text><text x="658" y="942" class="muted">截止日期</text><rect x="386" y="952" width="250" height="42" rx="7" fill="white" stroke="#bfcfe1"/><text x="401" y="979">中</text><rect x="658" y="952" width="396" height="42" rx="7" fill="white" stroke="#bfcfe1"/><text x="672" y="979" class="muted">当前周期内的日期</text>
+ <text x="386" y="1025" class="muted">目标说明（年度目标另有里程碑）</text><rect x="386" y="1036" width="668" height="61" rx="7" fill="white" stroke="#bfcfe1"/>
+ <rect x="386" y="1117" width="144" height="40" rx="8" fill="#183f6a"/><text x="401" y="1143" class="white">保存目标到本机</text><rect x="542" y="1117" width="100" height="40" rx="8" fill="#f4f7fb" stroke="#d2dfed"/><text x="563" y="1143" class="button">取消编辑</text><text x="726" y="1142" class="muted">不要求填写完成进度</text>
+ <text x="40" y="1243" class="muted">保存 / 一键加入 → 目标清单和周期数量更新 → 待排期出现目标；截止日期不等于已安排的执行日期。</text>
+</svg>

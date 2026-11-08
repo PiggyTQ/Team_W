@@ -13,7 +13,7 @@ import ServerSaveStatus from './ServerSaveStatus';
 import CoursePlaceholder from './CoursePlaceholder';
 import CourseReader,{CoursePractice,CourseTaskMaterials,CourseTaskReading} from './CourseReader';
 import AccountSecurityPanel from './AccountSecurityPanel';
-import {CareerKnowledge,KnowledgeIndex,ServerReportExport,PracticeTemplates} from './CatalogData';
+import {CareerKnowledge,KnowledgeIndex,ServerReportExport} from './CatalogData';
 import {SERVER_AUTH,apiRequest,authRequest,credentialsFromForm} from './auth-client';
 import {authMessage,validateCredentials,safeAuthTarget} from './auth-contract';
 import SettingsPreferences from './SettingsPreferences';
@@ -33,6 +33,9 @@ import {canRejectClaim,rejectClaimCandidate} from './model';
 import {validCompareIds,reviewReminders,workspaceAnchor} from './site-quality-model';
 import './site-quality.css';
 import ExecutionDesk from './ExecutionDesk';
+import LearningTaskFocus from './LearningTaskFocus';
+import MyResources from './MyResources';
+import {clearResourceProjects,resourceProjectErrorMessage} from './resource-project-client';
 import ReviewDesk from './ReviewDesk';
 import './action-cycle.css';
 import React, { useState, useEffect, useRef } from "react";
@@ -79,6 +82,7 @@ import FlowNavigation from "./FlowNavigation";
 import WorkspaceContextBar from "./WorkspaceContextBar";
 
 import UnifiedPlan from './UnifiedPlan';
+import useCheesePageTransition from './CheesePageTransition';
 import {TaskEditor,TaskExecutionList,ReviewEditor,AINoteEditor} from './TaskEditing';
 import {stoppedTask} from './task-edit-model';
 import './task-editing.css';
@@ -228,12 +232,14 @@ function App() {
   const storageBlocked=useRef(initialStorage.status!=='ready'),originalStorage=useRef(initialStorage.raw);
   const [s, setS] = useState(initialStorage.state), [url, setUrl] = useState(() => normalizeWorkspaceRoute(readBrowserRoute()).to), [modal, setModal] = useState(null), [form, setForm] = useState({}), [error, setError] = useState(""), [toast, setToast] = useState(""), [aiSide, setAiSide] = useState(false), [mobile, setMobile] = useState(false), [search, setSearch] = useState(""), [careerFilter, setCareerFilter] = useState("\u5168\u90E8"), [claimFilter, setClaimFilter] = useState("\u5168\u90E8"), [authMode, setAuthMode] = useState("\u767B\u5F55"), [importState, setImportState] = useState("idle");
   const [navigationNotice,setNavigationNotice]=useState(() => normalizeWorkspaceRoute(readBrowserRoute()).invalidTab);
+  const {transitionTo,finishTransition,transitionOverlay,transitionBusy}=useCheesePageTransition(url);
   useEffect(()=>{const u=new URL(url,location.origin),section=u.searchParams.get('section');const anchor=u.pathname!=='/'&&u.hash?workspaceAnchor(u.hash):null;const target=anchor|| (u.pathname==='/plan'&&u.searchParams.get('adjust')==='1'?'plan-adjustment':u.pathname==='/careers'&&u.searchParams.get('focus')==='salary'?'salary-context':u.pathname==='/settings'?{'feedback':'settings-feedback','data':'settings-data','authorization':'settings-authorization'}[section]:null);if(!target)return;const frame=requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start'}));return()=>cancelAnimationFrame(frame);},[url]);
   useEffect(()=>{const current=readBrowserRoute(),canonical=normalizeWorkspaceRoute(current);if(canonical.to!==current)history.replaceState({},"",canonical.to);},[]);
   protectUserContent(s,form,{query:search});
-  const timer = useRef(null), urlObj = new URL(url, location.origin), path = urlObj.pathname, tab = urlObj.searchParams.get("tab") || "", id = path.split("/")[2], page = pages.find((p) => p[1] === (path.startsWith("/work") ? "/work" : path.startsWith("/reports") ? "/reports" : path)) || pages[2];
+  const timer = useRef(null), urlObj = new URL(url, location.origin), path = urlObj.pathname, tab = urlObj.searchParams.get("tab") || "", id = path.split("/")[2], page = pages.find((p) => p[1] === (["/plan/goals","/plan/schedule"].includes(path) ? "/plan" : path.startsWith("/work") ? "/work" : path.startsWith("/reports") ? "/reports" : path)) || pages[2];
+  const goalEditing=path==='/plan/goals',scheduling=path==='/plan/schedule',planSubpage=goalEditing||scheduling,pageTitle=goalEditing?'目标编辑':scheduling?'计划排期':page[2];
   const publicRoute=path==='/'||path==='/companion';
-  const sidebarLayout=useSidebarLayout(path,Boolean(modal));
+  const sidebarLayout=useSidebarLayout(path,Boolean(modal)||transitionBusy);
   const update = (fn) => setS((prev) => SERVER_AUTH&&(!authUser?.id||authUser.id!==authSubject.current)?prev:typeof fn === "function" ? fn(prev) : { ...prev, ...fn });
   const [toastRevision,setToastRevision]=useState(0);
   const tell = (msg) => {setToast(msg);setToastRevision(value=>value+1);};
@@ -305,6 +311,7 @@ function App() {
     catch(error){tell(authMessage(error.code,language));}
   };
   const open = (type, data = {}) => {
+    finishTransition();
     setError("");
     if(type==='auth')setAuthFeedback(null);
     setForm(data);
@@ -324,14 +331,17 @@ function App() {
   const move = (to, replace = false, {preserveScroll = false} = {}) => {
     if (!to.startsWith("/") || to.startsWith("//")) return;
     const canonical=normalizeWorkspaceRoute(to);
-    window.history[replace ? "replaceState" : "pushState"]({}, "", canonical.to);
-    setUrl(canonical.to);
-    setNavigationNotice(canonical.invalidTab);
-    setMobile(false);
-    if (!preserveScroll) {
-      window.scrollTo(0, 0);
-      document.getElementById("main")?.scrollTo(0, 0);
-    }
+    sidebarLayout.settle();
+    transitionTo(canonical.to,()=>{
+      window.history[replace ? "replaceState" : "pushState"]({}, "", canonical.to);
+      setUrl(canonical.to);
+      setNavigationNotice(canonical.invalidTab);
+      setMobile(false);
+      if (!preserveScroll) {
+        window.scrollTo(0, 0);
+        document.getElementById("main")?.scrollTo(0, 0);
+      }
+    });
   };
   const go = (to) => {
     if (to.startsWith("/assistant") && path !== "/assistant") update({ aiReturn: url });
@@ -349,7 +359,7 @@ function App() {
     move(withMapReturn(`${path}?tab=${encodeURIComponent(n)}`));
   }}>{path === "/assessment" ? { "\u8D44\u6599\u7ECF\u5386": "\u8D44\u6599\u4E0E\u7ECF\u5386", "\u539F\u6587\u786E\u8BA4": "\u63D0\u53D6\u4E0E\u786E\u8BA4", "\u56DB\u7EF4\u4E0E\u5DEE\u8DDD": "\u804C\u4E1A\u8BC4\u4F30", "\u6210\u679C\u6863\u6848": "\u6211\u7684\u753B\u50CF" }[n] || n : path === "/settings" && n === "偏好与通知" ? "偏好与支持" : n}</a>)}</SegmentedControl>;
   const link = (to, label, cls = "") => <a className={cls} href={withMapReturn(to)} onClick={(e) => {
-    if (!e.metaKey && !e.ctrlKey) {
+    if (e.button===0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
       e.preventDefault();
       go(withMapReturn(to));
     }
@@ -364,9 +374,12 @@ function App() {
       if(readMailLink())return;
       const current=readBrowserRoute(),canonical=normalizeWorkspaceRoute(current);
       if(canonical.to!==current)history.replaceState({},"",canonical.to);
-      setUrl(canonical.to);
-      setNavigationNotice(canonical.invalidTab);
-      setModal(null);
+      sidebarLayout.settle();
+      transitionTo(canonical.to,()=>{
+        setUrl(canonical.to);
+        setNavigationNotice(canonical.invalidTab);
+        setModal(null);
+      },{interrupt:true});
     };
     addEventListener("popstate", pop);
     addEventListener("hashchange", pop);
@@ -383,10 +396,11 @@ function App() {
     if (s.logged && urlObj.searchParams.get("precheck") === "1") precheck();
   }, [url, s.logged]);
   useEffect(() => {
-    document.title = path==='/companion'?(language==='en'?'Meet Cheese Scholar · Avemly':'认识芝识分子 · Avemly'):language==='en'?`${displayText(page[2])} · Avemly`:`${page[2]} · Avemly`;
-  }, [page[2],language,path]);
+    document.title = path==='/companion'?(language==='en'?'Meet Cheese Scholar · Avemly':'认识芝识分子 · Avemly'):language==='en'?`${displayText(pageTitle)} · Avemly`:`${pageTitle} · Avemly`;
+  }, [pageTitle,language,path]);
   const setTask = (tid, patch) => update((x) => ({ ...x, tasks: x.tasks.map((t) => t.id === tid ? { ...t, ...typeof patch === "function" ? patch(t) : patch } : t) }));
   const confirmAction = (title, impact, action) => open("confirm", { title, impact, action });
+  const clearLocalResourceFiles=async()=>{try{await clearResourceProjects();return true;}catch(error){tell(resourceProjectErrorMessage(error));return false;}};
   const persistCurrentRecords=()=>{
     if(SERVER_AUTH){workspace.flush().catch(error=>tell(authMessage(error.code,language)));return;}
     const result=savePrototypeState(prototypeStorage,s);
@@ -570,19 +584,19 @@ function App() {
   function planPage() {
     const practiceId = urlObj.searchParams.get("practice");
     if (tab === "执行" && practiceId !== null) return <ExternalPractice s={s} task={s.tasks.find(t => t.id === practiceId)} record={urlObj.searchParams.get("step") === "record"} link={link} setTask={setTask} open={open} tell={tell} />;
-    const unified = tab !== '复盘' && (tab !== '执行' || urlObj.searchParams.get('view') === 'calendar');
+    const unified = planSubpage || tab !== '复盘' && tab !== '执行';
     const planMode = unified ? '计划总览' : '执行';
-    return <><PageHead title={tab === '复盘' ? '实践复盘' : unified ? '目标与行动计划' : '行动推进台'} description={tab === '复盘' ? '记录实际结果、反馈、困难与下一步。' : '从目标到每周安排，在同一处规划和推进。'} /><SegmentedControl className="tabs" aria-label="页面模式">{[['计划总览','计划制定'],['执行','计划执行']].map(([mode,label])=>React.cloneElement(link('/plan?tab='+encodeURIComponent(mode),label),{key:mode,'aria-current':planMode===mode?'page':undefined}))}</SegmentedControl>
- {unified&&SERVER_AUTH&&<CareerKnowledge career={s.goal||'data'} precheck={precheck} link={link}/>}
- {unified && <UnifiedPlan s={s} open={open} link={link} precheck={precheck} startTask={startTask} update={update} adjustment={<PlanAdjustment s={s} open={open} update={update} expanded={urlObj.searchParams.get('adjust')==='1'}/>} />}
- {tab === '执行' && !unified && <div className="action-cycle"><ExecutionDesk s={s} url={url} link={link} open={open} startTask={startTask} precheck={precheck} viewSwitch={<SegmentedControl as="div" className="task-view-switch" role="group" aria-label="行动显示方式">{link('/plan?tab=执行&view=list','列表','button selected')}{link('/plan#weekly-actions','日程','button')}</SegmentedControl>}/></div>}
+    return <><PageHead title={scheduling ? '计划排期' : goalEditing ? '目标编辑' : tab === '复盘' ? '实践复盘' : unified ? '目标与行动计划' : '行动推进台'} description={scheduling ? '统一安排目标与行动，确认后同步到待行动和日历。' : goalEditing ? '按周、月、年统一制定和管理目标。' : tab === '复盘' ? '记录实际结果、反馈、困难与下一步。' : '从目标到每周安排，在同一处规划和推进。'} />{!planSubpage&&<SegmentedControl className="tabs" aria-label="页面模式">{[['计划总览','计划制定'],['执行','计划执行']].map(([mode,label])=>React.cloneElement(link('/plan?tab='+encodeURIComponent(mode),label),{key:mode,'aria-current':planMode===mode?'page':undefined}))}</SegmentedControl>}
+ {unified&&!planSubpage&&SERVER_AUTH&&<CareerKnowledge career={s.goal||'data'} precheck={precheck} link={link}/>}
+ {unified && <UnifiedPlan key={SERVER_AUTH?authUser?.id:'local'} storageScope={SERVER_AUTH?authUser?.id:'local'} command={SERVER_AUTH?workspace.command:null} s={s} open={open} link={link} go={go} goalEditing={goalEditing} scheduling={scheduling} scheduleGoalId={urlObj.searchParams.get('goal')} scheduleTaskId={urlObj.searchParams.get('task')} calendarDate={urlObj.searchParams.get('calendarDate')} goalEditPeriod={urlObj.searchParams.get('period')} goalView={urlObj.searchParams.get('goalView')} precheck={precheck} startTask={startTask} update={update} adjustment={<PlanAdjustment s={s} open={open} update={update} expanded={urlObj.searchParams.get('adjust')==='1'}/>} />}
+ {tab === '执行' && !unified && <ExecutionDesk s={s} link={link}/>}
  {tab === "复盘" && <div className="action-cycle"><ReviewDesk s={s} taskId={urlObj.searchParams.get("task")} update={update} link={link} open={open} go={go} tell={tell}/></div>}
  </>;
   }
   function taskList() {return <TaskExecutionList s={s} url={url} link={link} open={open} startTask={startTask} precheck={precheck}/>;}
   function recordCoursePosition(index,course){update(prev=>({...prev,reading:{...prev.reading,[course.id]:{chapter:index,chapterId:course.chapters[index].id,version:course.content_version,updatedAt:new Date().toISOString()}}}));}
   function learningPage() {
-    return <><PageHead title="学习与实践中心" description="按目标选内容，先阅读，再决定一次实践的范围与投入。" />{tabs(["\u8DEF\u7EBF\u4E0E\u8D44\u6E90", "\u77ED\u4F53\u9A8C", "\u7EFC\u5408\u9879\u76EE"])}<PracticeTemplates precheck={precheck}/><KnowledgeIndex mode="resources" link={link}/><LearningCatalogue live={SERVER_AUTH} catalog={workspace.catalog} catalogError={workspace.catalogError} retryCatalog={workspace.retryCatalog} s={s} tab={tab} url={url} move={move} link={link} open={open} precheck={precheck} update={update} startTask={startTask} /></>;
+    return <><PageHead title="学习与实践中心" description="选择项目开展实践，将完成的成果积累为自己的资源。" />{tabs(['资源中心','我的资源'])}{tab==='我的资源'?<MyResources key={SERVER_AUTH?authUser?.id:'local'} s={s} url={url} move={move} link={link} live={SERVER_AUTH} ownerId={authUser?.id}/>:<><LearningTaskFocus s={s} url={url} link={link} open={open} startTask={startTask}/><LearningCatalogue live={SERVER_AUTH} catalog={workspace.catalog} catalogError={workspace.catalogError} retryCatalog={workspace.retryCatalog} s={s} url={url} move={move} link={link} open={open} precheck={precheck} startTask={startTask}/></>}</>;
   }
   function workPage() {
     const t = s.tasks.find((t2) => t2.id === id);
@@ -668,14 +682,15 @@ function App() {
     return <AccountWorkspace s={s} user={authUser} update={update} link={link} live={SERVER_AUTH}><KnowledgeIndex accountRole="knowledge" link={link}/><PageHead accountRole="heading" title="个人设置与资料管理" description="管理个人背景、站内提醒、授权范围与本机资料。修改偏好后，可先预览对计划的影响。" />{tabs(["\u504F\u597D\u4E0E\u901A\u77E5", "资料与隐私"])}{SERVER_AUTH&&<AccountSecurityPanel accountRole="security" onNotice={tell} user={authUser} sync={workspace} download={download} onDeleted={()=>{clearTimeout(timer.current);authSubject.current=null;setAuthUser(null);setS(fresh());setForm({});setModal(null);setAiSide(false);sessionStorage.removeItem("intent");move("/");tell("账户及在线业务记录已删除；备份按 14 天保留策略到期清除。");}}/>}{activeTab("\u504F\u597D\u4E0E\u901A\u77E5", "\u504F\u597D\u4E0E\u901A\u77E5") && <SettingsPreferences live={SERVER_AUTH} onReceipt={async()=>{try{await workspace.flush();tell("偏好已保存至账户。");}catch(error){tell(authMessage(error.code,language));}}} s={s} update={update} tell={tell} link={link}/>}{tab === "资料与隐私" && <Panel id="settings-authorization" title="按用途选择范围"><p>目前：{SERVER_AUTH?(hasExternalConsent(s)?"已确认 DeepSeek 外发范围":"尚未同意外部模型处理"):(s.authorized?"允许模拟读取选中确认片段":"未授权个人片段，仅通用知识")}。{SERVER_AUTH?"确认外发授权后，问题及所选范围将发送至 DeepSeek。":"没有真实外部传输。"}</p><B onClick={() => open("scope")}>修改资料范围</B><B onClick={() => confirmAction("\u64A4\u56DE\u8D44\u6599\u5904\u7406\u6388\u6743\uFF1F", "停止后续外发，相关消息与笔记停止展示，未应用提议失效。已发送给外部模型的内容无法通过本地撤回追溯收回。", () => {
       update((x) => ({ ...x, aiExternalConsent:null, authorized: false, aiClaimRefs: [], aiScope: ["\u804C\u4E1A\u539F\u521B\u77E5\u8BC6"], proposal: null, aiDraft: "", conversations: x.conversations.map((c) => ({ ...c, messages: c.messages.filter((m) => !m.scope?.includes("\u672C\u4EBA\u786E\u8BA4\u7247\u6BB5")) })) }));
       tell("\u6388\u6743\u5DF2\u64A4\u56DE\uFF0C\u4E2A\u4EBA\u4E0A\u4E0B\u6587\u5DF2\u505C\u6B62\u4F7F\u7528\u3002");
-    })}>撤回授权</B></Panel>}{tab === "资料与隐私" && <><Panel id="settings-data" title="资料与相关分析、报告"><p>材料 {s.claims.length} 项、任务 {s.tasks.length} 项、报告 {s.reports.length} 份。{SERVER_AUTH?"记录保存至当前账户，其他账户无法访问。":"示例保存在当前浏览器，不具备真实账户隔离。"}</p><B onClick={() => download("\u672C\u4EBA\u6570\u636E_\u539F\u578B\u793A\u4F8B.json", JSON.stringify({ ...s, logged: void 0 }, null, 2), "application/json")}>导出本地示例 JSON</B><B onClick={() => confirmAction("\u5220\u9664\u672C\u4EBA\u6750\u6599\u4E0E\u6D3E\u751F\u5185\u5BB9\uFF1F", "\u6750\u6599\u3001\u5206\u6790\u3001\u4F1A\u8BDD\u6B63\u6587\u53CA\u62A5\u544A / \u7B80\u5386\u5F15\u7528\u505C\u6B62\u8BBF\u95EE\uFF1B\u4EFB\u52A1\u5386\u53F2\u4FDD\u7559\u8131\u654F\u72B6\u6001\u3002\u8FD9\u91CC\u53EA\u80FD\u5220\u9664\u672C\u6D4F\u89C8\u5668\u793A\u4F8B\uFF0C\u4E0D\u4EE3\u8868\u771F\u5B9E\u540E\u7AEF\u6216\u5907\u4EFD\u5DF2\u5220\u9664\u3002", () => {
+    })}>撤回授权</B></Panel>}{tab === "资料与隐私" && <><Panel id="settings-data" title="资料与相关分析、报告"><p>材料 {s.claims.length} 项、任务 {s.tasks.length} 项、报告 {s.reports.length} 份。{SERVER_AUTH?"记录保存至当前账户，其他账户无法访问。":"示例保存在当前浏览器，不具备真实账户隔离。"}</p><B onClick={() => download("\u672C\u4EBA\u6570\u636E_\u539F\u578B\u793A\u4F8B.json", JSON.stringify({ ...s, logged: void 0 }, null, 2), "application/json")}>导出本地示例 JSON</B><B onClick={() => confirmAction("\u5220\u9664\u672C\u4EBA\u6750\u6599\u4E0E\u6D3E\u751F\u5185\u5BB9\uFF1F", "\u6750\u6599\u3001\u5206\u6790\u3001\u4F1A\u8BDD\u6B63\u6587\u53CA\u62A5\u544A / \u7B80\u5386\u5F15\u7528\u505C\u6B62\u8BBF\u95EE\uFF1B\u4EFB\u52A1\u5386\u53F2\u4FDD\u7559\u8131\u654F\u72B6\u6001\u3002\u8FD9\u91CC\u53EA\u80FD\u5220\u9664\u672C\u6D4F\u89C8\u5668\u793A\u4F8B\uFF0C\u4E0D\u4EE3\u8868\u771F\u5B9E\u540E\u7AEF\u6216\u5907\u4EFD\u5DF2\u5220\u9664\u3002", async () => {
       clearTimeout(timer.current);
+      if(!SERVER_AUTH&&!await clearLocalResourceFiles())return;
       update(purgePrivateMaterials);
       setSearch("");
       setForm({});
       setAiSide(false);
       tell("\u672C\u5730\u6750\u6599\u5904\u7406\u5B8C\u6210\uFF0C\u771F\u5B9E\u670D\u52A1\u5220\u9664\u672A\u5B9E\u73B0\u3002");
-    })}>查看影响并删除</B></Panel>{SERVER_AUTH?<Panel title="真实账户"><p>当前邮箱：{authUser?.email}。数据按账户保存；修改密码、导出、清空与注销请使用上方“账户安全与服务器数据”。邮件找回尚未接入。</p></Panel>:<Panel title="本机演示账户范围"><p>注销会清除当前浏览器中的演示设置、材料、任务、讨论、岗位和输出。已下载的文件不能远程收回；真实服务账户和备份不在本原型内。</p><B onClick={()=>confirmAction("注销本机演示账户？","清空本机全部演示数据并返回公开首页；不声称已注销真实后台账户。",()=>{clearTimeout(timer.current);setS(fresh());sessionStorage.removeItem("intent");setSearch("");setForm({});setAiSide(false);move("/");tell("本机演示账户已清空，未调用真实注销服务。");})}>注销本机演示账户</B></Panel>}{s.deletion && <Notice>处理状态：{s.deletion.status} · {s.deletion.date} · {s.deletion.detail}</Notice>}</>}{activeTab("偏好与通知","偏好与通知") && <details className="settings-feedback" id="settings-feedback" open={urlObj.searchParams.get("section")==="feedback"}><summary>反馈与回复（{s.feedback.length}）</summary><Panel title="本人反馈工单">{s.feedback.length ? s.feedback.map((f) => <article className="record" key={f.id}><h3>{f.id} · {f.status}</h3><p>{f.object} · {f.text}</p><p>处理回执：{f.reply || "\u5F85\u5904\u7406\uFF1B\u4E0D\u4F1A\u76F4\u63A5\u4FEE\u6539\u4E2A\u4EBA\u4E8B\u5B9E\u3002"}</p></article>) : <GuidedStart title="查看反馈进度与回复" description="可反馈某个结论、引用或操作问题。提交时说明具体对象与版本；未提交时，这里不会生成工单。" steps={['找到有疑问的页面、对象或版本。','只提交需要处理的片段，不附无关私人资料。','保留工单编号，在此查看状态与回复。']}><B primary onClick={feedback}>提交具体版本反馈</B>{link('/assessment?tab=四维与差距','回看评估依据','button')}{link('/assistant','回看AI讨论','button')}</GuidedStart>}</Panel></details>}</AccountWorkspace>;
+    })}>查看影响并删除</B></Panel>{SERVER_AUTH?<Panel title="真实账户"><p>当前邮箱：{authUser?.email}。数据按账户保存；修改密码、导出、清空与注销请使用上方“账户安全与服务器数据”。邮件找回尚未接入。</p></Panel>:<Panel title="本机演示账户范围"><p>注销会清除当前浏览器中的演示设置、材料、任务、讨论、岗位和输出。已下载的文件不能远程收回；真实服务账户和备份不在本原型内。</p><B onClick={()=>confirmAction("注销本机演示账户？","清空本机全部演示数据并返回公开首页；不声称已注销真实后台账户。",async()=>{if(!await clearLocalResourceFiles())return;clearTimeout(timer.current);setS(fresh());sessionStorage.removeItem("intent");setSearch("");setForm({});setAiSide(false);move("/");tell("本机演示账户已清空，未调用真实注销服务。");})}>注销本机演示账户</B></Panel>}{s.deletion && <Notice>处理状态：{s.deletion.status} · {s.deletion.date} · {s.deletion.detail}</Notice>}</>}{activeTab("偏好与通知","偏好与通知") && <details className="settings-feedback" id="settings-feedback" open={urlObj.searchParams.get("section")==="feedback"}><summary>反馈与回复（{s.feedback.length}）</summary><Panel title="本人反馈工单">{s.feedback.length ? s.feedback.map((f) => <article className="record" key={f.id}><h3>{f.id} · {f.status}</h3><p>{f.object} · {f.text}</p><p>处理回执：{f.reply || "\u5F85\u5904\u7406\uFF1B\u4E0D\u4F1A\u76F4\u63A5\u4FEE\u6539\u4E2A\u4EBA\u4E8B\u5B9E\u3002"}</p></article>) : <GuidedStart title="查看反馈进度与回复" description="可反馈某个结论、引用或操作问题。提交时说明具体对象与版本；未提交时，这里不会生成工单。" steps={['找到有疑问的页面、对象或版本。','只提交需要处理的片段，不附无关私人资料。','保留工单编号，在此查看状态与回复。']}><B primary onClick={feedback}>提交具体版本反馈</B>{link('/assessment?tab=四维与差距','回看评估依据','button')}{link('/assistant','回看AI讨论','button')}</GuidedStart>}</Panel></details>}</AccountWorkspace>;
   }
   function adminPage() {
     if (s.role === "student") return <Empty title="当前演示角色没有管理职责"><p>原型只模拟角色分离，不代表真实鉴权。请在演示设置选择对应职责，再打开工作区。管理员不默认获得私人简历访问权。</p><B onClick={() => open("fixture")}>选择演示职责</B>{link("/app", "\u8FD4\u56DE\u672C\u4EBA\u5DE5\u4F5C\u533A")}</Empty>;
@@ -1156,7 +1171,8 @@ function App() {
           update({ logged: false });
           open("auth", { intent: url });
           tell("\u5DF2\u6A21\u62DF\u4F1A\u8BDD\u8FC7\u671F\uFF0C\u5141\u8BB8\u7684\u672C\u5730\u8349\u7A3F\u4FDD\u7559\uFF0C\u91CD\u65B0\u8BA4\u8BC1\u540E\u6062\u590D\u3002");
-        }}>模拟会话过期</B><B onClick={() => confirmAction("\u91CD\u7F6E\u5168\u90E8\u672C\u5730\u539F\u578B\u6570\u636E\uFF1F", "\u6E05\u7A7A\u5F53\u524D\u793A\u4F8B\u5E76\u8FD4\u56DE\u516C\u5F00\u9996\u9875\u3002", () => {
+        }}>模拟会话过期</B><B onClick={() => confirmAction("\u91CD\u7F6E\u5168\u90E8\u672C\u5730\u539F\u578B\u6570\u636E\uFF1F", "\u6E05\u7A7A\u5F53\u524D\u793A\u4F8B\u5E76\u8FD4\u56DE\u516C\u5F00\u9996\u9875\u3002", async () => {
+          if(!await clearLocalResourceFiles())return;
           setS(fresh());
           move("/");
         })}>重置全部示例</B><B onClick={close}>完成设置并返回</B></div></>;
@@ -1175,11 +1191,11 @@ function App() {
     }
     return <Modal key={modal.type} title={title} onClose={close} drawer={drawer} className={modal.type==='auth'?'auth-dialog':modal.type==='reading'?'course-dialog':''} companion={modal.type==='aiNotes'?'read':modal.type==='aiNoteEdit'?'note':null}>{modal.type!=='auth'&&error && <p className="error" role="alert">{error}</p>}{body}</Modal>;
   }
-  const content = () => path === "/" ? publicPage() : path === "/companion" ? <HomeCompanion standalone onBack={()=>go("/")} onExplore={()=>go("/careers")}/> : SERVER_AUTH&&!authReady ? <p role="status">正在验证账户会话…</p> : SERVER_AUTH&&s.logged&&!workspace.ready ? <p role="status">正在读取账户记录，请稍候。读取失败时可使用上方重试。</p> : !s.logged ? <Empty title={SERVER_AUTH?"登录后继续":"登录演示工作区后继续"}><B onClick={() => open("auth", { intent: url })}>{SERVER_AUTH?"打开登录":"打开演示登录"}</B></Empty> : path === "/onboarding" ? onboarding() : path === "/app" ? dashboard() : path === "/assessment" ? assessment() : path === "/careers" ? careerPage() : path === "/career-map" ? mapPage() : path === "/plan" ? planPage() : path === "/learning" ? learningPage() : path.startsWith("/work") ? workPage() : path.startsWith("/reports") ? reportPage() : path === "/assistant" ? assistantPage() : path === "/settings" ? settingsPage() : path.startsWith("/admin/") ? SERVER_AUTH?<AdminConsole/>:adminPage() : <Empty title="页面不存在">{link("/app", "\u8FD4\u56DE\u5DE5\u4F5C\u533A")}</Empty>;
+  const content = () => path === "/" ? publicPage() : path === "/companion" ? <HomeCompanion standalone onBack={()=>go("/")} onExplore={()=>go("/careers")}/> : SERVER_AUTH&&!authReady ? <p role="status">正在验证账户会话…</p> : SERVER_AUTH&&s.logged&&!workspace.ready ? <p role="status">正在读取账户记录，请稍候。读取失败时可使用上方重试。</p> : !s.logged ? <Empty title={SERVER_AUTH?"登录后继续":"登录演示工作区后继续"}><B onClick={() => open("auth", { intent: url })}>{SERVER_AUTH?"打开登录":"打开演示登录"}</B></Empty> : path === "/onboarding" ? onboarding() : path === "/app" ? dashboard() : path === "/assessment" ? assessment() : path === "/careers" ? careerPage() : path === "/career-map" ? mapPage() : (path === "/plan" || planSubpage) ? planPage() : path === "/learning" ? learningPage() : path.startsWith("/work") ? workPage() : path.startsWith("/reports") ? reportPage() : path === "/assistant" ? assistantPage() : path === "/settings" ? settingsPage() : path.startsWith("/admin/") ? SERVER_AUTH?<AdminConsole/>:adminPage() : <Empty title="页面不存在">{link("/app", "\u8FD4\u56DE\u5DE5\u4F5C\u533A")}</Empty>;
   const admin = path.startsWith("/admin/");
   const groups = [["工作区", ["U03"]], ["职业成长", ["U05", "U04", "U07", "U08", "U10"]], ["辅助工具", ["U06", "U11"]]];
   if(mailLink)return <MailTokenForm key={mailLink.token} link={mailLink} onBack={()=>{setMailLink(null);setAuthMode('登录');open('auth',{intent:'/app'});}}/>;
-  return <>{(publicRoute || admin)&&<LanguageSwitch floating/>}<a className="skip" href="#main">跳到主要内容</a><div className="prototype-bar"><span>{SERVER_AUTH?'小组展示 · 历史职业数据 · AI 只读服务按配置开放':'交互低保真 · 合成示例 / 模拟服务 · 本机保存'}</span><div><B onClick={() => open("coverage")}>覆盖索引</B>{!SERVER_AUTH&&<B onClick={() => open("fixture")}>演示设置 / 场景</B>}</div></div>{!publicRoute && (!SERVER_AUTH||authReady&&s.logged&&workspace.ready) && <><header className="app-header">{React.cloneElement(link("/", <BrandLogo/>, "brand"),{"aria-label":"Avemly",title:"Avemly"})}<B onClick={() => setMobile(!mobile)} aria-expanded={mobile} aria-controls="workspace-sidebar">{mobile?"收起导航":"导航"}</B><WorkspaceSearch s={s} query={search} setQuery={setSearch} scope={form.globalScope || "职业知识"} setScope={value=>setForm(x=>({...x,globalScope:value}))} go={go} open={open} startTask={startTask}/>{!admin&&<><span className="workspace-local-label">{SERVER_AUTH?"账户存储":"本机演示"}</span><button type="button" className="workspace-alert-button" aria-label={displayText('站内提醒')} onClick={()=>open('notifications')}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button><LanguageSwitch/></>}<details className="workspace-utilities" key={url} onKeyDown={e=>{if(e.key==="Escape"){e.currentTarget.open=false;e.currentTarget.querySelector("summary").focus();}}} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget))e.currentTarget.open=false;}}><summary aria-label={displayText("账户与工具")} title={displayText("账户与工具")}><span className="workspace-account-avatar"><AccountAvatar preferences={s.preferences} size={32}/></span><span className="workspace-account-label">账户与工具</span></summary><div className="header-right">{!admin&&<><p className="workspace-demo-note">{SERVER_AUTH?authUser?.email:"本机演示 · 合成示例，数据保存在本机。"}</p><B onClick={()=>open("coverage")}>覆盖索引</B>{!SERVER_AUTH&&<B onClick={()=>open("fixture")}>演示设置 / 场景</B>}</>}<B onClick={() => open("notifications")}>站内提醒</B>{path !== "/assistant" && <B onClick={() => {
+  return <>{transitionOverlay}{(publicRoute || admin)&&<LanguageSwitch floating/>}<a className="skip" href="#main">跳到主要内容</a><div className="prototype-bar"><span>{SERVER_AUTH?'小组展示 · 历史职业数据 · AI 只读服务按配置开放':'交互低保真 · 合成示例 / 模拟服务 · 本机保存'}</span><div><B onClick={() => open("coverage")}>覆盖索引</B>{!SERVER_AUTH&&<B onClick={() => open("fixture")}>演示设置 / 场景</B>}</div></div>{!publicRoute && (!SERVER_AUTH||authReady&&s.logged&&workspace.ready) && <><header className="app-header">{React.cloneElement(link("/", <BrandLogo/>, "brand"),{"aria-label":"Avemly",title:"Avemly"})}<B onClick={() => setMobile(!mobile)} aria-expanded={mobile} aria-controls="workspace-sidebar">{mobile?"收起导航":"导航"}</B><WorkspaceSearch s={s} query={search} setQuery={setSearch} scope={form.globalScope || "职业知识"} setScope={value=>setForm(x=>({...x,globalScope:value}))} go={go} open={open} startTask={startTask}/>{!admin&&<><span className="workspace-local-label">{SERVER_AUTH?"账户存储":"本机演示"}</span><button type="button" className="workspace-alert-button" aria-label={displayText('站内提醒')} onClick={()=>open('notifications')}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button><LanguageSwitch/></>}<details className="workspace-utilities" key={url} onKeyDown={e=>{if(e.key==="Escape"){e.currentTarget.open=false;e.currentTarget.querySelector("summary").focus();}}} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget))e.currentTarget.open=false;}}><summary aria-label={displayText("账户与工具")} title={displayText("账户与工具")}><span className="workspace-account-avatar"><AccountAvatar preferences={s.preferences} size={32}/></span><span className="workspace-account-label">账户与工具</span></summary><div className="header-right">{!admin&&<><p className="workspace-demo-note">{SERVER_AUTH?authUser?.email:"本机演示 · 合成示例，数据保存在本机。"}</p><B onClick={()=>open("coverage")}>覆盖索引</B>{!SERVER_AUTH&&<B onClick={()=>open("fixture")}>演示设置 / 场景</B>}</>}<B onClick={() => open("notifications")}>站内提醒</B>{path !== "/assistant" && <B onClick={() => {
     update({ aiReturn: url });
     setAiSide(!aiSide);
   }}>AI 侧栏</B>}{link("/settings", "\u8D26\u6237\u4E0E\u6570\u636E")}<B onClick={() => confirmAction(SERVER_AUTH?'退出当前账户？':"\u9000\u51FA\u6A21\u62DF\u4F1A\u8BDD\uFF1F", SERVER_AUTH?'退出前会保存本页改动并撤销会话。已保存的账户记录将保留。':"\u672C\u673A\u8349\u7A3F\u4FDD\u7559\uFF1B\u79C1\u4EBA\u5185\u5BB9\u5728\u91CD\u65B0\u8BA4\u8BC1\u524D\u4E0D\u53EF\u4ECE\u754C\u9762\u8BBF\u95EE\u3002\u771F\u5B9E\u8D26\u6237\u548C\u591A\u7528\u6237\u9694\u79BB\u5C1A\u672A\u63A5\u5165\u3002", () => {
@@ -1188,24 +1204,9 @@ function App() {
     setAiSide(false);
     move("/");
   })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} open={open} Icon={Icon} navIcons={navIcons} route={url} ai={{s,conv,update,onOpen:()=>setAiSide(false),send:sendAI,liveAgent:SERVER_AUTH?liveAgent:null}}/></>}
- <PageGuidanceProvider routeKey={path+tab}><main id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={page[2]} admin={admin} hideGuide={path==="/career-map"} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
+ <PageGuidanceProvider routeKey={path+tab}><main id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
  {!publicRoute&&<FlowNavigation s={s} path={path} tab={tab} search={urlObj.search} link={link} />}
  {!publicRoute&&<OperationGuide s={s} path={path} tab={tab} search={urlObj.search} modal={modal?.type} error={error} toast={toast} go={go}/>}
  {aiSide && s.logged && <Modal title="AI 上下文侧栏 · 同一会话" drawer className="cheese-context-drawer" companion="perch" onClose={() => setAiSide(false)}>{aiContent(true)}</Modal>}{dialogContent()}<StatusToast message={toast} revision={toastRevision} onDismiss={()=>setToast("")}/></>;
 }
 createRoot(document.getElementById("root")).render(<App />);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

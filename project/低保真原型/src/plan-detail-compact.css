@@ -1,0 +1,98 @@
+/* Keep each detail's controls in the module's visible right-hand workspace. */
+#root #main.student-workspace .unified-plan .plan-stage{
+ & .plan-detail-scroll{display:flex;flex-direction:column;overflow:clip}
+ & .plan-detail-layout{flex:1;min-height:0;align-items:stretch}
+ & .plan-detail-layout.is-goal-empty{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+ & .is-goal-empty .plan-detail-main{margin-bottom:0}
+ & .is-goal-empty .plan-detail-list-scroll{display:flex;padding:0}
+ & .plan-goal-empty{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;min-height:0;gap:6px;padding:16px}
+ & .plan-goal-empty>.product-icon{flex-shrink:0;margin:0 0 4px}
+ & .plan-goal-empty h3{margin:0}
+ & .plan-goal-formulate-link{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 8px;color:#254f77;text-decoration:underline;text-underline-offset:4px;border-radius:5px;line-height:1.5}
+ & .plan-goal-formulate-link:hover{color:#082f68;background:#edf4fb}
+ & .plan-goal-formulate-link:focus-visible{outline:2px solid #325373;outline-offset:3px}
+ & .plan-goal-milestones-readonly>li{display:flex;align-items:flex-start;gap:8px;line-height:1.5;color:#506a81}
+ & .plan-goal-milestones-readonly>li>span:last-child{min-width:0;overflow-wrap:anywhere}
+ & .plan-detail-summary{align-self:start;max-height:100%;box-sizing:border-box;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+ & .plan-detail-main{container-type:inline-size;container-name:plan-detail;position:relative;display:flex;flex-direction:column;min-height:0;margin-bottom:-12px;overflow:hidden}
+ & .plan-detail-toolbar{flex:0 0 auto;min-height:32px;margin-bottom:6px}
+ & .plan-detail-toolbar .plan-detail-button{min-height:32px;padding:5px 10px}
+ & .plan-detail-list-scroll{flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7d5e1 #f5f8fb;padding:0 2px 2px 0}
+ & .plan-detail-list{gap:6px}
+ & :is(.plan-goal-list,.plan-task-list){grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));align-content:start;align-items:start}
+ & .plan-detail-item{padding:8px 10px}
+ & .plan-detail-item[hidden]{display:none!important}
+ & .plan-detail-item-head{gap:8px;align-items:center}
+ & .plan-detail-item-toggle{min-height:22px;margin:0;flex:1}
+ & .plan-detail-item-toggle>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ & .plan-detail-meta{margin-top:4px;gap:4px 10px;flex-wrap:nowrap;overflow:hidden;white-space:nowrap;line-height:1.4}
+ & .plan-detail-meta>span{flex-shrink:0}
+ & .plan-detail-pill{padding:2px 6px}
+ & .plan-detail-actions{margin-top:6px;gap:6px}
+ & .plan-detail-main .plan-detail-actions .plan-detail-button{min-height:30px;padding:4px 8px;line-height:1.4}
+ & .plan-goal-card-bottom{display:flex;align-items:center;gap:10px;margin-top:6px}
+ & .plan-goal-card-bottom .plan-goal-progress{flex:1;min-width:60px;margin:0;gap:6px}
+ & .plan-goal-card-bottom .plan-detail-actions{flex:0 0 auto;flex-wrap:nowrap;margin:0}
+ & .plan-detail-message{flex-shrink:0;padding:4px 8px;margin-bottom:6px}
+ & .plan-detail-editor{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;height:100%;margin:0;padding:0;border:1px solid #d8e4ee;border-radius:10px;background:#f6f9fc;box-sizing:border-box;overflow:hidden}
+ & .plan-editor-toolbar{position:relative;display:flex;align-items:center;flex:0 0 auto;min-height:38px;padding:4px 8px;gap:8px;box-sizing:border-box;border-bottom:1px solid #dfe8ef;background:#f0f6fb}
+ & .plan-editor-toolbar h3{display:flex;align-items:center;gap:9px;flex:1;min-width:0;margin:0;color:#244b70;line-height:1.4}
+ & .plan-editor-toolbar h3>span{flex-shrink:0}
+ & .plan-editor-toolbar h3>small{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#70869a}
+ & .plan-editor-toolbar h3>small.is-feedback{color:#477354}
+ & .plan-editor-actions{display:flex;align-items:stretch;gap:6px;flex:0 0 auto;min-width:0}
+ & .plan-editor-actions .plan-detail-button{min-width:0;min-height:32px;padding:5px 9px;line-height:1.4;white-space:nowrap}
+ & .plan-editor-fields{display:grid;align-content:start;flex:1;gap:8px;min-height:0;min-width:0;padding:8px 10px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7d5e1 #f5f8fb;box-sizing:border-box}
+ & .plan-editor-fields .plan-detail-field{gap:3px;line-height:1.35}
+ & .plan-editor-fields .plan-detail-field>span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+ & .plan-editor-fields .plan-detail-field :is(input,select,textarea){min-height:34px;padding:6px 7px;line-height:1.35}
+ & .plan-editor-fields .plan-detail-field textarea{height:52px;min-height:52px;max-height:140px;resize:vertical}
+ & :is(.plan-goal-basics,.plan-schedule-basics,.plan-goal-notes,.plan-editor-three-fields){display:grid;gap:8px;min-width:0;align-items:start}
+ & .plan-goal-basics{grid-template-columns:minmax(130px,1.8fr) minmax(65px,.7fr) minmax(134px,1.1fr) minmax(92px,.8fr)}
+ & .plan-schedule-basics{grid-template-columns:minmax(130px,1.8fr) minmax(132px,1.35fr) minmax(100px,1fr) minmax(78px,.8fr)}
+ & .plan-goal-notes{grid-template-columns:minmax(0,1fr)}
+ & .plan-goal-notes.has-milestones{grid-template-columns:repeat(2,minmax(0,1fr))}
+ & .plan-editor-three-fields{grid-template-columns:repeat(3,minmax(0,1fr))}
+ & .plan-review-fields .plan-detail-field textarea{height:92px;min-height:92px}
+ & .plan-editor-fields>.plan-detail-note{margin:0;line-height:1.45}
+ & .plan-editor-error{flex:0 0 auto;max-height:66px;overflow:auto}
+ & .plan-editor-error .plan-detail-error{padding:5px 9px;border-radius:0}
+ & .plan-editor-footer{flex:0 0 auto;padding:6px 8px;border-top:1px solid #dfe8ef;background:#f0f6fb}
+ & .plan-editor-footer .plan-editor-actions{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);width:100%;gap:6px}
+ & .plan-editor-footer .plan-detail-button{padding:4px 5px;line-height:1.25;white-space:normal;text-wrap:balance}
+ & .plan-record-options{display:flex;align-items:flex-start;gap:10px;min-width:0}
+ & .plan-record-options .plan-detail-check{flex:1;min-width:0;line-height:1.4}
+ & .plan-record-options .plan-detail-note{flex:0 0 auto;margin:2px 0 0;line-height:1.4}
+ & .plan-detail-list-scroll.is-editing{display:flex;overflow:hidden;padding:0}
+ & .plan-task-list.is-editing{display:flex;flex:1;min-height:0;min-width:0;align-items:stretch;align-content:stretch}
+ & .plan-task-list>.plan-detail-item.is-editing{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;padding:0;border:0;background:transparent;box-shadow:none}
+ & .plan-detail-item.is-editing>:is(.plan-detail-item-head,.plan-detail-meta){display:none}
+ & .plan-task-editor-host{display:flex;flex:1;min-height:0;min-width:0}
+ & .plan-editor-context{flex:0 0 auto;min-width:0;min-height:0;margin:0;padding:0;border:0;background:transparent;box-shadow:none}
+ & .plan-editor-context>summary{display:flex;align-items:center;justify-content:center;min-height:30px;padding:0 6px;list-style:none;border-radius:5px;color:#53738f;cursor:pointer}
+ & .plan-editor-context>summary:hover{background:#e0ebf5}
+ & .plan-editor-context>summary::-webkit-details-marker{display:none}
+ & .plan-editor-context-content{position:absolute;top:calc(100% - 1px);right:7px;z-index:3;width:min(420px,calc(100% - 14px));max-height:140px;padding:10px 12px;border:1px solid #cbdce9;border-radius:8px;background:#fff;box-shadow:0 5px 15px #173f681a;overflow:auto;box-sizing:border-box}
+ & .plan-editor-context-content :is(h4,p){margin:0 0 6px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;color:#526b81}
+ & .plan-editor-context-content h4{color:#244b70}
+}
+@container plan (max-width:1000px){#root #main.student-workspace .unified-plan .plan-stage .plan-detail-main{margin-bottom:-10px}}
+@container plan (max-width:650px){#root #main.student-workspace .unified-plan .plan-stage{
+ & .plan-detail-layout{grid-template-rows:auto minmax(0,1fr)}
+ & .plan-detail-summary{max-height:126px}
+}}
+@container plan-detail (max-width:480px){#root #main.student-workspace .unified-plan .plan-stage{
+ & :is(.plan-goal-basics,.plan-schedule-basics){grid-template-columns:repeat(2,minmax(0,1fr))}
+ & .plan-editor-three-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+ & .plan-editor-toolbar h3>small{display:none}
+ & .plan-record-options{flex-wrap:wrap;gap:4px}
+}}
+@layer type-system{
+ #root #main.student-workspace .unified-plan .plan-stage{
+  & .plan-editor-toolbar h3{font-size:14px!important;font-weight:650!important}
+  & .plan-goal-formulate-link{font-size:13px!important;font-weight:500!important}
+  & .plan-editor-toolbar h3>small{font-size:11px!important;font-weight:400!important}
+  & :is(.plan-editor-actions .plan-detail-button,.plan-detail-toolbar .plan-detail-button,.plan-detail-main .plan-detail-actions .plan-detail-button,.plan-editor-fields .plan-detail-field,.plan-editor-fields .plan-detail-field input,.plan-editor-fields .plan-detail-field select,.plan-editor-fields .plan-detail-field textarea,.plan-record-options .plan-detail-check,.plan-editor-context>summary){font-size:12px!important;font-weight:400!important}
+  & .plan-editor-context-content :is(h4,p){font-size:12px!important;font-weight:400!important}
+ }
+}

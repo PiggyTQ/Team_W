@@ -1,0 +1,23 @@
+{
+  "results": [
+    {
+      "name": "五视图往返与外部逐帧稳定",
+      "status": "pass",
+      "frames": 3166,
+      "changes": []
+    },
+    {
+      "name": "独立排期同步原任务与日期",
+      "status": "pass"
+    },
+    {
+      "name": "行动执行完成与S2条件保护",
+      "status": "pass"
+    },
+    {
+      "name": "减少动态效果与运行中切换偏好",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

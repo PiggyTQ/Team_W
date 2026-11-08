@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1020" viewBox="0 0 1440 1020">
+ <style>text{font-family:Arial,'Microsoft YaHei',sans-serif;font-size:16px;fill:#183d64}.title{font-size:30px;font-weight:700}.heading{font-size:21px;font-weight:700}.muted{font-size:14px;fill:#61758d}.small{font-size:13px}.white{fill:white;font-size:14px}</style>
+ <rect width="1440" height="1020" fill="#faf7ef"/>
+ <text x="40" y="40" class="muted">先行局部设计 · 桌面网页 · 2026-11-08 · 不是用户确认稿</text>
+ <text x="40" y="84" class="muted">我的职业规划 / 目标计划 / 计划排期</text>
+ <text x="40" y="132" class="title">计划排期</text><text x="40" y="174" class="muted">← 返回目标与行动计划</text>
+ <text x="40" y="212" class="muted">为已制定的目标与行动安排执行日期。目标截止日期与执行安排分开记录。</text>
+ <rect x="40" y="242" width="500" height="586" rx="14" fill="white" stroke="#d2dfed"/>
+ <text x="64" y="285" class="heading">计划清单</text>
+ <rect x="64" y="308" width="452" height="44" rx="8" fill="white" stroke="#cbd9e8"/><text x="80" y="336" class="muted">搜索目标或行动</text>
+ <rect x="64" y="372" width="452" height="44" rx="15" fill="#f4f0e5"/><rect x="64" y="372" width="226" height="44" rx="15" fill="#e8f0f7"/>
+ <text x="145" y="400">待排期</text><text x="371" y="400">已排期</text>
+ <rect x="64" y="437" width="452" height="102" rx="10" fill="#edf4fb" stroke="#4c7ea6"/><text x="82" y="467" class="small">周目标</text><text x="82" y="496">选中的目标名称</text><text x="82" y="521" class="muted">截止日期：当前目标期限</text>
+ <rect x="64" y="552" width="452" height="102" rx="10" fill="white" stroke="#d2dfed"/><text x="82" y="582" class="small">行动</text><text x="82" y="611">待安排的行动名称</text><text x="82" y="636" class="muted">未安排执行日期</text>
+ <rect x="64" y="667" width="452" height="102" rx="10" fill="white" stroke="#d2dfed"/><text x="82" y="697" class="small">月目标</text><text x="82" y="726">另一项目标名称</text><text x="82" y="751" class="muted">截止日期：当前目标期限</text>
+ <rect x="564" y="242" width="836" height="586" rx="14" fill="white" stroke="#d2dfed"/>
+ <text x="590" y="285" class="heading">安排执行日期</text><rect x="590" y="310" width="74" height="28" rx="6" fill="#e8f0f7"/><text x="605" y="329" class="small">周目标</text>
+ <text x="590" y="372" class="heading">选中的目标名称</text><text x="590" y="407" class="muted">展示所选目标的说明；实际内容来自用户已制定的目标或行动。</text>
+ <line x1="590" y1="431" x2="1374" y2="431" stroke="#e2e9f1"/><text x="590" y="463" class="muted">目标截止日期</text><text x="745" y="463">当前目标期限</text>
+ <text x="590" y="517">执行日期</text><text x="1000" y="517">执行时间（可选）</text>
+ <rect x="590" y="532" width="384" height="46" rx="7" fill="white" stroke="#bfcfe1"/><text x="605" y="562" class="muted">选择执行日期</text>
+ <rect x="1000" y="532" width="374" height="46" rx="7" fill="white" stroke="#bfcfe1"/><text x="1015" y="562" class="muted">未指定</text>
+ <text x="590" y="612" class="muted">仅保存明确填写的日期与时间，不把截止日期自动当作执行日期。</text>
+ <rect x="590" y="652" width="132" height="42" rx="8" fill="#183f6a"/><text x="628" y="679" class="white">保存排期</text>
+ <rect x="590" y="722" width="784" height="66" rx="8" fill="#eff6f0"/><text x="608" y="749" class="muted">保存后：排期已更新，可查看待行动或日历。</text><text x="608" y="775" class="small">查看待行动 →                         查看日历 →</text>
+ <text x="40" y="875" class="heading">入口与状态</text>
+ <text x="40" y="913" class="muted">“我的计划 / 去排期” → 独立 /plan/schedule 页面；每个周 / 月 / 年目标的“去排期” → 自动选中该目标。</text>
+ <text x="40" y="944" class="muted">已排期切换用于调整现有安排；无项目 / 无搜索结果显示对应空状态，保存成功反馈仅在提交后出现。</text>
+ <text x="40" y="975" class="muted">图中条目与期限均为结构占位，不作为真实用户记录；原模块内待排期小页由独立页面替代。</text>
+</svg>

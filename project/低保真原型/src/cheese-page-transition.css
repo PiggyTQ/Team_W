@@ -1,0 +1,30 @@
+.cheese-page-transition{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100vw;
+ height:100vh;
+ z-index:10000;
+ overflow:hidden;
+ overflow:clip;
+ pointer-events:auto;
+ touch-action:none;
+ overscroll-behavior:none;
+ isolation:isolate;
+ contain:strict;
+}
+.cheese-page-transition[data-transition-phase=idle]{visibility:hidden;pointer-events:none}
+.cheese-page-plane{position:absolute;left:50%;top:50%;pointer-events:none}
+.cheese-page-sheet{
+ position:absolute;
+ inset:0;
+ display:block;
+ width:100%;
+ height:100%;
+ overflow:visible;
+ transform:none;
+}
+.cheese-page-transition:not([data-transition-phase=idle]) .cheese-page-plane{will-change:transform}
+.cheese-page-melt{transform-box:view-box;transform-origin:50% 50%}
+.cheese-page-transition:not([data-transition-phase=idle]) .cheese-page-melt{will-change:transform}
+@media(prefers-reduced-motion:reduce){.cheese-page-transition{visibility:hidden;pointer-events:none}}

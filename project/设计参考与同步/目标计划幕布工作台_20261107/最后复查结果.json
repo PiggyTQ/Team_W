@@ -1,0 +1,13 @@
+{
+  "results": [
+    {
+      "name": "复查通过与重新调整保留成果",
+      "status": "pass"
+    },
+    {
+      "name": "窗口缩放与离开页面取消动画",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

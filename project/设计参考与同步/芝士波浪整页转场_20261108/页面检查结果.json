@@ -1,0 +1,118 @@
+{
+  "results": [
+    {
+      "name": "四层波浪先覆盖再换页并保存动画截图",
+      "status": "pass",
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "events": [
+        {
+          "kind": "phase",
+          "phase": "covering",
+          "path": "/plan",
+          "inert": true,
+          "time": 1336.699999988079
+        },
+        {
+          "kind": "push",
+          "phase": "covered",
+          "path": "/plan/goals",
+          "inert": true,
+          "time": 2054.199999988079,
+          "sheets": [
+            "matrix(1, 0, 0, 1, 0, 0)",
+            "matrix(1, 0, 0, 1, 0, 0)",
+            "matrix(1, 0, 0, 1, 0, 0)",
+            "matrix(1, 0, 0, 1, 0, 0)"
+          ]
+        },
+        {
+          "kind": "phase",
+          "phase": "covered",
+          "path": "/plan/goals",
+          "inert": true,
+          "time": 2119
+        },
+        {
+          "kind": "phase",
+          "phase": "revealing",
+          "path": "/plan/goals",
+          "inert": true,
+          "time": 2150.5
+        },
+        {
+          "kind": "phase",
+          "phase": "idle",
+          "path": "/plan/goals",
+          "inert": false,
+          "time": 2783.899999976158
+        }
+      ]
+    },
+    {
+      "name": "键盘进入与重复激活只写入一次历史",
+      "status": "pass"
+    },
+    {
+      "name": "返回与浏览器前进后退完成转场",
+      "status": "pass"
+    },
+    {
+      "name": "动画期间快速历史后退前进不锁页",
+      "status": "pass"
+    },
+    {
+      "name": "同页周期与新增弹窗不触发整页动画",
+      "status": "pass"
+    },
+    {
+      "name": "模块幕布保留且待排期按钮使用整页波浪",
+      "status": "pass"
+    },
+    {
+      "name": "计划执行模式与预览学习实践使用整页波浪",
+      "status": "pass"
+    },
+    {
+      "name": "减少动态效果直接跳转且深链接无入场动画",
+      "status": "pass"
+    },
+    {
+      "name": "动画中开启减少动态效果立即落地并解除锁定",
+      "status": "pass"
+    },
+    {
+      "name": "1024电脑视口全屏覆盖与恢复交互",
+      "status": "pass",
+      "rectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 900
+      }
+    },
+    {
+      "name": "1920电脑视口全屏覆盖与恢复交互",
+      "status": "pass",
+      "rectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "name": "转场期间调整电脑窗口立即落地且解除锁定",
+      "status": "pass"
+    },
+    {
+      "name": "目标编辑查看目标后焦点落在可见目标标题",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

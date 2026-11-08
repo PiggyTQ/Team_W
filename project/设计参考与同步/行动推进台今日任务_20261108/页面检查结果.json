@@ -1,0 +1,100 @@
+{
+  "results": [
+    {
+      "name": "今日排序过滤与页面精简",
+      "status": "pass"
+    },
+    {
+      "name": "同课程多任务精确跳转与返回只读",
+      "status": "pass"
+    },
+    {
+      "name": "开始实践沿用选中任务且不新增副本",
+      "status": "pass"
+    },
+    {
+      "name": "外部任务保留自身记录入口与无效引用回退",
+      "status": "pass"
+    },
+    {
+      "name": "完成暂停与依赖任务直链不绕过原保护",
+      "status": "pass"
+    },
+    {
+      "name": "空态可去排期且不造任务",
+      "status": "pass"
+    },
+    {
+      "name": "桌面布局-1024-zh",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1024,
+        "page": 1024,
+        "main": 818,
+        "mainWidth": 818
+      }
+    },
+    {
+      "name": "桌面布局-1024-en",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1024,
+        "page": 1024,
+        "main": 818,
+        "mainWidth": 818
+      }
+    },
+    {
+      "name": "桌面布局-1440-zh",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1440,
+        "page": 1440,
+        "main": 1210,
+        "mainWidth": 1210
+      }
+    },
+    {
+      "name": "桌面布局-1440-en",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1440,
+        "page": 1440,
+        "main": 1210,
+        "mainWidth": 1210
+      }
+    },
+    {
+      "name": "桌面布局-1920-zh",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1920,
+        "page": 1920,
+        "main": 1690,
+        "mainWidth": 1690
+      }
+    },
+    {
+      "name": "桌面布局-1920-en",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1920,
+        "page": 1920,
+        "main": 1690,
+        "mainWidth": 1690
+      }
+    },
+    {
+      "name": "1040英文长标题首卡紧凑",
+      "status": "pass",
+      "geometry": {
+        "viewport": 1040,
+        "page": 1040,
+        "main": 834,
+        "mainWidth": 834
+      },
+      "firstCardHeight": 280.15625
+    }
+  ],
+  "errors": []
+}

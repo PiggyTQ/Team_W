@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="790" viewBox="0 0 1500 790">
+  <defs>
+    <style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#173c62}.title{font-size:29px;font-weight:700}.label{font-size:20px;font-weight:650}.body{font-size:15px;fill:#58718a}.small{font-size:12px;fill:#6e8194}.ui{font-size:13px}.white{fill:#fff}</style>
+    <clipPath id="frame1"><rect x="45" y="173" width="450" height="338" rx="14"/></clipPath>
+    <clipPath id="frame2"><rect x="525" y="173" width="450" height="338" rx="14"/></clipPath>
+    <clipPath id="frame3"><rect x="1005" y="173" width="450" height="338" rx="14"/></clipPath>
+    <pattern id="holes" width="138" height="118" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><ellipse cx="30" cy="28" rx="12" ry="9" fill="#dca42d" opacity=".18"/><ellipse cx="100" cy="88" rx="18" ry="13" fill="#dca42d" opacity=".15"/><ellipse cx="73" cy="30" rx="5" ry="4" fill="#fff8df" opacity=".52"/></pattern>
+    <g id="page">
+      <rect width="450" height="338" fill="#faf9f5"/><rect width="76" height="338" fill="#f0f4f8"/><path d="M76 0v338" stroke="#dce5ee"/>
+      <rect x="13" y="20" width="49" height="8" rx="4" fill="#082f68"/><rect x="13" y="56" width="49" height="7" rx="3" fill="#9cb1c5"/><rect x="13" y="82" width="49" height="7" rx="3" fill="#c1ceda"/>
+      <rect x="13" y="108" width="49" height="23" rx="5" fill="#dce8f3"/><rect x="20" y="117" width="35" height="5" rx="2" fill="#567a9d"/>
+      <rect x="96" y="62" width="334" height="190" rx="10" fill="#fff" stroke="#dce5ee"/><rect x="96" y="271" width="334" height="95" rx="10" fill="#fff" stroke="#dce5ee"/>
+      <rect x="112" y="95" width="132" height="26" rx="5" fill="#e9f2fa"/><rect x="112" y="130" width="132" height="26" rx="5" fill="#e9f2fa"/><rect x="112" y="165" width="132" height="26" rx="5" fill="#e9f2fa"/>
+      <rect x="277" y="95" width="132" height="26" rx="5" fill="#e9f2fa"/><rect x="277" y="130" width="132" height="26" rx="5" fill="#e9f2fa"/><rect x="277" y="165" width="132" height="26" rx="5" fill="#e9f2fa"/>
+    </g>
+  </defs>
+  <rect width="1500" height="790" fill="#f7f9fc"/>
+  <text x="45" y="55" class="title">历史版本 · 芝士波浪整页跳转分镜</text>
+  <text x="45" y="88" class="body">已被后续规范覆盖；当前以“芝士融化波浪与分类内转场_20261108”分镜与验收为准。</text>
+  <text x="45" y="142" class="label">01　点击整页入口</text>
+  <text x="525" y="142" class="label">02　分层卷入，遮满后换页</text>
+  <text x="1005" y="142" class="label">03　继续向右下退场</text>
+  <g clip-path="url(#frame1)">
+    <use href="#page" x="45" y="173"/>
+    <text x="141" y="211" font-size="20" font-weight="700">目标与行动计划</text>
+    <text x="157" y="260" class="ui">我的目标</text><text x="322" y="260" class="ui">我的计划</text>
+    <text x="168" y="286" class="small">周目标</text><text x="168" y="321" class="small">月目标</text><text x="168" y="356" class="small">年目标</text>
+    <rect x="157" y="382" width="132" height="28" rx="5" fill="#eef0f2" stroke="#9bb0c4"/><text x="167" y="400" class="ui">编辑目标并预览</text>
+    <path d="m283 403 1 23 6-7 10 5 4-7-11-5 7-4Z" fill="#173c62" stroke="#fff" stroke-width="2"/>
+  </g>
+  <g clip-path="url(#frame2)">
+    <use href="#page" x="525" y="173"/>
+    <text x="621" y="211" font-size="20" font-weight="700">目标与行动计划</text>
+    <path d="M490 140H1010V245C976 261 992 296 950 306S923 345 885 350 861 388 825 393 802 430 762 438 746 481 703 483 679 526 647 535H490Z" fill="#e7ac31"/>
+    <path d="M490 140H1010V215C970 233 983 267 944 277S915 314 880 323 847 359 813 366 786 400 752 410 727 448 690 452 664 490 626 502H490Z" fill="#f4c64c"/>
+    <path d="M490 140H1010V186C969 204 978 236 939 247S905 286 871 291 842 327 804 338 776 372 740 381 714 414 676 424 652 463 612 475H490Z" fill="#ffe08a"/>
+    <path d="M490 140H1010V155C967 176 973 206 934 218S900 254 862 265 833 300 797 307 767 342 730 351 702 387 665 395 639 433 598 444H490Z" fill="#ffedb5"/>
+    <path d="M490 140H1010V155C967 176 973 206 934 218S900 254 862 265 833 300 797 307 767 342 730 351 702 387 665 395 639 433 598 444H490Z" fill="url(#holes)"/>
+    <path d="m701 252 125 104" fill="none" stroke="#ad7b25" stroke-width="3" stroke-linecap="round"/>
+    <path d="m806 349 20 7-10-19" fill="none" stroke="#ad7b25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g clip-path="url(#frame3)">
+    <use href="#page" x="1005" y="173"/>
+    <text x="1101" y="211" font-size="20" font-weight="700">目标编辑</text>
+    <rect x="1101" y="235" width="334" height="216" rx="10" fill="#fff"/>
+    <text x="1118" y="260" class="ui">周目标　　月目标　　年目标</text><path d="M1118 270h48" stroke="#d9ac3a" stroke-width="3"/>
+    <rect x="1118" y="286" width="142" height="130" rx="8" fill="#f7fafc" stroke="#dce5ee"/><rect x="1276" y="286" width="142" height="130" rx="8" fill="#fff8e5" stroke="#ecdfb8"/>
+    <text x="1131" y="312" class="ui">目标清单</text><text x="1289" y="312" class="ui">推荐加入的目标</text>
+    <path d="M1240 535C1250 489 1283 500 1299 465S1335 448 1353 412 1388 397 1402 363 1439 348 1468 320H1490V535Z" fill="#e7ac31"/>
+    <path d="M1275 535C1284 499 1320 513 1335 477S1374 465 1388 430 1424 414 1441 380 1469 370 1490 349V535Z" fill="#f4c64c"/>
+    <path d="M1310 535C1320 512 1350 526 1368 490S1404 476 1421 443 1458 427 1490 395V535Z" fill="#ffe08a"/>
+    <path d="M1350 535C1365 520 1383 536 1404 503S1439 492 1455 460 1475 455 1490 440V535Z" fill="#ffedb5"/>
+    <path d="M1350 535C1365 520 1383 536 1404 503S1439 492 1455 460 1475 455 1490 440V535Z" fill="url(#holes)"/>
+  </g>
+  <g fill="none" stroke="#d9e2ec"><rect x="45" y="173" width="450" height="338" rx="14"/><rect x="525" y="173" width="450" height="338" rx="14"/><rect x="1005" y="173" width="450" height="338" rx="14"/></g>
+  <text x="45" y="545" class="body">点击后锁定本次导航，避免重复触发。</text>
+  <text x="525" y="545" class="body">4 层暖黄错峰推进，圆润起伏带少量奶酪孔。</text>
+  <text x="1005" y="545" class="body">新页先藏在遮罩下，露出后恢复交互与焦点。</text>
+  <rect x="45" y="587" width="1410" height="147" rx="14" fill="#fff" stroke="#dce5ee"/>
+  <text x="69" y="618" class="label">动画与适用范围</text>
+  <text x="69" y="650" class="body">总时长约 1.20s：615ms 分层遮满并换页、48ms 保持遮满、540ms 分层退场；旧页遮满前不提交新页面。</text>
+  <text x="69" y="678" class="body">目标编辑、计划排期、返回父页、学习实践预览、计划制定 / 执行等整页切换使用；周期页签、选中条目、日历定位和弹窗不触发。</text>
+  <text x="69" y="706" class="body">现有模块内幕布保持；系统偏好“减少动态效果”时立即完成导航；首次直达或刷新不自动播放。</text>
+  <text x="45" y="766" class="small">此图为动画意图与分镜设计，非用户已确认稿，非实际页面截图。最终时间与验收证据以实现后的记录为准。</text>
+</svg>

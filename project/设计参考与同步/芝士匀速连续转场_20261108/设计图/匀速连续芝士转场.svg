@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="970" viewBox="0 0 1400 970">
+ <title>目标与行动计划：匀速连续芝士转场先行分镜</title>
+ <desc>四层嵌套宽度的融化芝士在约480毫秒内共同匀速从左上向右下掠过内容区，全覆盖时切页但动画不断开、不保持、不重新启动。仅分类内部整页切换播放。</desc>
+ <defs>
+  <style>text{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#26394d}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#647184}.label{font-size:18px;font-weight:700}.small{font-size:13px;fill:#657184}.tiny{font-size:11px;fill:#657184}.white{fill:#fff}</style>
+  <clipPath id="content"><rect x="76" y="42" width="554" height="258" rx="3"/></clipPath>
+  <path id="melt" d="M-120-100H570V-12C568 3 532 8 534 29C536 49 567 52 554 76C541 100 497 83 490 107C482 133 507 145 483 165C459 184 427 155 405 175C381 196 408 224 379 238C348 253 322 223 294 242C264 262 283 292 251 307C216 322 192 286 160 309C130 331 145 367 106 372C70 376 60 353 29 372C0 391 7 421-30 431H-120Z"/>
+  <g id="shell">
+   <rect width="630" height="300" rx="10" fill="#faf6ed" stroke="#dbe1e7"/>
+   <path d="M10 0H620Q630 0 630 10V42H0V10Q0 0 10 0" fill="#fff"/>
+   <path d="M0 42H630M76 42V300" fill="none" stroke="#dbe1e7"/>
+   <rect x="0" y="42" width="76" height="248" fill="#fff"/>
+   <text x="14" y="26" font-size="16" font-weight="700">Avemly</text>
+   <rect x="180" y="12" width="245" height="18" rx="9" fill="#f1f4f7"/>
+   <circle cx="593" cy="21" r="10" fill="#dbe7f2"/>
+   <rect x="10" y="66" width="55" height="20" rx="5" fill="#eaf0f7"/>
+   <text x="15" y="80" class="tiny">工作区</text>
+   <rect x="10" y="103" width="55" height="20" rx="5" fill="#eaf0f7"/>
+   <rect x="10" y="140" width="55" height="25" rx="5" fill="#123e72"/>
+   <text x="15" y="156" class="tiny white">目标计划</text>
+   <rect x="10" y="183" width="55" height="20" rx="5" fill="#eaf0f7"/>
+  </g>
+  <g id="oldpage">
+   <text x="100" y="77" class="label">目标与行动计划</text>
+   <rect x="100" y="96" width="235" height="138" rx="12" fill="#fff" stroke="#dbe1e7"/>
+   <rect x="349" y="96" width="255" height="138" rx="12" fill="#fff" stroke="#dbe1e7"/>
+   <text x="116" y="123" font-size="14">我的目标</text><text x="365" y="123" font-size="14">我的计划</text>
+   <rect x="116" y="140" width="164" height="16" rx="4" fill="#e7eff8"/>
+   <rect x="116" y="168" width="164" height="16" rx="4" fill="#e7eff8"/>
+   <rect x="116" y="196" width="164" height="23" rx="9" fill="#f1f1ef"/>
+   <text x="127" y="212" class="tiny">编辑目标并预览</text>
+   <rect x="365" y="140" width="180" height="16" rx="4" fill="#e7eff8"/>
+   <rect x="365" y="168" width="180" height="16" rx="4" fill="#e7eff8"/>
+  </g>
+  <g id="newpage">
+   <text x="100" y="77" class="label">目标编辑</text><text x="100" y="101" class="tiny">返回目标与行动计划　　周目标 / 月目标 / 年目标</text>
+   <rect x="100" y="118" width="244" height="154" rx="12" fill="#fff" stroke="#dbe1e7"/>
+   <rect x="360" y="118" width="244" height="154" rx="12" fill="#fff" stroke="#dbe1e7"/>
+   <text x="117" y="145" font-size="14">目标清单</text><text x="376" y="145" font-size="14">推荐目标</text>
+   <path d="M117 167H319M117 194H303M376 167H577M376 194H561M376 221H577" stroke="#e4eaf0" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g id="layers">
+   <use href="#melt" fill="#dda43a"/>
+   <use href="#melt" transform="translate(22.5,0) scale(.9,1)" fill="#f1bf53" stroke="#b67b24" stroke-opacity=".12" stroke-width="6" stroke-linejoin="round"/>
+   <use href="#melt" transform="translate(45,0) scale(.8,1)" fill="#ffdb7c" stroke="#fff7d4" stroke-opacity=".7" stroke-width="5" stroke-linejoin="round"/>
+   <use href="#melt" transform="translate(67.5,0) scale(.7,1)" fill="#ffedb3" stroke="#fff7d4" stroke-opacity=".85" stroke-width="4" stroke-linejoin="round"/>
+   <g fill="#d4a447" opacity=".16"><ellipse cx="112" cy="91" rx="8" ry="5"/><ellipse cx="235" cy="163" rx="5" ry="4"/><ellipse cx="311" cy="53" rx="8" ry="6"/><ellipse cx="57" cy="224" rx="5" ry="4"/></g>
+  </g>
+ </defs>
+ <rect width="1400" height="970" fill="#f6f7f9"/>
+ <text x="40" y="48" class="title">匀速连续芝士波浪 · 分类内页面转场</text>
+ <text x="40" y="78" class="sub">先行设计分镜 / 已实现与验收　　方向：左上 → 右下　　总时长：480 ms</text>
+ <g transform="translate(40,130)">
+  <text y="-15" class="label">01　匀速卷入 / 0–约 240 ms</text>
+  <use href="#shell"/><use href="#oldpage"/>
+  <g clip-path="url(#content)"><g transform="translate(76,42)"><use href="#layers" transform="translate(-72,-48)"/></g></g>
+  <text y="324" class="small">深金最大 → 奶油最小的四层嵌套；圆润融化波瓣与柔和边唇保留。</text>
+  <text y="347" class="small">整组图层以相同速度平移，不设置逐层起步、加速或减速。</text>
+ </g>
+ <g transform="translate(730,130)">
+  <text y="-15" class="label">02　全覆盖区间内切页 / 约 240 ms</text>
+  <use href="#shell"/>
+  <g clip-path="url(#content)"><rect x="76" y="42" width="554" height="258" fill="#ffedb3"/><g fill="#d5a03c" opacity=".14"><ellipse cx="216" cy="113" rx="9" ry="6"/><ellipse cx="448" cy="208" rx="6" ry="4"/><ellipse cx="556" cy="78" rx="8" ry="5"/></g></g>
+  <text y="324" class="small">在遮罩完全覆盖内容的区间内换页；位置、速度与时间轴连续。</text>
+  <text y="347" class="small">中点没有停顿、保持帧或重新启动；顶部与侧栏始终可见。</text>
+ </g>
+ <g transform="translate(40,555)">
+  <text y="-15" class="label">03　同速继续掠出 / 约 240–480 ms</text>
+  <use href="#shell"/><use href="#newpage"/>
+  <g clip-path="url(#content)"><g transform="translate(76,42)"><use href="#layers" transform="translate(390,125) rotate(180 180 120)"/></g></g>
+  <text y="324" class="small">同一组嵌套轮廓自然形成四道退出边缘，不反向安排逐层速度。</text>
+  <text y="347" class="small">外层平移始终 linear，内层连续轻微变形，带融化与牵拉感。</text>
+ </g>
+ <g transform="translate(730,555)">
+  <text y="-15" class="label">04　新页面可交互 / 约 480 ms</text>
+  <use href="#shell"/><use href="#newpage"/>
+  <text y="324" class="small">仅双方均在 /plan、/plan/goals、/plan/schedule 内的整页切换播放。</text>
+  <text y="347" class="small">跨到学习、职业或工作区立即跳转；浏览器历史遵循同一规则。</text>
+ </g>
+ <text x="40" y="947" class="small">保留模块内幕布；同页周期、筛选、排期对象与弹窗无整页波浪。减少动态效果时直接导航。本轮覆盖此前分段时序；旧分镜保留为历史版本。</text>
+</svg>

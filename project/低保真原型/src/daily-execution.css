@@ -1,0 +1,53 @@
+#main.workspace .daily-execution{--daily-ink:var(--ink,#123a68);--daily-muted:var(--muted,#647083);--daily-line:var(--line,#ded7c9);padding:10px 0 22px;color:var(--daily-ink)}
+#main.workspace .daily-heading{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 0 24px;border-bottom:1px solid var(--daily-line)}
+#main.workspace .daily-date{display:block;font-size:13px;color:var(--daily-muted);margin-bottom:8px}
+#main.workspace .daily-heading h2{font-size:27px;font-weight:700;margin:0 0 8px;color:var(--daily-ink)}
+#main.workspace .daily-heading p{margin:0;font-size:15px;max-width:none;color:var(--daily-muted)}
+#main.workspace .daily-summary{display:flex;align-items:center;gap:28px;flex:none;color:var(--daily-muted);font-size:14px}
+#main.workspace .daily-summary>span+span{border-left:1px solid var(--daily-line);padding-left:28px}
+#main.workspace .daily-summary strong{font-size:26px!important;font-weight:600;color:var(--daily-ink);font-variant-numeric:tabular-nums;margin-right:4px}
+#main.workspace .daily-summary small{display:block;font-size:12px}
+#main.workspace .daily-list-caption{display:flex;justify-content:space-between;padding:20px 0 12px;font-size:13px;color:var(--daily-muted)}
+#main.workspace .daily-task-list{list-style:none;display:grid;gap:14px;padding:0;margin:0}
+#main.workspace .daily-task{display:grid;grid-template-columns:34px minmax(180px,1.1fr) 100px minmax(180px,1fr) max-content;gap:24px;align-items:center;padding:26px 24px;background:var(--surface,#fffdf8);border:1px solid var(--daily-line);border-radius:18px;min-width:0}
+#main.workspace .daily-task:first-child{border-color:var(--daily-ink)}
+#main.workspace .daily-task-order{font-size:20px;color:var(--daily-muted);font-variant-numeric:tabular-nums;align-self:start;padding-top:4px}
+#main.workspace .daily-task-main{min-width:0}
+#main.workspace .daily-task-badges{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:12px;font-size:12px;color:var(--daily-muted)}
+#main.workspace .daily-priority{padding:4px 9px;border:1px solid var(--daily-line);border-radius:6px;line-height:1.4;white-space:nowrap}
+#main.workspace .daily-priority[data-priority="高"]{background:var(--daily-ink);color:white;border-color:var(--daily-ink)}
+#main.workspace .daily-priority[data-priority="中"]{background:var(--wash,#f0ede5);color:var(--daily-ink)}
+#main.workspace .daily-overdue{text-decoration:underline;text-underline-offset:3px}
+#main.workspace .daily-task h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font-size:18px;font-weight:600;color:var(--daily-ink);line-height:1.5;margin:0 0 6px;overflow-wrap:anywhere}
+#main.workspace .daily-task-main p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:0;font-size:13px;color:var(--daily-muted);line-height:1.7;overflow-wrap:anywhere}
+#main.workspace .daily-task-time>span,#main.workspace .daily-task-gain>span{display:block;font-size:12px;color:var(--daily-muted);margin-bottom:9px}
+#main.workspace .daily-task-time strong{font-size:24px!important;font-weight:600;color:var(--daily-ink);font-variant-numeric:tabular-nums}
+#main.workspace .daily-task-time small{font-size:13px;font-weight:400}
+#main.workspace .daily-task-gain{min-width:0;border-left:1px solid var(--daily-line);padding-left:24px}
+#main.workspace .daily-task-gain p{font-size:14px;color:var(--daily-ink);margin:0;line-height:1.8;overflow-wrap:anywhere}
+#main.workspace .daily-task .daily-task-go{min-width:100px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:14px;white-space:nowrap;border-radius:12px;font-size:14px}
+#main.workspace .daily-footer{display:flex;justify-content:flex-end;gap:20px;padding-top:22px;color:var(--daily-muted);font-size:13px}
+#main.workspace .daily-footer small{font-size:12px}
+#main.workspace .daily-empty{padding:64px 24px;text-align:center;border-bottom:1px solid var(--daily-line)}
+#main.workspace .daily-empty-mark{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid var(--daily-line);border-radius:50%;font-size:22px;margin-bottom:18px}
+#main.workspace .daily-empty h3{font-size:21px;font-weight:600;margin:0 0 10px;color:var(--daily-ink)}
+#main.workspace .daily-empty p{margin:0 auto 22px;max-width:52ch}
+#main.workspace .learning-task-focus{padding:26px 28px;margin:24px 0;background:var(--surface,#fffdf8);border:1px solid var(--line,#ded7c9);border-radius:16px;scroll-margin-top:24px}
+#main.workspace .learning-focus-heading{display:flex;align-items:start;justify-content:space-between;gap:20px}
+#main.workspace .learning-focus-heading>div>span{font-size:13px;color:var(--muted,#647083)}
+#main.workspace .learning-focus-heading h2{font-size:24px;line-height:1.5;margin:6px 0 12px;overflow-wrap:anywhere}
+#main.workspace .learning-task-focus dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:20px 0}
+#main.workspace .learning-task-focus dt{font-size:12px;color:var(--muted,#647083);margin-bottom:6px}
+#main.workspace .learning-task-focus dd{margin:0;font-size:15px;line-height:1.7;overflow-wrap:anywhere}
+#main.workspace :is(.daily-execution,.learning-task-focus) :is(a,button):focus-visible{outline:3px solid var(--daily-ink,#123a68);outline-offset:4px}
+@layer type-system{
+ #root #main.workspace .daily-summary strong{font-size:26px!important}
+ #root #main.workspace .daily-task-time strong{font-size:24px!important}
+}
+@media(min-width:721px) and (max-width:1200px){
+ #main.workspace .daily-task{grid-template-columns:28px minmax(130px,1fr) 82px minmax(130px,1fr) max-content;gap:16px;padding:22px 18px}
+ #main.workspace .daily-task-gain{padding-left:16px}
+ #main.workspace .daily-task .daily-task-go{min-width:88px;padding:10px 12px;gap:8px}
+ #main.workspace .daily-summary{gap:16px}
+ #main.workspace .daily-summary>span+span{padding-left:16px}
+}

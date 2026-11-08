@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1020" viewBox="0 0 1440 1020">
+ <style>text{font-family:Arial,'Microsoft YaHei',sans-serif;font-size:16px;fill:#292929}.title{font-size:30px;font-weight:700}.heading{font-size:23px;font-weight:700}.task{font-size:20px;font-weight:700}.muted{font-size:14px;fill:#626262}.small{font-size:13px;fill:#626262}.number{font-size:25px;font-weight:700}.white{fill:white;font-size:15px;font-weight:700}.stat{font-size:24px;font-weight:700}</style>
+ <rect width="1440" height="1020" fill="#fafafa"/>
+ <text x="40" y="35" class="muted">先行桌面线框 · 2026-11-08 · 结构占位内容 · 不是用户确认稿</text>
+ <text x="40" y="83" class="muted">我的职业规划 / 目标计划 / 执行</text>
+ <text x="40" y="134" class="title">行动推进台</text>
+ <rect x="1142" y="100" width="258" height="48" rx="18" fill="#efefef"/><rect x="1271" y="104" width="125" height="40" rx="15" fill="#dedede"/>
+ <text x="1175" y="131" class="muted">计划制定</text><text x="1303" y="131">计划执行</text>
+ <text x="40" y="216" class="heading">今日任务</text><text x="40" y="249" class="muted">按优先级完成今天的安排，逾期未完成的任务一并处理。</text>
+ <text x="1240" y="216" class="muted">当天本地日期</text>
+ <line x1="40" y1="275" x2="1400" y2="275" stroke="#d2d2d2"/>
+ <text x="40" y="319" class="muted">待完成任务</text><text x="149" y="320" class="stat">实际数量</text><text x="330" y="319" class="muted">预计总用时</text><text x="440" y="320" class="stat">实际预计投入</text>
+ <text x="1179" y="319" class="small">高 → 中 → 低 → 未排序</text>
+ <rect x="40" y="351" width="1360" height="190" rx="15" fill="white" stroke="#777" stroke-width="2"/>
+ <rect x="40" y="351" width="6" height="190" rx="3" fill="#555"/>
+ <text x="67" y="398" class="number">01</text>
+ <rect x="121" y="373" width="88" height="28" rx="9" fill="#e5e5e5"/><text x="135" y="393" class="small">高优先级</text>
+ <text x="225" y="393" class="small">进行中</text><text x="120" y="432" class="task">优先完成的今日任务名称</text><text x="120" y="468" class="muted">任务目的：来自原任务说明，不补造目标或结果。</text>
+ <line x1="695" y1="383" x2="695" y2="509" stroke="#e0e0e0"/>
+ <text x="722" y="401" class="small">预计用时</text><text x="722" y="440">任务预计小时数</text>
+ <text x="927" y="401" class="small">预期能力收获</text><text x="927" y="436">关联技能 / 练习目标</text><text x="927" y="467" class="muted">依据对应学习任务的内容</text>
+ <rect x="1230" y="417" width="137" height="48" rx="12" fill="#444"/><text x="1263" y="448" class="white">去完成 →</text>
+ <rect x="40" y="561" width="1360" height="168" rx="15" fill="white" stroke="#d0d0d0"/>
+ <text x="67" y="607" class="number">02</text><rect x="121" y="583" width="88" height="28" rx="9" fill="#f0f0f0"/><text x="135" y="603" class="small">中优先级</text><text x="225" y="603" class="small">逾期未完成 · 原计划日期</text>
+ <text x="120" y="641" class="task">下一项待完成的任务名称</text><text x="120" y="676" class="muted">今日待办包含明确标示的逾期未完成任务。</text>
+ <line x1="695" y1="590" x2="695" y2="701" stroke="#e0e0e0"/><text x="722" y="611" class="small">预计用时</text><text x="722" y="650">任务预计小时数</text><text x="927" y="611" class="small">预期能力收获</text><text x="927" y="650">关联技能 / 练习目标</text>
+ <rect x="1230" y="618" width="137" height="48" rx="12" fill="#444"/><text x="1263" y="649" class="white">去完成 →</text>
+ <text x="40" y="778" class="small">预期能力收获来自学习内容与任务目标；不是个人能力已获得或已核验的结论。</text>
+ <text x="1264" y="778" class="muted" text-decoration="underline">调整任务安排 →</text>
+ <line x1="40" y1="818" x2="1400" y2="818" stroke="#dedede"/>
+ <text x="40" y="855" class="small">范围：今日及逾期的未完成任务；未来、未排期、完成和暂停任务不混入今日清单。</text>
+ <text x="40" y="886" class="small">去完成：进入学习实践中对应的原任务；无课程关联时保留自己的行动，不误配课程。</text>
+ <text x="40" y="917" class="small">空状态：今日暂无待办 / 今日任务已完成；保留小号“调整任务安排”入口，不展示无对象表单。</text>
+ <text x="40" y="948" class="small">已移除：列表/日程切换、预算、状态筛选、左右详情、添加表单、记录复盘和重复底部流程导航。</text>
+</svg>

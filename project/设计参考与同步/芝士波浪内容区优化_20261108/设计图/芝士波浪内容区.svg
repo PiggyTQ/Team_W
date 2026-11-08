@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="800" viewBox="0 0 1500 800">
+  <defs>
+    <style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#173c62}.title{font-size:29px;font-weight:700}.label{font-size:20px;font-weight:650}.body{font-size:15px;fill:#58718a}.small{font-size:12px;fill:#6e8194}.ui{font-size:13px}</style>
+    <g id="shell">
+      <rect width="450" height="338" rx="14" fill="#faf9f5"/>
+      <path d="M14 0h422q14 0 14 14v32H0V14Q0 0 14 0Z" fill="#fff"/><path d="M0 46h450" stroke="#dce5ee"/>
+      <text x="15" y="29" font-size="14" font-weight="700">Avemly</text><rect x="108" y="13" width="220" height="21" rx="7" fill="#f1f5f8"/><circle cx="402" cy="24" r="8" fill="#dce7ef"/>
+      <path d="M0 46h76v292H14q-14 0-14-14Z" fill="#f0f4f8"/><path d="M76 46v292" stroke="#dce5ee"/>
+      <rect x="13" y="69" width="49" height="7" rx="3" fill="#9cb1c5"/><rect x="13" y="95" width="49" height="7" rx="3" fill="#c1ceda"/>
+      <rect x="13" y="121" width="49" height="23" rx="5" fill="#dce8f3"/><rect x="20" y="130" width="35" height="5" rx="2" fill="#567a9d"/>
+      <rect x="13" y="163" width="49" height="7" rx="3" fill="#c1ceda"/><rect x="13" y="189" width="49" height="7" rx="3" fill="#c1ceda"/>
+      <rect x="96" y="110" width="334" height="164" rx="10" fill="#fff" stroke="#dce5ee"/><rect x="96" y="291" width="334" height="70" rx="10" fill="#fff" stroke="#dce5ee"/>
+      <rect x="112" y="142" width="132" height="25" rx="5" fill="#e9f2fa"/><rect x="112" y="177" width="132" height="25" rx="5" fill="#e9f2fa"/><rect x="112" y="212" width="132" height="25" rx="5" fill="#e9f2fa"/>
+      <rect x="277" y="142" width="132" height="25" rx="5" fill="#e9f2fa"/><rect x="277" y="177" width="132" height="25" rx="5" fill="#e9f2fa"/><rect x="277" y="212" width="132" height="25" rx="5" fill="#e9f2fa"/>
+    </g>
+    <clipPath id="frame1"><rect x="45" y="173" width="450" height="338" rx="14"/></clipPath>
+    <clipPath id="frame2"><rect x="525" y="173" width="450" height="338" rx="14"/></clipPath>
+    <clipPath id="frame3"><rect x="1005" y="173" width="450" height="338" rx="14"/></clipPath>
+    <clipPath id="content2"><rect x="601" y="219" width="374" height="292"/></clipPath>
+    <clipPath id="content3"><rect x="1081" y="219" width="374" height="292"/></clipPath>
+  </defs>
+  <rect width="1500" height="800" fill="#f7f9fc"/>
+  <text x="45" y="55" class="title">历史版本 · 芝士波浪右侧内容区优化</text>
+  <text x="45" y="88" class="body">799ms 与跨分类导航已被覆盖；当前以“芝士融化波浪与分类内转场_20261108”分镜与验收为准。</text>
+  <text x="45" y="142" class="label">01　点击入口，保留界面框架</text>
+  <text x="525" y="142" class="label">02　只在内容区内斜向卷入</text>
+  <text x="1005" y="142" class="label">03　迅速露出目标内容</text>
+  <g clip-path="url(#frame1)">
+    <use href="#shell" x="45" y="173"/>
+    <text x="141" y="257" font-size="20" font-weight="700">目标与行动计划</text>
+    <text x="157" y="305" class="ui">我的目标</text><text x="322" y="305" class="ui">我的计划</text>
+    <rect x="157" y="421" width="132" height="28" rx="5" fill="#eef0f2" stroke="#9bb0c4"/><text x="167" y="440" class="ui">编辑目标并预览</text>
+    <path d="m283 442 1 23 6-7 10 5 4-7-11-5 7-4Z" fill="#173c62" stroke="#fff" stroke-width="2"/>
+    <rect x="121" y="219" width="374" height="292" fill="none" stroke="#879eb3" stroke-dasharray="5 4"/>
+  </g>
+  <g clip-path="url(#frame2)">
+    <use href="#shell" x="525" y="173"/>
+    <text x="621" y="257" font-size="20" font-weight="700">目标与行动计划</text>
+    <g clip-path="url(#content2)">
+      <path d="M550 180H1015V270C960 250 978 341 887 347S885 427 785 431 768 505 670 533H550Z" fill="#e9bc55"/>
+      <path d="M550 180H1015V240C960 220 969 307 883 317S873 393 779 400 752 476 650 506H550Z" fill="#f3ce70"/>
+      <path d="M550 180H1015V209C960 190 961 275 876 287S858 360 767 369 736 444 633 477H550Z" fill="#f9df99"/>
+      <path d="M550 180H1015V178C960 160 952 244 869 256S844 329 754 338 720 413 616 448H550Z" fill="#ffedb8"/>
+      <path d="M1015 178C960 160 952 244 869 256S844 329 754 338 720 413 616 448" fill="none" stroke="#fff6dc" stroke-width="2" opacity=".55"/>
+      <ellipse cx="699" cy="275" rx="10" ry="7" fill="#cba34b" opacity=".13"/><ellipse cx="827" cy="225" rx="7" ry="5" fill="#cba34b" opacity=".12"/><ellipse cx="657" cy="372" rx="13" ry="9" fill="#cba34b" opacity=".12"/>
+    </g>
+  </g>
+  <g clip-path="url(#frame3)">
+    <use href="#shell" x="1005" y="173"/>
+    <text x="1101" y="257" font-size="20" font-weight="700">目标编辑</text>
+    <rect x="1101" y="283" width="334" height="216" rx="10" fill="#fff"/>
+    <text x="1118" y="309" class="ui">周目标　　月目标　　年目标</text><path d="M1118 319h48" stroke="#d5b66e" stroke-width="3"/>
+    <rect x="1118" y="334" width="142" height="130" rx="8" fill="#f7fafc" stroke="#dce5ee"/><rect x="1276" y="334" width="142" height="130" rx="8" fill="#fff9e9" stroke="#eee3c9"/>
+    <text x="1131" y="360" class="ui">目标清单</text><text x="1289" y="360" class="ui">推荐加入的目标</text>
+    <g clip-path="url(#content3)">
+      <path d="M1240 550C1247 468 1324 499 1352 422S1431 438 1490 357V550Z" fill="#e9bc55"/>
+      <path d="M1274 550C1281 498 1351 519 1382 454S1458 469 1490 412V550Z" fill="#f3ce70"/>
+      <path d="M1308 550C1327 518 1379 544 1412 486S1473 501 1490 455V550Z" fill="#f9df99"/>
+      <path d="M1344 550C1361 543 1412 565 1442 519S1485 535 1490 495V550Z" fill="#ffedb8"/>
+    </g>
+  </g>
+  <g fill="none" stroke="#d9e2ec"><rect x="45" y="173" width="450" height="338" rx="14"/><rect x="525" y="173" width="450" height="338" rx="14"/><rect x="1005" y="173" width="450" height="338" rx="14"/></g>
+  <text x="45" y="545" class="body">顶部与左侧导航始终可见，遮罩随内容边界。</text>
+  <text x="525" y="545" class="body">四层奶油黄，宽缓流线，少量低对比哑光孔。</text>
+  <text x="1005" y="545" class="body">遮满后换页，沿右下方向退场；约 0.80 秒。</text>
+  <rect x="45" y="586" width="1410" height="164" rx="14" fill="#fff" stroke="#dce5ee"/>
+  <text x="69" y="618" class="label">区域、节奏与材质</text>
+  <text x="69" y="650" class="body">测量可见 #main 矩形并裁切遮罩，只覆盖右侧内容；侧栏展开和收起均以当前实际内容边界为准。</text>
+  <text x="69" y="678" class="body">406ms 分层卷入并换页 → 32ms 保持遮满 → 361ms 分层退场；共约 799ms，延续左上到右下的单向运动。</text>
+  <text x="69" y="706" class="body">实现色板 #e9bc55 / #f3ce70 / #f9df99 / #ffedb8；减少密集重复波齿，孔洞更小更疏，边缘高光更轻。</text>
+  <text x="69" y="734" class="small">减少动态效果、焦点恢复、导航范围、历史中断与窗口变化处理沿用原规范；本次最新约定覆盖此前整视口遮罩与约 1.20 秒节奏。</text>
+  <text x="45" y="781" class="small">此图为实施前动画分镜，非实际页面截图或用户已确认稿；实际效果与验证证据保存于本轮设计与验收记录。</text>
+</svg>

@@ -1,0 +1,33 @@
+{
+  "results": [
+    {
+      "name": "资源分区与平台项目",
+      "status": "pass"
+    },
+    {
+      "name": "只收录完成实践与来源筛选",
+      "status": "pass"
+    },
+    {
+      "name": "没有成果的真实空状态",
+      "status": "pass"
+    },
+    {
+      "name": "桌面宽屏与长标题",
+      "status": "pass"
+    },
+    {
+      "name": "上传错误保留输入与文件刷新下载",
+      "status": "pass"
+    },
+    {
+      "name": "旧页签及阅读记录兼容",
+      "status": "pass"
+    },
+    {
+      "name": "英文桌面项目分区",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

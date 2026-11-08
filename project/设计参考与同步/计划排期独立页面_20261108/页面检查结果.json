@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "name": "我的计划与三周期目标进入独立排期",
+      "status": "pass"
+    },
+    {
+      "name": "三个周期排期同步待行动与日历",
+      "status": "pass"
+    },
+    {
+      "name": "已排期目标改期刷新与进度记录",
+      "status": "pass"
+    },
+    {
+      "name": "目标与任务排期草稿独立并刷新恢复",
+      "status": "pass"
+    },
+    {
+      "name": "无效选中标识与旧排期地址恢复",
+      "status": "pass"
+    },
+    {
+      "name": "原任务排期兼容且不改预算与任务内容",
+      "status": "pass"
+    },
+    {
+      "name": "目标版本冲突保留输入与原记录",
+      "status": "pass"
+    },
+    {
+      "name": "存储不可写时保留本次排期",
+      "status": "pass"
+    },
+    {
+      "name": "损坏存储不覆盖且临时目标可排期",
+      "status": "pass"
+    },
+    {
+      "name": "无计划时空状态与明确返回",
+      "status": "pass"
+    },
+    {
+      "name": "桌面布局-1024",
+      "status": "pass"
+    },
+    {
+      "name": "桌面布局-1440",
+      "status": "pass"
+    },
+    {
+      "name": "桌面布局-1920",
+      "status": "pass"
+    },
+    {
+      "name": "英文页面与直接选中目标",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}
