@@ -1,0 +1,27 @@
+{
+  "publisher": "Department for Transport",
+  "dataset": "Road Safety Data - Collisions - 2024",
+  "sourceUrl": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-2024.csv",
+  "licence": "Open Government Licence v3.0",
+  "licenceUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "retrievedOn": "2026-11-13",
+  "originalSha256": "32a78f4662e309160f37b1ea2b82017e85e07b62a022d680da7140e88706a17c",
+  "originalBytes": 19208488,
+  "selection": {
+    "date": "08/10/2024",
+    "police_force": "1",
+    "orderBy": "collision_index ascending",
+    "limit": 16,
+    "fields": [
+      "collision_index",
+      "date",
+      "police_force",
+      "speed_limit",
+      "number_of_vehicles",
+      "number_of_casualties",
+      "collision_severity"
+    ]
+  },
+  "sampleSha256": "6fef8214e24ae2bbb96db82bfd5f3a3fbecf664c1e6bbbec92651ab717f0b7de",
+  "sampleRows": 16
+}

@@ -14,12 +14,13 @@ import {createAgentWorkflow} from './agent/workflow.mjs';
 import {loadGuidance,reviewedLibrary} from './agent/library.mjs';
 import {createAgentOperations} from './agent/operations.mjs';
 import {createBusinessCommands} from './business-commands.mjs';
-import {planningReportPreview} from './planning-report.mjs';
+import {careerReportJourney,planningReportPreview} from './planning-report.mjs';
 import {createRuntimeOperations} from './runtime-operations.mjs';
 import {createConcurrencyGate} from './concurrency-gate.mjs';
 import {createAccountMail,mailTransportFromEnvironment} from './account-mail.mjs';
 import {createPlatformAdmin} from './platform-admin.mjs';
 import {RESOURCE_PROJECT_MAX_BYTES} from '../src/resource-project-model.js';
+import {getSkillTree} from './skill-trees/index.mjs';
 
 const scrypt=promisify(rawScrypt),hash=value=>createHash('sha256').update(value).digest('hex');
 const KDF={N:131072,r:8,p:1,maxmem:192*1024*1024};
@@ -133,6 +134,9 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
           if(path==='/api/admin/status'){send(200,administration.list(user.id));return;}
           if(path==='/api/admin/operations'){if(!administration.roles(user.id).includes('operator'))throw failure('ADMIN_FORBIDDEN',403);send(200,{...operations.snapshot(),authHashing:hashing.snapshot(),mail:mail.status()});return;}
           if(path==='/api/workspace'){send(200,business.read(user.id));return;}
+          if(path==='/api/services/career-report-journey'){
+            send(200,careerReportJourney(business.read(user.id),business.resourceProjects.list(user.id)));return;
+          }
           if(path==='/api/resource-projects'){send(200,{ownerId:user.id,items:business.resourceProjects.list(user.id)});return;}
           const resourceFileMatch=path.match(/^\/api\/resource-projects\/([a-f0-9-]{36})\/file$/);
           if(resourceFileMatch){
@@ -142,7 +146,16 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
           if(path==='/api/commands'){send(200,commands.list(user.id));return;}
           const receiptMatch=path.match(/^\/api\/commands\/([-a-zA-Z0-9]{16,100})$/);
           if(receiptMatch){send(200,commands.get(user.id,receiptMatch[1]));return;}
-          if(path==='/api/catalog/courses'){send(200,publicCopy.envelope(business.catalog()));return;}
+          const skillTreeMatch=path.match(/^\/api\/catalog\/skill-trees\/([a-z]+)$/);
+          if(skillTreeMatch){
+            const tree=getSkillTree(skillTreeMatch[1]);
+            if(!tree)throw failure('NOT_FOUND',404);
+            send(200,{tree});return;
+          }
+          if(path==='/api/catalog/courses'){
+            const summary=new URL(req.url,'http://localhost').searchParams.get('summary')==='1';
+            send(200,publicCopy.envelope(business.catalog({summary})));return;
+          }
           const courseMatch=path.match(/^\/api\/catalog\/courses\/([a-z-]+)$/);
           if(courseMatch){const params=new URL(req.url,'http://localhost').searchParams;send(200,publicCopy.envelope({course:business.courseLibrary.course(courseMatch[1],params.has('version')?params.get('version'):undefined)}));return;}
           const assetMatch=path.match(/^\/api\/catalog\/courses\/([a-z-]+)\/assets\/(\d+)\/([a-f0-9]{24})$/);

@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "courses": [
+    {
+      "id": "quality",
+      "career_id": "data",
+      "title": "数据质量小项目",
+      "content_version": 2,
+      "introduction": "# 数据质量小项目\n\n交通分析组准备发布一份碰撞记录简报。你负责判断这张表能否支持按限速分组的描述统计，并提交一份同事能复算的质量记录。\n\n质量问题清单、处理口径、分组统计和发布建议\n\n练习源自英国交通部 STATS19 的 16 条公开记录，练习表加入教学改动。样本只含向警方报告的道路伤害碰撞，无法据此比较道路风险。\n\n## 原始出处\n\n- [Improving pipeline data quality](https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-case-studies#government-digital-service-improving-pipeline-data-quality) · Government Digital Service · GOV.UK\n\n- [The Government Data Quality Framework: guidance](https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-guidance) · Government Data Quality Hub\n\n- [Road safety open data · Collisions 2024](https://www.gov.uk/government/statistical-data-sets/road-safety-open-data) · UK Department for Transport\n\n- [Road Safety Data · Open Government Licence](https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data) · National Data Library · Department for Transport\n\n- [Working with missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html) · pandas project\n\n- [How to Analyze and Clean a Dataset](https://learn.microsoft.com/en-us/shows/machine-learning-for-beginners/how-to-analyze-and-clean-a-dataset-machine-learning-for-beginners) · Microsoft Learn\n",
+      "practice_path": "quality/practice/task.md",
+      "reference_path": "quality/reference/reading-notes.md",
+      "project_path": "quality/project.json",
+      "source_ids": [
+        "gds-case",
+        "gds-guide",
+        "dft-data",
+        "dft-licence",
+        "pandas-missing",
+        "quality-video"
+      ],
+      "chapters": [
+        {
+          "id": "quality-chapter-1",
+          "ordinal": 1,
+          "title": "数据为什么要先过质量关",
+          "body": "英国 Government Digital Service 收到多个部门报送的数字支出表格，遇到字段命名、类型和标识不一致。团队先盘点输入，再与报送部门和使用方约定格式，并把修正放到数据产生环节。这个案例给我们的做法是：先说清谁用数据做什么，再确定哪些问题会妨碍他们的决定。\n\n本项目把这项工作放在一份碰撞统计简报里。使用方要比较样本内各记录限速组的记录数与伤亡人数，不是估算一条道路的危险程度。记录单位是一宗碰撞，不是一名伤亡者。先把目的、记录粒度、范围写在交付物开头。\n\n[阅读 GDS 案例](https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-case-studies#government-digital-service-improving-pipeline-data-quality)\n"
+        },
+        {
+          "id": "quality-chapter-2",
+          "ordinal": 2,
+          "title": "识别缺失、无效值和重复",
+          "body": "下载原始摘录和练习表，保留两份。以 collision_index 作为候选记录键，把日期解析成统一格式；先检查必填字段、取值范围和同键多行，再决定怎样处理。完全相同的重复记录与同键不同值是两类问题。负数伤亡人数不能进入有效统计，缺失限速也不能凭猜测归组。\n\n写一条可复核的质量记录：练习行号、字段、观察、影响、拟处理、负责人。修正值应能回指原始来源；只有本次教学提供了原始摘录，现实项目可能需要等待上游确认。\n\n[质量行动计划](https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-guidance) · [缺失值处理文档](https://pandas.pydata.org/docs/user_guide/missing_data.html)\n"
+        },
+        {
+          "id": "quality-chapter-3",
+          "ordinal": 3,
+          "title": "用可说明的分母重算",
+          "body": "记录数、有效数、伤亡总数和平均伤亡人数是不同量。用同一套清洗规则得到分组有效记录数，并用这个数作为组内平均值的分母。复算前先记下对同键冲突、缺失和非法值的处理，不把练习表行数当作碰撞数。\n\n可用表格透视或 SQL GROUP BY。先报告处理前后行数、不能纳入统计的记录和原因，然后给出分组表。限速不同的道路还可能有不同流量和暴露水平；本样本不足以据此比较事故风险，也不代表英国全年。\n\n[STATS19 官方覆盖范围和字段说明](https://www.gov.uk/government/statistical-data-sets/road-safety-open-data)\n"
+        },
+        {
+          "id": "quality-chapter-4",
+          "ordinal": 4,
+          "title": "把分析交给另一个人复核",
+          "body": "交付时附上原始来源、摘录范围、问题清单和可复算的统计口径。把可以确定的处理与要向数据提供者追问的问题分开。比如，你可以报告原始表里某个键只有一条记录；是否让上游修改导出规则，还需要记录负责人和复核日期。\n\n面试可以用“使用方的问题 → 我如何判断 → 交付给谁 → 哪些结论尚不能下”来讲述。保留实际完成的证据和本人贡献，将原案例团队的成果与自己的练习成果分开。\n\n[政府数据质量的沟通与复查指引](https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-guidance)\n"
+        }
+      ],
+      "videos": [
+        {
+          "id": "quality-video",
+          "course_id": "quality",
+          "chapter_ids": [
+            "quality-chapter-2",
+            "quality-chapter-3"
+          ],
+          "title": "How to Analyze and Clean a Dataset",
+          "provider": "Microsoft Learn",
+          "source_id": "VID-001",
+          "source_url": "https://learn.microsoft.com/en-us/shows/machine-learning-for-beginners/how-to-analyze-and-clean-a-dataset-machine-learning-for-beginners",
+          "delivery": "external_reference",
+          "local_file": null,
+          "duration_seconds": null,
+          "language": "en",
+          "source_page_http_status": 200,
+          "source_page_verified": true,
+          "playback_verified": false,
+          "media_candidates": [],
+          "viewing_guide_zh": "可选观看，关注如何在开始分析前检查字段。"
+        }
+      ]
+    },
+    {
+      "id": "ai-eval",
+      "career_id": "ai",
+      "title": "客服助手评测项目",
+      "content_version": 2,
+      "introduction": "# 客服助手评测项目\n\n客服团队要比较两版订单助手。你负责定义通过标准，对同一批离线工单做对照，决定哪一版可以进入下一轮验证。\n\n评测记录、严重错误清单和上线建议\n\n工单、策略和 A/B 输出均为本项目编写的离线教学记录。练习不调用候选模型，也不代表 τ-bench 的成绩。\n\n## 原始出处\n\n- [τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/abs/2406.12045) · Sierra Research and collaborators\n\n- [τ-bench repository](https://github.com/sierra-research/tau-bench) · Sierra Research\n\n- [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) · OpenAI\n\n- [Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents) · Anthropic\n\n- [LLM Evaluations in Azure AI Studio](https://learn.microsoft.com/en-us/shows/ai-show/llm-evaluations-in-azure-ai-studio) · Microsoft Learn\n",
+      "practice_path": "ai-eval/practice/task.md",
+      "reference_path": "ai-eval/reference/reading-notes.md",
+      "project_path": "ai-eval/project.json",
+      "source_ids": [
+        "tau-paper",
+        "tau-code",
+        "eval-guide",
+        "eval-anthropic",
+        "eval-video"
+      ],
+      "chapters": [
+        {
+          "id": "ai-eval-chapter-1",
+          "ordinal": 1,
+          "title": "先定义任务和政策",
+          "body": "τ-bench 由 Sierra 等作者提出，用零售和航空服务场景检验智能体与模拟用户、工具和业务规则的交互。一个答案听起来合理，无法说明它正确改变了后台状态。这里借用“按政策核对结果”的思路，把开放域对话收缩成一个可人工重算的客服评测。\n\n练习策略：身份核验前不得提供收件地址或取消订单。已核验且未发货的订单可取消。已发货的取消请求、破损和重复付款交给人工。缺少定位所需信息时先追问。核验后的物流查询仅返回状态。\n\n[阅读 τ-bench 论文](https://arxiv.org/abs/2406.12045)\n"
+        },
+        {
+          "id": "ai-eval-chapter-2",
+          "ordinal": 2,
+          "title": "为同一批工单建立对照",
+          "body": "查看同一行的请求、预期动作、候选 A 和 B。先读策略再核对预期动作，避免把教学标签当成永远正确的答案。每个候选都在相同 12 条工单上比较，按预期动作是否匹配记一次通过或失败，另外把越权写入或披露记录为严重错误。\n\n评价表至少记录工单号、实际动作、预期动作、误差类别和证据。身份边界与一般分流错误分开，才能理解总分背后的风险。\n\n[评测方法与样本覆盖](https://developers.openai.com/api/docs/guides/evaluation-best-practices)\n"
+        },
+        {
+          "id": "ai-eval-chapter-3",
+          "ordinal": 3,
+          "title": "把严重失败放进发布门槛",
+          "body": "这组练习可以用“动作匹配数 / 12”和“严重错误数”来对比候选。先写门槛，再统计结果，避免看到分数后修改规则。若一版没有触犯身份规则，仍要说明样本少、缺少真实对话变体、没有测试实际系统状态写入。\n\n复查失败时，应记录下一轮要增加的用例。例如在已发货、身份核验失败和用户绕过规则的组合条件下，检查助手能否安全停在追问或转人工。\n\n[τ-bench 项目与评测定义](https://github.com/sierra-research/tau-bench)\n"
+        },
+        {
+          "id": "ai-eval-chapter-4",
+          "ordinal": 4,
+          "title": "向产品团队提交上线建议",
+          "body": "一份可用的评测交付物应包含策略版本、样本范围、分母、严重失败工单、候选对比和下一轮计划。写出实际做过的核对。若只比较固定输出，请在面试中把它称为离线评测，并说明将来如何用真实运行记录验证。\n\n[如何区分尝试、评分与结果](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)\n"
+        }
+      ],
+      "videos": [
+        {
+          "id": "ai-eval-video",
+          "course_id": "ai-eval",
+          "chapter_ids": [
+            "ai-eval-chapter-2"
+          ],
+          "title": "LLM Evaluations in Azure AI Studio",
+          "provider": "Microsoft Learn",
+          "source_id": "VID-002",
+          "source_url": "https://learn.microsoft.com/en-us/shows/ai-show/llm-evaluations-in-azure-ai-studio",
+          "delivery": "external_reference",
+          "local_file": null,
+          "duration_seconds": null,
+          "language": "en",
+          "source_page_http_status": 200,
+          "source_page_verified": true,
+          "playback_verified": false,
+          "media_candidates": [],
+          "viewing_guide_zh": "可选观看，关注指标设计与失败样本。"
+        }
+      ]
+    },
+    {
+      "id": "log",
+      "career_id": "security",
+      "title": "安全日志初筛项目",
+      "content_version": 2,
+      "introduction": "# 安全日志初筛项目\n\n安全运营值班收到一条远程登录告警。你需要把认证、权限和变更记录按时间对齐，判断是否升级调查，并留下接班人能继续查的事件链。\n\n事件时间线、备选解释与升级交接\n\n记录为授权范围内的离线教学数据，账户、设备与变更单为虚构。事件链只支持调查优先级，不能证实攻击或归因。\n\n## 原始出处\n\n- [Joint advisory AA24-038A](https://www.cyber.gov.au/advisory/prc-state-sponsored-actors-compromise-and-maintain-persistent-access-to-us-critical-infrastructure) · CISA, NSA, FBI and partners · ASD ACSC\n\n- [Best practices for event logging and threat detection](https://www.cyber.gov.au/publication/best-practices-for-event-logging-and-threat-detection) · ASD ACSC and international partners\n\n- [Audit Logon](https://learn.microsoft.com/windows/security/threat-protection/auditing/audit-logon) · Microsoft Learn\n\n- [Logs Data Model](https://opentelemetry.io/docs/specs/otel/logs/data-model/) · OpenTelemetry\n\n- [Parsing 101 with Fluent Bit](https://www.cncf.io/blog/2025/01/06/parsing-101-with-fluent-bit/) · CNCF · Fluent Bit\n",
+      "practice_path": "log/practice/task.md",
+      "reference_path": "log/reference/reading-notes.md",
+      "project_path": "log/project.json",
+      "source_ids": [
+        "joint-case",
+        "logging-guide",
+        "windows-events",
+        "otel-model",
+        "log-video"
+      ],
+      "chapters": [
+        {
+          "id": "log-chapter-1",
+          "ordinal": 1,
+          "title": "收到登录告警后先界定范围",
+          "body": "多国机构联合通报 AA24-038A 描述了攻击者滥用有效账户并在多个系统之间活动的情形。对安全运营而言，看到一次成功登录不能自动认定合法或恶意，关键是把上下文连起来。这次练习仅针对给出的测试主机和时间段。\n\n你接到的告警涉及 svc-archive 和 files-02。先写出观察窗口、涉及系统及授权范围，保留原始记录。值班初筛的任务是确定优先级并交接，需要哪些额外证据也属于交付的一部分。\n\n[查阅联合通报 AA24-038A](https://www.cyber.gov.au/advisory/prc-state-sponsored-actors-compromise-and-maintain-persistent-access-to-us-critical-infrastructure)\n"
+        },
+        {
+          "id": "log-chapter-2",
+          "ordinal": 2,
+          "title": "按时区、账户与主机关联",
+          "body": "将带偏移量的事件时间转换为 UTC，并区分事件发生时间和收集系统看到它的时间。4624 与 4625 分别表示 Windows 登录成功与失败，但相邻时间的记录可能来自其他账户或主机。记录最少要保留原始时间、归一时间、账号、来源和目标。\n\n用账号、主机、来源地址或会话线索逐项关联。把误入窗口的无关事件留在原始记录，不要放进证据链。变更记录仅覆盖它注明的主机和来源。\n\n[Microsoft 登录事件](https://learn.microsoft.com/windows/security/threat-protection/auditing/audit-logon) · [OpenTelemetry 日志时间模型](https://opentelemetry.io/docs/specs/otel/logs/data-model/)\n"
+        },
+        {
+          "id": "log-chapter-3",
+          "ordinal": 3,
+          "title": "比较解释并作升级判断",
+          "body": "把合法备份与未经授权的远程登录视为两种待核验解释。先比较变更单的时间、主机和来源地址，再检查权限事件和会话标识。日志缺口意味着部分后续动作仍未知。可以建议二线核实，但不能仅凭登录成功认定失陷。\n\n[事件日志和威胁检测实践](https://www.cyber.gov.au/publication/best-practices-for-event-logging-and-threat-detection)\n"
+        },
+        {
+          "id": "log-chapter-4",
+          "ordinal": 4,
+          "title": "提交能被接班人使用的记录",
+          "body": "交接记录包括告警范围、UTC 时间线、支持证据、备选解释、缺少的信息和建议复查人。把本人做的关联步骤保留下来，便于面试时说明怎样处理真假告警。\n\n[日志字段与归一模型](https://opentelemetry.io/docs/specs/otel/logs/data-model/)\n"
+        }
+      ],
+      "videos": [
+        {
+          "id": "log-video",
+          "course_id": "log",
+          "chapter_ids": [
+            "log-chapter-1",
+            "log-chapter-2"
+          ],
+          "title": "Parsing 101 with Fluent Bit",
+          "provider": "CNCF · Fluent Bit",
+          "source_id": "VID-003",
+          "source_url": "https://www.cncf.io/blog/2025/01/06/parsing-101-with-fluent-bit/",
+          "delivery": "external_reference",
+          "local_file": null,
+          "duration_seconds": null,
+          "language": "en",
+          "source_page_http_status": 200,
+          "source_page_verified": true,
+          "playback_verified": false,
+          "media_candidates": [
+            "https://www.youtube.com/watch?v=PZaL70vaCrg"
+          ],
+          "viewing_guide_zh": "可选观看，关注解析与字段归一。"
+        }
+      ]
+    },
+    {
+      "id": "restore",
+      "career_id": "ops",
+      "title": "故障恢复与回退项目",
+      "content_version": 2,
+      "introduction": "# 故障恢复与回退项目\n\n边缘网关的规则更新正在小流量发布。候选组出现 502 和 CPU 异常。你负责判断是否暂停、如何回退，以及什么时候可以宣告恢复。\n\n回退决策、恢复验收记录和复盘行动\n\n监控、版本、阈值和时间均为教学场景。所有操作是纸上演练。原始 Cloudflare 事故只用于理解故障与发布风险。\n\n## 原始出处\n\n- [Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/) · Cloudflare\n\n- [Canarying Releases](https://sre.google/workbook/canarying-releases/) · Google SRE\n\n- [Incident Response](https://sre.google/workbook/incident-response/) · Google SRE\n\n- [Postmortem Culture: Learning from Failure](https://sre.google/workbook/postmortem-culture/) · Google SRE\n\n- [Storytelling as an Incident Management Skill](https://www.usenix.org/conference/srecon24americas/presentation/devesine) · USENIX · Laura de Vesine\n",
+      "practice_path": "restore/practice/task.md",
+      "reference_path": "restore/reference/reading-notes.md",
+      "project_path": "restore/project.json",
+      "source_ids": [
+        "cf-case",
+        "canary-guide",
+        "incident-guide",
+        "postmortem-guide",
+        "sre-video"
+      ],
+      "chapters": [
+        {
+          "id": "restore-chapter-1",
+          "ordinal": 1,
+          "title": "先控制影响范围",
+          "body": "Cloudflare 的复盘记载，一次 WAF 规则更新引发异常的正则匹配开销，耗尽处理 HTTP/HTTPS 流量的 CPU，导致代理请求错误。团队确认影响组件并停止问题路径，随后在有限范围验证恢复。本练习提取的是识别影响、暂停扩散、验证恢复的工作顺序。\n\n假设你正在做一次规则灰度。对照组留在 v17，候选组使用 v18。先记录变更、各组流量和用户影响。回退只在演练中描述，执行与批准各有责任人。\n\n[阅读 Cloudflare 原始复盘](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)\n"
+        },
+        {
+          "id": "restore-chapter-2",
+          "ordinal": 2,
+          "title": "用同窗对照判断异常",
+          "body": "先按同一时间窗口比较候选与稳定组。错误率等于 502 数除以请求数。对比错误率、请求分母、CPU 和版本变化。不要把较少请求带来的较少错误当作修复，也不要用全量平均掩盖小流量候选组。\n\n本次演练的门槛：候选组同一分钟至少 100 个请求，且 502 率高于 5% 并高于对照组时，暂停扩量并评估回退。CPU 用于补充解释。这些数值是演练输入。\n\n[Google SRE 灰度发布指南](https://sre.google/workbook/canarying-releases/)\n"
+        },
+        {
+          "id": "restore-chapter-3",
+          "ordinal": 3,
+          "title": "安排回退与恢复验收",
+          "body": "写出暂停扩量、确认最后稳定版本、指定执行人与验证人、检查版本回退、按门槛观察、更新状态的顺序。回退后要求连续两个观察窗口各至少 100 个请求，502 率低于 1%，且 CPU 不超过 65%。出现样本不足、版本未回退或指标不达标时继续观察或升级。\n\n演练只记录建议动作与证据。一次 CPU 回落不足以判定服务恢复，短期恢复也不意味着根因已完全验证。\n\n[Google SRE 事故响应](https://sre.google/workbook/incident-response/)\n"
+        },
+        {
+          "id": "restore-chapter-4",
+          "ordinal": 4,
+          "title": "把故障经验变成下一次发布检查",
+          "body": "交付包含影响范围、回退理由、实际核对的指标、恢复判断、残余不确定性以及一个有负责人的改进项。把可能原因写成待核验假设，避免把一次练习演练包装成真实故障处置经验。\n\n面试时可以说明你为什么选择先暂停扩量、如何使用同窗对照，以及何时判定恢复。用证据行支持这个故事。\n\n[Google SRE 复盘指南](https://sre.google/workbook/postmortem-culture/)\n"
+        }
+      ],
+      "videos": [
+        {
+          "id": "restore-video",
+          "course_id": "restore",
+          "chapter_ids": [
+            "restore-chapter-4"
+          ],
+          "title": "Storytelling as an Incident Management Skill",
+          "provider": "USENIX · Laura de Vesine",
+          "source_id": "VID-004",
+          "source_url": "https://www.usenix.org/conference/srecon24americas/presentation/devesine",
+          "delivery": "external_reference",
+          "local_file": null,
+          "duration_seconds": null,
+          "language": "en",
+          "source_page_http_status": 200,
+          "source_page_verified": true,
+          "playback_verified": false,
+          "media_candidates": [
+            "https://www.youtube.com/embed/PesInXd9G6c"
+          ],
+          "viewing_guide_zh": "可选观看，关注清晰的事件叙述与交接。"
+        }
+      ]
+    }
+  ]
+}

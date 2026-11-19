@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习实践项目页 · 实施前线框</title>
+<style>
+  * { box-sizing: border-box }
+  body { margin: 0; background: #f5f5f5; color: #252525; font: 16px/1.6 system-ui, sans-serif }
+  main { max-width: 1100px; padding: 32px; margin: auto }
+  header, article, aside { background: white; border: 1px solid #ccc; padding: 24px }
+  h1, h2 { margin: 0 0 8px }
+  nav { padding: 14px 0; border-bottom: 1px solid #ccc; margin-bottom: 24px }
+  .layout { display: grid; grid-template-columns: 1fr minmax(220px, 31%); gap: 24px }
+  .input { min-height: 76px; border: 1px solid #aaa; padding: 12px }
+  .steps { padding-left: 22px }
+  @media (max-width: 720px) { main { padding: 16px } .layout { grid-template-columns: 1fr } }
+</style>
+<main>
+  <p>实施前线框 · 供页面结构核对</p>
+  <header>
+    <p>学习实践 / 返回资源中心</p>
+    <h1>数据质量小项目</h1>
+    <p>为数据使用方核对一份碰撞统计简报。交付带原始行号、统计口径和限制的分析记录。</p>
+  </header>
+  <nav aria-label="项目导航">项目概览　　阅读资料　　实践　　成果</nav>
+  <div class="layout">
+    <article>
+      <h2>第二步 · 核对数据</h2>
+      <p>先找出会影响统计的记录，再选择处理方法。交付时复核人可以按行号重现你的判断。</p>
+      <h3>练习记录</h3>
+      <p class="input">按字段或编号筛选 → 勾选实际证据行 → 查看已引用记录</p>
+      <h3>提交本步判断</h3>
+      <p class="input">处理选择 / 判断与依据</p>
+      <p>保存草稿　　保存并继续</p>
+    </article>
+    <aside>
+      <h2>实践进度</h2>
+      <ol class="steps"><li>确认任务</li><li>核对数据</li><li>作出决定</li><li>交付与复盘</li></ol>
+      <h2>实践助手</h2>
+      <p>当前步骤、可用提示、主动问询。手机上将问询入口放在当前步骤下方。</p>
+      <h2>本步资料</h2>
+      <p>发布机构、官方出处、为什么在这一步使用、可下载数据。</p>
+    </aside>
+  </div>
+</main>
+</html>

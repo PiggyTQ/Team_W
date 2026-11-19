@@ -6,6 +6,7 @@ import {businessError} from './business-error.mjs';
 import {guardCommandRecords} from './business-commands.mjs';
 import {createPersonalContextStore} from './agent/personal-context.mjs';
 import {createResourceProjectStore} from './resource-project-store.mjs';
+import {guidedTask,normalizeProjectPractice} from '../src/practice-project-model.js';
 export {businessError} from './business-error.mjs';
 
 export const COLLECTIONS=Object.freeze({education:'education_records',claims:'experience_claims',tasks:'plan_tasks',reviews:'practice_reviews',reports:'career_reports',resumes:'resume_versions',jobs:'job_cards',events:'job_events',presets:'saved_searches',feedback:'feedback_tickets',conversations:'assistant_conversations',resumeImports:'resume_imports',aiNotes:'personal_notes',analysisHistory:'assessment_versions'});
@@ -48,13 +49,17 @@ export function canonicalWorkspace(input,userId,catalog) {
     const course=catalog?.get(task.template);
     if(course?.status==='placeholder')throw businessError('COURSE_NOT_READY',409);
     if(course?.status==='published'){
-      task.courseVersion=task.courseVersion??course.content_version;
+      task.courseVersion=task.courseVersion??(course.versions.some(row=>row.version===1)?1:course.content_version);
       const version=course.versions?.find(row=>row.version===task.courseVersion);
       if(!version)throw businessError('COURSE_VERSION_UNAVAILABLE',409);
       task.courseRef={id:task.template,version:version.version,packHash:version.pack_hash};
       for(const [index,attempt]of task.attempts.entries()){
         if(attempt.version!==index+1||!attempt.text?.trim()||attempt.courseVersion!==undefined&&attempt.courseVersion!==task.courseVersion)throw businessError('INVALID_TASK_ATTEMPT');
         attempt.courseVersion=task.courseVersion;
+      }
+      if(task.projectPractice!==undefined) {
+        if(!guidedTask(task))throw businessError('INVALID_PROJECT_PRACTICE');
+        task.projectPractice=normalizeProjectPractice(task.projectPractice);
       }
       if(task.mode==='S2'&&(task.completed||task.status==='完成')){
         const last=task.attempts.at(-1);
@@ -70,10 +75,20 @@ export function canonicalWorkspace(input,userId,catalog) {
   for(const [id,position]of Object.entries(state.reading)){
     const course=catalog?.get(id);if(course?.status==='placeholder')throw businessError('COURSE_NOT_READY',409);
     if(course?.status==='published'){
-      if(!Number.isInteger(position.chapter)||position.chapter<0||position.chapter>=4)throw businessError('INVALID_READING_POSITION');
-      if(!course.versions.some(v=>v.version===position.version))throw businessError('COURSE_VERSION_UNAVAILABLE',409);
-      if(position.chapterId&&position.chapterId!==`${id}-chapter-${position.chapter+1}`)throw businessError('INVALID_READING_POSITION');
-      if(position.completed===true)throw businessError('INVALID_READING_POSITION');
+      const checkPosition=row=>{
+        if(!row||!Number.isInteger(row.chapter)||row.chapter<0||row.chapter>=4||row.completed===true||
+          row.chapterId&&row.chapterId!==`${id}-chapter-${row.chapter+1}`)throw businessError('INVALID_READING_POSITION');
+        if(!course.versions.some(v=>v.version===row.version))throw businessError('COURSE_VERSION_UNAVAILABLE',409);
+      };
+      checkPosition(position);
+      if(position.versions!==undefined){
+        if(!position.versions||typeof position.versions!=='object'||Array.isArray(position.versions)||
+          Object.keys(position.versions).length>course.versions.length)throw businessError('INVALID_READING_POSITION');
+        for(const [version,row] of Object.entries(position.versions)){
+          checkPosition(row);
+          if(String(row.version)!==version||row.versions!==undefined)throw businessError('INVALID_READING_POSITION');
+        }
+      }
     }
   }
   return state;
@@ -143,8 +158,8 @@ export function createBusinessStore(db,{now=Date.now}={}) {
       audit(userId,auditCode);if(ownTransaction)db.exec('COMMIT');return {revision,updatedAt:now()};
     }catch(error){if(ownTransaction)db.exec('ROLLBACK');throw error;}
   }
-  function catalog() {
-    return courseLibrary.catalog();
+  function catalog(options) {
+    return courseLibrary.catalog(options);
   }
   function records(userId,key,id) {
     if(!Object.hasOwn(COLLECTIONS,key))throw businessError('NOT_FOUND',404);const table=COLLECTIONS[key];
@@ -154,7 +169,7 @@ export function createBusinessStore(db,{now=Date.now}={}) {
   function clear(userId,baseVersion) {
     const snapshot=read(userId);if(snapshot.revision!==baseVersion)throw businessError('VERSION_CONFLICT',409,{currentVersion:snapshot.revision});
     const ownTransaction=!db.isTransaction;if(ownTransaction)db.exec('BEGIN IMMEDIATE');let result;
-    try{result=save(userId,{state:fresh(),baseVersion,mutationId:randomUUID()},{auditCode:'WORKSPACE_CLEARED'});resourceProjects.clear(userId);if(ownTransaction)db.exec('COMMIT');}catch(error){if(ownTransaction)db.exec('ROLLBACK');throw error;}
+    try{result=save(userId,{state:fresh(),baseVersion,mutationId:randomUUID()},{auditCode:'WORKSPACE_CLEARED',trustedCommand:true});resourceProjects.clear(userId);if(ownTransaction)db.exec('COMMIT');}catch(error){if(ownTransaction)db.exec('ROLLBACK');throw error;}
     if(!db.isTransaction)try{db.exec('PRAGMA wal_checkpoint(TRUNCATE)');}catch{console.warn('Database checkpoint deferred after committed workspace clear');}
     return {...result,state:fresh()};
   }

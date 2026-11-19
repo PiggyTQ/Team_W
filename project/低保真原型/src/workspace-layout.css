@@ -73,8 +73,6 @@
  background:#fff;border:1px solid #deded9;border-right:0;border-bottom:0;border-radius:14px 0 0 0;
  padding:24px 36px 36px!important;
 }
-#main.workspace.atlas-workspace .atlas-head>div:last-child{display:flex;gap:12px;align-items:center;flex-shrink:0}
-#main.workspace.atlas-workspace .atlas-toolbar{margin:0 0 20px;min-height:54px}
 #main.workspace.atlas-workspace .workspace-guide{border:0;margin:0}
 #main.workspace.atlas-workspace .workspace-guide-trigger{border:0;background:transparent;box-shadow:none;color:#555;font-size:12px}
 #main.workspace.atlas-workspace>.workspace-contextbar .breadcrumbs{font-size:12px}
@@ -123,10 +121,6 @@
  #main.workspace .plan-primary .phase-columns{grid-template-columns:minmax(0,1fr)}
  #main.workspace .plan-overview>.weekly-budget{grid-row:2;padding:22px 18px}
  #main.workspace .plan-primary .phase-columns .actions{gap:8px}
- #main.workspace.atlas-workspace .atlas-head{flex-wrap:wrap}
- #main.workspace.atlas-workspace .atlas-head>div:last-child{width:100%;justify-content:space-between;gap:10px}
- #main.workspace.atlas-workspace .atlas-head>div:last-child>a{display:inline}
- #main.workspace.atlas-workspace .atlas-toolbar{margin-bottom:16px}
  #root:has(>#main.workspace)>.app-header .workspace-search :is(.search-clear,.search-submit){min-width:44px;min-height:44px}
  #root:has(>#main.workspace)>.app-header .global-search{min-height:48px;height:48px}
  #root:has(>#main.workspace)>.app-header .workspace-search select{min-height:44px}

@@ -17,8 +17,8 @@ const outcomes={
  log:'日志分析：整理异常线索，比较替代解释并说明授权边界。',
  restore:'Linux / 运维：制定恢复步骤，判断回退条件并记录未验证项。'
 };
-export function expectedCapability(task) {
- return task.atlas?.skill?.trim()||task.skill?.trim()||outcomes[task.template]||task.purpose?.trim()||'待明确能力目标';
+export function expectedCapability(task,purpose=task.purpose) {
+ return task.atlas?.skill?.trim()||task.skill?.trim()||outcomes[task.template]||purpose?.trim()||'待明确能力目标';
 }
 export function learningTaskRoute(task) {
  const params=new URLSearchParams({task:task.id});

@@ -5,10 +5,16 @@ import {submitTaskAttempt} from '../src/task-attempt-model.js';
 import {dependencyBlock} from '../src/completion-model.js';
 import {stoppedTask,applyTaskEdit,validateTaskEdit} from '../src/task-edit-model.js';
 import {freezeReport,createSkillCandidates} from '../src/alignment-model.js';
-import {atlasPracticeKey} from '../src/career-atlas-model.js';
+import {atlasPracticeKey} from '../src/atlas-history.js';
 import {planningReportPreview} from './planning-report.mjs';
+import {gradeSkillCheck} from './skill-trees/index.mjs';
+import {recordSkillAssessment,skillStudyKey} from '../src/skill-tree-model.js';
+import {
+  createProjectDeliverable,guidedTask,newProjectPractice,normalizeProjectPractice,
+  PRACTICE_ROLES,PRACTICE_SCOPES,sameProjectPractice
+} from '../src/practice-project-model.js';
 
-const COMMANDS=new Set(['assessment.create','report.compile','report.compose','task.create','task.edit','task.start','task.submit','task.selfcheck','task.complete','evidence.candidates','experience.record','claim.confirm','claim.withdraw']);
+const COMMANDS=new Set(['assessment.create','skill.check','report.compile','report.compose','task.create','task.edit','task.start','task.submit','task.selfcheck','task.complete','evidence.candidates','experience.record','claim.confirm','claim.withdraw']);
 const origin='server-command-v1';
 const sorted=value=>Array.isArray(value)?value.map(sorted):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,sorted(value[key])])):value;
 const hash=value=>createHash('sha256').update(JSON.stringify(sorted(value))).digest('hex');
@@ -52,6 +58,15 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         const analysis={...knowledge.assess(s),authority,inputDigest:hash({career:s.assessmentCareer||s.goal||'data',claims:s.claims.filter(c=>c.status==='已确认'),reviews:s.reviews,profileVersion:s.profileVersion})};
         next={...s,analysis,analysisStale:false,analysisHistory:[...(s.analysisHistory||[]),...(s.analysis?[s.analysis]:[])].filter((row,index,all)=>all.findIndex(x=>x.id===row.id)===index)};
         refs={analysisId:analysis.id};
+      }else if(type==='skill.check'){
+        fields(payload,['career','skill','version','answers']);
+        const {career,skill,version,answers}=payload;
+        text(career,30);text(skill,50);
+        const grade=gradeSkillCheck(career,skill,version,answers);
+        const key=skillStudyKey(career,{id:skill,version});
+        const skillStudy=recordSkillAssessment(s.skillStudy,key,grade,authority.createdAt);
+        next={...s,skillStudy};
+        refs={career,skill,version,grade,assessment:skillStudy[key].assessment};
       }else if(type==='report.compose'){
         fields(payload,['title','kind','help','sections','previewVersion','previewDigest','confirmation','format','planRecords']);
         requireValue(payload.confirmation==='COMPOSE_REPORT','CONFIRMATION_REQUIRED');
@@ -76,7 +91,7 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
       }else if(type==='task.create'){
         fields(payload,['draft','confirmation']);requireValue(payload.confirmation==='CREATE_TASK','CONFIRMATION_REQUIRED');
         const d=payload.draft;
-        fields(d,['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another']);
+        fields(d,['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another','practiceRole','practiceScope']);
         text(d.title,200);text(d.purpose,4000);requireValue(typeof d.hours==='number'&&Number.isFinite(d.hours)&&d.hours>0&&d.hours<=168,'INVALID_TASK_HOURS');
         requireValue(!checkStart(s,d),'TASK_PRECHECK_FAILED',409);
         const template=d.template||'external',course=business.courseLibrary.map().get(template);
@@ -85,6 +100,14 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         requireValue(d.another===true||!s.tasks.some(t=>t.template===template&&t.purpose===d.purpose&&!['取消','跳过'].includes(t.status)),'DUPLICATE_TASK',409);
         if(d.jobId)requireValue(s.jobs.some(job=>job.id===d.jobId),'NOT_FOUND',404);
         const task={...makeTask(s,{...d,template,...(course?{courseVersion:d.courseVersion||course.content_version}:{})}),id:randomUUID(),owner:userId,authority};
+        if(guidedTask(task)){
+          const project=business.courseLibrary.course(template,task.courseVersion).project;
+          requireValue(!!project,'COURSE_NOT_READY',409);
+          const role=d.practiceRole??'member',scope=d.practiceScope??'core';
+          requireValue(PRACTICE_ROLES.includes(role)&&PRACTICE_SCOPES.includes(scope),'INVALID_PROJECT_PRACTICE');
+          task.career=project.career;
+          task.projectPractice=newProjectPractice(role,scope);
+        }
         next={...s,tasks:[...s.tasks,task],taskDraft:null,planVersion:s.planVersion+1,jobs:s.jobs.map(job=>job.id===d.jobId?{...job,taskId:task.id,status:'准备'}:job),...(task.atlas?{atlasDrafts:Object.fromEntries(Object.entries(s.atlasDrafts||{}).filter(([key])=>key!==atlasPracticeKey(task.atlas)))}:{})};
         refs={taskId:task.id};
       }else if(type==='task.edit'){
@@ -98,7 +121,7 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         if(!task.completed&&payload.draft.status==='完成')next=withTask(next,{...next.tasks.find(row=>row.id===task.id),completionReceipt:authority});
         refs={taskId:task.id};
       }else if(type.startsWith('task.')){
-        fields(payload,['taskId','taskVersion','attemptId','confirmation']);
+        fields(payload,['taskId','taskVersion','attemptId','confirmation','language']);
         const task=s.tasks.find(row=>row.id===payload.taskId);requireValue(!!task,'NOT_FOUND',404);
         requireValue(task.version===payload.taskVersion,'VERSION_CONFLICT',409);
         requireValue(!stoppedTask(task),'TASK_PAUSED',409);
@@ -108,21 +131,34 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
           next=task.completed?s:withTask(s,{...task,status:'进行中',version:task.version+1});
         }else if(type==='task.submit'){
           requireValue(!task.completed&&task.status!=='完成','INVALID_TASK_STATE',409);
-          text(task.draft);requireValue(payload.confirmation==='SUBMIT_ATTEMPT','CONFIRMATION_REQUIRED');
-          next=submitTaskAttempt(s,task.id);
+          requireValue(payload.confirmation==='SUBMIT_ATTEMPT','CONFIRMATION_REQUIRED');
+          const project=guidedTask(task)?business.courseLibrary.course(task.template,task.courseVersion).project:null;
+          const submission=project?createProjectDeliverable(project,task.projectPractice||newProjectPractice(),payload.language):null;
+          const ready=submission?withTask(s,{...task,draft:submission.document,contribution:submission.contribution}):s;
+          text(ready.tasks.find(row=>row.id===task.id).draft);
+          next=submitTaskAttempt(ready,task.id);
           const submitted=next.tasks.find(row=>row.id===task.id),attempt=submitted.attempts.at(-1);
           attempt.id=randomUUID();attempt.date=authority.createdAt;attempt.authority=authority;
+          if(submission)attempt.practiceSnapshot=submission.snapshot;
           refs.attemptId=attempt.id;
         }else if(type==='task.selfcheck'){
           requireValue(payload.confirmation==='SELF_CHECK_ONLY','CONFIRMATION_REQUIRED');
           const attempt=task.attempts.find(row=>row.id===payload.attemptId);requireValue(!!attempt,'NOT_FOUND',404);
           requireValue(!task.completed,'INVALID_TASK_STATE',409);
-          next=withTask(s,{...task,version:task.version+1,check:task.attempts.at(-1)?.id===attempt.id?'自检记录':task.check,attempts:task.attempts.map(row=>row.id===attempt.id?{...row,result:'自检记录',feedback:'本人自检记录：仅记录用户声明的核对动作，不构成独立核验。',selfcheckReceipt:authority}:row)});
+          const isLatest=task.attempts.at(-1)?.id===attempt.id;
+          if(guidedTask(task))requireValue(isLatest&&sameProjectPractice(attempt.practiceSnapshot,task.projectPractice),'PROJECT_STEPS_CHANGED',409);
+          next=withTask(s,{...task,version:task.version+1,check:isLatest?'自检记录':task.check,
+            ...(guidedTask(task)?{selfcheck:true}:{}),
+            attempts:task.attempts.map(row=>row.id===attempt.id?{...row,result:'自检记录',feedback:'本人自检记录：仅记录用户声明的核对动作，不构成独立核验。',selfcheckReceipt:authority}:row)});
           refs.attemptId=attempt.id;
         }else{
           requireValue(payload.confirmation==='COMPLETE_LIMITED_SCOPE','CONFIRMATION_REQUIRED');
           const last=task.attempts.at(-1);
           requireValue(!!last&&last.result==='自检记录'&&task.selfcheck===true&&!!task.contribution?.trim(),'COURSE_COMPLETION_INCOMPLETE',409);
+          if(guidedTask(task))requireValue(
+            sameProjectPractice(last.practiceSnapshot,task.projectPractice)&&last.contribution===task.contribution,
+            'PROJECT_STEPS_CHANGED',409
+          );
           next=withTask(s,{...task,status:'完成',completed:true,version:task.version+1,completionReceipt:authority});
         }
         refs.taskId=task.id;
@@ -173,6 +209,11 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
 export function guardCommandRecords(previous,next){
   const isServer=row=>row?.authority?.origin===origin;
   const identical=(a,b)=>hash(a)===hash(b);
+  const studyKeys=new Set([...Object.keys(previous.skillStudy||{}),...Object.keys(next.skillStudy||{})]);
+  for(const key of studyKeys){
+    requireValue(identical(previous.skillStudy?.[key]?.assessment??null,next.skillStudy?.[key]?.assessment??null),
+      'SERVER_RECORD_PROTECTED',409);
+  }
   const analyses=new Map([previous.analysis,...previous.analysisHistory||[]].filter(isServer).map(row=>[row.id,row]));
   for(const row of [next.analysis,...next.analysisHistory||[]].filter(Boolean)){
     if(isServer(row)||analyses.has(row.id))requireValue(analyses.has(row.id)&&identical(analyses.get(row.id),row),'SERVER_RECORD_PROTECTED',409);
@@ -184,6 +225,17 @@ export function guardCommandRecords(previous,next){
   const previousTasks=new Map(previous.tasks.map(row=>[row.id,row]));
   for(const task of next.tasks){
     const old=previousTasks.get(task.id);
+    if(guidedTask(task))requireValue(guidedTask(old)&&old.template===task.template&&old.courseVersion===task.courseVersion&&
+      old.career===task.career,'COMMAND_REQUIRED',409);
+    if(guidedTask(old))requireValue(guidedTask(task),'SERVER_RECORD_PROTECTED',409);
+    if(task.projectPractice!==undefined){
+      normalizeProjectPractice(task.projectPractice);
+      if(old?.projectPractice!==undefined){
+        requireValue(old.projectPractice.role===task.projectPractice.role&&old.projectPractice.scope===task.projectPractice.scope,'SERVER_RECORD_PROTECTED',409);
+      }
+      if(old?.completed)requireValue(sameProjectPractice(old.projectPractice,task.projectPractice),'SERVER_RECORD_PROTECTED',409);
+    }
+    if(old?.projectPractice!==undefined)requireValue(task.projectPractice!==undefined,'SERVER_RECORD_PROTECTED',409);
     if(isServer(task)||isServer(old)){
       requireValue(!!old&&identical(old.authority,task.authority),'SERVER_RECORD_PROTECTED',409);
       requireValue(old.completed===task.completed&&identical(old.attempts,task.attempts)&&old.check===task.check&&identical(old.completionReceipt??null,task.completionReceipt??null),'COMMAND_REQUIRED',409);

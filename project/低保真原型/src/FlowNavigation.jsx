@@ -15,7 +15,7 @@ export default function FlowNavigation({ s, path, tab, search, link }) {
   if (!flow) return null;
   return <nav ref={ref} className="flow-progress" aria-label="流程前进与返回">
     {link(flow.back.to, <><span aria-hidden="true">←</span>{flow.back.label}</>, 'button flow-back')}
-    <div className="flow-progress-context"><p>{flow.hint}</p>{flow.help && link(flow.help.to, flow.help.label, 'flow-help')}</div>
+    <div className="flow-progress-context">{flow.hint&&<p>{flow.hint}</p>}{flow.help && link(flow.help.to, flow.help.label, 'flow-help')}</div>
     {flow.next.action==='selected-action'?<button className="button primary flow-next" onClick={()=>{const target=document.getElementById('action-selected-detail');target?.scrollIntoView({block:'start'});target?.focus({preventScroll:true});}}>{flow.next.label}<span aria-hidden="true">→</span></button>:link(flow.next.to, <>{flow.next.label}<span aria-hidden="true">→</span></>, 'button primary flow-next')}
   </nav>;
 }

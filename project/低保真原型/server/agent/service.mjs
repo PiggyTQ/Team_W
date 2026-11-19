@@ -7,6 +7,7 @@ import {reviewedLibrary} from './library.mjs';
 import {createDeepSeekClient} from './deepseek.mjs';
 import {createBudgetLedger} from './budget.mjs';
 import {AI_CONSENT_VERSION,scopeKey,hasExternalConsent} from '../../src/agent-contract.js';
+import {guidedTask,PRACTICE_STEPS} from '../../src/practice-project-model.js';
 
 export const PROMPT_VERSION='career-readonly-v5';
 export const MODES=Object.freeze(['career_consultation','assessment_explanation','plan_simulation']);
@@ -18,7 +19,7 @@ const exactKeys=(value,keys)=>plain(value)&&Object.keys(value).every(k=>keys.inc
 const stringList=(value,max=10)=>Array.isArray(value)&&value.length<=max&&value.every(x=>typeof x==='string'&&x.length>0&&x.length<=1200);
 
 export function validateAgentRequest(input) {
-  if(!exactKeys(input,['mode','message','baseVersion','scope','context','conversationId']))fail('AI_INVALID_REQUEST');
+  if(!exactKeys(input,['mode','message','baseVersion','scope','context','conversationId','practice']))fail('AI_INVALID_REQUEST');
   if(!MODES.includes(input.mode)||typeof input.message!=='string'||!input.message.trim()||input.message.length>4000)fail('AI_INVALID_REQUEST');
   if(!Number.isInteger(input.baseVersion)||input.baseVersion<0)fail('AI_INVALID_REQUEST');
   if(!exactKeys(input.scope,['confirmedClaims','currentPlan','claimRefs'])||['confirmedClaims','currentPlan'].some(k=>typeof input.scope[k]!=='boolean'))fail('AI_SCOPE_REJECTED',403);
@@ -28,6 +29,12 @@ export function validateAgentRequest(input) {
   if(!exactKeys(input.context,['workspace','career'])||typeof input.context.workspace!=='string'||!/^U(0[3-9]|1[01])$/.test(input.context.workspace)||!careers.some(c=>c.id===input.context.career))fail('AI_INVALID_REQUEST');
   if(input.conversationId!==undefined&&(typeof input.conversationId!=='string'||input.conversationId.length>120))fail('AI_INVALID_REQUEST');
   if(input.mode==='assessment_explanation'&&!input.scope.confirmedClaims||input.mode==='plan_simulation'&&!input.scope.currentPlan)fail('AI_SCOPE_REJECTED',403);
+  if(input.practice!==undefined){
+    const practice=input.practice;
+    if(!exactKeys(practice,['taskId','step','language'])||typeof practice.taskId!=='string'||!/^[-a-zA-Z0-9]{1,120}$/.test(practice.taskId)||
+      !PRACTICE_STEPS.includes(practice.step)||!['zh','en'].includes(practice.language)||input.context.workspace!=='U08'||
+      input.mode!=='career_consultation'||input.scope.confirmedClaims||input.scope.currentPlan||input.conversationId!==undefined)fail('AI_INVALID_REQUEST');
+  }
   return input;
 }
 
@@ -69,7 +76,32 @@ export function agentBasisKey(saved,request) {
   return hash({scope:scopeKey(state),externalConsent:hasExternalConsent(state),
     consent:consent?{version:consent.version,provider:consent.provider,accepted:consent.accepted,scopeKey:consent.scopeKey,grantId:consent.grantId,acceptedAt:consent.acceptedAt}:null,
     selectedScope:request.scope,evidence:tools.evidence.map(({sourceType,text})=>({sourceType,text})),
+    practice:request.practice?practiceBasis(saved.state,request):null,
     conversation:request.conversationId===undefined?null:{id:request.conversationId,exists:state.conversations.some(c=>c.id===request.conversationId)}
+  });
+}
+
+function practiceBasis(state,request){
+  const task=state.tasks.find(row=>row.id===request.practice.taskId);
+  if(!guidedTask(task)||task.career!==request.context.career||task.completed||
+    ['延期','跳过','取消'].includes(task.status))fail('NOT_FOUND',404);
+  return {template:task.template,version:task.courseVersion,packHash:task.courseRef?.packHash,status:task.status};
+}
+
+function practiceEvidence(business,saved,request){
+  if(!request.practice)return null;
+  const {template,version}=practiceBasis(saved.state,request);
+  const project=business.courseLibrary.course(template,version).project;
+  const step=project?.steps.find(row=>row.id===request.practice.step);
+  if(!step)fail('NOT_FOUND',404);
+  const locale=request.practice.language;
+  return step.sourceIds.map(id=>{
+    const source=project.sources.find(row=>row.id===id);
+    const text=locale==='en'
+      ? `${project.title.en} · ${step.title.en}\nTask: ${step.assignment.en}\nReview: ${step.check.en}\nReading: ${source.use.en}`
+      : `${project.title.zh} · ${step.title.zh}\n本步任务：${step.assignment.zh}\n自查要点：${step.check.zh}\n阅读用途：${source.use.zh}`;
+    return {id:`practice:${template}:v${version}:${step.id}:${id}`,sourceType:'approved_knowledge',
+      text,sourceId:id,sourceVersion:'v'+version,sourceTitle:source.title,sourceUrl:source.url};
   });
 }
 
@@ -82,7 +114,8 @@ export function scopedContextSignals(rows){
 }
 function boundEvidence(rows,request){
   const included=[];let bytes=2;
-  const content=evidence=>JSON.stringify({mode:request.mode,context:request.context,message:request.message,contextSignals:scopedContextSignals(evidence),evidence});
+  const content=evidence=>JSON.stringify({mode:request.mode,context:request.context,message:request.message,contextSignals:scopedContextSignals(evidence),evidence,
+    ...(request.practice?{practiceStep:request.practice.step,responseLanguage:request.practice.language}:{})});
   for(const row of rows){
     const size=Buffer.byteLength(JSON.stringify(row),'utf8')+1,candidate=content([...included,row]);
     if(bytes+size<=45000&&candidate.length<=36000&&Buffer.byteLength(candidate,'utf8')<=70000){included.push(row);bytes+=size;}
@@ -132,6 +165,7 @@ kind为fact/suggestion/question。
 fact只用于逐字原文引文：text必须从所引已批准知识原文或用户材料的text字段连续复制，不添加前缀、解释或改写。不得把记录、尝试、参与、阅读、自检提升为完成、掌握或通过。
 计划预算等数值由业务服务展示，不能改写成fact。解释性建议标suggestion，未知标question；建议不可编造用户已完成事实。
 每个fact必须引用证据包中真实存在的id。不得输出其他字段或URL。`;
+const PRACTICE_SYSTEM=SYSTEM+'\n收到 practiceStep 时，只辅导该教学项目的当前步骤。用一条核对思路或追问帮助学生自行完成，不代写交付，不替他确认进度或能力。按 responseLanguage 回答，en 用英文，zh 用中文。';
 
 export function createAgentService({business,provider=null,knowledge=createReviewedKnowledge(),enabled=false,configurationError=null,now=Date.now,maxConcurrent=2,allowedUserIds=null}={}) {
   let active=0;const users=new Set();
@@ -153,11 +187,12 @@ export function createAgentService({business,provider=null,knowledge=createRevie
     const start=now();
     try {
       const snapshot=knowledge.snapshot();
-      const chunks=saved.state.aiScope.includes('职业原创知识')?knowledge.search(snapshot,{query:request.message,career:request.context.career,market:'CN',language:'zh',limit:5}):[];
+      const projectRows=practiceEvidence(business,saved,request);
+      const chunks=!projectRows&&saved.state.aiScope.includes('职业原创知识')?knowledge.search(snapshot,{query:request.message,career:request.context.career,market:'CN',language:'zh',limit:5}):[];
       const tools=buildReadTools(saved,request);
-      const bounded=boundEvidence([...tools.evidence,...chunks.map(c=>({id:`knowledge:${c.id}`,sourceType:'approved_knowledge',text:c.text,sourceId:c.sourceId,sourceVersion:c.sourceVersion,sourceTitle:c.sourceTitle,reviewedBy:c.reviewedBy,reviewedAt:c.reviewedAt,span:{start:c.start,end:c.end},sha256:c.sha256}))],request);
+      const bounded=boundEvidence(projectRows||[...tools.evidence,...chunks.map(c=>({id:`knowledge:${c.id}`,sourceType:'approved_knowledge',text:c.text,sourceId:c.sourceId,sourceVersion:c.sourceVersion,sourceTitle:c.sourceTitle,reviewedBy:c.reviewedBy,reviewedAt:c.reviewedAt,span:{start:c.start,end:c.end},sha256:c.sha256}))],request);
       const evidence=bounded.included;
-      const trace=[{tool:'search_reviewed_occupations',count:chunks.length},...tools.trace];
+      const trace=projectRows?[{tool:'get_published_practice_step',count:projectRows.length}]:[{tool:'search_reviewed_occupations',count:chunks.length},...tools.trace];
       let result,meta={providerCalled:false};
       if(!evidence.length){
         result={statements:[{kind:'question',text:'当前没有符合本次用途与职业范围的已批准知识。请补充具体问题，或先完成资料审核后再分析。',evidenceIds:[]}],limitations:['未调用模型；未将展示或研究数据作为正式职业依据。']};
@@ -169,7 +204,7 @@ export function createAgentService({business,provider=null,knowledge=createRevie
         if(agentBasisKey(latest,request)!==basis)fail('AI_CONTEXT_CHANGED',409);
         let response,rejected;
         try{
-          response=await provider.respond({signal,messages:[{role:'system',content:SYSTEM},{role:'user',content:bounded.content}]});
+          response=await provider.respond({signal,messages:[{role:'system',content:projectRows?PRACTICE_SYSTEM:SYSTEM},{role:'user',content:bounded.content}]});
           result=validateAgentOutput(response.output,evidence);
         }catch(error){
           if(!['AI_INVALID_RESPONSE','AI_UNSUPPORTED_FACT'].includes(error?.code))throw error;
@@ -191,7 +226,7 @@ export function createAgentService({business,provider=null,knowledge=createRevie
       const used=new Set(result.statements.flatMap(r=>r.evidenceIds));
       return {schemaVersion:1,mode:request.mode,baseVersion:saved.revision,knowledgeVersion:snapshot.version,knowledgeDigest:snapshot.digest,promptVersion:PROMPT_VERSION,readOnly:true,
         ...result,citations:evidence.filter(e=>used.has(e.id)),tools:trace,scope:{...request.scope},
-        limitations:[...result.limitations,...(bounded.omitted?['部分证据因上下文上限未送入模型，本次结论仅覆盖已返回范围。']:[]),'材料原文最多取每项前2000字符，任务最多30项；不代表全部材料与任务。','引用ID与原文范围已校验；语义支持性仍需人工核对。','本轮不读取历史对话、私人反思或独立能力核验，不生成可应用提议。'],
+        limitations:[...result.limitations,...(bounded.omitted?['部分证据因上下文上限未送入模型，本次结论仅覆盖已返回范围。']:[]),...(projectRows?[]:['材料原文最多取每项前2000字符，任务最多30项；不代表全部材料与任务。','引用ID与原文范围已校验；语义支持性仍需人工核对。','本轮不读取历史对话、私人反思或独立能力核验，不生成可应用提议。'])],
         meta:{...meta,knowledgeUsed:chunks.length>0,durationMs:Math.max(0,now()-start)}};
     }finally{active--;users.delete(userId);}
   }

@@ -1,4 +1,5 @@
 import WritingHint from './WritingHint';
+import {taskCopy} from './native-task-copy.js';
 import React from 'react';
 import { externalPracticeRoute } from './flow-navigation';
 import InvestigationFields from './InvestigationFields';
@@ -9,10 +10,10 @@ export default function ExternalPractice({ task, record, s, link, setTask, open,
   if (s.stage !== 'S1' && task.mode !== 'S1') return <section className="panel"><h1>继续平台实践任务</h1><p>这项任务有专门的实践页面。进入后可以提交成果、查看反馈并记录完成情况。</p>{link(`/work/${encodeURIComponent(task.id)}`, '进入任务工作区', 'button primary')}</section>;
   const stopped = ['取消', '跳过', '延期'].includes(task.status);
   return <div className="external-practice">
-    <header className="screen-heading"><div><h1>{record ? '记录实践结果' : '记录站外学习与实践'}</h1><p>{task.title} · 本人手工记录，不连接外部平台或真实检查服务。</p></div><span className="status-chip">{task.status}</span></header>
+    <header className="screen-heading"><div><h1>{record ? '记录实践结果' : '记录站外学习与实践'}</h1><p>{taskCopy(task,'title')} · 本人手工记录，不连接外部平台或真实检查服务。</p></div><span className="status-chip">{task.status}</span></header>
     <div className="notice">在站外完成学习、项目或职业体验后，回到这里记录过程和成果。记录由你填写，平台尚未核验。</div>
     <AtlasPracticeContext task={task} link={link}/>
-    <section className="panel"><header className="section-head"><h2>这次实践要回答什么？</h2>{link('/plan?tab=执行', '查看计划中的同一任务')}</header><dl className="facts"><dt>行动目的</dt><dd>{task.purpose || '待补充'}</dd><dt>成果标准</dt><dd>{task.standard}{task.deliveryNote&&<p>本人补充：{task.deliveryNote}</p>}</dd><dt>预计投入</dt><dd>{task.hours} 小时 · {task.association}</dd><dt>检查与声明</dt><dd>{task.check} · {task.claimStatus}；实际核验未知</dd></dl>
+    <section className="panel"><header className="section-head"><h2>这次实践要回答什么？</h2>{link('/plan?tab=执行', '查看计划中的同一任务')}</header><dl className="facts"><dt>行动目的</dt><dd>{taskCopy(task,'purpose') || '待补充'}</dd><dt>成果标准</dt><dd>{taskCopy(task,'standard')}{task.deliveryNote&&<p>本人补充：{task.deliveryNote}</p>}</dd><dt>预计投入</dt><dd>{task.hours} 小时 · {task.association}</dd><dt>检查与声明</dt><dd>{task.check} · {task.claimStatus}；实际核验未知</dd></dl>
       <p>先做一个真实的小范围尝试，再记录发生了什么、本人贡献和局限；没有发生的结果留空。</p>
       {!record && !stopped && <div className="actions">{link(`${externalPracticeRoute(task)}&step=record`, '去记录本次行动结果', 'button primary')}<button onClick={() => open('task', { taskId: task.id })}>管理状态 / 记录受阻</button></div>}
     </section>

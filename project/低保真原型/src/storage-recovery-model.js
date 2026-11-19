@@ -1,4 +1,5 @@
 import {KEY, fresh} from './model.js';
+import {normalizeSkillStudy} from './skill-tree-model.js';
 
 const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const own=(value,key)=>Object.hasOwn(value,key);
@@ -65,7 +66,7 @@ export function normalizePrototypeState(value){
     audit:item=>checkedRecord(item),conversations:conversation,resumeImports:item=>checkedRecord(item),aiNotes:item=>checkedRecord(item),analysisHistory:analysis
   };
   const types={
-    budget:numeric,goal:nullable(string),backup:nullable(string),compare:strings,favorites:strings,aiScope:strings,
+    budget:numeric,goal:nullable(string),backup:nullable(string),compare:strings,favorites:strings,aiScope:strings,skillStudy:normalizeSkillStudy,
     preferences:item=>fields(item,base.preferences),claimDraft:item=>fields(item,base.claimDraft,{guidedParts:parts=>fields(parts,{context:'',action:'',outcome:''}),rawText:string}),decision:item=>fields(item,base.decision),
     adminSource:item=>fields(item,base.adminSource),adminContent:item=>fields(item,base.adminContent),
     reading:item=>mapping(item,row=>fields(row,{}, {chapter:numeric})),analysis:nullable(analysis),

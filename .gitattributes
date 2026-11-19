@@ -13,3 +13,4 @@
 *.sqlite binary
 *.png binary
 *.woff2 binary
+/project/低保真原型/course-packs/** text eol=lf

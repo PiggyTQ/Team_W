@@ -1,0 +1,1499 @@
+{
+  "projects": {
+    "quality": {
+      "1": {
+        "title": {
+          "zh": "数据质量小项目",
+          "en": "Data quality mini-project"
+        },
+        "purpose": {
+          "zh": "问题清单、处理理由、描述统计、限制说明",
+          "en": "Problem list, reasoning, descriptive statistics and limitations"
+        },
+        "standard": {
+          "zh": "问题清单、处理理由、描述统计、限制说明",
+          "en": "Problem list, reasoning, descriptive statistics and limitations"
+        }
+      },
+      "2": {
+        "title": {
+          "zh": "数据质量小项目",
+          "en": "Data quality review"
+        },
+        "purpose": {
+          "zh": "交通分析组准备发布一份碰撞记录简报。你负责判断这张表能否支持按限速分组的描述统计，并提交一份同事能复算的质量记录。",
+          "en": "A transport analysis team is preparing a collision brief. Decide whether the table can support summaries by recorded speed limit, and hand over a quality record a colleague can reproduce."
+        },
+        "standard": {
+          "zh": "质量问题清单、处理口径、分组统计和发布建议",
+          "en": "Issue register, treatment rules, grouped statistics and a release recommendation"
+        }
+      }
+    },
+    "ai-eval": {
+      "1": {
+        "title": {
+          "zh": "AI 调用与评估体验",
+          "en": "AI API calls and evaluation trial"
+        },
+        "purpose": {
+          "zh": "合成输入输出、评估规则、未知项",
+          "en": "Synthetic inputs/outputs, evaluation rules and unknowns"
+        },
+        "standard": {
+          "zh": "合成输入输出、评估规则、未知项",
+          "en": "Synthetic inputs/outputs, evaluation rules and unknowns"
+        }
+      },
+      "2": {
+        "title": {
+          "zh": "客服助手评测项目",
+          "en": "Customer support assistant evaluation"
+        },
+        "purpose": {
+          "zh": "客服团队要比较两版订单助手。你负责定义通过标准，对同一批离线工单做对照，决定哪一版可以进入下一轮验证。",
+          "en": "A support team is comparing two order assistants. Define the acceptance criteria, review the same offline cases for both versions and decide what can move to the next round."
+        },
+        "standard": {
+          "zh": "评测记录、严重错误清单和上线建议",
+          "en": "Evaluation record, critical failures and a release recommendation"
+        }
+      }
+    },
+    "log": {
+      "1": {
+        "title": {
+          "zh": "离线合成日志分析",
+          "en": "Offline synthetic log analysis"
+        },
+        "purpose": {
+          "zh": "线索、替代解释、授权边界",
+          "en": "Signals, alternative explanations and authorization scope"
+        },
+        "standard": {
+          "zh": "线索、替代解释、授权边界",
+          "en": "Signals, alternative explanations and authorization scope"
+        }
+      },
+      "2": {
+        "title": {
+          "zh": "安全日志初筛项目",
+          "en": "Security log triage"
+        },
+        "purpose": {
+          "zh": "安全运营值班收到一条远程登录告警。你需要把认证、权限和变更记录按时间对齐，判断是否升级调查，并留下接班人能继续查的事件链。",
+          "en": "A security operations shift receives a remote-login alert. Align authentication, privilege and change records, decide whether to escalate and leave an evidence trail for the next shift."
+        },
+        "standard": {
+          "zh": "事件时间线、备选解释与升级交接",
+          "en": "Event timeline, alternative explanations and an escalation handoff"
+        }
+      }
+    },
+    "restore": {
+      "1": {
+        "title": {
+          "zh": "模拟恢复记录",
+          "en": "Simulated recovery record"
+        },
+        "purpose": {
+          "zh": "恢复步骤、回退条件、未验证项",
+          "en": "Recovery steps, rollback conditions and unverified items"
+        },
+        "standard": {
+          "zh": "恢复步骤、回退条件、未验证项",
+          "en": "Recovery steps, rollback conditions and unverified items"
+        }
+      },
+      "2": {
+        "title": {
+          "zh": "故障恢复与回退项目",
+          "en": "Incident recovery and rollback"
+        },
+        "purpose": {
+          "zh": "边缘网关的规则更新正在小流量发布。候选组出现 502 和 CPU 异常。你负责判断是否暂停、如何回退，以及什么时候可以宣告恢复。",
+          "en": "A gateway rule update is being canaried. The candidate group shows 502 errors and abnormal CPU. Decide whether to pause, how to roll back and when recovery can be declared."
+        },
+        "standard": {
+          "zh": "回退决策、恢复验收记录和复盘行动",
+          "en": "Rollback decision, recovery acceptance and follow-up actions"
+        }
+      }
+    }
+  },
+  "skills": {
+    "data": {
+      "metric-definition": {
+        "version": 1,
+        "title": {
+          "zh": "指标口径",
+          "en": "Metric definition"
+        },
+        "purpose": {
+          "zh": "为订单团队写一张退款率口径卡。订单和退款分别有时间戳，请写明所用日期、唯一订单键和观察窗口。",
+          "en": "Write a refund-rate definition card. Orders and refunds each have timestamps. Specify the time basis, order key and observation window."
+        }
+      },
+      "sql-joins": {
+        "version": 1,
+        "title": {
+          "zh": "SQL 表关联",
+          "en": "SQL joins"
+        },
+        "purpose": {
+          "zh": "设计订单与明细的查询，每笔订单一行且保留无明细的订单。写出关联前的汇总步骤和行数校验。",
+          "en": "Design a query with one row per order, including orders without lines. Show the pre-aggregation step and a row-count check."
+        }
+      },
+      "aggregation": {
+        "version": 1,
+        "title": {
+          "zh": "分组与汇总",
+          "en": "Grouping and aggregation"
+        },
+        "purpose": {
+          "zh": "用两个渠道的订单数与退款数做一张分组表和总计表。注明统计粒度、空值规则，并复算整体退款率。",
+          "en": "Build channel and overall summaries from order and refund counts. State the grain and null policy and recompute the overall rate."
+        }
+      },
+      "missing": {
+        "version": 1,
+        "title": {
+          "zh": "缺失值与有效分母",
+          "en": "Missing values and denominators"
+        },
+        "purpose": {
+          "zh": "对金额 20、空、0、40 写一份缺失规则，分别报告记录数、有效金额数和有效均值。",
+          "en": "Write a missing-value policy for amounts 20, blank, 0 and 40. Report row count, valid count and valid mean."
+        }
+      },
+      "duplicate-conflict": {
+        "version": 1,
+        "title": {
+          "zh": "重复与冲突记录",
+          "en": "Duplicate and conflicting rows"
+        },
+        "purpose": {
+          "zh": "按订单号比较四行订单，记录重复、同键不同金额及保留理由。留下可追溯的原行号。",
+          "en": "Compare four orders by ID. Log exact duplicates, conflicting amounts and the retention rationale with raw row references."
+        }
+      },
+      "quality-rules": {
+        "version": 1,
+        "title": {
+          "zh": "质量规则与复核",
+          "en": "Quality rules and review"
+        },
+        "purpose": {
+          "zh": "为一张订单表设计三条规则，并给每条规则写失败示例、负责人、是否影响发布及复查条件。",
+          "en": "Design three rules for an orders table. Record a failure example, owner, release impact and follow-up condition for each."
+        }
+      },
+      "descriptive": {
+        "version": 1,
+        "title": {
+          "zh": "描述统计与分布",
+          "en": "Descriptive statistics"
+        },
+        "purpose": {
+          "zh": "给配送时间 5、6、7、8、60 分钟写两句分析。分别计算均值和中位数，并解释它们为何不同。",
+          "en": "Summarize delivery times of 5, 6, 7, 8 and 60 minutes. Calculate mean and median and explain the difference."
+        }
+      },
+      "sampling": {
+        "version": 1,
+        "title": {
+          "zh": "抽样与偏差",
+          "en": "Sampling and bias"
+        },
+        "purpose": {
+          "zh": "为活跃和流失用户做满意度调查方案，写清邀请渠道、分层方式及非响应会怎样影响结果。",
+          "en": "Plan a satisfaction survey for active and churned users. Specify recruitment, strata and the effect of non-response."
+        }
+      },
+      "experiment": {
+        "version": 1,
+        "title": {
+          "zh": "实验与因果判断",
+          "en": "Experiments and causal claims"
+        },
+        "purpose": {
+          "zh": "为新结账流程拟一个对照实验。写清如何随机、如何处理重复访问，以及什么结果仍需要更多样本。",
+          "en": "Plan a checkout experiment. Describe randomization, repeated visits and when more evidence is needed."
+        }
+      },
+      "star-schema": {
+        "version": 1,
+        "title": {
+          "zh": "事实表与维度",
+          "en": "Facts and dimensions"
+        },
+        "purpose": {
+          "zh": "画一个订单明细事实表和日期、商品维度，标注主键、外键以及金额在哪个粒度计算。",
+          "en": "Sketch an order-line fact table with date and product dimensions. Mark keys and the grain at which revenue is computed."
+        }
+      },
+      "pivot-tables": {
+        "version": 1,
+        "title": {
+          "zh": "表格透视与对账",
+          "en": "Pivot tables and reconciliation"
+        },
+        "purpose": {
+          "zh": "在表格中填入四笔交易（华东 40、华东 60、华南 30、华南 10）。用地区做行字段，分别汇总金额和笔数，与手算核对。",
+          "en": "Enter four transactions (East 40, East 60, South 30, South 10). Use region as the row field. Summarize amounts and counts, then check both by hand."
+        }
+      },
+      "chart-choice": {
+        "version": 1,
+        "title": {
+          "zh": "图表与阅读顺序",
+          "en": "Charts and reading order"
+        },
+        "purpose": {
+          "zh": "把六个月退货率做成趋势图草稿，再为四地区的同月比较选一种图。写标题、轴单位和数据说明。",
+          "en": "Sketch a six-month return-rate trend and a same-month regional comparison. Write titles, units and data notes."
+        }
+      },
+      "decision-brief": {
+        "version": 1,
+        "title": {
+          "zh": "分析简报与限制",
+          "en": "Decision brief and limitations"
+        },
+        "purpose": {
+          "zh": "为配送负责人写四句简报，分别写观察、证据、限制和一个可检验的后续动作。",
+          "en": "Write a four-sentence brief for delivery operations: observation, evidence, limitation and a testable follow-up."
+        }
+      }
+    },
+    "ai": {
+      "task-baseline": {
+        "version": 1,
+        "title": {
+          "zh": "任务定义与基线",
+          "en": "Task and baseline"
+        },
+        "purpose": {
+          "zh": "为客服工单分流写任务卡，定一个多数类别基线和一个能反映漏分风险的指标。",
+          "en": "Write a routing task card with a majority-class baseline and a metric for missed cases."
+        }
+      },
+      "python-data": {
+        "version": 1,
+        "title": {
+          "zh": "Python 数据准备",
+          "en": "Python data preparation"
+        },
+        "purpose": {
+          "zh": "制作三行工单 CSV，包含编号 001、有效日期、空日期和一条无效日期。读取编号为字符串，保留原日期列，并统计解析失败行。",
+          "en": "Make a three-row ticket CSV with ID 001 and valid, blank and invalid dates. Read IDs as strings, preserve the raw date column and count parsing failures."
+        }
+      },
+      "split-leakage": {
+        "version": 1,
+        "title": {
+          "zh": "数据切分与泄漏",
+          "en": "Splits and leakage"
+        },
+        "purpose": {
+          "zh": "为同一客户多条工单的数据画训练、验证、测试切分，并注明何处拟合标准化。",
+          "en": "Design train, validation and test splits for repeat customers. Mark where scaling is fit."
+        }
+      },
+      "generalization": {
+        "version": 1,
+        "title": {
+          "zh": "泛化与误差分析",
+          "en": "Generalization and errors"
+        },
+        "purpose": {
+          "zh": "记录一个分类基线与一个复杂模型在常见、稀有工单上的误差。写出一种验证假设的方法。",
+          "en": "Compare a baseline and a complex classifier on frequent and rare tickets. Propose a test of an error hypothesis."
+        }
+      },
+      "output-contract": {
+        "version": 1,
+        "title": {
+          "zh": "提示与输出契约",
+          "en": "Prompt and output contract"
+        },
+        "purpose": {
+          "zh": "给工单提取器写 JSON 字段、示例、缺字段或非法状态时的处理。",
+          "en": "Define JSON fields and examples for ticket extraction, including missing or invalid outputs."
+        }
+      },
+      "retrieval-grounding": {
+        "version": 1,
+        "title": {
+          "zh": "检索与出处",
+          "en": "Retrieval and grounding"
+        },
+        "purpose": {
+          "zh": "为帮助中心写两条可回答问题和一条资料不足的问题，标出答案应引用的段落。",
+          "en": "Write two answerable help-center questions and one without evidence. Identify passages each answer may cite."
+        }
+      },
+      "tool-boundaries": {
+        "version": 1,
+        "title": {
+          "zh": "工具调用与权限",
+          "en": "Tool calls and authorization"
+        },
+        "purpose": {
+          "zh": "为订单助手写一张权限表，分别处理查询、退款预览、正式退款以及失败重试。",
+          "en": "Specify permissions for order lookup, refund preview, committing refunds and retrying failures."
+        }
+      },
+      "metric-tradeoff": {
+        "version": 1,
+        "title": {
+          "zh": "分类指标与阈值",
+          "en": "Classification metrics and thresholds"
+        },
+        "purpose": {
+          "zh": "为需人工复核的工单设计混淆矩阵，用一次阈值调整解释精确率与召回率的变化。",
+          "en": "Create a confusion matrix for human-review tickets and explain a precision–recall trade-off from changing the threshold."
+        }
+      },
+      "eval-cases": {
+        "version": 1,
+        "title": {
+          "zh": "评测样本与评分",
+          "en": "Cases and rubrics"
+        },
+        "purpose": {
+          "zh": "给虚构退款助手编写三个测试，明确身份条件、期望动作、严重错误和可观察证据。",
+          "en": "Write three tests for a mock refund assistant, specifying identity, expected action, critical errors and observable evidence."
+        }
+      },
+      "failure-review": {
+        "version": 1,
+        "title": {
+          "zh": "错例归因与复测",
+          "en": "Error analysis and retesting"
+        },
+        "purpose": {
+          "zh": "挑三个失败样本归类，写修复假设、复测项及一个可区分假设的对照。",
+          "en": "Classify three failures, write a fix hypothesis and propose a comparison to distinguish possible causes."
+        }
+      },
+      "reproducibility": {
+        "version": 1,
+        "title": {
+          "zh": "版本与可复现",
+          "en": "Versioning and reproducibility"
+        },
+        "purpose": {
+          "zh": "做一张评测清单，使同事能复跑同一批工单并解释两次结果的差异。",
+          "en": "Create an evaluation manifest so a colleague can reproduce a batch and explain differences across runs."
+        }
+      },
+      "monitoring": {
+        "version": 1,
+        "title": {
+          "zh": "监测与分布漂移",
+          "en": "Monitoring and drift"
+        },
+        "purpose": {
+          "zh": "为工单分流器写上线监测表，指定两类分组指标、基线、阈值和应由谁核对。",
+          "en": "Write a monitoring plan for a ticket router with segmented measures, baseline, threshold and review owner."
+        }
+      },
+      "human-oversight": {
+        "version": 1,
+        "title": {
+          "zh": "风险与人工接管",
+          "en": "Risk and human oversight"
+        },
+        "purpose": {
+          "zh": "为高影响工单制定三档处理规则，给人工升级写入触发条件、所需证据与责任人。",
+          "en": "Define three handling tiers for high-impact tickets, including escalation triggers, evidence and owner."
+        }
+      }
+    },
+    "security": {
+      "network-path": {
+        "version": 1,
+        "title": {
+          "zh": "DNS 与请求路径",
+          "en": "DNS and request paths"
+        },
+        "purpose": {
+          "zh": "用离线记录画出客户端、DNS、反向代理与应用，标注每层能观察到的字段。",
+          "en": "Sketch client, DNS, reverse proxy and application from offline records and label observable fields."
+        }
+      },
+      "transport-trust": {
+        "version": 1,
+        "title": {
+          "zh": "TLS 与传输信任",
+          "en": "TLS and transport trust"
+        },
+        "purpose": {
+          "zh": "画出浏览器到网关、网关到服务的两段链路，标注哪里验证证书、哪里需要加密。",
+          "en": "Draw browser-to-gateway and gateway-to-service links. Mark certificate checks and encryption needs."
+        }
+      },
+      "authorized-scope": {
+        "version": 1,
+        "title": {
+          "zh": "测试范围与风险",
+          "en": "Authorized testing scope"
+        },
+        "purpose": {
+          "zh": "为离线报名系统拟一份检查范围，列出允许数据、排除系统、复核责任和停止条件。",
+          "en": "Write a testing scope for an offline sign-up system: allowed data, excluded systems, owner and stop conditions."
+        }
+      },
+      "authentication": {
+        "version": 1,
+        "title": {
+          "zh": "身份验证与会话",
+          "en": "Authentication and sessions"
+        },
+        "purpose": {
+          "zh": "设计虚构门户的登录、退出、密码重置检查表，写出已注销会话再次访问时的预期。",
+          "en": "Design checks for sign-in, sign-out and password reset, including requests after a session is revoked."
+        }
+      },
+      "authorization": {
+        "version": 1,
+        "title": {
+          "zh": "资源授权与最小权限",
+          "en": "Resource authorization"
+        },
+        "purpose": {
+          "zh": "给模拟订单 API 写权限矩阵，覆盖本人订单、他人订单与客服只读角色。",
+          "en": "Write an access matrix for a mock order API, covering owned orders, other users’ orders and a read-only support role."
+        }
+      },
+      "secrets": {
+        "version": 1,
+        "title": {
+          "zh": "密钥保管与轮换",
+          "en": "Secret storage and rotation"
+        },
+        "purpose": {
+          "zh": "为两个模拟服务列出凭据存放、访问主体、轮换顺序与旧凭据失效验证。",
+          "en": "Specify storage, access, rotation order and invalidation checks for two mock services."
+        }
+      },
+      "event-logs": {
+        "version": 1,
+        "title": {
+          "zh": "日志时间与关联",
+          "en": "Event time and correlation"
+        },
+        "purpose": {
+          "zh": "给四行合成登录日志统一 UTC，用会话字段关联，说明无法关联的行。",
+          "en": "Normalize four synthetic login records to UTC, correlate by session and explain unmatched rows."
+        }
+      },
+      "triage": {
+        "version": 1,
+        "title": {
+          "zh": "异常分诊与交叉复核",
+          "en": "Alert triage"
+        },
+        "purpose": {
+          "zh": "一段离线日志含多次失败与一次成功。列出正常维护和异常访问的分别证据。",
+          "en": "Review offline failed logons followed by success. List evidence for maintenance and for suspicious access."
+        }
+      },
+      "incident-handoff": {
+        "version": 1,
+        "title": {
+          "zh": "事件升级与交接",
+          "en": "Incident escalation"
+        },
+        "purpose": {
+          "zh": "为模拟值班交接写事件摘要，带行号、受影响范围、待核实事项及负责人。",
+          "en": "Write a mock incident handoff with row references, impact, open questions and owner."
+        }
+      },
+      "threat-model": {
+        "version": 1,
+        "title": {
+          "zh": "信任边界与威胁建模",
+          "en": "Trust boundaries and threats"
+        },
+        "purpose": {
+          "zh": "画出模拟文件上传的浏览器、接口、处理器和存储边界，标注三项要验证的控制。",
+          "en": "Map a mock upload flow and mark three controls to verify between browser, API, processor and storage."
+        }
+      },
+      "safe-input": {
+        "version": 1,
+        "title": {
+          "zh": "输入校验与查询安全",
+          "en": "Input and query safety"
+        },
+        "purpose": {
+          "zh": "为离线搜索接口设计普通文本、特殊字符和非法排序字段的检查。",
+          "en": "Design offline search checks for ordinary text, special characters and invalid sort fields."
+        }
+      },
+      "verify-control": {
+        "version": 1,
+        "title": {
+          "zh": "安全验证与回归",
+          "en": "Security verification and regression"
+        },
+        "purpose": {
+          "zh": "为订单授权修复制定允许与拒绝的用例，列明复现环境与输出证据。",
+          "en": "Design allowed and denied cases for an order authorization fix and identify environment and evidence."
+        }
+      }
+    },
+    "ops": {
+      "service-account": {
+        "version": 1,
+        "title": {
+          "zh": "服务账号与权限",
+          "en": "Service accounts and permissions"
+        },
+        "purpose": {
+          "zh": "为离线日志处理服务列出运行账号、需要读取的目录和唯一可写位置。",
+          "en": "Specify the account, readable directories and one writable location for an offline log processor."
+        }
+      },
+      "http-diagnosis": {
+        "version": 1,
+        "title": {
+          "zh": "请求链路与状态码",
+          "en": "Request path and HTTP status"
+        },
+        "purpose": {
+          "zh": "画一次请求的链路，并记录 DNS 失败、上游不可达和应用拒绝的可观察差异。",
+          "en": "Map a request and note how DNS failure, unreachable upstream and application rejection differ."
+        }
+      },
+      "signal-triage": {
+        "version": 1,
+        "title": {
+          "zh": "资源信号与定位",
+          "en": "Resource signals and diagnosis"
+        },
+        "purpose": {
+          "zh": "对一段 CPU、请求量和 5xx 记录建立时间线，说明还需要哪些对照。",
+          "en": "Build a timeline from CPU, traffic and 5xx observations and specify a comparison."
+        }
+      },
+      "container-build": {
+        "version": 1,
+        "title": {
+          "zh": "容器构建与镜像",
+          "en": "Container builds and images"
+        },
+        "purpose": {
+          "zh": "给一个小服务拟容器构建说明，写清上下文、依赖、启动命令和运行配置。",
+          "en": "Write a build outline for a small service: context, dependencies, entry command and runtime configuration."
+        }
+      },
+      "deployment-health": {
+        "version": 1,
+        "title": {
+          "zh": "部署与健康探针",
+          "en": "Deployments and probes"
+        },
+        "purpose": {
+          "zh": "画出启动慢的服务从发布到接收流量的过程，标注启动、就绪和存活探针。",
+          "en": "Sketch rollout to traffic for a slow-starting service, labeling startup, readiness and liveness probes."
+        }
+      },
+      "infra-state": {
+        "version": 1,
+        "title": {
+          "zh": "基础设施配置与状态",
+          "en": "Infrastructure configuration and state"
+        },
+        "purpose": {
+          "zh": "为两个环境写出配置变更的计划、审批、应用、核对与回退顺序。",
+          "en": "Outline plan, approval, apply, verification and rollback for two environments."
+        }
+      },
+      "four-signals": {
+        "version": 1,
+        "title": {
+          "zh": "服务信号与告警",
+          "en": "Service signals and alerts"
+        },
+        "purpose": {
+          "zh": "给上传服务列一套指标，并为其中一项写触发条件和处置说明。",
+          "en": "Specify upload service measures and write a trigger and response for one alert."
+        }
+      },
+      "slo-budget": {
+        "version": 1,
+        "title": {
+          "zh": "SLI、SLO 与误差预算",
+          "en": "SLIs, SLOs and error budgets"
+        },
+        "purpose": {
+          "zh": "为搜索服务写出好请求定义、有效请求、时间窗和误差预算。",
+          "en": "Define good searches, valid requests, the measurement window and error budget."
+        }
+      },
+      "telemetry": {
+        "version": 1,
+        "title": {
+          "zh": "关联日志、指标和追踪",
+          "en": "Logs, metrics and traces"
+        },
+        "purpose": {
+          "zh": "从一个模拟高延迟请求出发，写下怎样用 trace ID 关联两项服务日志。",
+          "en": "For one simulated slow request, explain how to join two service logs by trace ID."
+        }
+      },
+      "canary-gate": {
+        "version": 1,
+        "title": {
+          "zh": "灰度发布与门槛",
+          "en": "Canary release gates"
+        },
+        "purpose": {
+          "zh": "为灰度发布写检查表，明确指标、最小样本、观察时窗和停止条件。",
+          "en": "Write a canary checklist with metric, minimum sample, observation window and stop condition."
+        }
+      },
+      "rollback-verify": {
+        "version": 1,
+        "title": {
+          "zh": "回退与恢复验收",
+          "en": "Rollback and recovery verification"
+        },
+        "purpose": {
+          "zh": "写一次模拟回退的执行与验收清单，标注负责人、版本、用户路径和停止条件。",
+          "en": "Write an offline rollback and verification checklist with owners, version, user path and stop conditions."
+        }
+      },
+      "incident-review": {
+        "version": 1,
+        "title": {
+          "zh": "事件交接与复盘",
+          "en": "Incident handoff and postmortem"
+        },
+        "purpose": {
+          "zh": "写一页故障交接和复盘，给两项改进写责任、期限和完成检查。",
+          "en": "Write a one-page handoff and postmortem with two actions, owners, deadlines and verification."
+        }
+      }
+    },
+    "frontend": {
+      "semantic-html": {
+        "version": 1,
+        "title": {
+          "zh": "语义化 HTML",
+          "en": "Semantic HTML"
+        },
+        "purpose": {
+          "zh": "写出报名页标题、表单、提交按钮和错误信息的 HTML 结构。",
+          "en": "Mark up a signup page heading, form, submit control and errors."
+        }
+      },
+      "responsive-css": {
+        "version": 1,
+        "title": {
+          "zh": "响应式 CSS 布局",
+          "en": "Responsive CSS layout"
+        },
+        "purpose": {
+          "zh": "给卡片列表设计 320 到 1440px 的列变化，并放入一条长标题验证。",
+          "en": "Design a card grid from 320 to 1440px and check one long title."
+        }
+      },
+      "dom-events": {
+        "version": 1,
+        "title": {
+          "zh": "JavaScript 与事件",
+          "en": "JavaScript and events"
+        },
+        "purpose": {
+          "zh": "为动态列表做一个删除动作，描述如何在父节点识别子按钮以及如何处理表单默认行为。",
+          "en": "Implement delete for a dynamic list. Explain how the parent locates the clicked control and how form defaults are handled."
+        }
+      },
+      "keyboard": {
+        "version": 1,
+        "title": {
+          "zh": "键盘与焦点",
+          "en": "Keyboard and focus"
+        },
+        "purpose": {
+          "zh": "用 Tab、Shift+Tab 和 Escape 走一次设置弹窗，记录入口、循环、关闭和返回点。",
+          "en": "Check a settings dialog with Tab, Shift+Tab and Escape. Log entry, cycling, dismissal and focus return."
+        }
+      },
+      "form-errors": {
+        "version": 1,
+        "title": {
+          "zh": "表单错误与提示",
+          "en": "Form errors and feedback"
+        },
+        "purpose": {
+          "zh": "给报名表做空值、格式错误和保存成功三种状态，检查焦点、文本和朗读。",
+          "en": "Design empty, invalid and successful submission states and check focus, wording and announcements."
+        }
+      },
+      "async-ui": {
+        "version": 1,
+        "title": {
+          "zh": "请求与异步状态",
+          "en": "Requests and async states"
+        },
+        "purpose": {
+          "zh": "设计输入联想的加载、空、失败、重试和快速改词行为，写出模拟失败步骤。",
+          "en": "Design loading, empty, failure, retry and rapid query changes for autocomplete. Describe how to simulate failure."
+        }
+      },
+      "state-ownership": {
+        "version": 1,
+        "title": {
+          "zh": "组件状态归属",
+          "en": "Component state ownership"
+        },
+        "purpose": {
+          "zh": "设计两列表单组件，标注父组件持有的选择、子组件 props 和局部状态。",
+          "en": "Design a two-panel form. Mark the parent’s selection, child props and local state."
+        }
+      },
+      "repro-build": {
+        "version": 1,
+        "title": {
+          "zh": "依赖锁定与构建",
+          "en": "Dependencies and builds"
+        },
+        "purpose": {
+          "zh": "列出新成员从检出代码到运行构建的命令，核对锁文件不匹配时怎样处理。",
+          "en": "Write steps from checkout to build and handle a lockfile mismatch."
+        }
+      },
+      "browser-tests": {
+        "version": 1,
+        "title": {
+          "zh": "端到端交互检查",
+          "en": "End-to-end interaction tests"
+        },
+        "purpose": {
+          "zh": "编写一条从空表单到保存成功的测试，另外验证错误时数据未丢。",
+          "en": "Write a blank-to-success form test and an error case that preserves input."
+        }
+      },
+      "web-vitals": {
+        "version": 1,
+        "title": {
+          "zh": "加载与交互体验",
+          "en": "Loading and interaction"
+        },
+        "purpose": {
+          "zh": "为商品详情页设计一次测量，标注主图、操作响应及首屏布局变化。",
+          "en": "Plan a product-page measurement for the main image, interaction response and initial layout movement."
+        }
+      },
+      "browser-security": {
+        "version": 1,
+        "title": {
+          "zh": "浏览器内容安全",
+          "en": "Browser content security"
+        },
+        "purpose": {
+          "zh": "给用户评论页面列出文本渲染和脚本来源规则，写一个报告模式下的检查。",
+          "en": "Specify text rendering and script sources for a comment page and plan a report-only check."
+        }
+      },
+      "release-checks": {
+        "version": 1,
+        "title": {
+          "zh": "上线验收与回归",
+          "en": "Release and regression checks"
+        },
+        "purpose": {
+          "zh": "给注册页上线写验收表，覆盖慢网、错误、键盘与手机，并标注两个回退条件。",
+          "en": "Write release checks for signup on slow networks, failures, keyboard and mobile and define rollback triggers."
+        }
+      }
+    },
+    "backend": {
+      "http-semantics": {
+        "version": 1,
+        "title": {
+          "zh": "HTTP 与状态码",
+          "en": "HTTP and status codes"
+        },
+        "purpose": {
+          "zh": "为读取与创建订单写两条接口说明，补上未登录、无权限和找不到记录时的行为。",
+          "en": "Specify read and create endpoints and behavior for unauthenticated, forbidden and missing resources."
+        }
+      },
+      "api-contract": {
+        "version": 1,
+        "title": {
+          "zh": "OpenAPI 与错误契约",
+          "en": "OpenAPI and error contracts"
+        },
+        "purpose": {
+          "zh": "为订单查询写一个 OpenAPI 片段，分别声明成功、缺失对象和校验失败的结构。",
+          "en": "Write an OpenAPI fragment for order lookup with success, missing object and validation-error schemas."
+        }
+      },
+      "service-structure": {
+        "version": 1,
+        "title": {
+          "zh": "Java 服务分层",
+          "en": "Java service boundaries"
+        },
+        "purpose": {
+          "zh": "写出创建订单的请求对象、控制器、服务和数据接口骨架。分别测试数量无效与库存不足，并确认拒绝时没有新增订单。",
+          "en": "Sketch a request object, controller, service and data interface for order creation. Test invalid quantity and insufficient stock and verify neither failure inserts an order."
+        }
+      },
+      "state-rules": {
+        "version": 1,
+        "title": {
+          "zh": "业务状态与幂等",
+          "en": "State transitions and idempotency"
+        },
+        "purpose": {
+          "zh": "画待付款、已付款、已取消的状态表，写清并发支付和取消时的检查及冲突结果。",
+          "en": "Map pending, paid and canceled order states and define how concurrent payment and cancel conflict."
+        }
+      },
+      "schema-constraints": {
+        "version": 1,
+        "title": {
+          "zh": "关系模型与约束",
+          "en": "Relational design and constraints"
+        },
+        "purpose": {
+          "zh": "设计订单、明细和商品三张表的主外键、数量范围和唯一性。",
+          "en": "Design keys, quantity bounds and uniqueness for orders, lines and products."
+        }
+      },
+      "atomicity": {
+        "version": 1,
+        "title": {
+          "zh": "事务与并发更新",
+          "en": "Transactions and concurrency"
+        },
+        "purpose": {
+          "zh": "画库存扣减与订单落库的事务，写中途出错和最后一件商品并发购买的检查。",
+          "en": "Plan a transaction for stock and order writes. Check mid-flight errors and concurrent purchase of the last item."
+        }
+      },
+      "query-plan": {
+        "version": 1,
+        "title": {
+          "zh": "索引与查询计划",
+          "en": "Indexes and query plans"
+        },
+        "purpose": {
+          "zh": "比较按订单号查一行和按大范围日期查多行的计划，解释各自访问路径。",
+          "en": "Compare plans for one order ID and for a wide date range and explain access methods."
+        }
+      },
+      "session-auth": {
+        "version": 1,
+        "title": {
+          "zh": "会话生命周期",
+          "en": "Session lifecycle"
+        },
+        "purpose": {
+          "zh": "给模拟 API 写过期、登出、重新登录三种会话检查。",
+          "en": "Specify expired, signed-out and newly signed-in session checks for a mock API."
+        }
+      },
+      "object-authorization": {
+        "version": 1,
+        "title": {
+          "zh": "对象访问控制",
+          "en": "Object authorization"
+        },
+        "purpose": {
+          "zh": "为读取和取消订单写权限矩阵，覆盖归属和客服只读。",
+          "en": "Write a permission matrix for order reading and cancellation, including owner and read-only support."
+        }
+      },
+      "validation": {
+        "version": 1,
+        "title": {
+          "zh": "输入校验与安全查询",
+          "en": "Validation and safe queries"
+        },
+        "purpose": {
+          "zh": "为按名称查询接口写允许字段、边界和参数绑定示例，定义对非法筛选的响应。",
+          "en": "Specify allowed filters and bounds, parameter binding and error behavior for a name-search endpoint."
+        }
+      },
+      "integration-tests": {
+        "version": 1,
+        "title": {
+          "zh": "集成与契约测试",
+          "en": "Integration and contract tests"
+        },
+        "purpose": {
+          "zh": "为创建订单写成功、非法输入、跨账号请求和重复提交的集成检查。",
+          "en": "Write integration cases for create success, invalid input, another account and replay."
+        }
+      },
+      "timeouts-retry": {
+        "version": 1,
+        "title": {
+          "zh": "超时与重试边界",
+          "en": "Timeout and retry limits"
+        },
+        "purpose": {
+          "zh": "为一个外部依赖定义错误类别、请求超时和总重试窗口。",
+          "en": "Define error classes, request timeouts and a total retry window for a dependency."
+        }
+      },
+      "service-telemetry": {
+        "version": 1,
+        "title": {
+          "zh": "服务日志与链路追踪",
+          "en": "Service logs and tracing"
+        },
+        "purpose": {
+          "zh": "为模拟订单 API 设计一次失败的请求 ID、日志字段和关联追踪。",
+          "en": "Design a request ID, logging fields and a correlated trace for a failed order request."
+        }
+      }
+    },
+    "engineering": {
+      "dataset-grain": {
+        "version": 1,
+        "title": {
+          "zh": "事实粒度与键",
+          "en": "Dataset grain and keys"
+        },
+        "purpose": {
+          "zh": "建模订单明细与日汇总两个数据集，标注主键、粒度和不能直接相加的比率。",
+          "en": "Model order lines and daily aggregates with keys, grains and non-additive ratios."
+        }
+      },
+      "transform-sql": {
+        "version": 1,
+        "title": {
+          "zh": "SQL 转换与对账",
+          "en": "SQL transforms and reconciliation"
+        },
+        "purpose": {
+          "zh": "写一条把明细汇总为每日销售的 SQL 草稿，保留取消状态并核对来源和结果的金额。",
+          "en": "Draft a daily sales transform with cancellation rules and source-to-output amount reconciliation."
+        }
+      },
+      "partition-evolution": {
+        "version": 1,
+        "title": {
+          "zh": "分区与模式演进",
+          "en": "Partitions and schema evolution"
+        },
+        "purpose": {
+          "zh": "为按日读取事件表选择分区，并写新增可选字段时的新旧读取预期。",
+          "en": "Choose a partition for an events table queried by day, and specify old/new behavior for a new optional field."
+        }
+      },
+      "dag-intervals": {
+        "version": 1,
+        "title": {
+          "zh": "DAG 与数据窗口",
+          "en": "DAGs and data intervals"
+        },
+        "purpose": {
+          "zh": "画订单日汇总 DAG，标注数据日、依赖、重跑参数和输出分区。",
+          "en": "Draw a daily order DAG with data date, upstream dependencies, rerun parameters and output partition."
+        }
+      },
+      "idempotent-batch": {
+        "version": 1,
+        "title": {
+          "zh": "幂等写入与失败恢复",
+          "en": "Idempotent batch writes"
+        },
+        "purpose": {
+          "zh": "为日汇总设计写入策略，写出中途失败再重跑后的行数和金额预期。",
+          "en": "Design daily output writes and expected counts and amounts after a partial failure and rerun."
+        }
+      },
+      "backfills": {
+        "version": 1,
+        "title": {
+          "zh": "补数与依赖恢复",
+          "en": "Backfill and dependency recovery"
+        },
+        "purpose": {
+          "zh": "为三个漏跑日期拟补数顺序，列出影响下游、资源上限与验证。",
+          "en": "Plan a backfill of three missed dates with downstream effects, resource limits and checks."
+        }
+      },
+      "event-time": {
+        "version": 1,
+        "title": {
+          "zh": "事件时间与水位线",
+          "en": "Event time and watermarks"
+        },
+        "purpose": {
+          "zh": "为 5 分钟订单统计写事件时间窗口，示例说明迟到两分钟和十分钟的处理。",
+          "en": "Define five-minute event-time windows and handling for events two or ten minutes late."
+        }
+      },
+      "dedup-replay": {
+        "version": 1,
+        "title": {
+          "zh": "重复事件与重放",
+          "en": "Deduplication and replay"
+        },
+        "purpose": {
+          "zh": "给模拟支付事件写去重键、保留期限和中断重放验收。",
+          "en": "Define a dedupe key, retention period and interruption/replay check for payment events."
+        }
+      },
+      "incremental-validation": {
+        "version": 1,
+        "title": {
+          "zh": "增量结果与迟到修正",
+          "en": "Incremental validation and late corrections"
+        },
+        "purpose": {
+          "zh": "为晚到订单写一项增量核对，说明哪些分区需要更正和如何与全量对照。",
+          "en": "Write a late-order check with affected partitions and a full recomputation comparison."
+        }
+      },
+      "pipeline-tests": {
+        "version": 1,
+        "title": {
+          "zh": "约束与数据测试",
+          "en": "Constraints and data tests"
+        },
+        "purpose": {
+          "zh": "为事件 ID、客户键和有效金额编写测试清单，给每项规则定失败处理。",
+          "en": "Write checks for event ID, customer key and amount, with failure handling for each."
+        }
+      },
+      "lineage": {
+        "version": 1,
+        "title": {
+          "zh": "数据血缘与影响分析",
+          "en": "Lineage and impact"
+        },
+        "purpose": {
+          "zh": "为来源订单、日汇总和仪表板绘制血缘，标注哪次运行和哪些下游受变更影响。",
+          "en": "Draw lineage for source orders, daily aggregates and a dashboard. Mark a run and consumers affected by change."
+        }
+      },
+      "freshness-recovery": {
+        "version": 1,
+        "title": {
+          "zh": "新鲜度与质量事件",
+          "en": "Freshness and data incidents"
+        },
+        "purpose": {
+          "zh": "给仪表板上游写延迟告警和停止发布条件，补上补数后验收和通知对象。",
+          "en": "Write a freshness alert and release-stop rule, with backfill validation and a communication owner."
+        }
+      }
+    },
+    "testing": {
+      "acceptance": {
+        "version": 1,
+        "title": {
+          "zh": "验收条件与可追踪性",
+          "en": "Acceptance and traceability"
+        },
+        "purpose": {
+          "zh": "把一个退货需求改写为三个验收条件，标注每条用例对应的需求。",
+          "en": "Write three acceptance criteria for a return rule and map each test to its requirement."
+        }
+      },
+      "risk-priority": {
+        "version": 1,
+        "title": {
+          "zh": "产品风险与优先级",
+          "en": "Product risk and priority"
+        },
+        "purpose": {
+          "zh": "列出登录、支付和帮助文档的失效风险，说明先测哪个以及为什么。",
+          "en": "List sign-in, payment and help-page risks and explain the test order."
+        }
+      },
+      "test-levels": {
+        "version": 1,
+        "title": {
+          "zh": "测试层级与策略",
+          "en": "Test levels and strategy"
+        },
+        "purpose": {
+          "zh": "为购物车写一份策略，分配价格计算、支付接口和用户端结账验证。",
+          "en": "Plan cart checks for price calculation, payment integration and checkout as a user."
+        }
+      },
+      "boundary": {
+        "version": 1,
+        "title": {
+          "zh": "等价类与边界值",
+          "en": "Partitions and boundaries"
+        },
+        "purpose": {
+          "zh": "给 1–10 的购买数量写有效、无效类，并列出最低和最高值附近的输入。",
+          "en": "Design partitions and boundary checks for quantities 1–10 inclusive."
+        }
+      },
+      "decision-tables": {
+        "version": 1,
+        "title": {
+          "zh": "决策表与组合",
+          "en": "Decision tables and combinations"
+        },
+        "purpose": {
+          "zh": "为会员和订单金额两条件的运费规则写决策表，每条可行规则安排用例。",
+          "en": "Build a shipping-fee decision table for membership and order amount and test feasible rules."
+        }
+      },
+      "state-transition": {
+        "version": 1,
+        "title": {
+          "zh": "状态转换与非法事件",
+          "en": "State transitions and invalid events"
+        },
+        "purpose": {
+          "zh": "为待付款、已支付、已取消写状态图和一次重复支付的用例。",
+          "en": "Sketch pending, paid and canceled states and test a repeated payment."
+        }
+      },
+      "exploratory": {
+        "version": 1,
+        "title": {
+          "zh": "探索式测试",
+          "en": "Exploratory testing"
+        },
+        "purpose": {
+          "zh": "给购物车写一个探索主题，覆盖异常刷新和多标签操作，记下观察和未知。",
+          "en": "Write a cart exploration charter for refresh and multi-tab behavior, with observations and unknowns."
+        }
+      },
+      "defect-reproduction": {
+        "version": 1,
+        "title": {
+          "zh": "缺陷复现与分级",
+          "en": "Defect reproduction"
+        },
+        "purpose": {
+          "zh": "为偶发重复提交写缺陷单，写明用户环境、网络状态、频率和最短步骤。",
+          "en": "File a report for intermittent double submission with environment, network, frequency and minimal steps."
+        }
+      },
+      "retest-regression": {
+        "version": 1,
+        "title": {
+          "zh": "确认测试与回归",
+          "en": "Confirmation and regression"
+        },
+        "purpose": {
+          "zh": "为退款页的修复写原缺陷复测，以及同模块两项回归用例。",
+          "en": "Plan a refund fix confirmation plus two impacted regression cases."
+        }
+      },
+      "test-data": {
+        "version": 1,
+        "title": {
+          "zh": "测试数据与隔离",
+          "en": "Test data and isolation"
+        },
+        "purpose": {
+          "zh": "设计三个并行的购物车用例，每条都有独立用户和初始化方法。",
+          "en": "Design three parallel cart cases, each with an independent user and setup."
+        }
+      },
+      "stable-assertions": {
+        "version": 1,
+        "title": {
+          "zh": "稳定定位与断言",
+          "en": "Stable locators and assertions"
+        },
+        "purpose": {
+          "zh": "用按钮名称和可见成功提示写一条结账检查，考虑慢网络和返回错误。",
+          "en": "Write a checkout check using control names and visible confirmation, including slow and failed responses."
+        }
+      },
+      "ci-evidence": {
+        "version": 1,
+        "title": {
+          "zh": "持续集成与失败证据",
+          "en": "CI and failure evidence"
+        },
+        "purpose": {
+          "zh": "设计拉取请求检查，写执行条件、失败时保留的日志和合并门槛。",
+          "en": "Design pull-request checks with triggers, failure artifacts and merge criteria."
+        }
+      }
+    },
+    "software": {
+      "problem-model": {
+        "version": 1,
+        "title": {
+          "zh": "问题与输入输出",
+          "en": "Problem and input/output"
+        },
+        "purpose": {
+          "zh": "为任务导入工具写需求，覆盖重复标题、空行、错误与成功结果。",
+          "en": "Specify a task importer including duplicate titles, blank rows, errors and success."
+        }
+      },
+      "acceptance-slices": {
+        "version": 1,
+        "title": {
+          "zh": "验收条件与交付切片",
+          "en": "Acceptance and delivery slices"
+        },
+        "purpose": {
+          "zh": "把清单工具拆成两个可使用切片，为每个切片写最小验收。",
+          "en": "Split a task-list tool into two usable slices and write minimum acceptance checks."
+        }
+      },
+      "design-boundaries": {
+        "version": 1,
+        "title": {
+          "zh": "模块职责与接口",
+          "en": "Module boundaries and interfaces"
+        },
+        "purpose": {
+          "zh": "将读文件、解析、业务规则和写结果拆分，解释改变文件格式时应改哪部分。",
+          "en": "Separate reading, parsing, business rules and writing. Explain what changes when the input format changes."
+        }
+      },
+      "control-flow": {
+        "version": 1,
+        "title": {
+          "zh": "控制流与函数",
+          "en": "Control flow and functions"
+        },
+        "purpose": {
+          "zh": "实现一段计算购物券金额的纯函数，列出负值、零值和有效值的行为。",
+          "en": "Implement a pure voucher calculation and specify negative, zero and valid inputs."
+        }
+      },
+      "structures-cost": {
+        "version": 1,
+        "title": {
+          "zh": "数据结构与复杂度",
+          "en": "Data structures and complexity"
+        },
+        "purpose": {
+          "zh": "为重复编号检测比较嵌套扫描与集合方案，描述时间及额外空间。",
+          "en": "Compare nested scanning and a set for duplicate IDs, including time and extra space."
+        }
+      },
+      "errors": {
+        "version": 1,
+        "title": {
+          "zh": "错误处理与边界输入",
+          "en": "Errors and edge cases"
+        },
+        "purpose": {
+          "zh": "为文件导入写空文件、非法行和读取失败的预期结果，并说明何时停止。",
+          "en": "Specify blank file, malformed row and read-failure behavior, including when to stop."
+        }
+      },
+      "unit-tests": {
+        "version": 1,
+        "title": {
+          "zh": "单元测试与边界",
+          "en": "Unit tests and boundaries"
+        },
+        "purpose": {
+          "zh": "为数量折扣编写三项断言，覆盖刚好达标和差一项。",
+          "en": "Write three assertions for a quantity discount, including exactly at threshold and one below."
+        }
+      },
+      "debugging": {
+        "version": 1,
+        "title": {
+          "zh": "复现与定位",
+          "en": "Reproduction and debugging"
+        },
+        "purpose": {
+          "zh": "把一次仅在空输入触发的错误写成最小复现和一个对照。",
+          "en": "Create a minimal reproduction for an empty-input failure and one control."
+        }
+      },
+      "refactor": {
+        "version": 1,
+        "title": {
+          "zh": "重构与兼容性",
+          "en": "Refactoring and compatibility"
+        },
+        "purpose": {
+          "zh": "为两个重复方法写重构计划，先记录对外行为，再提取共有逻辑并验证。",
+          "en": "Plan a refactor of duplicate methods, documenting behavior before extracting shared logic."
+        }
+      },
+      "git-branches": {
+        "version": 1,
+        "title": {
+          "zh": "Git 分支与合并",
+          "en": "Git branches and merges"
+        },
+        "purpose": {
+          "zh": "在本地创建演练仓库，模拟两条分支改同一文件，记录冲突解决和验证。",
+          "en": "In a local exercise repo, make competing branch changes and record conflict resolution and checks."
+        }
+      },
+      "code-review": {
+        "version": 1,
+        "title": {
+          "zh": "代码审查与反馈",
+          "en": "Code review"
+        },
+        "purpose": {
+          "zh": "对一份小改动写两条评审意见，一条覆盖缺失边界，一条说明已有验证。",
+          "en": "Review a small change with a missing boundary check and one verified behavior."
+        }
+      },
+      "release-version": {
+        "version": 1,
+        "title": {
+          "zh": "发布版本与交接",
+          "en": "Versioned releases and handoff"
+        },
+        "purpose": {
+          "zh": "为一次小工具发布写版本记录，列出修复、受影响用例和已知限制。",
+          "en": "Write release notes for a small tool with fixes, affected flows and known limitations."
+        }
+      }
+    },
+    "delivery": {
+      "workflows": {
+        "version": 1,
+        "title": {
+          "zh": "现状与目标流程",
+          "en": "Current and target workflows"
+        },
+        "purpose": {
+          "zh": "为客服登记流程写现状和目标草图，列出一个暂未核对的例外。",
+          "en": "Sketch current and target support intake workflows with an unverified exception."
+        }
+      },
+      "scope-acceptance": {
+        "version": 1,
+        "title": {
+          "zh": "范围与验收标准",
+          "en": "Scope and acceptance criteria"
+        },
+        "purpose": {
+          "zh": "为一次离线工单系统上线列出交付与排除范围，并为一项需求写验收用例。",
+          "en": "Define included and excluded scope for an offline ticket launch and write an acceptance case."
+        }
+      },
+      "dependency-owners": {
+        "version": 1,
+        "title": {
+          "zh": "依赖、责任与升级",
+          "en": "Dependencies and ownership"
+        },
+        "purpose": {
+          "zh": "列出账号、数据和验收三个依赖，分别写主责、何时确认和失败时上报对象。",
+          "en": "List account, data and acceptance dependencies with owners, verification and escalation."
+        }
+      },
+      "environments": {
+        "version": 1,
+        "title": {
+          "zh": "环境与配置基线",
+          "en": "Environments and baselines"
+        },
+        "purpose": {
+          "zh": "为模拟工单系统写配置清单，区分演练和上线时的变更与核对。",
+          "en": "Write a configuration checklist separating rehearsal and production checks."
+        }
+      },
+      "role-matrix": {
+        "version": 1,
+        "title": {
+          "zh": "角色权限与复核",
+          "en": "Role matrix and review"
+        },
+        "purpose": {
+          "zh": "为一线客服、主管和审计写最小权限矩阵，补上权限不足的用例。",
+          "en": "Write a least-privilege matrix for support, supervisors and audit, including denied cases."
+        }
+      },
+      "migration": {
+        "version": 1,
+        "title": {
+          "zh": "迁移、对账与修正",
+          "en": "Migration and reconciliation"
+        },
+        "purpose": {
+          "zh": "为旧工单迁移制定字段映射、失败处理和切换前后对账表。",
+          "en": "Prepare field mapping, failure handling and reconciliation for ticket migration."
+        }
+      },
+      "uat": {
+        "version": 1,
+        "title": {
+          "zh": "用户验收测试",
+          "en": "User acceptance testing"
+        },
+        "purpose": {
+          "zh": "设计工单创建、流转和关闭三条验收用例，写明角色和所需证据。",
+          "en": "Design acceptance cases for ticket creation, routing and closure with roles and evidence."
+        }
+      },
+      "cutover": {
+        "version": 1,
+        "title": {
+          "zh": "切换步骤与演练",
+          "en": "Cutover and rehearsal"
+        },
+        "purpose": {
+          "zh": "为两小时窗口写模拟切换清单，指定第一轮试迁何时完成以及通知对象。",
+          "en": "Plan a two-hour simulated cutover with a trial migration checkpoint and communication owners."
+        }
+      },
+      "go-no-go": {
+        "version": 1,
+        "title": {
+          "zh": "上线判断与回退",
+          "en": "Go/no-go and rollback"
+        },
+        "purpose": {
+          "zh": "写一张上线决策卡，列必需通过的用例、回退阈值及原服务恢复条件。",
+          "en": "Write a go/no-go card with required tests, rollback triggers and criteria for the previous service."
+        }
+      },
+      "role-training": {
+        "version": 1,
+        "title": {
+          "zh": "按角色培训与验收",
+          "en": "Role-based training"
+        },
+        "purpose": {
+          "zh": "为一线与主管各写一个真实感的练习，说明练习成功怎样观察。",
+          "en": "Write one realistic exercise each for agents and supervisors with observable success."
+        }
+      },
+      "support-triage": {
+        "version": 1,
+        "title": {
+          "zh": "报障分诊与复现",
+          "en": "Support triage and reproduction"
+        },
+        "purpose": {
+          "zh": "把“系统登录不了”整理为一次支持记录，写要询问的信息和升级条件。",
+          "en": "Turn “sign-in is broken” into a support record with evidence questions and escalation triggers."
+        }
+      },
+      "handoff": {
+        "version": 1,
+        "title": {
+          "zh": "移交清单与跟进",
+          "en": "Handoff and follow-up"
+        },
+        "purpose": {
+          "zh": "写一个交接清单，覆盖验收材料、运行手册、已知问题、支持渠道和复查日期。",
+          "en": "Write a handoff checklist with acceptance evidence, runbook, known issues, support channels and next review."
+        }
+      }
+    }
+  }
+}

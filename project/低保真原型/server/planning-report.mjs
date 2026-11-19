@@ -4,8 +4,13 @@ import {consultationBody} from '../src/alignment-model.js';
 import {buildCareerReport,careerReportBody,normalizeReportPlanRecords} from '../src/career-report-model.js';
 import {captureCareerReportSources} from '../src/career-report-sources.js';
 import {businessError} from './business-error.mjs';
+import {getSkillTree} from './skill-trees/index.mjs';
 
 const sorted=value=>Array.isArray(value)?value.map(sorted):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,sorted(value[key])])):value;
+
+export function careerReportJourney(saved,uploads){
+  return {baseVersion:saved.revision,journey:buildCareerReport(saved.state,{uploads,getSkillTree}).journey};
+}
 
 /** Keep the existing report chapters, but use the actual catalog and saved facts. */
 export function planningReportPreview(state,knowledge,{kind='report',help='',format,uploads,planRecords}={}){
@@ -13,7 +18,7 @@ export function planningReportPreview(state,knowledge,{kind='report',help='',for
   if(format==='career-report-v1'){
     if(kind!=='report')throw businessError('INVALID_REQUEST');
     let normalized;try{normalized=normalizeReportPlanRecords(planRecords);}catch{throw businessError('INVALID_REQUEST');}
-    const model=buildCareerReport(state,{uploads,planRecords:normalized}),body=careerReportBody(model),compositeSources=captureCareerReportSources(state,{uploads,planRecords:normalized}),catalogVersion='career-detail-content-v1';
+    const model=buildCareerReport(state,{uploads,planRecords:normalized,getSkillTree}),body=careerReportBody(model),compositeSources=captureCareerReportSources(state,{uploads,planRecords:normalized}),catalogVersion='career-detail-content-v1';
     const digest=createHash('sha256').update(JSON.stringify(sorted({body,compositeSources,catalogVersion}))).digest('hex');
     return {body,digest,format,catalogVersion,notice:'依据站内职业任务与技能资料整理；技能依据覆盖不是胜任概率，MBTI 仅用于核对工作偏好。',compositeSources};
   }

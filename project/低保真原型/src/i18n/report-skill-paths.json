@@ -1,0 +1,2198 @@
+{
+  "data": {
+    "frameworks": [
+      {
+        "publisher": "Microsoft Learn",
+        "title": "PL-300 Data Analyst study guide",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300"
+      },
+      {
+        "publisher": "UK Government Data Quality Hub",
+        "title": "Government Data Quality Framework guidance",
+        "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-guidance"
+      },
+      {
+        "publisher": "NIST / SEMATECH",
+        "title": "Engineering statistics handbook",
+        "url": "https://www.itl.nist.gov/div898/handbook/"
+      }
+    ],
+    "branches": [
+      {
+        "id": "metrics",
+        "title": [
+          "指标与取数",
+          "Metrics and querying"
+        ],
+        "purpose": [
+          "把业务问题变成可复算的口径，再关联和汇总数据。",
+          "Define a reproducible metric, then join and aggregate its data."
+        ],
+        "leaves": [
+          {
+            "id": "metric-definition",
+            "version": 1,
+            "title": [
+              "指标口径",
+              "Metric definition"
+            ],
+            "lesson": [
+              "先写清记录粒度、分子、分母、时间窗口及排除条件。指标改口径要保留版本。",
+              "Specify grain, numerator, denominator, time window and exclusions. Version any change."
+            ]
+          },
+          {
+            "id": "sql-joins",
+            "version": 1,
+            "title": [
+              "SQL 表关联",
+              "SQL joins"
+            ],
+            "lesson": [
+              "先核对键和关系基数。右侧多行会使左侧记录展开。关联后比较行数和唯一键数量。",
+              "Check keys and cardinality first. Multiple right-side rows expand a left-side record. Compare rows and distinct keys after joining."
+            ]
+          },
+          {
+            "id": "aggregation",
+            "version": 1,
+            "title": [
+              "分组与汇总",
+              "Grouping and aggregation"
+            ],
+            "lesson": [
+              "在聚合前筛记录，在聚合后筛分组。比率要先确认有效分母，不能直接平均不同规模组的比率。",
+              "Filter rows before aggregation and groups after it. Check denominators before combining rates across unequal groups."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quality",
+        "title": [
+          "数据质量",
+          "Data quality"
+        ],
+        "purpose": [
+          "识别异常、保留原值，并把质量检查变成可重复规则。",
+          "Find defects, preserve raw values and turn quality checks into repeatable rules."
+        ],
+        "leaves": [
+          {
+            "id": "missing",
+            "version": 1,
+            "title": [
+              "缺失值与有效分母",
+              "Missing values and denominators"
+            ],
+            "lesson": [
+              "区分没有记录、无测量值和有效零。为每项指标明确缺失值的排除条件。",
+              "Distinguish missing records, missing measurements and genuine zeroes. Define exclusion rules per metric."
+            ]
+          },
+          {
+            "id": "duplicate-conflict",
+            "version": 1,
+            "title": [
+              "重复与冲突记录",
+              "Duplicate and conflicting rows"
+            ],
+            "lesson": [
+              "先定义同一实体的键。完全重复可按规则去重，同键不同值需要溯源和裁决。",
+              "Define the entity key first. Exact duplicates can be deduplicated by rule. Conflicting records need traceable resolution."
+            ]
+          },
+          {
+            "id": "quality-rules",
+            "version": 1,
+            "title": [
+              "质量规则与复核",
+              "Quality rules and review"
+            ],
+            "lesson": [
+              "围绕用途选择完整性、有效性或一致性指标。为规则写清分母、责任人和复查条件。",
+              "Choose completeness, validity or consistency measures based on use. Specify denominator, owner and review conditions."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "statistics",
+        "title": [
+          "统计判断",
+          "Statistical reasoning"
+        ],
+        "purpose": [
+          "描述分布，辨认样本偏差，并判断证据能支持什么结论。",
+          "Describe distributions, identify sampling bias and judge what the evidence supports."
+        ],
+        "leaves": [
+          {
+            "id": "descriptive",
+            "version": 1,
+            "title": [
+              "描述统计与分布",
+              "Descriptive statistics"
+            ],
+            "lesson": [
+              "用中位数和分位数补充均值。检查偏态、极端值和单位，并注明样本大小。",
+              "Complement means with medians and quantiles. Check skew, outliers and units and report sample size."
+            ]
+          },
+          {
+            "id": "sampling",
+            "version": 1,
+            "title": [
+              "抽样与偏差",
+              "Sampling and bias"
+            ],
+            "lesson": [
+              "说明目标总体、抽样框和未覆盖人群。大样本也无法自动修复选择偏差。",
+              "Identify the target population, sampling frame and missing groups. A large sample alone cannot fix selection bias."
+            ]
+          },
+          {
+            "id": "experiment",
+            "version": 1,
+            "title": [
+              "实验与因果判断",
+              "Experiments and causal claims"
+            ],
+            "lesson": [
+              "先定主指标、随机分配单位和分析窗口，再解读效应大小及不确定性。",
+              "Predefine the primary metric, unit of randomization and analysis window, then interpret effect size and uncertainty."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "communication",
+        "title": [
+          "建模与表达",
+          "Modeling and communication"
+        ],
+        "purpose": [
+          "建立可解释的数据模型，复核汇总口径，再把发现写成可核对的建议。",
+          "Build an interpretable model, check aggregations and make a verifiable recommendation."
+        ],
+        "leaves": [
+          {
+            "id": "star-schema",
+            "version": 1,
+            "title": [
+              "事实表与维度",
+              "Facts and dimensions"
+            ],
+            "lesson": [
+              "先声明事实表粒度，再分离用于筛选或分组的维度。汇总前确认连接不会复制度量。",
+              "Declare fact-table grain and separate dimensions for filtering or grouping. Check joins before aggregating measures."
+            ]
+          },
+          {
+            "id": "pivot-tables",
+            "version": 1,
+            "title": [
+              "表格透视与对账",
+              "Pivot tables and reconciliation"
+            ],
+            "lesson": [
+              "透视表按行列字段分组。核对值字段采用求和还是计数，也要确认数据范围和筛选条件。",
+              "A pivot table groups rows by its row and column fields. Check whether values are summed or counted, and verify the data range and filters."
+            ]
+          },
+          {
+            "id": "chart-choice",
+            "version": 1,
+            "title": [
+              "图表与阅读顺序",
+              "Charts and reading order"
+            ],
+            "lesson": [
+              "从读者的问题选择编码。比较分类可用条形图，时间趋势用连续时间轴，并给出单位和样本。",
+              "Choose an encoding for the reader’s question. Use bars for category comparison or a continuous time axis for trends. Label units and sample."
+            ]
+          },
+          {
+            "id": "decision-brief",
+            "version": 1,
+            "title": [
+              "分析简报与限制",
+              "Decision brief and limitations"
+            ],
+            "lesson": [
+              "先给结论和证据，再交代范围、替代解释与下一步。把观察、推测和决策分开表达。",
+              "Lead with the finding and evidence, then give scope, alternative explanations and next actions. Separate observation from interpretation."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ai": {
+    "frameworks": [
+      {
+        "publisher": "ACM / IEEE-CS / AAAI",
+        "title": "CS2023 knowledge areas",
+        "url": "https://csed.acm.org/knowledge-areas/",
+        "version": "CS2023"
+      },
+      {
+        "publisher": "Google for Developers",
+        "title": "Machine Learning Crash Course",
+        "url": "https://developers.google.com/machine-learning/crash-course"
+      },
+      {
+        "publisher": "NIST",
+        "title": "AI Risk Management Framework",
+        "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+        "version": "AI RMF 1.0"
+      }
+    ],
+    "branches": [
+      {
+        "id": "training",
+        "title": [
+          "数据与建模",
+          "Data and modeling"
+        ],
+        "purpose": [
+          "从定义预测目标开始，建立可对照、可复现的模型基线。",
+          "Define a prediction target and build a reproducible baseline."
+        ],
+        "leaves": [
+          {
+            "id": "task-baseline",
+            "version": 1,
+            "title": [
+              "任务定义与基线",
+              "Task and baseline"
+            ],
+            "lesson": [
+              "先定预测对象、标签、使用时间点和代价，再选能比较的简单基线。",
+              "Define the prediction unit, label, time of use and cost before choosing a simple baseline."
+            ]
+          },
+          {
+            "id": "python-data",
+            "version": 1,
+            "title": [
+              "Python 数据准备",
+              "Python data preparation"
+            ],
+            "lesson": [
+              "用 pandas 声明标识字段类型，并把日期解析失败与原始缺失分开记录。数据准备脚本应能对同一原始文件重复运行。",
+              "Declare identifier types in pandas and track date parse failures separately from original missing values. Run the preparation script on the same raw input reproducibly."
+            ]
+          },
+          {
+            "id": "split-leakage",
+            "version": 1,
+            "title": [
+              "数据切分与泄漏",
+              "Splits and leakage"
+            ],
+            "lesson": [
+              "切分后再拟合预处理。按人、组织或时间分组，避免同一来源在训练和测试中重复。",
+              "Split before fitting preprocessing. Group by person, organization or time to avoid overlap."
+            ]
+          },
+          {
+            "id": "generalization",
+            "version": 1,
+            "title": [
+              "泛化与误差分析",
+              "Generalization and errors"
+            ],
+            "lesson": [
+              "对比训练和验证误差，按有意义的切片查错，并用留出集作最终核验。",
+              "Compare training and validation errors, inspect meaningful slices and reserve a final holdout."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "application",
+        "title": [
+          "生成式 AI 应用",
+          "Generative AI applications"
+        ],
+        "purpose": [
+          "定义应用契约、检索上下文和受控的工具执行边界。",
+          "Define application contracts, retrieval context and controlled tool boundaries."
+        ],
+        "leaves": [
+          {
+            "id": "output-contract",
+            "version": 1,
+            "title": [
+              "提示与输出契约",
+              "Prompt and output contract"
+            ],
+            "lesson": [
+              "定义输入、结构化输出和失败路径。解析后校验字段、枚举和值域，并保留人工接管。",
+              "Specify inputs, structured outputs and failure handling. Validate fields, enums and values after parsing."
+            ]
+          },
+          {
+            "id": "retrieval-grounding",
+            "version": 1,
+            "title": [
+              "检索与出处",
+              "Retrieval and grounding"
+            ],
+            "lesson": [
+              "同时核对命中文档与回答依据。记录来源、版本和片段；证据不足时保留未知。",
+              "Inspect both retrieved documents and support for the answer. Keep source, version and excerpt references."
+            ]
+          },
+          {
+            "id": "tool-boundaries",
+            "version": 1,
+            "title": [
+              "工具调用与权限",
+              "Tool calls and authorization"
+            ],
+            "lesson": [
+              "限制工具、参数和账号范围。把数据和指令分开，在应用侧确认高影响操作。",
+              "Limit tools, arguments and account scope. Separate data from instructions and confirm high-impact actions."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "evaluation",
+        "title": [
+          "评测与复核",
+          "Evaluation and review"
+        ],
+        "purpose": [
+          "用固定样本、可解释规则和严重错误门槛评价候选。",
+          "Compare candidates with fixed examples, explicit rules and critical-error gates."
+        ],
+        "leaves": [
+          {
+            "id": "metric-tradeoff",
+            "version": 1,
+            "title": [
+              "分类指标与阈值",
+              "Classification metrics and thresholds"
+            ],
+            "lesson": [
+              "根据假阳性和假阴性的代价选择指标。分别说明阈值、准确性与评估样本。",
+              "Choose measures based on false-positive and false-negative cost. Report threshold, scores and sample."
+            ]
+          },
+          {
+            "id": "eval-cases",
+            "version": 1,
+            "title": [
+              "评测样本与评分",
+              "Cases and rubrics"
+            ],
+            "lesson": [
+              "准备典型、边界和失败案例，提前定义成功标准、严重错误与复核方式。",
+              "Include typical, boundary and failure cases. Define success, critical errors and review before scoring."
+            ]
+          },
+          {
+            "id": "failure-review",
+            "version": 1,
+            "title": [
+              "错例归因与复测",
+              "Error analysis and retesting"
+            ],
+            "lesson": [
+              "把错误归为检索、规则、执行或表达问题。修改后回测已知错例，并使用独立样本复核。",
+              "Group failures by retrieval, policy, execution or expression. Rerun known failures and check independent examples."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": [
+          "上线与治理",
+          "Release and governance"
+        ],
+        "purpose": [
+          "记录模型与数据版本，监控上线质量并制定人工升级规则。",
+          "Track model and data versions, monitor live quality and define human escalation."
+        ],
+        "leaves": [
+          {
+            "id": "reproducibility",
+            "version": 1,
+            "title": [
+              "版本与可复现",
+              "Versioning and reproducibility"
+            ],
+            "lesson": [
+              "记录模型、提示、数据、代码和评分规则版本。记录不可控的随机性及运行条件。",
+              "Record model, prompt, data, code and rubric versions along with randomness and run conditions."
+            ]
+          },
+          {
+            "id": "monitoring",
+            "version": 1,
+            "title": [
+              "监测与分布漂移",
+              "Monitoring and drift"
+            ],
+            "lesson": [
+              "同时观察输入、输出、失败率和人工处理结果。把变化信号与已确认的质量下降分开。",
+              "Monitor inputs, outputs, failures and human outcomes. Separate distribution signals from confirmed degradation."
+            ]
+          },
+          {
+            "id": "human-oversight",
+            "version": 1,
+            "title": [
+              "风险与人工接管",
+              "Risk and human oversight"
+            ],
+            "lesson": [
+              "明确可自动完成、需人工复核和必须停止的情况。记录责任、审计与复盘。",
+              "Define when to automate, route to review or stop. Keep ownership, audit and follow-up."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "security": {
+    "frameworks": [
+      {
+        "publisher": "NIST",
+        "title": "NICE Workforce Framework for Cybersecurity",
+        "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center",
+        "version": "SP 800-181 Rev. 1"
+      },
+      {
+        "publisher": "OWASP",
+        "title": "Application Security Verification Standard",
+        "url": "https://owasp.org/www-project-application-security-verification-standard/",
+        "version": "ASVS"
+      },
+      {
+        "publisher": "NIST",
+        "title": "Incident response recommendations",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf",
+        "version": "SP 800-61 Rev. 3"
+      }
+    ],
+    "branches": [
+      {
+        "id": "foundations",
+        "title": [
+          "网络与授权边界",
+          "Network and scope"
+        ],
+        "purpose": [
+          "看清请求经过哪里、哪些信息受保护，以及检查的授权范围。",
+          "Trace requests, understand what is protected and define authorized scope."
+        ],
+        "leaves": [
+          {
+            "id": "network-path",
+            "version": 1,
+            "title": [
+              "DNS 与请求路径",
+              "DNS and request paths"
+            ],
+            "lesson": [
+              "把域名解析、传输连接和应用请求分开。一次失败要先定位发生在哪一层。",
+              "Separate name resolution, the transport connection and the application request. Locate the failing layer first."
+            ]
+          },
+          {
+            "id": "transport-trust",
+            "version": 1,
+            "title": [
+              "TLS 与传输信任",
+              "TLS and transport trust"
+            ],
+            "lesson": [
+              "TLS 保护连接上的数据，并依赖正确的服务端身份验证。代理终止 TLS 后要重新看下一跳边界。",
+              "TLS protects a connection and relies on correct server authentication. Reassess the next hop after proxy termination."
+            ]
+          },
+          {
+            "id": "authorized-scope",
+            "version": 1,
+            "title": [
+              "测试范围与风险",
+              "Authorized testing scope"
+            ],
+            "lesson": [
+              "把资产、身份、动作、时间和停止条件写清。生产资产和真实账号要依据明确授权处理。",
+              "Record assets, identities, actions, timing and stop conditions. Treat production and real accounts according to explicit authorization."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "identity",
+        "title": [
+          "身份与访问控制",
+          "Identity and access"
+        ],
+        "purpose": [
+          "核对身份、资源授权与密钥处理，保护系统权限边界。",
+          "Review identity, resource authorization and secrets handling."
+        ],
+        "leaves": [
+          {
+            "id": "authentication",
+            "version": 1,
+            "title": [
+              "身份验证与会话",
+              "Authentication and sessions"
+            ],
+            "lesson": [
+              "验证身份后再创建会话；密码重置或权限变更要处理会话生命周期。",
+              "Establish sessions after authentication and manage their lifetime when credentials or privileges change."
+            ]
+          },
+          {
+            "id": "authorization",
+            "version": 1,
+            "title": [
+              "资源授权与最小权限",
+              "Resource authorization"
+            ],
+            "lesson": [
+              "服务端逐次验证主体、动作与资源。默认拒绝，分别测横向越权和角色越权。",
+              "Check subject, action and resource on the server for each request. Default to deny and test horizontal and vertical boundaries."
+            ]
+          },
+          {
+            "id": "secrets",
+            "version": 1,
+            "title": [
+              "密钥保管与轮换",
+              "Secret storage and rotation"
+            ],
+            "lesson": [
+              "密钥应受访问控制和审计。泄漏后先撤销或轮换，再核对影响和历史副本。",
+              "Protect secrets with access controls and audit. On exposure, revoke or rotate and review impact and retained copies."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "detection",
+        "title": [
+          "检测与事件响应",
+          "Detection and response"
+        ],
+        "purpose": [
+          "归并多来源证据，区分观察与解释，并给出可复核的升级决定。",
+          "Correlate evidence across sources, distinguish observation from explanation and make a reviewable escalation."
+        ],
+        "leaves": [
+          {
+            "id": "event-logs",
+            "version": 1,
+            "title": [
+              "日志时间与关联",
+              "Event time and correlation"
+            ],
+            "lesson": [
+              "保留原时区与事件时间。关联身份、来源、目标、会话及事件类型，标明缺口。",
+              "Preserve time zones and event timestamps. Correlate identity, source, target, session and event type and record gaps."
+            ]
+          },
+          {
+            "id": "triage",
+            "version": 1,
+            "title": [
+              "异常分诊与交叉复核",
+              "Alert triage"
+            ],
+            "lesson": [
+              "警报是线索。查已知变更、目标与来源，比较替代解释和采集缺口。",
+              "Treat alerts as clues. Compare known changes, targets, sources, alternate explanations and collection gaps."
+            ]
+          },
+          {
+            "id": "incident-handoff",
+            "version": 1,
+            "title": [
+              "事件升级与交接",
+              "Incident escalation"
+            ],
+            "lesson": [
+              "交接时区分已知、推断与未知，列出证据、影响、应急动作、授权和下一次更新。",
+              "Handoff distinguishes facts, inference and unknowns, with evidence, impact, authorized actions and next update."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "application",
+        "title": [
+          "应用安全",
+          "Application security"
+        ],
+        "purpose": [
+          "画出信任边界，用验证标准检查输入、权限和复测证据。",
+          "Map trust boundaries and verify inputs, permissions and retests against explicit controls."
+        ],
+        "leaves": [
+          {
+            "id": "threat-model",
+            "version": 1,
+            "title": [
+              "信任边界与威胁建模",
+              "Trust boundaries and threats"
+            ],
+            "lesson": [
+              "从数据流、资产和信任边界识别风险。每个风险要能对应验证或缓解措施。",
+              "Use data flows, assets and trust boundaries to identify risks. Tie each threat to a verification or mitigation."
+            ]
+          },
+          {
+            "id": "safe-input",
+            "version": 1,
+            "title": [
+              "输入校验与查询安全",
+              "Input and query safety"
+            ],
+            "lesson": [
+              "为输入明确格式与范围。查询用参数绑定；动态列名使用受控映射。",
+              "Specify input format and bounds. Bind query parameters and map dynamic column names to an allowlist."
+            ]
+          },
+          {
+            "id": "verify-control",
+            "version": 1,
+            "title": [
+              "安全验证与回归",
+              "Security verification and regression"
+            ],
+            "lesson": [
+              "把控制转为有预期的测试。记录版本、身份、步骤、结果和复测边界。",
+              "Turn a control into a test with a specific expected result. Record version, identity, steps and retest scope."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ops": {
+    "frameworks": [
+      {
+        "publisher": "Google SRE",
+        "title": "Site Reliability Engineering",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      },
+      {
+        "publisher": "Kubernetes",
+        "title": "Deployments",
+        "url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+      }
+    ],
+    "branches": [
+      {
+        "id": "systems",
+        "title": [
+          "系统与网络",
+          "Systems and networking"
+        ],
+        "purpose": [
+          "定位进程、权限和请求故障的边界。",
+          "Locate failures in processes, permissions and the request path."
+        ],
+        "leaves": [
+          {
+            "id": "service-account",
+            "version": 1,
+            "title": [
+              "服务账号与权限",
+              "Service accounts and permissions"
+            ],
+            "lesson": [
+              "识别进程实际身份和所需权限，分别检查目录遍历与文件读写。",
+              "Identify the actual service identity and required access. Check directory traversal separately from file access."
+            ]
+          },
+          {
+            "id": "http-diagnosis",
+            "version": 1,
+            "title": [
+              "请求链路与状态码",
+              "Request path and HTTP status"
+            ],
+            "lesson": [
+              "从客户端到网关和应用逐段核对成功条件。代理错误与应用返回需用日志定位。",
+              "Check the path from client through proxy to application. Use logs to locate gateway and application errors."
+            ]
+          },
+          {
+            "id": "signal-triage",
+            "version": 1,
+            "title": [
+              "资源信号与定位",
+              "Resource signals and diagnosis"
+            ],
+            "lesson": [
+              "先看错误、延迟、流量和饱和度，再区分触发因素、瓶颈与用户影响。",
+              "Start with errors, latency, traffic and saturation, then separate triggers, bottlenecks and impact."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "delivery",
+        "title": [
+          "交付与基础设施",
+          "Delivery and infrastructure"
+        ],
+        "purpose": [
+          "把构建、部署与配置变成可审查、可重复的过程。",
+          "Make builds, deployments and infrastructure repeatable and reviewable."
+        ],
+        "leaves": [
+          {
+            "id": "container-build",
+            "version": 1,
+            "title": [
+              "容器构建与镜像",
+              "Container builds and images"
+            ],
+            "lesson": [
+              "记录镜像基础、依赖与构建上下文，运行时注入配置和凭据。",
+              "Record the base image, dependencies and build context. Inject configuration and secrets at runtime."
+            ]
+          },
+          {
+            "id": "deployment-health",
+            "version": 1,
+            "title": [
+              "部署与健康探针",
+              "Deployments and probes"
+            ],
+            "lesson": [
+              "滚动更新逐步替换副本。就绪探针决定是否接收流量，存活探针用于决定重启。",
+              "Rolling updates replace replicas gradually. Readiness gates traffic and liveness can trigger restarts."
+            ]
+          },
+          {
+            "id": "infra-state",
+            "version": 1,
+            "title": [
+              "基础设施配置与状态",
+              "Infrastructure configuration and state"
+            ],
+            "lesson": [
+              "评审计划差异和删除动作。将基础设施状态视为需访问控制的共享记录。",
+              "Review planned differences and deletions. Treat infrastructure state as a shared record that needs access controls."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "observability",
+        "title": [
+          "可观测性与可靠性",
+          "Observability and reliability"
+        ],
+        "purpose": [
+          "把用户体验转成可观察指标、目标和可行动的告警。",
+          "Translate user experience into observable signals, objectives and actionable alerts."
+        ],
+        "leaves": [
+          {
+            "id": "four-signals",
+            "version": 1,
+            "title": [
+              "服务信号与告警",
+              "Service signals and alerts"
+            ],
+            "lesson": [
+              "监测流量、延迟、错误和饱和度。告警关联用户影响和可执行动作。",
+              "Track traffic, latency, errors and saturation. Alerts should connect impact to an action."
+            ]
+          },
+          {
+            "id": "slo-budget",
+            "version": 1,
+            "title": [
+              "SLI、SLO 与误差预算",
+              "SLIs, SLOs and error budgets"
+            ],
+            "lesson": [
+              "以好事件数除以有效事件数定义服务指标。目标缺口决定可容许的坏事件比例。",
+              "Define indicators as good events divided by valid events. The objective implies a tolerated bad-event fraction."
+            ]
+          },
+          {
+            "id": "telemetry",
+            "version": 1,
+            "title": [
+              "关联日志、指标和追踪",
+              "Logs, metrics and traces"
+            ],
+            "lesson": [
+              "指标定位时间窗，追踪区分调用段，日志提供单次事件的细节。",
+              "Use metrics to find the time window, traces to inspect call segments, and logs for event details."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "recovery",
+        "title": [
+          "变更、回退与复盘",
+          "Change and incident recovery"
+        ],
+        "purpose": [
+          "根据发布证据暂停或回退，验证恢复并交接后续行动。",
+          "Pause or roll back on evidence, verify recovery and hand off follow-up."
+        ],
+        "leaves": [
+          {
+            "id": "canary-gate",
+            "version": 1,
+            "title": [
+              "灰度发布与门槛",
+              "Canary release gates"
+            ],
+            "lesson": [
+              "预设对照、样本量、阈值和暂停规则，比较相同时间窗的候选组与稳定组。",
+              "Set controls, sample size, thresholds and pause rules before comparing candidate and stable groups."
+            ]
+          },
+          {
+            "id": "rollback-verify",
+            "version": 1,
+            "title": [
+              "回退与恢复验收",
+              "Rollback and recovery verification"
+            ],
+            "lesson": [
+              "回退确认版本和数据兼容。恢复需通过用户路径及一段稳定观察。",
+              "Confirm target version and data compatibility before rollback. Verify a user path and a stable observation window."
+            ]
+          },
+          {
+            "id": "incident-review",
+            "version": 1,
+            "title": [
+              "事件交接与复盘",
+              "Incident handoff and postmortem"
+            ],
+            "lesson": [
+              "记录影响、时间线、证据和未决问题。改进动作应有负责人和可验证结果。",
+              "Record impact, timeline, evidence and open issues. Improvements need owners and verifiable outcomes."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "frontend": {
+    "frameworks": [
+      {
+        "publisher": "MDN",
+        "title": "MDN Curriculum",
+        "url": "https://developer.mozilla.org/en-US/curriculum/"
+      },
+      {
+        "publisher": "W3C WAI",
+        "title": "Web Content Accessibility Guidelines",
+        "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+        "version": "WCAG 2.2"
+      }
+    ],
+    "branches": [
+      {
+        "id": "web-core",
+        "title": [
+          "Web 基础",
+          "Web foundations"
+        ],
+        "purpose": [
+          "建立有语义的文档、响应式布局与可预测的交互。",
+          "Build semantic documents, responsive layouts and predictable interactions."
+        ],
+        "leaves": [
+          {
+            "id": "semantic-html",
+            "version": 1,
+            "title": [
+              "语义化 HTML",
+              "Semantic HTML"
+            ],
+            "lesson": [
+              "优先选择原生元素表达含义。表单控件需要可识别标签。",
+              "Use native elements for meaning. Give each form control an accessible label."
+            ]
+          },
+          {
+            "id": "responsive-css",
+            "version": 1,
+            "title": [
+              "响应式 CSS 布局",
+              "Responsive CSS layout"
+            ],
+            "lesson": [
+              "根据内容选 Grid 或 Flexbox。允许项目收缩和换行，在窄屏及长文案下验证。",
+              "Choose Grid or Flexbox for the content. Allow shrinking and wrapping and test narrow screens and long labels."
+            ]
+          },
+          {
+            "id": "dom-events",
+            "version": 1,
+            "title": [
+              "JavaScript 与事件",
+              "JavaScript and events"
+            ],
+            "lesson": [
+              "理解事件目标、传播、默认行为与状态更新。事件监听按元素生命周期清理。",
+              "Understand targets, propagation, default actions and state updates. Clean up listeners with their lifecycle."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "interaction",
+        "title": [
+          "交互与无障碍",
+          "Interaction and accessibility"
+        ],
+        "purpose": [
+          "让用户在多种输入方式和状态下完成同一任务。",
+          "Support the same task across input methods and application states."
+        ],
+        "leaves": [
+          {
+            "id": "keyboard",
+            "version": 1,
+            "title": [
+              "键盘与焦点",
+              "Keyboard and focus"
+            ],
+            "lesson": [
+              "按阅读顺序安排键盘焦点。打开对话框移动焦点，关闭后返回触发入口。",
+              "Follow reading order for keyboard focus. Move focus into dialogs and return it on close."
+            ]
+          },
+          {
+            "id": "form-errors",
+            "version": 1,
+            "title": [
+              "表单错误与提示",
+              "Form errors and feedback"
+            ],
+            "lesson": [
+              "把错误描述和字段关联，保留输入。状态变化应让辅助技术感知。",
+              "Associate errors with fields and preserve input. Expose relevant status changes to assistive technology."
+            ]
+          },
+          {
+            "id": "async-ui",
+            "version": 1,
+            "title": [
+              "请求与异步状态",
+              "Requests and async states"
+            ],
+            "lesson": [
+              "区分加载、空结果、错误与成功，校验 HTTP 状态。较旧的请求不能覆盖最新操作。",
+              "Separate loading, empty, error and success states. Check HTTP status and keep stale responses from overwriting newer actions."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "engineering",
+        "title": [
+          "组件与工程化",
+          "Components and tooling"
+        ],
+        "purpose": [
+          "维护清晰的组件契约和可复现的构建。",
+          "Maintain clear component contracts and repeatable builds."
+        ],
+        "leaves": [
+          {
+            "id": "state-ownership",
+            "version": 1,
+            "title": [
+              "组件状态归属",
+              "Component state ownership"
+            ],
+            "lesson": [
+              "把共享状态放在需要它的共同祖先。派生值在渲染时计算，避免两个状态互相追赶。",
+              "Keep shared state in the nearest common owner and derive values during rendering where possible."
+            ]
+          },
+          {
+            "id": "repro-build",
+            "version": 1,
+            "title": [
+              "依赖锁定与构建",
+              "Dependencies and builds"
+            ],
+            "lesson": [
+              "用锁文件固定依赖解析。持续集成中验证干净安装、构建与输出。",
+              "Pin resolution in a lockfile. Verify clean install, build and output in CI."
+            ]
+          },
+          {
+            "id": "browser-tests",
+            "version": 1,
+            "title": [
+              "端到端交互检查",
+              "End-to-end interaction tests"
+            ],
+            "lesson": [
+              "按用户可见语义定位，使用等待断言，并准备独立且可重复的数据。",
+              "Locate by user-visible semantics, use retrying assertions and isolate repeatable data."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quality",
+        "title": [
+          "性能与上线",
+          "Performance and release"
+        ],
+        "purpose": [
+          "度量体验、校验浏览器安全边界并用清单上线。",
+          "Measure experience, check browser security boundaries and release with evidence."
+        ],
+        "leaves": [
+          {
+            "id": "web-vitals",
+            "version": 1,
+            "title": [
+              "加载与交互体验",
+              "Loading and interaction"
+            ],
+            "lesson": [
+              "分别核对主要内容加载、交互响应和布局稳定。区分受控实验与用户现场数据。",
+              "Measure loading, interaction responsiveness and layout stability. Distinguish lab runs from field data."
+            ]
+          },
+          {
+            "id": "browser-security",
+            "version": 1,
+            "title": [
+              "浏览器内容安全",
+              "Browser content security"
+            ],
+            "lesson": [
+              "把用户文本当数据呈现。CSP 限制脚本和资源来源，并用报告观察策略影响。",
+              "Render untrusted text as data. Use CSP to restrict script and resource sources and observe reports."
+            ]
+          },
+          {
+            "id": "release-checks",
+            "version": 1,
+            "title": [
+              "上线验收与回归",
+              "Release and regression checks"
+            ],
+            "lesson": [
+              "覆盖关键路径、视口和输入方式。记录浏览器、版本、结果以及未检查范围。",
+              "Cover key journeys, viewports and input methods. Record browser, build, result and gaps."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "backend": {
+    "frameworks": [
+      {
+        "publisher": "IEEE Computer Society",
+        "title": "SWEBOK Guide",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+        "version": "v4.0"
+      },
+      {
+        "publisher": "IETF / RFC Editor",
+        "title": "HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+        "version": "RFC 9110"
+      },
+      {
+        "publisher": "OWASP",
+        "title": "Application Security Verification Standard",
+        "url": "https://owasp.org/www-project-application-security-verification-standard/"
+      }
+    ],
+    "branches": [
+      {
+        "id": "api",
+        "title": [
+          "接口与业务规则",
+          "APIs and business rules"
+        ],
+        "purpose": [
+          "把请求、响应和状态变化写成可验证的服务契约。",
+          "Define verifiable contracts for requests, responses and state changes."
+        ],
+        "leaves": [
+          {
+            "id": "http-semantics",
+            "version": 1,
+            "title": [
+              "HTTP 与状态码",
+              "HTTP and status codes"
+            ],
+            "lesson": [
+              "区分安全与幂等语义。明确成功、输入无效、未认证和无权限各自的响应。",
+              "Distinguish safety and idempotency. Specify success, invalid input, unauthenticated and forbidden outcomes."
+            ]
+          },
+          {
+            "id": "api-contract",
+            "version": 1,
+            "title": [
+              "OpenAPI 与错误契约",
+              "OpenAPI and error contracts"
+            ],
+            "lesson": [
+              "为路径、参数、正文、响应状态和安全要求声明结构，并提供示例。",
+              "Declare paths, parameters, bodies, response statuses and security requirements with examples."
+            ]
+          },
+          {
+            "id": "service-structure",
+            "version": 1,
+            "title": [
+              "Java 服务分层",
+              "Java service boundaries"
+            ],
+            "lesson": [
+              "以 Java 和 Spring MVC 为例，请求对象校验字段形状，服务层处理订单规则，持久层负责数据读写。将订单规则留在服务中，可以在批处理和 HTTP 请求中共用。",
+              "In Java with Spring MVC, validate request fields at the boundary, apply order rules in the service and read or write in the persistence layer. A batch job can reuse the same order rules as the HTTP endpoint."
+            ]
+          },
+          {
+            "id": "state-rules",
+            "version": 1,
+            "title": [
+              "业务状态与幂等",
+              "State transitions and idempotency"
+            ],
+            "lesson": [
+              "列出合法的状态转换，约束并行更新；重复请求应能辨认同一业务操作。",
+              "Define allowed state transitions, constrain concurrent writes and identify retries of the same operation."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "data",
+        "title": [
+          "数据与事务",
+          "Data and transactions"
+        ],
+        "purpose": [
+          "用数据约束保护一致性，用执行计划定位查询代价。",
+          "Protect consistency with constraints and inspect query plans for cost."
+        ],
+        "leaves": [
+          {
+            "id": "schema-constraints",
+            "version": 1,
+            "title": [
+              "关系模型与约束",
+              "Relational design and constraints"
+            ],
+            "lesson": [
+              "主键识别行，外键维护引用，唯一和检查约束表达数据不变量。",
+              "Primary keys identify rows, foreign keys protect references and unique or check constraints encode invariants."
+            ]
+          },
+          {
+            "id": "atomicity",
+            "version": 1,
+            "title": [
+              "事务与并发更新",
+              "Transactions and concurrency"
+            ],
+            "lesson": [
+              "事务保证相关写入一起提交或撤销。并发写入要处理冲突和不变量。",
+              "Transactions commit or roll back related writes together. Concurrent updates must respect invariants."
+            ]
+          },
+          {
+            "id": "query-plan",
+            "version": 1,
+            "title": [
+              "索引与查询计划",
+              "Indexes and query plans"
+            ],
+            "lesson": [
+              "用执行计划看访问方式和估计行数，结合数据量与筛选比例评估索引。",
+              "Read access methods and row estimates and assess indexes against volume and selectivity."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "security",
+        "title": [
+          "认证与安全边界",
+          "Authentication and security"
+        ],
+        "purpose": [
+          "分开核对身份、资源权限和输入来源。",
+          "Check identity, resource permissions and untrusted input separately."
+        ],
+        "leaves": [
+          {
+            "id": "session-auth",
+            "version": 1,
+            "title": [
+              "会话生命周期",
+              "Session lifecycle"
+            ],
+            "lesson": [
+              "在服务端检查会话有效期与撤销状态。确保退出、权限变化和密码重置行为明确。",
+              "Verify expiry and revocation server-side. Specify logout, privilege changes and reset behavior."
+            ]
+          },
+          {
+            "id": "object-authorization",
+            "version": 1,
+            "title": [
+              "对象访问控制",
+              "Object authorization"
+            ],
+            "lesson": [
+              "每次请求按主体、操作和资源做授权。测试本人、他人和受限角色。",
+              "Authorize each request by subject, action and resource. Test own, other and restricted-role access."
+            ]
+          },
+          {
+            "id": "validation",
+            "version": 1,
+            "title": [
+              "输入校验与安全查询",
+              "Validation and safe queries"
+            ],
+            "lesson": [
+              "在可信边界校验类型、长度和值域。数据库查询绑定参数，错误响应保留必要信息。",
+              "Validate type, length and bounds at the trust boundary. Bind database parameters and return appropriate error details."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": [
+          "验证与可观测性",
+          "Verification and observability"
+        ],
+        "purpose": [
+          "验证交互边界、受控重试与故障定位。",
+          "Verify integration boundaries, retries and diagnosability."
+        ],
+        "leaves": [
+          {
+            "id": "integration-tests",
+            "version": 1,
+            "title": [
+              "集成与契约测试",
+              "Integration and contract tests"
+            ],
+            "lesson": [
+              "用集成测试覆盖存储、权限和错误映射。用契约检查生产者与消费者的结构一致。",
+              "Test persistence, authorization and error mapping in integration and check producer–consumer contracts."
+            ]
+          },
+          {
+            "id": "timeouts-retry",
+            "version": 1,
+            "title": [
+              "超时与重试边界",
+              "Timeout and retry limits"
+            ],
+            "lesson": [
+              "区分暂时故障和永久失败，设置时间预算、退避与最大尝试。重试写入需要幂等。",
+              "Separate temporary from permanent failures and set deadlines, backoff and attempt limits. Retried writes need idempotency."
+            ]
+          },
+          {
+            "id": "service-telemetry",
+            "version": 1,
+            "title": [
+              "服务日志与链路追踪",
+              "Service logs and tracing"
+            ],
+            "lesson": [
+              "用结构化日志定位请求，结合指标、追踪与请求标识。敏感值在采集前过滤。",
+              "Use structured logs with metrics, traces and request IDs. Filter sensitive values before collection."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "engineering": {
+    "frameworks": [
+      {
+        "publisher": "Microsoft Learn",
+        "title": "DP-700 Data Engineering study guide",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-700"
+      },
+      {
+        "publisher": "ACM / IEEE-CS / AAAI",
+        "title": "CS2023 knowledge areas",
+        "url": "https://csed.acm.org/knowledge-areas/",
+        "version": "CS2023"
+      }
+    ],
+    "branches": [
+      {
+        "id": "modeling",
+        "title": [
+          "数据模型与存储",
+          "Modeling and storage"
+        ],
+        "purpose": [
+          "确定粒度、连接和分区，让下游能解释数据。",
+          "Choose grain, joins and partitions so downstream data is interpretable."
+        ],
+        "leaves": [
+          {
+            "id": "dataset-grain",
+            "version": 1,
+            "title": [
+              "事实粒度与键",
+              "Dataset grain and keys"
+            ],
+            "lesson": [
+              "先声明一行代表什么，再定义事实与维度键和可加性。",
+              "Declare what one row represents before choosing fact/dimension keys and additivity."
+            ]
+          },
+          {
+            "id": "transform-sql",
+            "version": 1,
+            "title": [
+              "SQL 转换与对账",
+              "SQL transforms and reconciliation"
+            ],
+            "lesson": [
+              "将转换拆为可验证步骤，关联前确认唯一性，聚合前后核对计数和关键金额。",
+              "Split transformations into verifiable steps. Check key uniqueness before joins and reconcile counts and values across stages."
+            ]
+          },
+          {
+            "id": "partition-evolution",
+            "version": 1,
+            "title": [
+              "分区与模式演进",
+              "Partitions and schema evolution"
+            ],
+            "lesson": [
+              "按访问模式选择分区，评估写入分布。模式变化要处理读写兼容和历史数据。",
+              "Partition for access patterns and consider write distribution. Schema changes need reader/writer and historical compatibility."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "batch",
+        "title": [
+          "批处理与编排",
+          "Batch and orchestration"
+        ],
+        "purpose": [
+          "让任务可重跑、可补数，并在依赖就绪后发布。",
+          "Make jobs repeatable and backfillable and publish after dependencies are ready."
+        ],
+        "leaves": [
+          {
+            "id": "dag-intervals",
+            "version": 1,
+            "title": [
+              "DAG 与数据窗口",
+              "DAGs and data intervals"
+            ],
+            "lesson": [
+              "把逻辑数据窗口和实际执行时间分开。明确输入就绪条件和任务依赖。",
+              "Separate logical data windows from execution time. Define readiness and dependencies."
+            ]
+          },
+          {
+            "id": "idempotent-batch",
+            "version": 1,
+            "title": [
+              "幂等写入与失败恢复",
+              "Idempotent batch writes"
+            ],
+            "lesson": [
+              "给输出固定键或分区；可重试任务应能替换目标或按键合并，避免重复追加。",
+              "Use stable keys or partitions; retriable tasks should replace or merge without duplicate appends."
+            ]
+          },
+          {
+            "id": "backfills",
+            "version": 1,
+            "title": [
+              "补数与依赖恢复",
+              "Backfill and dependency recovery"
+            ],
+            "lesson": [
+              "按逻辑窗口补数，限定并发和下游重算范围，记录缺口及对账结果。",
+              "Backfill logical windows with bounded concurrency and affected downstream rebuilds. Log gaps and reconciliation."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "streaming",
+        "title": [
+          "流式与增量",
+          "Streaming and incremental data"
+        ],
+        "purpose": [
+          "对齐事件时间，处理迟到、重复和中断后重放。",
+          "Use event time and handle late arrivals, duplicates and replay after interruption."
+        ],
+        "leaves": [
+          {
+            "id": "event-time",
+            "version": 1,
+            "title": [
+              "事件时间与水位线",
+              "Event time and watermarks"
+            ],
+            "lesson": [
+              "事件发生时间可能早于到达时间。水位线推进窗口进度，迟到仍需处理策略。",
+              "Event time can precede arrival. Watermarks advance window progress and late data still needs policy."
+            ]
+          },
+          {
+            "id": "dedup-replay",
+            "version": 1,
+            "title": [
+              "重复事件与重放",
+              "Deduplication and replay"
+            ],
+            "lesson": [
+              "为事件设置稳定 ID 和明确去重窗口。消费恢复与目标写入需要一起验证。",
+              "Use stable event IDs and explicit deduplication horizons. Verify consumer recovery together with sink writes."
+            ]
+          },
+          {
+            "id": "incremental-validation",
+            "version": 1,
+            "title": [
+              "增量结果与迟到修正",
+              "Incremental validation and late corrections"
+            ],
+            "lesson": [
+              "比较增量与全量在相同窗口的结果。记录可修正窗口、版本和下游通知。",
+              "Compare incremental and full results for the same interval. Record correction windows, versions and downstream notification."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "governance",
+        "title": [
+          "质量、血缘与运维",
+          "Quality, lineage and operations"
+        ],
+        "purpose": [
+          "为下游提供校验、来源和能追踪的问题处理。",
+          "Give downstream consumers checks, provenance and traceable incident handling."
+        ],
+        "leaves": [
+          {
+            "id": "pipeline-tests",
+            "version": 1,
+            "title": [
+              "约束与数据测试",
+              "Constraints and data tests"
+            ],
+            "lesson": [
+              "明确完整性、唯一性、关系与业务规则，设定何时拦截或告警。",
+              "Specify completeness, uniqueness, relationships and business rules and decide when to block or warn."
+            ]
+          },
+          {
+            "id": "lineage",
+            "version": 1,
+            "title": [
+              "数据血缘与影响分析",
+              "Lineage and impact"
+            ],
+            "lesson": [
+              "把作业、运行、输入与输出数据集连起来，记录版本、来源与影响路径。",
+              "Link jobs and runs to input and output datasets, preserving version, provenance and impact path."
+            ]
+          },
+          {
+            "id": "freshness-recovery",
+            "version": 1,
+            "title": [
+              "新鲜度与质量事件",
+              "Freshness and data incidents"
+            ],
+            "lesson": [
+              "把数据到达延迟、任务成功与数据可用性分开，记录影响和复查责任。",
+              "Separate data arrival, job success and usability; record impact and review ownership."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "testing": {
+    "frameworks": [
+      {
+        "publisher": "ISTQB",
+        "title": "Certified Tester Foundation Level syllabus",
+        "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf",
+        "version": "v4.0.1"
+      },
+      {
+        "publisher": "IEEE Computer Society",
+        "title": "SWEBOK Guide",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+        "version": "v4.0"
+      }
+    ],
+    "branches": [
+      {
+        "id": "analysis",
+        "title": [
+          "需求与风险",
+          "Requirements and risk"
+        ],
+        "purpose": [
+          "从需求与风险确定优先场景、分层和覆盖范围。",
+          "Turn requirements and risk into priorities, test levels and coverage."
+        ],
+        "leaves": [
+          {
+            "id": "acceptance",
+            "version": 1,
+            "title": [
+              "验收条件与可追踪性",
+              "Acceptance and traceability"
+            ],
+            "lesson": [
+              "从需求提取可观察的前置条件、动作和预期。用关联表核对未覆盖项。",
+              "Extract observable preconditions, actions and expected outcomes. Use traceability to find gaps."
+            ]
+          },
+          {
+            "id": "risk-priority",
+            "version": 1,
+            "title": [
+              "产品风险与优先级",
+              "Product risk and priority"
+            ],
+            "lesson": [
+              "用可能性与影响评估产品风险，把有限时间先给高影响路径。",
+              "Assess likelihood and impact and prioritize high-risk flows when time is limited."
+            ]
+          },
+          {
+            "id": "test-levels",
+            "version": 1,
+            "title": [
+              "测试层级与策略",
+              "Test levels and strategy"
+            ],
+            "lesson": [
+              "在最合适的层级验证风险。覆盖单元、集成、系统和用户验收的不同目标。",
+              "Verify each risk at an appropriate level. Unit, integration, system and acceptance have different objectives."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "design",
+        "title": [
+          "测试设计技术",
+          "Test design techniques"
+        ],
+        "purpose": [
+          "用分区、决策表和状态转换减少遗漏。",
+          "Use partitions, decision tables and transitions to reduce gaps."
+        ],
+        "leaves": [
+          {
+            "id": "boundary",
+            "version": 1,
+            "title": [
+              "等价类与边界值",
+              "Partitions and boundaries"
+            ],
+            "lesson": [
+              "按行为划分有效和无效类。对有序边界选取刚好在界内、界外的值。",
+              "Partition by behavior. For ordered ranges, sample at the boundary and just outside."
+            ]
+          },
+          {
+            "id": "decision-tables",
+            "version": 1,
+            "title": [
+              "决策表与组合",
+              "Decision tables and combinations"
+            ],
+            "lesson": [
+              "把条件组合映射为动作。区分不可能条件与不影响结果的条件。",
+              "Map condition combinations to actions. Distinguish impossible combinations from irrelevant conditions."
+            ]
+          },
+          {
+            "id": "state-transition",
+            "version": 1,
+            "title": [
+              "状态转换与非法事件",
+              "State transitions and invalid events"
+            ],
+            "lesson": [
+              "列出当前状态、事件、条件和下一状态。检查合法转换与被拒绝的转换。",
+              "Map current state, event, condition and next state. Test allowed and denied transitions."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "defects",
+        "title": [
+          "执行、缺陷与复核",
+          "Execution and defects"
+        ],
+        "purpose": [
+          "留下可重现的证据，正确区分缺陷确认与回归。",
+          "Capture reproducible evidence and separate confirmation testing from regression."
+        ],
+        "leaves": [
+          {
+            "id": "exploratory",
+            "version": 1,
+            "title": [
+              "探索式测试",
+              "Exploratory testing"
+            ],
+            "lesson": [
+              "给探索设定主题、范围和时间。边学边设计用例，并记录线索和后续。",
+              "Set a charter, scope and timebox. Design while learning and record findings and next checks."
+            ]
+          },
+          {
+            "id": "defect-reproduction",
+            "version": 1,
+            "title": [
+              "缺陷复现与分级",
+              "Defect reproduction"
+            ],
+            "lesson": [
+              "记录版本、环境、前置、步骤、预期、实际与证据。区分影响严重度和处理优先级。",
+              "Record build, environment, preconditions, steps, expected/actual and evidence. Separate severity from priority."
+            ]
+          },
+          {
+            "id": "retest-regression",
+            "version": 1,
+            "title": [
+              "确认测试与回归",
+              "Confirmation and regression"
+            ],
+            "lesson": [
+              "先确认原缺陷不再出现，再按变更影响检查周边路径。记录未跑范围。",
+              "Confirm the original failure is fixed, then check surrounding paths based on impact. Record unrun scope."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "automation",
+        "title": [
+          "自动化与持续交付",
+          "Automation and CI"
+        ],
+        "purpose": [
+          "选择稳定断言，隔离测试数据，留下持续集成证据。",
+          "Choose stable assertions, isolate data and produce CI evidence."
+        ],
+        "leaves": [
+          {
+            "id": "test-data",
+            "version": 1,
+            "title": [
+              "测试数据与隔离",
+              "Test data and isolation"
+            ],
+            "lesson": [
+              "用独立且可重置的测试数据。参数化覆盖同一规则的边界，避免用例相互依赖。",
+              "Use isolated, resettable data. Parameterize boundary cases and avoid inter-test dependencies."
+            ]
+          },
+          {
+            "id": "stable-assertions",
+            "version": 1,
+            "title": [
+              "稳定定位与断言",
+              "Stable locators and assertions"
+            ],
+            "lesson": [
+              "围绕可见行为与角色定位，并等待实际条件。失败时保留可定位证据。",
+              "Locate user-facing behavior and roles and wait for real conditions. Capture diagnostic evidence on failure."
+            ]
+          },
+          {
+            "id": "ci-evidence",
+            "version": 1,
+            "title": [
+              "持续集成与失败证据",
+              "CI and failure evidence"
+            ],
+            "lesson": [
+              "在明确版本和环境下运行关键测试。保留日志与报告，区分可重复缺陷与不稳定测试。",
+              "Run key checks under known versions and environment. Retain logs and reports and distinguish reproducible bugs from flakes."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "software": {
+    "frameworks": [
+      {
+        "publisher": "IEEE Computer Society",
+        "title": "SWEBOK Guide",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+        "version": "v4.0"
+      },
+      {
+        "publisher": "ACM / IEEE-CS / AAAI",
+        "title": "CS2023 knowledge areas",
+        "url": "https://csed.acm.org/knowledge-areas/",
+        "version": "CS2023"
+      }
+    ],
+    "branches": [
+      {
+        "id": "problem",
+        "title": [
+          "需求与问题分解",
+          "Requirements and decomposition"
+        ],
+        "purpose": [
+          "把模糊任务变成可观察、可分解的行为。",
+          "Turn vague requests into observable, decomposed behavior."
+        ],
+        "leaves": [
+          {
+            "id": "problem-model",
+            "version": 1,
+            "title": [
+              "问题与输入输出",
+              "Problem and input/output"
+            ],
+            "lesson": [
+              "定义输入、输出、假设和边界；把不明确的条件列为待确认。",
+              "Define inputs, outputs, assumptions and boundaries. Keep ambiguous conditions open."
+            ]
+          },
+          {
+            "id": "acceptance-slices",
+            "version": 1,
+            "title": [
+              "验收条件与交付切片",
+              "Acceptance and delivery slices"
+            ],
+            "lesson": [
+              "按用户价值拆小。每个切片都包含可观察结果和最小验证。",
+              "Split by user value. Each slice needs an observable outcome and a minimum check."
+            ]
+          },
+          {
+            "id": "design-boundaries",
+            "version": 1,
+            "title": [
+              "模块职责与接口",
+              "Module boundaries and interfaces"
+            ],
+            "lesson": [
+              "让相关职责归在一起，让易变化细节留在边界后。写清模块的输入输出。",
+              "Group related responsibilities and place volatile details behind interfaces. Specify inputs and outputs."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "coding",
+        "title": [
+          "编码与算法",
+          "Coding and algorithms"
+        ],
+        "purpose": [
+          "用合适的数据结构与控制流实现规则，处理异常输入。",
+          "Implement rules with appropriate data structures, control flow and error handling."
+        ],
+        "leaves": [
+          {
+            "id": "control-flow",
+            "version": 1,
+            "title": [
+              "控制流与函数",
+              "Control flow and functions"
+            ],
+            "lesson": [
+              "把一个函数限定在清晰的职责内，安排正常路径、提前返回和边界值。",
+              "Keep each function focused and handle normal flow, early returns and edge cases."
+            ]
+          },
+          {
+            "id": "structures-cost",
+            "version": 1,
+            "title": [
+              "数据结构与复杂度",
+              "Data structures and complexity"
+            ],
+            "lesson": [
+              "按访问和修改模式选序列、映射或集合。评估输入增长时操作的代价。",
+              "Choose sequences, maps or sets for access and mutation patterns. Consider cost as input grows."
+            ]
+          },
+          {
+            "id": "errors",
+            "version": 1,
+            "title": [
+              "错误处理与边界输入",
+              "Errors and edge cases"
+            ],
+            "lesson": [
+              "区分可预期输入错误、系统失败和缺陷。提供具体错误且保留上下文。",
+              "Distinguish expected input errors, system failures and bugs. Preserve useful error context."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "verification",
+        "title": [
+          "验证与演进",
+          "Verification and evolution"
+        ],
+        "purpose": [
+          "用测试、调试与安全重构验证代码变化。",
+          "Verify changes through tests, debugging and safe refactoring."
+        ],
+        "leaves": [
+          {
+            "id": "unit-tests",
+            "version": 1,
+            "title": [
+              "单元测试与边界",
+              "Unit tests and boundaries"
+            ],
+            "lesson": [
+              "一个测试关注一个明确行为。覆盖普通、边界和错误输入，保留具体预期。",
+              "Focus tests on clear behavior with ordinary, boundary and invalid inputs and explicit outcomes."
+            ]
+          },
+          {
+            "id": "debugging",
+            "version": 1,
+            "title": [
+              "复现与定位",
+              "Reproduction and debugging"
+            ],
+            "lesson": [
+              "缩小到最小可复现场景，提出假设并用对照测试排除。",
+              "Reduce to a minimal reproduction and test hypotheses using controls."
+            ]
+          },
+          {
+            "id": "refactor",
+            "version": 1,
+            "title": [
+              "重构与兼容性",
+              "Refactoring and compatibility"
+            ],
+            "lesson": [
+              "在有回归依据时小步调整结构。保持外部契约，除非显式计划变更。",
+              "Change structure in small steps with regression coverage. Preserve external behavior unless changing it deliberately."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "collaboration",
+        "title": [
+          "协作与发布",
+          "Collaboration and release"
+        ],
+        "purpose": [
+          "用版本历史、审查和发布记录让团队能接手。",
+          "Use history, review and release notes to support team handoff."
+        ],
+        "leaves": [
+          {
+            "id": "git-branches",
+            "version": 1,
+            "title": [
+              "Git 分支与合并",
+              "Git branches and merges"
+            ],
+            "lesson": [
+              "在可审查分支上工作。解决冲突时保留双方意图并运行相关检查。",
+              "Work in reviewable branches. Resolve conflicts by preserving both intentions and running relevant checks."
+            ]
+          },
+          {
+            "id": "code-review",
+            "version": 1,
+            "title": [
+              "代码审查与反馈",
+              "Code review"
+            ],
+            "lesson": [
+              "审查关注正确性、测试、可维护性和范围。用可定位反馈描述问题和影响。",
+              "Review correctness, tests, maintainability and scope. Give feedback with location and impact."
+            ]
+          },
+          {
+            "id": "release-version",
+            "version": 1,
+            "title": [
+              "发布版本与交接",
+              "Versioned releases and handoff"
+            ],
+            "lesson": [
+              "记录版本、范围、验证和迁移说明。出问题时能定位具体构建并回退。",
+              "Record version, scope, checks and migration notes. Identify the exact build for rollback."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "delivery": {
+    "frameworks": [
+      {
+        "publisher": "SFIA Foundation",
+        "title": "Systems installation and removal",
+        "url": "https://sfia-online.org/en/sfia-9/skills/systems-installation-removal",
+        "version": "SFIA 9"
+      },
+      {
+        "publisher": "SFIA Foundation",
+        "title": "Requirements definition and management",
+        "url": "https://sfia-online.org/en/sfia-9/skills/requirements-definition-and-management",
+        "version": "SFIA 9"
+      },
+      {
+        "publisher": "Microsoft Learn",
+        "title": "Plan a Dynamics 365 implementation strategy",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/implementation-strategy"
+      }
+    ],
+    "branches": [
+      {
+        "id": "discovery",
+        "title": [
+          "需求与实施范围",
+          "Discovery and scope"
+        ],
+        "purpose": [
+          "和使用方核对流程、范围、验收与责任。",
+          "Confirm workflows, scope, acceptance and ownership with stakeholders."
+        ],
+        "leaves": [
+          {
+            "id": "workflows",
+            "version": 1,
+            "title": [
+              "现状与目标流程",
+              "Current and target workflows"
+            ],
+            "lesson": [
+              "记录实际业务角色、输入、例外与交接，区分观察和假设。",
+              "Record current roles, inputs, exceptions and handoffs, distinguishing observations from assumptions."
+            ]
+          },
+          {
+            "id": "scope-acceptance",
+            "version": 1,
+            "title": [
+              "范围与验收标准",
+              "Scope and acceptance criteria"
+            ],
+            "lesson": [
+              "将范围、约束和验收写成可复核条目，明确审批人与变更路径。",
+              "Write verifiable scope, constraints and acceptance with approvers and a change process."
+            ]
+          },
+          {
+            "id": "dependency-owners",
+            "version": 1,
+            "title": [
+              "依赖、责任与升级",
+              "Dependencies and ownership"
+            ],
+            "lesson": [
+              "为前置事项、权限和审批指定责任人、期限、证据与升级方式。",
+              "Assign owners, dates, evidence and escalation for dependencies, access and approvals."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "setup",
+        "title": [
+          "配置、权限与迁移",
+          "Configuration, access and migration"
+        ],
+        "purpose": [
+          "在受控环境复现配置，核对角色和迁移前后数据。",
+          "Reproduce configuration in a controlled environment and check access and migrated data."
+        ],
+        "leaves": [
+          {
+            "id": "environments",
+            "version": 1,
+            "title": [
+              "环境与配置基线",
+              "Environments and baselines"
+            ],
+            "lesson": [
+              "登记环境、依赖、版本和可重复配置。将测试和生产的凭据隔离。",
+              "Record environments, dependencies, versions and repeatable configuration. Separate test and production credentials."
+            ]
+          },
+          {
+            "id": "role-matrix",
+            "version": 1,
+            "title": [
+              "角色权限与复核",
+              "Role matrix and review"
+            ],
+            "lesson": [
+              "以岗位职责定义权限。用允许和拒绝案例验证角色，核对上线审批。",
+              "Define privileges from job duties. Verify allowed and denied paths with approval."
+            ]
+          },
+          {
+            "id": "migration",
+            "version": 1,
+            "title": [
+              "迁移、对账与修正",
+              "Migration and reconciliation"
+            ],
+            "lesson": [
+              "先映射字段、做试迁并保存失败清单。核对计数、主键、业务总量和抽样记录。",
+              "Map fields and rehearse migration with a failure register. Reconcile counts, keys, totals and samples."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "title": [
+          "验收与上线切换",
+          "Acceptance and cutover"
+        ],
+        "purpose": [
+          "用用户验收和切换演练确定是否可上线。",
+          "Use user acceptance and a rehearsal to decide readiness."
+        ],
+        "leaves": [
+          {
+            "id": "uat",
+            "version": 1,
+            "title": [
+              "用户验收测试",
+              "User acceptance testing"
+            ],
+            "lesson": [
+              "由代表性业务角色执行关键任务，记录结果、缺陷、剩余风险和批准。",
+              "Have representative business users run critical journeys and record results, defects, risks and approval."
+            ]
+          },
+          {
+            "id": "cutover",
+            "version": 1,
+            "title": [
+              "切换步骤与演练",
+              "Cutover and rehearsal"
+            ],
+            "lesson": [
+              "按时间列冻结、备份、迁移、切换、验证和通知。每步要有负责人和判断条件。",
+              "Sequence freeze, backup, migration, switch, verification and notice with owners and gates."
+            ]
+          },
+          {
+            "id": "go-no-go",
+            "version": 1,
+            "title": [
+              "上线判断与回退",
+              "Go/no-go and rollback"
+            ],
+            "lesson": [
+              "预定义上线和回退门槛。验证数据兼容、可恢复性和谁批准执行。",
+              "Define go/no-go and rollback gates. Verify compatibility, recovery and approvers."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "handover",
+        "title": [
+          "交接、培训与支持",
+          "Handover, training and support"
+        ],
+        "purpose": [
+          "让运维、业务和一线支持能接手并验证后续问题。",
+          "Equip operations, business users and support to take ownership."
+        ],
+        "leaves": [
+          {
+            "id": "role-training",
+            "version": 1,
+            "title": [
+              "按角色培训与验收",
+              "Role-based training"
+            ],
+            "lesson": [
+              "按角色和任务设计练习，保存材料、问题入口和可观察的练习结果。",
+              "Train by role and task, retaining materials, question channels and observable outcomes."
+            ]
+          },
+          {
+            "id": "support-triage",
+            "version": 1,
+            "title": [
+              "报障分诊与复现",
+              "Support triage and reproduction"
+            ],
+            "lesson": [
+              "收集版本、环境、影响、复现和最近变化。按严重程度与服务约定升级。",
+              "Collect build, environment, impact, steps and recent changes. Escalate using severity and service agreements."
+            ]
+          },
+          {
+            "id": "handoff",
+            "version": 1,
+            "title": [
+              "移交清单与跟进",
+              "Handoff and follow-up"
+            ],
+            "lesson": [
+              "交付环境、手册、访问申请、验收和未决事项，给后续责任和更新时间。",
+              "Hand over environments, runbooks, access requests, acceptance and open items with owners and update dates."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

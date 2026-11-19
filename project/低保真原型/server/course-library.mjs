@@ -1,6 +1,7 @@
 import {readFileSync,realpathSync,statSync} from 'node:fs';
 import {resolve,sep,extname,basename} from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
+import {validatePracticeProject} from '../src/practice-project-schema.js';
 
 const fail=(code,status=400)=>Object.assign(new Error(code),{code,status});
 const hash=value=>createHash('sha256').update(value).digest('hex');
@@ -30,15 +31,37 @@ export function importCoursePack(db,packRoot,{now=Date.now}={}){
     const full=realpathSync(resolve(root,path));if(!full.startsWith(root+sep)||statSync(full).size>2*1024*1024)throw fail('INVALID_COURSE_PATH');
     return readFileSync(full);
   };
+  const document=JSON.parse(read('catalog-ready.json'));
   const manifest=JSON.parse(read('file-manifest.json')),known=new Map();
-  for(const entry of manifest.files){if(known.has(entry.path))throw fail('DUPLICATE_COURSE_FILE');const bytes=read(entry.path);if(bytes.length!==entry.bytes||hash(bytes)!==entry.sha256)throw fail('COURSE_FILE_HASH_MISMATCH');known.set(entry.path,entry);}
-  const document=JSON.parse(read('catalog-ready.json')),packHash=hash(read('catalog-ready.json'));
-  const checked=path=>{if(!known.has(path))throw fail('UNREGISTERED_COURSE_FILE');return read(path);};
+  const matches=(bytes,entry)=>bytes.length===entry.bytes&&hash(bytes)===entry.sha256;
+  for(const entry of manifest.files){
+    if(known.has(entry.path))throw fail('DUPLICATE_COURSE_FILE');
+    let bytes=read(entry.path);
+    // The v1 manifest was created on Windows. A Git checkout may normalize
+    // its line endings. Accept only reconstruction of the original hash.
+    if(document.schemaVersion===1&&!matches(bytes,entry)){
+      const normalized=bytes.toString('utf8').replace(/\r\n/g,'\n');
+      const variants=[Buffer.from(normalized),Buffer.from(normalized.replace(/\n/g,'\r\n'))];
+      bytes=variants.find(candidate=>matches(candidate,entry))||bytes;
+    }
+    if(!matches(bytes,entry))throw fail('COURSE_FILE_HASH_MISMATCH');
+    known.set(entry.path,bytes);
+  }
+  // Version 2 pins the entire manifest, including the practice record schema,
+  // evidence rows and translations. Keep the historical v1 digest unchanged.
+  const packHash=hash(read(document.schemaVersion===2?'file-manifest.json':'catalog-ready.json'));
+  const checked=path=>{if(!known.has(path))throw fail('UNREGISTERED_COURSE_FILE');return known.get(path);};
   const text=path=>checked(path).toString('utf8').replace(/\r\n/g,'\n');
-  if(document.schemaVersion!==1||document.courses.length!==4||new Set(document.courses.map(c=>c.id)).size!==4||document.courses.some(c=>!IDS.includes(c.id)))throw fail('INVALID_COURSE_PACK');
+  if(![1,2].includes(document.schemaVersion)||document.courses.length!==4||new Set(document.courses.map(c=>c.id)).size!==4||document.courses.some(c=>!IDS.includes(c.id)))throw fail('INVALID_COURSE_PACK');
   const prepared=document.courses.map(course=>{
     if(!Number.isInteger(course.content_version)||course.content_version<1||course.chapters.length!==4||course.videos.length!==1)throw fail('INVALID_COURSE_PACK');
     const prefix=course.practice_path.slice(0,course.practice_path.indexOf('/'));
+    const project=document.schemaVersion===2?validatePracticeProject(JSON.parse(text(course.project_path)),{
+      id:course.id,version:course.content_version,career:course.career_id
+    }):null;
+    if(project&&(course.content_version<2||course.project_path!==prefix+'/project.json'||
+      course.title!==project.title.zh||!known.has('catalog-ready.json')||
+      project.reading.some((chapter,i)=>chapter.title.zh!==course.chapters[i].title||chapter.body.zh+'\n'!==course.chapters[i].body)))throw fail('INVALID_PROJECT_MATERIAL');
     for(const [i,ch]of course.chapters.entries())if(ch.id!==`${course.id}-chapter-${i+1}`||ch.ordinal!==i+1||!ch.body?.trim()||ch.body!==text(`${prefix}/chapters/${String(i+1).padStart(2,'0')}.md`))throw fail('INVALID_COURSE_CHAPTER');
     for(const video of course.videos){let u;try{u=new URL(video.source_url);}catch{throw fail('INVALID_COURSE_VIDEO');}if(u.protocol!=='https:'||video.delivery!=='external_reference'||video.playback_verified!==false||video.duration_seconds!==null)throw fail('INVALID_COURSE_VIDEO');}
     if(course.introduction!==text(`${prefix}/course.md`))throw fail('INVALID_COURSE_PACK');
@@ -51,15 +74,23 @@ export function importCoursePack(db,packRoot,{now=Date.now}={}){
       assets.push({local,role,bytes:checked(path)});
     }
     assets.push({local:'sources.csv',role:'source',bytes:checked('sources.csv')},{local:'来源说明.md',role:'source',bytes:checked('来源说明.md')});
-    return {course,prefix,assets,task:text(course.practice_path),rubric:text(`${prefix}/practice/rubric.md`),reference:text(course.reference_path)};
+    return {course,prefix,assets,project,task:text(course.practice_path),rubric:text(`${prefix}/practice/rubric.md`),reference:text(course.reference_path)};
   });
   db.exec('BEGIN IMMEDIATE');let imported=0;
   try{
-    for(const {course,prefix,assets,task,rubric,reference}of prepared){
+    for(const {course,prefix,assets,project,task,rubric,reference}of prepared){
       const existing=db.prepare('SELECT pack_hash FROM course_versions WHERE course_id=? AND version=?').get(course.id,course.content_version);
       if(existing){if(existing.pack_hash!==packHash)throw fail('COURSE_VERSION_EXISTS',409);continue;}
-      if(!db.prepare('SELECT id FROM courses WHERE id=?').get(course.id))throw fail('COURSE_NOT_FOUND',404);
-      db.prepare('INSERT INTO course_versions VALUES(?,?,?,?,?,?,?,?,?)').run(course.id,course.content_version,packHash,course.introduction,task,rubric,reference,JSON.stringify({sourceIds:course.source_ids,origin:'project_authored_offline_teaching_with_cited_sources',practiceId:`${course.id}-task-01`,folder:prefix}),now());
+      const current=db.prepare('SELECT title,career_id,content_version FROM courses WHERE id=?').get(course.id);
+      if(!current)throw fail('COURSE_NOT_FOUND',404);
+      if(project&&project.career!==current.career_id)throw fail('INVALID_PROJECT_MATERIAL');
+      if(current.content_version>course.content_version)throw fail('COURSE_VERSION_EXISTS',409);
+      if(current.content_version<course.content_version){
+        db.prepare(`UPDATE course_versions SET metadata_json=json_set(metadata_json,'$.title',?)
+          WHERE course_id=? AND version=? AND json_extract(metadata_json,'$.title') IS NULL`)
+          .run(current.title,course.id,current.content_version);
+      }
+      db.prepare('INSERT INTO course_versions VALUES(?,?,?,?,?,?,?,?,?)').run(course.id,course.content_version,packHash,course.introduction,task,rubric,reference,JSON.stringify({sourceIds:course.source_ids,origin:'project_authored_offline_teaching_with_cited_sources',practiceId:`${course.id}-task-01`,folder:prefix,title:course.title,...(project?{project}:{})}),now());
       for(const chapter of course.chapters){
         db.prepare('INSERT INTO course_chapter_versions VALUES(?,?,?,?,?,?)').run(course.id,course.content_version,chapter.id,chapter.ordinal,chapter.title,chapter.body);
         const result=db.prepare("UPDATE course_chapters SET title=?,body=?,status='published' WHERE id=? AND course_id=?").run(chapter.title,chapter.body,chapter.id,course.id);if(result.changes!==1)throw fail('INVALID_COURSE_CHAPTER');
@@ -85,9 +116,20 @@ export function createCourseLibrary(db){
     if(!Number.isInteger(version)||version<1)throw fail('INVALID_COURSE_VERSION');
     const material=db.prepare('SELECT * FROM course_versions WHERE course_id=? AND version=?').get(id,version);
     if(!material){if(base.status==='published'||requestedVersion!==undefined)throw fail('COURSE_VERSION_UNAVAILABLE',404);return {...base,chapters:db.prepare('SELECT id,ordinal,title,status,body FROM course_chapters WHERE course_id=? ORDER BY ordinal').all(id),videos:db.prepare('SELECT id,kind,url,duration_seconds,status FROM course_media WHERE course_id=?').all(id),assets:[]};}
-    return {...base,content_version:version,packHash:material.pack_hash,overview:material.overview_md,practice:material.task_md,rubric:material.rubric_md,reference:material.reference_md,metadata:parse(material),chapters:db.prepare('SELECT id,ordinal,title,body FROM course_chapter_versions WHERE course_id=? AND version=? ORDER BY ordinal').all(id,version).map(ch=>({...ch,status:'published'})),videos:db.prepare('SELECT metadata_json FROM course_video_versions WHERE course_id=? AND version=? ORDER BY id').all(id,version).map(row=>({...parse(row),kind:'video',status:'external_reference',url:parse(row).source_url})),assets:db.prepare('SELECT id,relative_path,filename,role,mime,sha256,bytes FROM course_assets WHERE course_id=? AND version=? ORDER BY role,relative_path').all(id,version).map(a=>({...a,url:`/api/catalog/courses/${id}/assets/${version}/${a.id}`}))};
+    const {project,title,...metadata}=parse(material);
+    return {...base,title:title||base.title,status:'published',content_version:version,packHash:material.pack_hash,overview:material.overview_md,practice:material.task_md,rubric:material.rubric_md,reference:material.reference_md,metadata,...(project?{project}:{}),chapters:db.prepare('SELECT id,ordinal,title,body FROM course_chapter_versions WHERE course_id=? AND version=? ORDER BY ordinal').all(id,version).map(ch=>({...ch,status:'published'})),videos:db.prepare('SELECT metadata_json FROM course_video_versions WHERE course_id=? AND version=? ORDER BY id').all(id,version).map(row=>({...parse(row),kind:'video',status:'external_reference',url:parse(row).source_url})),assets:db.prepare('SELECT id,relative_path,filename,role,mime,sha256,bytes FROM course_assets WHERE course_id=? AND version=? ORDER BY role,relative_path').all(id,version).map(a=>({...a,url:`/api/catalog/courses/${id}/assets/${version}/${a.id}`}))};
   }
-  const catalog=()=>({courses:db.prepare('SELECT id FROM courses ORDER BY position').all().map(row=>course(row.id)),notice:availability().published===availability().count?'COURSE_LIBRARY_READY':'COURSE_CONTENT_PENDING'});
+  const catalog=({summary=false}={})=>({
+    courses:db.prepare('SELECT id FROM courses ORDER BY position').all().map(row=>{
+      const item=course(row.id);
+      if(!summary)return item;
+      const {id,title,career_id,content_version,status,project}=item;
+      return {id,title,career_id,content_version,status,...(project?{
+        projectSummary:{title:project.title,brief:project.brief,outcome:project.outcome,case:project.sources.find(source=>source.kind==='case')}
+      }:{})};
+    }),
+    notice:availability().published===availability().count?'COURSE_LIBRARY_READY':'COURSE_CONTENT_PENDING'
+  });
   const map=()=>new Map(db.prepare('SELECT id,status,content_version FROM courses').all().map(row=>[row.id,{...row,versions:db.prepare('SELECT version,pack_hash FROM course_versions WHERE course_id=?').all(row.id)}]));
   function asset(courseId,version,id){
     if(!/^[a-f0-9]{24}$/.test(id)||!Number.isInteger(Number(version)))throw fail('NOT_FOUND',404);

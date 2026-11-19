@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>职业技能树 · 实施前布局</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5ed;color:#123253;font:16px/1.55 Arial,"Microsoft YaHei",sans-serif}main{max-width:1160px;margin:auto;padding:30px 22px}h1,h2,p{margin:0 0 .6em}h1{font-size:33px}h2{font-size:25px}.toolbar,.root,.branch,.leaf,.route>li{background:#fffdf8;border:1px solid #d6dfdf;border-radius:10px;padding:11px 13px}.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:18px 0 0}.chart{border:1px solid #d6dfdf;background:#f6fafb;border-radius:18px;margin-top:14px;padding:23px 15px}.root{max-width:220px;margin:auto;text-align:center;font-weight:bold}.root small,.branch small{display:block;font-weight:normal;color:#486077}svg{display:block;width:100%;height:62px}.lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}.lane{padding:0 8px}.branch{font-weight:bold}.branch.active{border-color:#2d6287}.leaves{margin:0 0 0 12px;list-style:none;padding:8px 0 0 16px;border-left:1px solid #a8bac5}.leaf{position:relative;margin-bottom:8px}.leaf::before{content:"";position:absolute;left:-17px;top:50%;width:16px;border-top:1px solid #a8bac5}.done{color:#086657;background:#e6f4ed;border-color:#85b8a6}.workflow{margin:26px 0}.route{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;padding:0}.study{display:grid;grid-template-columns:2fr 1fr;gap:22px}.study>*{border-top:1px solid #d6dfdf;padding:15px 0}.tag{font-size:13px;color:#456077}@media(max-width:660px){main{padding:17px 14px}.lanes,.study{grid-template-columns:1fr}.lane{margin:4px 0}.lane:not(:first-child) .leaves,svg{display:none}.root{margin:0 8px 14px;text-align:left}.route{gap:5px}.route>li{padding:7px}.chart{padding:14px 8px}}
+</style>
+<main>
+  <h1>职业与技能地图</h1>
+  <div class="toolbar"><strong>职业方向　数据分析</strong><span>职业技能框架　↗</span></div>
+  <div class="chart">
+    <div class="root">数据分析<small>已通过 1 / 12</small></div>
+    <svg viewBox="0 0 1000 62" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M500 0 C500 42 125 13 125 62 M500 0 C500 42 375 13 375 62 M500 0 C500 42 625 13 625 62 M500 0 C500 42 875 13 875 62" fill="none" stroke="#a8bac5" stroke-width="2"/>
+      <path d="M500 0 C500 42 125 13 125 62" pathLength="100" fill="none" stroke="#087766" stroke-width="3" stroke-dasharray="33 100"/>
+    </svg>
+    <div class="lanes">
+      <div class="lane"><div class="branch active">指标与取数<small>1 / 3 已通过</small></div><ul class="leaves"><li class="leaf done">指标口径　已通过</li><li class="leaf">SQL 表关联</li><li class="leaf">分组与汇总</li></ul></div>
+      <div class="lane"><div class="branch">数据质量<small>0 / 3 已通过</small></div><ul class="leaves"><li class="leaf">缺失值</li><li class="leaf">重复与冲突</li><li class="leaf">质量规则</li></ul></div>
+      <div class="lane"><div class="branch">统计判断<small>0 / 3 已通过</small></div><ul class="leaves"><li class="leaf">描述统计</li><li class="leaf">抽样与偏差</li><li class="leaf">实验与推断</li></ul></div>
+      <div class="lane"><div class="branch">可视化与表达<small>0 / 3 已通过</small></div><ul class="leaves"><li class="leaf">数据模型</li><li class="leaf">图表选择</li><li class="leaf">分析简报</li></ul></div>
+    </div>
+  </div>
+  <section class="workflow">
+    <h2>指标与取数</h2>
+    <p>从业务问题定义可复算的口径，再查询和汇总。</p>
+    <ol class="route"><li class="done">1 指标口径</li><li>2 SQL 表关联</li><li>3 分组与汇总</li></ol>
+    <div class="study"><article><h2>SQL 表关联</h2><p>学习资料　　动手练习　　成果检验</p><p>核对表的记录粒度，避免重复汇总。</p></article><aside><strong>官方阅读</strong><p>PostgreSQL · Joins Between Tables</p></aside></div>
+  </section>
+  <p class="tag">实施前线框。图中的 1 个已通过节点用于展示状态。</p>
+</main></html>
+

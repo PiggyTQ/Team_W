@@ -3,6 +3,7 @@ import {apiRequest} from './auth-client';
 import {authMessage} from './auth-contract';
 import CourseMarkdown from './CourseMarkdown';
 import {useCatalog,CatalogState} from './CatalogData';
+import {courseReadingPosition} from './practice-project-model';
 import './course-reader.css';
 
 export function CourseDownload({asset}){
@@ -31,7 +32,7 @@ export function CourseTaskMaterials({task}){
   const request=useCatalog(`/api/catalog/courses/${task.template}${task.courseVersion?'?version='+task.courseVersion:''}`),course=request.data?.course;
   return <details className="panel course-task-materials"><summary>课程任务素材、自查标准与参考 · v{task.courseVersion||1}</summary><CatalogState request={request}>{course?.status==='published'&&<CoursePractice course={course}/>}</CatalogState></details>;
 }
-export function CourseTaskReading({task,...props}){
+export function CourseTaskReading({task,position,...props}){
   const request=useCatalog(`/api/catalog/courses/${task.template}${task.courseVersion?'?version='+task.courseVersion:''}`),course=request.data?.course;
-  return <CatalogState request={request}>{course?.status==='published'&&<CourseReader key={course.id+course.content_version} course={course} {...props}/>}</CatalogState>;
+  return <CatalogState request={request}>{course?.status==='published'&&<CourseReader key={course.id+course.content_version} course={course} chapter={courseReadingPosition(position,course.content_version)?.chapter} {...props}/>}</CatalogState>;
 }

@@ -1,0 +1,403 @@
+#root #main.workspace.atlas-workspace:has(.skill-map) {
+  background: radial-gradient(ellipse at 90% 0%,#fcf7e8,transparent 600px),#faf7ef;
+  border-color: transparent;
+}
+
+#root #main .skill-map {
+  --skill-ink: #133650;
+  --skill-soft: #4f6477;
+  --skill-line: #e4dbcd;
+  --skill-panel: #f3f8fa;
+  --skill-paper: #fffefa;
+  --skill-atlas-light: #f4f0e5;
+  --skill-blue: #0c5386;
+  --skill-blue-wash: #eaf3fa;
+  --skill-green: #356047;
+  --skill-green-wash: #ecf3e8;
+  --skill-green-line: #9ab49a;
+  --skill-panel-pad: clamp(14px,2.4cqw,27px);
+  --skill-radius: 16px;
+  container-type: inline-size;
+  color: var(--skill-ink);
+  max-width: 1400px;
+  min-width: 0;
+  margin-inline: auto;
+  font-size: .94rem;
+  line-height: 1.55;
+}
+
+#root #main .skill-map :is(h1,h2,h3,h4) {
+  color: var(--skill-ink);
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.021em;
+}
+#root #main .skill-map p { color: var(--skill-soft); margin: 0; }
+#root #main .skill-map a { color: var(--skill-blue); text-underline-offset: .23em; overflow-wrap: anywhere; }
+#root #main .skill-map :focus-visible { outline: 3px solid #327bac; outline-offset: 3px; }
+#root #main .skill-map h2[tabindex="-1"]:focus { outline: none; }
+#root #main .skill-map ::selection { background: #c9e6d9; color: var(--skill-ink); }
+
+#root #main .skill-map-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 13px 22px;
+  margin: 5px 0 15px;
+}
+#root #main .skill-map-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+#root #main .skill-map-head h1 { font-size: clamp(1.7rem, 3vw, 2.15rem); color: #0b3f70; }
+#root #main .skill-map-switch { display: flex; gap: 11px; align-items: center; color: var(--skill-soft); }
+#root #main .skill-map-switch > span { white-space: nowrap; flex: none; }
+#root #main .skill-map-switch select {
+  min-width: 156px;
+  min-height: 42px;
+  color: var(--skill-ink);
+  background-color: var(--skill-paper);
+  border: 1px solid var(--skill-line);
+  border-radius: 9px;
+  padding: 6px 30px 6px 11px;
+  font: inherit;
+  font-weight: 650;
+}
+#root #main .skill-map-actions { display: flex; flex-wrap: wrap; gap: 7px 17px; align-items: center; font-size: .83rem; }
+#root #main .skill-map-actions a { display: inline-flex; align-items: center; min-height: 38px; }
+#root #main .skill-map .skill-control {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 7px 12px;
+  border: 1px solid var(--skill-line);
+  border-radius: 9px;
+  background: var(--skill-paper);
+  color: var(--skill-blue);
+  box-shadow: none;
+  font: inherit;
+  font-size: .86rem;
+  font-weight: 650;
+  text-align: start;
+  white-space: normal;
+}
+#root #main .skill-map .skill-control:hover:not(:disabled) { background: var(--skill-blue-wash); border-color: #a8bfcc; }
+#root #main .skill-map .skill-primary { background: #ffcc49; border-color: #dfae29; color: var(--skill-ink); }
+#root #main .skill-map .skill-primary:hover:not(:disabled) { background: #fac341; border-color: #ca9a25; }
+#root #main .skill-map .skill-control:disabled { opacity: .62; cursor: not-allowed; }
+
+#root #main .skill-map :is(.skill-source-list,.skill-path-steps,.skill-legacy-drafts ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#root #main .skill-map :is(.skill-path-steps button,.skill-study-steps button) {
+  min-width: 0;
+  box-shadow: none;
+  color: var(--skill-ink);
+  font: inherit;
+  white-space: normal;
+}
+
+#root #main .skill-map .skill-legacy-drafts summary {
+  cursor: pointer;
+  color: var(--skill-blue);
+  font-size: .83rem;
+  font-weight: 660;
+  padding: 7px 4px;
+}
+
+#root #main .skill-path {
+  margin: 20px 0 19px;
+  scroll-margin-top: 18px;
+  background: var(--skill-paper);
+  border: 1px solid var(--skill-line);
+  border-radius: var(--skill-radius);
+}
+#root #main .skill-path-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 11px 20px;
+  padding: 17px var(--skill-panel-pad);
+}
+#root #main .skill-path-head h2 { font-size: clamp(1.38rem,2vw,1.65rem); margin: 2px 0 6px; }
+#root #main .skill-path-progress { text-align: right; min-width: max-content; }
+#root #main .skill-map .skill-path-progress > strong { font-size: 1.15rem; font-weight: 730; line-height: 1; color: var(--skill-ink); font-variant-numeric: tabular-nums; }
+#root #main .skill-path-progress > span { display: block; font-size: .75rem; color: var(--skill-soft); margin-top: 4px; }
+#root #main .skill-path:has(.skill-path-steps li[data-passed="true"]) .skill-path-progress > strong { color: var(--skill-green); }
+#root #main .skill-path-meter {
+  height: 4px;
+  border-radius: 4px;
+  margin: 6px 0 0 auto;
+  width: clamp(70px,10vw,118px);
+  background: #e8e2d8;
+}
+#root #main .skill-path-meter::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--skill-green);
+  transform: scaleX(var(--skill-fraction));
+  transform-origin: left;
+  transition: transform 220ms var(--jimo-ease,ease-out);
+}
+#root #main .skill-map .skill-path-steps {
+  display: grid;
+  grid-template-columns: repeat(var(--skill-steps),minmax(0,1fr));
+  border-block: 1px solid var(--skill-line);
+  padding: 0 var(--skill-panel-pad);
+  background: #fbf9f4;
+}
+#root #main .skill-path-steps > li { min-width: 0; }
+#root #main .skill-path-steps > li + li { border-inline-start: 1px solid var(--skill-line); }
+#root #main .skill-map .skill-path-steps button {
+  width: 100%;
+  height: 100%;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: start;
+  font-size: .87rem;
+  padding: 7px 12px;
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+}
+#root #main .skill-map .skill-path-steps button:focus-visible { outline-offset: -3px; }
+#root #main .skill-path-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 27px;
+  height: 27px;
+  border-radius: 50%;
+  font-size: .77rem;
+  font-weight: 690;
+  background: #eeeae1;
+  color: #445c6a;
+}
+#root #main .skill-map .skill-path-steps button[aria-current="step"] {
+  background: var(--skill-blue-wash);
+  box-shadow: inset 0 -2px var(--skill-blue);
+}
+#root #main .skill-path-steps li[data-passed="true"] .skill-path-number { background: var(--skill-green-wash); color: var(--skill-green); }
+#root #main .skill-path-text { min-width: 0; overflow-wrap: anywhere; }
+#root #main .skill-path-text small { display: block; color: var(--skill-soft); font-size: .74rem; margin-top: 1px; }
+
+#root #main .skill-study-head { display: flex; flex-wrap: wrap; gap: 9px 14px; align-items: center; padding: 19px var(--skill-panel-pad) 5px; }
+#root #main .skill-study-head h3 { font-size: 1.24rem; }
+#root #main .skill-pass-tag { display: inline-flex; align-items: center; gap: 4px; color: var(--skill-green); background: var(--skill-green-wash); border-radius: 5px; padding: 4px 6px; font-size: .76rem; }
+#root #main .skill-study-steps { display: flex; flex-wrap: wrap; gap: 0 14px; padding: 0 var(--skill-panel-pad); border-bottom: 1px solid var(--skill-line); }
+#root #main .skill-map .skill-study-steps button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 5px 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: .84rem;
+}
+#root #main .skill-study-steps button span { color: var(--skill-soft); font-variant-numeric: tabular-nums; font-size: .75rem; }
+#root #main .skill-map .skill-study-steps button[aria-current="step"] { color: var(--skill-blue); font-weight: 720; }
+#root #main .skill-study-steps button[aria-current="step"]::after {
+  position: absolute;
+  content: '';
+  inset: auto 0 0;
+  height: 3px;
+  background: var(--skill-blue);
+}
+#root #main .skill-study-columns { display: grid; grid-template-columns: minmax(0,1fr) minmax(205px,31%); }
+#root #main .skill-study-content, #root #main .skill-study-sources { padding: 21px var(--skill-panel-pad); min-width: 0; }
+#root #main .skill-study-content { line-height: 1.65; }
+#root #main .skill-study-sources { border-inline-start: 1px solid var(--skill-line); background: var(--skill-panel); border-end-end-radius: var(--skill-radius); }
+#root #main .skill-map .skill-study :is(h4,legend) { font-size: 1rem; font-weight: 690; margin: 0 0 7px; }
+#root #main .skill-study-content > p { max-width: 74ch; white-space: pre-line; }
+#root #main .skill-map .skill-study-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+#root #main .skill-map .skill-source-list li { display: grid; gap: 4px; padding: 8px 0; }
+#root #main .skill-source-list li + li, #root #main .skill-related { border-top: 1px solid var(--skill-line); }
+#root #main .skill-source-list li > span { color: var(--skill-soft); font-size: .75rem; }
+#root #main .skill-map :is(.skill-source-list,.skill-related) a { display: inline-block; width: fit-content; font-size: .83rem; }
+#root #main .skill-map :is(.skill-source-list,.skill-related) a svg { vertical-align: -.14em; margin-inline-start: 5px; }
+#root #main .skill-related { padding-top: 11px; margin-top: 9px; }
+#root #main .skill-related .skill-small { margin: 0 0 6px; }
+#root #main .skill-map .skill-small { font-size: .79rem; }
+
+#root #main .skill-notes { display: grid; gap: 6px; margin: 14px 0 5px; font-size: .85rem; font-weight: 650; }
+#root #main .skill-notes textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #a9bec9;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--skill-ink);
+  padding: 8px 10px;
+  resize: vertical;
+  font: inherit;
+  font-weight: 400;
+  min-height: 85px;
+}
+#root #main .skill-notes textarea::placeholder { color: #526576; }
+#root #main .skill-map .skill-previous-result { font-size: .83rem; margin-top: 8px; }
+#root #main .skill-previous-result span { margin-inline-start: 9px; }
+#root #main .skill-quiz fieldset { border: 0; margin: 15px 0; padding: 0; min-width: 0; }
+#root #main .skill-quiz legend { padding: 0; }
+#root #main .skill-quiz .skill-choice {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 7px 9px;
+  min-height: 39px;
+  margin: 4px 0;
+  border: 1px solid var(--skill-line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--skill-ink);
+  cursor: pointer;
+}
+#root #main .skill-quiz .skill-choice:has(input:checked) { background: var(--skill-blue-wash); border-color: #81a8c0; }
+#root #main .skill-quiz .skill-choice > input {
+  appearance: auto;
+  accent-color: var(--skill-blue);
+  flex: 0 0 16px;
+  min-width: 16px;
+  width: 16px;
+  min-height: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 3px 0 0;
+  box-shadow: none;
+}
+#root #main .skill-check-explanation { margin-top: 6px; font-size: .84rem; }
+#root #main .skill-check-explanation strong { color: #8c3a24; }
+#root #main .skill-check-explanation[data-correct="true"] strong { color: var(--skill-green); }
+#root #main .skill-check-result { padding: 12px; border: 1px solid #e7cbaa; border-radius: 9px; background: #fff7e9; }
+#root #main .skill-check-result[data-passed="true"] { border-color: var(--skill-green-line); background: var(--skill-green-wash); }
+#root #main .skill-check-result strong { color: var(--skill-ink); }
+#root #main .skill-map :is(.skill-save-message,.skill-form-error) { margin-top: 10px; }
+#root #main .skill-form-error p { color: #963825; margin-bottom: 6px; }
+#root #main .skill-load-state { border: 1px solid var(--skill-line); border-radius: 11px; padding: 17px; background: var(--skill-paper); }
+#root #main .skill-load-state p { margin-bottom: 10px; }
+#root #main .skill-legacy-drafts { border-top: 1px solid var(--skill-line); padding: 7px 0; }
+#root #main .skill-legacy-drafts li { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin-block: 7px; }
+
+@container (min-width: 551px) {
+  #root #main .skill-map .skill-path-steps {
+    --path-dot: 36px;
+    --path-dot-gap: 8px;
+    --path-node-top: 16px;
+    --path-connector: #c4cdd0;
+    background: transparent;
+  }
+
+  #root #main .skill-path-steps > li {
+    position: relative;
+  }
+  #root #main .skill-path-steps > li + li { border-inline-start: 0; }
+
+  #root #main .skill-path-steps > li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    inset-block-start: calc(var(--path-node-top) + var(--path-dot) / 2 - 1px);
+    inset-inline-start: calc(50% + var(--path-dot) / 2 + var(--path-dot-gap));
+    inline-size: calc(100% - var(--path-dot) - 2 * var(--path-dot-gap));
+    block-size: 2px;
+    background: var(--path-connector);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  #root #main .skill-path-steps > li[data-passed="true"]:has(+ li[data-passed="true"])::after {
+    background: var(--skill-green-line);
+  }
+
+  #root #main .skill-map .skill-path-steps > li > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: var(--path-node-top) 8px 13px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #root #main .skill-map .skill-path-steps > li > button:is(:hover,[aria-current="step"]) {
+    background: none;
+    box-shadow: none;
+  }
+
+  #root #main .skill-map .skill-path-steps > li > button:active { transform: none; }
+  #root #main .skill-map .skill-path-steps > li > button:focus-visible { outline-offset: -4px; }
+
+  #root #main .skill-path-number {
+    box-sizing: border-box;
+    flex: 0 0 var(--path-dot);
+    inline-size: var(--path-dot);
+    block-size: var(--path-dot);
+    border: 1px solid var(--path-connector);
+    background: var(--skill-paper);
+  }
+
+  #root #main .skill-path-steps li[data-passed="true"] .skill-path-number {
+    border-color: var(--skill-green-line);
+  }
+
+  #root #main .skill-path-steps button[aria-current="step"] .skill-path-number {
+    box-shadow: 0 0 0 4px var(--skill-blue-wash);
+  }
+
+  #root #main .skill-path-steps li[data-passed="false"] button[aria-current="step"] .skill-path-number {
+    background: var(--skill-blue);
+    border-color: var(--skill-blue);
+    color: white;
+  }
+
+  #root #main .skill-path-steps button:is(:hover,[aria-current="step"]) .skill-path-text > strong {
+    color: var(--skill-blue);
+  }
+}
+
+@container (max-width: 550px) {
+  #root #main .skill-map-head { align-items: flex-start; margin-bottom: 12px; }
+  #root #main .skill-map-head h1 { font-size: 1.55rem; }
+  #root #main .skill-map-actions { column-gap: 11px; }
+  #root #main .skill-map-switch select { min-width: 131px; }
+  #root #main .skill-path { margin-top: 17px; }
+  #root #main .skill-path-head p { font-size: .84rem; }
+  #root #main .skill-map .skill-path-steps { padding: 0; }
+  #root #main .skill-map .skill-path-steps button { display: grid; gap: 4px; grid-template-rows: auto 1fr; align-items: start; padding: 6px; font-size: .75rem; }
+  #root #main .skill-path-number { width: 23px; height: 23px; font-size: .72rem; }
+  #root #main .skill-path-text small { font-size: .69rem; }
+  #root #main .skill-study-columns { grid-template-columns: minmax(0,1fr); }
+  #root #main .skill-study-steps { gap: 0 10px; }
+  #root #main .skill-study-sources { border-inline-start: 0; border-top: 1px solid var(--skill-line); border-end-start-radius: var(--skill-radius); }
+  #root #main .skill-map :is(.skill-map-switch select,.skill-notes textarea) { font-size: 16px; }
+}
+
+@container (max-width: 410px) {
+  #root #main .skill-map .skill-path-steps { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #root #main .skill-path-steps > li:nth-child(odd) { border-inline-start: 0; }
+  #root #main .skill-path-steps > li:nth-child(n + 3) { border-block-start: 1px solid var(--skill-line); }
+  #root #main .skill-path-steps > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  #root #main .skill-map .skill-path-steps button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 8px;
+  }
+  #root #main .skill-path-number { flex-basis: 23px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root #main .skill-path-meter::after { transition: none; }
+}
+

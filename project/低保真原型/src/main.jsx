@@ -10,8 +10,12 @@ import AgentWorkflow from './AgentWorkflow';
 import {agentMessageAvailable,hasExternalConsent} from './agent-contract';
 import AgentNotes from './AgentNotes';
 import ServerSaveStatus from './ServerSaveStatus';
-import CoursePlaceholder from './CoursePlaceholder';
-import CourseReader,{CoursePractice,CourseTaskMaterials,CourseTaskReading} from './CourseReader';
+import {CourseTaskMaterials,CourseTaskReading} from './CourseReader';
+import PracticeProjectPage from './PracticeProjectPage';
+import {
+  createProjectDeliverable,emptyProjectResponse,guidedTask,newProjectPractice,sameProjectPractice,
+  normalizeProjectPractice,PRACTICE_COURSES,projectRoute,recordProjectReading
+} from './practice-project-model';
 import AccountSecurityPanel from './AccountSecurityPanel';
 import {CareerKnowledge,KnowledgeIndex} from './CatalogData';
 import {SERVER_AUTH,apiRequest,authRequest,credentialsFromForm} from './auth-client';
@@ -40,6 +44,7 @@ import ReviewDesk from './ReviewDesk';
 import './action-cycle.css';
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
+import {matchesTaskTitle,taskCopy} from './native-task-copy.js';
 import {useLanguage,protectUserContent,getFormattingLocale,OriginalText,displayText} from './i18n/render';
 import LanguageSwitch from './i18n/LanguageSwitch';
 import {GuidedStart,ComparePicker} from './GuidedStart';
@@ -92,9 +97,9 @@ import './task-editing.css';
 import JobDiscovery from "./JobDiscovery";
 import AssistantChat from "./AssistantChat";
 import CheesePanelCompanion from './CheesePanelCompanion';
-import MapWorkspace, { MapSkillDetails } from "./MapWorkspace";
+import {legacySkillLink, recordSkillAssessment, skillStudyKey} from './skill-tree-model';
 import AtlasPracticeContext from "./AtlasPracticeContext";
-import {atlasTasks,atlasReturn,atlasReading,atlasTaskSkill,atlasSavedDraft,storeTaskDraft,atlasPracticeKey} from "./career-atlas-model";
+import {atlasTasks,atlasReturn,atlasTaskSkill,atlasSavedDraft,storeTaskDraft,atlasPracticeKey} from './atlas-history';
 import AssistantPageHeader from "./AssistantPageHeader";
 import ExternalPractice from "./ExternalPractice";
 import {TaskPrecheckFields,JobResearchFields} from './FocusedIntake';
@@ -170,6 +175,8 @@ import './report-atlas-account.css';
 // Real-account mode never reads the prototype's persisted login flag or private
 // business records. Business APIs will be added in a separate slice.
 const livePageRecords=new Map();
+const SkillTreePage=React.lazy(()=>import('./SkillTreePage'));
+const loadLocalSkillCheck=import.meta.env.VITE_AUTH_MODE==='server'?null:()=>import('./local-skill-tree');
 const prototypeStorage=SERVER_AUTH?{getItem:key=>livePageRecords.get(key)??null,setItem:(key,value)=>livePageRecords.set(key,value)}:{getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)};
 const fmt = (d) => new Intl.DateTimeFormat(getFormattingLocale(), { dateStyle: "medium" }).format(new Date(d));
 const today = () => (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
@@ -239,7 +246,9 @@ function App() {
   useEffect(()=>{const u=new URL(url,location.origin),section=u.searchParams.get('section');const anchor=u.pathname!=='/'&&u.hash?workspaceAnchor(u.hash):null;const target=anchor|| (u.pathname==='/plan'&&u.searchParams.get('adjust')==='1'?'plan-adjustment':u.pathname==='/careers'&&u.searchParams.get('focus')==='salary'?'salary-context':u.pathname==='/settings'?{'feedback':'settings-feedback','data':'settings-data','authorization':'settings-authorization'}[section]:null);if(!target)return;const frame=requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start'}));return()=>cancelAnimationFrame(frame);},[url]);
   useEffect(()=>{const current=readBrowserRoute(),canonical=normalizeWorkspaceRoute(current);if(canonical.to!==current)history.replaceState({},"",canonical.to);},[]);
   protectUserContent(s,form,{query:search});
-  const timer = useRef(null), urlObj = new URL(url, location.origin), path = urlObj.pathname, tab = urlObj.searchParams.get("tab") || "", id = path.split("/")[2], page = pages.find((p) => p[1] === (["/plan/goals","/plan/schedule"].includes(path) ? "/plan" : path.startsWith("/work") ? "/work" : path.startsWith("/reports") ? "/reports" : path)) || pages[2];
+  const timer = useRef(null), urlObj = new URL(url, location.origin), path = urlObj.pathname, tab = urlObj.searchParams.get("tab") || "", id = path.split("/")[2];
+  const projectPage=path.startsWith('/learning/projects/');
+  const page = pages.find((p) => p[1] === (projectPage ? "/learning" : ["/plan/goals","/plan/schedule"].includes(path) ? "/plan" : path.startsWith("/work") ? "/work" : path.startsWith("/reports") ? "/reports" : path)) || pages[2];
   const goalEditing=path==='/plan/goals',scheduling=path==='/plan/schedule',planSubpage=goalEditing||scheduling,pageTitle=goalEditing?'目标编辑':scheduling?'计划排期':page[2];
   const publicRoute=path==='/'||path==='/companion';
   const sidebarLayout=useSidebarLayout(path,Boolean(modal)||transitionBusy);
@@ -251,7 +260,7 @@ function App() {
   const [mailLink,setMailLink]=useState(()=>SERVER_AUTH?readMailLink():null);
   useEffect(()=>{const changed=()=>{const next=readMailLink();if(next)setMailLink(next);};window.addEventListener('hashchange',changed);return()=>window.removeEventListener('hashchange',changed);},[]);
   const workspace=useServerWorkspace(SERVER_AUTH?authUser:null,s,setS);
-  const careerSources=useCareerReportSources({enabled:s.logged&&(path.startsWith('/reports')||['reportPreflight','reportMerge','export'].includes(modal?.type)),live:SERVER_AUTH,ownerId:authUser?.id});
+  const careerSources=useCareerReportSources({enabled:s.logged&&(path.startsWith('/reports')||['reportPreflight','reportMerge','export'].includes(modal?.type)),live:SERVER_AUTH,ownerId:authUser?.id,revision:workspace.revision});
   const reportState={...s,reportSources:careerSources};
   const agentContext={workspace:page[0].startsWith('U')&&page[0]!=='U02'&&page[0]!=='U12'?page[0]:'U11',career:careers.some(c=>c.id===(s.assessmentCareer||s.goal))?(s.assessmentCareer||s.goal):'data'};
   const liveAgent=useAgentSession({user:SERVER_AUTH?authUser:null,state:s,workspace,context:agentContext,update,language});
@@ -316,6 +325,17 @@ function App() {
     catch(error){tell(authMessage(error.code,language));}
   };
   const open = (type, data = {}) => {
+    if (type === 'skill') {
+      go(legacySkillLink(data.career || s.goal, data.skill));
+      return;
+    }
+    if (type === 'reading' && PRACTICE_COURSES.includes(data.template) && (SERVER_AUTH || !data.taskId || guidedTask(s.tasks.find(task=>task.id===data.taskId)))) {
+      const version=workspace.catalog?.courses.find(course=>course.id===data.template)?.content_version;
+      const position=s.reading[data.template];
+      const chapter=position&&data.chapter===position.chapter&&position.version!==version?undefined:data.chapter;
+      go(projectRoute(data.template,{view:'reading',task:data.taskId,chapter:Number.isInteger(chapter)?chapter+1:undefined}));
+      return;
+    }
     finishTransition();
     setError("");
     if(type==='auth')setAuthFeedback(null);
@@ -446,8 +466,7 @@ function App() {
     if (stoppedTask(t)) {open('taskEdit',{taskId:t.id,restore:true});tell('该行动已暂停；先编辑并确认预算，不会直接恢复。');return;}
     if(SERVER_AUTH){try{await workspace.command('task.start',{taskId:t.id,taskVersion:t.version});}catch(error){tell(authMessage(error.code,language));return;}}
     else setTask(t.id, { status: t.status === "\u5B8C\u6210" ? "\u5B8C\u6210" : "\u8FDB\u884C\u4E2D" });
-    if (t.mode === "S2" && s.stage === "S2") go(`/work/${t.id}`);
-    else go(taskRoute(s, t));
+    go(taskRoute(s, t));
   };
   const createReport = async () => {
     let preview={};
@@ -588,7 +607,22 @@ function App() {
   }
 
   function mapPage() {
-    return <><KnowledgeIndex mode="skills" link={link}/><MapWorkspace update={update} s={s} url={url} move={move} link={link} open={open} precheck={precheck} askAI={selection => { update({ aiReturn:url, aiDraft:`请解释当前地图中的 ${selection}：用途、关系依据和未知项。不要推断我的能力。` }); setAiSide(true); }} /></>;
+    return <React.Suspense fallback={<p role="status">正在读取技能树…</p>}>
+      <SkillTreePage key={authUser?.id || 'local'} state={s} url={url} move={move} link={link}
+        live={SERVER_AUTH} workspace={workspace} update={update} precheck={precheck}
+        onGuide={event=>window.dispatchEvent(new CustomEvent('start-operation-guide',{
+          detail:{path,tab,search:urlObj.search,keyboard:event.detail===0}
+        }))}
+        onCheck={async payload=>{
+          if(SERVER_AUTH)return (await workspace.command('skill.check',payload)).refs.grade;
+          const {checkLocalSkill}=await loadLocalSkillCheck();
+          const grade=checkLocalSkill(payload);
+          const key=skillStudyKey(payload.career,{id:payload.skill,version:payload.version});
+          const checkedAt=new Date().toISOString();
+          update(state=>({...state,skillStudy:recordSkillAssessment(state.skillStudy,key,grade,checkedAt)}));
+          return grade;
+        }}/>
+    </React.Suspense>;
   }
   function planPage() {
     const practiceId = urlObj.searchParams.get("practice");
@@ -603,7 +637,48 @@ function App() {
  </>;
   }
   function taskList() {return <TaskExecutionList s={s} url={url} link={link} open={open} startTask={startTask} precheck={precheck}/>;}
-  function recordCoursePosition(index,course){update(prev=>({...prev,reading:{...prev.reading,[course.id]:{chapter:index,chapterId:course.chapters[index].id,version:course.content_version,updatedAt:new Date().toISOString()}}}));}
+  function recordCoursePosition(index,course) {
+    const position={chapter:index,chapterId:course.chapters[index].id,version:course.content_version,updatedAt:new Date().toISOString()};
+    update(prev=>({...prev,reading:{...prev.reading,[course.id]:recordProjectReading(prev.reading[course.id],position)}}));
+  }
+  function learningProject() {
+    const courseId=path.split('/')[3];
+    const taskId=urlObj.searchParams.get('task');
+    const task=taskId===null?null:s.tasks.find(row=>row.id===taskId&&row.template===courseId&&row.mode==='S2')||false;
+    return <PracticeProjectPage key={(authUser?.id||'local')+':'+courseId+':'+(taskId||'')} courseId={courseId}
+      requestedTask={task} state={s} url={url} live={SERVER_AUTH} ownerId={authUser?.id}
+      catalog={workspace.catalog} link={link} move={move} precheck={precheck} startTask={startTask}
+      onPosition={recordCoursePosition} liveAgent={SERVER_AUTH?liveAgent:null} workspace={workspace}
+      onSave={row=>{
+        if(row.status!=='待开始')return workspace.flush();
+        if(SERVER_AUTH)return workspace.command('task.start',{taskId:row.id,taskVersion:row.version});
+        setTask(row.id,{status:'进行中',version:row.version+1});
+      }}
+      onResponse={(taskId,step,patch)=>setTask(taskId,row=>{
+        if(row.completed||stoppedTask(row))return {};
+        const current=row.projectPractice||newProjectPractice();
+        return {projectPractice:normalizeProjectPractice({...current,responses:{
+          ...current.responses,[step]:{...emptyProjectResponse(),...current.responses[step],...patch}
+        }}),selfcheck:false};
+      })}
+      onCommand={(type,row,payload,project)=>{
+        if(SERVER_AUTH)return workspace.command(type,{taskId:row.id,taskVersion:row.version,...payload});
+        if(type==='task.submit'){
+          const result=createProjectDeliverable(project,row.projectPractice,payload.language);
+          update(previous=>submitTaskAttempt({...previous,tasks:previous.tasks.map(task=>task.id===row.id
+            ? {...task,draft:result.document,contribution:result.contribution}:task)},row.id));
+        }else if(type==='task.selfcheck'){
+          const last=row.attempts.at(-1);
+          if(last?.id===payload.attemptId&&sameProjectPractice(last.practiceSnapshot,row.projectPractice))
+            setTask(row.id,{check:'自检记录',selfcheck:true,attempts:row.attempts.map(attempt=>attempt.id===last.id?{...attempt,result:'自检记录'}:attempt)});
+        }else if(type==='task.complete'&&row.selfcheck&&row.attempts.at(-1)?.result==='自检记录'&&sameProjectPractice(row.attempts.at(-1).practiceSnapshot,row.projectPractice)){
+          setTask(row.id,{status:'完成',completed:true});
+        }
+      }}
+      onCandidate={(row,attempt)=>open('evidence',{taskId:row.id,attemptId:attempt.id,
+        skills:[atlasTaskSkill(row)||learning.find(unit=>unit.id===row.template).skill],contribution:attempt.contribution})}
+      download={download}/>;
+  }
   function learningPage() {
     return <><PageHead title="学习与实践中心" description="选择项目开展实践，将完成的成果积累为自己的资源。" />{tabs(['资源中心','我的资源'])}{tab==='我的资源'?<MyResources key={SERVER_AUTH?authUser?.id:'local'} s={s} url={url} move={move} link={link} live={SERVER_AUTH} ownerId={authUser?.id}/>:<><LearningTaskFocus s={s} url={url} link={link} open={open} startTask={startTask}/><LearningCatalogue live={SERVER_AUTH} catalog={workspace.catalog} catalogError={workspace.catalogError} retryCatalog={workspace.retryCatalog} s={s} url={url} move={move} link={link} open={open} precheck={precheck} startTask={startTask}/></>}</>;
   }
@@ -615,11 +690,14 @@ function App() {
       open("task", { taskId: t.id });
     }}>在计划详情继续</B></Empty>;
     if (stoppedTask(t)) return <Empty title="这项任务已暂停"><p>{t.status}不会记为完成。已有尝试和成果保留，先明确恢复安排并核对总预算。</p><B onClick={()=>open('taskEdit',{taskId:t.id,restore:true})}>编辑并恢复任务</B>{link('/plan?tab=执行&task='+encodeURIComponent(t.id),'返回原任务记录')}</Empty>;
+    if(guidedTask(t))return <Empty title={taskCopy(t,'title')}>
+      {link(projectRoute(t.template,{view:t.completed?'outcome':'practice',task:t.id}),'打开实践项目','button primary')}
+    </Empty>;
     const l = learning.find((l2) => l2.id === t.template) || learning[0];
     const latest = t.attempts.at(-1);
-    return <><PageHead title={t.title} persistentDescription description={`\u6B63\u5728\u56DE\u7B54\uFF1A${t.purpose}`} action={link("/plan?tab=\u6267\u884C", "\u8FD4\u56DE\u8BA1\u5212")} /><WorkStatus task={t} link={link} s={s} /><AtlasPracticeContext task={t} link={link} /><Notice>{SERVER_AUTH?'本任务使用已发布的离线教学内容。检查只记录本人自检，参考成果用于对照；未运行用户代码或独立核验能力。':'本页使用原创合成任务；检查为自检或预录文本反馈，没有执行代码或真实能力核验。'}</Notice>{SERVER_AUTH&&learning.some(l=>l.id===t.template)&&<CourseTaskMaterials task={t}/>}{(t.completed||t.status==='完成')&&<Notice>本任务已完成，成果版本已保留。下一轮行动请{link('/plan','回计划安排')}，经预算预检另建任务。</Notice>}{tabs(["\u5F53\u524D\u4EFB\u52A1", "\u7B14\u8BB0\u4E0E\u9605\u8BFB", "\u5C1D\u8BD5\u4E0E\u53CD\u9988", "\u8D21\u732E\u4E0E\u8868\u8FBE", "\u5B8C\u6210\u56DE\u6267"])}
- {activeTab("\u5F53\u524D\u4EFB\u52A1", "\u5F53\u524D\u4EFB\u52A1") && <><Panel title="这项任务做什么，怎样算完成？"><p>为什么做：{t.purpose}</p><p>交付物：{t.standard}</p>{t.deliveryNote&&<p>本人补充说明：{t.deliveryNote}</p>}<p>先修与满足方法：{l.prereq}</p><p>预计投入：{t.hours} 小时；退出条件：可记录受阻、延期、跳过或取消，不计完成。</p><details className="quality-task-media"><summary>查看任务媒体占位</summary><Black label="任务图像 / 视频" /></details><div className="actions"><B primary onClick={() => go(`/work/${t.id}?tab=\u5C1D\u8BD5\u4E0E\u53CD\u9988`)}>填写尝试产物</B><B onClick={() => go(`/work/${t.id}?tab=\u7B14\u8BB0\u4E0E\u9605\u8BFB`)}>先阅读与记笔记</B><B onClick={() => open("task", { taskId: t.id })}>记录阻塞 / 暂停</B></div></Panel><Panel title="分开的状态"><div className="cols3"><p>任务执行：{t.status}</p><p>检查：{t.check}</p><p>声明：{t.claimStatus}</p></div></Panel></>}
- {tab === "\u7B14\u8BB0\u4E0E\u9605\u8BFB" && (SERVER_AUTH&&learning.some(l=>l.id===t.template)?<Panel title="课程阅读与当前任务笔记"><CourseTaskReading task={t} chapter={s.reading[t.template]?.chapter||0} onPosition={recordCoursePosition} onSave={(index,c)=>{recordCoursePosition(index,c);go('/work/'+t.id);}} precheck={precheck}/><Field label="当前任务笔记（自动保留）"><textarea value={t.note} onChange={e=>setTask(t.id,{note:e.target.value})}/></Field></Panel>:<Panel title="业务、方案、实践、表达"><nav className="tabs">{l.chapters.map((c, i) => <B key={c} onClick={() => update({ reading: { ...s.reading, [l.id]: { chapter: i, version: 1 } } })} aria-pressed={s.reading[l.id]?.chapter === i}>{c}</B>)}</nav><h3>{l.chapters[s.reading[l.id]?.chapter || 0]}</h3><p>原创学习示例：把要回答的问题、观察到的事实、处理理由和局限分别记录。使用合成数据，不扩大为真实生产结论。</p><Black label="章节示例图" /><Field label="当前任务笔记（自动保留）"><textarea value={t.note} onChange={(e) => setTask(t.id, { note: e.target.value })} /></Field><B onClick={() => tell("\u7B14\u8BB0\u4E0E\u9605\u8BFB\u4F4D\u7F6E\u5DF2\u4FDD\u7559\uFF1B\u672A\u53D8\u66F4\u4EFB\u52A1\u5B8C\u6210\u6216\u80FD\u529B\u72B6\u6001\u3002")}>保存笔记与阅读位置</B> {link(`/work/${t.id}?tab=\u5C1D\u8BD5\u4E0E\u53CD\u9988`, "\u7EE7\u7EED\u5F53\u524D\u4EFB\u52A1\u4EA7\u7269")}</Panel>)}
+    return <><PageHead title={taskCopy(t,'title')} persistentDescription description={`\u6B63\u5728\u56DE\u7B54\uFF1A${taskCopy(t,'purpose')}`} action={link("/plan?tab=\u6267\u884C", "\u8FD4\u56DE\u8BA1\u5212")} /><WorkStatus task={t} link={link} s={s} /><AtlasPracticeContext task={t} link={link} /><Notice>{SERVER_AUTH?'本任务使用已发布的离线教学内容。检查只记录本人自检，参考成果用于对照；未运行用户代码或独立核验能力。':'本页使用原创合成任务；检查为自检或预录文本反馈，没有执行代码或真实能力核验。'}</Notice>{SERVER_AUTH&&learning.some(l=>l.id===t.template)&&<CourseTaskMaterials task={t}/>}{(t.completed||t.status==='完成')&&<Notice>本任务已完成，成果版本已保留。下一轮行动请{link('/plan','回计划安排')}，经预算预检另建任务。</Notice>}{tabs(["\u5F53\u524D\u4EFB\u52A1", "\u7B14\u8BB0\u4E0E\u9605\u8BFB", "\u5C1D\u8BD5\u4E0E\u53CD\u9988", "\u8D21\u732E\u4E0E\u8868\u8FBE", "\u5B8C\u6210\u56DE\u6267"])}
+ {activeTab("\u5F53\u524D\u4EFB\u52A1", "\u5F53\u524D\u4EFB\u52A1") && <><Panel title="这项任务做什么，怎样算完成？"><p>为什么做：{taskCopy(t,'purpose')}</p><p>交付物：{taskCopy(t,'standard')}</p>{t.deliveryNote&&<p>本人补充说明：{t.deliveryNote}</p>}<p>先修与满足方法：{l.prereq}</p><p>预计投入：{t.hours} 小时；退出条件：可记录受阻、延期、跳过或取消，不计完成。</p><details className="quality-task-media"><summary>查看任务媒体占位</summary><Black label="任务图像 / 视频" /></details><div className="actions"><B primary onClick={() => go(`/work/${t.id}?tab=\u5C1D\u8BD5\u4E0E\u53CD\u9988`)}>填写尝试产物</B><B onClick={() => go(`/work/${t.id}?tab=\u7B14\u8BB0\u4E0E\u9605\u8BFB`)}>先阅读与记笔记</B><B onClick={() => open("task", { taskId: t.id })}>记录阻塞 / 暂停</B></div></Panel><Panel title="分开的状态"><div className="cols3"><p>任务执行：{t.status}</p><p>检查：{t.check}</p><p>声明：{t.claimStatus}</p></div></Panel></>}
+ {tab === "\u7B14\u8BB0\u4E0E\u9605\u8BFB" && (SERVER_AUTH&&learning.some(l=>l.id===t.template)?<Panel title="课程阅读与当前任务笔记"><CourseTaskReading task={t} position={s.reading[t.template]} onPosition={recordCoursePosition} onSave={(index,c)=>{recordCoursePosition(index,c);go('/work/'+t.id);}} precheck={precheck}/><Field label="当前任务笔记（自动保留）"><textarea value={t.note} onChange={e=>setTask(t.id,{note:e.target.value})}/></Field></Panel>:<Panel title="业务、方案、实践、表达"><nav className="tabs">{l.chapters.map((c, i) => <B key={c} onClick={() => update({ reading: { ...s.reading, [l.id]: { chapter: i, version: 1 } } })} aria-pressed={s.reading[l.id]?.chapter === i}>{c}</B>)}</nav><h3>{l.chapters[s.reading[l.id]?.chapter || 0]}</h3><p>原创学习示例：把要回答的问题、观察到的事实、处理理由和局限分别记录。使用合成数据，不扩大为真实生产结论。</p><Black label="章节示例图" /><Field label="当前任务笔记（自动保留）"><textarea value={t.note} onChange={(e) => setTask(t.id, { note: e.target.value })} /></Field><B onClick={() => tell("\u7B14\u8BB0\u4E0E\u9605\u8BFB\u4F4D\u7F6E\u5DF2\u4FDD\u7559\uFF1B\u672A\u53D8\u66F4\u4EFB\u52A1\u5B8C\u6210\u6216\u80FD\u529B\u72B6\u6001\u3002")}>保存笔记与阅读位置</B> {link(`/work/${t.id}?tab=\u5C1D\u8BD5\u4E0E\u53CD\u9988`, "\u7EE7\u7EED\u5F53\u524D\u4EFB\u52A1\u4EA7\u7269")}</Panel>)}
  {tab === "\u5C1D\u8BD5\u4E0E\u53CD\u9988" && <><div className="quality-task-layout"><div className="quality-task-editor"><Panel title="当前尝试草稿"><Field label="阶段 / 里程碑"><select value={t.milestone} onChange={(e) => setTask(t.id, { milestone: e.target.value })}>{["\u4E1A\u52A1\u7406\u89E3", "\u65B9\u6848\u53D6\u820D", "\u5B9E\u8DF5\u4EA7\u7269", "\u8868\u8FBE\u4E0E\u5C40\u9650"].map((x) => <option key={x}>{x}</option>)}</select></Field><Field label="产物文本（每次提交形成独立版本）"><textarea aria-describedby="task-draft-writing-hint" value={t.draft} onChange={(e) => setTask(t.id, { draft: e.target.value })} placeholder="记录问题清单、处理理由、描述统计与限制…" /></Field><WritingHint id="task-draft-writing-hint">先写用了什么材料、做了哪一步、留下了什么。还没完成的部分也可以如实记下来。</WritingHint><Field label="本人贡献"><textarea aria-describedby="task-contribution-writing-hint" value={t.contribution} onChange={(e) => setTask(t.id, { contribution: e.target.value })} /></Field><WritingHint id="task-contribution-writing-hint">只写自己负责的部分，例如整理资料、实现一段功能或检查结果；参考与协作方式在下方单独说明。</WritingHint><Field label="参考与辅助方式"><select value={t.aid} onChange={(e) => setTask(t.id, { aid: e.target.value })}>{["\u65E0", "\u53C2\u8003\u9605\u8BFB", "\u8DDF\u505A\u590D\u73B0", "AI \u8F85\u52A9", "\u56E2\u961F\u8D21\u732E", "\u72EC\u7ACB\u6539\u9020"].map((x) => <option key={x}>{x}</option>)}</select></Field><div className="actions"><B onClick={() => tell("\u5F53\u524D\u5C1D\u8BD5\u8349\u7A3F\u5DF2\u4FDD\u5B58\uFF0C\u5C1A\u672A\u63D0\u4EA4\u3002")}>保存草稿</B><B primary disabled={t.completed||t.status==='完成'} onClick={async () => {
       try {
         if(SERVER_AUTH){await workspace.command('task.submit',{taskId:t.id,taskVersion:t.version,confirmation:'SUBMIT_ATTEMPT'});tell(authMessage('ATTEMPT_SAVED',language));return;}
@@ -750,8 +828,9 @@ function App() {
   function dialogContent() {
     if (!modal) return null;
     const f = form, set = (key, val) => {setForm((x) => ({ ...x, [key]: val }));setError("");if(modal.type==='auth')setAuthFeedback(null);};
-    const input = (label, key, type = "text") => <Field label={label}><input name={key} type={type} autoComplete={type === "email" ? "email" : "off"} value={f[key] ?? ""} onChange={(e) => set(key, e.target.value)} /></Field>;
-    const area = (label, key) => <Field label={label}><textarea name={key} value={f[key] ?? ""} onChange={(e) => set(key, e.target.value)} /></Field>;
+    const fieldValue = key => (modal.type === "precheck" ? taskCopy(f,key) : f[key]) ?? "";
+    const input = (label, key, type = "text") => <Field label={label}><input name={key} type={type} autoComplete={type === "email" ? "email" : "off"} value={fieldValue(key)} onChange={(e) => set(key, e.target.value)} /></Field>;
+    const area = (label, key) => <Field label={label}><textarea name={key} value={fieldValue(key)} onChange={(e) => set(key, e.target.value)} /></Field>;
     const select = (label, key, options) => <Field label={label}><select value={f[key] ?? options[0]} onChange={(e) => set(key, e.target.value)}>{options.map((o) => <option key={typeof o === "string" ? o : o[0]} value={typeof o === "string" ? o : o[0]}>{typeof o === "string" ? o : o[1]}</option>)}</select></Field>;
     const fail = (msg) => setError(msg);
     let title = "", body = null, drawer = false;
@@ -778,14 +857,14 @@ function App() {
         body = <><p>提醒偏好：{s.notifications ? "\u5DF2\u5F00\u542F\u7AD9\u5185\u63D0\u9192" : "\u5DF2\u5173\u95ED"}。不发送外部消息。</p>{s.claims.some((c) => c.status === "\u5F85\u786E\u8BA4") && <p>{link("/assessment?tab=\u539F\u6587\u786E\u8BA4", "\u6709\u6750\u6599\u5F85\u672C\u4EBA\u786E\u8BA4 \u2192")}</p>}{s.analysisStale && <p>{link("/assessment?tab=\u56DB\u7EF4\u4E0E\u5DEE\u8DDD", "\u6709\u4F9D\u636E\u53D8\u5316\u5F85\u68C0\u67E5 \u2192")}</p>}{s.tasks.filter((t) => t.status === "\u53D7\u963B").map((t) => <p key={t.id}><B onClick={() => {
           close();
           go("/plan?tab=执行&task="+encodeURIComponent(t.id));
-        }}>继续处理受阻任务：{t.title}</B></p>)}{reviewReminders(s).map(t=><p key={t.id}>{link("/plan?tab=复盘&task="+encodeURIComponent(t.id),"已完成，待留下一次复盘："+t.title)}</p>)}<p className="caption">仅显示当前本地对象的待办，不模拟真实定时通知。</p>{link("/settings", "\u4FEE\u6539\u63D0\u9192\u504F\u597D \u2192")}</>;
+        }}>继续处理受阻任务：{taskCopy(t,'title')}</B></p>)}{reviewReminders(s).map(t=><p key={t.id}>{link("/plan?tab=复盘&task="+encodeURIComponent(t.id),"已完成，待留下一次复盘："+taskCopy(t,'title'))}</p>)}<p className="caption">仅显示当前本地对象的待办，不模拟真实定时通知。</p>{link("/settings", "\u4FEE\u6539\u63D0\u9192\u504F\u597D \u2192")}</>;
         break;
       case "taskSearch":
         title = "\u672C\u4EBA\u4EFB\u52A1\u641C\u7D22";
-        body = <><p>仅在本人任务标题中查找“{f.query}”；不查询私人全文或公开数据。</p>{s.tasks.filter((t) => t.title.includes(f.query)).map((t) => <p key={t.id}><B onClick={() => {
+        body = <><p>仅在本人任务标题中查找“{f.query}”；不查询私人全文或公开数据。</p>{s.tasks.filter((t) => matchesTaskTitle(t,f.query)).map((t) => <p key={t.id}><B onClick={() => {
           close();
           startTask(t);
-        }}>{t.title} · {t.status}</B></p>)}{!s.tasks.some((t) => t.title.includes(f.query)) && <p>没有找到任务，可换关键词或回计划查看。</p>}{link("/plan", "\u67E5\u770B\u5168\u90E8\u8BA1\u5212 \u2192")}</>;
+        }}>{taskCopy(t,'title')} · {t.status}</B></p>)}{!s.tasks.some((t) => matchesTaskTitle(t,f.query)) && <p>没有找到任务，可换关键词或回计划查看。</p>}{link("/plan", "\u67E5\u770B\u5168\u90E8\u8BA1\u5212 \u2192")}</>;
         break;
       case "confirm":
         title = f.title;
@@ -834,23 +913,6 @@ function App() {
         }}>进入完整职业探索</B></>;
         break;
       }
-      case "skill":
-        if (f.mapNode) {
-          title = f.mapNode.title + ' · 节点详情';
-          drawer = true;
-          body = <MapSkillDetails update={update} node={f.mapNode} atlasDraft={f.atlasDraft} s={s} career={f.career} url={f.mapUrl || url} link={link} open={open} precheck={precheck} />;
-          break;
-        }
-        title = `${f.skill} \xB7 \u8282\u70B9\u8BE6\u60C5`;
-        drawer = true;
-        body = <><Pill>原创合成节点 v1 · 同一技能 ID 复用</Pill><p>用途：支持数据处理、问题记录和解释；范围随具体任务而定，个人状态未知。</p><p>建议学习：理解表格，未知也能阅读。必要交付：问题清单 AND 限制说明。技术路径：SQL OR 表格工具，任选其一，不合并成全部必需。</p><p>资源：免费中文原创离线材料；成果：问题清单、方法与限制；检查：自检或示例文本反馈，没有真实运行器。</p><div className="actions"><B primary onClick={() => precheck({ title: `${f.skill} \u77ED\u9A8C\u8BC1`, template: "quality", purpose: `\u6F84\u6E05 ${f.skill} \u7684\u5DF2\u6709\u6750\u6599\u4E0E\u672A\u77E5\u8303\u56F4`, product: learning[0].product, kind: "\u539F\u521B\u6A21\u62DF\u5B9E\u8DF5" })}>生成学习 / 验证预检草稿</B><B onClick={() => {
-          close();
-          go("/assessment?tab=\u6210\u679C\u6863\u6848");
-        }}>已有成果，先补材料</B><B onClick={() => {
-          close();
-          go("/learning");
-        }}>先阅读资源</B></div></>;
-        break;
       case "import":
         if(SERVER_AUTH){title='导入 PDF / 粘贴材料';body=<ResumeImport s={s} update={update} link={link} onClose={close} onSaved={(record,added)=>{close();tell(added?'原稿与候选已保存，请逐项确认本人贡献。':'简历原稿已保存。');go(added?'/assessment?tab=原文确认':'/assessment?tab=当前简历');}}/>;break;}
         title = "\u5BFC\u5165\u6750\u6599 \xB7 \u6A21\u62DF\u89E3\u6790\u4F5C\u4E1A";
@@ -891,7 +953,7 @@ function App() {
         break;
       case "precheck": {
         title = "\u7EDF\u4E00\u5F00\u59CB\u9884\u68C0";
-        const duplicate = f.atlas ? atlasTasks(s.tasks,f).find(t=>!t.completed) : s.tasks.find((t) => t.template === f.template && t.purpose === f.purpose && !["\u53D6\u6D88", "\u8DF3\u8FC7"].includes(t.status));
+        const duplicate = f.atlas ? atlasTasks(s.tasks,f).find(t=>!t.completed) : s.tasks.find((t) => t.template === f.template && taskCopy(t,'purpose','zh') === taskCopy(f,'purpose','zh') && !["\u53D6\u6D88", "\u8DF3\u8FC7"].includes(t.status));
         body = <><AtlasPracticeContext task={f} link={link}/><TaskPrecheckFields s={s} data={f} input={input} area={area} select={select} change={patch=>setForm(x=>({...x,...patch}))}/><details className="intake-disclosure intake-preflight-notes"><summary>先修与来源说明</summary><p>当前总预算 {s.budget ?? "\u672A\u5B9A"} 小时；已安排 {usedHours(s)} 小时；本行动 {f.hours} 小时。来源：{f.source}；主目标 {cname(s.goal)}。</p><p>{f.template==='quality'?'先修：建议未知可继续；SQL OR 表格工具任选；问题清单、处理理由、描述统计 AND 限制说明共同交付。':learning.find(l=>l.id===f.template)?.prereq||'先看实践步骤与成果标准；缺少材料保持未知，可选择手工记录。'} S1 手工记录，S2 可使用已发布教学内容提交尝试；课程版本随任务保存。</p></details>{duplicate && <Notice>发现同目的 / 模板已有任务 {duplicate.id}，建议续用；不重复计算预算。<B onClick={() => {
           close();
           startTask(duplicate);
@@ -910,17 +972,15 @@ function App() {
             return;
           }
           if(SERVER_AUTH){
-            const keys=['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another'];
+            const keys=['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another','practiceRole','practiceScope'];
             const draft=Object.fromEntries(keys.filter(key=>f[key]!==undefined).map(key=>[key,key==='hours'?Number(f[key]):f[key]]));
-            try{const receipt=await workspace.command('task.create',{draft,confirmation:'CREATE_TASK'});const created=workspace.current().state.tasks.find(row=>row.id===receipt.refs.taskId);close();go(created.mode==='S2'?'/work/'+created.id:taskRoute(workspace.current().state,created));tell(authMessage('TASK_CREATED',language));}catch(error){fail(authMessage(error.code,language));}return;
+            try{const receipt=await workspace.command('task.create',{draft,confirmation:'CREATE_TASK'});const saved=workspace.current().state;const created=saved.tasks.find(row=>row.id===receipt.refs.taskId);close();go(taskRoute(saved,created));tell(authMessage('TASK_CREATED',language));}catch(error){fail(authMessage(error.code,language));}return;
           }
           const t = makeTask(s, f);
+          if(guidedTask(t))t.projectPractice=newProjectPractice(f.practiceRole,f.practiceScope);
           update((x) => ({ ...x, tasks: [...x.tasks, t], taskDraft: null, ...(t.atlas?{atlasDrafts:Object.fromEntries(Object.entries(x.atlasDrafts||{}).filter(([key])=>key!==atlasPracticeKey(t.atlas)))}:{}), planVersion: x.planVersion + 1, jobs: x.jobs.map((j) => j.id === f.jobId ? { ...j, taskId: t.id, status: "\u51C6\u5907" } : j) }));
           close();
-          if (t.mode === "S2") go(`/work/${t.id}`);
-          else {
-            go(taskRoute(s,t));
-          }
+          go(taskRoute(s,t));
           tell(`\u5DF2\u521B\u5EFA ${t.id}\uFF1B${t.mode} \u6A21\u62DF / \u672C\u4EBA\u8BB0\u5F55\u8DEF\u5F84\u3002`);
         }}>确认预算并创建任务</B><B onClick={() => {
           saveTaskDraft({ ...f });
@@ -976,7 +1036,7 @@ function App() {
           body = <p>任务已删除，请返回计划。</p>;
           break;
         }
-        body = <><h3>{t.title}</h3><p>{t.id} · {t.mode} · {t.status} · {t.association} · {t.hours} 小时</p><p>目的：{t.purpose}；交付物：{t.standard}；补充说明：{t.deliveryNote||"暂无"}；检查方法：本人记录 / 自检，未实际核验；退出条件：可停止不计完成。</p><Field label="状态"><select value={t.status} onChange={(e) => {
+        body = <><h3>{taskCopy(t,'title')}</h3><p>{t.id} · {t.mode} · {t.status} · {t.association} · {t.hours} 小时</p><p>目的：{taskCopy(t,'purpose')}；交付物：{taskCopy(t,'standard')}；补充说明：{t.deliveryNote||"暂无"}；检查方法：本人记录 / 自检，未实际核验；退出条件：可停止不计完成。</p><Field label="状态"><select value={t.status} onChange={(e) => {
           open('taskEdit',{taskId:t.id,desiredStatus:e.target.value,restore:stoppedTask(t)});
         }}>{["\u5F85\u5F00\u59CB", "\u8FDB\u884C\u4E2D", "\u53D7\u963B", "\u5EF6\u671F", "\u5B8C\u6210", "\u8DF3\u8FC7", "\u53D6\u6D88"].filter((v) => t.mode === "S1" || v !== "\u5B8C\u6210" || t.completed).map((v) => <option key={v}>{v}</option>)}</select></Field><Field label="日期（未知可留空）"><input type="date" value={t.due} onChange={(e) => setTask(t.id, { due: e.target.value })} /></Field><Field label="行动结果 / 受阻原因（自动保留）"><textarea value={t.note} onChange={(e) => setTask(t.id, { note: e.target.value })} /></Field><p>当前记录为本人自述；“完成”不等于实际核验或声明确认。</p><div className="actions"><B onClick={()=>open("taskEdit",{taskId:t.id})}>编辑任务安排</B><B onClick={() => {
           if (t.status === "\u5B8C\u6210" && !t.note.trim()) {
@@ -1016,7 +1076,6 @@ function App() {
         }}>{SERVER_AUTH?"保存本人行动记录":"保存真实类型自述（原型本地）"}</B></>;
         break;
       case "reading": {
-        if(SERVER_AUTH){const course=workspace.catalog?.courses.find(c=>c.id===f.template);title=course?.status==='published'?course.title+' · 内容 v'+course.content_version:'课程目录';body=course?.status==='published'?<CourseReader key={course.id+course.content_version} course={course} chapter={f.chapter} onPosition={recordCoursePosition} onSave={(index,c)=>{recordCoursePosition(index,c);close();tell('阅读位置已保留，账户保存结果以上方状态为准；没有创建或完成任务。');}} precheck={precheck}/>:<><CoursePlaceholder course={course}/>{workspace.catalogError&&<B onClick={workspace.retryCatalog}>重试课程目录</B>}</>;break;}
         title = "\u539F\u521B\u7AE0\u8282\u9605\u8BFB";
         const l = learning.find((x) => x.id === f.template), chapter = Number(f.chapter) || 0;
         body = <><h3>{l.title} · v1</h3><nav className="tabs">{l.chapters.map((x, i) => <B key={x} aria-pressed={chapter === i} onClick={() => {
@@ -1029,16 +1088,6 @@ function App() {
         }}>保存位置并返回</B><B onClick={() => precheck(f.atlasDraft||{ title: l.title, template: l.id, purpose: `\u5B9E\u8DF5${l.title}\uFF0C\u9A8C\u8BC1\u539F\u95EE\u9898`, hours: l.hours, product: l.product, career: l.career, kind: "\u539F\u521B\u6A21\u62DF\u5B9E\u8DF5" })}>转入统一实践预检</B></>;
         break;
       }
-      case "resource":
-        title = "学习资源不可用，选择替代内容";
-        body = <><Notice>模拟资源已失效，不提供空壳执行页。</Notice><p>可换用原创离线示例，或保存为草稿并记录受阻。</p><B primary onClick={() => {
-          const l = learning.find((x) => x.id === f.template);
-          open("reading", atlasReading(f.atlasDraft?{...f.atlasDraft,unavailable:false}:null,s.reading)||{ template: l.id, chapter: s.reading[l.id]?.chapter||0 });
-        }}>替换为原创离线资源</B><B onClick={() => {
-          const l = learning.find((x) => x.id === f.template);
-          precheck({...(f.atlasDraft||{title:l.title,template:l.id,purpose:"资源不可用时保留目的",hours:l.hours}),unavailable:true});
-        }}>查看受阻预检 / 存草稿</B></>;
-        break;
       case "evidence":
         title = "选择成果版本与声明候选";
         body = <EvidencePicker s={s} f={f} set={set} update={update} command={SERVER_AUTH?workspace.command:null} close={close} go={go} fail={fail} />;
@@ -1200,7 +1249,7 @@ function App() {
     }
     return <Modal key={modal.type} title={title} onClose={close} drawer={drawer} className={modal.type==='auth'?'auth-dialog':modal.type==='reading'?'course-dialog':''} companion={modal.type==='aiNotes'?'read':modal.type==='aiNoteEdit'?'note':null}>{modal.type!=='auth'&&error && <p className="error" role="alert">{error}</p>}{body}</Modal>;
   }
-  const content = () => path === "/" ? publicPage() : path === "/companion" ? <HomeCompanion standalone onBack={()=>go("/")} onExplore={()=>go("/careers")}/> : SERVER_AUTH&&!authReady ? <p role="status">正在验证账户会话…</p> : SERVER_AUTH&&s.logged&&!workspace.ready ? <p role="status">正在读取账户记录，请稍候。读取失败时可使用上方重试。</p> : !s.logged ? <Empty title={SERVER_AUTH?"登录后继续":"登录演示工作区后继续"}><B onClick={() => open("auth", { intent: url })}>{SERVER_AUTH?"打开登录":"打开演示登录"}</B></Empty> : path === "/onboarding" ? onboarding() : path === "/app" ? dashboard() : path === "/assessment" ? assessment() : path === "/careers" ? careerPage() : path === "/career-map" ? mapPage() : (path === "/plan" || planSubpage) ? planPage() : path === "/learning" ? learningPage() : path.startsWith("/work") ? workPage() : path.startsWith("/reports") ? reportPage() : path === "/assistant" ? assistantPage() : path === "/settings" ? settingsPage() : path.startsWith("/admin/") ? SERVER_AUTH?<AdminConsole/>:adminPage() : <Empty title="页面不存在">{link("/app", "\u8FD4\u56DE\u5DE5\u4F5C\u533A")}</Empty>;
+  const content = () => path === "/" ? publicPage() : path === "/companion" ? <HomeCompanion standalone onBack={()=>go("/")} onExplore={()=>go("/careers")}/> : SERVER_AUTH&&!authReady ? <p role="status">正在验证账户会话…</p> : SERVER_AUTH&&s.logged&&!workspace.ready ? <p role="status">正在读取账户记录，请稍候。读取失败时可使用上方重试。</p> : !s.logged ? <Empty title={SERVER_AUTH?"登录后继续":"登录演示工作区后继续"}><B onClick={() => open("auth", { intent: url })}>{SERVER_AUTH?"打开登录":"打开演示登录"}</B></Empty> : path === "/onboarding" ? onboarding() : path === "/app" ? dashboard() : path === "/assessment" ? assessment() : path === "/careers" ? careerPage() : path === "/career-map" ? mapPage() : (path === "/plan" || planSubpage) ? planPage() : path === "/learning" ? learningPage() : projectPage ? learningProject() : path.startsWith("/work") ? workPage() : path.startsWith("/reports") ? reportPage() : path === "/assistant" ? assistantPage() : path === "/settings" ? settingsPage() : path.startsWith("/admin/") ? SERVER_AUTH?<AdminConsole/>:adminPage() : <Empty title="页面不存在">{link("/app", "\u8FD4\u56DE\u5DE5\u4F5C\u533A")}</Empty>;
   const admin = path.startsWith("/admin/");
   const groups = [["工作区", ["U03"]], ["职业成长", ["U05", "U04", "U07", "U08", "U10"]], ["辅助工具", ["U06", "U11"]]];
   if(mailLink)return <MailTokenForm key={mailLink.token} link={mailLink} onBack={()=>{setMailLink(null);setAuthMode('登录');open('auth',{intent:'/app'});}}/>;
@@ -1213,9 +1262,9 @@ function App() {
     setAiSide(false);
     move("/");
   })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} open={open} Icon={Icon} navIcons={navIcons} route={url} ai={{s,conv,update,onOpen:()=>setAiSide(false),send:sendAI,liveAgent:SERVER_AUTH?liveAgent:null}}/></>}
- <PageGuidanceProvider routeKey={path+tab}><main id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
- {!publicRoute&&<FlowNavigation s={s} path={path} tab={tab} search={urlObj.search} link={link} />}
- {!publicRoute&&<OperationGuide s={s} path={path} tab={tab} search={urlObj.search} modal={modal?.type} error={error} toast={toast} go={go}/>}
+ <PageGuidanceProvider routeKey={path+tab}><main id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage||projectPage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
+ {!publicRoute&&!projectPage&&<FlowNavigation s={s} path={path} tab={tab} search={urlObj.search} link={link} />}
+ {!publicRoute&&!projectPage&&<OperationGuide s={s} path={path} tab={tab} search={urlObj.search} modal={modal?.type} error={error} toast={toast} go={go}/>}
  {aiSide && s.logged && <Modal title="AI 上下文侧栏 · 同一会话" drawer className="cheese-context-drawer" companion="perch" onClose={() => setAiSide(false)}>{aiContent(true)}</Modal>}{dialogContent()}<StatusToast message={toast} revision={toastRevision} onDismiss={()=>setToast("")}/></>;
 }
 createRoot(document.getElementById("root")).render(<App />);

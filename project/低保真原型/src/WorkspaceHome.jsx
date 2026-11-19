@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {taskCopy} from './native-task-copy.js';
 import {cname} from './model';
 import {workspacePath} from './workspace-guidance';
 import './workspace-home.css';
@@ -50,11 +51,11 @@ export default function WorkspaceHome({s,link,open,startTask,update,tell,action,
   <div className="workbench-grid">
    <section className={'home-next home-action-panel workbench-focus '+(fresh?'home-first-action':'home-current')} aria-labelledby="home-next-title">
     <div className="home-focus-main">
-    <div className="home-section-title"><h2 id="home-next-title">{fresh?'整理你的第一段经历':next.title}</h2>{!fresh&&<span className="status-chip">{s.analysisStale?'需要更新':pending.length?'资料待确认':next.task?next.task.status:'职业准备'}</span>}</div>
-    <div className="home-next-content"><p>{fresh?'从课程项目、实习或自主作品开始，写清自己负责的部分，再逐项确认。':next.desc}</p>
+    <div className="home-section-title"><h2 id="home-next-title">{fresh?'整理你的第一段经历':next.task?taskCopy(next.task,'title'):next.title}</h2>{!fresh&&<span className="status-chip">{s.analysisStale?'需要更新':pending.length?'资料待确认':next.task?next.task.status:'职业准备'}</span>}</div>
+    <div className="home-next-content"><p>{fresh?'从课程项目、实习或自主作品开始，写清自己负责的部分，再逐项确认。':next.task?taskCopy(next.task,'purpose'):next.desc}</p>
      {!s.analysisStale&&pending.length>0&&<ul className="home-pending-items">{pending.slice(0,2).map(item=><li key={item.id}>{item.title||'未命名材料'}</li>)}{pending.length>2&&<li>另有 {pending.length-2} 项待核对</li>}</ul>}
      {next.task?.status==='受阻'&&<p className="home-task-blocked">先记录困难，或调整任务安排后再继续。</p>}
-     {next.task?.standard&&<dl className="home-task-standard"><dt>交付要求</dt><dd>{next.task.standard}</dd></dl>}
+     {next.task?.standard&&<dl className="home-task-standard"><dt>交付要求</dt><dd>{taskCopy(next.task,'standard')}</dd></dl>}
     </div>
     <div className="actions">{fresh?<>{link('/assessment?tab=资料经历','整理已有经历 →','button primary')}{link('/learning','先预览一次小实践 →','button')}</>:<>
      {next.task?.status==='受阻'?link('/plan?tab=执行&task='+encodeURIComponent(next.task.id),next.label+' →','button primary'):next.task?<button className="primary" onClick={()=>startTask(next.task)}>{next.label}<Icon name="arrow" size={18}/></button>:link(next.to,next.label+' →','button primary')}

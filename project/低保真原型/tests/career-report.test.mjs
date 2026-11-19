@@ -3,9 +3,27 @@ import assert from 'node:assert/strict';
 import {fresh,makeTask} from '../src/model.js';
 import {buildCareerReport,careerReportBody,normalizeReportPlanRecords} from '../src/career-report-model.js';
 import {capabilitySkills} from '../src/capability-puzzle-model.js';
+import {getSkillTree} from '../server/skill-trees/index.mjs';
 
 const claim=(id,skill,extra={})=>({id,title:'本人经历 '+id,text:'本人实际完成的原文',contribution:'本人实现',status:'已确认',version:1,skill,...extra});
 const upload=(id,career,extra={})=>({id,career,title:'本人上传项目 '+id,description:'已完成的作品说明',contribution:'本人完成',completed:true,createdAt:'2026-11-08T00:00:00.000Z',file:{name:'project.txt',type:'text/plain',size:24},...extra});
+test('growth uses dated account evidence, published skill versions and explicit completion',()=>{
+ const state=fresh();
+ state.goal='data';state.profileVersion=2;state.analysis={id:'assessment-1',profileVersion:1,date:'2026-11-01',occupation:'data'};
+ state.reading={quality:{chapter:0},unknown:{chapter:2}};
+ state.skillStudy={'data:metric-definition:v1':{assessment:{passedAt:'2026-11-03T00:00:00.000Z'}},'data:metric-definition:v999':{assessment:{passedAt:'2026-11-04T00:00:00.000Z'},draft:'PRIVATE_DRAFT'}};
+ state.tasks=[task(state,'done',{mode:'S2',courseVersion:2,completionReceipt:{createdAt:'2026-11-05T00:00:00.000Z'}}),task(state,'open',{completed:false,status:'进行中'})];
+ state.reviews=[{taskId:'done',date:'2026-11-06',result:'PRIVATE_REVIEW'},{taskId:'open',date:'2026-11-07',result:'PRIVATE_REVIEW'}];
+ const report=buildCareerReport(state,{getSkillTree,uploads:[]});
+ assert.equal(report.journey.assessment.status,'stale');
+ assert.deepEqual(report.journey.practice,{reading:1,passed:1});
+ assert.deepEqual(report.journey.outcomes,{total:1,reviewed:1});
+ assert.deepEqual(report.journey.activity.map(item=>item.kind),['review','project','skill','assessment']);
+ assert.equal(report.journey.next.kind,'assess');
+ assert.match(report.projects[0].to,/\/learning\/projects\/quality\?view=outcome&task=done/);
+ assert.doesNotMatch(JSON.stringify(report.journey),/PRIVATE_REVIEW|PRIVATE_DRAFT/);
+ assert.match(careerReportBody(report),/通过站内技能检验 1 项/);
+});
 function task(state,id,extra={}){return {...makeTask(state,{title:'实践项目 '+id,purpose:'核对实际产物',hours:1,template:'quality',career:'data'}),id,status:'完成',completed:true,note:'本人完成的实践产物',...extra};}
 const goal={id:'goal-1',title:'按周补充作品',period:'week',periodStart:'2026-11-02',due:'2026-11-08',progress:20,priority:'高'};
 

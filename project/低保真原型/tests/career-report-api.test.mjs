@@ -25,6 +25,17 @@ test('career report HTTP preview and compose share account sources, bounded goal
  const planRecords={goals:[{id:'weekly',title:'本周完成作品集',period:'week',periodStart:'2026-11-02',due:'2026-11-08',progress:30,priority:'高',notes:'PRIVATE_GOAL_NOTE'}],drafts:{text:'PRIVATE_DRAFT'}};
  const preview=async(records=planRecords)=>{const current=await saved();const response=await alice.request('/api/services/report-preview',{data:{baseVersion:current.revision,format:'career-report-v1',planRecords:records}});assert.equal(response.status,200,JSON.stringify(response.body));return response.body;};
  const first=await preview();assert.equal(first.format,'career-report-v1');assert.equal(first.body.split('\n').length,5);assert.match(first.body,/Alice 完成项目/);assert.doesNotMatch(first.body,/Bob 私有项目|PRIVATE_GOAL_NOTE|PRIVATE_DRAFT/);assert.equal(first.compositeSources.uploadRefs.length,1);
+ const journeyPath='/api/services/career-report-journey';
+ assert.equal((await client().request(journeyPath)).status,401);
+ const aliceJourney=await alice.request(journeyPath),bobJourney=await bob.request(journeyPath);
+ assert.equal(aliceJourney.status,200);assert.equal(aliceJourney.body.baseVersion,(await saved()).revision);
+ assert.equal(aliceJourney.body.journey.assessment.confirmed,1);
+ assert.equal(aliceJourney.body.journey.practice.passed,0);
+ assert.equal(aliceJourney.body.journey.outcomes.total,1);
+ assert.match(JSON.stringify(aliceJourney.body),/Alice 完成项目/);
+ assert.doesNotMatch(JSON.stringify(aliceJourney.body),/Bob 私有项目|PRIVATE_|base64/);
+ assert.match(JSON.stringify(bobJourney.body),/Bob 私有项目/);
+ assert.doesNotMatch(JSON.stringify(bobJourney.body),/Alice 完成项目/);
  assert.equal((await alice.request('/api/services/report-preview',{data:{baseVersion:(await saved()).revision}})).status,503,'legacy preview keeps its original knowledge requirement');
  assert.equal((await alice.request('/api/services/report-preview',{data:{baseVersion:(await saved()).revision,format:'career-report-v1',uploads:[upload('伪造上传','ai')]}})).status,400,'caller cannot inject upload metadata');
  assert.equal((await alice.request('/api/services/report-preview',{data:{baseVersion:(await saved()).revision,format:'career-report-v1',planRecords:{goals:[{...planRecords.goals[0],progress:200}]}}})).status,400);

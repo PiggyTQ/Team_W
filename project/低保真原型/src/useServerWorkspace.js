@@ -7,10 +7,15 @@ export function useServerWorkspace(user,state,setState){
   const [catalog,setCatalog]=useState(null),[catalogError,setCatalogError]=useState(null),[catalogEpoch,setCatalogEpoch]=useState(0),controller=useRef(null),setter=useRef(setState);setter.current=setState;
   if(!controller.current)controller.current=createWorkspaceSync({request:apiRequest,onSnapshot:value=>setter.current({...value,logged:true}),onStatus:setSync});
   useEffect(()=>{
-    if(!SERVER_AUTH)return;
+    if(!SERVER_AUTH){
+      let active=true;
+      import('./local-practice-courses').then(module=>{if(active)setCatalog(module.localPracticeCatalog);})
+        .catch(()=>{if(active)setCatalogError('SERVICE_UNAVAILABLE');});
+      return()=>{active=false;};
+    }
     const syncController=controller.current;syncController.connect(user?.id||null).catch(()=>{});
     let active=true;const request=new AbortController();setCatalog(null);setCatalogError(null);
-    if(user)apiRequest('/api/catalog/courses',{signal:request.signal}).then(value=>{if(active)setCatalog(value);}).catch(error=>{if(active&&!request.signal.aborted)setCatalogError(error.code);});
+    if(user)apiRequest('/api/catalog/courses?summary=1',{signal:request.signal}).then(value=>{if(active)setCatalog(value);}).catch(error=>{if(active&&!request.signal.aborted)setCatalogError(error.code);});
     return()=>{active=false;request.abort();};
   },[user?.id,catalogEpoch]);
   useEffect(()=>{if(SERVER_AUTH&&user?.id&&state.logged)controller.current.enqueue(state);},[state,user?.id]);

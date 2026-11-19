@@ -3,6 +3,8 @@ import {careerDetailContent,careerDetailNotes} from './career-detail-content.js'
 import {capabilityMastery} from './capability-puzzle-model.js';
 import {getInterestGroup,getInterestType,interestTraits} from './interest-assessment-model.js';
 import {hasProfileValue} from './profile-insights-model.js';
+import {buildCareerJourney,careerRecordDate} from './career-journey-model.js';
+import {guidedTask,projectRoute} from './practice-project-model.js';
 
 const array=value=>Array.isArray(value)?value:[];
 const text=value=>typeof value==='string'?value.trim():'';
@@ -44,17 +46,22 @@ function completedProjects(state,uploads){
  const fromTasks=tasks.map(task=>{
   const last=array(task.attempts).at(-1),unit=learning.find(item=>item.id===task.template);
   const explicitSkill=known(task.atlas?.skill)||known(task.skill);
+  const completedAt=careerRecordDate(task.completionReceipt?.createdAt)||careerRecordDate(task.completedAt);
+  const to=guidedTask(task)?projectRoute(task.template,{view:'outcome',task:task.id}):task.mode==='S2'?'/work/'+encodeURIComponent(task.id)+'?tab=完成回执':'/plan?tab=执行&practice='+encodeURIComponent(task.id)+'&step=record';
+  const delivery=last?.practiceSnapshot?.responses?.delivery;
   return {id:task.id,title:text(task.title)||'未命名项目',career:roleFor(task.career)?.id||roleFor(task.atlas?.career)?.id||unit?.career||null,
    description:known(last?.text)||known(task.note),contribution:known(task.contribution)||known(last?.contribution),
+   summary:known(delivery?.note),limits:known(delivery?.limits),
+   date:completedAt||careerRecordDate(last?.date),completedAt,
    source:unit||task.atlas?'practice':'external',skills:explicitSkill?[explicitSkill]:[],
    references:[sourceRef('task',task),...(last?[sourceRef('attempt',last)]:[])],
-   to:unit?'/learning?tab=我的资源':task.mode==='S2'?'/work/'+encodeURIComponent(task.id)+'?tab=完成回执':'/plan?tab=执行&practice='+encodeURIComponent(task.id)+'&step=record'};
+   to};
  });
  const fromUploads=unique(array(uploads).filter(item=>item.completed===true&&known(item.title)&&known(item.description)),record=>record.id).map(item=>({
   id:item.id,title:text(item.title),career:roleFor(item.career)?.id||null,description:text(item.description),contribution:known(item.contribution),source:'upload',
   // Upload metadata currently has no user-confirmed skill field. A selected
   // career category is a project link, never evidence for every skill in it.
-  skills:[],file:copy(item.file||{}),references:[sourceRef('upload',item)],to:'/learning?tab=我的资源&source=upload'
+  skills:[],date:careerRecordDate(item.createdAt),file:copy(item.file||{}),references:[sourceRef('upload',item)],to:'/learning?tab=我的资源&source=upload'
  }));
  return [...fromTasks,...fromUploads];
 }
@@ -108,7 +115,8 @@ function suggestionsFor(report,state){
 }
 
 function reportSections(report){
- const {background,personality,plan,work}=report;
+ const {background,personality,plan,work,journey}=report;
+ const growth=`成长回顾：已确认材料 ${journey.assessment.confirmed} 项；主目标 ${journey.plan.goal||'尚未确定'}；有阅读记录 ${journey.practice.reading} 个项目${journey.practice.passed===null?'':'；通过站内技能检验 '+journey.practice.passed+' 项'}；已完成成果 ${journey.outcomes.total} 项；已复盘行动 ${journey.outcomes.reviewed} 项。`;
  const education=background.education.length?summarize(background.education,item=>[item.school,item.major,item.degree].filter(Boolean).map(value=>excerpt(value,160)).join(' / '),20):'教育经历尚未确认';
  const projects=report.projects.length?summarize(report.projects,item=>`${excerpt(item.title,120)}（${item.source==='upload'?'自主上传':item.source==='practice'?'平台实践':'本人记录'}；成果：${excerpt(item.description,500)||'内容待补充'}；本人贡献：${excerpt(item.contribution,200)||'待说明'}）`):'尚无已完成项目';
  const facts=background.claims.length?summarize(background.claims,item=>`${excerpt(item.title,120)||'已确认经历'}〔${excerpt(item.skill,80)||'技能标签未知'}〕`):'尚无本人确认经历';
@@ -122,7 +130,7 @@ function reportSections(report){
  const suggestion=report.learningSuggestions.map(item=>`${excerpt(item.title,200)}：${item.reason}交付：${item.deliverable}；步骤：${item.steps.join(' → ')}`).join('；');
  const planning=`主目标：${plan.goal?.name||'尚未确定'}；选择理由：${excerpt(plan.reason,500)||'待补充'}；待验证问题：${excerpt(plan.question,500)||'未知'}；每周预计预算：${plan.weeklyHours===null?'未知':plan.weeklyHours+' 小时'}；当前行动：${summarize(plan.activeTasks,item=>excerpt(item.title,120))||'暂无'}；周期目标：${plan.periodGoalsIncluded?summarize(plan.periodGoals,item=>excerpt(item.title,120))||'暂无':'本次未载入本机周期目标'}。`;
  return [
-  {id:'background',title:'已完成项目与能力背景',text:`${background.stage||'学习阶段未知'}；${education}。已完成项目：${projects}。本人确认经历：${facts}。能力拼图自评：${self}。个人偏好与条件：${background.conditions.map(item=>item.title+'：'+excerpt(item.text,300)).join('；')||'地域与工作约束待补充'}。自评、经历与项目均不代表独立能力核验。`},
+  {id:'background',title:'已完成项目与能力背景',text:`${growth}${background.stage||'学习阶段未知'}；${education}。已完成项目：${projects}。本人确认经历：${facts}。能力拼图自评：${self}。个人偏好与条件：${background.conditions.map(item=>item.title+'：'+excerpt(item.text,300)).join('；')||'地域与工作约束待补充'}。自评、经历与项目均不代表独立能力核验。`},
   {id:'recommendation',title:'推荐岗位与匹配依据',text:`${recommendation}${comparisons}工作偏好：${personalityText}。${personality.limitation}匹配程度采用技能依据覆盖，分母为站内岗位的技能标签数量，不能解释为胜任或录用概率。`},
   {id:'requirements',title:'岗位工作特点与所需能力',text:working},
   {id:'projects',title:'建议补充的项目',text:suggestion+'计划衔接：'+planning},
@@ -148,7 +156,9 @@ export function buildCareerReport(state={},options={}){
   ...(!plan.periodGoalsIncluded?['本次未载入本机周期目标；不会补造周期安排或目标进度。']:[])];
  const report={model:'career-report-v1',background,projects,personality,plan,comparisons,recommendations,recommended,recommendedIds:top.map(item=>item.id),recommendationStatus:!best?'insufficient':recommended?'recommended':'tie',work,learningSuggestions:[],limitations,
   sourceStatus:{uploads:Array.isArray(options.uploads)?'loaded':'not-provided',planRecords:plan.periodGoalsIncluded?'loaded':'not-provided'}};
- report.learningSuggestions=suggestionsFor(report,state);report.sections=reportSections(report);return report;
+ report.learningSuggestions=suggestionsFor(report,state);
+ report.journey=buildCareerJourney(state,report,options.getSkillTree);
+ report.sections=reportSections(report);return report;
 }
 
 export function careerReportBody(stateOrReport,options){

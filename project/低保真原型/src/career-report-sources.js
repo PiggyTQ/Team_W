@@ -1,4 +1,5 @@
 import {normalizeReportPlanRecords} from './career-report-model.js';
+import {careerAssessment,careerReadingCount,careerReviewRefs} from './career-journey-model.js';
 
 const array=value=>Array.isArray(value)?value:[];
 const clone=value=>JSON.parse(JSON.stringify(value));
@@ -39,6 +40,10 @@ export function captureCareerReportSources(s,{uploads=s.reportSources?.uploads,p
  const preferences=s.preferences||{};
  return {
   version:2,
+  journeySignature:changeSignature({
+   assessment:careerAssessment(s),reading:careerReadingCount(s),reviews:careerReviewRefs(s),
+   skills:Object.entries(s.skillStudy||{}).flatMap(([key,record])=>record?.assessment?.passedAt?[[key,record.assessment.passedAt]]:[]).sort()
+  }),
   signatures:{preferences:changeSignature(preferences),education:changeSignature(education),uploads:changeSignature(projects),planRecords:changeSignature(goals),tasks:changeSignature(tasks),claims:changeSignature(claims)},
   preferences:{...shortened(preferences,['intent','stage','interest','location','constraint','interestType','interestGroup'],160),...(preferences.capabilityMastery?{capabilityMastery:clone(preferences.capabilityMastery)}:{})},
   education:education.slice(0,20).map(record=>shortened(record,educationFields,80)),
@@ -65,7 +70,11 @@ export function careerReportSourcesKey(snapshot){
 
 export function careerReportSourcesChanged(s,snapshot,options){
  if(!validSnapshot(snapshot))return true;
- try{return careerReportSourcesKey(snapshot)!==careerReportSourcesKey(captureCareerReportSources(s,options));}
+ try{
+  const current=captureCareerReportSources(s,options);
+  if(snapshot.journeySignature===undefined)delete current.journeySignature;
+  return careerReportSourcesKey(snapshot)!==careerReportSourcesKey(current);
+ }
  catch{return true;}
 }
 

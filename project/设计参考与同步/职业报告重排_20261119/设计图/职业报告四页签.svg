@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" font-family="Microsoft YaHei,sans-serif">
+<rect width="1280" height="800" fill="#faf7ee"/><text x="34" y="51" fill="#123f64" font-size="28" font-weight="700">职业综合报告</text>
+<rect x="32" y="79" width="1216" height="56" rx="12" fill="#fff" stroke="#e0ddcf"/>
+<g fill="#174e77" font-size="18" text-anchor="middle"><text x="184" y="114">成长回顾</text><text x="488" y="114">岗位匹配</text><text x="792" y="114">岗位要求</text><text x="1096" y="114">下一步补足</text></g><path d="M64 132H304" stroke="#145d8b" stroke-width="3"/>
+<rect x="32" y="153" width="1216" height="608" rx="16" fill="#fffefa" stroke="#e0ddcf"/>
+<text x="59" y="194" fill="#163f60" font-size="22" font-weight="700">成长回顾</text>
+<rect x="60" y="220" width="560" height="213" rx="12" fill="#fff8e9"/><rect x="642" y="220" width="577" height="213" rx="12" fill="#eff6fb"/>
+<g fill="#173e60" font-size="17" font-weight="700"><text x="82" y="253">数据质量小项目</text><text x="666" y="253">客服助手评测项目</text></g>
+<g fill="#36556c" font-size="15"><text x="82" y="291">做了什么　核查数据缺失、重复及冲突</text><text x="82" y="326">效果与成果　留下可复算的分组口径</text><text x="82" y="361">本人贡献　记录排除依据，说明数据局限</text><text x="82" y="405">查看原产物　查看复盘</text><text x="666" y="291">做了什么　按统一规则对比两个客服方案</text><text x="666" y="326">效果与成果　识别权限错误，制定补测安排</text><text x="666" y="361">本人贡献　逐条核对动作，梳理严重错误</text><text x="666" y="405">查看原产物　查看复盘</text></g>
+<text x="60" y="479" fill="#173e60" font-size="22" font-weight="700">职业技能谱图</text><text x="1040" y="479" fill="#526f85" font-size="15">数据分析</text>
+<g fill="#42627b" font-size="16"><text x="61" y="536">指标与取数</text><text x="61" y="589">数据质量</text><text x="61" y="642">统计判断</text><text x="61" y="695">建模与表达</text></g>
+<g fill="#edf4f9" stroke="#c6dce9"><rect x="214" y="505" width="300" height="39" rx="8"/><rect x="536" y="505" width="300" height="39" rx="8"/><rect x="858" y="505" width="300" height="39" rx="8"/><rect x="214" y="558" width="300" height="39" rx="8"/><rect x="536" y="558" width="300" height="39" rx="8"/><rect x="858" y="558" width="300" height="39" rx="8"/></g>
+<g fill="#184e74" font-size="15"><text x="228" y="531">指标口径 · 待补</text><text x="551" y="531">SQL 表关联 · 待补</text><text x="875" y="531">分组与汇总 · 待补</text><text x="228" y="584">缺失与分母 · 已实践</text><text x="551" y="584">重复与冲突 · 已实践</text><text x="875" y="584">质量规则 · 已实践</text><text x="228" y="637">描述统计与分布</text><text x="551" y="637">抽样与偏差 · 检验通过</text><text x="875" y="637">实验与因果判断</text><text x="228" y="690">事实表与维度</text><text x="551" y="690">表格透视与对账</text><text x="875" y="690">分析简报与限制</text></g>
+</svg>

@@ -1,0 +1,451 @@
+#root #main .skill-tree-board {
+  --pearl-width: clamp(23px, 2.8cqw, 32px);
+  --tree-wood-ink: #263444;
+  --tree-ease: var(--jimo-ease, ease-out);
+  margin: 0;
+  scroll-margin-top: 12px;
+  background: var(--skill-paper);
+  border: 1px solid var(--skill-line);
+  border-radius: var(--skill-radius);
+}
+
+#root #main .skill-growth-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  background: radial-gradient(ellipse at 52% 42%, var(--skill-atlas-light) 0%, transparent 72%);
+}
+
+#root #main .skill-growth-stage {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1835 / 1074;
+  width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+#root #main .skill-ash-tree {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+#root #main .skill-growth-veins {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#root #main .skill-growth-rings path {
+  fill: none;
+  stroke: #6c5e54;
+  stroke-width: .85;
+  opacity: .25;
+}
+
+#root #main .skill-growth-rings path[data-grown="true"] {
+  stroke: #87612d;
+  stroke-width: 1.7;
+  opacity: .96;
+}
+
+#root #main .skill-growth-rings path[data-grown="true"]:nth-child(3n) { stroke: #a87025; }
+
+#root #main .skill-growth-rings path[data-highlighted="true"] {
+  animation: skill-ring-wake 290ms var(--tree-ease) 110ms both;
+}
+
+@keyframes skill-ring-wake {
+  from { opacity: .2; }
+  to { opacity: .96; }
+}
+
+#root #main .skill-map .skill-root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px 14px;
+  padding: 0 14px 14px;
+  color: var(--skill-soft);
+}
+
+#root #main .skill-map .skill-root h2 { font-size: 1.2rem; }
+
+#root #main .skill-root span {
+  font-size: .8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#root #main .skill-root strong { margin-inline-start: 4px; color: var(--skill-blue); }
+
+#root #main .skill-map :is(.skill-growth-buds,.skill-growth-branches) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#root #main .skill-growth-canopy, #root #main .skill-growth-buds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#root #main .skill-growth-canopy { z-index: 1; }
+#root #main .skill-growth-buds { z-index: 3; }
+
+#root #main .skill-growth-shoot { position: absolute; }
+
+#root #main .skill-growth-bud {
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+
+#root #main .skill-growth-bud[data-current="true"] { z-index: 1; }
+#root #main .skill-growth-bud:is(:hover,:focus-within) { z-index: 2; }
+
+#root #main .skill-map .skill-leaf-node {
+  position: relative;
+  display: block;
+  width: 44px;
+  height: 44px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+#root #main :is(.skill-water-pearl,.skill-watering-pearl,.skill-new-bud,.skill-sprout) {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  height: auto;
+  max-width: none;
+}
+
+#root #main .skill-water-pearl {
+  width: var(--pearl-width);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-88%);
+  transition: transform 150ms var(--tree-ease);
+}
+
+#root #main .skill-growth-bud[data-current="true"] .skill-water-pearl {
+  filter: drop-shadow(0 2px 2px #0e639e55);
+}
+
+#root #main .skill-sprout {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translate(calc(-1 * var(--stem-x)), -98%) rotate(var(--sprig-tilt));
+  transform-origin: var(--stem-x) 98%;
+}
+
+#root #main .skill-watering-pearl {
+  width: var(--pearl-width);
+  opacity: 0;
+  transform: translate(-50%,-88%);
+}
+
+#root #main .skill-new-bud {
+  width: calc(var(--pearl-width) * .82);
+  opacity: 0;
+  transform: translate(-50%,-98%);
+  transform-origin: 50% 98%;
+}
+
+#root #main .skill-watering-pearl[data-watered="true"] {
+  animation: skill-pearl-soak 170ms var(--tree-ease) both;
+}
+
+#root #main .skill-new-bud[data-opening="true"] {
+  animation: skill-bud-open 240ms var(--tree-ease) 130ms both;
+}
+
+#root #main .skill-sprout[data-unfurl="true"] {
+  animation: skill-leaves-open 290ms var(--tree-ease) 285ms both;
+}
+
+#root #main .skill-sprout[data-expand="true"] {
+  animation: skill-leaves-open 290ms var(--tree-ease) 340ms both;
+}
+
+@keyframes skill-pearl-soak {
+  0% { opacity: 1; transform: translate(-50%,-88%); }
+  100% { opacity: 0; transform: translate(-50%,-65%) scale(.9); }
+}
+
+@keyframes skill-bud-open {
+  0% { opacity: 0; transform: translate(-50%,-98%) scale(.9); }
+  56% { opacity: 1; transform: translate(-50%,-98%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%,-98%) scale(1.035); }
+}
+
+@keyframes skill-leaves-open {
+  from { opacity: 0; transform: translate(calc(-1 * var(--stem-x)), -98%) rotate(calc(var(--sprig-tilt) - 6deg)) scale(.93); }
+  to { opacity: 1; transform: translate(calc(-1 * var(--stem-x)), -98%) rotate(var(--sprig-tilt)); }
+}
+
+#root #main .skill-sprout-check {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%,-50%);
+  border: 1px solid var(--skill-paper);
+  border-radius: 50%;
+  background: var(--skill-green);
+  color: white;
+  pointer-events: none;
+}
+
+#root #main .skill-growth-bud[data-current="true"] .skill-sprout-check { outline: 2px solid #bfd1ae; }
+
+#root #main .skill-map .skill-leaf-node:focus-visible {
+  outline: 2px solid var(--skill-blue);
+  outline-offset: -1px;
+}
+
+#root #main .skill-bud-label {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  top: 45%;
+  left: calc(50% + 18px);
+  transform: translateY(-50%);
+  max-width: min(16em,22cqw);
+  width: max-content;
+  padding: 4px 7px;
+  border-radius: 7px;
+  border: 1px solid var(--skill-line);
+  background: var(--skill-paper);
+  color: var(--skill-ink);
+  font-size: .76rem;
+  font-weight: 650;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+#root #main .skill-growth-bud[data-label-side="left"] .skill-bud-label {
+  left: auto;
+  right: calc(50% + 18px);
+}
+
+#root #main .skill-growth-bud:focus-within .skill-bud-label { display: block; }
+#root #main .skill-growth-bud[data-current="true"][data-passed="false"] .skill-bud-label { display: block; }
+
+#root #main .skill-map .skill-growth-branches {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  border-block-start: 1px solid var(--skill-line);
+}
+
+#root #main .skill-growth-branch { min-width: 0; }
+#root #main .skill-growth-branch:nth-child(even) { border-inline-start: 1px solid var(--skill-line); }
+#root #main .skill-growth-branch:nth-child(n + 3) { border-block-start: 1px solid var(--skill-line); }
+#root #main .skill-branch-lettering { display: none; }
+
+#root #main .skill-map .skill-branch-node {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 0;
+  color: var(--skill-ink);
+  background: transparent;
+  box-shadow: none;
+  font-size: .83rem;
+  font-weight: 680;
+  text-align: start;
+  white-space: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+#root #main .skill-map .skill-branch-node[aria-pressed="true"] { background: var(--skill-blue-wash); }
+#root #main .skill-map .skill-branch-node:focus-visible { outline-offset: -3px; }
+
+#root #main .skill-branch-count {
+  flex: none;
+  color: var(--skill-soft);
+  font-size: .75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#root #main .skill-branch-node[data-complete="true"] .skill-branch-count { color: var(--skill-green); }
+
+#root #main .skill-map .skill-tree-key {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding: 9px var(--skill-panel-pad);
+  border-block-start: 1px solid var(--skill-line);
+  font-size: .82rem;
+}
+
+#root #main .skill-map .skill-map-basis { margin: 0; min-width: 0; border: 0; padding: 0; }
+#root #main .skill-map-basis summary { cursor: pointer; padding: 5px 0; color: var(--skill-blue); font-weight: 670; }
+#root #main .skill-map-basis[open] { flex-basis: 100%; }
+#root #main .skill-map-basis > p { max-width: 72ch; }
+#root #main .skill-map-basis .skill-source-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,205px),1fr));
+  gap: 0 18px;
+}
+#root #main .skill-map .skill-map-basis .skill-source-list > li { border-block-start: 1px solid var(--skill-line); }
+
+@media (hover: hover) and (pointer: fine) {
+  #root #main .skill-growth-bud:hover .skill-bud-label { display: block; }
+  #root #main .skill-leaf-node:hover .skill-water-pearl { transform: translate(-50%,-93%); }
+  #root #main .skill-growth-buds:has(.skill-growth-bud[data-current="false"]:hover)
+    .skill-growth-bud[data-current="true"]:not(:focus-within) .skill-bud-label { display: none; }
+}
+
+@container (min-width: 751px) {
+  #root #main .skill-growth-stage,
+  #root #main .skill-map .skill-growth-branches {
+    grid-area: 1 / 1;
+    width: min(100%,980px);
+    margin-inline: auto;
+  }
+  #root #main .skill-map .skill-growth-branches {
+    position: relative;
+    z-index: 2;
+    display: block;
+    border: 0;
+    pointer-events: none;
+  }
+  #root #main .skill-map .skill-growth-branches > li { border: 0; }
+  #root #main .skill-map .skill-root { display: contents; }
+  #root #main .skill-map .skill-root h2 {
+    position: absolute;
+    z-index: 2;
+    grid-area: 1 / 1;
+    top: 80%;
+    left: calc(50% - min(1.6cqw,16px));
+    width: clamp(77px,9.8cqw,112px);
+    transform: translate(-50%,-50%);
+    color: var(--tree-wood-ink);
+    font-size: clamp(.8rem,1.45cqw,1.15rem);
+    font-weight: 760;
+    line-height: 1.12;
+    text-align: center;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    text-shadow: 0 1px 3px #f9f0e1, 0 0 2px #f9f0e1;
+  }
+  #root #main .skill-root > span {
+    grid-row: 2;
+    justify-self: center;
+    padding-bottom: 14px;
+  }
+  #root #main .skill-branch-lettering {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  #root #main .skill-branch-lettering text {
+    fill: var(--tree-wood-ink);
+    stroke: #f8f1e4;
+    stroke-width: 2.3px;
+    stroke-linejoin: round;
+    paint-order: stroke fill;
+    font-size: 27px;
+    font-weight: 700;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 160ms var(--tree-ease);
+  }
+  #root #main .skill-branch-lettering text[data-long="true"] { font-size: 19px; }
+  #root #main .skill-branch-lettering text[data-size="extended"] { font-size: 18px; }
+  #root #main .skill-branch-node:is(:hover,:focus-visible,[aria-pressed="true"]) + .skill-branch-lettering text {
+    transform: scale(1.065);
+  }
+  #root #main .skill-branch-node[data-complete="true"] + .skill-branch-lettering text {
+    fill: #324e32;
+  }
+  #root #main .skill-map .skill-branch-node {
+    position: absolute;
+    left: var(--branch-x);
+    top: var(--branch-y);
+    width: var(--branch-span);
+    min-height: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 24px;
+    background: transparent;
+    transform: translate(-50%,-50%) rotate(var(--branch-angle));
+    pointer-events: auto;
+  }
+  #root #main.workspace .skill-map .skill-branch-node:is(:hover,:active,:focus,[aria-pressed="true"]) {
+    background: none;
+    box-shadow: none;
+  }
+  #root #main.workspace .skill-map .skill-branch-node:focus-visible { outline: none; }
+  #root #main .skill-branch-node > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  #root #main .skill-branch-node:focus-visible + .skill-branch-lettering text {
+    text-decoration: underline 2px var(--skill-blue);
+  }
+}
+
+@container (max-width: 750px) {
+  #root #main .skill-growth-map { background: none; }
+  #root #main .skill-growth-stage {
+    width: 100%;
+    background: radial-gradient(ellipse at 50% 57%, var(--skill-atlas-light), transparent 73%);
+  }
+  #root #main .skill-growth-bud[data-active-branch="false"] { display: none; }
+  #root #main .skill-growth-bud[data-current="true"]:not(:focus-within):not(:hover) .skill-bud-label { display: none; }
+  #root #main .skill-bud-label { max-width: 36cqw; }
+  #root #main .skill-map .skill-root { padding-bottom: 10px; }
+  #root #main .skill-map .skill-root h2 { font-size: 1.06rem; }
+}
+
+@container (max-width: 410px) {
+  #root #main .skill-map .skill-leaf-node { width: 32px; height: 32px; }
+  #root #main .skill-map .skill-branch-node {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    justify-content: stretch;
+    gap: 1px;
+  }
+  #root #main .skill-sprout-check { width: 14px; height: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root #main :is(.skill-watering-pearl,.skill-new-bud,.skill-sprout,.skill-growth-rings path) { animation: none !important; }
+  #root #main :is(.skill-water-pearl,.skill-branch-lettering text) { transition: none; }
+}

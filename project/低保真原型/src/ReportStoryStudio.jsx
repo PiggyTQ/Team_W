@@ -1,4 +1,5 @@
 import React,{useRef,useState} from 'react';
+import {taskCopy} from './native-task-copy.js';
 import {confirmed,cname} from './model';
 import {planningReportBody} from './continuity-model';
 import {reportRows,reportIsStale} from './alignment-model';
@@ -29,7 +30,7 @@ export default function ReportStoryStudio({s,link}){
   {!expanded&&<nav className="archive-page-turn" aria-label="报告板块翻阅"><button disabled={index===0} onClick={()=>choose(themes[index-1])}>上一板块</button><span>{index+1} / {themes.length}</span><button disabled={index===themes.length-1} onClick={()=>choose(themes[index+1])}>下一板块</button></nav>}
   </article><details className="archive-source-notes archive-record-drawer" aria-label="本板块相关记录"><summary><span>本板块记录与依据</span><small>展开原始记录</small></summary><div className="archive-record-content">
    {selected==='choice'&&<><div className="story-source-record"><span>当前方向</span><h4>{s.goal?cname(s.goal):'还没有选定长期方向'}</h4><p>{s.decision.reason||'选择理由尚未记录，可以先带着问题探索。'}</p></div><div className="story-source-record"><span>想验证的问题</span><p>{s.decision.question||'暂未记录。可以回比较页，写下最想弄清的一件事。'}</p></div></>}
-   {selected==='action'&&(s.tasks.length?s.tasks.map(t=><div className="story-source-record" key={t.id}><h4>{link(taskRoute(s,t),t.title)}</h4><p>{t.status} · {t.attempts.length?'成果 v'+t.attempts.at(-1).version:'尚无提交版本'} · {t.check}</p><small>{t.contribution||'本人贡献尚未补充'}；任务完成、提交和检查分别记录。</small></div>):<div className="studio-empty"><ControlIcon name="route" size={25}/><p>还没有实际行动记录。先选一次有限实践，之后再把发生的过程放进报告。</p>{link('/learning','先预览一次实践 →')}</div>)}
+   {selected==='action'&&(s.tasks.length?s.tasks.map(t=><div className="story-source-record" key={t.id}><h4>{link(taskRoute(s,t),taskCopy(t,'title'))}</h4><p>{t.status} · {t.attempts.length?'成果 v'+t.attempts.at(-1).version:'尚无提交版本'} · {t.check}</p><small>{t.contribution||'本人贡献尚未补充'}；任务完成、提交和检查分别记录。</small></div>):<div className="studio-empty"><ControlIcon name="route" size={25}/><p>还没有实际行动记录。先选一次有限实践，之后再把发生的过程放进报告。</p>{link('/learning','先预览一次实践 →')}</div>)}
    {selected==='evidence'&&(facts.length?facts.map(c=><details className="story-source-record" key={c.id}><summary>{c.title}<small>材料 v{c.version} · {c.skill||'技能待说明'}</small></summary><p>{c.text}</p><p>本人贡献：{c.contribution||'待说明'}</p><small>{c.aid||'辅助方式未提供'}；本人确认，未独立实核。</small></details>):<div className="studio-empty"><ControlIcon name="file" size={25}/><p>还没有确认材料。已有课程项目、作品或实习经历都可以先整理。</p>{link('/assessment','整理并核对经历 →')}</div>)}
    {selected==='review'&&<><div className="studio-private"><ControlIcon name="file" size={23}/><div><h4>私人反思留在你手里。</h4><p>这里只展示复盘记录的存在。结果、困难和调整正文默认不进入报告；导出时再逐条主动选择。</p></div></div>{s.reviews.map(r=><div className="story-source-record" key={r.id}><h4>{r.date||'日期未知'} · {r.type||'本人复盘'}</h4>{link('/plan?tab=复盘'+(r.taskId?'&task='+encodeURIComponent(r.taskId):''),'回原处查看本人复盘 →')}</div>)}</>}
    <div className="story-source-action">{link(active.to,active.action+' →')}</div>

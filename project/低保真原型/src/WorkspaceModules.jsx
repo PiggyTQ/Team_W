@@ -1,4 +1,5 @@
 import React from 'react';
+import {taskCopy} from './native-task-copy.js';
 import {careers,learning,cname,confirmed} from './model';
 import {validCompareIds} from './site-quality-model';
 import {pendingMaterials} from './workspace-guidance';
@@ -27,7 +28,7 @@ export function HomeActionContext({s,task,fresh}){
 export function HomeWeekSummary({s,link}){
  const rank={'受阻':0,'进行中':1,'待开始':2},tasks=s.tasks.filter(t=>Object.hasOwn(rank,t.status)).sort((a,b)=>rank[a.status]-rank[b.status]).slice(0,2);
  const samples=[...learning.filter(item=>item.career===s.goal),...learning].filter((item,index,all)=>all.findIndex(other=>other.id===item.id)===index).slice(0,2);
- return <div className="home-week-summary"><h3>{tasks.length?'当前行动':'可先预览'}</h3><ul>{tasks.length?tasks.map(task=><li key={task.id}>{link('/plan?tab=执行&task='+encodeURIComponent(task.id),<><span className="week-entry-title" translate="no">{task.title}</span><small>{task.status} · {task.hours} 小时预计投入</small></>)}</li>):samples.map(item=><li key={item.id}>{link('/learning?tab=短体验&unit='+item.id,<><span className="week-entry-title">{item.title}</span><small>{item.hours} 小时预计投入 · 先预览</small></>)}</li>)}</ul></div>;
+ return <div className="home-week-summary"><h3>{tasks.length?'当前行动':'可先预览'}</h3><ul>{tasks.length?tasks.map(task=><li key={task.id}>{link('/plan?tab=执行&task='+encodeURIComponent(task.id),<><span className="week-entry-title" translate="no">{taskCopy(task,'title')}</span><small>{task.status} · {task.hours} 小时预计投入</small></>)}</li>):samples.map(item=><li key={item.id}>{link('/learning?tab=短体验&unit='+item.id,<><span className="week-entry-title">{item.title}</span><small>{item.hours} 小时预计投入 · 先预览</small></>)}</li>)}</ul></div>;
 }
 
 export default function WorkspaceModules({s,link,open,showDetail}){

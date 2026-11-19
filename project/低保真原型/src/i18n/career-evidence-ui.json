@@ -1,0 +1,104 @@
+{
+  "zh": {
+    "contribution": "本人贡献",
+    "limits": "适用范围",
+    "jobIntent": "岗位意向",
+    "mapTitle": "实践中学到的做法",
+    "mapEmpty": "尚无已记录的实践做法。",
+    "practiced": "已实践",
+    "demoPractice": "演示实践",
+    "demo": "演示",
+    "skillCheck": "通过技能检验",
+    "skillChecks": "通过的技能检验",
+    "outcomes": "已完成项目",
+    "exportTitle": "职业成长摘要",
+    "exportButton": "下载成长摘要",
+    "openReview": "查看复盘",
+    "methods": {
+      "dataQuality": {
+        "title": "处理有问题的数据",
+        "description": "核对重复、缺失或冲突，记录保留、去重或排除的理由。"
+      },
+      "pairedEvaluation": {
+        "title": "设计可复核的对照评测",
+        "description": "用同一批案例和同一套规则比较两个方案，单独记录权限错误。"
+      },
+      "scopeOfConclusion": {
+        "title": "判断结论的适用范围",
+        "description": "说明现有证据能支持什么判断，标出还需要数据或测试的部分。"
+      },
+      "correlateLogs": {
+        "title": "串联日志线索",
+        "description": "用账号、主机和会话对齐日志，再核对事件之间的关系。"
+      },
+      "triageAlert": {
+        "title": "判断告警是否需要升级",
+        "description": "结合已关联的证据，记录关闭告警或提交进一步核验的理由。"
+      },
+      "compareRecovery": {
+        "title": "用可比指标排查故障",
+        "description": "在同一观察窗口比较错误率和资源使用情况，定位异常范围。"
+      },
+      "rollbackDecision": {
+        "title": "为上线异常制定回退方案",
+        "description": "先界定候选组的影响范围，再决定何时暂停扩量或发起回退。"
+      }
+    },
+    "steps": {
+      "scope": "界定问题",
+      "evidence": "核对证据",
+      "decision": "结果与判断"
+    }
+  },
+  "en": {
+    "contribution": "My contribution",
+    "limits": "Scope",
+    "jobIntent": "Role of interest",
+    "mapTitle": "Methods learned in practice",
+    "mapEmpty": "No practice methods recorded yet.",
+    "practiced": "Practiced",
+    "demoPractice": "Demo practice",
+    "demo": "Demo",
+    "skillCheck": "Passed skill check",
+    "skillChecks": "Passed skill checks",
+    "outcomes": "Completed projects",
+    "exportTitle": "Career growth brief",
+    "exportButton": "Download growth brief",
+    "openReview": "Open review",
+    "methods": {
+      "dataQuality": {
+        "title": "Handle data quality problems",
+        "description": "Check for duplicates, missing values, or conflicts and record why each entry was kept, deduplicated, or excluded."
+      },
+      "pairedEvaluation": {
+        "title": "Design a reproducible comparison",
+        "description": "Evaluate two approaches with the same cases and criteria, and track authorization errors separately."
+      },
+      "scopeOfConclusion": {
+        "title": "Set the scope of a conclusion",
+        "description": "State what the evidence supports and identify what still needs more data or testing."
+      },
+      "correlateLogs": {
+        "title": "Connect clues across logs",
+        "description": "Align log entries by account, host, and session, then check how the events relate."
+      },
+      "triageAlert": {
+        "title": "Decide when to escalate alerts",
+        "description": "Use correlated evidence to record why an alert should be closed or escalated for verification."
+      },
+      "compareRecovery": {
+        "title": "Diagnose incidents with comparable metrics",
+        "description": "Compare error rates and resource usage across the same observation window to locate the affected scope."
+      },
+      "rollbackDecision": {
+        "title": "Plan a rollback when a release degrades",
+        "description": "Identify the affected rollout group and decide when to pause expansion or initiate a rollback."
+      }
+    },
+    "steps": {
+      "scope": "Frame the problem",
+      "evidence": "Review evidence",
+      "decision": "Results and decision"
+    }
+  }
+}

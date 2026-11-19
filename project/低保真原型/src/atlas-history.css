@@ -1,0 +1,23 @@
+.atlas-task-context, .atlas-material-return {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 18px;
+  padding: 12px 15px;
+  border: 1px solid #d8e4eb;
+  border-radius: 10px;
+  background: #f3f8fb;
+  color: #244765;
+  font-size: .87rem;
+}
+.atlas-task-context > div { flex: 1; min-width: 0; }
+.atlas-task-context :is(span,small) { display: block; }
+.atlas-task-context small, .atlas-material-return span { color: #506c80; font-size: .79rem; }
+.atlas-task-context > details { flex-basis: 100%; border: 0; padding: 0; background: transparent; }
+.atlas-task-context summary { cursor: pointer; }
+.atlas-task-context ol { margin: 8px 0 0; padding-inline-start: 22px; }
+@media (max-width: 520px) {
+  .atlas-task-context > div { flex-basis: 100%; }
+}
+

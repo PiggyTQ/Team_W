@@ -1,0 +1,239 @@
+{
+  "files": [
+    {
+      "path": "ai-eval/chapters/01.md",
+      "bytes": 647,
+      "sha256": "881df04f8c8aa06a474ebd1f93656f09af5c2d598b17588e669713d54e2a8592"
+    },
+    {
+      "path": "ai-eval/chapters/02.md",
+      "bytes": 575,
+      "sha256": "83db76aa684475b7224930ee8e1b3a5070a3ae94d7cebcaea6efc7db0f2949b8"
+    },
+    {
+      "path": "ai-eval/chapters/03.md",
+      "bytes": 556,
+      "sha256": "c3567a7a2bd5f4d78c55aa4c899b425cf4c71fab333ce9eef95b22f6a1125a16"
+    },
+    {
+      "path": "ai-eval/chapters/04.md",
+      "bytes": 392,
+      "sha256": "bbf26c489cac488077b47d006fb773f774c2d5a069e2d96d787170917d1edfc9"
+    },
+    {
+      "path": "ai-eval/course.md",
+      "bytes": 1008,
+      "sha256": "21da0d14c9c9952e5cc9abdd8126ab8518a8132ca627d0e60652b2c2bb0bc7a1"
+    },
+    {
+      "path": "ai-eval/practice/input/worksheet.csv",
+      "bytes": 1147,
+      "sha256": "8db8349ca334eeab512c8e4176fa1a640836c89842972a48b48343351fe75fe3"
+    },
+    {
+      "path": "ai-eval/practice/rubric.md",
+      "bytes": 349,
+      "sha256": "288ff3157bb1f68f0541f00bbcae40f95c16bf20030cb7e8a288bc640b756172"
+    },
+    {
+      "path": "ai-eval/practice/task.md",
+      "bytes": 413,
+      "sha256": "5b7c9d8b57638d4eded75901d37f890617c99cc0c6e6fa832cbf4439d0309380"
+    },
+    {
+      "path": "ai-eval/project.json",
+      "bytes": 28927,
+      "sha256": "8978225890eb43f1826c5fe04ea34329f9c9aaba896a747df2396f878927b59a"
+    },
+    {
+      "path": "ai-eval/reference/reading-notes.md",
+      "bytes": 244,
+      "sha256": "4c4b3342e614142e945b2f84913f9cb47a60f9a9f489abca5ee377742ae31ee6"
+    },
+    {
+      "path": "catalog-ready.json",
+      "bytes": 22377,
+      "sha256": "45c8cb1c1c105224b6a4ff5d216ccb97509bf9c63d88104d35ff9a330c2c187b"
+    },
+    {
+      "path": "log/chapters/01.md",
+      "bytes": 688,
+      "sha256": "6fda94cc9acc4c34815d2910d63d29559e42079b0821b2f0ff007a03839f0da3"
+    },
+    {
+      "path": "log/chapters/02.md",
+      "bytes": 706,
+      "sha256": "3002fc7ac968aa9f40e35ef639602d59cb2b197ab1f0a9adc87882511c85e80a"
+    },
+    {
+      "path": "log/chapters/03.md",
+      "bytes": 418,
+      "sha256": "af88bc2a36be320d06c0ab93dfd607abbeda7890a366b4dd522be22071bd3b16"
+    },
+    {
+      "path": "log/chapters/04.md",
+      "bytes": 296,
+      "sha256": "bdc703a9e97133566b5a03cf33a0ee0cc1d596d1685b86b4b6b990630195a9b5"
+    },
+    {
+      "path": "log/course.md",
+      "bytes": 1167,
+      "sha256": "4a6f12041aa4847abb8c1da4214973f79bfe121104fa2c01f0d9bb9d6a1bba3b"
+    },
+    {
+      "path": "log/practice/input/worksheet.csv",
+      "bytes": 1171,
+      "sha256": "5b35257d33182868dfe71256b5732be4d60cdc6928233482569198e5858eaa4f"
+    },
+    {
+      "path": "log/practice/rubric.md",
+      "bytes": 370,
+      "sha256": "bd2867dc99ae4d488aef0104bb746f0684d486b18601e3e72c7d7a2fa7bd1689"
+    },
+    {
+      "path": "log/practice/task.md",
+      "bytes": 461,
+      "sha256": "fde2fda31b7cac2e2a1ba716ab262cb5433adfdbf814ca39a7e6e98127940476"
+    },
+    {
+      "path": "log/project.json",
+      "bytes": 26102,
+      "sha256": "6f4e7bd44cd5bc19d9a1eb9949c734d7436cc77db1601707ee0524b04eab6467"
+    },
+    {
+      "path": "log/reference/reading-notes.md",
+      "bytes": 286,
+      "sha256": "3c8bbb45c049ef2fe2a51c2e7a3e9e4b896e12d1107c5bd7eef240913a50e15c"
+    },
+    {
+      "path": "quality/chapters/01.md",
+      "bytes": 862,
+      "sha256": "8ac58c04a0c71d26676a3b3683449c46e9fcc32523cfa003662437ff3888cc67"
+    },
+    {
+      "path": "quality/chapters/02.md",
+      "bytes": 817,
+      "sha256": "82d78019859cc8c63402f27ac3eac14b66bed210ba1aad69017e84d2ed8798f5"
+    },
+    {
+      "path": "quality/chapters/03.md",
+      "bytes": 667,
+      "sha256": "dadf631a10a470591ba4784f2ae21526a39dd76ef1f4ced69fe96c2e66bd567a"
+    },
+    {
+      "path": "quality/chapters/04.md",
+      "bytes": 703,
+      "sha256": "7de709c924b7bf883cb08a8ea1cba839afda342221f0f9f9c5212353d07d6747"
+    },
+    {
+      "path": "quality/course.md",
+      "bytes": 1586,
+      "sha256": "f2203b1aaf5719b0c41c9b0f0ecd89ee642d71ca5c2437cfd340374f4a382302"
+    },
+    {
+      "path": "quality/dft-source.csv",
+      "bytes": 681,
+      "sha256": "6fef8214e24ae2bbb96db82bfd5f3a3fbecf664c1e6bbbec92651ab717f0b7de"
+    },
+    {
+      "path": "quality/practice/input/dft-source.csv",
+      "bytes": 681,
+      "sha256": "6fef8214e24ae2bbb96db82bfd5f3a3fbecf664c1e6bbbec92651ab717f0b7de"
+    },
+    {
+      "path": "quality/practice/input/source-receipt.json",
+      "bytes": 932,
+      "sha256": "9efb8d2eb63f6f2cb5704cff1e5b705e00aa7bd163a2689d7264321c9d4a9983"
+    },
+    {
+      "path": "quality/practice/input/worksheet.csv",
+      "bytes": 1000,
+      "sha256": "80820d4e97a39f833caf8f327bd840642aa0dd905a3880a21fcef518d7d6058a"
+    },
+    {
+      "path": "quality/practice/rubric.md",
+      "bytes": 448,
+      "sha256": "1202c32f8de5a375bad76efffcbd39745e6d31c4ef1776e5048ba31c4ff49a41"
+    },
+    {
+      "path": "quality/practice/task.md",
+      "bytes": 498,
+      "sha256": "8cd942f5dfb315301349e7f5a43a8dec8f191d689c89d8d8bce584b653da0e05"
+    },
+    {
+      "path": "quality/project.json",
+      "bytes": 31459,
+      "sha256": "4fb2f05a538dfcba4cbe2353e4f5c4428e875c445cd3487c59b293ce06990772"
+    },
+    {
+      "path": "quality/reference/reading-notes.md",
+      "bytes": 377,
+      "sha256": "337a55e851f71293b05df2a02f2386e7123007e9401f978a6ab20e3000ca1882"
+    },
+    {
+      "path": "quality/source-receipt.json",
+      "bytes": 932,
+      "sha256": "9efb8d2eb63f6f2cb5704cff1e5b705e00aa7bd163a2689d7264321c9d4a9983"
+    },
+    {
+      "path": "restore/chapters/01.md",
+      "bytes": 629,
+      "sha256": "a1c0ae556a1b9f62db46318492b1f29557b48e13acd7bf7ff56d7e9790b0ef83"
+    },
+    {
+      "path": "restore/chapters/02.md",
+      "bytes": 538,
+      "sha256": "039107405fd79b8e038079aac9e60584137d0ff21ca7aef7a5aa5248cd35c5da"
+    },
+    {
+      "path": "restore/chapters/03.md",
+      "bytes": 545,
+      "sha256": "382155a21f7809fa8e53411a9edae632b0e6924538a632d7549a0b6375fd3716"
+    },
+    {
+      "path": "restore/chapters/04.md",
+      "bytes": 463,
+      "sha256": "c9b654de2bbc1152d6648044ad9661d5933ca240d439ef1ff98800810eeb3509"
+    },
+    {
+      "path": "restore/course.md",
+      "bytes": 1001,
+      "sha256": "61e1976f6c71dedd937eb33fa81c166f696162fd057282641cada78f15cf7980"
+    },
+    {
+      "path": "restore/practice/input/worksheet.csv",
+      "bytes": 863,
+      "sha256": "073dc81bb218011380d8d33a58260b5e743a2b16bc49982197eff2a49b6caeb1"
+    },
+    {
+      "path": "restore/practice/rubric.md",
+      "bytes": 358,
+      "sha256": "3ae262c6b7a71c0b492ccc7a559eb1881dbd459fb57d133bb816970732c635a3"
+    },
+    {
+      "path": "restore/practice/task.md",
+      "bytes": 428,
+      "sha256": "cef70841ec513f8a553d6bc87a66afcf17cece024a86a464317d9140ec2fd42e"
+    },
+    {
+      "path": "restore/project.json",
+      "bytes": 25711,
+      "sha256": "2d984593ce8513ae8cc809ef6ced9999b1c69360bea809c98ae152dcdd790806"
+    },
+    {
+      "path": "restore/reference/reading-notes.md",
+      "bytes": 293,
+      "sha256": "aec191d94425a4f5dcf477398f4b76616b626d6545e4bb3cac362918553ad0fa"
+    },
+    {
+      "path": "sources.csv",
+      "bytes": 6984,
+      "sha256": "8d67641940d0984ef91020ab8975fd1e3a02f679d0fde0792ce82be1170339cc"
+    },
+    {
+      "path": "来源说明.md",
+      "bytes": 586,
+      "sha256": "7a2fa2c215544647b9845315bf4f01897423be4725c0ebe7f4699cad2b72106b"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" font-family="Microsoft YaHei, sans-serif">
+<rect width="1200" height="740" fill="#f8f6ef"/>
+<rect x="34" y="28" width="1132" height="48" rx="12" fill="#fffdfa" stroke="#e4ded1"/>
+<g font-size="15" fill="#45617a"><text x="60" y="58" font-weight="700" fill="#084774">成长回顾</text><text x="188" y="58">推荐岗位与匹配</text><text x="338" y="58">工作特点与要求</text><text x="491" y="58">建议补充项目</text></g>
+<path d="M58 73h63" stroke="#125a88" stroke-width="3"/>
+<rect x="34" y="90" width="1132" height="613" rx="18" fill="#fffdfa" stroke="#e4ded1"/>
+<g fill="#173d60"><text x="64" y="137" font-size="26" font-weight="700">成长回顾</text><text x="65" y="174" font-size="16">初级数据分析实习 · 演示意向</text></g>
+<g fill="#2e5d81" font-size="15"><text x="65" y="206">2 项已完成成果</text><text x="236" y="206">1 项技能检验</text><text x="397" y="206">2 项已复盘行动</text></g>
+<rect x="956" y="121" width="176" height="42" rx="8" fill="#edf5fa" stroke="#d2e3ef"/><text x="978" y="148" fill="#125283" font-size="15">下载实践成果摘要</text>
+<rect x="63" y="230" width="1073" height="272" rx="15" fill="#edf5fa"/>
+<text x="87" y="267" font-size="20" font-weight="700" fill="#173d60">能力证据网图</text><text x="87" y="291" font-size="13" fill="#455f77">每条轴显示有对应证据的项目数</text>
+<g stroke="#b4cddf" fill="none"><polygon points="291,314 352,349 352,420 291,455 230,420 230,349"/><polygon points="291,349 322,367 322,402 291,420 260,402 260,367"/><path d="M291 314v141m-61-106 122 71m0-71-122 71"/></g>
+<polygon points="291,314 322,367 352,420 291,455 260,402 230,349" fill="#4686b1" fill-opacity=".17" stroke="#337ca8" stroke-width="2"/>
+<g fill="#173d60" font-size="13"><text x="266" y="308">问题界定</text><text x="363" y="352">数据核对</text><text x="363" y="425">比较分析</text><text x="265" y="478">交付表达</text><text x="157" y="425">风险判断</text><text x="157" y="352">复核迭代</text></g>
+<line x1="535" y1="307" x2="535" y2="477" stroke="#c4d7e6"/>
+<g fill="#173d60"><text x="560" y="329" font-size="17" font-weight="700">数据核对 · 1 个项目</text><text x="560" y="369" font-size="15">数据质量小项目 · 演示</text><text x="560" y="405" font-size="14">识别重复记录、字段缺失与同编号冲突，保留排除依据。</text><text x="560" y="441" font-size="14">证据行 Q02 / Q03 / Q17 / Q18 · 查看原产物</text></g>
+<text x="65" y="550" font-size="20" font-weight="700" fill="#173d60">项目产物与贡献</text>
+<g font-size="15" fill="#173d60"><text x="65" y="592">数据质量小项目  ·  演示</text><text x="65" y="620">18 行摘录 → 14 条可按限速复算的记录</text><text x="65" y="649">本人贡献、证据行、结论限制与项目复盘</text><text x="637" y="592">客服助手评测项目  ·  演示</text><text x="637" y="620">A 9/12，B 11/12 → B 进入人工复核和补测</text><text x="637" y="649">本人贡献、证据行、结论限制与项目复盘</text></g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1170" height="550" viewBox="0 0 1170 550" font-family="Microsoft YaHei, sans-serif">
+  <rect width="1170" height="550" fill="#f8f6ef"/>
+  <rect x="24" y="23" width="1122" height="503" rx="16" fill="#fffdfa" stroke="#e2dacb"/>
+  <text x="51" y="73" fill="#133e60" font-size="28" font-weight="700">成长回顾</text>
+  <text x="53" y="108" fill="#536d83" font-size="14">岗位意向</text>
+  <text x="128" y="108" fill="#173f61" font-size="15" font-weight="700">初级数据分析实习</text>
+  <rect x="953" y="61" width="165" height="43" rx="8" fill="#eef5fa" stroke="#d3e0e8"/>
+  <text x="977" y="88" fill="#163e61" font-size="15">下载成长摘要</text>
+  <rect x="52" y="138" width="1066" height="244" rx="14" fill="#edf5fa" stroke="#d5e5ef"/>
+  <text x="75" y="175" fill="#133e60" font-size="20" font-weight="700">实践中学到的做法</text>
+  <path d="M80 209H1094" stroke="#a7c8dc" stroke-width="2"/>
+  <g fill="#22668c"><circle cx="84" cy="209" r="6"/><circle cx="429" cy="209" r="6"/><circle cx="773" cy="209" r="6"/></g>
+  <g fill="#133e60" font-size="19" font-weight="700"><text x="76" y="250">处理有问题的数据</text><text x="421" y="250">设计可复核的对照评测</text><text x="765" y="250">判断结论的适用范围</text></g>
+  <g fill="#395870" font-size="15">
+    <text x="77" y="281">核对重复、缺失或冲突，记录每种</text><text x="77" y="305">问题的处理理由。</text>
+    <text x="421" y="281">用同一批案例和同一套规则对比</text><text x="421" y="305">两个方案，单独记录权限错误。</text>
+    <text x="765" y="281">明确现有证据能支撑什么判断，</text><text x="765" y="305">还有哪些问题需要继续验证。</text>
+  </g>
+  <g fill="#765321" font-size="13"><text x="77" y="346">演示实践  ＋</text><text x="421" y="346">演示实践  ＋</text><text x="765" y="346">演示实践  ＋</text></g>
+  <text x="53" y="424" fill="#133e60" font-size="16" font-weight="700">通过的技能检验</text>
+  <text x="194" y="424" fill="#195b7c" font-size="15">抽样与偏差</text>
+  <path d="M52 446H1118M52 486H1118" stroke="#dbe4eb"/>
+  <text x="53" y="471" fill="#254e6d" font-size="15">查看已完成项目和复盘</text>
+  <text x="53" y="510" fill="#254e6d" font-size="15">查看评估到复盘的成长路径</text>
+</svg>

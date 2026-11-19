@@ -1,7 +1,15 @@
-import React,{useRef,useState} from 'react';
+import React,{useEffect,useRef,useState} from 'react';
+import {taskCopy} from './native-task-copy.js';
 import {buildCareerReport} from './career-report-model';
 import {reportIsStale,reportRows} from './alignment-model';
 import {savedReportBrief} from './output-workspace-model';
+import {CareerJourneyStages} from './CareerJourney';
+import CareerReportEvidence from './CareerReportEvidence';
+import {buildCareerEvidence} from './career-evidence-model';
+import {reportInsights} from './report-insights-model';
+import {ReportGrowth,ReportMatches,ReportRequirements,ReportNext} from './CareerReportPanels';
+import {useLanguage} from './i18n/render';
+import copy from './i18n/report-full-ui.json';
 import './career-report.css';
 
 export function ReportSnapshotBrief({report,blocked}){
@@ -10,30 +18,82 @@ export function ReportSnapshotBrief({report,blocked}){
  return <details className="output-snapshot-summary" aria-label="保存报告摘要"><summary>查看这份报告的摘要</summary><p>以下内容取自这份保存快照，后续资料不会自动改写它。</p><dl>{entries.map(row=><div key={row.title}><dt>{row.title}</dt><dd>{row.text}</dd></div>)}</dl></details>;
 }
 
-const chapters=[['profile','项目、能力与背景'],['recommendations','推荐岗位与匹配'],['requirements','工作特点与要求'],['projects','建议补充项目']];
-const compact=value=>(value||'').length>180?value.slice(0,180)+'…':value;
+const chapters=['profile','recommendations','requirements','projects'];
+const initialChapter=()=>chapters.includes(location.hash.slice(1))?location.hash.slice(1):'profile';
+
 export default function ReportDecisionDesk({s,link}){
- const sources=s.reportSources||{status:'loading'},report=buildCareerReport(s,{uploads:sources.status==='ready'?sources.uploads:undefined,planRecords:sources.planRecords});
- const {background,personality,plan,work}=report,ready=sources.status==='ready'&&!sources.planError;
- const [active,setActive]=useState('profile'),sections=useRef({});
- const choose=id=>{setActive(id);const section=sections.current[id];section?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});section?.querySelector('h2')?.focus({preventScroll:true});};
- const candidate=work?report.comparisons.find(item=>item.id===work.id):null;
+ const language=useLanguage(),t=copy[language];
+ const sources=s.reportSources||{status:'loading'};
+ const report=buildCareerReport(s,{uploads:sources.status==='ready'?sources.uploads:undefined,
+  planRecords:sources.planRecords,getSkillTree:sources.getSkillTree});
+ const evidence=buildCareerEvidence(s,report.projects);
+ const [active,setActive]=useState(initialChapter),[target,setTarget]=useState(()=>new URLSearchParams(location.search).get('career')),[animate,setAnimate]=useState(false);
+ const insights=reportInsights(s,report,evidence,target);
+ const journey=sources.live?sources.journey:report.journey;
+ const ready=sources.status==='ready'&&!sources.planError;
+ const sections=useRef({}),tabs=useRef({});
+ const taskTitle=(id,title)=>{
+  const task=s.tasks.find(row=>row.id===id);
+  return task?.title?.trim()===title?taskCopy(task,'title'):title;
+ };
+ const choose=(id,motion=false)=>{
+  setAnimate(motion);
+  setActive(id);
+  history.replaceState(history.state,'',location.pathname+location.search+'#'+id);
+  requestAnimationFrame(()=>sections.current[id]?.querySelector('h2')?.focus({preventScroll:true}));
+ };
+ const keyboard=(event,index)=>{
+  const next={ArrowRight:(index+1)%4,ArrowLeft:(index+3)%4,Home:0,End:3}[event.key];
+  if(next===undefined)return;
+  event.preventDefault();
+  const id=chapters[next];
+  setAnimate(false);setActive(id);tabs.current[id]?.focus();
+  history.replaceState(history.state,'',location.pathname+location.search+'#'+id);
+ };
+ useEffect(()=>{
+  const readHash=()=>{if(chapters.includes(location.hash.slice(1))){setAnimate(false);setActive(location.hash.slice(1));}};
+  window.addEventListener('hashchange',readHash);
+  return()=>window.removeEventListener('hashchange',readHash);
+ },[]);
+ const changeTarget=id=>{
+  setTarget(id);
+  const params=new URLSearchParams(location.search);
+  params.set('career',id);
+  history.replaceState(history.state,'',location.pathname+'?'+params+'#'+active);
+ };
+ const inspect=id=>{changeTarget(id);choose('requirements',true);};
  const saved=[...s.reports].reverse();
- return <div className="career-report" aria-label="职业综合报告预览">
- {!ready&&<div className="notice" role={sources.status==='loading'?'status':'alert'}><p>{sources.status==='loading'?'正在汇总项目与目标记录…':sources.planError?'目标记录无法读取，请先回目标计划检查，原记录不会被覆盖。':'项目来源读取失败，请重试后查看综合报告。'}</p>{sources.status!=='loading'&&<button onClick={()=>sources.reload?.().catch(()=>{})}>重新读取报告来源</button>}</div>}
- <div className="career-report-layout"><nav className="career-report-nav" aria-label="综合报告章节">{chapters.map(([id,title],index)=><button key={id} aria-current={active===id?'location':undefined} onClick={()=>choose(id)}><span aria-hidden="true">{String(index+1).padStart(2,'0')}</span><span>{title}</span></button>)}<p>先看已有积累，再决定下一步投入。</p></nav><div className="career-report-body">
- <section className="career-report-section" id="career-report-profile" data-report-section="profile" ref={el=>{sections.current.profile=el;}}><header><span className="career-report-number" aria-hidden="true">01</span><div><h2 tabIndex={-1}>已完成项目、能力与背景</h2><p>把做过的项目和已有依据放在最前面。</p></div></header>
- <div className="career-report-projects"><div className="career-report-subhead"><h3>已完成项目</h3>{link('/learning?tab=我的资源','查看我的资源 →')}</div>{report.projects.length?<div className="career-completed-list">{report.projects.map(project=><article key={project.source+project.id} data-report-project={project.id}><div className="career-project-line"><h4 translate="no">{project.title}</h4><span className="career-report-tag">{project.source==='upload'?'自主上传':project.source==='practice'?'平台实践':'本人记录'}</span></div><p translate={project.description?"no":undefined}>{compact(project.description)||'成果说明待补充'}</p>{project.contribution&&<p className="career-project-contribution"><span>本人贡献</span><span translate="no">{compact(project.contribution)}</span></p>}{project.description.length>180&&<details><summary>展开完整成果说明</summary><p translate="no">{project.description}</p></details>}</article>)}</div>:<div className="career-report-empty"><p>{ready?'尚无已完成项目。完成实践或上传自己的成果后，会在这里汇总。':'项目记录正在核对，暂不判断是否已有成果。'}</p>{link('/learning?tab=资源中心','选择一个实践项目 →')}</div>}</div>
- <div className="career-background-grid"><section><h3>已有能力依据</h3>{background.claims.length?<ul className="career-evidence-list">{background.claims.map(claim=><li key={claim.id}><strong translate="no">{claim.skill||'技能待说明'}</strong><span translate="no">{claim.title}</span></li>)}</ul>:<p>尚无本人确认的能力材料。</p>}<div className="career-self-skills"><h4>能力拼图 · 本人自评</h4>{background.capabilities.mastered.length?<div className="career-skill-tags">{background.capabilities.mastered.map(skill=><span key={skill}>{skill}</span>)}</div>:<p>尚未标记已掌握的能力。</p>}</div>{link('/assessment?tab=原文确认','核对能力依据 →')}</section><section><h3>教育与个人背景</h3><p>{background.stage||'学习阶段待补充'}</p>{background.education.length?background.education.map(education=><article className="career-education" key={education.id}><h4 translate="no">{education.school}</h4><p translate="no">{[education.major,education.degree].filter(Boolean).join(' · ')}</p>{education.courses&&<p translate="no">{education.courses}</p>}</article>):<p>尚无已确认的教育经历。</p>}{background.conditions.map(condition=><p key={condition.title}><strong>{condition.title}</strong><span> · </span><span translate="no">{condition.text}</span></p>)}{link('/assessment?tab=资料经历','补充个人背景 →')}</section></div>
- </section>
- <section className="career-report-section" id="career-report-recommendations" data-report-section="recommendations" ref={el=>{sections.current.recommendations=el;}}><header><span className="career-report-number" aria-hidden="true">02</span><div><h2 tabIndex={-1}>推荐岗位与匹配程度</h2><p>先看材料支持，再核对性格偏好与实际工作方式。</p></div></header>
- <div className="career-personality"><div><h3>性格与工作偏好</h3><p>{personality.provided?<><strong>{personality.type||personality.groupName}</strong><span> · </span>{personality.groupName}</>:'尚未记录性格与工作偏好'}</p>{personality.provided&&<><p>{personality.preference}</p><div className="career-skill-tags">{personality.traits.map(trait=><span key={trait}>{trait}</span>)}</div></>}</div>{link('/assessment?tab=成果档案#assessment-profile','查看兴趣偏好 →')}</div>
- {ready&&report.recommendations.length?<><div className="career-recommendation-result"><span>{report.recommendationStatus==='recommended'?'当前最推荐的岗位方向':'当前并列优先的岗位方向'}</span><h3>{report.recommended?report.recommended.name:report.recommendedIds.map(id=>report.recommendations.find(item=>item.id===id)?.name).join(' / ')}</h3><p>{report.recommendationStatus==='tie'?'现有依据不足以区分先后，先比较实际任务与工作方式。':'结合明确技能材料、已完成项目与能力自评，优先核对这个方向。'}</p></div><div className="career-match-list">{report.recommendations.slice(0,3).map(item=><article key={item.id} data-report-recommendation={item.id}><div className="career-match-title"><h4>{item.name}</h4><div><strong>{item.coverage.percent}%</strong><span>技能依据覆盖</span></div></div><div className="career-match-track" role="img" aria-label={item.name+' '+item.coverage.known+' / '+item.coverage.total}><span style={{width:item.coverage.percent+'%'}}/></div><p><span>已有材料对应</span> {item.coverage.known} / {item.coverage.total} <span>项技能要求</span></p><div className="career-match-evidence">{item.matchedSkills.map(skill=><span key={skill.id}>{skill.name}</span>)}</div><p>{item.preference}</p><details><summary>查看匹配依据与缺项</summary><ul>{item.reasons.map(reason=><li key={reason}>{reason}</li>)}</ul><p><strong>尚缺材料的技能</strong></p><div className="career-skill-tags">{item.missingSkills.map(skill=><span key={skill.id}>{skill.name}</span>)}</div></details></article>)}</div></>:<div className="career-report-empty"><h3>资料不足，暂无法推荐最匹配岗位</h3><p>先补充能力材料和项目成果，再结合工作偏好进行比较。</p>{link('/assessment','回个人评估补充资料 →')}</div>}
- <p className="career-report-method">匹配程度采用技能依据覆盖，展示已填材料与岗位技能标签的对应数量；性格用于核对工作偏好，不决定岗位或能力分数。</p></section>
- <section className="career-report-section" id="career-report-requirements" data-report-section="requirements" ref={el=>{sections.current.requirements=el;}}><header><span className="career-report-number" aria-hidden="true">03</span><div><h2 tabIndex={-1}>岗位工作特点与能力要求</h2><p>{work?work.name:'待确定优先了解的方向'}</p></div></header>{work?<><p className="career-work-lead">{work.lead}</p><p>{work.conditions}</p><ol className="career-workflow">{work.workflow.map(step=><li key={step.title}><h3>{step.title}</h3><p>{step.description}</p><small>{step.output}</small></li>)}</ol><div className="career-work-collaboration"><h3>常见协作与工作方式</h3>{work.collaboration.map(item=><p key={item.role}><strong>{item.role}</strong><span>{item.exchange}</span></p>)}</div><div className="career-requirements-table"><h3>需要哪些能力</h3><table><thead><tr><th>能力</th><th>用途</th><th>当前依据</th></tr></thead><tbody>{candidate.skills.map(skill=><tr key={skill.id}><th>{skill.name}<small className="career-skill-level">{skill.level}</small></th><td>{skill.description}</td><td>{skill.references.length?'有材料关联':skill.selfReported?'本人自评 · 待补材料':'待补材料'}</td></tr>)}</tbody></table></div><p className="career-report-method">以上是职业任务与学习参考，具体岗位条件需对照岗位原文核对。</p></>:<div className="career-report-empty"><p>明确一个感兴趣的方向后，再查看对应的工作特点和能力要求。</p>{link('/careers','了解职业方向 →')}</div>}</section>
- <section className="career-report-section" id="career-report-projects" data-report-section="projects" ref={el=>{sections.current.projects=el;}}><header><span className="career-report-number" aria-hidden="true">04</span><div><h2 tabIndex={-1}>下一步建议补充的项目</h2><p>针对缺少依据的能力补充成果，先预览，再决定实践投入。</p></div></header>{report.learningSuggestions.map(item=><article className="career-next-project" key={item.id} data-report-suggestion={item.id}><h3>{item.title}</h3><p>{item.reason}</p>{item.focusSkills.length>0&&<div className="career-skill-tags">{item.focusSkills.map(skill=><span key={skill}>{skill}</span>)}</div>}<p className="career-project-deliverable"><strong>建议交付</strong><span>{item.deliverable}</span></p><details><summary>查看实践步骤与自查要求</summary><ol>{item.steps.map(step=><li key={step}>{step}</li>)}</ol><ul>{item.checks.map(check=><li key={check}>{check}</li>)}</ul></details>{link(item.to,item.kind==='continue'?'继续已有行动 →':'预览补充项目 →','button primary')}</article>)}<div className="career-plan-context"><h3>与当前目标计划衔接</h3><p><span>当前目标</span><strong>{plan.goal?.name||'尚未确定'}</strong><span>每周预计投入</span><strong>{plan.weeklyHours===null?'待补充':plan.weeklyHours+' h'}</strong></p>{plan.periodGoals.length>0&&<ul>{plan.periodGoals.slice(0,6).map(goal=><li key={goal.id} translate="no">{goal.title}</li>)}</ul>}{plan.question&&<p translate="no">{plan.question}</p>}{link('/plan','回目标计划安排 →')}</div></section>
- <details className="career-report-limits"><summary>报告依据与匹配方式说明</summary><ul>{report.limitations.map(line=><li key={line}>{line}</li>)}</ul></details>
- </div></div>
- <details className="career-report-library" aria-label="已保存的阶段报告"><summary>已保存的报告 <span>{saved.length}</span></summary>{saved.length?saved.map(item=><article key={item.id}><div><h3>{link('/reports/'+encodeURIComponent(item.id),item.title)}</h3><p>{item.date?.slice(0,10)} · v{item.version} · {reportIsStale(s,item)?'依据有变化':'保存快照'}</p></div>{link('/reports/'+encodeURIComponent(item.id),'打开报告 →','button')}</article>):<p>暂无历史报告。</p>}</details>
+ const common={s,report,evidence,insights,onTarget:changeTarget,taskTitle,t,link};
+ return <div className="career-report report-full" aria-label="职业综合报告预览">
+  {!ready&&<div className="notice" role={sources.status==='loading'?'status':'alert'}>
+   <p>{sources.status==='loading'?'正在汇总项目与目标记录…':sources.planError?'目标记录无法读取，请先回目标计划检查，原记录不会被覆盖。':'项目来源读取失败，请重试后查看综合报告。'}</p>
+   {sources.status!=='loading'&&<button onClick={()=>sources.reload?.().catch(()=>{})}>重新读取报告来源</button>}
+  </div>}
+  <div className="career-report-layout">
+   <nav className="career-report-nav" role="tablist" aria-label="综合报告章节">
+    {chapters.map((id,index)=><button key={id} ref={el=>{tabs.current[id]=el;}} type="button" role="tab"
+     id={'report-tab-'+id} aria-controls={'career-report-'+id} aria-selected={active===id} tabIndex={active===id?0:-1}
+     onKeyDown={event=>keyboard(event,index)} onClick={event=>choose(id,event.detail>0)}>{t.tabs[index]}</button>)}
+   </nav>
+   <div className="career-report-body">
+    {chapters.map((id,index)=><section key={id} role="tabpanel" tabIndex={-1}
+      className={'career-report-section'+(active===id&&animate?' is-entering':'')}
+      aria-labelledby={'report-tab-'+id} hidden={active!==id}
+      id={'career-report-'+id} data-report-section={id} ref={el=>{sections.current[id]=el;}}>
+     <header><h2 tabIndex={-1}>{t.tabs[index]}</h2>
+      {id==='profile'&&<CareerReportEvidence {...{evidence,link,ready,taskTitle}}/>}
+     </header>
+     {id==='profile'&&<>
+      <ReportGrowth {...common}/>
+      {journey&&<div className="report-journey-open"><CareerJourneyStages {...{journey,link}}/></div>}
+     </>}
+     {id==='recommendations'&&<ReportMatches {...common} onInspect={inspect}/>}
+     {id==='requirements'&&<ReportRequirements {...common}/>}
+     {id==='projects'&&<ReportNext {...common}/>}
+    </section>)}
+   </div>
+  </div>
+  <details className="career-report-limits"><summary>报告依据与匹配方式说明</summary><ul>{report.limitations.map(line=><li key={line}>{line}</li>)}</ul></details>
+  {saved.length>0&&<details className="career-report-library" aria-label="已保存的阶段报告"><summary>已保存的报告 <span>{saved.length}</span></summary>{saved.map(item=><article key={item.id}><div><h3>{link('/reports/'+encodeURIComponent(item.id),item.title)}</h3><p>{item.date?.slice(0,10)} · {reportIsStale(s,item)?'依据有变化':'保存快照'}</p></div>{link('/reports/'+encodeURIComponent(item.id),'打开报告 →','button')}</article>)}</details>}
  </div>;
 }
