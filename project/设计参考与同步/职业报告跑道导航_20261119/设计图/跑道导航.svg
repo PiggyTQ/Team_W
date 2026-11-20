@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+ <defs>
+  <g id="plane" fill="#fffefa" stroke="#15486e" stroke-width="1.5" stroke-linejoin="round">
+   <path d="M71 24Q78 24 78 28T71 32H48L28 51H19L32 32H14L7 40H2L5 28L2 16H7L14 24H32L19 5H28L48 24Z"/>
+   <path d="M21 6H27L46 24H39ZM21 50H27L46 32H39Z" fill="#d9e9f5" stroke="none"/>
+   <path d="M5 25H17V31H5Z" fill="#f1c858" stroke="none"/>
+   <path d="M66 25Q72 28 66 31L64 28Z" fill="#15486e" stroke="none"/>
+  </g>
+  <g id="runway">
+   <rect width="1120" height="122" rx="16" fill="#fffefa" stroke="#e6dfd1"/>
+   <rect x="18" y="62" width="1084" height="46" rx="8" fill="#214f72"/>
+   <path d="M30 68H1090M30 102H1090" stroke="#dce8ee" stroke-width="1"/>
+   <path d="M52 85H1068" stroke="white" stroke-opacity=".7" stroke-width="2" stroke-dasharray="17 17"/>
+   <g fill="#f0c65b" stroke="#214f72" stroke-width="4"><circle cx="140" cy="85" r="5"/><circle cx="420" cy="85" r="5"/><circle cx="700" cy="85" r="5"/><circle cx="980" cy="85" r="5"/></g>
+  </g>
+ </defs>
+ <rect width="1200" height="440" fill="#faf7ef"/>
+ <g font-family="Arial,Microsoft YaHei,sans-serif" fill="#143f6c">
+  <text x="40" y="40" font-size="23">职业报告 · 飞机沿跑道切换章节</text>
+  <text x="40" y="67" font-size="13" fill="#697b88">实施前意图示意 · 原四章节内容与功能保留 · 指示位置不表示完成进度</text>
+  <g transform="translate(40 94)">
+   <use href="#runway"/>
+   <rect x="64" y="8" width="152" height="40" rx="10" fill="#e8f1f7"/>
+   <g text-anchor="middle" font-size="15"><text x="140" y="34" font-weight="700">成长回顾</text><text x="420" y="34">岗位匹配</text><text x="700" y="34">岗位要求</text><text x="980" y="34">完善能力</text></g>
+   <use href="#plane" transform="translate(100 57)"/>
+  </g>
+  <text x="40" y="249" font-size="14" fill="#697b88">点击“岗位要求” → 飞机向右滑行；正文立即切换，飞机随之到站</text>
+  <g transform="translate(40 268)">
+   <use href="#runway"/>
+   <rect x="624" y="8" width="152" height="40" rx="10" fill="#e8f1f7"/>
+   <g text-anchor="middle" font-size="15"><text x="140" y="34">成长回顾</text><text x="420" y="34">岗位匹配</text><text x="700" y="34" font-weight="700">岗位要求</text><text x="980" y="34">完善能力</text></g>
+   <path d="M175 85H633" stroke="#f4d276" stroke-width="2" stroke-dasharray="5 8"/>
+   <use href="#plane" transform="translate(660 57)"/>
+  </g>
+  <text x="40" y="424" font-size="13" fill="#697b88">快速反向连续移动；宽度变化与减少动态效果直接归位；四个入口保留键盘操作。</text>
+ </g>
+</svg>

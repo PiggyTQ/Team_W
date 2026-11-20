@@ -1,0 +1,74 @@
+{
+  "checks": [
+    {
+      "name": "四个章节标签与首次定位正确",
+      "status": "pass"
+    },
+    {
+      "name": "单色剪影与细线导航无额外装饰且高度收紧",
+      "status": "pass"
+    },
+    {
+      "name": "飞机滑行与正文切换同步且快速反向无位置跳跃",
+      "status": "pass"
+    },
+    {
+      "name": "向左滑动保持同一朝向且停靠正确",
+      "status": "pass"
+    },
+    {
+      "name": "方向键和Home End操作保持可用",
+      "status": "pass"
+    },
+    {
+      "name": "动态开启减少动态效果及后续切换直接定位",
+      "status": "pass"
+    },
+    {
+      "name": "侧栏伸缩重新定位正确",
+      "status": "pass"
+    },
+    {
+      "name": "1920 1024 390 320中英文无溢出和文字跑道重叠",
+      "status": "pass"
+    },
+    {
+      "name": "章节切换不改动业务记录",
+      "status": "pass"
+    },
+    {
+      "name": "跑道区域可滚动且粘性导航切换后标题可见",
+      "status": "pass"
+    },
+    {
+      "name": "旧projects深链接保留并直接定位",
+      "status": "pass"
+    },
+    {
+      "name": "浏览器运行时错误为零",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "date": "2026-11-19",
+  "validation": {
+    "browserPassed": 12,
+    "build": "passed",
+    "i18n": {
+      "siteStrings": 8418,
+      "exactMissing": 0
+    },
+    "fixedHeading": true,
+    "widths": [
+      1920,
+      1440,
+      1024,
+      390,
+      320
+    ],
+    "languages": [
+      "zh",
+      "en"
+    ]
+  }
+}

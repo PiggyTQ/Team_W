@@ -57,7 +57,7 @@ export default function LearningCentre({s, url, link, precheck, startTask, move,
       </div></div>
       {!selected && goal && !learning.some(unit => unit.career === goal) && <p className="project-card-source" data-i18n="off">{t.noMatch}</p>}
       {!catalog ? <div className="light-empty">
-        <p role={catalogError ? 'alert' : 'status'}>{catalogError ? '课程目录读取失败，已有记录保留。' : '正在读取已发布课程…'}</p>
+        <p role={catalogError ? 'alert' : 'status'} data-page-reveal-pending={catalogError ? undefined : ''}>{catalogError ? '课程目录读取失败，已有记录保留。' : '正在读取已发布课程…'}</p>
         {catalogError && <button onClick={retryCatalog}>重试课程目录</button>}
       </div> : !list.length ? <div className="light-empty cheese-learning-empty">
         <CheesePose pose="read" width={112} height={134}/>

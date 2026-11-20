@@ -91,6 +91,7 @@ import WorkspaceContextBar from "./WorkspaceContextBar";
 
 import UnifiedPlan from './UnifiedPlan';
 import useCheesePageTransition from './CheesePageTransition';
+import useWorkspacePageReveal from './useWorkspacePageReveal';
 import {TaskEditor,TaskExecutionList,ReviewEditor,AINoteEditor} from './TaskEditing';
 import {stoppedTask} from './task-edit-model';
 import './task-editing.css';
@@ -260,6 +261,7 @@ function App() {
   const [mailLink,setMailLink]=useState(()=>SERVER_AUTH?readMailLink():null);
   useEffect(()=>{const changed=()=>{const next=readMailLink();if(next)setMailLink(next);};window.addEventListener('hashchange',changed);return()=>window.removeEventListener('hashchange',changed);},[]);
   const workspace=useServerWorkspace(SERVER_AUTH?authUser:null,s,setS);
+  const {mainRef,preparePageReveal}=useWorkspacePageReveal(url,!publicRoute&&s.logged&&(!SERVER_AUTH||workspace.ready));
   const careerSources=useCareerReportSources({enabled:s.logged&&(path.startsWith('/reports')||['reportPreflight','reportMerge','export'].includes(modal?.type)),live:SERVER_AUTH,ownerId:authUser?.id,revision:workspace.revision});
   const reportState={...s,reportSources:careerSources};
   const agentContext={workspace:page[0].startsWith('U')&&page[0]!=='U02'&&page[0]!=='U12'?page[0]:'U11',career:careers.some(c=>c.id===(s.assessmentCareer||s.goal))?(s.assessmentCareer||s.goal):'data'};
@@ -377,6 +379,10 @@ function App() {
     setModal(null);
     setError("");
     move(to);
+  };
+  const navigateSidebar = to => {
+    if(to!==page[1]&&s.logged)preparePageReveal(normalizeWorkspaceRoute(to).to);
+    go(to);
   };
   const withMapReturn=to=>{const back=path==='/assessment'&&atlasReturn({atlas:{},source:urlObj.searchParams.get('mapReturn')});if(back&&/^\/assessment([?]|$)/.test(to)){const next=new URL(to,location.origin);if(!next.searchParams.has('mapReturn'))next.searchParams.set('mapReturn',back);return next.pathname+next.search+next.hash;}return to;};
   const tabs = (names) => <SegmentedControl className="tabs" aria-label="页面模式">{names.map((n) => <a key={n} aria-current={(tab || names[0]) === n ? "page" : void 0} href={withMapReturn(`${path}?tab=${encodeURIComponent(n)}`)} onClick={(e) => {
@@ -607,7 +613,7 @@ function App() {
   }
 
   function mapPage() {
-    return <React.Suspense fallback={<p role="status">正在读取技能树…</p>}>
+    return <React.Suspense fallback={<p role="status" data-page-reveal-pending="">正在读取技能树…</p>}>
       <SkillTreePage key={authUser?.id || 'local'} state={s} url={url} move={move} link={link}
         live={SERVER_AUTH} workspace={workspace} update={update} precheck={precheck}
         onGuide={event=>window.dispatchEvent(new CustomEvent('start-operation-guide',{
@@ -1261,8 +1267,8 @@ function App() {
     update({ logged: false, authorized: false, aiClaimRefs:[], aiScope: ["\u804C\u4E1A\u539F\u521B\u77E5\u8BC6"] });
     setAiSide(false);
     move("/");
-  })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} open={open} Icon={Icon} navIcons={navIcons} route={url} ai={{s,conv,update,onOpen:()=>setAiSide(false),send:sendAI,liveAgent:SERVER_AUTH?liveAgent:null}}/></>}
- <PageGuidanceProvider routeKey={path+tab}><main id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage||projectPage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
+  })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} onNavigate={navigateSidebar} open={open} Icon={Icon} navIcons={navIcons} route={url} ai={{s,conv,update,onOpen:()=>setAiSide(false),send:sendAI,liveAgent:SERVER_AUTH?liveAgent:null}}/></>}
+ <PageGuidanceProvider routeKey={path+tab}><main ref={mainRef} id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${path === "/assistant" && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage||projectPage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{content()}</div>{path !== "/assistant" && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider>
  {!publicRoute&&!projectPage&&<FlowNavigation s={s} path={path} tab={tab} search={urlObj.search} link={link} />}
  {!publicRoute&&!projectPage&&<OperationGuide s={s} path={path} tab={tab} search={urlObj.search} modal={modal?.type} error={error} toast={toast} go={go}/>}
  {aiSide && s.logged && <Modal title="AI 上下文侧栏 · 同一会话" drawer className="cheese-context-drawer" companion="perch" onClose={() => setAiSide(false)}>{aiContent(true)}</Modal>}{dialogContent()}<StatusToast message={toast} revision={toastRevision} onDismiss={()=>setToast("")}/></>;

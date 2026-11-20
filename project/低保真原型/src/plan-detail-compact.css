@@ -13,11 +13,11 @@
  & .plan-goal-formulate-link:focus-visible{outline:2px solid #325373;outline-offset:3px}
  & .plan-goal-milestones-readonly>li{display:flex;align-items:flex-start;gap:8px;line-height:1.5;color:#506a81}
  & .plan-goal-milestones-readonly>li>span:last-child{min-width:0;overflow-wrap:anywhere}
- & .plan-detail-summary{align-self:start;max-height:100%;box-sizing:border-box;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+ & .plan-detail-summary{align-self:start;max-height:100%;box-sizing:border-box;overflow:auto;overscroll-behavior:contain auto;scrollbar-width:thin}
  & .plan-detail-main{container-type:inline-size;container-name:plan-detail;position:relative;display:flex;flex-direction:column;min-height:0;margin-bottom:-12px;overflow:hidden}
  & .plan-detail-toolbar{flex:0 0 auto;min-height:32px;margin-bottom:6px}
  & .plan-detail-toolbar .plan-detail-button{min-height:32px;padding:5px 10px}
- & .plan-detail-list-scroll{flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7d5e1 #f5f8fb;padding:0 2px 2px 0}
+ & .plan-detail-list-scroll{flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain auto;scrollbar-width:thin;scrollbar-color:#c7d5e1 #f5f8fb;padding:0 2px 2px 0}
  & .plan-detail-list{gap:6px}
  & :is(.plan-goal-list,.plan-task-list){grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));align-content:start;align-items:start}
  & .plan-detail-item{padding:8px 10px}
@@ -42,7 +42,7 @@
  & .plan-editor-toolbar h3>small.is-feedback{color:#477354}
  & .plan-editor-actions{display:flex;align-items:stretch;gap:6px;flex:0 0 auto;min-width:0}
  & .plan-editor-actions .plan-detail-button{min-width:0;min-height:32px;padding:5px 9px;line-height:1.4;white-space:nowrap}
- & .plan-editor-fields{display:grid;align-content:start;flex:1;gap:8px;min-height:0;min-width:0;padding:8px 10px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7d5e1 #f5f8fb;box-sizing:border-box}
+ & .plan-editor-fields{display:grid;align-content:start;flex:1;gap:8px;min-height:0;min-width:0;padding:8px 10px;overflow:auto;overscroll-behavior:contain auto;scrollbar-width:thin;scrollbar-color:#c7d5e1 #f5f8fb;box-sizing:border-box}
  & .plan-editor-fields .plan-detail-field{gap:3px;line-height:1.35}
  & .plan-editor-fields .plan-detail-field>span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
  & .plan-editor-fields .plan-detail-field :is(input,select,textarea){min-height:34px;padding:6px 7px;line-height:1.35}

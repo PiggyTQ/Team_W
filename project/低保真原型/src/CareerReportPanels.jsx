@@ -41,20 +41,22 @@ export function SkillsProfile({insights,onTarget,t,link}){
  const language=useLanguage();
  const [selected,setSelected]=useState(null);
  const role=insights.target;
- const leaf=role.leaves.find(item=>item.id===selected)||role.leaves.find(item=>item.status!=='gap')||role.leaves[0];
+ const branches=role.branches.map(branch=>({...branch,leaves:branch.leaves.filter(item=>role.id!=='data'||item.id!=='metric-definition')})).filter(branch=>branch.leaves.length);
+ const leaves=branches.flatMap(branch=>branch.leaves),known=leaves.filter(item=>item.status!=='gap').length;
+ const leaf=leaves.find(item=>item.id===selected)||leaves.find(item=>item.status!=='gap')||leaves[0];
  return <section className="report-skills-profile" aria-labelledby="report-profile-title">
   <header className="report-subhead"><h3 id="report-profile-title">{t.profileTitle}</h3><RoleSelector {...{insights,onTarget,t}}/></header>
   <div className="report-profile-legend">
    {['passed','practiced','documented','gap'].map(status=><span key={status}><i className={'is-'+status}/>{t[status]}</span>)}
-   <span>{t.recorded} {role.coverage.known} / {role.coverage.total}</span>
+   <span>{t.recorded} {known} / {leaves.length}</span>
   </div>
-  <div className="report-skill-branches">{role.branches.map(branch=><div className="report-skill-branch" key={branch.id}>
+  <div className="report-skill-branches">{branches.map(branch=><div className="report-skill-branch" key={branch.id}>
    <h4>{pair(branch.title,language)}</h4><div>{branch.leaves.map(item=><button type="button" key={item.id}
-    className={'report-topic is-'+item.status} aria-pressed={leaf.id===item.id} onClick={()=>setSelected(item.id)}>
-     <i aria-hidden="true"/>{pair(item.title,language)}
+    className={'report-topic is-'+item.status} data-report-skill={item.id} aria-pressed={leaf?.id===item.id} onClick={()=>setSelected(item.id)}>
+     <img className="report-topic-bulb" src="/icons/roundline/lightbulb.svg" width="24" height="32" alt="" aria-hidden="true"/><span className="report-topic-label">{pair(item.title,language)}</span>
    </button>)}</div>
   </div>)}</div>
-  <div className="report-topic-detail" aria-live="polite">
+  {leaf&&<div className="report-topic-detail" aria-live="polite">
    <div><h4>{pair(leaf.title,language)}<span className={'report-status is-'+leaf.status}>{stateLabel(leaf,t)}</span></h4>
     <p>{pair(leaf.lesson,language)}</p>
     <div className="report-topic-sources">
@@ -63,7 +65,7 @@ export function SkillsProfile({insights,onTarget,t,link}){
      {leaf.passed&&link(leaf.checkTo,t.openCheck)}
     </div>
    </div>{link(leaf.to,t.openTree,'button')}
-  </div>
+  </div>}
  </section>;
 }
 

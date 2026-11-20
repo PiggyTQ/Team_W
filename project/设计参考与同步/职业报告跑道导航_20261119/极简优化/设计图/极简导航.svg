@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+ <defs><path id="plane" d="M48 146 14 120 29 109 48 114 89 88 15 64 32 49 124 64 181 28Q194 22 201 32T199 51Z" fill="#172b3a"/></defs>
+ <rect width="1200" height="300" fill="#fffefa"/>
+ <g font-family="Arial,Microsoft YaHei,sans-serif">
+  <text x="40" y="35" font-size="21" fill="#172b3a">职业报告 · 极简飞机导航（实施前示意）</text>
+  <g font-size="15" text-anchor="middle" fill="#657382">
+   <text x="180" y="87" fill="#172b3a" font-weight="700">成长回顾</text><text x="460" y="87">岗位匹配</text><text x="740" y="87">岗位要求</text><text x="1020" y="87">完善能力</text>
+   <path d="M52 129H1148" stroke="#d6dce1" stroke-width="1"/>
+   <use href="#plane" transform="translate(160 98) scale(.185)"/>
+   <text x="180" y="199">成长回顾</text><text x="460" y="199">岗位匹配</text><text x="740" y="199" fill="#172b3a" font-weight="700">岗位要求</text><text x="1020" y="199">完善能力</text>
+   <path d="M52 241H1148" stroke="#d6dce1" stroke-width="1"/>
+   <use href="#plane" transform="translate(720 210) scale(.185)"/>
+  </g>
+  <text x="40" y="280" font-size="13" fill="#657382">固定同一朝向 · 一条细线 · 仅水平滑动 · 正文立即切换</text>
+ </g>
+</svg>

@@ -192,7 +192,7 @@ export default function SkillGrowthTree({tree,branch,leaf,careerName,study,progr
   return <section className="skill-tree-board" aria-label={t.treeLabel} aria-describedby="skill-tree-help" ref={viewRef}>
     <div className="skill-growth-map">
       <div className="skill-growth-stage">
-        <img className="skill-ash-tree" src={treeArt} alt="" {...treeSize} draggable={false} fetchPriority="high"
+        <img className="skill-ash-tree" src={treeArt} alt="" {...treeSize} draggable={false} fetchPriority="high" data-page-reveal-image=""
           style={{...position([0,0]),width:(treeSize.width / frame.width * 100) + '%',height:(treeSize.height / frame.height * 100) + '%'}}/>
         <BarkProgress {...{branches,overall,paintId,recentGrowth}}/>
         <div className="skill-growth-canopy" aria-hidden="true">

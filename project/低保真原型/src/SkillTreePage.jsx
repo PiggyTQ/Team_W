@@ -65,7 +65,7 @@ export default function SkillTreePage({state, url, move, link, live, workspace, 
       failed ? <div className="skill-load-state" role="alert">
         <p>{t.notReady}</p>
         <button type="button" className="skill-control" onClick={live ? request.retry : () => setRetry(value => value + 1)}>{t.retry}</button>
-      </div> : <p className="skill-load-state" role="status">{t.loading}</p>}
+      </div> : <p className="skill-load-state" role="status" data-page-reveal-pending="">{t.loading}</p>}
   </section>;
 }
 
