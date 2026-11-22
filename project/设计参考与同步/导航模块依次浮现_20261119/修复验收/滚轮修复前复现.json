@@ -1,0 +1,1001 @@
+[
+  {
+    "route": "/app",
+    "client": 521,
+    "scroll": 1755,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 521
+    },
+    "traps": [],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace workbench-home  ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace workbench-home  ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace workbench-home  ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace workbench-home  ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace workbench-home  ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace workbench-home  ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/assessment",
+    "client": 454,
+    "scroll": 2821,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 454
+    },
+    "traps": [
+      {
+        "cls": "background-review-sidebar",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 318,
+        "scroll": 1021
+      },
+      {
+        "cls": "folder-entry-chooser",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "folder-document-body",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "folder-document-body",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      }
+    ],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/plan",
+    "client": 450,
+    "scroll": 1428,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 449.8125
+    },
+    "traps": [
+      {
+        "cls": "plan-detail-list-scroll",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "plan-detail-list-scroll",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "plan-detail-list-scroll",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "plan-detail-summary",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "plan-detail-list-scroll",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "plan-detail-summary",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      },
+      {
+        "cls": "plan-detail-list-scroll",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      }
+    ],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/learning",
+    "client": 447,
+    "scroll": 634,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 446.8125
+    },
+    "traps": [],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 187
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 187
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 187
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 187
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 187
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 187
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/reports",
+    "client": 454,
+    "scroll": 1515,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 454
+    },
+    "traps": [],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/careers",
+    "client": 454,
+    "scroll": 1974,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 454
+    },
+    "traps": [],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/career-map",
+    "client": 521,
+    "scroll": 1402,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 521
+    },
+    "traps": [],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace  atlas-workspace ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace  atlas-workspace ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace  atlas-workspace ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace  atlas-workspace ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace  atlas-workspace ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace  atlas-workspace ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/assistant",
+    "client": 521,
+    "scroll": 961,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 521
+    },
+    "traps": [
+      {
+        "cls": "chat-history-drawer",
+        "overflow": "auto",
+        "over": "contain",
+        "client": 0,
+        "scroll": 0
+      }
+    ],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   assistant-workspace",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   assistant-workspace",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   assistant-workspace",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [],
+        "hit": [
+          {
+            "cls": "empty-chat-intro",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 6
+          },
+          {
+            "cls": "empty-chat-home",
+            "tag": "SECTION",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "ai-chat-surface is-empty",
+            "tag": "DIV",
+            "overflow": "hidden",
+            "over": "contain",
+            "range": 0
+          },
+          {
+            "cls": "assistant-main",
+            "tag": "SECTION",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "assistant-page assistant-page-focused",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "page-surface surface-U11",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "workspace student-workspace   assistant-workspace",
+            "tag": "MAIN",
+            "overflow": "auto",
+            "over": "auto",
+            "range": 440
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [],
+        "hit": [
+          {
+            "cls": "empty-chat-intro",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 6
+          },
+          {
+            "cls": "empty-chat-home",
+            "tag": "SECTION",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "ai-chat-surface is-empty",
+            "tag": "DIV",
+            "overflow": "hidden",
+            "over": "contain",
+            "range": 0
+          },
+          {
+            "cls": "assistant-main",
+            "tag": "SECTION",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "assistant-page assistant-page-focused",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "page-surface surface-U11",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "workspace student-workspace   assistant-workspace",
+            "tag": "MAIN",
+            "overflow": "auto",
+            "over": "auto",
+            "range": 440
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [],
+        "hit": [
+          {
+            "cls": "empty-prompt-rail",
+            "tag": "ASIDE",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "empty-chat-home",
+            "tag": "SECTION",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "ai-chat-surface is-empty",
+            "tag": "DIV",
+            "overflow": "hidden",
+            "over": "contain",
+            "range": 0
+          },
+          {
+            "cls": "assistant-main",
+            "tag": "SECTION",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "assistant-page assistant-page-focused",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "page-surface surface-U11",
+            "tag": "DIV",
+            "overflow": "visible",
+            "over": "auto",
+            "range": 0
+          },
+          {
+            "cls": "workspace student-workspace   assistant-workspace",
+            "tag": "MAIN",
+            "overflow": "auto",
+            "over": "auto",
+            "range": 440
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/settings",
+    "client": 521,
+    "scroll": 1555,
+    "rect": {
+      "x": 196,
+      "y": 129,
+      "width": 904,
+      "height": 521
+    },
+    "traps": [],
+    "probes": [
+      {
+        "point": [
+          0.08,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.25
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.08,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.5,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      },
+      {
+        "point": [
+          0.9,
+          0.65
+        ],
+        "moved": [
+          {
+            "cls": "workspace student-workspace   ",
+            "top": 250
+          }
+        ]
+      }
+    ]
+  }
+]

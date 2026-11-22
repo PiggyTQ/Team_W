@@ -144,7 +144,7 @@ function ReportWorkspace({ s, tab, id, link, open, update, go, tell, createRepor
     open('resumePreview',{claimIds:draft.claimIds,educationIds:draft.educationIds,target:draft.target,name:draft.name||(draft.includeProfile?confirmedResumeProfile(s)?.name:'')||'示例用户',includeProfile:draft.includeProfile&&!!confirmedResumeProfile(s),placements:draft.placements,wording:'保留原文',tailoring:draft.tailoring,sourceResumeId:draft.sourceResumeId,studio:true});
   };
   if(id && !r) return <section className="unavailable-object"><h1>找不到这份报告</h1><p>报告已移除或链接失效，请从列表重新选择；不会显示另一份报告代替。</p><div className="actions">{link("/reports","回报告列表","button")}{link("/app","回工作区")}</div></section>;
-  if(r?.format==='career-report-v1'&&s.reportSources?.status==='loading')return <p role="status">正在汇总项目与目标记录…</p>;
+  if(r?.format==='career-report-v1'&&s.reportSources?.status==='loading')return <p role="status" data-page-reveal-pending="">正在汇总项目与目标记录…</p>;
   const withdrawn = !!r&&reportReferencesUnavailable(s,r);
   return <div className="output-workspace"><PageHead title={tab === "岗位简历" ? "岗位求职简历" : "职业综合报告"} description={tab === "岗位简历" ? "围绕目标选经历，核对表达后保存与导出。" : "综合个人评估、目标计划与学习实践，形成岗位建议和项目补充方案。"} />{tabs(["\u804C\u4E1A\u62A5\u544A", "\u5C97\u4F4D\u7B80\u5386"])}{tab === "\u5C97\u4F4D\u7B80\u5386" ? <div className="resume-layout resume-document-layout"><ResumeDocumentStudio s={s} draft={draft} change={changeDraft} link={link} preview={openStudioPreview} controls={<section className="workspace-section"><h2>选择要呈现的经历</h2><p>没有目标岗位也可制作通用简历。只使用本人确认事实，缺少数字留空。</p><form onSubmit={(e) => {
     e.preventDefault();openStudioPreview();

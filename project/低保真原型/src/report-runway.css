@@ -1,0 +1,103 @@
+html body #root#root#root#root #main .career-report.report-full .career-report-nav.report-runway-nav {
+ --aircraft-width:40px;
+ --aircraft-height:30px;
+ position:relative;
+ top:auto;
+ isolation:isolate;
+ display:grid;
+ grid-template-columns:repeat(var(--runway-stops,4),minmax(0,1fr));
+ gap:0;
+ height:80px;
+ box-sizing:border-box;
+ padding:0;
+ overflow:visible;
+ background:#fcf9f2;
+ border:0;
+ border-radius:0;
+ box-shadow:none;
+
+ & > button {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  box-sizing:border-box;
+  min-width:0;
+  min-height:0;
+  height:100%;
+  margin:0;
+  padding:4px 4px 38px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#607080;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.4;
+  cursor:pointer;
+ }
+ & > button[aria-selected], & > button:hover {background:transparent;}
+ & > button[aria-selected]::after {content:none;}
+ & .report-runway-label {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-sizing:border-box;
+  min-height:32px;
+  min-width:0;
+  max-width:100%;
+  padding:4px 8px;
+  overflow-wrap:anywhere;
+  background:transparent;
+  border-radius:0;
+  transition:color 140ms ease;
+ }
+ & > button:hover .report-runway-label {color:#172b3a;}
+ & > button[aria-selected=true] .report-runway-label {color:#172b3a;font-weight:700;}
+ & > button:focus-visible {outline:none;}
+ & > button:focus-visible .report-runway-label {outline:2px solid #438cd0;outline-offset:2px;}
+ & .report-runway-track {
+  position:absolute;
+  z-index:0;
+  right:12px;
+  bottom:8px;
+  left:12px;
+  height:1px;
+  background:#d6dce1;
+  pointer-events:none;
+ }
+ & .report-runway-plane {
+  position:absolute;
+  z-index:2;
+  bottom:8px;
+  left:0;
+  display:block;
+  width:var(--aircraft-width);
+  height:var(--aircraft-height);
+  pointer-events:none;
+ }
+ &[data-taxiing=true] .report-runway-plane {will-change:transform;}
+ & .report-runway-aircraft {
+  display:block;
+  width:100%;
+  height:100%;
+  color:#172b3a;
+  fill:currentColor;
+  stroke:none;
+  transform:none;
+  filter:none;
+ }
+}
+
+@media(max-width:720px){
+ html body #root#root#root#root #main .career-report.report-full .career-report-nav.report-runway-nav {
+  & > button {padding-inline:2px;}
+  & .report-runway-label {padding-inline:0;}
+ }
+ html:lang(en) body #root#root#root#root #main .career-report.report-full .career-report-nav.report-runway-nav {height:112px;}
+}
+@media(prefers-reduced-motion:reduce){
+ html body #root#root#root#root #main .report-runway-nav .report-runway-label {transition:none;}
+}

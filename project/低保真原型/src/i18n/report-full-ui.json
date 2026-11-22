@@ -1,6 +1,6 @@
 {
   "zh": {
-    "tabs": ["成长回顾", "岗位匹配", "岗位要求", "下一步补足"],
+    "tabs": ["成长回顾", "岗位匹配", "岗位要求", "完善能力"],
     "growthTitle": "做过的实践与成果",
     "did": "做了什么", "result": "效果与成果", "contribution": "本人贡献", "limits": "适用范围",
     "demo": "演示", "demoPractice": "演示实践", "openOutcome": "查看原产物", "openReview": "查看复盘",
@@ -25,7 +25,7 @@
     "growthBrief": "下载成长摘要"
   },
   "en": {
-    "tabs": ["Growth review", "Role matching", "Role requirements", "Next steps"],
+    "tabs": ["Growth review", "Role matching", "Role requirements", "Develop skills"],
     "growthTitle": "Practice and outcomes",
     "did": "What I did", "result": "Results and deliverables", "contribution": "My contribution", "limits": "Scope",
     "demo": "Demo", "demoPractice": "Demo practice", "openOutcome": "Open deliverable", "openReview": "Open review",

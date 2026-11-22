@@ -12,6 +12,9 @@
 #root #main.student-workspace .assistant-page.assistant-page-focused {
   min-width: 0;
 
+  /* Let the page continue scrolling when the chat has no remaining scroll range. */
+  & :is(.ai-chat-surface,.chat-stream) {overscroll-behavior-y:auto;}
+
   & .assistant-page-header {
     flex-direction: row;
     flex-wrap: wrap;

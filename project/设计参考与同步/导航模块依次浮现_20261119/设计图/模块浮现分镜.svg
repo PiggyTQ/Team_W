@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="680" viewBox="0 0 1260 680">
+ <rect width="1260" height="680" fill="#f6f6f4"/>
+ <g font-family="Arial,Microsoft YaHei,sans-serif" fill="#252525">
+  <text x="40" y="46" font-size="24">左侧导航切页 · 模块依次浮现</text>
+  <text x="40" y="75" font-size="14" fill="#666">实施前动效意图示意 · 保留最终布局 · 导航和顶栏稳定</text>
+  <g transform="translate(40 112)">
+   <rect width="370" height="430" rx="12" fill="white" stroke="#ccc"/>
+   <path d="M0 45H370M78 45V430" stroke="#ddd" fill="none"/>
+   <rect x="12" y="74" width="52" height="24" rx="5" fill="#eee"/>
+   <rect x="12" y="112" width="52" height="24" rx="5" fill="#bbb"/>
+   <g opacity=".65"><rect x="100" y="76" width="246" height="28" rx="5" fill="#999"/></g>
+   <g opacity=".08" fill="#aaa"><rect x="100" y="154" width="246" height="62" rx="8"/><rect x="100" y="240" width="144" height="166" rx="8"/><rect x="258" y="240" width="88" height="166" rx="8"/></g>
+   <text x="20" y="466" font-size="18">01 · 切页后，标题先显现</text>
+   <text x="20" y="494" font-size="14" fill="#666">每块内容保持最终的占位</text>
+  </g>
+  <g transform="translate(445 112)">
+   <rect width="370" height="430" rx="12" fill="white" stroke="#ccc"/>
+   <path d="M0 45H370M78 45V430" stroke="#ddd" fill="none"/>
+   <rect x="12" y="74" width="52" height="24" rx="5" fill="#eee"/>
+   <rect x="12" y="112" width="52" height="24" rx="5" fill="#bbb"/>
+   <rect x="100" y="76" width="246" height="28" rx="5" fill="#999"/>
+   <rect x="100" y="134" width="246" height="62" rx="8" fill="#ccc"/>
+   <rect x="100" y="228" width="144" height="166" rx="8" fill="#ccc" opacity=".65"/>
+   <rect x="258" y="244" width="88" height="166" rx="8" fill="#ccc" opacity=".22"/>
+   <g stroke="#666" fill="none" stroke-width="2"><path d="M173 351v-30m-5 6 5-6 5 6M302 363v-30m-5 6 5-6 5 6"/></g>
+   <text x="20" y="466" font-size="18">02 · 模块错峰向上归位</text>
+   <text x="20" y="494" font-size="14" fill="#666">透明度 0 → 1，位移 28px → 0</text>
+  </g>
+  <g transform="translate(850 112)">
+   <rect width="370" height="430" rx="12" fill="white" stroke="#ccc"/>
+   <path d="M0 45H370M78 45V430" stroke="#ddd" fill="none"/>
+   <rect x="12" y="74" width="52" height="24" rx="5" fill="#eee"/>
+   <rect x="12" y="112" width="52" height="24" rx="5" fill="#bbb"/>
+   <rect x="100" y="76" width="246" height="28" rx="5" fill="#999"/>
+   <g fill="#ccc"><rect x="100" y="124" width="246" height="62" rx="8"/><rect x="100" y="212" width="144" height="166" rx="8"/><rect x="258" y="212" width="88" height="166" rx="8"/></g>
+   <text x="20" y="466" font-size="18">03 · 组成原来的完整页面</text>
+   <text x="20" y="494" font-size="14" fill="#666">最后启动 ≤ 540ms；每块持续 520ms</text>
+  </g>
+  <text x="40" y="648" font-size="15" fill="#555">快速切页清理旧动画；交互可立即继续；减少动态效果时直接显示完整页面。</text>
+ </g>
+</svg>

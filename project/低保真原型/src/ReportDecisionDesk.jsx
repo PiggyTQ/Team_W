@@ -11,6 +11,7 @@ import {ReportGrowth,ReportMatches,ReportRequirements,ReportNext} from './Career
 import {useLanguage} from './i18n/render';
 import copy from './i18n/report-full-ui.json';
 import './career-report.css';
+import ReportRunwayNavigation from './ReportRunwayNavigation';
 
 export function ReportSnapshotBrief({report,blocked}){
  if(blocked)return <div className="notice">引用已不可访问，停止展示缓存摘要与正文。请使用有效依据建立新草稿。</div>;
@@ -36,11 +37,21 @@ export default function ReportDecisionDesk({s,link}){
   const task=s.tasks.find(row=>row.id===id);
   return task?.title?.trim()===title?taskCopy(task,'title'):title;
  };
+ const revealChapter=(id,focus=false)=>{
+  const section=sections.current[id],heading=section?.querySelector('h2');
+  if(!section||section.hidden||!heading)return;
+  if(focus)heading.focus({preventScroll:true});
+  const desktop=matchMedia('(min-width:721px)').matches;
+  const viewport=desktop?document.getElementById('main').getBoundingClientRect():{top:0,bottom:innerHeight};
+  const bounds=heading.getBoundingClientRect();
+  // Chapter links inside long content can switch sections after the navigation has scrolled away.
+  if(bounds.top<viewport.top+12||focus&&bounds.bottom>viewport.bottom-12)section.scrollIntoView({block:'start',behavior:'instant'});
+ };
  const choose=(id,motion=false)=>{
   setAnimate(motion);
   setActive(id);
   history.replaceState(history.state,'',location.pathname+location.search+'#'+id);
-  requestAnimationFrame(()=>sections.current[id]?.querySelector('h2')?.focus({preventScroll:true}));
+  requestAnimationFrame(()=>revealChapter(id,true));
  };
  const keyboard=(event,index)=>{
   const next={ArrowRight:(index+1)%4,ArrowLeft:(index+3)%4,Home:0,End:3}[event.key];
@@ -49,6 +60,7 @@ export default function ReportDecisionDesk({s,link}){
   const id=chapters[next];
   setAnimate(false);setActive(id);tabs.current[id]?.focus();
   history.replaceState(history.state,'',location.pathname+location.search+'#'+id);
+  requestAnimationFrame(()=>revealChapter(id));
  };
  useEffect(()=>{
   const readHash=()=>{if(chapters.includes(location.hash.slice(1))){setAnimate(false);setActive(location.hash.slice(1));}};
@@ -70,11 +82,7 @@ export default function ReportDecisionDesk({s,link}){
    {sources.status!=='loading'&&<button onClick={()=>sources.reload?.().catch(()=>{})}>重新读取报告来源</button>}
   </div>}
   <div className="career-report-layout">
-   <nav className="career-report-nav" role="tablist" aria-label="综合报告章节">
-    {chapters.map((id,index)=><button key={id} ref={el=>{tabs.current[id]=el;}} type="button" role="tab"
-     id={'report-tab-'+id} aria-controls={'career-report-'+id} aria-selected={active===id} tabIndex={active===id?0:-1}
-     onKeyDown={event=>keyboard(event,index)} onClick={event=>choose(id,event.detail>0)}>{t.tabs[index]}</button>)}
-   </nav>
+   <ReportRunwayNavigation chapters={chapters} labels={t.tabs} active={active} animate={animate} tabRefs={tabs} onChoose={choose} onKeyDown={keyboard}/>
    <div className="career-report-body">
     {chapters.map((id,index)=><section key={id} role="tabpanel" tabIndex={-1}
       className={'career-report-section'+(active===id&&animate?' is-entering':'')}
@@ -93,7 +101,6 @@ export default function ReportDecisionDesk({s,link}){
     </section>)}
    </div>
   </div>
-  <details className="career-report-limits"><summary>报告依据与匹配方式说明</summary><ul>{report.limitations.map(line=><li key={line}>{line}</li>)}</ul></details>
   {saved.length>0&&<details className="career-report-library" aria-label="已保存的阶段报告"><summary>已保存的报告 <span>{saved.length}</span></summary>{saved.map(item=><article key={item.id}><div><h3>{link('/reports/'+encodeURIComponent(item.id),item.title)}</h3><p>{item.date?.slice(0,10)} · {reportIsStale(s,item)?'依据有变化':'保存快照'}</p></div>{link('/reports/'+encodeURIComponent(item.id),'打开报告 →','button')}</article>)}</details>}
  </div>;
 }

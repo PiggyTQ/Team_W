@@ -30,11 +30,12 @@ button,.button{border-radius:5px;min-height:38px;padding:8px 14px;border-color:#
 @media(max-width:720px){.mobile-filter-toggle{display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;padding:12px 14px;min-height:40px;background:#fff;border:1px solid #d5d5d5;font-size:12px}.mobile-filter-toggle>span:last-child{margin-left:auto;font-size:10px;color:#666}.explore-filter{display:none}.filters-open>.explore-filter{display:block}.explore-main>.section-heading{margin-top:0}}
 /* Desktop shell: navigation and content have independent viewport scroll areas. */
 @media (min-width:721px){
+  body:has(>#root>.app-header){height:100dvh;overflow:clip}
   #root:has(>.app-header){display:grid;grid-template-columns:218px minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);height:100dvh;overflow:hidden}
   #root:has(>.app-header)>.prototype-bar{grid-column:1 / -1;grid-row:1}
   #root:has(>.app-header)>.app-header{grid-column:1 / -1;grid-row:2;min-width:0}
   #root:has(>.app-header)>.sidebar{grid-column:1;grid-row:3;position:relative;inset:auto;width:auto;min-height:0;height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
-  #root:has(>.app-header)>.workspace{grid-column:2;grid-row:3;margin-left:0;min-height:0;min-width:0;overflow-y:auto;scrollbar-gutter:stable}
+  #root:has(>.app-header)>.workspace{grid-column:2;grid-row:3;margin-left:0;min-height:0;min-width:0;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable}
 }
 @media (min-width:721px) and (max-width:1050px){#root:has(>.app-header){grid-template-columns:190px minmax(0,1fr)}}
 

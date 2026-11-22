@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "name": "仅移除指标口径卡片并保留其他技能详情及可见计数",
+      "status": "pass"
+    },
+    {
+      "name": "每张技能卡片均为左侧灯泡图片右侧文字且图片成功加载",
+      "status": "pass"
+    },
+    {
+      "name": "点击灯泡卡片仍能切换对应技能详情",
+      "status": "pass"
+    },
+    {
+      "name": "真实滚轮使导航完全滚出视口而非固定吸顶",
+      "status": "pass"
+    },
+    {
+      "name": "滚回顶部自然恢复原导航",
+      "status": "pass"
+    },
+    {
+      "name": "四章节及飞机滑动保持可用且所有章节均无底部说明模块",
+      "status": "pass"
+    },
+    {
+      "name": "切换职业后图文卡片和详情均正常",
+      "status": "pass"
+    },
+    {
+      "name": "内容中的岗位要求入口能将新章节带入视口",
+      "status": "pass"
+    },
+    {
+      "name": "键盘方向与Home End功能保留",
+      "status": "pass"
+    },
+    {
+      "name": "1024 390 320中英文无整页横向溢出",
+      "status": "pass"
+    },
+    {
+      "name": "手机真实滚动与导航自然位移通过",
+      "status": "pass"
+    },
+    {
+      "name": "仅修改界面呈现业务记录保持一致",
+      "status": "pass"
+    },
+    {
+      "name": "浏览器运行时错误为零",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "date": "2026-11-19",
+  "validation": {
+    "browserPassed": 13,
+    "operationGuideTestsPassed": 11,
+    "build": "passed",
+    "i18n": {
+      "siteStrings": 8417,
+      "exactMissing": 0
+    },
+    "widths": [
+      1440,
+      1024,
+      390,
+      320
+    ],
+    "languages": [
+      "zh",
+      "en"
+    ]
+  }
+}

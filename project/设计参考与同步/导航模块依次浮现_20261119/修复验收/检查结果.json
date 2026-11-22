@@ -1,0 +1,544 @@
+{
+  "results": [
+    {
+      "name": "普通状态摘要不会延迟个人评估的入场",
+      "status": "pass"
+    },
+    {
+      "name": "全部九个导航入口能完成入场并清理动画",
+      "status": "pass"
+    },
+    {
+      "name": "目标计划连同背景边框一起入场且不在幕布容器内裁切",
+      "status": "pass",
+      "stageOpacity": "0",
+      "stageAnimations": 1,
+      "innerAnimations": 0
+    },
+    {
+      "name": "技能地图等树图就绪后标题主体路径沿同一时间轴出现",
+      "status": "pass",
+      "timeline": [
+        {
+          "target": "skill-map-head",
+          "start": 1415.8999999999999,
+          "delay": 0
+        },
+        {
+          "target": "skill-tree-board",
+          "start": 1415.8999999999999,
+          "delay": 72
+        },
+        {
+          "target": "skill-path",
+          "start": 1415.8999999999999,
+          "delay": 144
+        }
+      ]
+    },
+    {
+      "name": "地图等待图片时快速切页不会残留旧动画",
+      "status": "pass"
+    },
+    {
+      "name": "九个工作区页面的实际滚轮在六个正文位置均能移动内容",
+      "status": "pass",
+      "probes": [
+        {
+          "route": "/app",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/app",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/app",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/app",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/app",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/app",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assessment",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assessment",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assessment",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assessment",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assessment",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assessment",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/plan",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/plan",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/plan",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/plan",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/plan",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/plan",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/learning",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 187
+        },
+        {
+          "route": "/learning",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 187
+        },
+        {
+          "route": "/learning",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 187
+        },
+        {
+          "route": "/learning",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 187
+        },
+        {
+          "route": "/learning",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 187
+        },
+        {
+          "route": "/learning",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 187
+        },
+        {
+          "route": "/reports",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/reports",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/reports",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/reports",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/reports",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/reports",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/careers",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/careers",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/careers",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/careers",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/careers",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/careers",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/career-map",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/career-map",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/career-map",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/career-map",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/career-map",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/career-map",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assistant",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assistant",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assistant",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assistant",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assistant",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/assistant",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/settings",
+          "point": [
+            0.08,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/settings",
+          "point": [
+            0.5,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/settings",
+          "point": [
+            0.9,
+            0.25
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/settings",
+          "point": [
+            0.08,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/settings",
+          "point": [
+            0.5,
+            0.65
+          ],
+          "mainScroll": 250
+        },
+        {
+          "route": "/settings",
+          "point": [
+            0.9,
+            0.65
+          ],
+          "mainScroll": 250
+        }
+      ]
+    },
+    {
+      "name": "资料列表优先滚动自身且上下边界继续滚动页面",
+      "status": "pass"
+    },
+    {
+      "name": "计划明细列表滚动及边界交接不影响原幕布切换",
+      "status": "pass"
+    },
+    {
+      "name": "入场未结束时滚轮会结束动画并实际滚动页面",
+      "status": "pass"
+    },
+    {
+      "name": "桌面滚到底保持导航固定且公开首页恢复窗口滚动",
+      "status": "pass"
+    },
+    {
+      "name": "手机实际滚轮可滚动/plan",
+      "status": "pass"
+    },
+    {
+      "name": "手机实际滚轮可滚动/career-map",
+      "status": "pass"
+    },
+    {
+      "name": "手机实际滚轮可滚动/assistant",
+      "status": "pass"
+    },
+    {
+      "name": "减少动态效果直接显示完整目标计划和技能地图",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "date": "2026-11-19",
+  "validation": {
+    "browserPassed": 14,
+    "realWheelProbes": 54,
+    "routeRecoveryPassed": 8,
+    "existingTransitions": [
+      {
+        "name": "四层芝士匀速连续扫过并在中点覆盖时换页",
+        "status": "pass"
+      },
+      {
+        "name": "模块幕布保留且待排期按钮使用整页波浪",
+        "status": "pass"
+      },
+      {
+        "name": "目标计划分类内的制定执行模式使用芝士波浪",
+        "status": "pass"
+      },
+      {
+        "name": "动画中开启减少动态效果立即落地并解除锁定",
+        "status": "pass"
+      }
+    ],
+    "build": "passed",
+    "i18n": {
+      "siteStrings": 8418,
+      "exactMissing": 0
+    }
+  }
+}

@@ -11,7 +11,7 @@ export function SidebarSymbol({type='toggle',collapsed=false,size=20}){
  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={path}/></svg>;
 }
 
-export default function WorkspaceSidebar({s,page,admin,mobile,collapsed,toggle,go,open,Icon:unusedIcon,navIcons,ai,route}){
+export default function WorkspaceSidebar({s,page,admin,mobile,collapsed,toggle,go,onNavigate=go,open,Icon:unusedIcon,navIcons,ai,route}){
  const Icon=NavigationIcon;
  const [tip,setTip]=useState(null),timer=useRef(null),sidebar=useRef(null);
  const hide=()=>{clearTimeout(timer.current);setTip(null);};
@@ -33,7 +33,7 @@ export default function WorkspaceSidebar({s,page,admin,mobile,collapsed,toggle,g
   return()=>cancelAnimationFrame(frame);
  },[page,collapsed,mobile]);
  useEffect(()=>{const dismiss=()=>hide();document.addEventListener('scroll',dismiss,true);window.addEventListener('resize',dismiss);return()=>{clearTimeout(timer.current);document.removeEventListener('scroll',dismiss,true);window.removeEventListener('resize',dismiss);};},[]);
- const item=([key,to,title])=><a key={key} href={to} aria-label={displayText(title)} aria-current={page===key?'page':undefined} {...hint(title)} onClick={e=>{if(e.button!==0||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey)return;e.preventDefault();hide();go(to);}}><span className="sidebar-nav-icon" data-nav-icon={key}><Icon name={navIcons[key]||({B01:'shield',B02:'search',B03:'book'}[key])} size={20}/></span><span className="sidebar-item-label">{title}</span></a>;
+ const item=([key,to,title])=><a key={key} href={to} aria-label={displayText(title)} aria-current={page===key?'page':undefined} {...hint(title)} onClick={e=>{if(e.button!==0||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey)return;e.preventDefault();hide();onNavigate(to);}}><span className="sidebar-nav-icon" data-nav-icon={key}><Icon name={navIcons[key]||({B01:'shield',B02:'search',B03:'book'}[key])} size={20}/></span><span className="sidebar-item-label">{title}</span></a>;
  return <><aside ref={sidebar} id="workspace-sidebar" className={`sidebar ${mobile?'visible':''}`} data-collapsed={collapsed?'true':'false'}>
   <div className="sidebar-toolbar"><span className="sidebar-item-label">{admin?'导航':'工作空间'}</span><button className="sidebar-toggle" type="button" onClick={e=>{hide();toggle(e);}} aria-expanded={!collapsed} aria-controls="sidebar-destinations" aria-label={displayText(collapsed?'展开侧栏':'收起侧栏')} title={displayText(collapsed?'展开侧栏（Ctrl / Cmd + \\）':'收起侧栏（Ctrl / Cmd + \\）')}><SidebarSymbol collapsed={collapsed}/></button></div>
   <div className="workspace-identity"><span className="identity-avatar"><Icon name={admin?'shield':'user'} size={23}/></span><div>{admin?'管理工作区':'我的职业规划'}<small>{admin?'按职责审核与处理':'探索、行动、成长'}</small></div></div>

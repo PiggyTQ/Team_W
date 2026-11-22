@@ -1,0 +1,108 @@
+{
+  "origin": "http://127.0.0.1:5185",
+  "results": [
+    {
+      "name": "首次打开页面不播放模块入场",
+      "status": "pass"
+    },
+    {
+      "name": "分镜各阶段模块依次浮现且布局尺寸位置保持不变",
+      "status": "pass"
+    },
+    {
+      "name": "九个导航入口均按独立模块入场并完成清理",
+      "status": "pass",
+      "moduleCounts": {
+        "/assessment": 8,
+        "/plan": 7,
+        "/learning": 5,
+        "/reports": 5,
+        "/careers": 14,
+        "/career-map": 3,
+        "/assistant": 3,
+        "/settings": 8,
+        "/app": 10
+      }
+    },
+    {
+      "name": "切页不改动材料草稿任务和报告等业务记录",
+      "status": "pass"
+    },
+    {
+      "name": "点击当前导航不重复播放",
+      "status": "pass"
+    },
+    {
+      "name": "快速切页取消旧动画且浏览器返回不遗留隐藏内容",
+      "status": "pass"
+    },
+    {
+      "name": "页内模式切换保留原转场且不叠加导航动画",
+      "status": "pass"
+    },
+    {
+      "name": "键盘进入页面立即显示完整模块",
+      "status": "pass"
+    },
+    {
+      "name": "滚动操作立即结束入场",
+      "status": "pass"
+    },
+    {
+      "name": "窗口变化结束入场并恢复自然布局",
+      "status": "pass"
+    },
+    {
+      "name": "动态开启减少动态效果以及后续导航直接完整显示",
+      "status": "pass"
+    },
+    {
+      "name": "键盘回车激活导航可播放入场",
+      "status": "pass"
+    },
+    {
+      "name": "1024和1920展开收起侧栏及390移动导航均无整页横向溢出",
+      "status": "pass"
+    },
+    {
+      "name": "延迟650ms加载技能地图后实际内容仍参与本次模块入场",
+      "status": "pass"
+    },
+    {
+      "name": "浏览器运行时错误为零",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "date": "2026-11-19",
+  "checks": {
+    "navigationBrowser": {
+      "passed": 15,
+      "failed": 0
+    },
+    "routeRecovery": {
+      "passed": 8,
+      "failed": 0
+    },
+    "existingTransitions": [
+      {
+        "name": "四层芝士匀速连续扫过并在中点覆盖时换页",
+        "status": "pass"
+      },
+      {
+        "name": "模块幕布保留且待排期按钮使用整页波浪",
+        "status": "pass"
+      },
+      {
+        "name": "目标计划分类内的制定执行模式使用芝士波浪",
+        "status": "pass"
+      }
+    ],
+    "productionBuild": "passed",
+    "i18n": {
+      "siteStrings": 8418,
+      "exactMissing": 0
+    },
+    "diffWhitespace": "passed"
+  }
+}

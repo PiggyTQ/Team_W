@@ -66,7 +66,7 @@ export default function SkillJourneyPage({state,url,move,link,live,workspace,upd
       {...{tree,mode,saved,state,params,label,t,j,language,live,workspace,update,move,link,onCheck,precheck,remember}}
       careerName={name} onReload={live?request.retry:()=>setRetry(value=>value+1)}/>:failed?<div className="skill-load-state" role="alert">
         <p>{t.notReady}</p><button type="button" className="skill-control" onClick={live?request.retry:()=>setRetry(x=>x+1)}>{t.retry}</button>
-      </div>:<p className="skill-load-state" role="status">{t.loading}</p>}
+      </div>:<p className="skill-load-state" role="status" data-page-reveal-pending="">{t.loading}</p>}
   </section>;
 }
 
