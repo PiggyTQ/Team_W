@@ -25,7 +25,7 @@ export function useAgentSession({user,state,workspace,context,update,language}){
       current.current.update(previous=>{
         if(!previous.logged||previous.conversationId!==conversationId||!agentMessageAvailable(previous,assistantMessage))return previous;
         try{if(agentMode(previous.conversations.find(c=>c.id===conversationId)?.mode||'职业咨询')!==assistantMessage.agentResponse.mode)return previous;}catch{return previous;}
-        return {...previous,conversations:previous.conversations.map(c=>c.id===conversationId?{...c,messages:[...c.messages,userMessage,assistantMessage]}:c),
+        return {...previous,conversations:previous.conversations.map(c=>c.id===conversationId?{...c,...(c.discussion?{discussion:{...c.discussion,question:c.discussion.question===userMessage.text?'':c.discussion.question}}:{}),messages:[...c.messages,userMessage,assistantMessage]}:c),
           aiDraft:previous.aiDraft===userMessage.text?'':previous.aiDraft,proposal:null};
       });
     }

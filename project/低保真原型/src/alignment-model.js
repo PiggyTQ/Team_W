@@ -1,4 +1,4 @@
-import {fresh,makeTask,confirmed,uid,cname} from './model.js';
+import {fresh,makeTask,confirmed,uid,cname,careers} from './model.js';
 import {claimSnapshotsUnavailable} from './reference-contract.js';
 import {captureCareerReportSources,careerReportSourcesChanged,careerReportSourcesUnavailable} from './career-report-sources.js';
 
@@ -75,7 +75,7 @@ export function reportExportText(r,selection,privateSnippets=[],s) {
   return `【低保真原型 / 示例输出】\n${r.title} v${r.version}\n${selection.map(title=>rows.filter(row=>row.title===title).map(row=>row.text).join('\n')||`${title}：待补充（未知）`).join('\n')}\n引用与局限：报告 ${r.id} v${r.version}；本人确认不等于实核。${privateSnippets.length?'\n主动选中的私人片段：\n'+privateSnippets.map(x=>`${x.title}\n${x.text}`).join('\n'):''}`;
 }
 export function createSkillCandidates(s,t,attempt,entries,contribution) {
-  const result=[];for(const entry of entries){const skill=entry.skill?.trim();if(!skill)continue;if(s.claims.some(c=>c.attemptId===attempt.id&&c.skill===skill)||result.some(c=>c.skill===skill))continue;result.push({id:uid('claim'),version:1,status:'待确认',title:`${t.title} · 成果 v${attempt.version} · ${skill}`,text:attempt.text,contribution,skill,supportScope:entry.scope?.trim()||'支持范围待本人核对',artifactLocation:entry.location?.trim()||'位置待本人补充',aid:attempt.aid,taskId:t.id,attemptId:attempt.id,origin:'任务产物 / 本人记录',type:t.kind});}return result;
+  const result=[];for(const entry of entries){const skill=entry.skill?.trim();if(!skill)continue;if(s.claims.some(c=>c.attemptId===attempt.id&&c.skill===skill)||result.some(c=>c.skill===skill))continue;result.push({id:uid('claim'),version:1,status:'待确认',title:`${t.title} · 成果 v${attempt.version} · ${skill}`,text:attempt.text,contribution,skill,...(careers.some(c=>c.id===t.career)?{careerLinks:[{career:t.career}]}:{}),supportScope:entry.scope?.trim()||'支持范围待本人核对',artifactLocation:entry.location?.trim()||'位置待本人补充',aid:attempt.aid,taskId:t.id,attemptId:attempt.id,origin:'任务产物 / 本人记录',type:t.kind});}return result;
 }
 export const consultationBody=(s,help)=>`候选与取舍：${s.compare.length?s.compare.map(cname).join('、'):'尚无比较候选'}；${s.decision.reason||'选择理由待补充'}。\n已做行动：${s.tasks.filter(t=>t.note?.trim()).map(t=>`${t.title}：${t.note}（本人记录；${t.id}）`).join('；')||'尚无实际行动结果，不补造过程'}。\n待问问题：${s.decision.question||'待本人补充'}。\n希望得到的帮助：${help?.trim()||'待本人填写'}。\n引用与局限：本人自述与合成知识分开；未实际核验。此摘要供自行携带，不自动发送或预约。`;
 

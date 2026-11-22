@@ -43,7 +43,7 @@
           },
           {
             "id": "sql-joins",
-            "version": 1,
+            "version": 2,
             "title": [
               "SQL 表关联",
               "SQL joins"
@@ -51,6 +51,9 @@
             "lesson": [
               "先核对键和关系基数。右侧多行会使左侧记录展开。关联后比较行数和唯一键数量。",
               "Check keys and cardinality first. Multiple right-side rows expand a left-side record. Compare rows and distinct keys after joining."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -494,7 +497,7 @@
         "leaves": [
           {
             "id": "network-path",
-            "version": 1,
+            "version": 2,
             "title": [
               "DNS 与请求路径",
               "DNS and request paths"
@@ -502,11 +505,14 @@
             "lesson": [
               "把域名解析、传输连接和应用请求分开。一次失败要先定位发生在哪一层。",
               "Separate name resolution, the transport connection and the application request. Locate the failing layer first."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "transport-trust",
-            "version": 1,
+            "version": 2,
             "title": [
               "TLS 与传输信任",
               "TLS and transport trust"
@@ -514,11 +520,14 @@
             "lesson": [
               "TLS 保护连接上的数据，并依赖正确的服务端身份验证。代理终止 TLS 后要重新看下一跳边界。",
               "TLS protects a connection and relies on correct server authentication. Reassess the next hop after proxy termination."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "authorized-scope",
-            "version": 1,
+            "version": 2,
             "title": [
               "测试范围与风险",
               "Authorized testing scope"
@@ -526,6 +535,9 @@
             "lesson": [
               "把资产、身份、动作、时间和停止条件写清。生产资产和真实账号要依据明确授权处理。",
               "Record assets, identities, actions, timing and stop conditions. Treat production and real accounts according to explicit authorization."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -543,7 +555,7 @@
         "leaves": [
           {
             "id": "authentication",
-            "version": 1,
+            "version": 2,
             "title": [
               "身份验证与会话",
               "Authentication and sessions"
@@ -551,11 +563,14 @@
             "lesson": [
               "验证身份后再创建会话；密码重置或权限变更要处理会话生命周期。",
               "Establish sessions after authentication and manage their lifetime when credentials or privileges change."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "authorization",
-            "version": 1,
+            "version": 2,
             "title": [
               "资源授权与最小权限",
               "Resource authorization"
@@ -563,11 +578,14 @@
             "lesson": [
               "服务端逐次验证主体、动作与资源。默认拒绝，分别测横向越权和角色越权。",
               "Check subject, action and resource on the server for each request. Default to deny and test horizontal and vertical boundaries."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "secrets",
-            "version": 1,
+            "version": 2,
             "title": [
               "密钥保管与轮换",
               "Secret storage and rotation"
@@ -575,6 +593,9 @@
             "lesson": [
               "密钥应受访问控制和审计。泄漏后先撤销或轮换，再核对影响和历史副本。",
               "Protect secrets with access controls and audit. On exposure, revoke or rotate and review impact and retained copies."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -616,7 +637,7 @@
           },
           {
             "id": "incident-handoff",
-            "version": 1,
+            "version": 2,
             "title": [
               "事件升级与交接",
               "Incident escalation"
@@ -624,6 +645,9 @@
             "lesson": [
               "交接时区分已知、推断与未知，列出证据、影响、应急动作、授权和下一次更新。",
               "Handoff distinguishes facts, inference and unknowns, with evidence, impact, authorized actions and next update."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -665,7 +689,7 @@
           },
           {
             "id": "verify-control",
-            "version": 1,
+            "version": 2,
             "title": [
               "安全验证与回归",
               "Security verification and regression"
@@ -673,6 +697,9 @@
             "lesson": [
               "把控制转为有预期的测试。记录版本、身份、步骤、结果和复测边界。",
               "Turn a control into a test with a specific expected result. Record version, identity, steps and retest scope."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -755,7 +782,7 @@
         "leaves": [
           {
             "id": "container-build",
-            "version": 1,
+            "version": 2,
             "title": [
               "容器构建与镜像",
               "Container builds and images"
@@ -763,11 +790,14 @@
             "lesson": [
               "记录镜像基础、依赖与构建上下文，运行时注入配置和凭据。",
               "Record the base image, dependencies and build context. Inject configuration and secrets at runtime."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "deployment-health",
-            "version": 1,
+            "version": 2,
             "title": [
               "部署与健康探针",
               "Deployments and probes"
@@ -775,6 +805,9 @@
             "lesson": [
               "滚动更新逐步替换副本。就绪探针决定是否接收流量，存活探针用于决定重启。",
               "Rolling updates replace replicas gradually. Readiness gates traffic and liveness can trigger restarts."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -804,7 +837,7 @@
         "leaves": [
           {
             "id": "four-signals",
-            "version": 1,
+            "version": 2,
             "title": [
               "服务信号与告警",
               "Service signals and alerts"
@@ -812,6 +845,9 @@
             "lesson": [
               "监测流量、延迟、错误和饱和度。告警关联用户影响和可执行动作。",
               "Track traffic, latency, errors and saturation. Alerts should connect impact to an action."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -865,7 +901,7 @@
           },
           {
             "id": "rollback-verify",
-            "version": 1,
+            "version": 2,
             "title": [
               "回退与恢复验收",
               "Rollback and recovery verification"
@@ -873,6 +909,9 @@
             "lesson": [
               "回退确认版本和数据兼容。恢复需通过用户路径及一段稳定观察。",
               "Confirm target version and data compatibility before rollback. Verify a user path and a stable observation window."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -968,7 +1007,7 @@
         "leaves": [
           {
             "id": "keyboard",
-            "version": 1,
+            "version": 2,
             "title": [
               "键盘与焦点",
               "Keyboard and focus"
@@ -976,11 +1015,14 @@
             "lesson": [
               "按阅读顺序安排键盘焦点。打开对话框移动焦点，关闭后返回触发入口。",
               "Follow reading order for keyboard focus. Move focus into dialogs and return it on close."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "form-errors",
-            "version": 1,
+            "version": 2,
             "title": [
               "表单错误与提示",
               "Form errors and feedback"
@@ -988,6 +1030,9 @@
             "lesson": [
               "把错误描述和字段关联，保留输入。状态变化应让辅助技术感知。",
               "Associate errors with fields and preserve input. Expose relevant status changes to assistive technology."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1017,7 +1062,7 @@
         "leaves": [
           {
             "id": "state-ownership",
-            "version": 1,
+            "version": 2,
             "title": [
               "组件状态归属",
               "Component state ownership"
@@ -1025,6 +1070,9 @@
             "lesson": [
               "把共享状态放在需要它的共同祖先。派生值在渲染时计算，避免两个状态互相追赶。",
               "Keep shared state in the nearest common owner and derive values during rendering where possible."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1078,7 +1126,7 @@
           },
           {
             "id": "browser-security",
-            "version": 1,
+            "version": 2,
             "title": [
               "浏览器内容安全",
               "Browser content security"
@@ -1086,6 +1134,9 @@
             "lesson": [
               "把用户文本当数据呈现。CSP 限制脚本和资源来源，并用报告观察策略影响。",
               "Render untrusted text as data. Use CSP to restrict script and resource sources and observe reports."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1138,7 +1189,7 @@
         "leaves": [
           {
             "id": "http-semantics",
-            "version": 1,
+            "version": 2,
             "title": [
               "HTTP 与状态码",
               "HTTP and status codes"
@@ -1146,6 +1197,9 @@
             "lesson": [
               "区分安全与幂等语义。明确成功、输入无效、未认证和无权限各自的响应。",
               "Distinguish safety and idempotency. Specify success, invalid input, unauthenticated and forbidden outcomes."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1162,7 +1216,7 @@
           },
           {
             "id": "service-structure",
-            "version": 1,
+            "version": 2,
             "title": [
               "Java 服务分层",
               "Java service boundaries"
@@ -1170,6 +1224,9 @@
             "lesson": [
               "以 Java 和 Spring MVC 为例，请求对象校验字段形状，服务层处理订单规则，持久层负责数据读写。将订单规则留在服务中，可以在批处理和 HTTP 请求中共用。",
               "In Java with Spring MVC, validate request fields at the boundary, apply order rules in the service and read or write in the persistence layer. A batch job can reuse the same order rules as the HTTP endpoint."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1199,7 +1256,7 @@
         "leaves": [
           {
             "id": "schema-constraints",
-            "version": 1,
+            "version": 2,
             "title": [
               "关系模型与约束",
               "Relational design and constraints"
@@ -1207,11 +1264,14 @@
             "lesson": [
               "主键识别行，外键维护引用，唯一和检查约束表达数据不变量。",
               "Primary keys identify rows, foreign keys protect references and unique or check constraints encode invariants."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "atomicity",
-            "version": 1,
+            "version": 2,
             "title": [
               "事务与并发更新",
               "Transactions and concurrency"
@@ -1219,6 +1279,9 @@
             "lesson": [
               "事务保证相关写入一起提交或撤销。并发写入要处理冲突和不变量。",
               "Transactions commit or roll back related writes together. Concurrent updates must respect invariants."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1248,7 +1311,7 @@
         "leaves": [
           {
             "id": "session-auth",
-            "version": 1,
+            "version": 2,
             "title": [
               "会话生命周期",
               "Session lifecycle"
@@ -1256,11 +1319,14 @@
             "lesson": [
               "在服务端检查会话有效期与撤销状态。确保退出、权限变化和密码重置行为明确。",
               "Verify expiry and revocation server-side. Specify logout, privilege changes and reset behavior."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "object-authorization",
-            "version": 1,
+            "version": 2,
             "title": [
               "对象访问控制",
               "Object authorization"
@@ -1268,6 +1334,9 @@
             "lesson": [
               "每次请求按主体、操作和资源做授权。测试本人、他人和受限角色。",
               "Authorize each request by subject, action and resource. Test own, other and restricted-role access."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1297,7 +1366,7 @@
         "leaves": [
           {
             "id": "integration-tests",
-            "version": 1,
+            "version": 2,
             "title": [
               "集成与契约测试",
               "Integration and contract tests"
@@ -1305,6 +1374,9 @@
             "lesson": [
               "用集成测试覆盖存储、权限和错误映射。用契约检查生产者与消费者的结构一致。",
               "Test persistence, authorization and error mapping in integration and check producer–consumer contracts."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1387,7 +1459,7 @@
           },
           {
             "id": "partition-evolution",
-            "version": 1,
+            "version": 2,
             "title": [
               "分区与模式演进",
               "Partitions and schema evolution"
@@ -1395,6 +1467,9 @@
             "lesson": [
               "按访问模式选择分区，评估写入分布。模式变化要处理读写兼容和历史数据。",
               "Partition for access patterns and consider write distribution. Schema changes need reader/writer and historical compatibility."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -1412,7 +1487,7 @@
         "leaves": [
           {
             "id": "dag-intervals",
-            "version": 1,
+            "version": 2,
             "title": [
               "DAG 与数据窗口",
               "DAGs and data intervals"
@@ -1420,6 +1495,9 @@
             "lesson": [
               "把逻辑数据窗口和实际执行时间分开。明确输入就绪条件和任务依赖。",
               "Separate logical data windows from execution time. Define readiness and dependencies."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1601,7 +1679,7 @@
           },
           {
             "id": "test-levels",
-            "version": 1,
+            "version": 2,
             "title": [
               "测试层级与策略",
               "Test levels and strategy"
@@ -1609,6 +1687,9 @@
             "lesson": [
               "在最合适的层级验证风险。覆盖单元、集成、系统和用户验收的不同目标。",
               "Verify each risk at an appropriate level. Unit, integration, system and acceptance have different objectives."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -1638,7 +1719,7 @@
           },
           {
             "id": "decision-tables",
-            "version": 1,
+            "version": 2,
             "title": [
               "决策表与组合",
               "Decision tables and combinations"
@@ -1646,11 +1727,14 @@
             "lesson": [
               "把条件组合映射为动作。区分不可能条件与不影响结果的条件。",
               "Map condition combinations to actions. Distinguish impossible combinations from irrelevant conditions."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "state-transition",
-            "version": 1,
+            "version": 2,
             "title": [
               "状态转换与非法事件",
               "State transitions and invalid events"
@@ -1658,6 +1742,9 @@
             "lesson": [
               "列出当前状态、事件、条件和下一状态。检查合法转换与被拒绝的转换。",
               "Map current state, event, condition and next state. Test allowed and denied transitions."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -1687,7 +1774,7 @@
           },
           {
             "id": "defect-reproduction",
-            "version": 1,
+            "version": 2,
             "title": [
               "缺陷复现与分级",
               "Defect reproduction"
@@ -1695,6 +1782,9 @@
             "lesson": [
               "记录版本、环境、前置、步骤、预期、实际与证据。区分影响严重度和处理优先级。",
               "Record build, environment, preconditions, steps, expected/actual and evidence. Separate severity from priority."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1736,7 +1826,7 @@
           },
           {
             "id": "stable-assertions",
-            "version": 1,
+            "version": 2,
             "title": [
               "稳定定位与断言",
               "Stable locators and assertions"
@@ -1744,6 +1834,9 @@
             "lesson": [
               "围绕可见行为与角色定位，并等待实际条件。失败时保留可定位证据。",
               "Locate user-facing behavior and roles and wait for real conditions. Capture diagnostic evidence on failure."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -1864,7 +1957,7 @@
           },
           {
             "id": "errors",
-            "version": 1,
+            "version": 2,
             "title": [
               "错误处理与边界输入",
               "Errors and edge cases"
@@ -1872,6 +1965,9 @@
             "lesson": [
               "区分可预期输入错误、系统失败和缺陷。提供具体错误且保留上下文。",
               "Distinguish expected input errors, system failures and bugs. Preserve useful error context."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]
@@ -1938,7 +2034,7 @@
         "leaves": [
           {
             "id": "git-branches",
-            "version": 1,
+            "version": 2,
             "title": [
               "Git 分支与合并",
               "Git branches and merges"
@@ -1946,11 +2042,14 @@
             "lesson": [
               "在可审查分支上工作。解决冲突时保留双方意图并运行相关检查。",
               "Work in reviewable branches. Resolve conflicts by preserving both intentions and running relevant checks."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
             "id": "code-review",
-            "version": 1,
+            "version": 2,
             "title": [
               "代码审查与反馈",
               "Code review"
@@ -1958,6 +2057,9 @@
             "lesson": [
               "审查关注正确性、测试、可维护性和范围。用可定位反馈描述问题和影响。",
               "Review correctness, tests, maintainability and scope. Give feedback with location and impact."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -2059,7 +2161,7 @@
         "leaves": [
           {
             "id": "environments",
-            "version": 1,
+            "version": 2,
             "title": [
               "环境与配置基线",
               "Environments and baselines"
@@ -2067,6 +2169,9 @@
             "lesson": [
               "登记环境、依赖、版本和可重复配置。将测试和生产的凭据隔离。",
               "Record environments, dependencies, versions and repeatable configuration. Separate test and production credentials."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -2108,7 +2213,7 @@
         "leaves": [
           {
             "id": "uat",
-            "version": 1,
+            "version": 2,
             "title": [
               "用户验收测试",
               "User acceptance testing"
@@ -2116,6 +2221,9 @@
             "lesson": [
               "由代表性业务角色执行关键任务，记录结果、缺陷、剩余风险和批准。",
               "Have representative business users run critical journeys and record results, defects, risks and approval."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -2157,7 +2265,7 @@
         "leaves": [
           {
             "id": "role-training",
-            "version": 1,
+            "version": 2,
             "title": [
               "按角色培训与验收",
               "Role-based training"
@@ -2165,6 +2273,9 @@
             "lesson": [
               "按角色和任务设计练习，保存材料、问题入口和可观察的练习结果。",
               "Train by role and task, retaining materials, question channels and observable outcomes."
+            ],
+            "previousVersions": [
+              1
             ]
           },
           {
@@ -2181,7 +2292,7 @@
           },
           {
             "id": "handoff",
-            "version": 1,
+            "version": 2,
             "title": [
               "移交清单与跟进",
               "Handoff and follow-up"
@@ -2189,6 +2300,9 @@
             "lesson": [
               "交付环境、手册、访问申请、验收和未决事项，给后续责任和更新时间。",
               "Hand over environments, runbooks, access requests, acceptance and open items with owners and update dates."
+            ],
+            "previousVersions": [
+              1
             ]
           }
         ]

@@ -11,6 +11,7 @@ import {createKnowledgeStore} from './knowledge-store.mjs';
 import {createPublicTranslations} from './public-translations.mjs';
 import {agentFromEnvironment} from './agent/service.mjs';
 import {createAgentWorkflow} from './agent/workflow.mjs';
+import {createDiscussionWorkflow} from './agent/discussion-workflow.mjs';
 import {loadGuidance,reviewedLibrary} from './agent/library.mjs';
 import {createAgentOperations} from './agent/operations.mjs';
 import {createBusinessCommands} from './business-commands.mjs';
@@ -63,6 +64,7 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
   business.guidancePack=()=>administration.currentPack(()=>loadGuidance(guidanceFile));
   const agent=agentFactory(business);
   const workflow=createAgentWorkflow({db,business,now,knowledge:reviewedLibrary(business.guidancePack),loadPack:business.guidancePack});
+  const discussion=createDiscussionWorkflow({db,business,now});
   const agentOperations=createAgentOperations(db,{now});
   const knowledge=createKnowledgeStore(knowledgeDatabase);
   const commands=createBusinessCommands({db,business,knowledge,now});
@@ -189,6 +191,11 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
             send(200,{...receipt,publicTranslations:publicCopy.envelope({skillRows:analysis?.skillRows,dimensions:analysis?.dimensions,notice:analysis?.notice}).publicTranslations});
           }else send(200,receipt);
           return;
+        }
+        if(req.method==='POST'&&/^\/api\/agent\/discussion-(sources|review|preview|apply|history|draftCreate|draftGet|draftSave|draftList)$/.test(path)){
+          limit(`discussion:${user.id}`,60,60000);
+          const action=path.split('-').at(-1),data=await readJSON(req,action==='draftSave'?200000:32768);
+          send(200,discussion[action](user.id,data));return;
         }
         if(req.method==='POST'&&['/api/agent/analyse','/api/agent/propose','/api/agent/apply','/api/agent/feedback','/api/agent/memory'].includes(path)){
           limit(`agent-workflow:${user.id}`,30,60000);

@@ -1,5 +1,9 @@
 import {KEY, fresh} from './model.js';
+import {normalizeDiscussion} from './discussion-contract.js';
 import {normalizeSkillStudy} from './skill-tree-model.js';
+import {normalizeCareerLinks} from './career-material-links.js';
+import {normalizeCareerTrials} from './career-trial-model.js';
+import {normalizeComparisonNotes} from './career-comparison-notes.js';
 
 const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const own=(value,key)=>Object.hasOwn(value,key);
@@ -44,10 +48,10 @@ function checkedRecord(value,defaults={},types={}){
   });
   return result;
 }
-function claim(value){return checkedRecord(value,{title:'',text:'',contribution:'',skill:'未知',aid:'未说明',status:'待确认',version:1});}
+function claim(value){return checkedRecord(value,{title:'',text:'',contribution:'',skill:'未知',aid:'未说明',status:'待确认',version:1},{careerLinks:normalizeCareerLinks});}
 function attempt(value){return checkedRecord(value,{text:'',contribution:'',aid:'未说明',result:'待检查',feedback:'',version:1});}
 function task(value){return checkedRecord(value,{title:'',purpose:'',note:'',draft:'',contribution:'',aid:'未说明',standard:'',check:'未检查',claimStatus:'未形成候选',completed:false,selfcheck:false,version:1,attempts:[],dependsOn:[]},{hours:numeric,completed:bool,selfcheck:bool,attempts:value=>records(value,attempt),dependsOn:strings,atlas:nullable(atlas)});}
-function conversation(value){return checkedRecord(value,{title:'',mode:'职业咨询',messages:[]},{messages:value=>records(value,item=>checkedRecord(item,{}, {scope:strings}),false)});}
+function conversation(value){return checkedRecord(value,{title:'',mode:'职业咨询',messages:[]},{discussion:normalizeDiscussion,messages:value=>records(value,item=>checkedRecord(item,{}, {scope:strings}),false)});}
 function report(value){return checkedRecord(value,{title:'',body:'',claimIds:[]},{sections:strings,sectionRecords:value=>records(value,item=>checkedRecord(item)),privateReflections:value=>records(value,item=>checkedRecord(item)),educationFacts:value=>records(value,item=>checkedRecord(item)),facts:value=>records(value,claim),placements:value=>mapping(value,string),tailoring,wording:string,profileSnapshot:nullable(item=>checkedRecord(item)),jobSnapshot:nullable(item=>checkedRecord(item))});}
 function resume(value){return {...report(value),facts:own(value,'facts')?records(value.facts,claim):[]};}
 function atlas(value){return checkedRecord(value,{}, {steps:strings});}
@@ -66,7 +70,7 @@ export function normalizePrototypeState(value){
     audit:item=>checkedRecord(item),conversations:conversation,resumeImports:item=>checkedRecord(item),aiNotes:item=>checkedRecord(item),analysisHistory:analysis
   };
   const types={
-    budget:numeric,goal:nullable(string),backup:nullable(string),compare:strings,favorites:strings,aiScope:strings,skillStudy:normalizeSkillStudy,
+    budget:numeric,goal:nullable(string),backup:nullable(string),compare:strings,favorites:strings,aiScope:strings,skillStudy:normalizeSkillStudy,careerTrials:normalizeCareerTrials,comparisonNotes:normalizeComparisonNotes,
     preferences:item=>fields(item,base.preferences),claimDraft:item=>fields(item,base.claimDraft,{guidedParts:parts=>fields(parts,{context:'',action:'',outcome:''}),rawText:string}),decision:item=>fields(item,base.decision),
     adminSource:item=>fields(item,base.adminSource),adminContent:item=>fields(item,base.adminContent),
     reading:item=>mapping(item,row=>fields(row,{}, {chapter:numeric})),analysis:nullable(analysis),

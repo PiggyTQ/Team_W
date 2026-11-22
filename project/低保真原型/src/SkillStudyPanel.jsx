@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect,useRef,useState} from 'react';
 import ProductIcon from './ProductIcon';
 import {authMessage} from './auth-contract';
 import {SKILL_NOTE_LIMIT, updateSkillStudy} from './skill-tree-model';
@@ -8,13 +8,15 @@ const RETRYABLE_SAVE = new Set(['NETWORK_ERROR','SERVICE_UNAVAILABLE','RATE_LIMI
 const steps = ['learn','practice','check'];
 
 export default function SkillStudyPanel({tree, leaf, step, label, t, language, live, record, studyKey,
-    workspace, update, onStep, onNext, onCheck, onReload, onPlan, showGrowth, children}) {
+    workspace, update, onStep, onNext, onCheck, onReload, onPlan, showGrowth, children,j,onConfirmedGrowth,branchComplete,hideHeading=false,headingId='skill-study-title'}) {
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [newGrowth, setNewGrowth] = useState(false);
+  const resultView=useRef(null);
+  useEffect(()=>{if(result)resultView.current?.scrollIntoView({block:'nearest'});},[result]);
   const assessment = record?.assessment;
   const draft = record?.draft || '';
 
@@ -54,7 +56,7 @@ export default function SkillStudyPanel({tree, leaf, step, label, t, language, l
     setBusy(true);
     try {
       const grade = await onCheck({career:tree.id,skill:leaf.id,version:leaf.version,answers});
-      setNewGrowth(value => value || grade.passed && !assessment?.passedAt);
+      setNewGrowth(grade.passed && !assessment?.passedAt);
       setResult(grade);
     } catch (failure) {
       setError(failure.code || 'NETWORK_ERROR');
@@ -71,7 +73,8 @@ export default function SkillStudyPanel({tree, leaf, step, label, t, language, l
       const refs = receipt?.refs;
       if (receipt?.type === 'skill.check' && refs.career === tree.id &&
           refs.skill === leaf.id && refs.version === leaf.version) {
-        setNewGrowth(value => value || refs.grade.passed && !assessment?.passedAt);
+        setNewGrowth(refs.grade.passed && !assessment?.passedAt);
+        if(refs.grade.passed&&!assessment?.passedAt)onConfirmedGrowth?.();
         setResult(refs.grade);
       }
     } catch (failure) {
@@ -81,11 +84,11 @@ export default function SkillStudyPanel({tree, leaf, step, label, t, language, l
     }
   }
 
-  return <article className="skill-study" aria-labelledby="skill-study-title" data-skill-study={leaf.id} data-study-step={step}>
-    <header className="skill-study-head">
+  return <article className="skill-study" aria-labelledby={headingId} data-skill-study={leaf.id} data-study-step={step}>
+    {!hideHeading&&<header className="skill-study-head">
       <h3 id="skill-study-title">{label(leaf.title)}</h3>
       {assessment?.passedAt && <span className="skill-pass-tag"><ProductIcon name="check" size={14}/>{t.passed}</span>}
-    </header>
+    </header>}
     <nav className="skill-study-steps" aria-label={t.continue}>
       {steps.map((value, index) => <button type="button" key={value} data-skill-stage={value}
         aria-current={step === value ? 'step' : undefined} onClick={() => openStep(value)}>
@@ -156,15 +159,16 @@ export default function SkillStudyPanel({tree, leaf, step, label, t, language, l
               {busy ? t.submitting : t.submit}
             </button>}
           </form>
-          {result && <div className="skill-check-result" role="status" data-passed={result.passed}>
+          {result && <div className="skill-check-result" role="status" data-passed={result.passed} ref={resultView}>
             <p><strong>{result.passed ? t.passed : t.fail}</strong> · {t.result} {result.correct}/{result.total}</p>
-            {result.passed && <p>{t.passedHint}</p>}
+            {result.passed && <><h4>{newGrowth?(branchComplete?j?.branchComplete:j?.leafComplete):j?.passed}</h4><p>{newGrowth?(branchComplete?j?.branchGrowth:t.passedHint):j?.alreadyGrown}</p></>}
             <div className="skill-study-actions">
               {result.passed && onNext && <button type="button" className="skill-control skill-primary" onClick={onNext}>
                 {t.next}<ProductIcon name="arrow" size={16}/>
               </button>}
-              {result.passed && <button type="button" className="skill-control" onClick={() => {
-                showGrowth(newGrowth);
+              {result.passed && <button type="button" className="skill-control" onClick={()=>openStep('learn')}>{j?.reviewSkill||t.review}</button>}
+              {result.passed && showGrowth && <button type="button" className="skill-control" onClick={() => {
+                showGrowth();
                 setNewGrowth(false);
               }}>
                 {t.viewGrowth}
@@ -185,8 +189,8 @@ export default function SkillStudyPanel({tree, leaf, step, label, t, language, l
             <button type="button" className="skill-control" onClick={recoverCheck}>{t.recoverCheck}</button>}
         </div>}
       </div>
-      <aside className="skill-study-sources" aria-label={t.materials}>
-        <h4>{t.materials}</h4>
+      <details className="skill-study-sources">
+        <summary>{t.materials}</summary>
         {children}
         {tree.assessment && <div className="skill-related">
           <h4>{t.officialAssessment}</h4>
@@ -195,7 +199,7 @@ export default function SkillStudyPanel({tree, leaf, step, label, t, language, l
             {tree.assessment.title}<ProductIcon name="external" size={14}/>
           </a>
         </div>}
-      </aside>
+      </details>
     </div>
   </article>;
 }

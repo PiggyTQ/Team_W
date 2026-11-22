@@ -1,5 +1,8 @@
 // Roundline v1: 24-unit optical grid; open silhouettes, round caps, sparse detail.
 export const iconPaths={
+ attachment:'m8 12 6-6a3 3 0 0 1 4 4l-8 8a5 5 0 0 1-7-7l8-8a3 3 0 0 1 4 4l-8 8a1 1 0 0 1-2-2l7-7',
+ signpost:'M12 2v20M4 5h14l3 3-3 3H4V5ZM20 13H6l-3 3 3 3h14v-6',
+ balance:'M12 3v17M5 21h14M4 6h16M6 6l-4 9h8L6 6ZM18 6l-4 9h8l-4-9ZM2 15c1 3 7 3 8 0M14 15c1 3 7 3 8 0',
  collaboration:'M9 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM21 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM2 20v-3c0-4 8-4 8 0M14 17c0-4 8-4 8 0v3M9 20h6M12 17v6',
  compass:'M20.4 9a8.8 8.8 0 1 0-1.1 8.4M15.7 8.3l-2.2 5.2-5.2 2.2 2.2-5.2 5.2-2.2Z',
  clipboard:'M8 4H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5M16 4h2a2 2 0 0 1 2 2v4M9 3h6v4H9V3ZM8 11h6M8 15h6',

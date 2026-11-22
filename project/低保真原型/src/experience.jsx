@@ -1,3 +1,4 @@
+import UpdatedCareerBrowser from './CareerBrowser';
 import ProductIcon from './ProductIcon';
 import ReportDecisionDesk,{ReportSnapshotBrief} from './ReportDecisionDesk';
 import CareerDetail from './CareerDetail';
@@ -95,34 +96,7 @@ function DashboardView({ s, link, open, precheck, startTask, update, tell, sugge
   return <WorkspaceHome s={s} link={link} open={open} startTask={startTask} update={update} tell={tell} action={action} pending={pending} Icon={Icon} suggestions={suggestions}/>;
 }
 
-function CareerBrowser({ s, url, filter, onFilter, move, link, open, toggleCompare, update }) {
-  const [filtersOpen, setFiltersOpen] = useState(false);
-  const params = new URL(url, location.origin).searchParams, q = params.get("q") || "", current = careers.find((c) => c.id === params.get("career"));
-  const listPosition = useRef(null), wasDetail = useRef(Boolean(current));
-  useLayoutEffect(() => {
-    let frame;
-    if (!current && wasDetail.current && listPosition.current) {
-      const position = listPosition.current;
-      frame = requestAnimationFrame(() => {
-        window.scrollTo(0, position.page);
-        document.getElementById('main')?.scrollTo(0, position.main);
-      });
-    }
-    wasDetail.current = Boolean(current);
-    return () => cancelAnimationFrame(frame);
-  }, [current?.id]);
-  const [group, setGroup] = useState("\u5168\u90E8\u65B9\u5411");
-  const matches = careers.filter((c) => careerMatches(c,q,displayText) && (filter !== "\u6709\u76F8\u5173\u6750\u6599" || confirmed(s).some((x) => x.skill === c.skill)) && (group === "\u5168\u90E8\u65B9\u5411" || (group === "\u6570\u636E\u4E0E\u667A\u80FD" ? ["data", "ai", "engineering"].includes(c.id) : group === "\u5F00\u53D1\u4E0E\u4EA4\u4ED8" ? ["frontend", "backend", "software", "delivery", "testing"].includes(c.id) : ["security", "ops"].includes(c.id))));
-  function query(v) {
-    move(`/careers?q=${encodeURIComponent(v)}`, true);
-  }
-  return <div className={`explore-layout ${filtersOpen ? "filters-open" : ""}`}><button className="mobile-filter-toggle" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(!filtersOpen)}><Icon name="search" size={16}/><span>{filtersOpen ? "收起筛选与比较篮" : "筛选与比较篮"}</span><span>{s.compare.length} / 3 已选</span></button><StickyAside className="explore-filter"><h2>按你关心的工作找<svg className="filter-title-flourish" viewBox="0 0 40 48" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden="true"><path d="M10 19C27 15 33 8 29 7S13 11 10 19ZM13 28c16 11 23 7 17 2s-14-4-17-2ZM9 29l-5 9M4 12l2-7"/></svg></h2><label className="field"><span>搜索职业、工作任务或技能</span><div className="search-input"><Icon name="search" size={18} /><input aria-label="搜索职业、工作任务或技能" name="career-search" value={q} onChange={(e) => query(e.target.value)} placeholder="例如：数据、SQL…" /></div></label><label className="field"><span>候选来源</span><select aria-label="候选来源" value={["\u5168\u90E8", "\u6709\u76F8\u5173\u6750\u6599", "\u5174\u8DA3\u63A2\u7D22"].includes(filter) ? filter : "\u5168\u90E8"} onChange={(e) => onFilter(e.target.value)}><option>全部</option><option>有相关材料</option><option>兴趣探索</option></select></label><fieldset><legend>基础方向</legend>{["\u5168\u90E8\u65B9\u5411", "\u6570\u636E\u4E0E\u667A\u80FD", "\u5F00\u53D1\u4E0E\u4EA4\u4ED8", "\u5B89\u5168\u4E0E\u8FD0\u7EF4"].map((x) => <label key={x} className="check"><input type="radio" name="career-group" checked={group === x} onChange={() => setGroup(x)} />{x}</label>)}</fieldset><p className="caption explore-invitation">没有确认方向？先自由探索！</p><details className="comparison-pocket"><summary>我的比较篮 <span>{s.compare.length} / 3</span></summary><h3>我的比较篮 <span>{s.compare.length} / 3</span></h3>{s.compare.length ? s.compare.map((cid) => <div key={cid}><span>{cname(cid)}</span><button aria-label={`\u79FB\u9664${cname(cid)}`} onClick={() => toggleCompare(cid)}>移除</button></div>) : <p>选两个感兴趣的方向，比一比工作、已有材料和未知。</p>}{link("/careers?tab=\u6BD4\u8F83", "\u6253\u5F00\u6BD4\u8F83", "button primary")}</details></StickyAside>
- <div className="explore-main">{current ? <CareerDetail key={current.id} current={current} s={s} q={q} link={link} open={open} toggleCompare={toggleCompare} update={update}/> : <><div className="section-heading exploration-section-heading"><img className="exploration-mascot" src="/illustrations/cheese-scenes/explore.png" alt="" aria-hidden="true"/><div><h2>从日常工作认识职业</h2><p>当前范围 {matches.length} 个原创摘要 · 不按薪酬或适合度排名</p></div><span className="status-chip">十个基础方向</span></div>{matches.length ? <div className="occupation-grid" onClickCapture={e => {if (!e.target.closest("button")) listPosition.current = {page:window.scrollY, main:document.getElementById("main")?.scrollTop || 0};}}>{matches.map((c) => <article key={c.id} className="exploration-career-card" data-career={c.id}><img className="career-card-background" src={`/illustrations/career-backgrounds/${c.id}.png`} alt="" aria-hidden="true" loading="lazy"/><div className="occupation-card-top"><span className="occupation-avatar"><Icon name={c.id} /></span><button aria-label={`\u6536\u85CF${c.name}`} onClick={() => update({ favorites: s.favorites.includes(c.id) ? s.favorites.filter((x) => x !== c.id) : [...s.favorites, c.id] })} aria-pressed={s.favorites.includes(c.id)}><ProductIcon name="heart" size={17} filled={s.favorites.includes(c.id)}/>{s.favorites.includes(c.id) ? "\u5DF2\u6536\u85CF" : "\u6536\u85CF"}</button></div><h3>{link(`/careers?career=${c.id}&q=${encodeURIComponent(q)}`, c.name)}</h3><p>{c.task}</p><div className="occupation-output"><span>会形成什么</span><p>{c.output}</p></div><div className="occupation-tags"><span>{c.skill}</span><span>{c.branch.split(" / ")[0]}</span></div><div className="occupation-actions">{link(`/careers?career=${c.id}&q=${encodeURIComponent(q)}`, "\u4E86\u89E3\u5DE5\u4F5C \u2192")}<button onClick={() => toggleCompare(c.id)} aria-pressed={s.compare.includes(c.id)}>{s.compare.includes(c.id) ? "\u79FB\u51FA\u6BD4\u8F83" : "\u52A0\u5165\u6BD4\u8F83"}</button></div></article>)}</div> : <div className="light-empty"><Icon name="search" size={28} /><h3>没有找到符合条件的方向</h3><p>可清空关键词，或暂时不按个人材料筛选。</p><button onClick={() => {
-    onFilter("\u5168\u90E8");
-    setGroup("\u5168\u90E8\u65B9\u5411");
-    query("");
-  }}>放宽筛选</button></div>}</>}</div></div>;
-}
+function CareerBrowser(props) { return <UpdatedCareerBrowser {...props}/>; }
 function RouteView({ s, tab, url, move, link, open, precheck }) {
   const params = new URL(url, location.origin).searchParams, skills = tab === "\u6280\u80FD\u5148\u4FEE", list = params.get("view") === "\u5217\u8868", career = params.get("career") || s.goal || "data";
   const [scope, setScope] = useState("\u5F53\u524D\u65B9\u5411");

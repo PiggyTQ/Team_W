@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-21",
+  "status": "design-only",
+  "scope": "职业探索详情、具体交付物和同维比较",
+  "businessCodeChanged": false,
+  "siteTestsRun": false,
+  "productionChecked": false,
+  "deploymentPerformed": false,
+  "references": [
+    "reference/01-current-detail.png",
+    "reference/02-current-list.png",
+    "reference/03-current-deliverables.png"
+  ],
+  "concepts": [
+    {
+      "file": "01-career-detail.png",
+      "width": 1555,
+      "height": 1011,
+      "kind": "待实现设计，合成示例",
+      "sha256": "EB508963752735FA2A4B3475FB3D0AD565443FD7A1B06E56190E044E2806120F"
+    },
+    {
+      "file": "02-deliverable-examples.png",
+      "width": 1555,
+      "height": 1011,
+      "kind": "待实现设计，合成示例",
+      "sha256": "4FB1F7F4C4F454E30826690B82F31477343A951E014AF3F2751FF2142C010415"
+    },
+    {
+      "file": "03-career-comparison.png",
+      "width": 1575,
+      "height": 998,
+      "kind": "待实现设计，合成示例",
+      "sha256": "FDACD49703468BA009E9915277B5A296EE6227A3B65D84540DB4D95754A6DD20"
+    }
+  ],
+  "imageGeneration": "内置imagegen；三张独立生成，交付物图经一次定向修订",
+  "originalImages": [
+    "exec-a74480fa-db49-4342-ad42-b770f8336863.png",
+    "exec-65b52dc3-cf46-4d92-be63-1e6b8f5e9b6f.png",
+    "exec-fa5828cd-bc91-4aff-b676-c2f9541cce83.png"
+  ],
+  "originalDirectory": "C:/Users/tsnbx/AppData/Local/ChatGPT-Accounts/Account2/Codex/generated_images/01a1f3e1-2dc2-77c1-b779-a4291a4556b8",
+  "checks": [
+    "源码静态核对",
+    "官方来源与许可查阅",
+    "三张概念图视觉检查",
+    "320-280=40及40/320=12.5%",
+    "用户参考与概念分开保存"
+  ],
+  "boundaries": [
+    "非网页实拍",
+    "非真实用户或企业数据",
+    "非十方向完整研究",
+    "中文PDF仅候选未全文核对",
+    "不改变历史生产基线"
+  ]
+}

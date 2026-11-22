@@ -1,4 +1,5 @@
 import AccountMailActions from './AccountMailActions';
+import {clearTrialRecovery} from './career-trial-model';
 import React,{useEffect,useState} from 'react';
 import {authRequest,apiRequest} from './auth-client';
 import {authMessage,validateCredentials,AUTH_POLICY} from './auth-contract';
@@ -21,6 +22,7 @@ export default function AccountSecurityPanel({user,sync,onDeleted,download,onNot
       if(mode==='delete-account'){data.email=values.get('email');data.confirmation=values.get('confirmation');}
       if(mode==='clear-workspace'){data.baseVersion=sync.current().revision;data.confirmation=values.get('confirmation');}
       await authRequest(mode,{data});form.reset();
+      if(['delete-account','clear-workspace'].includes(mode))clearTrialRecovery(localStorage,user.id);
       if(mode==='delete-account'){onDeleted();return;}
       if(mode==='clear-workspace')await sync.reload();
       const message=text(mode==='change-password'?'密码已更新，其他会话已撤销。':mode==='revoke-others'?'其他设备会话已撤销。':'账户业务记录已清空，账户仍保留。',mode==='change-password'?'Password updated. Other sessions were revoked.':mode==='revoke-others'?'Other sessions were revoked.':'Workspace records cleared. Your account remains.');

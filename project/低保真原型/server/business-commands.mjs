@@ -7,14 +7,16 @@ import {stoppedTask,applyTaskEdit,validateTaskEdit} from '../src/task-edit-model
 import {freezeReport,createSkillCandidates} from '../src/alignment-model.js';
 import {atlasPracticeKey} from '../src/atlas-history.js';
 import {planningReportPreview} from './planning-report.mjs';
-import {gradeSkillCheck} from './skill-trees/index.mjs';
-import {recordSkillAssessment,skillStudyKey} from '../src/skill-tree-model.js';
+import {gradeSkillCheck,getSkillTree} from './skill-trees/index.mjs';
+import {recordSkillAssessment,skillStudyKey,skillRecord} from '../src/skill-tree-model.js';
+import {skillPreparation} from '../src/skill-learning-model.js';
+import {normalizeCareerLinks} from '../src/career-material-links.js';
 import {
   createProjectDeliverable,guidedTask,newProjectPractice,normalizeProjectPractice,
   PRACTICE_ROLES,PRACTICE_SCOPES,sameProjectPractice
 } from '../src/practice-project-model.js';
 
-const COMMANDS=new Set(['assessment.create','skill.check','report.compile','report.compose','task.create','task.edit','task.start','task.submit','task.selfcheck','task.complete','evidence.candidates','experience.record','claim.confirm','claim.withdraw']);
+const COMMANDS=new Set(['assessment.create','skill.check','report.compile','report.compose','task.create','task.edit','task.start','task.submit','task.selfcheck','task.complete','evidence.candidates','experience.record','claim.confirm','claim.withdraw','claim.link']);
 const origin='server-command-v1';
 const sorted=value=>Array.isArray(value)?value.map(sorted):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,sorted(value[key])])):value;
 const hash=value=>createHash('sha256').update(JSON.stringify(sorted(value))).digest('hex');
@@ -64,6 +66,9 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         text(career,30);text(skill,50);
         const grade=gradeSkillCheck(career,skill,version,answers);
         const key=skillStudyKey(career,{id:skill,version});
+        const publishedLeaf=getSkillTree(career).branches.flatMap(b=>b.leaves).find(l=>l.id===skill);
+        const compatible=skillRecord(s.skillStudy,career,publishedLeaf);
+        requireValue(compatible?.assessment?.passedAt||skillPreparation(compatible).ready,'SKILL_PREPARATION_REQUIRED',409);
         const skillStudy=recordSkillAssessment(s.skillStudy,key,grade,authority.createdAt);
         next={...s,skillStudy};
         refs={career,skill,version,grade,assessment:skillStudy[key].assessment};
@@ -182,6 +187,16 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         for(const key of ['observationType','occurredOn','investigationMethod','investigationSource'])if(payload[key]!==undefined){requireValue(typeof payload[key]==='string'&&payload[key].length<=4000);task[key]=payload[key];}
         next=addClaim({...s,tasks:[...s.tasks,task]}, {title,text:body,contribution:payload.contribution||'',skill:'未知',taskId:task.id,origin:'外部补录自述'});
         refs={taskId:task.id,claimId:next.claims.at(-1).id};
+      }else if(type==='claim.link'){
+        fields(payload,['claimId','claimVersion','links','confirmation']);
+        const claim=s.claims.find(row=>row.id===payload.claimId);requireValue(!!claim,'NOT_FOUND',404);
+        requireValue(payload.claimVersion===claim.version,'VERSION_CONFLICT',409);
+        requireValue(claim.status==='已确认','INVALID_CLAIM_STATE',409);
+        requireValue(payload.confirmation==='SET_TASK_LINKS','CONFIRMATION_REQUIRED');
+        let links;try{links=normalizeCareerLinks(payload.links);}catch{throw businessError('INVALID_REQUEST');}
+        for(const row of links)requireValue(!row.skill||getSkillTree(row.career)?.branches.flatMap(b=>b.leaves).some(l=>l.id===row.skill),'INVALID_REQUEST');
+        next={...s,profileVersion:s.profileVersion+1,analysisStale:!!s.analysis,proposal:null,claims:s.claims.map(c=>c.id===claim.id?{...c,careerLinks:links,version:c.version+1}:c)};
+        refs={claimId:claim.id};
       }else{
         fields(payload,['claimId','claimVersion','text','contribution','resolution','confirmation']);
         const claim=s.claims.find(row=>row.id===payload.claimId);requireValue(!!claim,'NOT_FOUND',404);
@@ -209,6 +224,10 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
 export function guardCommandRecords(previous,next){
   const isServer=row=>row?.authority?.origin===origin;
   const identical=(a,b)=>hash(a)===hash(b);
+  for(const claim of next.claims){
+    const old=previous.claims.find(c=>c.id===claim.id);
+    requireValue(identical(old?.careerLinks??null,claim.careerLinks??null),'COMMAND_REQUIRED',409);
+  }
   const studyKeys=new Set([...Object.keys(previous.skillStudy||{}),...Object.keys(next.skillStudy||{})]);
   for(const key of studyKeys){
     requireValue(identical(previous.skillStudy?.[key]?.assessment??null,next.skillStudy?.[key]?.assessment??null),

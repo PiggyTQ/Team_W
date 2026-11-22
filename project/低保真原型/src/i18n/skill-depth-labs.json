@@ -1,0 +1,102 @@
+{
+  "data:sql-joins": {
+    "input": "orders: one row per order\norder_id,order_amount\nU,90\nV,40\n\nlines: one row per line\norder_id,line_amount\nU,10\nU,20",
+    "tables": [
+      {
+        "title": [
+          "订单 · 每单一行",
+          "Orders · one row per order"
+        ],
+        "csv": "order_id,order_amount\nU,90\nV,40"
+      },
+      {
+        "title": [
+          "明细 · 每条明细一行",
+          "Lines · one row per line"
+        ],
+        "csv": "order_id,line_amount\nU,10\nU,20"
+      }
+    ],
+    "procedure": [
+      "先运行直接关联，观察 U 被展开两次；连接后对订单金额求和得到220。再把明细按订单汇总，连接输出 U(90,30)、V(40,NULL)，订单总额回到130。最后对比 ON 与 WHERE 的筛选位置：ON 限制可匹配明细，WHERE 删除已经连接完成的行。",
+      "Run the raw join: U appears twice and summing order amounts yields220. Aggregate lines by order first: U(90,30),V(40,NULL) retain total130. Compare filter placement: ON limits matching lines; WHERE discards completed joined rows."
+    ],
+    "code": "-- SQLite 3 / PostgreSQL common SQL; synthetic data only\nCREATE TABLE orders(order_id TEXT PRIMARY KEY, order_amount INTEGER);\nCREATE TABLE lines(order_id TEXT, line_amount INTEGER);\nINSERT INTO orders VALUES ('U',90),('V',40);\nINSERT INTO lines VALUES ('U',10),('U',20);\n\n-- 1. Raw join: U 90 10; U 90 20; V 40 NULL\nSELECT o.*,l.line_amount FROM orders o\nLEFT JOIN lines l ON l.order_id=o.order_id ORDER BY o.order_id;\n-- Raw row count=3; distinct order count=2; sum(order_amount)=220\n\n-- 2. Restore order grain before joining\nWITH per_order AS (\n SELECT order_id,SUM(line_amount) AS line_total\n FROM lines GROUP BY order_id\n)\nSELECT o.*,p.line_total FROM orders o\nLEFT JOIN per_order p ON p.order_id=o.order_id ORDER BY o.order_id;\n-- U 90 30; V 40 NULL; order total=130\n\n-- 3. Matching filter: V is retained\nSELECT o.order_id,l.line_amount FROM orders o\nLEFT JOIN lines l ON l.order_id=o.order_id AND l.line_amount>15;\n-- U 20; V NULL\n\n-- 4. Post-join filter: V is removed (NULL > 15 is not true)\nSELECT o.order_id,l.line_amount FROM orders o\nLEFT JOIN lines l ON l.order_id=o.order_id WHERE l.line_amount>15;\n-- U 20\n-- Recheck COUNT(*), distinct keys, preserved keys and totals separately.",
+    "scope": [
+      "已在 Python SQLite 隔离内存库运行以上公共 SQL：3行/220、2行/130，ON 保留 V、WHERE 删除 V。PostgreSQL 原生执行计划、类型与排序规则未在本轮执行。",
+      "Executed in isolated Python SQLite:3 rows/220,2 rows/130; ON retains V and WHERE removes it. PostgreSQL-specific plans, types and collations were not executed."
+    ]
+  },
+  "testing:boundary": {
+    "input": "age,expected\n17,reject\n18,accept\n19,accept\n30,accept\n59,accept\n60,accept\n61,reject\nmissing,reject\n18.5,reject",
+    "procedure": [
+      "整数范围18至60（含）。二值边界检查17、18、60、61；三值策略再补19、59。普通值30、缺失与小数属于额外类别。将正确的 <= 故意改成 <，60应让变异实现失败；这是用例检错能力的验证，不是全输入穷尽证明。",
+      "For integers18–60 inclusive, two-value BVA covers17,18,60,61; three-value adds19,59. Ordinary30, missing and decimals add other classes. Mutate <= to <:60 must detect it. This checks defect detection, not exhaustive correctness."
+    ],
+    "code": "def accepted(age):\n    return type(age) is int and 18 <= age <= 60\n\ncases = [(17,False),(18,True),(19,True),(30,True),\n         (59,True),(60,True),(61,False),(None,False),(18.5,False)]\nfor age,expected in cases:\n    assert accepted(age) == expected\n\n# Mutant has an exclusive upper bound. Case 60 must kill it.\ndef mutant(age):\n    return type(age) is int and 18 <= age < 60\nassert mutant(60) != accepted(60)",
+    "scope": [
+      "Python 3：9个具体案例与上界变异检查已执行。这里只验证教学函数；没有验证真实产品的年龄需求。",
+      "Python3:9 concrete cases and the upper-bound mutation were executed. This verifies the teaching function, not a real product age requirement."
+    ]
+  },
+  "delivery:migration": {
+    "input": "outcome,rows,amount\nsource,120,8000\nsuccess,117,7700\nfailed,3,300",
+    "procedure": [
+      "行数 117+3=120、金额 7700+300=8000，说明差额有解释，但还不能认定迁移全部正确。继续检查主键、字段映射、重复、抽样值及失败项能否重跑。失败项不能从验收材料中消失。",
+      "117+3=120 and 7700+300=8000 explain the differences, but do not establish full correctness. Check keys, mappings, duplicates, samples and retry behavior. Retain failed rows in acceptance evidence."
+    ],
+    "code": "Reconciliation\nRows: source 120 = success 117 + failed 3\nAmount: 8000 = 7700 + 300\nOpen: inspect failed keys, mapping and duplicate policy\nOwner: assign before accepting the migration",
+    "scope": [
+      "纸面与算术复核：117+3=120、7700+300=8000。不代表已运行迁移工具，也不能证明字段映射和业务验收通过。",
+      "Desk/arithmetic check only:117+3=120 and7700+300=8000. No migration engine was run; mappings and business acceptance remain unverified."
+    ]
+  },
+  "data:aggregation": {
+    "input": "channel,orders,refunds\nA,20,4\nB,80,8",
+    "procedure": [
+      "分组比率 A 为 20%、B 为 10%；直接平均得到 15% 会让小组与大组权重相同。整体应先加退款 12 与订单 100，再得到 12%。若分母为零，返回未知并说明，不强制设为零。",
+      "A is 20% and B 10%. Averaging gives 15% and weights unequal groups equally. Sum 12 refunds and 100 orders first: 12%. A zero denominator remains undefined, not automatically zero."
+    ],
+    "code": "SELECT SUM(refunds) * 1.0 / NULLIF(SUM(orders),0) AS refund_rate\nFROM channel_totals;\n-- 0.12",
+    "scope": [
+      "SQLite 3.50.4 已执行本例查询，得到0.12。生产数据库的类型和舍入规则仍需核对。",
+      "Executed in SQLite3.50.4:0.12. Verify production numeric types and rounding."
+    ]
+  },
+  "data:missing": {
+    "input": "row,amount,status\n1,20,reported\n2,,not_reported\n3,0,reported\n4,40,reported",
+    "procedure": [
+      "四条记录中三条有有效金额，真实零保留。因此有效均值 60/3=20，金额覆盖率为 3/4=75%。均值与覆盖率一起报告，才能让读者知道缺测范围。",
+      "Three of four rows have observed amounts, including zero. The observed mean is 60/3=20 and coverage is 3/4=75%. Report mean and coverage together."
+    ],
+    "code": "SELECT COUNT(*) AS rows, COUNT(amount) AS observed,\n       AVG(amount) AS observed_mean\nFROM measurements;\n-- rows=4, observed=3, observed_mean=20",
+    "scope": [
+      "SQLite 3.50.4 已执行：4行、有效3项、有效均值20。缺失是否可插补仍须业务判断。",
+      "Executed in SQLite3.50.4:4 rows,3 observed,mean20. Imputation still needs a contextual decision."
+    ]
+  },
+  "ai:python-data": {
+    "input": "customer_id,date,amount\n0017,2026-01-02,10\n0020,not-a-date,0\n0021,,30",
+    "procedure": [
+      "显式把标识符读为字符串，避免丢前导零。保留原日期，再把空值和解析失败分开：第二行是提供了无效日期，第三行是缺失，不能合并成同一种原因。脚本只转换副本，不覆盖原始材料。",
+      "Read identifiers explicitly as strings. Preserve the raw date and distinguish invalid input from missing input: row two is invalid, row three missing. Transform a copy rather than overwriting raw evidence."
+    ],
+    "code": "import pandas as pd\nfrom io import StringIO\ncsv_text = \"\"\"customer_id,date,amount\n0017,2026-01-02,10\n0020,not-a-date,0\n0021,,30\"\"\"\nraw = pd.read_csv(StringIO(csv_text), dtype={'customer_id':'string'})\nclean = raw.copy()\nclean['parsed_date'] = pd.to_datetime(raw['date'], errors='coerce')\nclean['date_missing'] = raw['date'].isna()\nclean['date_invalid'] = raw['date'].notna() & clean['parsed_date'].isna()\nprint(clean[['customer_id','date_missing','date_invalid']])",
+    "scope": [
+      "Python 3.14.2 / pandas 3.0.2 已执行：保留0017前导零，第二行无效日期、第三行缺失日期。不同格式、时区和混合日期尚未测试。",
+      "Executed with Python3.14.2/pandas3.0.2:0017 retained; row2 invalid and row3 missing. Mixed formats and timezones were not tested."
+    ]
+  },
+  "software:unit-tests": {
+    "input": "Function total(values) returns the sum; an empty list returns 0.",
+    "procedure": [
+      "分开检验普通行为和空输入，每条断言给明确预期。异常路径另写测试，不能用一个“没有报错”检查代替数值正确。这里使用 Python 标准库 unittest 的基础接口。",
+      "Test ordinary and empty behavior separately with concrete expectations. Add explicit error-path tests; absence of an exception is not proof of a correct value. This uses the basic Python unittest API."
+    ],
+    "code": "import unittest\ndef total(values):\n    return sum(values)\nclass TotalTests(unittest.TestCase):\n    def test_normal(self):\n        self.assertEqual(total([2, 3]), 5)\n    def test_empty(self):\n        self.assertEqual(total([]), 0)\nif __name__ == '__main__':\n    unittest.main()",
+    "scope": [
+      "Python 3.14.2 已执行2个 unittest 用例，均通过。未覆盖类型错误、溢出及其他自定义契约。",
+      "Python3.14.2 executed both unittest cases successfully. Type errors, overflow and other custom contracts are not covered."
+    ]
+  }
+}

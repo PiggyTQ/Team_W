@@ -15,7 +15,7 @@ export const discoveryJobs = [
 export const savedDiscoveryJob = (jobs, source) => jobs.find(j=>j.catalogId===source.id || j.id===source.legacyId&&j.source===source.source);
 export const isArchivedJob = job => !!job.archived || job.status==='归档';
 
-export default function JobDiscovery(props){return SERVER_AUTH?<CatalogJobs {...props}/>:<DemoJobDiscovery {...props}/>;}
+export default function JobDiscovery(props){return SERVER_AUTH?<CatalogJobs key={JSON.stringify(props.s.searchFilters)} {...props} initialQuery={props.s.searchFilters?.query||''} initialCareer={props.s.searchFilters?.career==='any'?'':props.s.searchFilters?.career||''} initialLocation={props.s.searchFilters?.location==='不限'?'':props.s.searchFilters?.location||''} initialMarket={props.s.searchFilters?.market||'CN'}/>:<DemoJobDiscovery {...props}/>;}
 function DemoJobDiscovery({ s, update, link, url }) {
   const params = new URL(url || location.href,location.origin).searchParams;
   const requestedId = params.get('source') || params.get('job');

@@ -1,3 +1,4 @@
+import LearningDiscussion from './LearningDiscussion';
 import React, {useEffect, useRef, useState} from 'react';
 import {useCatalog} from './CatalogData';
 import CourseReader, {CourseDownload} from './CourseReader';
@@ -106,7 +107,7 @@ function ProjectWorkspace({course, project, chapter, params, task, language, t, 
     });
   }
 
-  return <section className="practice-project" data-project={project.id} data-project-view={view} data-i18n="off">
+  return <LearningDiscussion context={{intent:'learning',career:project.career,refs:task?[{kind:'task',id:task.id,part:step.id}]:[]}} disabled={view!=='practice'||!task}><section className="practice-project" data-project={project.id} data-project-view={view} data-i18n="off">
     {link('/learning', <><ProductIcon name="arrowBack" size={17}/>{t.back}</>, 'project-back')}
     <header className={`project-masthead project-masthead-${view}`}>
       <div>
@@ -221,7 +222,7 @@ function ProjectWorkspace({course, project, chapter, params, task, language, t, 
     </ProjectPractice>}
 
     {view === 'outcome' && <ProjectDeliverable {...{task,project,state,language,t,copy,route,heading,link,onCommand,onCandidate,download}}/>}
-  </section>;
+  </section></LearningDiscussion>;
 }
 
 export function ProjectSources({project, t, copy, ids}) {

@@ -1,0 +1,444 @@
+{
+  "data:sql-joins": {
+    "opening": [
+      "为什么两笔订单的130元，会算成220元？",
+      "Why do two orders worth130 become220?"
+    ],
+    "stages": [
+      {
+        "id": "concept",
+        "title": [
+          "先看多出的90元",
+          "Find the extra90"
+        ],
+        "lead": [
+          "问题不在加法，而在参加加法的记录变了。",
+          "The addition is correct; the rows being added have changed."
+        ],
+        "paragraphs": [
+          [
+            "你会按订单编号查明细、做简单求和，就可以开始。订单表里U是90元、V是40元，总额130元。明细表里U有两条记录，V还没有记录。我们想把明细放到订单旁边，但仍按每笔订单统计金额。",
+            "Start with looking up an order ID and summing amounts. U is90 and V40,total130. U has two line records; V has none. We want line information beside orders while reporting one amount per order."
+          ],
+          [
+            "同一份报表却出现总额220元。先看原始两表，猜测LEFT JOIN会得到几行：连接是否会改写金额，还是会重复带入订单？这里先不展示关联结果。",
+            "The report totals220 instead.Inspect the two source tables and predict the LEFT JOIN row count.Does joining change an amount or repeat an order?The joined output is deliberately withheld here."
+          ],
+          [
+            "写下预测并核对后，再到下一段追踪U和V的匹配。保留这个疑问：业务要的是每单一次，结果的一行却可能不再代表一单。",
+            "Record and check a prediction,then trace U/V matches in the next section.Keep the question:the business counts each order once,but an output row may no longer represent one order."
+          ]
+        ],
+        "visual": "sql-observe"
+      },
+      {
+        "id": "method",
+        "title": [
+          "一条订单怎样匹配明细",
+          "How one order matches lines"
+        ],
+        "lead": [
+          "先说清“一行代表什么”，再决定怎么连接。",
+          "Declare what one row means before deciding how to join."
+        ],
+        "paragraphs": [
+          [
+            "订单表一行代表一笔订单，明细表一行代表一条明细，这叫记录粒度。order_id是用来寻找同一笔订单的关联键。它在订单表中不重复，不代表它在明细表中也不重复。",
+            "An order row represents one order; a line row represents one line. This is row grain. order_id is the join key for the same order. Its uniqueness in orders does not imply uniqueness in lines."
+          ],
+          [
+            "o和l是orders与lines的短别名，不是新列。ON o.order_id=l.order_id 对每一对行判断编号是否相等。U匹配两行，所以输出两行，这是“一对多”。V匹配零行；LEFT JOIN仍保留V，并在右侧填NULL。NULL表示这里没有右侧值，不是数字0。",
+            "o and l are short aliases for orders and lines,not new columns. ON o.order_id=l.order_id compares each pair of IDs. U matches two rows:one-to-many. V matches none; LEFT JOIN retains V with null right values. NULL is the absence of a value,not the number zero."
+          ],
+          [
+            "在原始表先数每个编号的记录，再预估连接后的行数。本例U贡献2行，V的无匹配保留行贡献1行，所以一共3行。这个估计能在写复杂查询之前暴露金额可能放大的风险。",
+            "Count records per key before joining. U contributes2 rows and unmatched V contributes1,so expect3. This prediction can reveal inflation before a complicated query is written."
+          ]
+        ],
+        "visual": "sql-match"
+      },
+      {
+        "id": "examples",
+        "title": [
+          "先汇总，让一单只占一行",
+          "Aggregate back to one row per order"
+        ],
+        "lead": [
+          "修正明细的粒度，而不是在结果里随手删重复。",
+          "Fix the detail grain rather than deleting apparent duplicates."
+        ],
+        "paragraphs": [
+          [
+            "目标是每单一行，先把明细按order_id分组，把同单的line_amount相加。得到U=30；V没有明细，所以这个汇总表里没有V。此时每个可匹配编号至多一行。 GROUP BY把同编号放在一组，SUM在每组内求和；这一步把两条U明细变成一个U结果。",
+            "Group lines by order_id and sum line_amount. This gives U=30; V is absent because it has no lines. Each matching ID now has at most one row. GROUP BY groups equal IDs and SUM adds within each group,turning two U lines into one U result."
+          ],
+          [
+            "WITH per_order AS (...) 给这个中间结果起名字。再从orders做LEFT JOIN：U得到30，V仍保留NULL。订单金额90和40各出现一次，合计回到130。右侧切换两种查询，逐行对照结果而不是只看最终总额。",
+            "WITH per_order AS (...) names the intermediate result. LEFT JOIN from orders now yields U30 and retains V with NULL. Order amounts90 and40 appear once,total130. Switch queries and compare rows,not only the final total."
+          ],
+          [
+            "为什么不用SUM(DISTINCT order_amount)？不同订单可能恰好金额相同，按金额去重会把真实订单丢掉。应该检查订单键，而不是用金额猜身份。也不要未经约定把NULL填0：没有明细与明细尚未上报可能有不同业务含义。",
+            "Why not SUM(DISTINCT order_amount)? Different orders can have the same amount,so amount deduplication loses real orders. Check order identity. Do not replace NULL with zero without deciding whether missing lines mean none or not-yet-reported."
+          ]
+        ],
+        "visual": "sql-fix"
+      },
+      {
+        "id": "mistakes",
+        "title": [
+          "筛选放在连接前还是后",
+          "Filter matches or completed rows"
+        ],
+        "lead": [
+          "“保留所有订单”与“只要大于15的明细”要分开表达。",
+          "Separate retaining all orders from selecting line amounts above15."
+        ],
+        "paragraphs": [
+          [
+            "把l.line_amount>15放在ON中，是限制哪些明细可以匹配。U只匹配20，V仍得到一条无匹配的保留行。条件放在WHERE中，则先完成连接，再删掉不满足条件的输出行。",
+            "In ON,l.line_amount>15 restricts matching lines. U matches20; V still receives a preserved unmatched row. WHERE instead filters already-joined output rows."
+          ],
+          [
+            "V右侧是NULL。NULL>15不是“真”，所以WHERE会删掉V。观察右侧两种输出：同样一个条件，保留的订单集合变了。想找无匹配记录时用IS NULL，不用= NULL。",
+            "For V,the right side is NULL. NULL>15 is not true,so WHERE removes V. Compare the preserved order sets. To find unmatched values,use IS NULL,not = NULL."
+          ],
+          [
+            "最后同时核对行数、不同订单数、保留了哪些编号以及金额总量。一个正确的总额不能单独证明关联正确；两个错误也可能碰巧抵消。本站运行器使用SQLite，展示这部分公共SQL语义；PostgreSQL的类型、排序规则和执行计划仍要在目标环境复核。 COUNT(*)数输出行，COUNT(DISTINCT order_id)数不同订单编号。",
+            "Reconcile rows,distinct order IDs,preserved keys and totals together. A total alone cannot prove a join correct because errors can cancel. The runner uses SQLite for shared SQL semantics; verify PostgreSQL types,collations and plans in its environment. COUNT(*) counts output rows;COUNT(DISTINCT order_id) counts distinct order IDs."
+          ]
+        ],
+        "visual": "sql-filter"
+      },
+      {
+        "id": "sources",
+        "title": [
+          "复核后，用新订单再试",
+          "Check it,then try new orders"
+        ],
+        "lead": [
+          "能解释变化，再把方法迁移到新的输入。",
+          "Explain the transformation,then transfer the method."
+        ],
+        "paragraphs": [
+          [
+            "先完成右侧的小检查：它只反馈这个示例的行数推断，不授叶。进入练习后会换订单和金额，你需要写查询、运行、核对输出，并说明一个仍需验证的边界。",
+            "The small check on the right only verifies this example prediction; it awards no leaves. Practice changes orders/amounts:write a query,run it,inspect output and explain one remaining boundary."
+          ],
+          [
+            "独立练习会要求order_id、order_amount、line_total三个输出列，并明确无明细保留NULL。系统实际比较这份数据的结果，不会因查询写得长就认为正确。最终检验再使用不同记录检查方法选择和行数判断。",
+            "Independent practice requests order_id,order_amount,line_total with NULL for missing lines. The system compares actual output for this dataset,not query length. Final checks use different records for method selection and cardinality."
+          ]
+        ],
+        "visual": "sql-try"
+      }
+    ],
+    "source": {
+      "title": "PostgreSQL18 §7.2.1.1 / §7.2.2",
+      "url": "https://www.postgresql.org/docs/18/queries-table-expressions.html"
+    },
+    "checkTopics": [
+      [
+        "选择保留订单的关联方法",
+        "Choosing a join that preserves orders"
+      ],
+      [
+        "核对一对多的输出行数",
+        "Counting one-to-many output rows"
+      ],
+      [
+        "新记录上的关联基数",
+        "Cardinality on new records"
+      ]
+    ]
+  },
+  "testing:decision-tables": {
+    "opening": [
+      "会员与满额都免运费，要检查哪几种情况？",
+      "Both membership and spend waive shipping:which cases matter?"
+    ],
+    "stages": [
+      {
+        "id": "concept",
+        "title": [
+          "先把规则说清楚",
+          "Clarify the rule"
+        ],
+        "lead": [
+          "“任一条件满足”与“两个都满足”，结果可能不同。",
+          "Either condition and both conditions are different rules."
+        ],
+        "paragraphs": [
+          [
+            "假设会员免运费；非会员订单满100元也免；其余收8元。这是本课合成规则，不是某平台政策。先看两个具体订单：会员买30元、非会员买120元，它们为什么都免运费？",
+            "Our synthetic rule:members ship free;nonmembers spending at least100 also ship free;others pay8. This is a teaching policy. Why do a member spending30 and a nonmember spending120 both pay zero shipping?"
+          ],
+          [
+            "条件是能回答“是/否”的判断，例如“是会员吗”“金额达到100吗”。动作是系统要做什么，这里是收多少运费。把条件组合与动作写在一起，才能发现漏掉或相互矛盾的规则。",
+            "A condition is a yes/no decision such as membership or spend>=100. An action is what the system does:the shipping charge. Connecting combinations to actions reveals missing or contradictory rules."
+          ],
+          [
+            "用右侧输入换几种订单，先观察哪条规则适用。金额达到100，指100也算在内；这个端点要在后面单独检查。",
+            "Change the order on the right and observe the applicable rule. At least100 includes100; we will test that endpoint separately."
+          ]
+        ],
+        "visual": "decision-explore"
+      },
+      {
+        "id": "method",
+        "title": [
+          "补全组合，再填写动作",
+          "Build combinations and assign actions"
+        ],
+        "lead": [
+          "有两项二值条件，就先展开四种可能。",
+          "Begin with four possibilities for two binary conditions."
+        ],
+        "paragraphs": [
+          [
+            "先固定“会员=是”，分别搭配金额达标和未达标；再固定“会员=否”，重复两种金额条件。这样有序地列出四种组合，比凭印象挑几个订单更不容易漏。",
+            "Hold membership true and try both spend conditions,then hold it false and repeat. This systematic enumeration is less likely to omit cases than choosing a few memorable orders."
+          ],
+          [
+            "现在只列条件，不先填答案。对每一行分别判断：是否已经有一个免运费条件成立？如果都不成立，才采用基本运费。填写后点击逐行核对，查看遗漏的位置。",
+            "List conditions before assigning answers.For each row,ask whether either waiver condition holds.Use the base fee only if neither holds.Fill the actions,then check rows to locate omissions."
+          ],
+          [
+            "四种组合在本例都可发生。其他问题若有不可能的组合，要写出排除依据，不能为了表格变短随便删行。“本例四组合覆盖”也不等于所有金额、身份和系统实现都已测试。",
+            "All four combinations are feasible here. In other tasks,justify infeasible combinations instead of deleting inconvenient rows. Covering these four does not test every amount,identity or implementation."
+          ],
+          [
+            "先尝试右侧四行。核对后再展开“合并规则与冲突处理”，区分无关条件、不可行组合和动作冲突。",
+            "Try the four rows first.After checking,open “Merging rules and resolving conflicts” to distinguish irrelevant conditions,infeasible combinations and conflicting actions."
+          ]
+        ],
+        "visual": "decision-matrix",
+        "afterCheck": [
+          [
+            "每个组合必须得到明确动作。会员两行均免运费；非会员达标免；非会员未达标收8。右侧将每行作为一条规则，便于逐项比较。常见列式决策表把规则放在列上，表达的是同一组关系。",
+            "Each combination needs a clear action:members free in both rows;nonmembers free above threshold and8 below it. Our display uses one rule per row for comparison; conventional column-oriented decision tables represent the same relationships."
+          ],
+          [
+            "每增加一个独立二值条件，组合数翻倍：两项是4，三项是8。如果会员两行中金额无论真假都不改变运费，可把该条件记为“—（无关）”并合并；保留原行对应关系。“无关”不是“不可能”，也不是删除整条规则。",
+            "Each additional independent binary condition doubles combinations:two give4,three give8. If spend does not affect the two member rows,mark it irrelevant (—) and merge while retaining traceability. Irrelevant is not infeasible,and is not deletion of the rule."
+          ],
+          [
+            "会员且满额时，两条免运费条件都成立，但动作同为0，并不冲突。会员未满额时，第一条仍足够；这行能检出把“或者”错误写成“而且”的实现。",
+            "For a member above threshold,both conditions hold and agree on zero. Below threshold,membership alone is enough. That row detects an incorrect AND in place of OR."
+          ],
+          [
+            "非会员满额由第二条覆盖；只有“非会员且未满额”使用默认运费8。选中右侧某一行，检查它的两个判断值、适用句子与结果能否一一对应。",
+            "Nonmembers above threshold use the second rule;only nonmembers below it pay8. Select a row and trace both conditions,the applicable sentence and the resulting action."
+          ],
+          [
+            "若两条规则在同一组合下要求不同动作，就需要先澄清优先级或冲突，不应由测试者猜。记录未知，比默默给一个看似合理的答案更有价值。",
+            "If two rules demand different actions for the same combination,clarify priority/conflict first. Record the unknown rather than guessing an apparently reasonable result."
+          ]
+        ]
+      },
+      {
+        "id": "mistakes",
+        "title": [
+          "在阈值附近找遗漏",
+          "Inspect the threshold"
+        ],
+        "lead": [
+          "组合检查解决“哪些情况”，边界检查解决“刚好到哪里”。",
+          "Combinations identify cases;boundaries identify exact cutoffs."
+        ],
+        "paragraphs": [
+          [
+            "固定非会员，分别试99、100、101元。预期运费8、0、0。若实现把>=100写成>100，刚好100元会出错，而只测99和101发现不了。",
+            "For a nonmember,try99,100,101:expected fees8,0,0. If >=100 becomes >100,the exact100 case fails while99 and101 both look correct."
+          ],
+          [
+            "这不是用三笔订单代替整个决策表，而是在四组合外补一组端点检查。金额允许小数还是整数、负数和空值如何处理，也要由契约确定；本例只处理非负整数金额。",
+            "These three amounts supplement,not replace,the decision table. Decimal,negative and missing-value behavior needs a contract;this example uses nonnegative integers only."
+          ],
+          [
+            "复核时先看组合是否唯一、是否遗漏，再看动作和边界。练习的系统反馈会定位到某一行；你仍需要说明为什么那一行应这样处理。",
+            "Check uniqueness/completeness before actions and boundaries. Practice feedback identifies a row,but you still explain why that action follows."
+          ]
+        ],
+        "visual": "decision-boundary"
+      },
+      {
+        "id": "sources",
+        "title": [
+          "核对理解，进入新规则练习",
+          "Check understanding,then practice new policies"
+        ],
+        "lead": [
+          "在新阈值上独立填写，而不是抄四个数字。",
+          "Apply the logic at a new threshold rather than copying numbers."
+        ],
+        "paragraphs": [
+          [
+            "先回答右侧检查：会员未满额应不应该收运费？说明依据后进入练习。练习会改变阈值与费用，并分开保存基础应用、错误排查和独立综合。",
+            "Answer the check:should a member below threshold pay shipping? Then practice at changed thresholds/fees,with separate application,debugging and independent records."
+          ],
+          [
+            "系统能核对本题四行及指定端点是否符合规则，这只说明本份材料的答案一致。最终检验仍是独立的课程情境任务，不是实际系统测试或全面能力认证。",
+            "The system checks four rows and the specified endpoint against this policy. That establishes consistency for this material only. Final course scenarios remain separate from real-system testing or broad certification."
+          ]
+        ],
+        "visual": "decision-try"
+      }
+    ],
+    "source": {
+      "title": "ISTQB CTFL4.0.1 §4.2.2–4.2.3",
+      "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    },
+    "checkTopics": [
+      [
+        "独立条件的组合数量",
+        "Combinations of independent conditions"
+      ],
+      [
+        "无关条件与可追踪合并",
+        "Irrelevance and traceable merging"
+      ],
+      [
+        "二值条件组合的书面计算",
+        "Written calculation of binary combinations"
+      ]
+    ]
+  },
+  "security:incident-handoff": {
+    "opening": [
+      "下一班接手时，哪些话可以相信？",
+      "What can the next responder rely on?"
+    ],
+    "stages": [
+      {
+        "id": "concept",
+        "title": [
+          "从一份含糊交接开始",
+          "Start with an ambiguous handoff"
+        ],
+        "lead": [
+          "“两台都感染了，已经处理”为什么不能直接交接？",
+          "Why is “both infected,handled” an unreliable handoff?"
+        ],
+        "paragraphs": [
+          [
+            "你不需要先会取证工具。先学把观察到的事实、据此提出的假设以及还没检查的内容分开。合成情境中，日志L17只显示H1在02:00Z超时，H2尚未检查；H1隔离有批准A7和回执R2。 Z表示UTC时间。隔离指临时限制访问，批准与执行回执分别说明允许做和已经做。",
+            "You do not need forensic tools to begin. Separate observations,hypotheses and unexamined scope. Synthetic logL17 shows H1 timeout at02:00Z;H2 is unexamined. H1 isolation has approvalA7 and receiptR2. Z denotes UTC. Isolation temporarily restricts access;approval and execution receipts establish permission and completion separately."
+          ],
+          [
+            "“H1超时”有日志支持，“H1受感染”还没有；“H2没发现问题”也不能改写为“H2安全”。未知不是零，也不是已经受影响。接手者需要知道结论的证据边界。",
+            "The log supports H1 timeout,not yet infection. Unexamined H2 cannot be called safe. Unknown is neither zero nor confirmed impact. The recipient needs the evidence boundary."
+          ],
+          [
+            "点选右侧证据，观察它能支持哪句话、不能支持哪句话。这里仅做离线合成材料练习，不会连接或隔离真实主机。",
+            "Select evidence to see what it supports and what it cannot establish. This is offline synthetic practice;it connects to or isolates no real host."
+          ],
+          [
+            "先写观察内容、对象和UTC时间，再引用材料编号。L17支持超时这一事实；R2支持隔离动作已经执行。批准A7只说明处置被允许，不单独证明动作成功。",
+            "Write observation,asset and UTC time,then the reference. L17 supports timeout;R2 supports executed isolation. ApprovalA7 authorizes an action but does not by itself prove execution."
+          ],
+          [
+            "把假设另列为“待验证”，例如依赖超时或主机问题，并给下一步需要的证据。不要把一个错误码直接升级成根因，也不要删掉与猜测不一致的日志。",
+            "Keep hypotheses explicitly pending,such as dependency timeout or host trouble,and state the next evidence needed. A code is not a root cause;retain contradictory evidence too."
+          ],
+          [
+            "记录和证据本身也需要保护。实际工作按组织权限、保存期限与证据流程处理；本课只练习引用与判断边界，不声称完成正式取证或法律证据链。",
+            "Protect records/evidence under organizational access,retention and evidence procedures. This lesson practices references and reasoning limits,not formal forensics or legal chain of custody."
+          ]
+        ],
+        "visual": "handoff-evidence"
+      },
+      {
+        "id": "examples",
+        "title": [
+          "写成能继续行动的交接",
+          "Write an actionable handoff"
+        ],
+        "lead": [
+          "事实之外，还要有下一步、责任和更新时间。",
+          "Add next steps,ownership and an update time."
+        ],
+        "paragraphs": [
+          [
+            "将确认事实、证据引用、未知范围、已做/待做动作分开。这样后续发现新线索时，只需更新相应项，不会把整个叙事一起推翻。右侧示例保留H2未检查，而不是追求一个完整却不真实的结论。",
+            "Separate facts,references,unknowns and completed/planned actions. New evidence can update one part without rewriting a misleading narrative. The example retains unexamined H2 instead of inventing completeness."
+          ],
+          [
+            "待办要让另一人能接住：例如“值班乙在02:20Z前核对H2日志并更新范围”。“尽快处理”没有对象、责任或下一次反馈点，不能当作可执行交接。",
+            "Make follow-up assignable:Responder B checks H2 logs by02:20Z and updates scope. “Handle ASAP” lacks an asset,owner and update point."
+          ],
+          [
+            "给接手者读一遍，询问他能否复述当前确认范围、尚未知什么、下一步由谁做。不能复述的部分就是需要补清楚的位置。",
+            "Read it to a recipient and ask them to reconstruct confirmed scope,unknowns and ownership. Anything they cannot reconstruct needs clarification."
+          ]
+        ],
+        "visual": "handoff-record"
+      },
+      {
+        "id": "mistakes",
+        "title": [
+          "处置前核对权限与影响",
+          "Check authority and impact"
+        ],
+        "lead": [
+          "升级不是把语气写得更严重，而是把需要决策的事说明白。",
+          "Escalation clarifies needed decisions rather than amplifying language."
+        ],
+        "paragraphs": [
+          [
+            "若要临时限制访问，先明确批准人、对象、业务影响、验证方法与回退条件。已隔离H1并不自动授权隔离H2；也不能因为希望尽快恢复就绕过批准范围。",
+            "Before restricting access,declare approver,asset,business impact,verification and rollback. Isolation of H1 does not authorize H2,and urgency does not widen authority."
+          ],
+          [
+            "区分“已执行”“待批准”“计划中”。动作完成后仍要检查效果；批准记录、执行回执、业务恢复证据分别回答不同问题。",
+            "Distinguish executed,pending approval and planned. After action,verify effect:approval,execution receipt and business recovery evidence answer different questions."
+          ],
+          [
+            "练习里的结构检查只核对字段、材料引用和时间格式，不能判定你推断的根因是否真实。参考记录与本人复核分开呈现，最终检验再检查证据、权限和确认范围的判断。",
+            "Practice structure checks validate fields,references,time format,not the truth of your root-cause reasoning. Reference comparison and self-review stay separate;final checks address evidence,authority and confirmed scope."
+          ]
+        ],
+        "visual": "handoff-authority"
+      },
+      {
+        "id": "sources",
+        "title": [
+          "核对证据边界，进入交接练习",
+          "Check evidence limits,then practice handoffs"
+        ],
+        "lead": [
+          "让接手者清楚知道“已知什么、还要做什么”。",
+          "Help the recipient know what is established and what remains."
+        ],
+        "paragraphs": [
+          [
+            "先完成右侧证据边界检查，再进入分字段的交接练习。独立任务换为订单查询超时：你要保留日志L17，明确根因未知，并写负责人和下一次UTC更新时间。",
+            "Complete the evidence-boundary check,then practice in structured fields. The independent case is an order-query timeout:retain L17,keep root cause unknown and name owner/next UTC update."
+          ],
+          [
+            "保存记录只表示已有可回看的产物。参考对照不能替代组织的正式响应流程；通过三项课程题也不能推导出具备真实事件处置的全部能力。",
+            "Saving creates a reviewable artifact. References do not replace organizational response procedures,and three course items do not establish complete real-incident competence."
+          ]
+        ],
+        "visual": "handoff-try"
+      }
+    ],
+    "source": {
+      "title": "NIST SP800-61r3 RS.AN-06/07/08、RS.CO",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf"
+    },
+    "checkTopics": [
+      [
+        "可回查的交接信息",
+        "Traceable handoff information"
+      ],
+      [
+        "访问限制的授权与回退",
+        "Authority and rollback for restrictions"
+      ],
+      [
+        "已确认与未知范围的区别",
+        "Confirmed versus unknown scope"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="650" viewBox="0 0 1500 650">
+<rect width="1500" height="650" fill="#faf7ef"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#133650">
+<text x="30" y="42" font-size="24">实施前结构示意 · 保留现有树素材 · 不是实际页面截图</text>
+<g fill="#fffefa" stroke="#e4dbcd"><rect x="30" y="75" width="445" height="530" rx="16"/><rect x="500" y="75" width="445" height="530" rx="16"/><rect x="970" y="75" width="500" height="530" rx="16"/></g>
+<text x="52" y="115" font-size="22">想先探索哪个方向？</text><text x="52" y="150" font-size="15">已有目标直接承接；随时切换方向</text>
+<g fill="#edf3f5" stroke="#d9e3e6"><rect x="52" y="180" width="190" height="150" rx="12"/><rect x="260" y="180" width="190" height="150" rx="12"/><rect x="52" y="350" width="190" height="150" rx="12"/><rect x="260" y="350" width="190" height="150" rx="12"/></g>
+<text x="72" y="215" font-size="19">数据分析</text><text x="72" y="250" font-size="14">日常任务 + 练习能力</text><text x="280" y="215" font-size="19">前端开发</text><text x="72" y="385" font-size="19">人工智能</text><text x="280" y="385" font-size="19">更多方向</text>
+<text x="522" y="115" font-size="22">方向与完整成长树</text><rect x="522" y="140" width="400" height="66" rx="10" fill="#edf3f5"/><text x="540" y="180" font-size="17">继续上次 / 从一枚芽苞开始</text>
+<image href="../../../../../src/assets/skill-tree/botanical-ground-tree.webp" x="515" y="220" width="415" height="280"/>
+<text x="535" y="550" font-size="15">整树舒展；主要能力与下一步同时可见</text>
+<text x="992" y="115" font-size="22">左树右学 · 同一棵树自然收至侧边</text>
+<rect x="992" y="145" width="196" height="395" rx="10" fill="#f5f4ed"/><rect x="1200" y="145" width="246" height="395" rx="10" fill="#edf3f5"/>
+<text x="1005" y="180" font-size="14">当前枝条 / 完整树</text><image href="../../../../../src/assets/skill-tree/botanical-ground-tree.webp" x="995" y="220" width="190" height="200"/>
+<text x="1005" y="470" font-size="14">正在培养 · 当前技能</text><text x="1005" y="500" font-size="14">树随正文滚动保持可见</text>
+<text x="1215" y="182" font-size="18">技能学习内容</text><text x="1215" y="225" font-size="14">阅读 · 练习 · 检验</text><text x="1215" y="280" font-size="14">资料按需展开</text><rect x="1215" y="350" width="215" height="140" rx="10" fill="#e7f0e5"/><text x="1230" y="390" font-size="16">检验结果 + 眼前生长</text><text x="1230" y="425" font-size="14">新叶保留；整枝渐绿</text><text x="1230" y="455" font-size="14">不跳页，不强制下一项</text>
+</g></svg>

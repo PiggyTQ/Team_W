@@ -1,0 +1,226 @@
+{
+  "verifiedAt": "2026-11-20T16:35:44.373340+00:00",
+  "origin": "https://47.250.133.180",
+  "deployment": {
+    "event": "DEPLOY_OK",
+    "release": "/srv/career-growth/releases/skill-alignment-20261120-20261120T163357Z",
+    "previous": "/srv/career-growth/releases/skill-follow-20261120-20261120T072841Z",
+    "archiveSha256": "5c2ecd7a2ae14fce9c11cb1f46b2b9e4da18d803f2cf4b6ef7517999833f036a",
+    "files": [
+      "src/SkillJourneyPage.jsx",
+      "src/SkillLearningPanel.jsx",
+      "src/SkillPracticeWorkspace.jsx",
+      "src/skill-practice-tasks.js",
+      "src/skill-learning-model.js",
+      "src/skill-tree-model.js",
+      "src/skill-journey-model.js",
+      "src/BotanicalGrowthTree.jsx",
+      "src/i18n/skill-learning-en.json",
+      "server/skill-trees/index.mjs",
+      "server/business-commands.mjs",
+      "src/report-insights-model.js",
+      "scripts/build-report-skill-paths.mjs",
+      "src/i18n/report-skill-paths.json",
+      "src/i18n/native-task-copy.json",
+      "src/service-alert-model.js",
+      "src/ServiceAlertLab.jsx",
+      "src/ServiceAlertCourse.jsx",
+      "src/SkillApplicationFields.jsx",
+      "src/skill-brand.css",
+      "server/skill-trees/aligned-checks.mjs",
+      "server/skill-trees/transfer-checks.mjs",
+      "src/SkillLearningAlignment.jsx"
+    ],
+    "reportBaseline": "restored-full-report",
+    "databaseModified": false,
+    "backendRestarted": true,
+    "databaseBackup": "/srv/career-growth/backups/skill-alignment-20261120-20261120T163357Z/auth-before.sqlite",
+    "status": "DEPLOY_OK",
+    "checkedAssets": 18,
+    "checkedRoutes": 5,
+    "receipt": "/srv/career-growth/backups/skill-alignment-20261120-20261120T163357Z/receipt.json"
+  },
+  "independentHttps": {
+    "routes": [
+      {
+        "path": "/",
+        "status": 200,
+        "matchesFinalLocalHtml": true
+      },
+      {
+        "path": "/career-map",
+        "status": 200,
+        "matchesFinalLocalHtml": true
+      },
+      {
+        "path": "/reports",
+        "status": 200,
+        "matchesFinalLocalHtml": true
+      },
+      {
+        "path": "/learning",
+        "status": 200,
+        "matchesFinalLocalHtml": true
+      },
+      {
+        "path": "/plan",
+        "status": 200,
+        "matchesFinalLocalHtml": true
+      }
+    ],
+    "assets": [
+      {
+        "path": "assets/ash-foliage-fan-D6BG6a_8.webp",
+        "bytes": 23036,
+        "contentType": "image/webp",
+        "sha256": "ac1a4166eeea459363250de8d33d500c1aa91faa2f1d1f5c346b3dff255db397",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/ash-foliage-left-DtQEgcvs.webp",
+        "bytes": 21818,
+        "contentType": "image/webp",
+        "sha256": "ee150778a6e73cb13dda8760c08b8ad1fb2d0aaf72045d47690dfe9f0fc65603",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/ash-foliage-right-BtCeIH2f.webp",
+        "bytes": 21582,
+        "contentType": "image/webp",
+        "sha256": "202d04a8333ecc0ccee71c15300412ca30acd6c75745c4709f38cfb29cecb057",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/avemly-blue-champagne-curtain-CMWITd3a.png",
+        "bytes": 479533,
+        "contentType": "image/png",
+        "sha256": "ad1c2edbdcb1efbd56bc5b8c858002ecbfe7b2f437de79ecbf490bb4fcc396a7",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/botanical-closed-bud-BeX2jxoF.webp",
+        "bytes": 108698,
+        "contentType": "image/webp",
+        "sha256": "283c8e40d30a13c79a74eb614a2871dcfdaf95cf520a03c6a944953bcd41740f",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/botanical-ground-tree-B9N_8MRv.webp",
+        "bytes": 400148,
+        "contentType": "image/webp",
+        "sha256": "01c1eaef2e0f51c6b9085acfad077df914730192d7bfbe25412e6ad965c9c4ef",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/botanical-leaf-pair-DV1Vukvn.webp",
+        "bytes": 88954,
+        "contentType": "image/webp",
+        "sha256": "e2f6d58ecd429b547ac9eaa2f150e3fe40e501a684eeeac0d9c9d8a13248fc9f",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/index-DGzKgQyb.js",
+        "bytes": 1375607,
+        "contentType": "application/javascript",
+        "sha256": "1300aac23b5d16006cb351b1febd41c0940d85f178bd269c37b1b032f672a9c3",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/index-DJ5iHXgW.css",
+        "bytes": 1584859,
+        "contentType": "text/css",
+        "sha256": "09a50ef8ee1641c1a1d053d1823a61006537b8059b1473a5907054562b66780b",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/local-practice-courses-CRbd0v5x.js",
+        "bytes": 83152,
+        "contentType": "application/javascript",
+        "sha256": "4bfb9b47696df9a5dac47577456c086b8e04c0d35e543f15bae0c595cfebaefa",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/login-cheese-engine-7bDrN-ZP.js",
+        "bytes": 676851,
+        "contentType": "application/javascript",
+        "sha256": "7ae2a86b03b60b72edff1446ac18cea99bda4ba8a74651c779534d191228972b",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/pdf-C4heYEAT.js",
+        "bytes": 411005,
+        "contentType": "application/javascript",
+        "sha256": "f08b6c4fd097ae845cfcd373bc0f0fa72a20d1c2307facc6cf273df7c735eb86",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/react-DFQR2juu.js",
+        "bytes": 221278,
+        "contentType": "application/javascript",
+        "sha256": "c15602eed5cd83b6a0b57e25a7e8b6667bc934e4eda1661dff072c70c5523e50",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/skill-sql-worker-CcGRdul4.js",
+        "bytes": 58563,
+        "contentType": "application/javascript",
+        "sha256": "c6666a4e8ad133d27eeadb012ae9f0b6af71f1ff68eccb6d06d0a083ecb0f52a",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/SkillTreePage-3Ds9lf3T.js",
+        "bytes": 814118,
+        "contentType": "application/javascript",
+        "sha256": "6165fcef637e3c5d9ccc6c0ab6f1bf65b35770bdb92e7645df0c84708aae8c75",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/SkillTreePage-CnbfjHI0.css",
+        "bytes": 89254,
+        "contentType": "text/css",
+        "sha256": "6e47e18e7b477796cad91edbce095d4fbd871351d05714e1cade570487e8a135",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/sql-wasm-Bu87Kycj.wasm",
+        "bytes": 688280,
+        "contentType": "application/wasm",
+        "sha256": "6918fd54c1192011b85af0365a819411285bb5579b9ae6a7308778a1750a2765",
+        "matchesFinalLocalBuild": true
+      },
+      {
+        "path": "assets/translations-DhjjHqYU.js",
+        "bytes": 743308,
+        "contentType": "application/javascript",
+        "sha256": "54ed6ddf95b1012ea9a7777d7074955da289ccf1d31e22fa83e6e4e5c6efbc47",
+        "matchesFinalLocalBuild": true
+      }
+    ],
+    "healthStatus": "ok",
+    "catalog": [
+      {
+        "career": "data",
+        "authenticationRequired": true,
+        "checkedWithoutCreatingAccount": false
+      },
+      {
+        "career": "testing",
+        "authenticationRequired": true,
+        "checkedWithoutCreatingAccount": false
+      },
+      {
+        "career": "security",
+        "authenticationRequired": true,
+        "checkedWithoutCreatingAccount": false
+      },
+      {
+        "career": "ops",
+        "authenticationRequired": true,
+        "checkedWithoutCreatingAccount": false
+      }
+    ]
+  },
+  "productionAccountRegraded": false,
+  "finalDesktopVisualVerification": "not completed; user authorized skip; no final screenshot claimed",
+  "mobileTested": false
+}

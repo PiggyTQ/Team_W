@@ -1,5 +1,5 @@
 import paths from './i18n/report-skill-paths.json' with {type:'json'};
-import {skillStudyKey,skillTreeRoute} from './skill-tree-model.js';
+import {skillStudyKey,skillTreeRoute,skillRecord} from './skill-tree-model.js';
 
 // Exact authored skill labels connect account evidence to public tree topics.
 const aliases={
@@ -52,7 +52,7 @@ function roleProfile(state,role,evidence){
    const accepted=new Set([leaf.title[0],...(aliases[role.id]?.[leaf.id]||[])].map(labelKey));
    const claims=confirmed.filter(claim=>labels(claim).some(label=>accepted.has(label)));
    const methods=evidence.methods.filter(method=>methodTopics[method.id]?.[role.id]?.includes(leaf.id));
-   const assessment=state.skillStudy?.[skillStudyKey(role.id,leaf)]?.assessment;
+   const assessment=skillRecord(state.skillStudy,role.id,leaf)?.assessment;
    const passed=!!assessment?.passedAt;
    const status=passed?'passed':methods.length?'practiced':claims.length?'documented':'gap';
    return {...leaf,status,claims,methods,passed,to:reportRoute(role.id,branch,leaf),

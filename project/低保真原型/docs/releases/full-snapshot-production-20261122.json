@@ -1,0 +1,32 @@
+{
+  "deployedAtBeijing": "2026-11-22 23:18",
+  "origin": "https://47.250.133.180",
+  "deployment": {
+    "event": "DEPLOY_OK",
+    "release": "/srv/career-growth/releases/full-snapshot-20261122-20261122T151858Z",
+    "previous": "/srv/career-growth/releases/combined-release-20261121-20261121T094404Z",
+    "archiveSha256": "2eaec41b6381ecc9d935c5456e3c907b7ce5ad2175ddefdefd43d03b3ea628eb",
+    "files": 1044,
+    "fullSourceSnapshot": true,
+    "databaseBackup": "/srv/career-growth/backups/full-snapshot-20261122-20261122T151858Z/auth-before.sqlite",
+    "testsRun": false,
+    "pageAuditRun": false,
+    "serviceConfigurationPreserved": true,
+    "dependenciesChanged": false,
+    "accountDataRewrittenByPublisher": false,
+    "obsoleteCodeFilesArchived": 2,
+    "status": "DEPLOY_OK",
+    "backendPid": "709955",
+    "receipt": "/srv/career-growth/backups/full-snapshot-20261122-20261122T151858Z/receipt.json"
+  },
+  "package": {
+    "files": 1044,
+    "sourceBytes": 195174052,
+    "archiveBytes": 168844682,
+    "sha256": "2eaec41b6381ecc9d935c5456e3c907b7ce5ad2175ddefdefd43d03b3ea628eb"
+  },
+  "testsRun": false,
+  "pageAuditRun": false,
+  "scope": "Complete current runtime source and public resources; no restriction to current agent changes.",
+  "verificationScope": "Build and backend startup only; tests, page screenshots and business acceptance were skipped as requested."
+}

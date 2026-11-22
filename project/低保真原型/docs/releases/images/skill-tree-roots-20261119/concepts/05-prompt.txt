@@ -1,0 +1,25 @@
+Use case: precise-object-edit.
+Asset type: Avemly full desktop webpage DESIGN MOCKUP, revision for visibly taller tree proportions.
+
+EDIT TARGET: image 1, the gray deadwood Avemly mockup. This reference is 1756 pixels wide by about 894 pixels high. Its gray deadwood COLOR IS CORRECT, but the previous attempt FAILED TO MAKE THE TREE TALLER. You must visibly correct the HEIGHT in this revision. Retain the correct silver-gray and neutral gray-brown bark color exactly. No yellow/gold/orange wood.
+
+OUTPUT COMPOSITION IS MANDATORY: a TALLER canvas, approximately 1760 x 1088 pixels, aspect ratio about 1.62:1. NOT the old 1756 x 894 composition. Extend the page downward about 190 pixels while preserving the top header, sidebar width, heading, card top and all top controls at their original size and position. The rounded tree card starts at roughly y=260, and its NEW bottom is roughly y=1060. This is an illustration/mockup, so it may show a taller scrolling webpage.
+
+Make the tree much more upright and comfortably tall while preserving almost all its width. Retain visible crown left and right limits near x=365 and x=1610 (roughly 83–85% of card width); do not narrow the whole composition or add side gutters. Its highest completed sprig is near y=285, while the NEW root/soil base is near y=1000 instead of the old y=820. The full tree from top sprig to roots must visibly gain about 25–28% height. The new below-soil Passed 1/13 caption is near y=1035. Show a real increase in the tree's height on the enlarged card, NOT an identical tree with empty space underneath.
+
+To achieve the more vertical organic tree, recomposition rather than stretching:
+- Keep FOUR substantial main branch groups and the same 13 botanical node attachments and branch identities.
+- Upper-left and upper-right main boughs curve upward more prominently, gracefully rising from a strong central fork. Their branching ascent is clearly visible.
+- Move the lower main bough tier DOWN to roughly y=710–790 and leave a spacious vertical interval below the upper tier at roughly y=440–600. Existing lower tier is too close to the upper tier; the new separation must be obvious.
+- Extend the stout upright trunk so it carries those branch tiers naturally and reaches the new root base near y=965. Preserve its thick, graceful transitions, not a long skinny pole.
+- Root flare and sparse ground soil/creek move down to support that taller trunk. Soil remains SHALLOW, roughly the same height as the reference, not a taller mound.
+- Keep existing left/right spreading flow, substantial main bough thickness, delicate tapered twigs and recognizable asymmetry. No extra forks or skill nodes.
+- Do NOT scale or stretch individual buds, leaves, lettering or texture. Redraw organically into the taller silhouette. New full tree width-to-height roughly 1.75–1.85, with a full upward-reaching crown rather than a flat fan.
+
+Preserve exactly the current natural leaf-bud skill marker design, 12 small closed sage-green buds following their own twigs, plus ONE completed leaf sprig at the same upper branch with its tiny green check. No water pearls. No added fully grown foliage or mature canopy. Keep the example Passed 1/13 state.
+
+CRITICAL COLOR INVARIANT: all trunk, roots, main boughs and fine twigs retain the current CORRECT neutral weathered ash gray, silver-gray and cool gray-brown with slate gray recessed grain. No golden, yellow, cream-tan, orange, peach, honey, sepia, amber, warm sunlight or warm grade on the wood. Warm ivory background stays warm ivory, green buds/grass remain green, blue creek stays pale blue. Do not desaturate the entire webpage.
+
+Keep original webpage labels and navigation unchanged. On their corresponding boughs, keep 'Metrics and querying', 'Data quality', 'Statistical reasoning', 'Modeling and communication' naturally curved and readable; 'Data analysis' sits on the taller trunk. 'Passed 1/13' below the root scene. No new text, no version marks, no arrows, no comparison panels.
+
+Single full-page mockup. Most important deliverable: visibly TALLER gray deadwood tree with more vertical branch separation, in a DOWNWARD-EXTENDED original webpage card, retaining the generous crown width.

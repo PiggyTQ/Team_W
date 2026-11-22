@@ -1,0 +1,717 @@
+{
+  "origin": "isolated local authenticated test account",
+  "checks": [
+    "Authenticated empty tree has 13 natural buds and no idle animation",
+    "Keyboard activation preserves the skill route and moves focus to its learning path",
+    "1366 / 1700 / 1920 desktop layouts fit without horizontal overflow",
+    "All 16 reusable leaf anchors meet the wood and at least 99% of route samples follow the artwork within 5 source pixels",
+    {
+      "skill": "metric-definition",
+      "kind": "single",
+      "timing": [
+        {
+          "name": "botanical-twig-green",
+          "target": "skill-twig-green",
+          "delay": 560,
+          "direction": "normal",
+          "duration": 320,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-ring",
+          "target": {},
+          "delay": 580,
+          "direction": "normal",
+          "duration": 350,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-ripple",
+          "target": {},
+          "delay": 0,
+          "direction": "normal",
+          "duration": 240,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-ripple",
+          "target": {},
+          "delay": 70,
+          "direction": "normal",
+          "duration": 240,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-halo",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-tail",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-head",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 560,
+          "direction": "normal",
+          "duration": 330,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-check-appear",
+          "target": "skill-sprout-check",
+          "delay": 820,
+          "direction": "normal",
+          "duration": 120,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-bud-unfurl",
+          "target": "skill-closed-bud",
+          "delay": 540,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        }
+      ]
+    },
+    "First check triggers one root-to-target pulse and keeps exactly two tender leaves",
+    "Repeated return and refresh do not replay saved progress",
+    {
+      "skill": "sql-joins",
+      "kind": "single",
+      "timing": [
+        {
+          "name": "botanical-twig-green",
+          "target": "skill-twig-green",
+          "delay": 560,
+          "direction": "normal",
+          "duration": 320,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-ring",
+          "target": {},
+          "delay": 580,
+          "direction": "normal",
+          "duration": 350,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-ripple",
+          "target": {},
+          "delay": 0,
+          "direction": "normal",
+          "duration": 240,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-ripple",
+          "target": {},
+          "delay": 70,
+          "direction": "normal",
+          "duration": 240,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-halo",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-tail",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-head",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 560,
+          "direction": "normal",
+          "duration": 330,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-check-appear",
+          "target": "skill-sprout-check",
+          "delay": 820,
+          "direction": "normal",
+          "duration": 120,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-bud-unfurl",
+          "target": "skill-closed-bud",
+          "delay": 540,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        }
+      ]
+    },
+    {
+      "skill": "aggregation",
+      "kind": "branch",
+      "timing": [
+        {
+          "name": "botanical-twig-green",
+          "target": "skill-twig-green",
+          "delay": 560,
+          "direction": "normal",
+          "duration": 320,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-bough-green",
+          "target": "skill-bough-green",
+          "delay": 900,
+          "direction": "normal",
+          "duration": 380,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-ring",
+          "target": {},
+          "delay": 580,
+          "direction": "normal",
+          "duration": 350,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-ripple",
+          "target": {},
+          "delay": 0,
+          "direction": "normal",
+          "duration": 240,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-ripple",
+          "target": {},
+          "delay": 70,
+          "direction": "normal",
+          "duration": 240,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-halo",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-tail",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-water-travel",
+          "target": "skill-water-line skill-water-head",
+          "delay": 80,
+          "direction": "normal",
+          "duration": 490,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 980,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 1045,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 1110,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 1175,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-leaf-unfold",
+          "target": "skill-sprout",
+          "delay": 560,
+          "direction": "normal",
+          "duration": 330,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-check-appear",
+          "target": "skill-sprout-check",
+          "delay": 820,
+          "direction": "normal",
+          "duration": 120,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        },
+        {
+          "name": "botanical-bud-unfurl",
+          "target": "skill-closed-bud",
+          "delay": 540,
+          "direction": "normal",
+          "duration": 260,
+          "easing": "linear",
+          "endDelay": 0,
+          "fill": "both",
+          "iterationStart": 0,
+          "iterations": 1
+        }
+      ]
+    },
+    "Last bud opens before staggered leaf clusters and only its completed branch greens",
+    "Reduced motion presents final leaves directly without traveling light",
+    "All ten career trees keep their own node counts and independent account progress",
+    "Fully completed tree restores all 13 pairs and 17 retained clusters inside the card without replay"
+  ],
+  "errors": [],
+  "measurements": [
+    {
+      "width": 1366,
+      "board": {
+        "x": 256,
+        "y": 251.390625,
+        "width": 1059,
+        "height": 671.5625
+      },
+      "stage": {
+        "x": 269,
+        "y": 252.390625,
+        "width": 1033,
+        "height": 581.1875
+      },
+      "art": {
+        "x": 323.828125,
+        "y": 308.3125,
+        "width": 923.328125,
+        "height": 512.09375
+      },
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1700,
+      "board": {
+        "x": 256,
+        "y": 251.390625,
+        "width": 1393,
+        "height": 855.546875
+      },
+      "stage": {
+        "x": 272.5,
+        "y": 252.390625,
+        "width": 1360,
+        "height": 765.171875
+      },
+      "art": {
+        "x": 344.671875,
+        "y": 326.015625,
+        "width": 1215.625,
+        "height": 674.203125
+      },
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1920,
+      "board": {
+        "x": 362.5,
+        "y": 251.390625,
+        "width": 1400,
+        "height": 855.546875
+      },
+      "stage": {
+        "x": 382.5,
+        "y": 252.390625,
+        "width": 1360,
+        "height": 765.171875
+      },
+      "art": {
+        "x": 454.671875,
+        "y": 326.015625,
+        "width": 1215.625,
+        "height": 674.203125
+      },
+      "horizontalOverflow": false
+    }
+  ],
+  "routes": [
+    {
+      "bough": 0,
+      "index": 0,
+      "point": [
+        414,
+        467
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C718 591 666 569 585 565 C473 551 410 629 323 613 C318 581 311 548 325 524 C343 500 373 510 391 495 C400 485 408 477 414 467",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 0,
+      "index": 1,
+      "point": [
+        211,
+        400
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C718 591 666 569 585 565 C473 551 410 629 323 613 C274 580 244 568 217 562 C209 538 183 490 203 460 C214 441 216 422 211 400",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 0,
+      "index": 2,
+      "point": [
+        70,
+        501
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C718 591 666 569 585 565 C473 551 410 629 323 613 C274 580 223 554 162 556 C115 546 90 531 70 501",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 0,
+      "index": 3,
+      "point": [
+        260,
+        624
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C718 591 666 569 585 565 C473 551 410 629 323 613 C298 617 281 625 260 624",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 1,
+      "index": 0,
+      "point": [
+        666,
+        157
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C753 578 776 503 733 451 C687 408 612 372 531 346 C477 330 447 320 419 308 C483 286 506 261 523 224 C541 193 570 192 600 184 C630 198 647 176 666 157",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 1,
+      "index": 1,
+      "point": [
+        538,
+        28
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C753 578 776 503 733 451 C687 408 612 372 531 346 C477 330 447 320 419 308 C407 258 392 203 402 166 C414 127 451 104 481 86 C510 64 525 46 538 28",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 1,
+      "index": 2,
+      "point": [
+        246,
+        138
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C753 578 776 503 733 451 C687 408 612 372 531 346 C477 330 447 320 419 308 C369 262 323 257 300 201 C293 176 266 149 246 138",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 1,
+      "index": 3,
+      "point": [
+        403,
+        60
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C753 578 776 503 733 451 C687 408 612 372 531 346 C477 330 447 320 419 308 C407 258 392 203 402 166 C411 124 411 87 403 60",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 2,
+      "index": 0,
+      "point": [
+        911,
+        180
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C805 546 857 454 940 401 C911 363 882 333 868 297 C860 272 884 252 903 229 C914 209 918 194 911 180",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 2,
+      "index": 1,
+      "point": [
+        1035,
+        116
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C805 546 857 454 940 401 C975 376 1017 352 1048 333 C1082 292 1098 247 1082 201 C1073 166 1048 141 1035 116",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 2,
+      "index": 2,
+      "point": [
+        1480,
+        78
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C805 546 857 454 940 401 C1010 355 1114 292 1186 249 C1260 206 1310 190 1355 196 C1403 163 1421 145 1439 128 C1457 112 1470 96 1480 78",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 2,
+      "index": 3,
+      "point": [
+        1576,
+        163
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C750 777 765 719 778 654 L778 654 C805 546 857 454 940 401 C1010 355 1114 292 1186 249 C1260 206 1310 190 1355 196 C1436 224 1505 181 1576 163",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 3,
+      "index": 0,
+      "point": [
+        1358,
+        367
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C780 780 817 731 857 682 L857 682 C878 617 919 570 967 543 C1036 494 1098 513 1167 540 C1226 568 1247 530 1270 500 C1286 479 1316 479 1325 451 C1334 433 1315 412 1333 397 C1341 382 1355 376 1358 367",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 3,
+      "index": 1,
+      "point": [
+        1539,
+        378
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C780 780 817 731 857 682 L857 682 C878 617 919 570 967 543 C1036 494 1098 513 1167 540 C1250 578 1312 552 1370 501 C1399 467 1391 437 1427 425 C1456 428 1486 426 1511 403 C1527 388 1539 382 1539 378",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 3,
+      "index": 2,
+      "point": [
+        1632,
+        510
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C780 780 817 731 857 682 L857 682 C878 617 919 570 967 543 C1036 494 1098 513 1167 540 C1250 578 1312 552 1370 501 C1406 523 1439 518 1481 548 C1549 593 1604 540 1632 510",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    },
+    {
+      "bough": 3,
+      "index": 3,
+      "point": [
+        1552,
+        560
+      ],
+      "d": "M555 866 C615 856 679 853 713 814 C780 780 817 731 857 682 L857 682 C878 617 919 570 967 543 C1036 494 1098 513 1167 540 C1250 578 1312 552 1370 501 C1406 530 1439 518 1481 548 C1500 561 1512 575 1552 560",
+      "coverage": 1,
+      "anchor": true,
+      "miss": []
+    }
+  ],
+  "passed": true
+}

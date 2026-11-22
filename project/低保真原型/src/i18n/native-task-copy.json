@@ -135,7 +135,7 @@
         }
       },
       "sql-joins": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "SQL 表关联",
           "en": "SQL joins"
@@ -414,7 +414,7 @@
     },
     "security": {
       "network-path": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "DNS 与请求路径",
           "en": "DNS and request paths"
@@ -425,7 +425,7 @@
         }
       },
       "transport-trust": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "TLS 与传输信任",
           "en": "TLS and transport trust"
@@ -436,7 +436,7 @@
         }
       },
       "authorized-scope": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "测试范围与风险",
           "en": "Authorized testing scope"
@@ -447,7 +447,7 @@
         }
       },
       "authentication": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "身份验证与会话",
           "en": "Authentication and sessions"
@@ -458,7 +458,7 @@
         }
       },
       "authorization": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "资源授权与最小权限",
           "en": "Resource authorization"
@@ -469,7 +469,7 @@
         }
       },
       "secrets": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "密钥保管与轮换",
           "en": "Secret storage and rotation"
@@ -502,7 +502,7 @@
         }
       },
       "incident-handoff": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "事件升级与交接",
           "en": "Incident escalation"
@@ -535,7 +535,7 @@
         }
       },
       "verify-control": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "安全验证与回归",
           "en": "Security verification and regression"
@@ -581,7 +581,7 @@
         }
       },
       "container-build": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "容器构建与镜像",
           "en": "Container builds and images"
@@ -592,7 +592,7 @@
         }
       },
       "deployment-health": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "部署与健康探针",
           "en": "Deployments and probes"
@@ -614,7 +614,7 @@
         }
       },
       "four-signals": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "服务信号与告警",
           "en": "Service signals and alerts"
@@ -658,7 +658,7 @@
         }
       },
       "rollback-verify": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "回退与恢复验收",
           "en": "Rollback and recovery verification"
@@ -715,7 +715,7 @@
         }
       },
       "keyboard": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "键盘与焦点",
           "en": "Keyboard and focus"
@@ -726,7 +726,7 @@
         }
       },
       "form-errors": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "表单错误与提示",
           "en": "Form errors and feedback"
@@ -748,7 +748,7 @@
         }
       },
       "state-ownership": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "组件状态归属",
           "en": "Component state ownership"
@@ -792,7 +792,7 @@
         }
       },
       "browser-security": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "浏览器内容安全",
           "en": "Browser content security"
@@ -816,7 +816,7 @@
     },
     "backend": {
       "http-semantics": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "HTTP 与状态码",
           "en": "HTTP and status codes"
@@ -838,7 +838,7 @@
         }
       },
       "service-structure": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "Java 服务分层",
           "en": "Java service boundaries"
@@ -860,7 +860,7 @@
         }
       },
       "schema-constraints": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "关系模型与约束",
           "en": "Relational design and constraints"
@@ -871,7 +871,7 @@
         }
       },
       "atomicity": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "事务与并发更新",
           "en": "Transactions and concurrency"
@@ -893,7 +893,7 @@
         }
       },
       "session-auth": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "会话生命周期",
           "en": "Session lifecycle"
@@ -904,7 +904,7 @@
         }
       },
       "object-authorization": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "对象访问控制",
           "en": "Object authorization"
@@ -926,7 +926,7 @@
         }
       },
       "integration-tests": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "集成与契约测试",
           "en": "Integration and contract tests"
@@ -983,7 +983,7 @@
         }
       },
       "partition-evolution": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "分区与模式演进",
           "en": "Partitions and schema evolution"
@@ -994,7 +994,7 @@
         }
       },
       "dag-intervals": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "DAG 与数据窗口",
           "en": "DAGs and data intervals"
@@ -1117,7 +1117,7 @@
         }
       },
       "test-levels": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "测试层级与策略",
           "en": "Test levels and strategy"
@@ -1139,7 +1139,7 @@
         }
       },
       "decision-tables": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "决策表与组合",
           "en": "Decision tables and combinations"
@@ -1150,7 +1150,7 @@
         }
       },
       "state-transition": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "状态转换与非法事件",
           "en": "State transitions and invalid events"
@@ -1172,7 +1172,7 @@
         }
       },
       "defect-reproduction": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "缺陷复现与分级",
           "en": "Defect reproduction"
@@ -1205,7 +1205,7 @@
         }
       },
       "stable-assertions": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "稳定定位与断言",
           "en": "Stable locators and assertions"
@@ -1284,7 +1284,7 @@
         }
       },
       "errors": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "错误处理与边界输入",
           "en": "Errors and edge cases"
@@ -1328,7 +1328,7 @@
         }
       },
       "git-branches": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "Git 分支与合并",
           "en": "Git branches and merges"
@@ -1339,7 +1339,7 @@
         }
       },
       "code-review": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "代码审查与反馈",
           "en": "Code review"
@@ -1396,7 +1396,7 @@
         }
       },
       "environments": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "环境与配置基线",
           "en": "Environments and baselines"
@@ -1429,7 +1429,7 @@
         }
       },
       "uat": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "用户验收测试",
           "en": "User acceptance testing"
@@ -1462,7 +1462,7 @@
         }
       },
       "role-training": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "按角色培训与验收",
           "en": "Role-based training"
@@ -1484,7 +1484,7 @@
         }
       },
       "handoff": {
-        "version": 1,
+        "version": 2,
         "title": {
           "zh": "移交清单与跟进",
           "en": "Handoff and follow-up"

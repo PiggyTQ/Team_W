@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="880" font-family="Microsoft YaHei,sans-serif">
+<rect width="1280" height="880" fill="#faf7ef"/><text x="40" y="57" fill="#113c5f" font-size="29" font-weight="700">职业综合报告</text>
+<rect x="36" y="80" width="1208" height="52" rx="10" fill="white" stroke="#dddace"/><g font-size="16" fill="#34546e" text-anchor="middle"><text x="187" y="113">成长回顾</text><text x="489" y="113">岗位匹配</text><text x="791" y="113">岗位要求</text><text x="1093" y="113">下一步补足</text></g>
+<rect x="36" y="152" width="1208" height="690" rx="16" fill="#fffefa" stroke="#e4dfd4"/>
+<text x="63" y="198" fill="#113c5f" font-size="24" font-weight="700">数据分析</text><text x="63" y="226" fill="#4b6276" font-size="14">初级数据分析实习 · 演示意向</text>
+<text x="1080" y="205" fill="#164c70" font-size="30" font-weight="700">5 / 13</text>
+<rect x="758" y="223" width="440" height="8" rx="4" fill="#e1e6e8"/><rect x="758" y="223" width="34" height="8" fill="#327b63"/><rect x="792" y="223" width="135" height="8" fill="#4d8bac"/>
+<text x="758" y="253" fill="#4b6276" font-size="13">检验通过 1　已有实践 4　材料关联 0　待补 8</text>
+<path d="M63 280H1216" stroke="#dde4e7"/>
+<text x="63" y="314" fill="#2c5b7c" font-size="14">2026-11-18</text><text x="209" y="317" fill="#113c5f" font-size="21" font-weight="700">数据质量小项目</text>
+<text x="209" y="350" fill="#435f75" font-size="15">核对重复、缺失及冲突，保留可复算的处理口径。</text>
+<text x="209" y="385" fill="#164e73" font-size="17" font-weight="700">18 行教学摘录 → 14 条可按限速分组的记录</text>
+<text x="209" y="416" fill="#435f75" font-size="14">本人贡献 · 核对碰撞编号，记录排除依据并注明统计分母。</text>
+<text x="1020" y="416" fill="#1c618c" font-size="14">查看技能关联 →</text>
+<path d="M63 444H1216" stroke="#dde4e7"/>
+<text x="63" y="484" fill="#113c5f" font-size="21" font-weight="700">成果如何支撑目标岗位</text>
+<text x="63" y="516" fill="#1c618c" font-size="14">全部项目　　数据质量小项目　　客服助手评测项目</text>
+<rect x="63" y="540" width="753" height="265" rx="10" fill="#edf5fa"/>
+<g fill="#315c7c" font-size="15"><text x="85" y="578">指标与取数</text><text x="85" y="634">数据质量</text><text x="85" y="690">统计判断</text><text x="85" y="746">建模与表达</text></g>
+<g fill="#dcecf7"><rect x="230" y="607" width="174" height="39" rx="7"/><rect x="418" y="607" width="174" height="39" rx="7"/><rect x="606" y="607" width="174" height="39" rx="7"/></g>
+<g fill="#1c5277" font-size="14"><text x="244" y="632">缺失值与有效分母</text><text x="432" y="632">重复与冲突记录</text><text x="620" y="632">质量规则与复核</text></g>
+<rect x="838" y="540" width="378" height="265" rx="10" fill="#153f60"/>
+<g fill="#fff"><text x="860" y="577" font-size="20" font-weight="700">重复与冲突记录</text><text x="860" y="610" font-size="14">已有实践 · 演示</text><text x="860" y="656" font-size="15">先明确记录键，区分完全重复和</text><text x="860" y="682" font-size="15">同编号冲突，分别说明处理理由。</text><text x="860" y="741" font-size="14">查看项目依据　　进入技能树 →</text></g>
+</svg>

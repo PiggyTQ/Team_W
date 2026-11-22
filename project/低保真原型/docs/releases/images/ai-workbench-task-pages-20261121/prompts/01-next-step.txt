@@ -1,0 +1,20 @@
+Generate ONE high-fidelity, beautifully readable DESKTOP web application design image, full straight-on viewport approximately 1700 x 1100 landscape, no device frame, browser chrome, perspective, poster or multi-screen collage. Product: Avemly, a Chinese university IT career exploration and learning app. This is a planned TASK PAGE reached from its AI workspace. It must be a genuinely distinct purposeful page, not the homepage again and not a generic attachment picker with a new title.
+Use the attached current screenshot only as brand and global-shell reference. Retain recognizable original Avemly blue/gold logo, top bar ~72px, existing left nav ~220px with AI 工作台 selected navy, and small yellow cheese scholar with navy glasses. Do not change brand assets or create a giant mascot hero.
+Shared shell: logo top left, wide search with 搜索职业、工作任务… and navy 搜索 button; right language 中文/EN, bell and account. Left nav 工作区首页; section 准备与行动 with 个人评估,目标计划,学习实践,职业报告; section 探索与工具 with 职业探索,职业与技能地图,AI 工作台; bottom restrained cheese companion, 账户与数据. Match reference visual identity but remove old body content.
+Palette: warm ivory #FBF8F0, paper white #FFFEFA, deep blue #103F6B, quiet slate #758496, powder blue #EDF5FB and selective marigold #FFC90A for main action. Flat clean app surfaces, fine warm outlines, subtle shadows, generous intentional spacing, 12-16px corners. Do not use nested cards, dense data dashboards, gradients, huge empty banners, charts, gauges, suitability percentages or fake statistics.
+Chinese typography like Noto Sans SC/PingFang SC: 17-18px body, 14px+ secondary, 30-34px task title. Crisp concise correct Chinese, not tiny unreadable filler. Main task content and its composer must fit in the first desktop screen.
+Every page top has a small text back link 返回 AI 工作台, task title and one concise subtitle. Top right 历史讨论 and 新讨论. Task pages share the shell and typography, but differ in task composition.
+ABSOLUTE: NO disclosure triangles, NO accordion headings, NO details/summary rows in the primary content, NO English internal data parts output/scope/evidence/decision/delivery, NO giant universal 本次资料 panel listing career/skill/task/plan/claim/review. Important choices and content are visibly open. Use plain 查看原文/更换/添加相关资料 links for secondary actions.
+This is a hypothetical design with synthetic example data and illustrative AI answers, not proof the live model is enabled. Do not draw an 'AI enabled' badge or claim changes already applied. Never imply a suggested draft is confirmed, a practice is mastered or a main goal changed.
+PAGE 1 — 梳理我的下一步. Subtitle 从当前目标和已有行动里，确定下一件值得做的事。
+Create a strongly conversation-led TWO-COLUMN working composition under the title. Left context column about 330px, right dialogue ~850px, balanced within the existing main workspace. The left context is shallow and readable, not a full plan editor.
+LEFT: heading 本次关注. Current direction 数据分析 with small 更换 text link. A visible compact constraint block 本次可用时间 3 小时 / 周 and muted 本次讨论假设. Show exactly TWO selected original-task summaries with clear checkboxes, task names and original effort: SQL 关联练习 · 原预计 2 小时 and 整理项目记录 · 原预计 2 小时. Below a small link 添加相关任务. A quiet source footer 本次选用：目标与预算、2 项任务 and 查看选用内容. No editable task hours/status/date forms; only this small discussion constraint.
+RIGHT: a user bubble 我每周只有三小时，怎么安排更合适？. Below small supplied cheese avatar 芝识分子 and helpful text: 两项原任务合计约四小时，可以先比较这两种取舍。
+Show EXACTLY TWO compact recommendation rows, separated by light rules, not nested large cards:
+方案一 · 缩小本周范围
+SQL 练习 1.5 小时，整理记录 1.5 小时。
+方案二 · 将一项延期
+本周先做 SQL，整理记录延期后再安排。
+Keep both as unconfirmed choices, NOT applied changes. The selected first option has a subtle powder-blue edge highlight or radio mark. Then a small note 具体范围与预算，到原计划核对后再确认。
+One clear marigold button 到原计划核对 → and a secondary text action 先继续讨论. No direct save/apply/complete action in chat.
+Bottom of right conversation area a wide white composer height110px placeholder 继续说说你的顾虑，或调整这次讨论的条件… with attachment icon and marigold send arrow. The dialogue occupies most of visual attention; contextual task cards are supporting.

@@ -1,0 +1,290 @@
+{
+  "viewport": "1700×1100",
+  "representativePaths": [
+    "SQL joins:raw/fixed execution,failed2/3→passed3/3",
+    "Decision table:row+threshold feedback→passed3/3",
+    "Incident handoff:structure/reference feedback→passed3/3"
+  ],
+  "additionalChecks": [
+    "1366×900 English question/learning without horizontal overflow",
+    "1920×1080 English lesson without horizontal overflow",
+    "boundary2–8 material correction",
+    "5-second SQL termination retains concurrently edited reflection",
+    "three separately saved task modes,viewed hints,review state",
+    "fresh local synthetic account:three actual checks complete one branch"
+  ],
+  "refresh": {
+    "noActiveGrowth": true,
+    "passedBuds": [
+      "指标与取数 · 指标口径 · 已通过",
+      "指标与取数 · SQL 表关联 · 已通过",
+      "指标与取数 · 分组与汇总 · 已通过"
+    ],
+    "title": "指标口径"
+  },
+  "logs": [],
+  "checks": [
+    {
+      "codeFont": "ui-monospace, Consolas, monospace",
+      "output": "上次实际运行输出 · SQLite 3.54.1\norder_id\torder_amount\tline_total\nK\t50\t20\nL\t50\tNULL\nM\t20\t5",
+      "stage": "sql-independent",
+      "tabs": "跟随应用\n已复核\n排查错误\n作答中\n独立任务\n已复核",
+      "trees": 0
+    },
+    {
+      "actions": {
+        "bottom": 682.1979370117188,
+        "height": 42,
+        "left": 1153.3333740234375,
+        "right": 1624.0000610351562,
+        "top": 640.1979370117188,
+        "width": 470.6666870117187,
+        "x": 1153.3333740234375,
+        "y": 640.1979370117188
+      },
+      "paper": {
+        "bottom": 751.6562652587891,
+        "height": 502.7083435058594,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 248.9479217529297,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 248.9479217529297
+      },
+      "scroll": 0,
+      "stage": "sql-q1",
+      "title": {
+        "bottom": 204.2500114440918,
+        "height": 37.79166793823242,
+        "left": 256,
+        "right": 396.8125,
+        "top": 166.45834350585938,
+        "width": 140.8125,
+        "x": 256,
+        "y": 166.45834350585938
+      },
+      "tree": {
+        "bottom": 768.9479217529297,
+        "height": 520,
+        "left": 256,
+        "right": 1098.6666870117188,
+        "top": 248.9479217529297,
+        "width": 842.6666870117188,
+        "x": 256,
+        "y": 248.9479217529297
+      }
+    },
+    {
+      "actions": {
+        "bottom": 701.2604370117188,
+        "height": 42,
+        "left": 1153.3333740234375,
+        "right": 1624.0000610351562,
+        "top": 659.2604370117188,
+        "width": 470.6666870117187,
+        "x": 1153.3333740234375,
+        "y": 659.2604370117188
+      },
+      "paper": {
+        "bottom": 770.7187957763672,
+        "height": 521.7708740234375,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 248.9479217529297,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 248.9479217529297
+      },
+      "scroll": 0,
+      "stage": "sql-q3",
+      "title": {
+        "bottom": 204.2500114440918,
+        "height": 37.79166793823242,
+        "left": 256,
+        "right": 396.8125,
+        "top": 166.45834350585938,
+        "width": 140.8125,
+        "x": 256,
+        "y": 166.45834350585938
+      },
+      "tree": {
+        "bottom": 768.9479217529297,
+        "height": 520,
+        "left": 256,
+        "right": 1098.6666870117188,
+        "top": 248.9479217529297,
+        "width": 842.6666870117188,
+        "x": 256,
+        "y": 248.9479217529297
+      }
+    },
+    {
+      "actions": {
+        "bottom": 728.3229370117188,
+        "height": 62,
+        "left": 1153.3333740234375,
+        "right": 1624.0000610351562,
+        "top": 666.3229370117188,
+        "width": 470.6666870117187,
+        "x": 1153.3333740234375,
+        "y": 666.3229370117188
+      },
+      "leaves": 0,
+      "paper": {
+        "bottom": 750.9896087646484,
+        "height": 502.0416870117187,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 248.9479217529297,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 248.9479217529297
+      },
+      "scroll": 0,
+      "stage": "sql-failed",
+      "title": {
+        "bottom": 204.2500114440918,
+        "height": 37.79166793823242,
+        "left": 256,
+        "right": 396.8125,
+        "top": 166.45834350585938,
+        "width": 140.8125,
+        "x": 256,
+        "y": 166.45834350585938
+      },
+      "tree": {
+        "bottom": 768.9479217529297,
+        "height": 520,
+        "left": 256,
+        "right": 1098.6666870117188,
+        "top": 248.9479217529297,
+        "width": 842.6666870117188,
+        "x": 256,
+        "y": 248.9479217529297
+      }
+    },
+    {
+      "actions": {
+        "bottom": 758.5833740234375,
+        "height": 62,
+        "left": 1153.3333740234375,
+        "right": 1624.0000610351562,
+        "top": 696.5833740234375,
+        "width": 470.6666870117187,
+        "x": 1153.3333740234375,
+        "y": 696.5833740234375
+      },
+      "paper": {
+        "bottom": 781.2500305175781,
+        "height": 529.7916870117188,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 251.45834350585935,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 251.45834350585935
+      },
+      "scroll": 0,
+      "stage": "sql-passed",
+      "title": {
+        "bottom": 204.2500114440918,
+        "height": 37.79166793823242,
+        "left": 256,
+        "right": 396.8125,
+        "top": 166.45834350585938,
+        "width": 140.8125,
+        "x": 256,
+        "y": 166.45834350585938
+      },
+      "tree": {
+        "bottom": 771.4583435058594,
+        "height": 520,
+        "left": 256,
+        "right": 1098.6666870117188,
+        "top": 251.45834350585935,
+        "width": 842.6666870117188,
+        "x": 256,
+        "y": 251.45834350585935
+      }
+    },
+    {
+      "stage": "representative-paths",
+      "sql": true,
+      "decision": true,
+      "handoff": true
+    },
+    {
+      "facts": "02:00Z订单查询出现部分超时，告警A9已触发；尚未确认根因。",
+      "fields": 6,
+      "reviewed": true,
+      "stage": "handoff-restored"
+    },
+    {
+      "mode": "独立任务\n已复核",
+      "output": "上次实际运行输出 · SQLite 3.54.1\norder_id\torder_amount\tline_total\nK\t50\t20\nL\t50\tNULL\nM\t20\t5",
+      "query": "WITH per_order AS (\n  SELECT order_id, SUM(line_amount) AS line_total\n  FROM lines GROUP BY order_id\n)\nSELECT o.order_id, o.order_amount, p.line_total\nFROM orders o LEFT JOIN per_order p\n  ON p.order_id = o.order_id\nORDER BY o.order_id;",
+      "reviewed": true,
+      "stage": "sql-restored"
+    },
+    {
+      "alert": "执行未完成：超过本次运行时限，请简化查询。",
+      "review": "在查询运行期间写下的复核记录：这段文字应在超时反馈返回后仍然保留，其他任务的答案也不能被覆盖。",
+      "stage": "sql-timeout-and-race"
+    },
+    {
+      "actionsY": 653.8125,
+      "paper": {
+        "bottom": 816.6666870117188,
+        "height": 560,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 256.66668701171875,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 256.66668701171875
+      },
+      "stage": "final-q1",
+      "titleY": 166.45834350585938,
+      "treeY": 256.66668701171875
+    },
+    {
+      "actionsY": 653.8125,
+      "paper": {
+        "bottom": 816.6666870117188,
+        "height": 560,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 256.66668701171875,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 256.66668701171875
+      },
+      "stage": "final-q3",
+      "titleY": 166.45834350585938,
+      "treeY": 256.66668701171875
+    },
+    {
+      "actionsY": 658,
+      "paper": {
+        "bottom": 816.6666870117188,
+        "height": 560,
+        "left": 1128.666748046875,
+        "right": 1648.666748046875,
+        "top": 256.66668701171875,
+        "width": 520,
+        "x": 1128.666748046875,
+        "y": 256.66668701171875
+      },
+      "stage": "final-result",
+      "titleY": 166.45834350585938,
+      "treeY": 256.66668701171875
+    },
+    {
+      "stage": "expanded-result-1920",
+      "geometry": {
+        "overflow": false
+      }
+    }
+  ]
+}

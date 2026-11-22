@@ -1,0 +1,109 @@
+{
+  "origin": "local server-mode, synthetic isolated account",
+  "checks": [
+    "tree selection opens full-width lesson with no tree, floating tree or tree background",
+    "two correct scenario decisions with wrong transfer response fail 2/3 and award no leaves",
+    "saved SQL practice, failed transfer review, corrected 3/3 pass and first leaf feedback occur beside the tree; no historical or process growth",
+    "three actual skill checks complete the metrics branch; only that branch unfolds clusters, result stays visible and no next skill is forced",
+    "refresh restores three earned pairs and completed branch clusters without replay",
+    "refresh and return to practice preserve the artifact/review in a tree-free page",
+    "changing direction and returning resumes the same saved tree-free practice; 1920 English stays clear and original Chinese notes are preserved"
+  ],
+  "measurements": [
+    {
+      "kind": "first-pass",
+      "growth": "已通过 · 3/3这项技能，长出了新叶新叶已留在左侧对应的芽梢。你可以继续学习，也可以看看整树的变化。✓ 情境判断 1需要保留无明细订单，同时每单只出现一行。哪种查询适合？先统一明细的粒度，再用左关联保留无匹配订单。回看对应知识✓ 情境判断 2A 单有两条明细，B 单没有明细。直接左关联会返回几行？A 展开成两行，B 仍保留一行，右侧字段为空。回看对应知识✓ 迁移应用订单 A、B、C 中，A 有 3 条明细，B 没有，C 有 2 条。直接从订单 LEFT JOIN 明细，返回几行？A 三行，B 的空匹配一行，C 两行，总计六行。回看对应知识本次参考的练习产物WITH per_order AS (SELECT order_id,SUM(amount) total FROM lines GROUP BY order_id) SELECT o.order_id,COALESCE(p.total,0) FROM orders o LEFT JOIN per_order p ON o.order_id=p.order_id;\n教学结果：A=30，B=0，C=5，共三行。关联前后均核对三种订单键，金额合计为35；无明细与未知金额要分开。本次没有验证真实业务的退款口径。下一个技能 →回到练习再做一次",
+      "phase": "water",
+      "result": {
+        "bottom": 933.1146240234376,
+        "height": 480.8541870117187,
+        "left": 918.5208740234376,
+        "right": 1618.0000610351562,
+        "top": 452.2604370117187,
+        "width": 699.4791870117188,
+        "x": 918.5208740234376,
+        "y": 452.2604370117187
+      },
+      "tree": {
+        "bottom": 832.3958435058594,
+        "height": 580,
+        "left": 256,
+        "right": 804.15625,
+        "top": 252.39584350585935,
+        "width": 548.15625,
+        "x": 256,
+        "y": 252.39584350585935
+      }
+    },
+    {
+      "kind": "branch-result",
+      "clusters": 4,
+      "height": 1100,
+      "leaves": 3,
+      "overflow": false,
+      "pulse": false,
+      "result": {
+        "bottom": 933.1146240234376,
+        "height": 480.8541870117187,
+        "left": 918.5208740234376,
+        "right": 1618.0000610351562,
+        "top": 452.2604370117187,
+        "width": 699.4791870117188,
+        "x": 918.5208740234376,
+        "y": 452.2604370117187
+      },
+      "tree": {
+        "bottom": 832.3958435058594,
+        "height": 580,
+        "left": 256,
+        "right": 804.15625,
+        "top": 252.39584350585935,
+        "width": 548.15625,
+        "x": 256,
+        "y": 252.39584350585935
+      },
+      "width": 1700
+    },
+    {
+      "kind": "1366-result",
+      "height": 900,
+      "overflow": false,
+      "result": {
+        "bottom": 749.1146240234375,
+        "height": 480.8541870117187,
+        "left": 779.3958740234375,
+        "right": 1283.9896240234375,
+        "top": 268.26043701171875,
+        "width": 504.59375,
+        "x": 779.3958740234375,
+        "y": 268.26043701171875
+      },
+      "tree": {
+        "bottom": 672.6666717529297,
+        "height": 560,
+        "left": 256,
+        "right": 668.7291870117188,
+        "top": 112.66667175292967,
+        "width": 412.7291870117187,
+        "x": 256,
+        "y": 112.66667175292967
+      },
+      "width": 1366
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "targetedTests": 12,
+  "fullTests": {
+    "total": 507,
+    "passed": 503,
+    "failed": 3,
+    "skipped": 1,
+    "knownFailures": "AI_BUDGET_PRICE_EXPIRED"
+  },
+  "desktopWidths": [
+    1366,
+    1700,
+    1920
+  ]
+}

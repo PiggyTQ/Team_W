@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-21",
+  "timezone": "Asia/Shanghai",
+  "type": "待实现效果图，合成资料与回答",
+  "generator": "内置image_gen，三个页面分别生成",
+  "websiteCodeChanged": false,
+  "productionChanged": false,
+  "runtimeVerified": false,
+  "review": [
+    "当前源码入口与资料目录静态复核",
+    "三任务构思与独立状态查漏",
+    "逐图视觉及一致性复核",
+    "三小时算术与职业/成果文义核对",
+    "图像文件摘要及配套文档核对"
+  ],
+  "userReferences": [
+    "reference/01-generic-sources.png",
+    "reference/02-sources-and-composer.png",
+    "reference/03-task-entries.png"
+  ],
+  "requiredNewCapabilities": [
+    "三个真实任务路由及U11身份/恢复",
+    "任务化对象聚合与最小片段选择",
+    "时间假设/关注点/表达用途的可靠状态",
+    "比较双方的公共职业工作与产物投影"
+  ],
+  "websiteModelState": "现有开关未改变；图中回答为设计示例",
+  "images": [
+    {
+      "file": "concepts/01-next-step.png",
+      "prompt": "prompts/01-next-step.txt",
+      "width": 1616,
+      "height": 973,
+      "bytes": 1466751,
+      "sha256": "f2bd3279a907741c553784a21084c1588b2848dd00656b927ba55c9b1b915ca3",
+      "generatedSource": "C:/Users/tsnbx/.codex/generated_images/01a1f99e-a99a-70c1-aac1-f19e4ba1185e/exec-8f50b601-399c-4ed6-b750-04e102a34215.png",
+      "references": [
+        "docs/releases/images/ai-workbench-reference-fit-20261121/actual/01-home-zh-1616.png",
+        "public/illustrations/workbench/ai-laptop.png"
+      ]
+    },
+    {
+      "file": "concepts/02-career-compare.png",
+      "prompt": "prompts/02-career-compare.txt",
+      "width": 1616,
+      "height": 973,
+      "bytes": 1635310,
+      "sha256": "d36f68f14231fbe24aca8c8c4bd53d7da0f98b809637e7b3eceac2d8668b8fbe",
+      "generatedSource": "C:/Users/tsnbx/.codex/generated_images/01a1f99e-a99a-70c1-aac1-f19e4ba1185e/exec-bd6a1dfd-f0d0-431c-91d7-ae85f1334f28.png",
+      "references": [
+        "docs/releases/images/ai-workbench-task-pages-20261121/concepts/01-next-step.png"
+      ]
+    },
+    {
+      "file": "concepts/03-achievement-expression.png",
+      "prompt": "prompts/03-achievement-expression.txt",
+      "width": 1616,
+      "height": 973,
+      "bytes": 1669427,
+      "sha256": "ff92196ac9734a0315b80db6fe9222ee9005b8af0ecd8917b124ef980a120f26",
+      "generatedSource": "C:/Users/tsnbx/.codex/generated_images/01a1f99e-a99a-70c1-aac1-f19e4ba1185e/exec-a3e663e5-a73a-4537-b78b-8d7db45fe7af.png",
+      "references": [
+        "docs/releases/images/ai-workbench-task-pages-20261121/concepts/01-next-step.png"
+      ]
+    }
+  ]
+}

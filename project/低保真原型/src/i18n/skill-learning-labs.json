@@ -1,0 +1,114 @@
+{
+  "data:metric-definition": {
+    "input": "orders: A(11-01), B(11-01), C(11-02), D(11-02)\nrefunds: A(11-03), A(11-04), C(11-20)",
+    "procedure": [
+      "按下单日建立队列；每笔订单观察 7 天。A 的两次退款仍只算一笔退款订单；C 的退款发生在窗口外。本例队列退款率为 1/4=25%。若观察尚未满 7 天，应标记队列未成熟，不把未知当未退款。",
+      "Cohort by order date with seven-day follow-up. A's two refunds count as one refunded order. C's refund is outside the window, so 1/4=25%. Mark immature cohorts rather than treating unknown follow-up as no refund."
+    ],
+    "code": "Definition card\nGrain: one order\nKey: order_id\nCohort: order created date\nNumerator: distinct orders refunded within 7 days\nDenominator: eligible orders with complete 7-day follow-up\nExclusions: cancelled-before-payment orders\nVersion: teaching-example-1"
+  },
+  "data:sql-joins": {
+    "input": "orders(order_id): A, B, C\nlines(order_id, amount): (A,10),(A,20),(C,5)",
+    "procedure": [
+      "先把明细压到每单一行，再从订单左关联。A 的金额为 30，B 没有明细但仍保留为 0，C 为 5。输出三行且订单键不重复。COALESCE 在本例代表没有明细时总额为零；若缺的是未上报数据，就不能这样填零。",
+      "Aggregate lines to order grain, then left join from orders. A totals 30, B remains with 0 and C totals 5. Output has three unique order keys. COALESCE means no lines is zero here; do not use it for unreported amounts."
+    ],
+    "code": "WITH orders(order_id) AS (VALUES ('A'),('B'),('C')),\nlines(order_id,amount) AS (VALUES ('A',10),('A',20),('C',5)),\nper_order AS (\n SELECT order_id, SUM(amount) AS total\n FROM lines GROUP BY order_id\n)\nSELECT o.order_id, COALESCE(p.total,0) AS total\nFROM orders o LEFT JOIN per_order p ON p.order_id=o.order_id\nORDER BY o.order_id;\n-- Expected: A 30; B 0; C 5"
+  },
+  "data:aggregation": {
+    "input": "channel,orders,refunds\nA,20,4\nB,80,8",
+    "procedure": [
+      "分组比率 A 为 20%、B 为 10%；直接平均得到 15% 会让小组与大组权重相同。整体应先加退款 12 与订单 100，再得到 12%。若分母为零，返回未知并说明，不强制设为零。",
+      "A is 20% and B 10%. Averaging gives 15% and weights unequal groups equally. Sum 12 refunds and 100 orders first: 12%. A zero denominator remains undefined, not automatically zero."
+    ],
+    "code": "SELECT SUM(refunds) * 1.0 / NULLIF(SUM(orders),0) AS refund_rate\nFROM channel_totals;\n-- 0.12"
+  },
+  "data:missing": {
+    "input": "row,amount,status\n1,20,reported\n2,,not_reported\n3,0,reported\n4,40,reported",
+    "procedure": [
+      "四条记录中三条有有效金额，真实零保留。因此有效均值 60/3=20，金额覆盖率为 3/4=75%。均值与覆盖率一起报告，才能让读者知道缺测范围。",
+      "Three of four rows have observed amounts, including zero. The observed mean is 60/3=20 and coverage is 3/4=75%. Report mean and coverage together."
+    ],
+    "code": "SELECT COUNT(*) AS rows, COUNT(amount) AS observed,\n       AVG(amount) AS observed_mean\nFROM measurements;\n-- rows=4, observed=3, observed_mean=20"
+  },
+  "data:duplicate-conflict": {
+    "input": "raw_row,order_id,amount\n1,A,10\n2,A,10\n3,B,20\n4,B,25",
+    "procedure": [
+      "保留原行号。1 与 2 完全重复，可以按已声明规则折叠并记来源；3 与 4 同键不同值，在没有可信时间或权威来源时都保留待裁决。不能用文件顺序冒充业务优先级。",
+      "Retain raw row IDs. Rows 1 and 2 are exact duplicates and may collapse under a declared rule with provenance. Rows 3 and 4 conflict; preserve both pending authoritative resolution. File order is not business authority."
+    ],
+    "code": "Resolution log\nA: keep raw row 1, duplicate source row 2 retained in log\nB: rows 3 and 4 unresolved; ask source owner\nNo amount total published until conflict scope is explained"
+  },
+  "data:star-schema": {
+    "input": "fact_lines: (L1,P1,10),(L2,P1,20),(L3,P2,30)\ndim_products: (P1,food),(P2,books)",
+    "procedure": [
+      "事实粒度是订单明细而非订单。P1 和 P2 在维表中必须唯一，才能让连接后仍是三条事实，总金额 60。如果 P1 被复制，关联后会多出 L1、L2 的金额，说明维表键约束出问题。",
+      "The fact grain is order line, not order. Unique product keys retain three facts and a total of 60. Duplicate P1 adds the L1/L2 amounts again, revealing a dimension-key violation."
+    ],
+    "code": "SELECT product_id,COUNT(*) FROM dim_products\nGROUP BY product_id HAVING COUNT(*)>1;\n-- Expected: no rows\nSELECT COUNT(*),SUM(amount) FROM fact_lines;\n-- Before and after join: 3, 60"
+  },
+  "ai:python-data": {
+    "input": "customer_id,date,amount\n0017,2026-01-02,10\n0020,not-a-date,0\n0021,,30",
+    "procedure": [
+      "显式把标识符读为字符串，避免丢前导零。保留原日期，再把空值和解析失败分开：第二行是提供了无效日期，第三行是缺失，不能合并成同一种原因。脚本只转换副本，不覆盖原始材料。",
+      "Read identifiers explicitly as strings. Preserve the raw date and distinguish invalid input from missing input: row two is invalid, row three missing. Transform a copy rather than overwriting raw evidence."
+    ],
+    "code": "import pandas as pd\nfrom io import StringIO\ncsv_text = \"\"\"customer_id,date,amount\n0017,2026-01-02,10\n0020,not-a-date,0\n0021,,30\"\"\"\nraw = pd.read_csv(StringIO(csv_text), dtype={'customer_id':'string'})\nclean = raw.copy()\nclean['parsed_date'] = pd.to_datetime(raw['date'], errors='coerce')\nclean['date_missing'] = raw['date'].isna()\nclean['date_invalid'] = raw['date'].notna() & clean['parsed_date'].isna()\nprint(clean[['customer_id','date_missing','date_invalid']])"
+  },
+  "frontend:semantic-html": {
+    "input": "A form asks for an email and performs a save action.",
+    "procedure": [
+      "label 的 for 与 input 的 id 相连，用户能通过名称定位输入。保存动作使用原生 button；浏览器表单验证只是边界体验，服务端仍需校验和授权。不要为了外观把输入与按钮换成没有语义的 div。",
+      "Connect label for to input id so the field has a name. Use a native button for saving. Browser validation helps interaction but does not replace server validation or authorization."
+    ],
+    "code": "<form>\n <label for=\"email\">Email</label>\n <input id=\"email\" name=\"email\" type=\"email\" required>\n <button type=\"submit\">Save</button>\n</form>"
+  },
+  "frontend:dom-events": {
+    "input": "A button contains a span. The user clicks the span.",
+    "procedure": [
+      "target 指向点击的 span，currentTarget 指向监听器所在 button。若动作与按钮相关，读取 currentTarget。组件卸载时应清理手动绑定的监听，避免重复触发。",
+      "target is the clicked span, while currentTarget is the listener's button. Use currentTarget for button data. Clean up manual listeners when the component is removed."
+    ],
+    "code": "function onClick(event) {\n console.log(event.target.tagName);        // SPAN\n console.log(event.currentTarget.tagName); // BUTTON\n}\nbutton.addEventListener('click', onClick);\n// teardown:\nbutton.removeEventListener('click', onClick);"
+  },
+  "backend:atomicity": {
+    "input": "Balances: A=100, B=20. Transfer 30 from A to B; the credit write fails.",
+    "procedure": [
+      "相关扣款与入账应在同一事务。任一步失败就回滚，结果仍 A=100、B=20；成功时是 A=70、B=50。事务并不自动解决所有并发业务冲突，还需正确隔离、锁或条件更新。",
+      "Debit and credit belong in one transaction. Roll back on either failure, retaining A=100 and B=20. Success gives A=70, B=50. Concurrency invariants still need suitable isolation, locking or conditional updates."
+    ],
+    "code": "BEGIN;\nUPDATE accounts SET balance=balance-30 WHERE id='A';\nUPDATE accounts SET balance=balance+30 WHERE id='B';\n-- Any failure: ROLLBACK;\n-- Both valid and invariant checked: COMMIT;"
+  },
+  "engineering:idempotent-batch": {
+    "input": "Interval 2026-01-02, output partition contains 50 rows. The same batch is retried.",
+    "procedure": [
+      "把目标绑定到逻辑窗口，在事务或受控写入中替换该窗口。两次相同输入仍应留下 50 行。若每次直接追加，会产生 100 行。并发重跑、部分失败和迟到修正还要分别验证。",
+      "Bind the target to a logical interval and replace that interval under controlled writes. Identical retries should retain 50 rows; append-only retries produce 100. Test concurrent retries, partial failure and late corrections separately."
+    ],
+    "code": "BEGIN;\nDELETE FROM daily_output WHERE day='2026-01-02';\nINSERT INTO daily_output SELECT * FROM staged_validated_rows;\nCOMMIT;\n-- Reconcile count, stable keys and totals for that day"
+  },
+  "testing:boundary": {
+    "input": "The accepted integer age range is 18 to 60 inclusive.",
+    "procedure": [
+      "先分为有效区间、低于下界和高于上界。用 17、18、60、61 核验包含关系，再补常规值 30、空值及非整数。边界测试不能替代类型与空值校验，也不能证明所有组合已覆盖。",
+      "Partition into valid, below-lower and above-upper classes. Check 17,18,60,61 for inclusion, then ordinary 30, missing and non-integer input. Boundary cases do not replace type/null checks or cover every combination."
+    ],
+    "code": "age,expected\n17,reject\n18,accept\n30,accept\n60,accept\n61,reject\nmissing,reject\n18.5,reject_if_integer_required"
+  },
+  "software:unit-tests": {
+    "input": "Function total(values) returns the sum; an empty list returns 0.",
+    "procedure": [
+      "分开检验普通行为和空输入，每条断言给明确预期。异常路径另写测试，不能用一个“没有报错”检查代替数值正确。这里使用 Python 标准库 unittest 的基础接口。",
+      "Test ordinary and empty behavior separately with concrete expectations. Add explicit error-path tests; absence of an exception is not proof of a correct value. This uses the basic Python unittest API."
+    ],
+    "code": "import unittest\ndef total(values):\n    return sum(values)\nclass TotalTests(unittest.TestCase):\n    def test_normal(self):\n        self.assertEqual(total([2, 3]), 5)\n    def test_empty(self):\n        self.assertEqual(total([]), 0)\nif __name__ == '__main__':\n    unittest.main()"
+  },
+  "delivery:migration": {
+    "input": "Source: 120 rows, total amount 8000. Trial: 117 rows, amount 7700. Failure list: 3 rows, amount 300.",
+    "procedure": [
+      "行数 117+3=120、金额 7700+300=8000，说明差额有解释，但还不能认定迁移全部正确。继续检查主键、字段映射、重复、抽样值及失败项能否重跑。失败项不能从验收材料中消失。",
+      "117+3=120 and 7700+300=8000 explain the differences, but do not establish full correctness. Check keys, mappings, duplicates, samples and retry behavior. Retain failed rows in acceptance evidence."
+    ],
+    "code": "Reconciliation\nRows: source 120 = success 117 + failed 3\nAmount: 8000 = 7700 + 300\nOpen: inspect failed keys, mapping and duplicate policy\nOwner: assign before accepting the migration"
+  }
+}

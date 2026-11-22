@@ -19,6 +19,7 @@ export function practiceDestination(s) {
 
 export function flowNavigation(s, path, tab = '', search = '') {
   if (!s.logged) return null;
+  if(path==='/careers'&&['','职业方向','比较'].includes(tab))return null;
   const active = practiceTask(s);
   const practice = practiceDestination(s);
   const params = new URLSearchParams(search);

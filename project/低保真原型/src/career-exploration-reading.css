@@ -1,0 +1,306 @@
+/* Reading, examples and comparison extend the existing Avemly workspace. */
+html body #root#root#root#root #main {
+ &:has(.career-reading,.career-comparison-page){background:#fbf8f0;color:#103f6b;}
+ &:has(.career-reading,.career-comparison-page)>.server-save-status:not(.server-save-error){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0;padding:0;}
+ & .career-reading,& .career-comparison-page{color:#103f6b;min-width:0;max-width:1360px;margin:0 auto;}
+ & :is(.career-reading,.career-comparison-page) :is(button,.button){display:inline-flex;gap:8px;align-items:center;justify-content:center;background:#fffefa;color:#103f6b;border:1px solid #e0ddd4;padding:9px 14px;min-height:40px;border-radius:9px;cursor:pointer;line-height:1.5;}
+ & :is(.career-reading,.career-comparison-page) :is(button,.button):hover:not(:disabled){background:#edf5fb;border-color:#a7c9dd;}
+ & :is(.career-reading,.career-comparison-page) :is(button,.button):disabled{opacity:.5;cursor:default;}
+ & :is(.career-reading,.career-comparison-page) :is(button,.button).primary{background:#ffca0a;color:#103f6b;border-color:#e9b80a;}
+ & :is(.career-reading,.career-comparison-page) :focus-visible{outline:2px solid #126a9f;outline-offset:4px;}
+ & :is(.career-reading,.career-comparison-page) ::selection{color:#103f6b;background:#d2e8f7;}
+ & :is(.career-reading,.career-comparison-page) :is(h1,h2,h3,h4,strong,th){color:#103f6b;}
+ & :is(.career-reading,.career-comparison-page) p{line-height:1.75;margin:10px 0;overflow-wrap:anywhere;}
+ & :is(.career-reading,.career-comparison-page) a{color:#07558a;text-underline-offset:4px;}
+ & .career-reading-back{display:flex;gap:24px;justify-content:space-between;align-items:center;margin:18px 0;}
+ & .career-reading-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 28px;background:#fffaf0;border:1px solid #e6dfd1;border-radius:18px;padding:26px 28px;}
+ & .career-hero-title{display:flex;align-items:center;gap:26px;min-width:0;}
+ & .career-hero-title>img{width:135px;height:110px;object-fit:contain;flex:none;}
+ & .career-hero-title h1{margin:0;letter-spacing:-.025em;line-height:1.3;}
+ /* This heading receives route-announcement focus, never a keyboard tab stop. */
+ & .career-hero-title h1[tabindex="-1"]:focus{outline:none;}
+ & .career-hero-title .career-english-name{margin:3px 0 7px;color:#526b81;}
+ & .career-hero-title p{max-width:66ch;margin:0;}
+ & .career-hero-actions{display:flex;gap:12px;align-items:flex-start;padding-top:10px;}
+ & .career-hero-facts{grid-column:1/-1;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px;padding-top:18px;border-top:1px solid #e4dfd3;margin:0;}
+ & .career-hero-facts>div+div{padding-left:24px;border-left:1px solid #e4dfd3;}
+ & .career-hero-facts dt{font-weight:650;margin:0 0 7px;}
+ & .career-hero-facts dd{margin:0;line-height:1.75;max-width:45ch;}
+ & .career-selection-bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:13px 0;color:#526b81;}
+ & .career-selection-bar>div{display:flex;gap:9px;flex:1;flex-wrap:wrap;}
+ & .career-selection-bar>div>span{display:inline-flex;align-items:center;gap:8px;background:#edf5fb;border-radius:7px;padding:4px 8px;color:#103f6b;}
+ & .career-selection-bar button{border:0;min-height:25px;padding:3px;background:none;}
+ & .career-section-nav{display:flex;flex-wrap:wrap;gap:14px 30px;padding:15px 4px;border-bottom:1px solid #dfddd5;background:#fbf8f0;}
+ & .career-section-nav a{text-decoration:none;font-weight:600;}
+ & .career-section-nav a:hover{text-decoration:underline;}
+ & .career-section-nav strong{font-size:14px;color:#526b81;font-weight:600;padding-right:10px;border-right:1px solid #d9e4ea;}
+ & .career-section-nav a[aria-current=location]{color:#07558a;border-bottom:2px solid #07558a;padding-bottom:4px;}
+ & .career-reading-section{padding:30px 0 38px;border-bottom:1px solid #e4dfd5;scroll-margin-top:20px;outline:none;}
+ & .career-section-heading{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:20px;}
+ & .career-section-heading h2{margin:0;}
+ & .career-section-heading>span{background:#fff0bd;color:#725a18;padding:4px 10px;border-radius:7px;}
+ & .career-case-context{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;padding:22px 26px;background:#fffefa;border:1px solid #e4e0d7;border-radius:13px;}
+ & .career-case-context h3{margin:0 0 10px;}
+ & .career-case-context h3:not(:first-child){margin-top:23px;}
+ & .career-case-context p,& .career-case-context li{max-width:65ch;line-height:1.8;}
+ & .career-case-context ol{padding-left:22px;margin:0;}
+ & .career-case-context li+li{margin-top:12px;}
+ & .career-source-inline{color:#526b81;line-height:1.7;}
+ & .career-source-inline a{display:inline-block;margin:0 14px 0 0;}
+ & .career-work-chain{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:0;margin:26px 0 30px;}
+ & .career-work-chain>li{display:flex;gap:13px;align-items:flex-start;padding:18px 0;border-bottom:1px solid #d9e5ed;}
+ & .career-work-chain svg{flex:none;margin-top:4px;}
+ & .career-work-chain h3{margin:0;}
+ & .career-work-chain p{color:#526b81;margin:7px 0;}
+ & .career-work-chain small{color:#526b81;line-height:1.65;}
+ & .career-delivery-title{margin:32px 0 20px;}
+ & .career-artifacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start;}
+ & .career-artifacts.count-3{grid-template-columns:.95fr 1.2fr 1fr;}
+ & .career-artifact{min-width:0;background:#fffefa;border:1px solid #e0e4e6;border-radius:13px;padding:20px;}
+ & .career-artifact>header{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
+ & .career-artifact>header>span{background:#fff0bd;border-radius:6px;padding:2px 9px;font-variant-numeric:tabular-nums;}
+ & .career-artifact h3{margin:0;}
+ & .career-artifact h4{margin:20px 0 9px;}
+ & .career-artifact-use{padding:13px;background:#edf5fb;border-radius:8px;margin:18px 0;}
+ & .career-artifact-use>div{display:flex;gap:10px;margin:5px 0;line-height:1.7;}
+ & .career-artifact-use dt{font-weight:600;flex:none;}
+ & .career-artifact-use dd{margin:0;overflow-wrap:anywhere;}
+ & .career-quality-checks{list-style:none;padding:0;margin:0;}
+ & .career-quality-checks>li{display:flex;gap:8px;line-height:1.7;margin:6px 0;}
+ & .career-quality-checks svg{flex:none;margin-top:6px;color:#a97a0b;}
+ & .career-example-table{overflow-x:auto;min-width:0;margin:14px 0;scrollbar-color:#a7c9dd #edf5fb;}
+ & .career-example-table table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;table-layout:fixed;}
+ & .career-example-table :is(th,td){text-align:left;vertical-align:top;padding:10px;border:1px solid #d9e4ea;overflow-wrap:anywhere;line-height:1.65;}
+ & .career-example-table th{background:#e6f2fc;font-weight:600;}
+ & .career-example-table tr:last-child td{border-bottom-color:#b6cbd7;}
+ & .career-registration-chart{margin:18px 0;}
+ & .career-registration-chart figcaption{color:#526b81;line-height:1.6;}
+ & .career-registration-chart figcaption span{display:flex;align-items:center;gap:7px;justify-content:end;margin-top:8px;}
+ & .career-registration-chart i{display:inline-block;width:15px;height:10px;background:#a8d3f4;}
+ & .career-registration-chart i+i{margin-left:14px;background:#07558a;}
+ & .career-registration-chart svg{display:block;width:100%;height:auto;overflow:visible;}
+ & .career-registration-chart text{font-size:18px;fill:#103f6b;}
+ & .career-data-result{font-weight:650;}
+ & .career-file-links{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;}
+ & .career-artifact pre{background:#f0f5f8;border:1px solid #dce5eb;padding:16px;max-width:100%;overflow:auto;line-height:1.7;border-radius:8px;tab-size:2;}
+ & .career-brief{margin:14px 0;}
+ & .career-brief>div{border-bottom:1px solid #e1e7eb;padding:10px 0;}
+ & .career-brief dt{font-weight:650;}
+ & .career-brief dd{margin:7px 0 0;line-height:1.75;}
+ & .career-form-example{padding:18px;background:#edf5fb;border-radius:9px;margin:18px 0;}
+ & .career-form-example label{display:block;margin-bottom:9px;}
+ & .career-form-example input{display:block;width:100%;box-sizing:border-box;border:1px solid #a8c7dc;background:#fffefa;border-radius:7px;padding:11px;color:#103f6b;}
+ & .career-form-example button{margin-top:12px;}
+ & .career-preparation-rows>div{display:grid;grid-template-columns:.8fr 1fr 1.2fr;gap:26px;align-items:baseline;padding:20px 0;border-bottom:1px solid #dfe4e5;}
+ & .career-preparation-rows h3{margin:0;}
+ & .career-preparation-rows p{margin:0;max-width:50ch;}
+ & .career-evidence-note{padding:20px 24px;background:#edf5fb;border-radius:10px;margin-top:26px;}
+ & .career-scope-text,& .career-measure{max-width:78ch;}
+ & .career-collaboration{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin:26px 0;}
+ & .career-collaboration h3{margin:8px 0;}
+ & .career-collaboration p{max-width:64ch;}
+ & .career-growth-list{display:flex;gap:30px;padding:22px 0;border-block:1px solid #dfe4e5;margin:26px 0;}
+ & .career-growth-list section{flex:1;min-width:0;}
+ & .career-growth-list h3{margin:0;}
+ & .career-pitfalls{padding-left:22px;max-width:78ch;line-height:1.8;}
+ & .career-practice-sheet{display:grid;grid-template-columns:1fr 1fr;gap:36px;background:#edf5fb;padding:24px 28px;border-radius:12px;margin-top:20px;}
+ & .career-practice-sheet h3{margin:0 0 12px;}
+ & .career-practice-sheet h3:not(:first-child){margin-top:25px;}
+ & .career-practice-sheet :is(ul,ol){padding-left:22px;line-height:1.8;}
+ & .career-practice-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:24px;}
+ & .career-reference{padding:20px 0;border-top:1px solid #e1e4e3;margin-top:22px;max-width:90ch;}
+ & .career-reference h3{margin:0;}
+ & .career-reference dl{display:flex;gap:18px 30px;flex-wrap:wrap;}
+ & .career-reference dt{color:#526b81;}
+ & .career-reference dd{margin:5px 0 0;line-height:1.7;}
+ & .career-reference details{margin-top:14px;}
+ & .career-reference summary{cursor:pointer;color:#07558a;}
+ & .career-comparison-heading{display:flex;justify-content:space-between;gap:30px;align-items:center;margin:22px 0;}
+ & .career-comparison-heading h1{max-width:32ch;line-height:1.4;letter-spacing:-.025em;margin:0;}
+ & .career-comparison-heading p{color:#526b81;}
+ & .career-compare-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px 20px;padding:18px 0;border:0;border-block:1px solid #dfddd5;}
+ & .career-compare-picker legend{margin-bottom:12px;}
+ & .career-compare-picker label{display:flex;gap:9px;align-items:center;line-height:1.6;}
+ & .career-compare-picker input{width:17px;height:17px;accent-color:#07558a;}
+ & .career-comparison-selection{color:#526b81;}
+ & .career-comparison-table{border:1px solid #dbe3e7;border-radius:13px;overflow:auto;margin:24px 0;background:#fffefa;}
+ & .career-comparison-table table{width:100%;table-layout:fixed;border-collapse:collapse;}
+ & .career-dimension-col{width:155px;}
+ & .career-comparison-table caption{text-align:left;padding:15px 20px;color:#526b81;}
+ & .career-comparison-table :is(th,td){text-align:left;vertical-align:top;padding:20px;border-bottom:1px solid #dce4e8;line-height:1.75;overflow-wrap:anywhere;}
+ & .career-comparison-table thead{background:#e6f2fc;}
+ & .career-comparison-table thead h2{margin:0 0 8px;}
+ & .career-comparison-table thead p{font-weight:400;}
+ & .career-comparison-table tbody th{font-weight:600;overflow-wrap:normal;}
+ & .career-comparison-table ul{list-style:none;margin:0;padding:0;}
+ & .career-comparison-table li+li{margin-top:18px;}
+ & .career-comparison-table li :is(strong,span){display:block;}
+ & .career-comparison-table li strong{margin-bottom:5px;}
+ & .career-comparison-table small a{display:block;margin-top:10px;line-height:1.6;}
+ & .career-compare-links{display:flex;flex-direction:column;gap:14px;align-items:start;}
+ & .career-decision-notes{margin:28px 0;padding:26px 0;border-top:1px solid #e2ded4;}
+ & .career-decision-notes>div:first-of-type{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+ & .career-decision-notes label{display:flex;flex-direction:column;gap:10px;margin:18px 0;line-height:1.7;}
+ & .career-decision-notes textarea{resize:vertical;min-height:110px;background:#fffefa;color:#103f6b;border:1px solid #cbdce7;border-radius:9px;padding:13px;}
+ & .career-decision-notes select{max-width:420px;padding:10px;color:#103f6b;background:#fffefa;border:1px solid #cbdce7;border-radius:8px;}
+ & .career-comparison-footer{display:flex;gap:24px;align-items:start;border-top:1px solid #dfddd5;padding-top:20px;}
+ & .career-comparison-footer p{margin:0;color:#526b81;}
+ & .career-invalid{grid-column:1/-1;color:#8d3c27;}
+ & .explore-filter>p{color:#526b81;line-height:1.75;}
+ /* Follow-up: keep the concrete case close to the question, with continuous location. */
+ & .career-reading-back{margin:10px 0;gap:20px;}
+ & .career-reading-back>.career-selection-bar{flex:1;padding:0;justify-content:end;}
+ & .career-reading-back .career-selection-bar>div{flex:0 1 auto;}
+ & .career-reading-back .career-selection-bar>strong{font-weight:400;}
+ & .career-reading-hero{padding:18px 22px;gap:12px 24px;}
+ & .career-hero-title{gap:16px;}
+ & .career-hero-title>img{width:88px;height:76px;}
+ & .career-hero-actions{padding-top:0;}
+ & .career-hero-facts{padding-top:12px;gap:20px;}
+ & .career-hero-facts dt{margin-bottom:4px;}
+ & .career-hero-facts dd{line-height:1.6;}
+ & .career-section-nav{position:sticky;top:0;z-index:6;margin-top:12px;padding:12px 4px;background:#fbf8f0;border-top:1px solid #e4dfd3;}
+ & .career-reading-section,& #career-deliverables{scroll-margin-top:68px;}
+ & :is(.career-reading-section,#career-deliverables)[tabindex="-1"]:focus{outline:none;}
+ & .career-reading-section{padding-top:22px;}
+ & .career-section-heading{margin-bottom:14px;gap:14px;}
+ & .career-case-overview{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:start;}
+ & .career-case-overview>div{padding:4px 0;}
+ & .career-case-overview h3{margin:0 0 6px;}
+ & .career-case-overview h3:not(:first-child){margin-top:16px;}
+ & .career-case-overview p{max-width:65ch;}
+ & .career-case-preview{padding:16px 20px;background:#edf5fb;border-radius:12px;}
+ & .career-case-preview .career-example-table{margin:10px 0;}
+ & .career-case-preview :is(td,th){padding:6px 9px;line-height:1.55;}
+ & .career-case-preview .career-data-result{margin:8px 0;font-weight:650;}
+ & .career-case-preview .career-brief{margin:0;}
+ & .career-case-preview .career-brief>div{padding:6px 0;}
+ & .career-case-judgments{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;margin-top:18px;}
+ & .career-case-judgments h3{margin:0 0 8px;}
+ & .career-case-judgments ol{padding-left:22px;margin:0;line-height:1.7;}
+ & .career-source-inline{margin:12px 0;}
+ & .career-work-chain{margin:18px 0 24px;}
+ & .career-artifacts.data-artifacts{display:block;}
+ & .data-artifacts .career-artifact{margin-bottom:18px;}
+ & .data-artifacts .career-artifact-body{display:grid;grid-template-columns:minmax(0,2.5fr) minmax(220px,1fr);gap:28px;align-items:start;}
+ & .data-artifacts .career-artifact-body>aside{background:#edf5fb;padding:4px 16px 16px;border-radius:9px;}
+ & .data-artifacts .career-artifact-use{padding:0;margin:14px 0;}
+ & .career-registration-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+ & .career-registration-layout .career-registration-chart{margin:14px 0;}
+ & .career-artifact .career-data-result{margin:8px 0;}
+ & .career-file-links{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0;}
+ & .data-artifacts .career-brief{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;}
+ & .career-skill-transition{margin-top:26px;color:#526b81;max-width:75ch;}
+ & .career-trial{margin-top:26px;}
+ & .career-trial[data-guided=true]{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:start;}
+ & .career-trial[data-guided=true]>.career-trial-inputs{display:block;}
+ & .career-trial[data-guided=true] .career-trial-inputs article{margin:14px 0;scroll-margin-top:80px;}
+ & .career-trial[data-guided=true]>.career-trial-writing{position:sticky;top:72px;margin-top:0;}
+ & .career-trial-inputs tr[tabindex]{scroll-margin-top:85px;}
+ & .career-trial-locators{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
+ & .career-trial-locators button{min-height:32px;padding:3px 10px;}
+ & .career-trial-writing textarea{margin-top:12px;}
+ & .career-trial-clear{padding:12px 16px;background:#fff0bd;color:#103f6b;border-radius:9px;}
+ & .career-trial-clear button{margin:6px 8px 0 0;}
+ & .career-old-trials{margin:18px 0;}
+ & .career-old-trials section{padding:12px 0;border-bottom:1px solid #d9e4ea;}
+ & .career-compare-focus{font-size:14px!important;font-weight:400;margin:3px 0 8px!important;line-height:1.5!important;}
+ & .career-note-scope{font-weight:600;}
+ & .career-legacy-note{margin:16px 0;padding:12px 0;border-block:1px solid #d9e4ea;}
+ & .career-case-fork{margin:24px 0;padding:20px 0;border-block:1px solid #d9e4ea;}
+ & .career-case-fork>p{max-width:78ch;color:#264965;}
+ & .career-case-fork>small{display:block;max-width:90ch;}
+ & .career-reading :is(p,li,dd,td),& .career-source-text{color:#264965;}
+ & .career-source-inline,& .career-reference :is(dt,p),& .career-case-fork small{color:#526b81;}
+ & .career-form-example select{display:block;width:100%;margin-top:5px;color:#103f6b;background:#fffefa;padding:9px;border:1px solid #a8c7dc;border-radius:7px;}
+ & .data-artifacts .career-artifact{container-type:inline-size;container-name:career-artifact;}
+ & .career-trial-inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;}
+ & .career-trial-inputs>h3,& .career-trial-inputs>.career-example-table{grid-column:1/-1;}
+ & .career-trial-inputs article{padding:16px 20px;background:#fffefa;border:1px solid #d9e4ea;border-radius:10px;}
+ & .career-source-text{white-space:pre-line;}
+ & .career-trial-writing{margin-top:20px;}
+ & .career-trial-writing>label{font-weight:650;display:block;}
+ & .career-trial-writing textarea{width:100%;box-sizing:border-box;resize:vertical;min-height:150px;background:#fffefa;border:1px solid #b6cbd7;color:#103f6b;border-radius:9px;padding:14px;line-height:1.7;}
+ & .career-trial-writing [role=status]{color:#526b81;margin:10px 0;}
+ & .career-trial-review{padding:16px 20px;background:#edf5fb;border-radius:10px;}
+ & .career-trial-review h4{margin:0 0 10px;}
+ & .career-trial-review ul{padding-left:22px;line-height:1.8;}
+ & .career-comparison-heading{margin:14px 0 18px;}
+ & .career-comparison-heading h1{max-width:none;}
+ & .career-comparison-heading p{margin:7px 0 0;}
+ & .career-comparison-table{overflow:visible;border-radius:0;border:0;margin:18px 0;}
+ & .career-comparison-table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);}
+ & .career-comparison-table thead th{position:sticky;top:0;z-index:5;background:#e6f2fc;border-bottom:1px solid #b6cbd7;}
+ & .career-compare-role{display:flex;gap:10px;justify-content:space-between;align-items:start;}
+ & .career-compare-role button{min-height:30px;padding:3px 8px;flex:none;}
+ & .career-compare-scope{font-weight:400;line-height:1.6;}
+ & .career-compare-scope summary{cursor:pointer;font-size:14px;color:#07558a;}
+ & .career-comparison-table :is(th,td){padding:13px 17px;line-height:1.65;}
+ & .career-comparison-table thead h2{font-size:21px;line-height:1.4;}
+ & .career-compare-links{gap:8px;}
+ & .career-material-links{margin:14px 0;padding:12px 16px;border:1px solid #d9e4ea;border-radius:10px;}
+ & .career-material-links summary{cursor:pointer;color:#07558a;font-weight:600;}
+ & .career-material-links fieldset{border:0;padding:0;margin:0;}
+ & .career-material-link-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:12px;margin:15px 0;max-width:780px;}
+ & .career-material-link-row>button{grid-column:1/-1;justify-self:start;}
+ & .career-material-link-row>[role=status]{grid-column:1/-1;}
+ & .career-material-link-row label{display:flex;flex-direction:column;gap:7px;flex:1;min-width:0;}
+ & .career-material-link-row select{width:100%;max-width:100%;}
+}
+/* The record remains in its original assessment; only its editor gets width. */
+html body .information-drawer.career-material-editor{width:min(850px,calc(100vw - 80px));}
+html body .career-material-editor .career-material-link-row{display:grid;grid-template-columns:1fr 1.4fr auto;gap:16px;align-items:end;padding:18px 0;border-bottom:1px solid #d9e4ea;}
+html body .career-material-editor label{display:flex;flex-direction:column;gap:8px;min-width:0;color:#264965;}
+html body .career-material-editor select{width:100%;max-width:100%;min-height:42px;background:#fffefa;border:1px solid #b6cbd7;border-radius:8px;padding:9px;color:#103f6b;}
+html body .career-material-editor .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+html body .career-material-editor button{min-height:38px;border:1px solid #d9e4ea;border-radius:8px;background:#fffefa;color:#103f6b;padding:8px 12px;cursor:pointer;}
+html body .career-material-editor .career-unlink{border-color:transparent;color:#526b81;}
+@container career-artifact (min-width:820px){
+ html body #root#root#root#root #main .data-artifacts .career-artifact[data-example=table] .career-artifact-body{grid-template-columns:minmax(0,2fr) minmax(240px,1fr);}
+ html body #root#root#root#root #main .data-artifacts .career-artifact[data-example=table] .career-artifact-body>aside{display:block;}
+}
+@layer type-system{
+ html body #root#root#root#root #main {
+  & :is(.career-reading,.career-comparison-page){font-size:17px!important;line-height:1.7;}
+  & :is(.career-reading,.career-comparison-page) :is(p,li,label,input,textarea,select,button,.button,td,dd){font-size:17px!important;}
+  & :is(.career-reading,.career-comparison-page) h1{font-size:32px!important;}
+  & :is(.career-reading,.career-comparison-page) h2{font-size:24px!important;}
+  & :is(.career-reading,.career-comparison-page) h3{font-size:19px!important;}
+  & :is(.career-reading,.career-comparison-page) h4{font-size:17px!important;}
+  & :is(.career-reading,.career-comparison-page) small,& .career-source-inline,& .career-reference dt,& .career-section-heading>span{font-size:14px!important;}
+  & .career-section-nav :is(a,strong){font-size:15px!important;}
+  & .career-artifact pre{font-size:14px!important;}
+ }
+}
+@media(max-width:1450px){
+ html body #root#root#root#root #main{
+  & .career-artifacts.count-3{grid-template-columns:1fr 1fr;}
+  & .career-artifacts.count-3>.career-artifact:last-child{grid-column:1/-1;}
+  & .career-hero-title>img{width:100px;height:90px;}
+  & .career-reading-hero{gap:16px;padding:22px;}
+  & .career-hero-title{gap:18px;}
+  & .career-hero-actions{flex-direction:column;gap:8px;padding:0;}
+  & .career-hero-facts{gap:18px;}
+  & .career-hero-facts>div+div{padding-left:18px;}
+  & .career-case-context{gap:28px;padding:22px;}
+  & .career-compare-picker{grid-template-columns:repeat(4,minmax(0,1fr));}
+  & .career-comparison-table :is(th,td){padding:16px;}
+  & .career-reading-hero{padding:16px 20px;gap:12px;}
+  & .career-hero-title>img{width:76px;height:70px;}
+  & .career-hero-actions{flex-direction:row;align-items:start;}
+  & .career-hero-facts{gap:14px;}
+  & .career-comparison-table :is(th,td){padding:12px;}
+  & .career-compare-role{flex-wrap:wrap;gap:6px;}
+  & .data-artifacts .career-artifact-body{grid-template-columns:1fr;gap:12px;}
+  & .data-artifacts .career-artifact-body>aside{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;}
+  & .data-artifacts .career-artifact-body>aside>dl{grid-column:1;grid-row:1/3;}
+  & .data-artifacts .career-artifact-body>aside>h4{grid-column:2;margin:12px 0 0;}
+  & .data-artifacts .career-artifact-body>aside>ul{grid-column:2;}
+  & .data-artifacts .career-artifact-use{margin:10px 0;}
+  & .data-artifacts .career-quality-checks{margin:10px 0;}
+ }
+}
+
+html body .information-drawer.career-material-editor{font-size:16px;color:#264965;}
+html body .career-material-editor fieldset{border:0;padding:0;margin:0;}
+html body .career-material-editor .primary{background:#ffca0a;border-color:#e9b80a;}

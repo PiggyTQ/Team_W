@@ -1,0 +1,27 @@
+Generate ONE high-fidelity, beautifully readable DESKTOP web application design image, full straight-on viewport approximately 1700 x 1100 landscape, no device frame, browser chrome, perspective, poster or multi-screen collage. Product: Avemly, a Chinese university IT career exploration and learning app. This is a planned TASK PAGE reached from its AI workspace. It must be a genuinely distinct purposeful page, not the homepage again and not a generic attachment picker with a new title.
+Use the attached current screenshot only as brand and global-shell reference. Retain recognizable original Avemly blue/gold logo, top bar ~72px, existing left nav ~220px with AI 工作台 selected navy, and small yellow cheese scholar with navy glasses. Do not change brand assets or create a giant mascot hero.
+Shared shell: logo top left, wide search with 搜索职业、工作任务… and navy 搜索 button; right language 中文/EN, bell and account. Left nav 工作区首页; section 准备与行动 with 个人评估,目标计划,学习实践,职业报告; section 探索与工具 with 职业探索,职业与技能地图,AI 工作台; bottom restrained cheese companion, 账户与数据. Match reference visual identity but remove old body content.
+Palette: warm ivory #FBF8F0, paper white #FFFEFA, deep blue #103F6B, quiet slate #758496, powder blue #EDF5FB and selective marigold #FFC90A for main action. Flat clean app surfaces, fine warm outlines, subtle shadows, generous intentional spacing, 12-16px corners. Do not use nested cards, dense data dashboards, gradients, huge empty banners, charts, gauges, suitability percentages or fake statistics.
+Chinese typography like Noto Sans SC/PingFang SC: 17-18px body, 14px+ secondary, 30-34px task title. Crisp concise correct Chinese, not tiny unreadable filler. Main task content and its composer must fit in the first desktop screen.
+Every page top has a small text back link 返回 AI 工作台, task title and one concise subtitle. Top right 历史讨论 and 新讨论. Task pages share the shell and typography, but differ in task composition.
+ABSOLUTE: NO disclosure triangles, NO accordion headings, NO details/summary rows in the primary content, NO English internal data parts output/scope/evidence/decision/delivery, NO giant universal 本次资料 panel listing career/skill/task/plan/claim/review. Important choices and content are visibly open. Use plain 查看原文/更换/添加相关资料 links for secondary actions.
+This is a hypothetical design with synthetic example data and illustrative AI answers, not proof the live model is enabled. Do not draw an 'AI enabled' badge or claim changes already applied. Never imply a suggested draft is confirmed, a practice is mastered or a main goal changed.
+PAGE 3 — 整理成果表达. Subtitle 围绕一份具体产物，讲清做法、结果和本人贡献。
+This page must differ from the first two: a SINGLE-ARTIFACT reading pane on the left, and an EXPRESSION DISCUSSION / SUGGESTED WORDING on the right. Not a universal record picker and not a duplicate resume editor.
+Left pane ~360px with heading 这次整理的产物, selected object 数据质量小项目, small 更换产物 text action and quiet status 课程练习 · 产物已保存 (NOT completed project).
+Visibly display four short fact sections separated by light rules:
+产物原文
+数据质量问题清单与处理记录。
+本人贡献
+整理异常项，并记录处理理由。
+结果与限制
+保留原值及处理过程；未验证真实业务效果。
+仍需核对
+是否独立完成，尚未说明。
+Below show exactly three clear selected Chinese source items 产物原文, 本人贡献, 结果与限制 and 查看原文. No raw internal English part suffixes, no hidden triangle or giant full-account list. Selecting a project does not imply all its content is externally authorized.
+Right: a simple visible purpose segmented control 用于哪里？ 项目回顾 / 简历要点 / 面试讲述, 简历要点 selected. User bubble 我想把这次练习讲清楚，但不想夸大。. Small cheese avatar, assistant text 可以先写已记录的做法，独立完成情况仍需你补充。
+Then a quiet paper-white suggested passage with heading 建议表述 and small status 草稿 · 尚未确认:
+在课程数据质量练习中，整理异常项并记录处理理由，保留原值和处理过程，形成问题清单。本次结果来自教学数据，尚未验证真实业务效果。
+This is AI suggested wording to review, not confirmed material and not an editable three-field factual form. Beneath a restrained question 你还保留了哪些核对结果？ and small actions 更简洁一点 / 补充我的贡献.
+One clear marigold action 送到个人评估核对 → with tiny supporting note 确认前不会写入已确认经历. User must review in original assessment workflow. Do not draw direct add-to-resume or authenticated experience badge.
+Bottom a white continuation composer placeholder 告诉我你实际做了什么，或继续调整表达… and marigold send arrow. Fit all key content within one screen, generous readable text; keep the tone calm and truthful.

@@ -1,0 +1,103 @@
+#root #main .skill-journey {font-size:1rem;--skill-panel-pad:22px;}
+#root #main .journey-page-head {margin-block:0 22px;}
+#root #main .journey-direction {font-size:.9rem;padding:4px 10px;border-left:1px solid #c9d2d6;color:#527069;}
+#root #main .journey-eyebrow {display:block;font-size:.82rem;letter-spacing:.025em;color:#567468;margin-bottom:8px;}
+#root #main .journey-choice {animation:journey-reveal 320ms ease both;}
+#root #main .journey-choice-intro {max-width:760px;margin:28px 0 30px;}
+#root #main .journey-choice-intro h2 {font-size:clamp(1.8rem,2.5vw,2.5rem);margin-bottom:14px;}
+#root #main .journey-choice-intro p {font-size:1rem;line-height:1.8;}
+#root #main .journey-choice-intro .skill-control {margin-top:14px;}
+#root #main .journey-career-grid {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;}
+#root #main .skill-map .journey-career-card {display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0;min-height:260px;padding:23px 22px 19px;text-align:left;border:1px solid var(--skill-line);border-radius:14px;background:#fffefb;color:var(--skill-ink);box-shadow:none;white-space:normal;font:inherit;transition:transform 180ms,border-color 180ms,background 180ms;}
+#root #main .skill-map .journey-career-card:hover {transform:translateY(-3px);border-color:#a8b9ae;background:#fff;}
+#root #main .journey-career-icon {color:#367161;display:grid;place-items:center;width:38px;height:38px;background:#edf2e8;border-radius:11px;}
+#root #main .journey-career-card>strong {font-size:1.2rem;}
+#root #main .journey-career-task {font-size:.9rem;color:var(--skill-soft);line-height:1.65;}
+#root #main .journey-career-skills {font-size:.82rem;color:#546b73;line-height:1.65;margin-top:auto;}
+#root #main .journey-career-skills small {display:block;font-size:.76rem;color:#75827f;margin-bottom:3px;}
+#root #main .journey-career-start {color:#1b5d66;font-size:.85rem;font-weight:650;border-top:1px solid #e7e9e0;padding-top:12px;width:100%;}
+#root #main .journey-overview-intro {display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,380px);align-items:center;gap:32px;margin-bottom:20px;animation:journey-reveal 320ms ease both;}
+#root #main .journey-overview-intro h2 {font-size:1.65rem;margin-bottom:10px;}
+#root #main .journey-overview-intro p {max-width:49em;line-height:1.75;font-size:.96rem;}
+#root #main .journey-next {display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:14px;row-gap:3px;padding:17px 19px;background:#eef3ed;border:1px solid #d8e1d4;border-radius:12px;}
+#root #main .journey-next>span {font-size:.78rem;color:#5c7365;grid-column:1;}
+#root #main .journey-next>strong {font-size:1.08rem;grid-column:1;}
+#root #main .journey-next>small {font-size:.8rem;color:#607067;grid-column:1;}
+#root #main .journey-next>.skill-control {grid-column:2;grid-row:1/4;align-self:center;}
+#root #main .journey-layout {display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start;}
+#root #main .journey-layout[data-mode="study"] {grid-template-columns:minmax(390px,.9fr) minmax(0,1.1fr);}
+#root #main .journey-tree-dock {min-width:0;}
+#root #main .journey-layout[data-mode="study"]>.journey-tree-dock {position:sticky;top:16px;}
+#root #main .skill-journey .skill-tree-board {overflow:visible;background:radial-gradient(ellipse at 52% 42%,#f7f4ec 0%,transparent 70%),var(--skill-paper);}
+#root #main .skill-tree-viewport {position:relative;overflow:hidden;isolation:isolate;width:min(100%,1120px,max(650px,calc((100dvh - 390px)*1.7778)));aspect-ratio:1884/1060;margin-inline:auto;border-radius:15px;}
+#root #main .skill-tree-camera {position:absolute;inset:0;transform:translate(var(--camera-x,0px),var(--camera-y,0px)) scale(var(--camera-scale,1));transform-origin:0 0;transition:transform 420ms cubic-bezier(.2,.65,.3,1);}
+#root #main .skill-journey .skill-growth-map {position:relative;display:grid;aspect-ratio:1884/1060;background:none;}
+#root #main .skill-journey :is(.skill-growth-stage,.skill-growth-branches) {width:100%;max-width:none;grid-area:1/1;margin:0;}
+#root #main .skill-journey .skill-growth-stage {aspect-ratio:1884/1060;}
+#root #main .skill-journey .skill-root {padding:2px 16px 12px;}
+#root #main .journey-overview-branches {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--skill-line);}
+#root #main .skill-map .journey-overview-branches>button {display:flex;flex-direction:column;align-items:center;gap:5px;padding:13px 8px;min-height:65px;min-width:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--skill-ink);font:inherit;white-space:normal;}
+#root #main .journey-overview-branches>button+button {border-left:1px solid var(--skill-line);}
+#root #main .journey-overview-branches strong {font-size:.88rem;}
+#root #main .journey-overview-branches span {font-size:.78rem;color:#64766c;}
+#root #main .journey-overview-branches>button:hover {background:#f1f5ee;}
+#root #main .journey-growth-details {font-size:.85rem;margin-top:12px;color:var(--skill-soft);}
+#root #main .journey-growth-details summary {cursor:pointer;padding:8px 0;}
+#root #main .journey-growth-details p {margin-block:8px;}
+#root #main .journey-growth-details .skill-source-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+#root #main .journey-tree-tools {display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px;}
+#root #main .journey-camera-switch {display:flex;padding:3px;border:1px solid #dbdfd6;border-radius:9px;background:#f1f2eb;}
+#root #main .skill-map .journey-camera-switch button {border:0;border-radius:6px;background:none;color:#587067;box-shadow:none;min-width:0;min-height:34px;padding:6px 11px;font:inherit;font-size:.82rem;}
+#root #main .journey-camera-switch button[aria-pressed="true"] {background:#fffefa;color:#1a5447;box-shadow:0 1px 3px #1c382b12;}
+#root #main .skill-map .journey-overview-button {border:0;background:none;box-shadow:none;min-width:0;min-height:38px;padding:5px 2px;color:var(--skill-blue);font:inherit;font-size:.83rem;text-decoration:underline;text-underline-offset:4px;}
+#root #main [data-learning-tree="true"] .skill-tree-viewport {width:100%;height:clamp(300px,calc(100dvh - 460px),440px);aspect-ratio:auto;}
+#root #main [data-learning-tree="true"] .skill-branch-lettering {display:none;}
+#root #main [data-learning-tree="true"] .skill-root-title {display:none;}
+#root #main [data-learning-tree="true"] .skill-branch-node {pointer-events:none;}
+#root #main [data-learning-tree="true"][data-tree-focus="whole"] .skill-tree-viewport {height:clamp(260px,calc(100dvh - 540px),360px);}
+#root #main .journey-whole-branches {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:0 18px 14px;}
+#root #main .skill-map .journey-whole-branches button {border:1px solid #e0e5d9;border-radius:7px;padding:7px 9px;min-width:0;background:#f8f9f3;color:#476454;box-shadow:none;font:inherit;font-size:14px;}
+#root #main .journey-whole-branches button[aria-pressed="true"] {background:#edf3e7;border-color:#a4ba9e;}
+#root #main [data-learning-tree="true"] .skill-closed-bud {width:calc(34px / var(--camera-scale));}
+#root #main [data-learning-tree="true"] .skill-leaf-node {width:calc(44px / var(--camera-scale));height:calc(44px / var(--camera-scale));}
+#root #main [data-learning-tree="true"] .skill-sprout-check {width:calc(17px / var(--camera-scale));height:calc(17px / var(--camera-scale));}
+#root #main [data-learning-tree="true"] .skill-growth-bud[data-current="true"]::before {content:"";position:absolute;left:50%;top:25%;width:calc(46px / var(--camera-scale));height:calc(46px / var(--camera-scale));border:calc(1.5px / var(--camera-scale)) solid #6d9980;background:#b8cf9b19;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;}
+#root #main [data-learning-tree="true"] .skill-bud-label {font-size:calc(14px / var(--camera-scale));max-width:calc(200px / var(--camera-scale));}
+#root #main .journey-current-skill {padding:17px 22px 20px;border-top:1px solid var(--skill-line);}
+#root #main .journey-current-skill>span {font-size:.8rem;color:#607967;}
+#root #main .journey-current-skill h2 {font-size:1.35rem;margin:7px 0 10px;}
+#root #main .journey-current-state {display:inline-flex;align-items:center;gap:5px;font-size:.83rem;color:#506f83;}
+#root #main .journey-current-state[data-passed="true"] {color:#356047;}
+#root #main .journey-current-skill p {font-size:.86rem;line-height:1.65;margin-top:8px;}
+#root #main .skill-map .journey-study-panel {margin:0;min-width:0;animation:journey-reveal 300ms ease both;}
+#root #main .journey-study-panel .skill-path-head {padding:21px 22px 15px;gap:14px;}
+#root #main .journey-study-panel .skill-path-head h2 {font-size:1.4rem;}
+#root #main .journey-study-panel .skill-path-head p {font-size:.88rem;line-height:1.6;margin-top:8px;}
+#root #main .journey-branch-progress {display:flex;flex-direction:column;align-items:flex-end;flex:none;font-size:.78rem;color:#607568;}
+#root #main .journey-branch-progress strong {font-size:1.4rem;font-variant-numeric:tabular-nums;}
+#root #main .journey-study-panel .skill-path-steps {margin:0 22px 18px;}
+#root #main .journey-study-panel .skill-path-text strong {font-size:.85rem;}
+#root #main .journey-study-panel .skill-path-text small {font-size:.76rem;}
+#root #main .journey-study-panel .skill-study {padding:0 22px 22px;}
+#root #main .journey-study-panel .skill-study-head h3 {font-size:1.35rem;}
+#root #main .journey-study-panel .skill-study-columns {display:flex;flex-direction:column;gap:22px;}
+#root #main .journey-study-panel .skill-study-content {min-width:0;}
+#root #main .journey-study-panel .skill-study-content>h4 {font-size:1rem;}
+#root #main .journey-study-panel .skill-study-content>p {font-size:1rem;line-height:1.85;}
+#root #main .journey-study-panel .skill-study-sources {padding:13px 0 0;border:0;border-top:1px solid var(--skill-line);background:none;}
+#root #main .journey-study-panel .skill-study-sources summary {font-size:.88rem;font-weight:650;cursor:pointer;color:var(--skill-blue);}
+#root #main .journey-study-panel .skill-source-list {margin-top:12px;}
+#root #main .journey-study-panel .skill-quiz legend {font-size:1rem;line-height:1.75;}
+#root #main .journey-study-panel .skill-choice {font-size:.93rem;line-height:1.7;}
+#root #main .journey-study-panel .skill-check-result {scroll-margin-top:20px;}
+#root #main .journey-study-panel .skill-check-result h4 {margin:12px 0 7px;font-size:1.1rem;}
+#root #main .journey-study-panel .skill-check-result>p {font-size:.94rem;line-height:1.75;}
+#root #main .skill-journey {font-size:16px;}
+#root #main .journey-career-task {font-size:15px;}
+#root #main :is(.journey-career-skills,.journey-career-start,.journey-current-skill>span,.journey-current-state,.journey-current-skill p,.journey-camera-switch button,.journey-overview-button,.journey-overview-branches strong,.journey-growth-details) {font-size:14px;}
+#root #main .journey-study-panel :is(.skill-study-content>p,.skill-quiz legend,.skill-choice,.skill-notes textarea) {font-size:16px;line-height:1.8;}
+#root #main .journey-study-panel :is(.skill-study-steps button,.skill-control,.skill-path-text strong,.skill-study-sources summary,.skill-path-head p,.skill-check-result>p) {font-size:14px;}
+@keyframes journey-reveal {from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1100px) {#root #main .journey-layout[data-mode="study"] {grid-template-columns:minmax(330px,.9fr) minmax(0,1.1fr);gap:18px;}#root #main .journey-overview-intro {gap:20px;}}
+@media(max-width:800px) {#root #main .journey-layout[data-mode="study"] {grid-template-columns:minmax(0,1fr);}#root #main .journey-layout[data-mode="study"]>.journey-tree-dock {position:relative;top:0;}#root #main .journey-overview-intro {grid-template-columns:1fr;}#root #main .journey-overview-branches {grid-template-columns:repeat(2,1fr);}}
+@media(prefers-reduced-motion:reduce) {#root #main .skill-tree-camera {transition:none;}#root #main :is(.journey-choice,.journey-overview-intro,.journey-study-panel,.journey-career-card) {animation:none;transition:none;}}

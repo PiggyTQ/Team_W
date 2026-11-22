@@ -1,0 +1,168 @@
+{
+  "publishedAtBeijing": "2026-11-19 22:00:39",
+  "deployment": {
+    "event": "DEPLOY_OK",
+    "release": "/srv/career-growth/releases/skill-tree-journey-20261119-20261119T140039Z",
+    "previous": "/srv/career-growth/releases/skill-tree-roots-20261119-20261119T123026Z",
+    "archiveSha256": "85f6e35ecc84f0702b5939920d48f6f16b30280eaa9810468710b57ff541eaa7",
+    "files": [
+      "src/main.jsx",
+      "src/SkillTreePage.jsx",
+      "src/SkillJourneyPage.jsx",
+      "src/skill-journey-model.js",
+      "src/skill-journey.css",
+      "src/i18n/skill-journey-ui.json",
+      "src/SkillStudyPanel.jsx",
+      "src/BotanicalGrowthTree.jsx",
+      "src/useTreeGrowth.js",
+      "src/operation-guide-model.js",
+      "src/i18n/reviewed-en.json"
+    ],
+    "reportBaseline": "restored-full-report",
+    "databaseModified": false,
+    "backendRestarted": false,
+    "status": "DEPLOY_OK",
+    "checkedAssets": 16,
+    "checkedRoutes": 5,
+    "receipt": "/srv/career-growth/backups/skill-tree-journey-20261119-20261119T140039Z/receipt.json"
+  },
+  "httpsRoutes": [
+    {
+      "route": "/",
+      "status": 200,
+      "matchesLocalBuildIgnoringLineEndings": true,
+      "sha256": "6cc607fe567305b00eaa0444cc7ee41783eec366a551a53977ab3e50f044816f"
+    },
+    {
+      "route": "/career-map",
+      "status": 200,
+      "matchesLocalBuildIgnoringLineEndings": true,
+      "sha256": "6cc607fe567305b00eaa0444cc7ee41783eec366a551a53977ab3e50f044816f"
+    },
+    {
+      "route": "/reports",
+      "status": 200,
+      "matchesLocalBuildIgnoringLineEndings": true,
+      "sha256": "6cc607fe567305b00eaa0444cc7ee41783eec366a551a53977ab3e50f044816f"
+    },
+    {
+      "route": "/learning",
+      "status": 200,
+      "matchesLocalBuildIgnoringLineEndings": true,
+      "sha256": "6cc607fe567305b00eaa0444cc7ee41783eec366a551a53977ab3e50f044816f"
+    },
+    {
+      "route": "/plan",
+      "status": 200,
+      "matchesLocalBuildIgnoringLineEndings": true,
+      "sha256": "6cc607fe567305b00eaa0444cc7ee41783eec366a551a53977ab3e50f044816f"
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/ash-foliage-fan-D6BG6a_8.webp",
+      "sha256": "ac1a4166eeea459363250de8d33d500c1aa91faa2f1d1f5c346b3dff255db397",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/ash-foliage-left-DtQEgcvs.webp",
+      "sha256": "ee150778a6e73cb13dda8760c08b8ad1fb2d0aaf72045d47690dfe9f0fc65603",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/ash-foliage-right-BtCeIH2f.webp",
+      "sha256": "202d04a8333ecc0ccee71c15300412ca30acd6c75745c4709f38cfb29cecb057",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/avemly-blue-champagne-curtain-CMWITd3a.png",
+      "sha256": "ad1c2edbdcb1efbd56bc5b8c858002ecbfe7b2f437de79ecbf490bb4fcc396a7",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/botanical-closed-bud-BeX2jxoF.webp",
+      "sha256": "283c8e40d30a13c79a74eb614a2871dcfdaf95cf520a03c6a944953bcd41740f",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/botanical-ground-tree-B9N_8MRv.webp",
+      "sha256": "01c1eaef2e0f51c6b9085acfad077df914730192d7bfbe25412e6ad965c9c4ef",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/botanical-leaf-pair-DV1Vukvn.webp",
+      "sha256": "e2f6d58ecd429b547ac9eaa2f150e3fe40e501a684eeeac0d9c9d8a13248fc9f",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/index-DelfIQ9C.js",
+      "sha256": "4750cf7a35ea7c53ab01c21a31ce033f8a82dee282fa76ebfc194d1299a390ec",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/index-DJ5iHXgW.css",
+      "sha256": "09a50ef8ee1641c1a1d053d1823a61006537b8059b1473a5907054562b66780b",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/local-practice-courses-DSazYI5D.js",
+      "sha256": "811048b613c599c28b472b383c890499cb69f0a3b9be121fb1980c9372fed7b3",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/login-cheese-engine-7bDrN-ZP.js",
+      "sha256": "7ae2a86b03b60b72edff1446ac18cea99bda4ba8a74651c779534d191228972b",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/pdf-C4heYEAT.js",
+      "sha256": "f08b6c4fd097ae845cfcd373bc0f0fa72a20d1c2307facc6cf273df7c735eb86",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/react-DFQR2juu.js",
+      "sha256": "c15602eed5cd83b6a0b57e25a7e8b6667bc934e4eda1661dff072c70c5523e50",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/SkillTreePage-BKzfCTMW.js",
+      "sha256": "8943ef4aa1ab8c6185bb7f89e10ba903e41aab1252640fd24512243eeaedc26b",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/SkillTreePage-BNQb4eZt.css",
+      "sha256": "778059f6abcac196be9db10205bfe425c4e6c5c8b8d4bd09b141b7e15b574b9a",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    },
+    {
+      "path": "assets/translations-DhjjHqYU.js",
+      "sha256": "54ed6ddf95b1012ea9a7777d7074955da289ccf1d31e22fa83e6e4e5c6efbc47",
+      "status": 200,
+      "matchesBrowserVerifiedBuild": true
+    }
+  ],
+  "apiStatus": "ok",
+  "treeArtworkUnchanged": true,
+  "productionDatabaseModified": false,
+  "realProductionAccountRegraded": false,
+  "rollbackExercised": false,
+  "browserEvidence": "images/skill-tree-journey-20261119/actual/verification.json",
+  "targetedTestsPassed": 26,
+  "fullSuiteRerun": false,
+  "htmlDifference": "Only final CRLF versus LF between Windows and Linux builds; all 16 compiled assets match byte-for-byte."
+}

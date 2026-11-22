@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820">
+<rect width="1440" height="820" fill="#fbf9f3"/>
+<g font-family="Microsoft YaHei,sans-serif" fill="#183a4f"><text x="40" y="45" font-size="22">实施前构图示意 · 透明树进入同一片学习空间</text>
+<text x="40" y="95" font-size="15">保留原树素材、真实进度及生长规则；本图不是实际页面截图</text>
+<image href="../../../../../src/assets/skill-tree/botanical-ground-tree.webp" x="15" y="190" width="760" height="470"/>
+<text x="810" y="188" font-size="15" fill="#607969">数据分析 / 指标与取数</text><text x="810" y="235" font-size="31">指标口径</text>
+<text x="810" y="280" font-size="16">学习资料　　动手练习　　成果检验</text><path d="M810 300H1340" stroke="#d8dfd4"/>
+<text x="810" y="340" font-size="18">学习目标</text><text x="810" y="378" font-size="16">内容在树旁自然展开，标题与进度集中在这一侧。</text>
+<text x="810" y="410" font-size="16">枝梢只进入左侧空白边缘，不遮挡正文与操作。</text>
+<rect x="810" y="450" width="520" height="60" rx="8" fill="#fffefa" stroke="#d5ddce"/><text x="830" y="486" font-size="16">题目选项、输入区域保留清晰边界</text>
+<rect x="810" y="535" width="150" height="44" rx="8" fill="#ffcc49"/><text x="836" y="563" font-size="16">提交检验</text>
+<text x="170" y="715" font-size="15">学习视野　 /　 整树总览</text>
+<text x="810" y="655" font-size="18" fill="#396449">有效通过时，对应芽苞就在眼前长叶</text>
+<text x="40" y="780" font-size="15">无树框、无硬裁切、无左右独立大卡片；一处正文滚动，同一棵树连续位移</text></g></svg>

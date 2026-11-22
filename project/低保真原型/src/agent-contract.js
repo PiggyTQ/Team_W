@@ -1,4 +1,5 @@
 // Shared browser/server privacy contract. No credential or model configuration.
+import {discussionLocalKey} from './discussion-contract.js';
 export const AI_CONSENT_VERSION='deepseek-external-v1';
 const SCOPES=new Set(['职业原创知识','当前目标与计划','本人确认片段']);
 const record=value=>!!value&&typeof value==='object'&&!Array.isArray(value);
@@ -26,6 +27,7 @@ export function hasExternalConsent(state) {
 
 export function agentMessageAvailable(state,message) {
   if(!record(state)||!record(message))return false;
+  if(message.sourceDiscussion&&message.sourceDiscussionKey!==discussionLocalKey(state,message.sourceDiscussion))return false;
   const refs=message.claimRefs===undefined?[]:message.claimRefs;
   if(!Array.isArray(refs)||refs.some(ref=>!validRef(ref)))return false;
   const real=message.provider==='deepseek'||message.service==='deepseek'||record(message.agentResponse);

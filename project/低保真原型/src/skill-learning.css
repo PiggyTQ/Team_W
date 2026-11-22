@@ -1,0 +1,66 @@
+#root #main .skill-scene .journey-layout[data-flow="lesson"] {display:block;max-width:1230px;margin-inline:auto;}
+#root #main .skill-scene [data-flow="lesson"]>.journey-study-panel {padding:0;pointer-events:auto;}
+#root #main .skill-scene [data-flow="lesson"] .scene-study-head {margin-bottom:20px;}
+#root #main .skill-scene .skill-learning {pointer-events:auto;min-width:0;}
+#root #main .skill-scene .scene-branch-meta {display:flex;align-items:center;gap:18px;}
+#root #main .skill-scene .skill-learning :is(button,input,textarea) {font:inherit;}
+#root #main .skill-scene .lesson-stages {display:flex;align-items:center;gap:20px;border-bottom:1px solid #d9dfd2;margin:0 0 32px;}
+#root #main .skill-scene .lesson-stages>span {font-size:14px;color:#718171;margin-left:auto;}
+#root #main .skill-scene .lesson-stages button {border:0;border-radius:0;box-shadow:none;background:none;min-height:48px;padding:5px 0;color:#607781;}
+#root #main .skill-scene .lesson-stages button[aria-current] {color:#174c60;border-bottom:2px solid #6c927d;}
+#root #main .skill-scene .lesson-reading {display:grid;grid-template-columns:205px minmax(0,780px);gap:clamp(40px,5vw,90px);align-items:start;}
+#root #main .skill-scene .lesson-index {position:sticky;top:20px;display:flex;flex-direction:column;gap:7px;}
+#root #main .skill-scene .lesson-index button {display:flex;gap:12px;text-align:left;min-height:43px;border:0;border-radius:7px;box-shadow:none;background:none;color:#5e7471;padding:9px 12px;}
+#root #main .skill-scene .lesson-index button[aria-current] {background:#e8eee1;color:#285749;}
+#root #main .skill-scene .lesson-index small {color:#859485;}
+#root #main .skill-scene .lesson-body {min-width:0;max-width:74ch;min-height:460px;}
+#root #main .skill-scene .skill-learning :is(p,li) {font-size:17px;line-height:1.95;color:#3e5359;}
+#root #main .skill-scene .skill-learning :is(h3,h4) {color:#18475d;line-height:1.5;}
+#root #main .skill-scene .skill-learning h3 {font-size:25px;margin:0 0 18px;}
+#root #main .skill-scene .skill-learning h4 {font-size:18px;margin:24px 0 10px;}
+#root #main .skill-scene .skill-learning p {margin:0 0 20px;}
+#root #main .skill-scene .skill-learning .lesson-lead {font-size:19px;color:#284f5b;}
+#root #main .skill-scene .skill-learning .lesson-kicker {font-size:13px;color:#778771;letter-spacing:.03em;margin-bottom:12px;}
+#root #main .skill-scene .lesson-method {padding:0;list-style:none;}
+#root #main .skill-scene .lesson-method li {display:flex;gap:22px;margin:20px 0;}
+#root #main .skill-scene .lesson-method li>span {color:#88a28c;font-size:27px;}
+#root #main .skill-scene .lesson-example {padding:20px 0 26px;border-bottom:1px solid #dfe4d6;margin-bottom:24px;}
+#root #main .skill-scene .lesson-example>span {color:#72856c;font-size:14px;}
+#root #main .skill-scene .lesson-example h4 {margin-top:10px;}
+#root #main .skill-scene .skill-learning details {margin:16px 0;}
+#root #main .skill-scene .skill-learning summary {cursor:pointer;font-size:15px;color:#3e6c72;padding:8px 0;}
+#root #main .skill-scene .skill-learning details p {margin:10px 0;}
+#root #main .skill-scene .lesson-citations {padding:0;list-style:none;}
+#root #main .skill-scene .lesson-citations li {display:flex;flex-direction:column;padding:14px 0;}
+#root #main .skill-scene .lesson-citations a {font-size:15px;overflow-wrap:anywhere;}
+#root #main .skill-scene .practice-workbench {display:grid;grid-template-columns:minmax(300px,.85fr) minmax(440px,1.15fr);gap:55px;align-items:start;}
+#root #main .skill-scene .practice-editor {min-width:0;}
+#root #main .skill-scene .practice-editor>label {display:flex;flex-direction:column;gap:10px;font-size:16px;margin-bottom:25px;}
+#root #main .skill-scene .practice-editor textarea {padding:17px;border:1px solid #c5d1c0;background:#fffefa;border-radius:9px;width:100%;resize:vertical;line-height:1.7;min-height:120px;color:#2b4958;}
+#root #main .skill-scene .preparation-list {display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:#879087;margin-bottom:17px;}
+#root #main .skill-scene .preparation-list [data-ready="true"] {color:#44765b;}
+#root #main .skill-scene .skill-learning .skill-small {font-size:13px;line-height:1.8;color:#748077;margin-top:14px;}
+#root #main .skill-scene .skill-learning .skill-study-actions {display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+#root #main .skill-scene [data-flow="assessment"] {grid-template-columns:minmax(370px,1fr) minmax(0,1fr);align-items:start;gap:54px;}
+#root #main .skill-scene [data-flow="assessment"] .journey-study-panel {padding-left:28px;}
+#root #main .skill-scene [data-flow="assessment"] .scene-skill-index {display:none;}
+#root #main .skill-scene .assessment-paper {background:#fffef9;border:1px solid #e5e0d2;border-radius:5px;padding:28px 30px 30px;box-shadow:0 12px 35px #5f654808;min-height:420px;}
+#root #main .skill-scene .assessment-topline {display:flex;align-items:center;justify-content:space-between;gap:15px;padding-bottom:20px;color:#6c7e6b;font-size:13px;}
+#root #main .skill-scene .assessment-topline>div {display:flex;gap:13px;}
+#root #main .skill-scene .assessment-topline button {border:0;box-shadow:none;background:none;border-radius:0;color:#52757a;font-size:13px;min-height:32px;padding:0;}
+#root #main .skill-scene .assessment-question nav {display:flex;gap:9px;margin:0 0 20px;}
+#root #main .skill-scene .assessment-question nav button {border:1px solid #d5dfcf;background:#f4f7ef;border-radius:50%;width:33px;height:33px;min-width:0;padding:0;box-shadow:none;color:#597262;}
+#root #main .skill-scene .assessment-question nav button[aria-current] {background:#e3edda;border-color:#94ab8c;}
+#root #main .skill-scene .assessment-question h3 {font-size:20px;line-height:1.8;}
+#root #main .skill-scene .assessment-question fieldset {border:0;padding:0;margin:0;}
+#root #main .skill-scene .assessment-question .skill-choice {display:flex;flex-direction:row;align-items:flex-start;gap:12px;text-align:left;font-size:15px;padding:13px;margin:10px 0;background:#fcfcf7;border:1px solid #dae1d3;border-radius:7px;}
+#root #main .skill-scene .assessment-question .skill-choice>input {flex:0 0 18px;width:18px;height:18px;min-height:0;margin:4px 0 0;padding:0;accent-color:#547d62;}
+#root #main .skill-scene .assessment-question .skill-choice>span {flex:1;line-height:1.8;}
+#root #main .skill-scene .assessment-application {display:flex;flex-direction:column;gap:14px;font-size:15px;}
+#root #main .skill-scene .assessment-application>input {min-height:48px;padding:10px 14px;border:1px solid #becdb6;border-radius:7px;background:white;}
+#root #main .skill-scene .assessment-review {margin:20px 0;}
+#root #main .skill-scene .assessment-review details {border-bottom:1px solid #dce3d6;margin:0;}
+#root #main .skill-scene .assessment-paper .skill-check-result {border:0!important;background:none!important;padding:0!important;margin:0!important;}
+#root #main .skill-scene .skill-learning pre {white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.8;color:#4b6561;}
+@media(max-width:1200px){#root #main .skill-scene .practice-workbench{gap:30px;grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);}#root #main .skill-scene .assessment-paper{padding:22px;}#root #main .skill-scene [data-flow="assessment"]{grid-template-columns:minmax(340px,.9fr) minmax(0,1.1fr);gap:24px;}}
+@media(max-width:900px){#root #main .skill-scene .lesson-reading{grid-template-columns:165px minmax(0,1fr);gap:25px;}#root #main .skill-scene .practice-workbench{grid-template-columns:1fr;}#root #main .skill-scene [data-flow="assessment"]{grid-template-columns:1fr;}}

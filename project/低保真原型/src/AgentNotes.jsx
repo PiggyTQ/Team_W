@@ -8,7 +8,7 @@ export default function AgentNotes({s,open,update,confirmAction,close,go}){
     {s.aiNotes?.length?s.aiNotes.map(n=>{
       const privacyAvailable=agentMessageAvailable(s,n),available=privacyAvailable&&agentKnowledgeAvailable(n,digest);
       return <article className="record" key={n.id}>
-        <h3>{n.date?.slice(0,10)} · {n.edited?'本人编辑笔记':n.retrievalFallback?'系统检索原文笔记':n.systemGenerated?'系统资料缺口笔记':n.provider==='deepseek'?'DeepSeek 回答笔记':'模拟回答笔记'}</h3>
+        <h3>{n.date?.slice(0,10)} · {n.edited?'本人编辑笔记':n.sourceDiscussion?'讨论笔记':n.retrievalFallback?'系统检索原文笔记':n.systemGenerated?'系统资料缺口笔记':n.provider==='deepseek'?'DeepSeek 回答笔记':'模拟回答笔记'}</h3>
         {available?<><p className="preserve" translate="no">{n.text}</p>
           <small>保存范围：{(n.scope||[]).join('、')}</small>
           <button onClick={()=>open('aiNoteEdit',{noteId:n.id})}>编辑笔记</button>

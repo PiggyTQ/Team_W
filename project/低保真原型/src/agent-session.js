@@ -1,3 +1,4 @@
+import {discussionLocalKey} from './discussion-contract.js';
 import {careers,usedHours} from './model.js';
 import {hasExternalConsent,scopeKey} from './agent-contract.js';
 
@@ -32,7 +33,7 @@ function capture(current,requestedMode,context){
   if(!conversation||agentMode(conversation.mode||'职业咨询')!==requestedMode)fail('AI_CONTEXT_CHANGED');
   if(current.context&&!same(contextValue(current.context),context))fail('AI_CONTEXT_CHANGED');
   if(!hasExternalConsent(state))fail('AI_CONSENT_REQUIRED');
-  const selectedScope=[...(state.aiScope||[])],confirmedClaims=selectedScope.includes('本人确认片段'),currentPlan=selectedScope.includes('当前目标与计划');
+  const selectedScope=conversation.discussion?[]:[...(state.aiScope||[])],confirmedClaims=selectedScope.includes('本人确认片段'),currentPlan=selectedScope.includes('当前目标与计划');
   const claimRefs=confirmedClaims?(state.aiClaimRefs||[]).map(ref=>({id:ref.id,version:ref.version})).sort((a,b)=>a.id.localeCompare(b.id)):[];
   if(confirmedClaims&&(!state.authorized||claimRefs.length<1||claimRefs.length>12||new Set(claimRefs.map(ref=>ref.id)).size!==claimRefs.length))fail('AI_SCOPE_REJECTED');
   const claims=claimRefs.map(ref=>{
@@ -47,10 +48,10 @@ function capture(current,requestedMode,context){
   }:null;
   const sourceScopeKey=scopeKey(state);
   const sourceConsentId=state.aiExternalConsent.grantId;
-  const basis=JSON.stringify({ownerId:current.ownerId,conversationId:conversation.id,mode:requestedMode,context,sourceScopeKey,sourceConsentId,claims,plan});
+  const basis=JSON.stringify({ownerId:current.ownerId,conversationId:conversation.id,mode:requestedMode,context,sourceScopeKey,sourceConsentId,claims,plan,discussionKey:conversation.discussion?discussionLocalKey(state,conversation.discussion):null,discussion:conversation.discussion?{...conversation.discussion,question:undefined}:null});
   return {ownerId:current.ownerId,conversationId:conversation.id,mode:requestedMode,context,sourceScopeKey,sourceConsentId,basis,
     scope:{confirmedClaims,currentPlan,...(confirmedClaims?{claimRefs}: {})},
-    scopeLabels:selectedScope,claimRefs,sourcePlanVersion:currentPlan?state.planVersion:undefined};
+    scopeLabels:selectedScope,claimRefs,...(conversation.discussion?{sourceDiscussion:conversation.discussion,sourceDiscussionKey:discussionLocalKey(state,conversation.discussion)}:{}),sourcePlanVersion:currentPlan?state.planVersion:undefined};
 }
 
 function safeCopy(value,depth=0){
@@ -75,7 +76,7 @@ function validResponse(input,payload){
   const citations=new Set();
   for(const row of input.citations){
     if(!record(row)||typeof row.id!=='string'||!row.id||row.id.length>240||citations.has(row.id)
-      ||typeof row.text!=='string'||row.text.length>45000||!['approved_knowledge','user_confirmed_unverified','saved_plan_estimates'].includes(row.sourceType))fail('AI_INVALID_RESPONSE');
+      ||typeof row.text!=='string'||row.text.length>45000||!['approved_knowledge','user_confirmed_unverified','saved_plan_estimates','selected_discussion_record'].includes(row.sourceType))fail('AI_INVALID_RESPONSE');
     citations.add(row.id);
   }
   for(const row of input.statements){
@@ -83,7 +84,7 @@ function validResponse(input,payload){
       ||!Array.isArray(row.evidenceIds)||row.evidenceIds.length>8||row.evidenceIds.some(id=>typeof id!=='string'||!citations.has(id))
       ||row.kind==='fact'&&!row.evidenceIds.length)fail('AI_INVALID_RESPONSE');
   }
-  const picked=Object.fromEntries(['schemaVersion','readOnly','mode','baseVersion','knowledgeVersion','knowledgeDigest','promptVersion','statements','citations','limitations','scope','tools','meta']
+  const picked=Object.fromEntries(['schemaVersion','readOnly','mode','baseVersion','knowledgeVersion','knowledgeDigest','promptVersion','statements','citations','limitations','scope','tools','meta','discussionBasis','suggestionRefs']
     .filter(key=>Object.hasOwn(input,key)).map(key=>[key,input[key]]));
   const output=safeCopy(picked);
   if(JSON.stringify(output).length>262144)fail('AI_INVALID_RESPONSE');
@@ -132,7 +133,7 @@ export function createAgentSession({getCurrent,flush,request,onStatus=()=>{},onR
       const raw=await Promise.race([Promise.resolve().then(()=>{check(token);return request(payload,{signal:token.controller.signal});}),aborted]);
       check(token);
       const response=validResponse(raw,payload);
-      const common={provider:'deepseek',scope:[...snapshot.scopeLabels],claimRefs:snapshot.claimRefs.map(ref=>({...ref})),sourceScopeKey:snapshot.sourceScopeKey,sourceConsentId:snapshot.sourceConsentId,
+      const common={...(snapshot.sourceDiscussion?{sourceDiscussion:snapshot.sourceDiscussion,sourceDiscussionKey:snapshot.sourceDiscussionKey}:{}),...(response.discussionBasis?{discussionBasis:response.discussionBasis}:{}),provider:'deepseek',scope:[...snapshot.scopeLabels],claimRefs:snapshot.claimRefs.map(ref=>({...ref})),sourceScopeKey:snapshot.sourceScopeKey,sourceConsentId:snapshot.sourceConsentId,
         ...(snapshot.sourcePlanVersion!==undefined?{sourcePlanVersion:snapshot.sourcePlanVersion}:{}),sourceContext:{...sourceContext}};
       const userMessage={id:identifier('msg'),role:'user',text:message,...common};
       const assistantMessage={id:identifier('msg'),role:'assistant',text:response.statements.map(row=>row.text).join('\n\n'),...common,agentResponse:response};

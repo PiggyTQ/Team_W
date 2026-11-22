@@ -21,7 +21,7 @@ export default function ProjectPractice({task, project, step, state, t, language
   const feedback = step.choices.find(item => item.id === answer.choice);
   const atDelivery = step.id === 'delivery';
   const openAssistant = () => {
-    const button=assistant.current?.querySelector('button[aria-controls="project-coach-body"]');
+    const button=document.getElementById('learning-tutor-slot')?.querySelector('[data-learning-discussion-trigger]');
     if(button?.getAttribute('aria-expanded')==='false')button.click();
     button?.scrollIntoView({block:'center'});
     button?.focus({preventScroll:true});

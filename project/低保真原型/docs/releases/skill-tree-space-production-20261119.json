@@ -1,0 +1,31 @@
+{
+  "origin": "https://47.250.133.180",
+  "deployment": {
+    "event": "DEPLOY_OK",
+    "release": "/srv/career-growth/releases/skill-tree-space-20261119-20261119T150040Z",
+    "previous": "/srv/career-growth/releases/skill-tree-journey-20261119-20261119T140039Z",
+    "archiveSha256": "df83be6ca2876ad8d902e3de2296d0f9dadf080281ccc5839d6ab9c4ac396b75",
+    "files": [
+      "src/SkillJourneyPage.jsx",
+      "src/BotanicalGrowthTree.jsx",
+      "src/SkillStudyPanel.jsx",
+      "src/i18n/skill-journey-ui.json",
+      "src/skill-tree-camera.js",
+      "src/skill-tree-scene.css"
+    ],
+    "reportBaseline": "restored-full-report",
+    "databaseModified": false,
+    "backendRestarted": false,
+    "status": "DEPLOY_OK",
+    "checkedAssets": 16,
+    "checkedRoutes": 5,
+    "receipt": "/srv/career-growth/backups/skill-tree-space-20261119-20261119T150040Z/receipt.json"
+  },
+  "historicalIndependentHttpsSummary": {
+    "routes": 5,
+    "matchingAssets": 16,
+    "healthStatus": "ok",
+    "evidence": "skill-tree-space-20261119.md and original 2026-11-19 tool observations"
+  },
+  "archiveRecoveryNote": "On 2026-11-20 a copied verification script accidentally reused this filename. The original deployment receipt was restored from its saved output. The historical per-asset verification list was not retained; current release verification is in skill-learning-production-20261120.json."
+}

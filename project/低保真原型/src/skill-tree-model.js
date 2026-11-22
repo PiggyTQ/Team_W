@@ -1,4 +1,4 @@
-export const SKILL_NOTE_LIMIT = 1800;
+export const SKILL_NOTE_LIMIT = 60000;
 const identifier = /^[a-z][a-z0-9-]{0,49}$/;
 const recordKey = /^[a-z][a-z0-9-]{0,49}:[a-z][a-z0-9-]{0,49}:v[1-9]\d{0,2}$/;
 const isRecord = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -7,9 +7,17 @@ export function skillStudyKey(career, leaf) {
   return career + ':' + leaf.id + ':v' + leaf.version;
 }
 
+export function skillRecord(study,career,leaf){
+ const current=study?.[skillStudyKey(career,leaf)];
+ const old=(leaf.previousVersions||[]).map(version=>study?.[skillStudyKey(career,{...leaf,version})]).find(Boolean);
+ if(!old)return current;
+ // Historical pass keeps its own score/date; a failed newer attempt is not
+ // blended into a synthetic assessment. Both raw records remain untouched.
+ return {...old,...current,...(old.assessment?.passedAt?{historicalPass:old.assessment}:{}),currentAssessment:current?.assessment,assessment:current?.assessment?.passedAt?current.assessment:old.assessment?.passedAt?old.assessment:current?.assessment||old.assessment};
+}
 export function skillProgress(career, leaves, study) {
   const total = leaves.length;
-  const done = leaves.filter(leaf => study?.[skillStudyKey(career, leaf)]?.assessment?.passedAt).length;
+  const done = leaves.filter(leaf => skillRecord(study,career,leaf)?.assessment?.passedAt).length;
   return {done, total, percent: total ? Math.round(done / total * 100) : 0};
 }
 
@@ -106,7 +114,7 @@ export function chooseSkillLeaf(tree, params, study) {
   const branch = matching || tree.branches.find(branch => branch.id === branchId) ||
     tree.branches.find(branch => branch.id === oldBranches[tree.id]?.[branchId]) || tree.branches[0];
   const leaf = branch.leaves.find(leaf => leaf.id === leafId) ||
-    branch.leaves.find(leaf => !study?.[skillStudyKey(tree.id, leaf)]?.assessment?.passedAt) || branch.leaves[0];
+    branch.leaves.find(leaf => !skillRecord(study,tree.id,leaf)?.assessment?.passedAt) || branch.leaves[0];
   const requestedStep = params.get('step');
   const step = ['practice','check'].includes(requestedStep) ? requestedStep : 'learn';
   return {branch, leaf, step};

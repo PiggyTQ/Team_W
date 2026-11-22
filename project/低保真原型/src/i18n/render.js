@@ -1,4 +1,6 @@
 import React,{useSyncExternalStore} from 'react';
+import careerExplorationCopy from './career-exploration-en.json' with {type:'json'};
+import discussionCopy from './discussion-en.json' with {type:'json'};
 import catalog from './site-complete-en.json' with {type:'json'};
 import reviewedCopy from './reviewed-en.json' with {type:'json'};
 import agentCopy from './agent-en.json' with {type:'json'};
@@ -10,7 +12,8 @@ import resourceCentreCopy from './resource-centre-en.json' with {type:'json'};
 import careerReportCopy from './career-report-en.json' with {type:'json'};
 import practiceProjectCopy from './practice-project-en.json' with {type:'json'};
 import skillTreeCopy from './skill-tree-en.json' with {type:'json'};
-Object.assign(catalog,agentCopy,stageCopy,goalManagerCopy,schedulerCopy,reviewedCopy,dailyExecutionCopy,resourceCentreCopy,careerReportCopy,practiceProjectCopy,skillTreeCopy);
+import skillLearningCopy from './skill-learning-en.json' with {type:'json'};
+Object.assign(catalog,careerExplorationCopy,discussionCopy,agentCopy,stageCopy,goalManagerCopy,schedulerCopy,reviewedCopy,dailyExecutionCopy,resourceCentreCopy,careerReportCopy,practiceProjectCopy,skillTreeCopy,skillLearningCopy);
 export const LANGUAGE_KEY='career-prototype-language';
 const initialLanguage=()=>{try{return globalThis.localStorage?.getItem(LANGUAGE_KEY)==='en'?'en':'zh';}catch{return 'zh';}};
 let language=initialLanguage();

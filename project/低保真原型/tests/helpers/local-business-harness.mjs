@@ -27,5 +27,5 @@ export async function localBusinessHarness(options={}){
   const api=await createAuthServer({database,knowledgeDatabase,origin:base,production:false,trustProxy:false,agentFactory:business=>createAgentService({business}),...options});
   const seed=new DatabaseSync(database);importCoursePack(seed,path.resolve('../资料收集/展示资料包_20261027'));seed.close();
   await new Promise(r=>api.listen(0,'127.0.0.1',r));apiPort=api.address().port;
-  return {base,database,close:async()=>{await new Promise(r=>web.close(r));await new Promise(r=>api.close(r));const resolved=path.resolve(dir);if(resolved.startsWith(path.resolve(tmpdir())+path.sep)&&path.basename(resolved).startsWith('career-business-ui-'))await fs.rm(resolved,{recursive:true,force:true});}};
+  return {base,database,web,close:async()=>{await new Promise(r=>web.close(r));await new Promise(r=>api.close(r));const resolved=path.resolve(dir);if(resolved.startsWith(path.resolve(tmpdir())+path.sep)&&path.basename(resolved).startsWith('career-business-ui-'))await fs.rm(resolved,{recursive:true,force:true});}};
 }

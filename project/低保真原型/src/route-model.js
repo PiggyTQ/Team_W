@@ -1,3 +1,4 @@
+import {assistantTaskPage} from './assistant-task-model.js';
 const tabs={
  '/assessment':['准备总览','资料经历','原文确认','四维与差距','成果档案','当前简历'],
  '/careers':['职业方向','比较','企业与岗位','我的机会'],
@@ -28,6 +29,7 @@ export function normalizeWorkspaceRoute(value){
  if(url.pathname==='/plan/goals'){url.searchParams.delete('tab');const period=url.searchParams.get('period');if(period&&!periods.includes(period))url.searchParams.set('period','week');}
  if(url.pathname==='/plan'&&url.searchParams.get('goalView')==='undated'){url.pathname='/plan/schedule';url.searchParams.delete('goalView');url.searchParams.delete('tab');}
  if(url.pathname==='/plan/schedule'){url.searchParams.delete('tab');url.searchParams.delete('goalView');if(url.searchParams.get('goal')?.trim())url.searchParams.delete('task');else url.searchParams.delete('goal');}
+ if(assistantTaskPage(url.pathname))url.searchParams.delete('tab');
  const key=url.pathname.startsWith('/work/')?'/work':url.pathname.startsWith('/reports/')?'/reports':url.pathname;
  const folds={'/careers':{'薪酬参考':['企业与岗位','focus','salary']},'/plan':{'方案调整':['计划总览','adjust','1']},'/settings':{'资料授权':['资料与隐私','section','authorization'],'导出与删除':['资料与隐私','section','data'],'反馈状态':['偏好与通知','section','feedback'],'偏好与支持':['偏好与通知']}};
  const folded=folds[key]?.[url.searchParams.get('tab')];

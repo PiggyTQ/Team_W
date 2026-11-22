@@ -8,7 +8,7 @@ const catalog=Object.fromEntries(careers.map(({id})=>{
   return [id,{
     frameworks:tree.frameworks,
     branches:tree.branches.map(({id,title,purpose,leaves})=>({
-      id,title,purpose,leaves:leaves.map(({id,version,title,lesson})=>({id,version,title,lesson}))
+      id,title,purpose,leaves:leaves.map(({id,version,title,lesson,previousVersions})=>({id,version,title,lesson,...(previousVersions?{previousVersions}:{})}))
     }))
   }];
 }));

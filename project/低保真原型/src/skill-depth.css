@@ -1,0 +1,93 @@
+/* Lesson space and assessment composition. Tree assets remain untouched. */
+#root #main.atlas-workspace:has(.skill-depth) {position:relative;padding-top:20px;}
+#root #main:has(.skill-depth) .server-save-status:not(.server-save-error) {position:absolute;right:38px;top:20px;z-index:3;min-height:24px;padding:0;margin:0;border:0;border-radius:0;background:none;font-size:12px;}
+#root #main:has(.skill-depth) .workspace-contextbar {min-height:26px;margin:0 0 12px;padding:0 220px 0 0;}
+#root #main .skill-depth[data-journey-mode="study"] {position:relative;}
+#root #main .skill-depth[data-journey-mode="study"]>.journey-page-head {position:absolute;right:0;top:0;margin:0;z-index:5;}
+#root #main .skill-depth[data-journey-mode="study"]>.journey-page-head .skill-map-heading {display:none;}
+#root #main .skill-depth[data-journey-mode="study"]>.journey-page-head button {font-size:12px;min-height:32px;padding:4px 10px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="lesson"] {max-width:1280px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-study-head {margin:0 0 12px!important;padding-top:6px!important;min-height:78px;align-items:start;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-skill-context {font-size:12px;margin:0 0 4px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-study-head h2 {font-size:28px;margin:0 0 3px;line-height:1.3;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-process-note,#root #main .skill-depth.skill-scene[data-journey-mode] .scene-study-head .skill-pass-tag {font-size:12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-branch-meta {padding-top:40px;font-size:12px;gap:14px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] [data-flow="lesson"] .scene-skill-index {position:absolute;top:45px;right:205px;z-index:5;margin:0;font-size:13px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-skill-index>summary {min-height:30px;font-size:12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-skill-index[open] {background:#fffef8;border:1px solid #dbe1d2;padding:10px 14px;box-shadow:0 8px 25px #334b4220;width:320px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-stages {margin:0 0 22px;gap:24px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-stages button {min-height:39px;font-size:15px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-stages>span {font-size:12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-reading {grid-template-columns:166px minmax(0,900px);gap:46px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-index {gap:4px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-index button {padding:8px 12px;min-height:39px;font-size:14px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-body {max-width:80ch;min-height:360px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .skill-learning :is(p,li) {font-size:17px!important;line-height:1.85!important;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .skill-learning p {margin:0 0 17px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .skill-learning h3 {font-size:21px;margin:0 0 12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .skill-learning h4 {font-size:17px;margin:22px 0 10px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .depth-objective {font-size:19px;line-height:1.75;color:#235164;padding-bottom:16px;border-bottom:1px solid #dbe1d4;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .depth-concept {color:#28444c;font-size:18px;margin-bottom:24px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .depth-next-note,#root #main .skill-depth.skill-scene[data-journey-mode] .depth-scope {font-size:13px;color:#6a7d72;line-height:1.8;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .depth-procedure>p {display:flex;align-items:baseline;gap:13px;margin:0 0 14px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .depth-procedure>p>span {flex:0 0 25px;font-size:14px;color:#71947a;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .depth-walkthrough>section {border-left:2px solid #c1d0b5;padding:2px 0 2px 20px;margin:0 0 24px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-code {margin:16px 0 20px;background:#f0f3ec;border:1px solid #dce4d6;border-radius:7px;overflow:hidden;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-code>div {display:flex;justify-content:space-between;align-items:center;padding:7px 13px;font-size:12px;color:#6d8373;border-bottom:1px solid #dce4d6;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-code button {background:none;border:0;box-shadow:none;font-size:12px;padding:2px 5px;min-height:27px;min-width:0;color:#316778;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-code pre {padding:15px 18px;margin:0;line-height:1.8;font-size:14px;white-space:pre;overflow-x:auto;color:#284a50;tab-size:2;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-table-wrap {overflow-x:auto;margin:16px 0;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-table-wrap table {width:100%;border-collapse:collapse;background:#fffdf7;font-size:15px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-table-wrap :is(th,td) {text-align:left;padding:9px 13px;border-bottom:1px solid #dce2d5;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-table-wrap th {background:#edf1e7;color:#355c50;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-workbench {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-modes {display:flex;gap:15px;margin-bottom:18px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-modes button {border:0;border-bottom:2px solid transparent;border-radius:0;box-shadow:none;background:none;min-width:0;min-height:38px;padding:3px 0;font-size:14px;color:#688073;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-modes button[aria-current] {border-color:#81a482;color:#214e57;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-brief .lesson-lead {font-size:17px;line-height:1.8;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-material {padding:14px 0;border-block:1px solid #dfe3d7;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-check-kind {font-size:13px;color:#647b72;line-height:1.75;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-editor>label {font-size:14px;margin-bottom:20px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-editor textarea {font-size:15px;line-height:1.8;padding:14px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-editor .practice-artifact {font-family:ui-monospace,Consolas,monospace;tab-size:2;min-height:320px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .preparation-list {font-size:12px;gap:9px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .practice-editor .skill-study-actions {margin-top:12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"] {grid-template-columns:minmax(0,1.34fr) minmax(0,1fr);gap:28px;min-height:clamp(470px,calc(100dvh - 210px),690px);align-items:center;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"]>.journey-tree-dock {align-self:start;position:sticky;top:20px;margin:0;height:clamp(470px,calc(100dvh - 210px),690px);box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding-top:140px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"] .skill-tree-viewport {width:100%;height:auto;aspect-ratio:1884/1060;min-height:0;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"] .journey-study-panel {padding:0;align-self:center;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"] .scene-study-head {min-height:64px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"] .scene-study-head h2 {font-size:25px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .scene-tree-tools {margin:6px 0 0;font-size:12px;gap:20px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-paper {min-height:0;padding:22px 24px 24px;border-radius:6px;box-shadow:0 10px 30px #42533e06;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-topline {padding-bottom:15px;font-size:12px;gap:8px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-topline>div {gap:10px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-topline button {font-size:12px;min-height:28px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-question h3 {font-size:18px;line-height:1.7;margin-bottom:16px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-question nav {margin-bottom:16px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-question nav button {width:29px;height:29px;font-size:13px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-question .skill-choice {font-size:15px;padding:10px 11px;margin:8px 0;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-paper .skill-study-actions {margin-top:18px;gap:9px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-paper .skill-small {font-size:12px;line-height:1.65;margin-bottom:0;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-paper .skill-check-result>p {font-size:14px;line-height:1.8;margin-bottom:12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-paper .skill-check-result h3 {font-size:22px;margin:6px 0 12px;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-details {margin:12px 0 0!important;padding-top:8px;border-top:1px solid #e1e5d9;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-details>summary {font-size:13px;padding:7px 0;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-review {margin:5px 0!important;}
+#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-review details {margin:0!important;}
+@media(max-width:1200px){#root #main .skill-depth.skill-scene[data-journey-mode] .journey-layout[data-flow="assessment"]{grid-template-columns:minmax(0,1.27fr) minmax(0,1fr);gap:22px;}#root #main .skill-depth.skill-scene[data-journey-mode] .lesson-reading{gap:28px;grid-template-columns:145px minmax(0,1fr);}#root #main .skill-depth.skill-scene[data-journey-mode] .assessment-paper{padding:18px;}#root #main .skill-depth.skill-scene[data-journey-mode] .practice-workbench{gap:28px;}}
+/* The global type-system layer uses !important. Join that same layer so lesson
+   reading sizes can override the shared 14px default without changing other pages. */
+@layer type-system {
+ #root #main .skill-depth.skill-scene .scene-study-head h2 {font-size:28px!important;line-height:1.35!important;}
+ #root #main .skill-depth.skill-scene .skill-learning :is(p,li) {font-size:17px!important;line-height:1.85!important;}
+ #root #main .skill-depth.skill-scene .skill-learning h3 {font-size:21px!important;line-height:1.6!important;}
+ #root #main .skill-depth.skill-scene .skill-learning h4 {font-size:17px!important;}
+ #root #main .skill-depth.skill-scene .lesson-code :is(pre,code) {font-family:ui-monospace,Consolas,monospace!important;font-size:14px!important;line-height:1.8!important;}
+ #root #main .skill-depth.skill-scene .lesson-table-wrap :is(th,td) {font-size:15px!important;}
+ #root #main .skill-depth.skill-scene .skill-learning :is(.depth-scope,.depth-next-note,.lesson-kicker,.practice-check-kind,.skill-small) {font-size:13px!important;line-height:1.8!important;}
+ #root #main .skill-depth.skill-scene .assessment-paper .skill-check-result>p {font-size:15px!important;}
+ #root #main .skill-depth.skill-scene .assessment-question h3 {font-size:18px!important;}
+ #root #main .skill-depth.skill-scene .assessment-question .skill-choice {font-size:15px!important;}
+ #root #main .skill-depth.skill-scene .scene-study-head .scene-skill-context {font-size:12px!important;}
+}

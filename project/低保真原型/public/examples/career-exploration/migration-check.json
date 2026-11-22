@@ -1,0 +1,12 @@
+{
+  "original_synthetic": true,
+  "records": 600,
+  "fields": [
+    "registration_id",
+    "email",
+    "status"
+  ],
+  "rules": "sort registration_id; trim/lowercase email; confirmed -> active; compact JSON array of field values; UTF-8 SHA-256",
+  "sourceSha256": "a42584012a5a81cf12c16528dc36638070047ad37d71ad93b4b019f34837bcd2",
+  "targetSha256": "a42584012a5a81cf12c16528dc36638070047ad37d71ad93b4b019f34837bcd2"
+}

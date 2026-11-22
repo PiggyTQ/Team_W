@@ -1,3 +1,5 @@
+import {alignedChecks,gradeAligned} from './aligned-checks.mjs';
+import {transferChecks} from './transfer-checks.mjs';
 import {careers} from '../../src/model.js';
 import data from './data.mjs';
 import ai from './ai.mjs';
@@ -9,6 +11,7 @@ import engineering from './engineering.mjs';
 import testing from './testing.mjs';
 import software from './software.mjs';
 import delivery from './delivery.mjs';
+import {applicationTasks,gradeApplication} from './application-tasks.mjs';
 
 const trees = new Map([data, ai, security, ops, frontend, backend, engineering, testing, software, delivery]
   .map(tree => [tree.id, tree]));
@@ -58,6 +61,15 @@ function verifyTrees() {
 
 verifyTrees();
 
+// Applications are versioned independently of archived v1 authored checks.
+Object.assign(alignedChecks,transferChecks);
+for(const [career,tree] of trees)for(const branch of tree.branches)for(const leaf of branch.leaves){
+ const c=alignedChecks[leaf.id];if(!c)continue;
+ c.career=career;c.checks??=leaf.checks;c.topics??=leaf.checks.map(q=>q.prompt);
+ requireContent(bilingual(c.application.prompt)&&bilingual(c.application.material)&&c.application.fields.length>=2,'application/'+leaf.id);
+ requireContent(c.application.fields.every(f=>bilingual(f.label)&&/^[a-z][A-Za-z0-9-]{0,24}$/.test(f.id)),'application fields/'+leaf.id);
+}
+
 function shuffledChoices(career, leaf, question, index) {
   // Stable for the published version, so answers survive a page refresh or
   // reconnect. Option IDs name the displayed choices, not their source index.
@@ -76,8 +88,9 @@ const publicTrees = new Map([...trees].map(([id, tree]) => [id, {
   branches: tree.branches.map(branch => ({
     ...branch,
     leaves: branch.leaves.map(({checks, ...leaf}) => ({
-      ...leaf,
-      questions: checks.map((question, index) => ({
+      ...leaf,...(alignedChecks[leaf.id]?{version:2,previousVersions:[1],assessmentPublished:'2026-11-21'}:{}),
+      application:alignedChecks[leaf.id]?.application||{prompt:applicationTasks[leaf.id].prompt},
+      questions: (alignedChecks[leaf.id]?.checks||checks).map((question, index) => ({
         id: 'q' + (index + 1), prompt: question.prompt,
         options: shuffledChoices(id, leaf, question, index).map(({text, id}) => ({id, text}))
       }))
@@ -92,15 +105,20 @@ export function getSkillTree(career) {
 export function gradeSkillCheck(career, leafId, version, answers) {
   const leaf = trees.get(career)?.branches.flatMap(branch => branch.leaves).find(leaf => leaf.id === leafId);
   if (!leaf) throw skillError('NOT_FOUND', 404);
-  if (version !== leaf.version) throw skillError('SKILL_CHECK_VERSION', 409);
+  if (version !== leaf.version && !(version===2&&alignedChecks[leafId])) throw skillError('SKILL_CHECK_VERSION', 409);
   if (!answers || Array.isArray(answers) || typeof answers !== 'object' ||
-      Object.keys(answers).length !== leaf.checks.length) throw skillError('SKILL_CHECK_INVALID', 400);
-  const questions = leaf.checks.map((question, index) => {
+      Object.keys(answers).length !== leaf.checks.length+1 ||
+      Object.keys(answers).some(key=>!['q1','q2','application'].includes(key)) ||
+      typeof answers.application!=='string'||!answers.application.trim()||answers.application.length>400) throw skillError('SKILL_CHECK_INVALID', 400);
+  const aligned=version===2?alignedChecks[leafId]:null;
+  const questions = (aligned?.checks||leaf.checks).map((question, index) => {
     const id = 'q' + (index + 1);
     const option = shuffledChoices(career, leaf, question, index).find(choice => choice.id === answers[id]);
     if (!option || !Object.hasOwn(answers, id)) throw skillError('SKILL_CHECK_INVALID', 400);
-    return {id, correct: option.original === 0, explanation: question.explanation};
+    return {id, correct: option.original === 0, explanation: question.explanation,...(aligned?{label:aligned.topics[index],section:'examples'}:{})};
   });
+  if(aligned)questions.push(...gradeAligned(leafId,answers.application));
+  else questions.push({id:'application',correct:gradeApplication(leaf.id,answers.application),explanation:applicationTasks[leaf.id].feedback});
   const correct = questions.filter(question => question.correct).length;
   return {correct, total: questions.length, passed: correct === questions.length, questions};
 }

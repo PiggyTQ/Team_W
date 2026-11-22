@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-21",
+  "timezone": "Asia/Shanghai",
+  "status": "待实现效果图，不是网页实拍",
+  "generator": "内置 image_gen 工具",
+  "runtimeVerified": false,
+  "codeChanged": false,
+  "productionChanged": false,
+  "qa": [
+    "三张逐图视觉与一致性检查",
+    "SQL四行输出静态语义核对",
+    "文件尺寸与SHA256核对"
+  ],
+  "requiredImplementationExceptions": [
+    "模型关闭时不可假发送或用固定提示冒充聊天",
+    "贡献缺失仅对本次资料判断",
+    "图03进入检验遵守原准备和复核门槛",
+    "已附资料不等于外发授权",
+    "1366桌面按可读性调整材料与侧栏"
+  ],
+  "images": [
+    {
+      "name": "01-chat-home.png",
+      "width": 1616,
+      "height": 973,
+      "bytes": 1376059,
+      "sha256": "e4bd554847abbdf0cf638ad59ffc8c8ea084392882fbba44ebe121419c6fde69",
+      "generatedSource": "C:/Users/tsnbx/.codex/generated_images/01a1f99e-a99a-70c1-aac1-f19e4ba1185e/exec-1f2226eb-ca5b-496b-920c-d8db8575f62e.png",
+      "prompt": "prompts/01-chat-home.txt",
+      "references": [
+        "docs/releases/images/ai-workbench-20261121/actual/00-overview.png",
+        "public/illustrations/workbench/ai-laptop.png"
+      ],
+      "file": "concepts/01-chat-home.png"
+    },
+    {
+      "name": "02-chat-summary.png",
+      "width": 1616,
+      "height": 973,
+      "bytes": 1468327,
+      "sha256": "7963cf847a3f87610b81702536bf2d5e0175c2dacf6d3bdcc1533f191db0a5c1",
+      "generatedSource": "C:/Users/tsnbx/.codex/generated_images/01a1f99e-a99a-70c1-aac1-f19e4ba1185e/exec-77284c5d-087d-4c67-9cad-67216f182ab7.png",
+      "prompt": "prompts/02-chat-summary.txt",
+      "references": [
+        "docs/releases/images/ai-workbench-chat-first-20261121/concepts/01-chat-home.png"
+      ],
+      "file": "concepts/02-chat-summary.png"
+    },
+    {
+      "name": "03-learning-sidebar.png",
+      "width": 1616,
+      "height": 973,
+      "bytes": 1507380,
+      "sha256": "5912ec3447f1b3da79b44d80f348ded2e93b0963dfd6798edd8bc9ad3add63fe",
+      "generatedSource": "C:/Users/tsnbx/.codex/generated_images/01a1f99e-a99a-70c1-aac1-f19e4ba1185e/exec-5b2dd336-0a71-4f77-af0f-41a94dab1532.png",
+      "prompt": "prompts/03-learning-sidebar.txt",
+      "references": [
+        "docs/releases/images/ai-workbench-chat-first-20261121/concepts/01-chat-home.png",
+        "docs/releases/images/skill-follow-20261120/actual/05-sql-output-checked.jpg",
+        "public/illustrations/workbench/ai-laptop.png"
+      ],
+      "file": "concepts/03-learning-sidebar.png"
+    }
+  ]
+}

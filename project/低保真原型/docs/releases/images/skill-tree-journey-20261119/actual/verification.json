@@ -1,0 +1,241 @@
+{
+  "origin": "isolated local authenticated account, actual server-mode React build",
+  "checks": [
+    "first visit offers ten career directions",
+    "reading and saved practice do not grow leaves",
+    "single first pass plays visible pulse without returning to tree",
+    "last branch skill triggers branch phase after bud, four retained clusters, one green branch",
+    "refresh restores the learning step, 3 passed skills and 4 clusters without replay",
+    "switching to AI keeps independent empty growth, and returning to data restores the skill, check step, whole-tree camera and prior growth",
+    "overview restores full tree and keeps the next action visible",
+    "current-branch camera keeps all three upper-branch hit targets inside the viewport at 44px",
+    "1366, 1700 and 1920 desktop layouts do not overflow",
+    "English and Chinese labels preserve the learning layout"
+  ],
+  "measurements": [
+    {
+      "buds": [
+        {
+          "box": {
+            "bottom": 505.3057556152344,
+            "height": 43.98828125,
+            "left": 451.737060546875,
+            "right": 495.725341796875,
+            "top": 461.3174743652344,
+            "width": 43.98828125,
+            "x": 451.737060546875,
+            "y": 461.3174743652344
+          },
+          "within": true
+        },
+        {
+          "box": {
+            "bottom": 477.2826843261719,
+            "height": 43.98828125,
+            "left": 366.83685302734375,
+            "right": 410.82513427734375,
+            "top": 433.2944030761719,
+            "width": 43.98828125,
+            "x": 366.83685302734375,
+            "y": 433.2944030761719
+          },
+          "within": true
+        },
+        {
+          "box": {
+            "bottom": 519.5206413269043,
+            "height": 43.98832321166992,
+            "left": 307.85577392578125,
+            "right": 351.84405517578125,
+            "top": 475.5323181152344,
+            "width": 43.98828125,
+            "x": 307.85577392578125,
+            "y": 475.5323181152344
+          },
+          "within": true
+        }
+      ],
+      "height": 900,
+      "overflow": false,
+      "panelScroll": "visible",
+      "study": {
+        "bottom": 1235.343780517578,
+        "height": 982.9479370117188,
+        "left": 745.59375,
+        "right": 1314.6666870117188,
+        "top": 252.39584350585935,
+        "width": 569.0729370117188,
+        "x": 745.59375,
+        "y": 252.39584350585935
+      },
+      "tree": {
+        "bottom": 941.8229370117188,
+        "height": 636.09375,
+        "left": 256,
+        "right": 721.59375,
+        "top": 305.72918701171875,
+        "width": 465.59375,
+        "x": 256,
+        "y": 305.72918701171875
+      },
+      "treeScroll": "visible",
+      "width": 1366
+    },
+    {
+      "kind": "long-content-scroll",
+      "mainScroll": 427.3333435058594,
+      "mode": "study",
+      "tree": {
+        "bottom": 802.09375,
+        "height": 636.09375,
+        "left": 256,
+        "right": 721.59375,
+        "top": 166,
+        "width": 465.59375,
+        "x": 256,
+        "y": 166
+      },
+      "trees": 1,
+      "viewport": 900
+    },
+    {
+      "branch": "quality",
+      "buds": [
+        {
+          "inside": true,
+          "width": 43.986778259277344
+        },
+        {
+          "inside": true,
+          "width": 43.98681640625
+        },
+        {
+          "inside": true,
+          "width": 43.986778259277344
+        }
+      ]
+    },
+    {
+      "height": 1080,
+      "overflow": false,
+      "study": {
+        "bottom": 847.6562805175781,
+        "height": 595.2604370117188,
+        "left": 1005.53125,
+        "right": 1762.3333740234375,
+        "top": 252.39584350585935,
+        "width": 756.8021240234375,
+        "x": 1005.53125,
+        "y": 252.39584350585935
+      },
+      "tree": {
+        "bottom": 941.8229370117188,
+        "height": 636.09375,
+        "left": 362.3333435058594,
+        "right": 981.531280517578,
+        "top": 305.72918701171875,
+        "width": 619.1979370117188,
+        "x": 362.3333435058594,
+        "y": 305.72918701171875
+      },
+      "width": 1920
+    },
+    {
+      "kind": "overview-fit",
+      "action": {
+        "bottom": 325.65625,
+        "height": 42,
+        "left": 1547.666748046875,
+        "right": 1629.0000839233398,
+        "top": 283.65625,
+        "width": 81.33333587646484,
+        "x": 1547.666748046875,
+        "y": 283.65625
+      },
+      "mainScroll": 0,
+      "tree": {
+        "bottom": 1007.7292175292968,
+        "height": 630.1458740234375,
+        "left": 392.3333435058594,
+        "right": 1512.3333435058594,
+        "top": 377.5833435058594,
+        "width": 1120,
+        "x": 392.3333435058594,
+        "y": 377.5833435058594
+      },
+      "viewport": 1100
+    }
+  ],
+  "careers": [
+    {
+      "career": "data",
+      "nodes": 13,
+      "grown": 3
+    },
+    {
+      "career": "ai",
+      "grown": 0,
+      "nodes": 13,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "security",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "ops",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "frontend",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "backend",
+      "grown": 0,
+      "nodes": 13,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "engineering",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "testing",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "software",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    },
+    {
+      "career": "delivery",
+      "grown": 0,
+      "nodes": 12,
+      "overflow": false,
+      "pulse": false
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

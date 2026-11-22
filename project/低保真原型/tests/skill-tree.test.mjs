@@ -1,3 +1,6 @@
+import {alignedChecks} from '../server/skill-trees/aligned-checks.mjs';
+import {transferChecks} from '../server/skill-trees/transfer-checks.mjs';
+const updatedApplications={'sql-joins':{rows:'3',total:'150',line:'30',missing:'NULL'},'decision-tables':{r0:'0',r1:'0',r2:'0',r3:'9',edge:'0'},'incident-handoff':{evidence:'L92',execution:'unknown',scope:'unknown',update:'03:30Z'},'four-signals':{rate:'6',threshold:'5',minRequests:'100',forMinutes:'2',first:'6',missing:'unknown'}};
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
@@ -9,16 +12,20 @@ import {atlasPracticeKey, atlasReturn, atlasSavedDraft, atlasTasks, storeTaskDra
 import {createBusinessStore} from '../server/business-store.mjs';
 import {createBusinessCommands} from '../server/business-commands.mjs';
 import {getSkillTree, gradeSkillCheck} from '../server/skill-trees/index.mjs';
+import {applicationTasks} from '../server/skill-trees/application-tasks.mjs';
+import {writeSkillWork} from '../src/skill-learning-model.js';
 
 function answersFor(career, leaf, pass = true) {
-  return Object.fromEntries(leaf.questions.map(question => [
+  const applied=updatedApplications[leaf.id]||transferChecks[leaf.id]?.expected;
+  return {...Object.fromEntries(leaf.questions.map(question => [
     question.id,
     question.options.find(option => {
       const trial = Object.fromEntries(leaf.questions.map(row => [row.id, row.options[0].id]));
+      trial.application=(leaf.version===2&&applied?JSON.stringify(applied):applicationTasks[leaf.id].accepted[0]);
       trial[question.id] = option.id;
       return gradeSkillCheck(career,leaf.id,leaf.version,trial).questions.find(row => row.id===question.id).correct === pass;
     }).id
-  ]));
+  ])),application:pass?(leaf.version===2&&applied?JSON.stringify(applied):applicationTasks[leaf.id].accepted[0]):'intentionally wrong'};
 }
 
 test('all career trees have four distinct source-backed branches and 123 independently gradable leaves', () => {
@@ -93,7 +100,9 @@ test('only server-graded checks award versioned progress; retry, conflicts, priv
     career:'data',skill:leaf.id,version:leaf.version,answers:answersFor('data',leaf),...fields
   }});
   const original = get().state;
-  save({...original,skillStudy:{[key]:{read:true,draft:'Private trial notes'}},mapNodeStatus:{'data:foundation':'已学习'}});
+  const draft=writeSkillWork({artifact:'Private trial notes with inputs, calculation, output and exception handling.',reflection:'Independent verification explains a possible error and the remaining limitations.',section:'examples'});
+  assert.throws(()=>commands.execute('a',input()),{code:'SKILL_PREPARATION_REQUIRED'});
+  save({...original,skillStudy:{[key]:{read:true,draft}},mapNodeStatus:{'data:foundation':'已学习'}});
   assert.equal(skillProgress('data',branch.leaves,get().state.skillStudy).percent,0);
   assert.throws(() => commands.execute('a',input({version:2})),{code:'SKILL_CHECK_VERSION',status:409});
   assert.throws(() => commands.execute('a',input({answers:{q1:'choice-1',q3:'choice-2'}})),{code:'SKILL_CHECK_INVALID'});
@@ -116,7 +125,7 @@ test('only server-graded checks award versioned progress; retry, conflicts, priv
   assert.equal(get('b').state.skillStudy,undefined);
   assert.throws(() => save({...get('b').state,skillStudy:{[key]:get().state.skillStudy[key]}},'b'),{code:'SERVER_RECORD_PROTECTED'});
   assert.doesNotMatch(JSON.stringify(receipt),/Private trial notes/);
-  assert.equal(get().state.skillStudy[key].draft,'Private trial notes');
+  assert.equal(get().state.skillStudy[key].draft,draft);
 
   time += 1000;
   const repeat = commands.execute('a',input({answers:answersFor('data',leaf,false)}));
@@ -124,7 +133,7 @@ test('only server-graded checks award versioned progress; retry, conflicts, priv
   assert.equal(repeat.refs.assessment.passedAt,receipt.refs.assessment.passedAt);
   assert.equal(skillProgress('data',branch.leaves,get().state.skillStudy).percent,33);
   assert.throws(() => save({...get().state,skillStudy:{}}),{code:'SERVER_RECORD_PROTECTED'});
-  assert.throws(() => save({...get().state,skillStudy:{[key]:{draft:'A'.repeat(1801)}}}),{code:'INVALID_WORKSPACE'});
+  assert.throws(() => save({...get().state,skillStudy:{[key]:{draft:'A'.repeat(60001)}}}),{code:'INVALID_WORKSPACE'});
   assert.equal(business.clear('a',get().revision).state.skillStudy,undefined);
 });
 

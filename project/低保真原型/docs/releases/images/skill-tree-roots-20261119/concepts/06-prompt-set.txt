@@ -1,0 +1,53 @@
+第一步：树形主次与不规则分叉设计
+
+Use case: precise-object-edit.
+Deliverable: ONE final polished desktop-page visual design for Avemly Career & skills map, preserving its existing UI and replacing the artificial tree with a convincing NATURALLY GROWN irregular gray deadwood tree.
+
+IMAGE ROLES:
+Image 1, the full Avemly page screenshot: PAGE LAYOUT EDIT TARGET ONLY. Keep its app UI. Its current tree has been REJECTED because all four limbs have the same thickness, same S curve, same evenly spaced forks and matched opposite pairs. DO NOT COPY THAT TREE'S REGULAR ARCHITECTURE.
+Image 2, original ash-tree.webp: PRIMARY TREE GROWTH-STRUCTURE and original dry-bark COLOR reference. Use its twisted asymmetry, varied branching and taper as the starting point. Its outside transparency may display black; never paint that black or edge artifacts.
+
+Highest priority: BOTANICALLY BELIEVABLE, strongly unequal WOODY BRANCH HIERARCHY. This is an artist's natural weathered ash tree, not a tidy four-arm diagram, candelabra, bonsai pattern or mirrored icon. Four identifiable skill branch groups can exist WITHOUT four equal physical limbs or equal symmetric Y junctions.
+
+Art direction for one coherent tree:
+- A sturdy gray root flare and slightly twisting trunk with one clear continuous leader sweeping toward the upper right. The upper-right bough is the strongest continuation of trunk mass, gradually turning and tapering as in original image 2, with irregular secondary twigs.
+- The upper-left branch emerges at a different height and angle, roughly 60–65% of that dominant bough's basal thickness; rises more abruptly before turning outward. A shorter secondary branch and a longer terminal extension, not a copy of the right side.
+- The low-left branch leaves the trunk LOWER and further forward, about 40–45% of the dominant bough's thickness. A longer shallow outward reach with a subtle dip, then twig tips rising at DIFFERENT angles. Keep its insertion well below the upper-left fork.
+- The lower-right branch originates HIGHER than the low-left branch, about 50–55% of the dominant bough thickness, with a shorter knotted inner turn and more irregularly spaced small forks. Different curve and length from the low-left branch.
+- These ratios are visual direction to establish unmistakable hierarchy, NOT labels to draw. All main branches remain substantial near the trunk but must visibly narrow along their lengths. A secondary fork has unequal daughters: one continues the parent and one much thinner side shoot departs. No equal-diameter pipes, equal forks, parallel railings, repeated S curves, evenly spaced antler tines, matching pairs or branches all ending on an arc.
+- Use subtle bends, occasional short tapering side spurs, localized healed bark knots and a few restrained irregularities in contour. Bark follows each branch's grain and junction naturally. No random excessive thorny clutter.
+- Root lengths, thickness and directions are also unequal, rooting into the shallow soil; not a radial comb of identical roots. Natural slightly off-center weight, composed to balance visually with whitespace rather than mirror symmetry.
+
+Fitting and proportion: keep the generous tree width about 80–84% of the existing large card and the comfortably taller presentation of image 1, visible whole-tree width-to-height around 1.75–1.85. A broad AND upright natural silhouette. Maintain substantial root/trunk mass and open spaces for skill interaction. No flattened fan. Do not stretch any bitmap, text or bud. If needed extend the page downward slightly to retain breathable margins. Keep the tree card top, left and right edges and all surrounding website navigation intact.
+
+COLOR LOCK: dry weathered ASH / SILVER-GRAY and NEUTRAL GRAY-BROWN, muted blue-gray inside deep bark grooves, neutral gray-white highlights. Match original image 2 closely. Matte organic fine fibrous bark and softly broken edges, crisp readable painting at webpage scale. NO yellow, gold, honey, peach, amber, orange timber or cream-tan color grade. No polished white plastic, smooth uniform tentacles, glossy tubes, neon or icy glass. The site's warm ivory background and deep navy live text keep their normal colors.
+
+Skill design: exactly 13 skill attachment points in their corresponding four branch groups: three lower-left, three upper-left, three upper-right, four lower-right. Preserve the original node identities, connectivity and relative order from the existing tree; adapt their positions coherently to the new natural architecture. 12 small CLOSED pointed sage-green leaf buds naturally connected by short stems at the corresponding twig tips, slightly differing in tilt/size according to twig direction, not like equally spaced decorative beads. ONE completed green leafy sprig in the upper-central/right group with a tiny green check at its base; total example state Passed 1/13. No water pearls or ornamental cups. Keep all uncompleted wood gray; no new mature foliage. Every bud's stem must visibly connect to a twig.
+
+Live branch labels: keep 'Metrics and querying', 'Data quality', 'Statistical reasoning', 'Modeling and communication' in legible restrained navy letters close to their corresponding main branches, flowing with grain. Use smaller natural lettering or adapt placement when a branch is thinner; NEVER make four branches equally thick merely to support labels. Keep central 'Data analysis' on the trunk and 'Passed 1/13' below soil. Preserve all other existing UI text and controls exactly. No annotations or new explanatory headings.
+
+Ground: small LOW irregular gray-brown soil patch only about 55% of full crown width, a narrow pale blue-gray stream bending in front of nearby root tips, just a few tiny pebbles and irregular sparse early grass/moss patches. Do not form a uniform oval island or ring moat. Most soil stays visible at 1/13 progress. Nothing grows in repeated equally spaced tufts. No big lawn, mountains or extra scenery.
+
+Final quality check: from a distance this should read as a real singular hand-painted weathered tree with a dominant trunk leader, subordinate limbs of DIFFERENT thickness, branches emerging at staggered heights and irregular unequal forks. The existing app remains a familiar desktop page. One final full-page design image, no variants, no numbered panels, no instruction text, no arrows, no animation effects.
+
+第二步：节点数量与画面边距校正
+
+Use case: precise-object-edit.
+Final production-design cleanup of the attached Avemly full-page tree mockup.
+EDIT TARGET: the provided image ONLY. Its natural asymmetric branch hierarchy, irregular forks, thickness differences, gray bark, knot detail, strong trunk, natural root flare, small soil and creek, existing labels and website UI are now correct. PRESERVE THEM EXACTLY. Do not redesign, recolor or regularize any tree limb.
+
+Make only these precise botanical skill-marker corrections, using the reference image's approximately 1645 x 956 coordinate system:
+1) REMOVE the unwanted closed bud at roughly (1184,250), at the very top of the upper-right bare ascending branch, and its tiny stem/holder only. Keep the underlying main twig intact, naturally ending as a bare tapered twig. This bud is currently so high it nearly touches the page controls; there must be no bud there.
+2) REMOVE the unwanted closed bud at roughly (1423,339), on the far-right SECOND/HORIZONTAL twig of the upper-right branch group. Keep that twig ending naturally bare. Leave the higher/rightward bud near (1352,294) intact.
+3) ADD ONE small closed sage-green leaf bud naturally connected to the currently bare LOWER terminal twig of the lower-right branch group, roughly (1420,700), following that twig's own growth direction. Keep it the same restrained natural botanical style as the other closed buds.
+
+After these changes there must be EXACTLY THIRTEEN skill markers across FOUR branch groups:
+- lower-left: THREE closed buds, already at approximately (328,611), (433,545), (574,590);
+- upper-left: THREE closed buds, already at approximately (467,342), (647,270), (756,358);
+- upper-right: THREE markers ONLY, the closed bud near (936,358), the single completed green sprig/check near (1042,328), and the closed bud near (1352,294);
+- lower-right: FOUR closed buds, the existing ones near (1250,512), (1382,507), (1470,599), plus the newly added one near (1420,700).
+Total = 12 CLOSED BUDS + 1 COMPLETED LEAF SPRIG. Do not draw any other green markers on the tree. Sparse ground grass is unchanged.
+
+Give the top of the tree a little more breathing room: shift the complete TREE + its own branch/trunk labels + ground scene + Passed 1/13 caption downward roughly 18px within the existing card, extending the bottom of the card/canvas by roughly 18px if required. All website controls, headings, card top edge and navigation remain fixed. This is one coherent small translation, not scaling, stretching, shrinking or changing branch lengths. The crown width and tall tree proportions stay the same. Nothing overlaps the page controls.
+
+CRITICAL PRESERVATION: keep the naturally unequal thick upper-right leader, subordinate left limbs, staggered lower branch attachments, beautiful irregular tapered secondary twigs, gray deadwood without yellow, and embedded natural old cut/growth-ring knot at the root flare. Do not turn it back into four identical arms or symmetric equal forks. Keep the exact existing navy labels and UI text. Resting state, no glows or arrows. One final polished full-page design image, no added annotations.

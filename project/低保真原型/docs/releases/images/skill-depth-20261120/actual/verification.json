@@ -1,0 +1,236 @@
+{
+  "passed": true,
+  "errors": [],
+  "desktopWidths": [
+    1366,
+    1700,
+    1920
+  ],
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "stages": [
+    {
+      "paper": {
+        "bottom": 796.8958740234375,
+        "height": 526.7708740234375,
+        "left": 1065.46875,
+        "right": 1648.65625,
+        "top": 270.125,
+        "width": 583.1875,
+        "x": 1065.46875,
+        "y": 270.125
+      },
+      "stage": "question3",
+      "tree": {
+        "bottom": 750.5000305175781,
+        "height": 439.6770935058594,
+        "left": 256,
+        "right": 1037.46875,
+        "top": 310.82293701171875,
+        "width": 781.46875,
+        "x": 256,
+        "y": 310.82293701171875
+      }
+    },
+    {
+      "leaves": 0,
+      "stage": "failed",
+      "tree": {
+        "bottom": 750.5000305175781,
+        "height": 439.6770935058594,
+        "left": 256,
+        "right": 1037.46875,
+        "top": 310.82293701171875,
+        "width": 781.46875,
+        "x": 256,
+        "y": 310.82293701171875
+      }
+    },
+    {
+      "leafPairs": 1,
+      "paper": {
+        "bottom": 701.2812805175781,
+        "height": 333.04168701171875,
+        "left": 1065.46875,
+        "right": 1648.65625,
+        "top": 368.2395935058594,
+        "width": 583.1875,
+        "x": 1065.46875,
+        "y": 368.2395935058594
+      },
+      "stage": "single-passed",
+      "tree": {
+        "bottom": 750.5000305175781,
+        "height": 439.6770935058594,
+        "left": 256,
+        "right": 1037.46875,
+        "top": 310.82293701171875,
+        "width": 781.46875,
+        "x": 256,
+        "y": 310.82293701171875
+      }
+    },
+    {
+      "clusters": 4,
+      "leafPairs": 3,
+      "paper": {
+        "bottom": 701.2812805175781,
+        "height": 333.04168701171875,
+        "left": 1065.46875,
+        "right": 1648.65625,
+        "top": 368.2395935058594,
+        "width": 583.1875,
+        "x": 1065.46875,
+        "y": 368.2395935058594
+      },
+      "stage": "branch-grown",
+      "tree": {
+        "bottom": 750.5000305175781,
+        "height": 439.6770935058594,
+        "left": 256,
+        "right": 1037.46875,
+        "top": 310.82293701171875,
+        "width": 781.46875,
+        "x": 256,
+        "y": 310.82293701171875
+      }
+    },
+    {
+      "artifactAvailable": true,
+      "leafPairs": 3,
+      "stage": "historical-restore"
+    },
+    {
+      "grid": "590.208px 440.448px",
+      "overflow": false,
+      "stage": "1366-assessment",
+      "tree": {
+        "bottom": 696.6979370117188,
+        "height": 332.0625,
+        "left": 256,
+        "right": 846.2083740234375,
+        "top": 364.6354370117187,
+        "width": 590.2083740234375,
+        "x": 256,
+        "y": 364.6354370117187
+      }
+    },
+    {
+      "font": "17px",
+      "overflow": false,
+      "stage": "boundary-1366",
+      "tables": 1,
+      "treeCount": 0
+    },
+    {
+      "overflow": false,
+      "stage": "decision-table-practice-1366",
+      "tables": 1,
+      "treeCount": 0
+    },
+    {
+      "font": "17px",
+      "overflow": false,
+      "stage": "english-1920",
+      "trees": 0
+    },
+    {
+      "overflow": false,
+      "paper": {
+        "bottom": 800.8646240234375,
+        "height": 534.7083740234375,
+        "left": 874.2083740234375,
+        "right": 1314.6563110351562,
+        "top": 266.15625,
+        "width": 440.4479370117187,
+        "x": 874.2083740234375,
+        "y": 266.15625
+      },
+      "stage": "english-1366-q1",
+      "tree": {
+        "bottom": 696.6979370117188,
+        "height": 332.0625,
+        "left": 256,
+        "right": 846.2083740234375,
+        "top": 364.6354370117187,
+        "width": 590.2083740234375,
+        "x": 256,
+        "y": 364.6354370117187
+      }
+    },
+    {
+      "paper": {
+        "bottom": 781.5312957763672,
+        "height": 534.7083740234375,
+        "left": 874.2083740234375,
+        "right": 1314.6563110351562,
+        "top": 246.8229217529297,
+        "width": 440.4479370117187,
+        "x": 874.2083740234375,
+        "y": 246.8229217529297
+      },
+      "stage": "english-1366-q2",
+      "tree": {
+        "bottom": 677.3645935058594,
+        "height": 332.0625,
+        "left": 256,
+        "right": 846.2083740234375,
+        "top": 345.3020935058594,
+        "width": 590.2083740234375,
+        "x": 256,
+        "y": 345.3020935058594
+      }
+    },
+    {
+      "overflow": false,
+      "scrollY": 0,
+      "stage": "english-1366-q3-document",
+      "treeDocumentY": 345.3020935058594
+    },
+    {
+      "stage": "final-dock-collapsed",
+      "treeDocumentY": 310.82293701171875
+    },
+    {
+      "gridHeight": 911.53125,
+      "stage": "final-dock-expanded",
+      "treeDocumentY": 310.82293701171875
+    },
+    {
+      "bodyY": 304.53125,
+      "font": "17px",
+      "mainScroll": 0,
+      "stage": "final-first-screen"
+    }
+  ],
+  "checks": {
+    "all123IndividualLessons": true,
+    "all123IndependentTasks": true,
+    "standaloneLearning": true,
+    "standalonePractice": true,
+    "practiceSaved": true,
+    "codeCopyButtonConfirmed": true,
+    "failedDidNotGrow": true,
+    "singleGrowthObserved": "water",
+    "branchGrowthObserved": "water",
+    "branchLeaves": 3,
+    "branchClusters": 4,
+    "historyRestoredWithoutReplay": true,
+    "crossCareerRestore": true,
+    "expandedReviewAnchorFixed": true
+  },
+  "fullTests": {
+    "total": 509,
+    "passed": 505,
+    "failed": 3,
+    "skipped": 1,
+    "knownFailures": "AI_BUDGET_PRICE_EXPIRED"
+  },
+  "targetedTests": {
+    "total": 14,
+    "passed": 14
+  },
+  "screenshotScope": "Full browser captures include fixed workspace context; long lesson also captured after scrolling the single main reading region. Earlier and final geometry observations are labeled by stage."
+}
