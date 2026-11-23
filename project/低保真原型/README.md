@@ -1,5 +1,7 @@
 # 职业探索与成长 Web
 
+最新生产（2026-11-23 12:46）：职业探索与比较局部上线，包含十方向职业全貌、同源中英对照及 35 条来源记录。[发布说明](docs/releases/career-content-release-20261123.md) · [上线前实施与截图](docs/releases/career-content-implementation-20261123.md)。
+
 当前完整源码已上线（2026-11-22 23:18）：包括所有账号当前修改；本轮按用户要求不重跑检查，仅完成构建、备份与切换。[完整发布说明](docs/releases/full-snapshot-20261122.md)。以下此前“最新本地/未部署”为发布前历史。
 
 

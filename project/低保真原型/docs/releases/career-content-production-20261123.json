@@ -1,0 +1,37 @@
+{
+  "deployedAtBeijing": "2026-11-23 12:46",
+  "origin": "https://47.250.133.180",
+  "deployment": {
+    "event": "DEPLOY_OK",
+    "release": "/srv/career-growth/releases/career-content-20261123-20261123T044616Z",
+    "previous": "/srv/career-growth/releases/full-snapshot-20261122-20261122T151858Z",
+    "files": [
+      "src/AssistantTaskPanels.jsx",
+      "src/CareerBrowser.jsx",
+      "src/CareerComparisonPage.jsx",
+      "src/CareerReadingPage.jsx",
+      "src/career-comparison.js",
+      "src/career-exploration-model.js",
+      "src/career-exploration-reading.css",
+      "src/content/career-exploration-sources.json",
+      "src/content/career-exploration.json",
+      "src/content/career-profiles-20261122-audit.json",
+      "src/i18n/career-exploration-en.json"
+    ],
+    "archiveSha256": "e961fd7bf26da63813f424cecb33aa307152353156896c5eb345566413fd584b",
+    "backup": "/srv/career-growth/backups/career-content-20261123-20261123T044616Z",
+    "testsRun": false,
+    "pageAuditRun": false,
+    "servicesRestarted": [
+      "career-auth"
+    ],
+    "databaseAccessByPublisher": false,
+    "deployedAt": "2026-11-23T04:46:26.957223+00:00"
+  },
+  "package": {
+    "event": "PACKAGE_READY",
+    "files": 11,
+    "bytes": 165319,
+    "sha256": "e961fd7bf26da63813f424cecb33aa307152353156896c5eb345566413fd584b"
+  }
+}

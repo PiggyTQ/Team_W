@@ -1,0 +1,149 @@
+{
+  "checkedAt": "2026-11-22T16:40:20.346021+00:00",
+  "bundleUrl": "https://47.250.133.180/assets/index-Bhvugf8x.js",
+  "bundleSha256": "f0e3e6e473d844e3ff7c41eb20fe4d2799e3934b1bada8c1d20bddbc872c58f1",
+  "contentVersion": "career-exploration-20261122-audit",
+  "extraction": "Parsed public JavaScript AST; recursively read literal data only; no remote script execution or account access",
+  "careers": [
+    {
+      "id": "data",
+      "name": "数据分析",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "ai",
+      "name": "人工智能",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "security",
+      "name": "网络安全",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "ops",
+      "name": "运维工程",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "frontend",
+      "name": "前端开发",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "backend",
+      "name": "后端开发",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "engineering",
+      "name": "数据工程",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "testing",
+      "name": "软件测试",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "software",
+      "name": "通用软件开发",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "delivery",
+      "name": "IT实施交付",
+      "found": true,
+      "matchesLocal": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "onet-bi",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "postgres",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "powerbi",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "ai-rmf",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "nist-ir",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "sre",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "mdn-forms",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "openapi",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "owasp-api",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "airflow",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "istqb",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "github-pr",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "ms-migration",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "swebok",
+      "found": true,
+      "matchesLocal": true
+    },
+    {
+      "id": "cn-new-occupations",
+      "found": true,
+      "matchesLocal": true
+    }
+  ],
+  "allCareerMatches": true,
+  "allSourceMatches": true,
+  "sha256CareerSnapshot": "c987e1363236da170c1c66ba2424c471d9dde322794c141465b0fe4ba514815c"
+}

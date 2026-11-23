@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 690" width="1160" height="690">
+<rect width="1160" height="690" fill="#fbf8f0"/>
+<g font-family="Arial, Microsoft YaHei, sans-serif" fill="#103f6b">
+<text x="30" y="40" font-size="24">职业探索与比较 · 实施前局部结构</text>
+<rect x="30" y="66" width="720" height="76" rx="12" fill="#fffefa" stroke="#dedad0"/>
+<text x="48" y="97" font-size="20">职业名称与职业问题</text><text x="48" y="123" font-size="15">主要工作 · 职业产物 · 协作</text>
+<path d="M30 181H750 M30 431H750 M30 598H750" stroke="#d5d9dc"/>
+<text x="33" y="170" font-size="16">职业全貌　　代表案例　　能力与准备　　成长与协作　　入门体验　　来源</text>
+<text x="30" y="218" font-size="21">职业全貌与相邻方向</text>
+<text x="30" y="250" font-size="16">从需求到维护：短流程及交付对象</text>
+<text x="30" y="285" font-size="16">哪些侧重常见：分工、产物与团队环境</text>
+<text x="30" y="320" font-size="16">主张旁的职业活动或方法依据 → 同页详细来源</text>
+<rect x="30" y="354" width="720" height="52" rx="8" fill="#edf5fb"/>
+<text x="48" y="385" font-size="16">本页案例覆盖的环节　　　　　　　　　进入代表案例 ↓</text>
+<text x="30" y="470" font-size="21">代表案例 · 保留现有输入、推演与产物</text>
+<text x="30" y="520" font-size="16">案例问题、输入与判断　　　　　　　　原有产物预览</text>
+<text x="30" y="633" font-size="16">准备与责任、入门体验和来源沿用原阅读导航</text>
+<rect x="790" y="66" width="340" height="420" rx="12" fill="#fffefa" stroke="#dedad0"/>
+<text x="808" y="102" font-size="21">普通比较与 AI 公共对照</text>
+<text x="808" y="142" font-size="16">方向名称和本页代表任务</text>
+<text x="808" y="187" font-size="16">职业问题、主要工作</text>
+<text x="808" y="223" font-size="16">典型交付、协作、基础</text>
+<text x="808" y="259" font-size="16">案例体验摘要与进入详情</text>
+<text x="808" y="315" font-size="16">同一内容版本和依据</text>
+<text x="808" y="367" font-size="16">原比较组合笔记与目标确认</text>
+</g></svg>

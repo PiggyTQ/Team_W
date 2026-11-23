@@ -28,11 +28,36 @@ test('all existing directions have distinct complete task chains, visible author
   assert.ok(r.practice.input&&r.practice.deliverable&&r.practice.checks.length);assert.ok(r.preparation.every(p=>p.skill&&p.work&&p.quality));assert.ok(r.growth.every(g=>g.title&&g.description));
  }assert.equal(taskTitles.size,10);assert.ok(artifactTexts.size>=22);
 });
-test('all facts/method mappings refer to read sources with explicit scope, dates, rights and usage; unknown dates remain unknown',()=>{
- const ids=new Set(careerSourceRecords.map(r=>r.id));assert.equal(ids.size,careerSourceRecords.length);assert.equal(ids.size,15);
- for(const id of careerContentIds){const r=careerContent(id);for(const source of r.sources){assert.ok(ids.has(source));assert.ok(r.sourceClaims[source].length);}}
- for(const r of careerSourceRecords){assert.equal(r.status,'read_original');for(const k of ['publisher','title','region','coverage','version','license','usage'])assert.ok(r[k]);assert.equal(new URL(r.url).protocol,'https:');assert.match(r.accessed,/^2026-11-2[12]$/);}
- assert.equal(careerSourceRecords.find(r=>r.id==='cn-new-occupations').originalUpdated,'2019-04-01');assert.equal(careerSourceRecords.find(r=>r.id==='sre').originalUpdated,null);assert.ok(careerSourceRecords.find(r=>r.id==='powerbi').coverage.includes('不是全体'));
+test('source scope distinguishes reviewed claims, institutional copies, optional indices and unreviewed chapters',()=>{
+ const sources=new Map(careerSourceRecords.map(r=>[r.id,r]));assert.equal(sources.size,careerSourceRecords.length);
+ for(const id of careerContentIds){
+  const role=careerContent(id);
+  for(const source of role.sources){
+   const record=sources.get(source);
+   assert.ok(record,source);
+   if(record.status==='metadata_only')assert.equal(role.sourceClaims[source],undefined);
+   else assert.ok(role.sourceClaims[source].length,source);
+  }
+ }
+ for(const r of careerSourceRecords){
+  for(const k of ['publisher','title','region','coverage','version','sections','supports','license','usage'])assert.ok(r[k],r.id+' '+k);
+  assert.equal(new URL(r.url).protocol,'https:');assert.match(r.accessed,/^2026-11-2[123]$/);
+ }
+ const cn=sources.get('cn-business-data-analyst-2024');
+ assert.equal(cn.status,'read_institutional_copy');assert.notEqual(new URL(cn.url).hostname,new URL(cn.originalUrl).hostname);
+ assert.equal(cn.publicationDate,'2024-02-06');assert.equal(cn.originalUpdated,null);
+ const bigData=sources.get('cn-bigdata-engineer-2021');
+ assert.notEqual(bigData.publicationDate,bigData.mirrorDate);
+ assert.equal(sources.get('cn-new-occupations').originalUpdated,'2019-04-01');
+ assert.equal(sources.get('sre').originalUpdated,null);assert.match(sources.get('sre').license,/CC BY-NC-ND/);
+ const bi=sources.get('powerbi');assert.equal(bi.scopeDate,'2026-04-20');assert.equal(bi.originalUpdated,'2026-10-30');
+ assert.equal(sources.get('mdn-core').status,'read_index');
+ assert.equal(sources.get('swebok').status,'metadata_only');
+ assert.match(sources.get('istqb').sections,/§4\.2\.2.*§5\.5/);
+ for(const r of sources.values())if(r.publisher.includes('O*NET')){
+  assert.match(r.usage,/USDOL\/ETA未认可/);assert.equal(r.attributionLicenseUrl,'https://creativecommons.org/licenses/by/4.0/');
+  assert.ok(r.publicationUrl);
+ }
 });
 test('reading, ordinary comparison and public AI projection share task dimensions and retain bilingual source metadata',()=>{
  for(const id of careerContentIds){const r=careerContent(id),p=careerComparison(id);for(const [key]of comparisonDimensions)assert.deepEqual(comparisonValue(p,key),comparisonValue(r,key));assert.deepEqual(p.sourceRecords,r.sourceRecords);assert.equal(p.provenance.version,r.version);

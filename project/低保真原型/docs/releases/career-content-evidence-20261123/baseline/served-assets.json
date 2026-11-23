@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-11-22T16:40:20.346021+00:00",
+  "origin": "https://47.250.133.180",
+  "route": "/careers?career=data",
+  "htmlStatus": 200,
+  "htmlSha256": "eb84c9a6d40d09b9266fbc5e882d335ddd71709ba43780a756c43db74ecf46f3",
+  "tls": "IP endpoint fetched with certificate validation disabled; not a certificate trust audit",
+  "method": "Unauthenticated GET only; no account/DB/service writes",
+  "assets": [
+    {
+      "url": "https://47.250.133.180/assets/index-Bhvugf8x.js",
+      "status": 200,
+      "bytes": 1771126,
+      "sha256": "f0e3e6e473d844e3ff7c41eb20fe4d2799e3934b1bada8c1d20bddbc872c58f1",
+      "localSnapshot": "checks/career-content-evidence-20261123/index-Bhvugf8x.js",
+      "containsCurrentCareerVersion": true
+    },
+    {
+      "url": "https://47.250.133.180/assets/index-Cp9dL66O.css",
+      "status": 200,
+      "bytes": 1653841,
+      "sha256": "44aaaca6dfa3916082678db960cc215d94bdbf9342d1c712bee88f875181b221",
+      "localSnapshot": "checks/career-content-evidence-20261123/index-Cp9dL66O.css",
+      "containsCurrentCareerVersion": false
+    },
+    {
+      "url": "https://47.250.133.180/assets/react-DFQR2juu.js",
+      "status": 200,
+      "bytes": 221278,
+      "sha256": "c15602eed5cd83b6a0b57e25a7e8b6667bc934e4eda1661dff072c70c5523e50",
+      "localSnapshot": "checks/career-content-evidence-20261123/react-DFQR2juu.js",
+      "containsCurrentCareerVersion": false
+    },
+    {
+      "url": "https://47.250.133.180/assets/translations-DhjjHqYU.js",
+      "status": 200,
+      "bytes": 743308,
+      "sha256": "54ed6ddf95b1012ea9a7777d7074955da289ccf1d31e22fa83e6e4e5c6efbc47",
+      "localSnapshot": "checks/career-content-evidence-20261123/translations-DhjjHqYU.js",
+      "containsCurrentCareerVersion": false
+    }
+  ]
+}

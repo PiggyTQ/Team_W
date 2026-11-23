@@ -1,0 +1,460 @@
+{
+  "purpose": "Navigation index only; reading status, rights and supported claims remain in the named source record. Includes explicitly pending candidates; not a list of all verified sources.",
+  "records": [
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "2.1 可直接采用的总览与范围",
+      "url": "https://www.onetonline.org/link/details/15-1212.00"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "2.1 可直接采用的总览与范围",
+      "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/resources/occupations-jobs-and-work"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "2.2 完整工作链：可作为方向说明，而非新增固定流程数量",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "2.3 细分任务、产物和准备范围",
+      "url": "https://he.nvq.net.cn/siteApp/upload/1072/upload/2021-11-29/2544/22281638174686078.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "3.1 可直接采用的总览与范围",
+      "url": "https://www.onetonline.org/link/details/15-1244.00"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "3.1 可直接采用的总览与范围",
+      "url": "https://sre.google/sre-book/introduction/"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "3.2 补足持续工作链",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "4.1 可直接采用的总览与范围",
+      "url": "https://www.onetonline.org/link/details/15-1211.00"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "4.1 可直接采用的总览与范围",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/success-by-design"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S1：国内网络与信息安全管理员活动（职业标准）",
+      "url": "https://he.nvq.net.cn/siteApp/upload/1072/upload/2021-11-29/2544/22281638174686078.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S1：国内网络与信息安全管理员活动（职业标准）",
+      "url": "https://www.zhangye.gov.cn/zyszfxxgk/fdzdgknr_5657/zdmsxx/jycy/202103/t20210301_590582_ghb.html"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S2：信息安全分析师职业活动",
+      "url": "https://www.onetonline.org/link/details/15-1212.00"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S2：信息安全分析师职业活动",
+      "url": "https://www.onetonline.org/help/license"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S3：安全职业、岗位和工作角色的关系",
+      "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/resources/occupations-jobs-and-work"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S3：安全职业、岗位和工作角色的关系",
+      "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S3：安全职业、岗位和工作角色的关系",
+      "url": "https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S4：事件响应方法与责任",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "S4：事件响应方法与责任",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "O1：系统与网络管理员职业活动",
+      "url": "https://www.onetonline.org/link/details/15-1244.00"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "O2：SRE、DevOps及持续工程工作（方法）",
+      "url": "https://sre.google/sre-book/introduction/"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "O3：服务指标、目标与聚合（方法）",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D1：系统分析与实施相关职业活动",
+      "url": "https://www.onetonline.org/link/details/15-1211.00"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D2：从方案到运行的厂商实施实践",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/success-by-design"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D2：从方案到运行的厂商实施实践",
+      "url": "https://learn.microsoft.com/en-us/legal/termsofuse"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D2：从方案到运行的厂商实施实践",
+      "url": "https://www.szns.gov.cn/nsqrzj/attachment/1/1619/1619723/12348890.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D2：从方案到运行的厂商实施实践",
+      "url": "https://jxjyxy.jcut.edu.cn/__local/0/63/D5/ABBFADAF27FA1E83DE63B44D5DF_62C07457_9035CD.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D2：从方案到运行的厂商实施实践",
+      "url": "https://www.moe.gov.cn/s78/A07/zcs_ztzl/2017_zt06/17zt06_bznr/bznr_zyjyzyjxbz/gdzyjy_zk/zk_dzyxxdl/dzxxdl_jsjl/202502/P020250207533801162064.pdf"
+    },
+    {
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "section": "D2：从方案到运行的厂商实施实践",
+      "url": "https://www.mohrss.gov.cn/wap/xw/rsxw/202210/t20221028_489104.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "职业定义与边界",
+      "url": "https://osta.uestc.edu.cn/shangwushujufenxishiguojiazhiyejinengbiaozhun.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "职业定义与边界",
+      "url": "https://www.onetonline.org/link/details/15-2051.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "完整工作链",
+      "url": "https://www.onetonline.org/link/details/15-2051.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "完整工作链",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "常见侧重、产物与协作",
+      "url": "https://osta.uestc.edu.cn/shangwushujufenxishiguojiazhiyejinengbiaozhun.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "常见侧重、产物与协作",
+      "url": "https://www.onetonline.org/link/details/15-2051.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "准备、成长与工作环境",
+      "url": "https://www.postgresql.org/docs/19/tutorial-window.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "准备、成长与工作环境",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "职业定义与边界",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202204/W020220417422568219867.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "完整工作链",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202204/W020220417422568219867.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "完整工作链",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "方向差异与可能产物",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202204/W020220417422568219867.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "协作、准备、成长与环境",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "职业定义与边界",
+      "url": "https://zsgx.mohrss.gov.cn/uploads/2024-10-24/大数据工程技术人员国家职业技术技能标准.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "职业定义与边界",
+      "url": "https://www.onetonline.org/link/details/15-1243.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "完整工作链",
+      "url": "https://www.onetonline.org/link/details/15-1243.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "完整工作链",
+      "url": "https://zsgx.mohrss.gov.cn/uploads/2024-10-24/大数据工程技术人员国家职业技术技能标准.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "常见侧重、产物与协作",
+      "url": "https://zsgx.mohrss.gov.cn/uploads/2024-10-24/大数据工程技术人员国家职业技术技能标准.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "常见侧重、产物与协作",
+      "url": "https://www.onetonline.org/link/details/15-1243.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "接回现有重跑体验",
+      "url": "https://airflow.apache.org/docs/apache-airflow/3.4.0/best-practices.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "接回现有重跑体验",
+      "url": "https://www.postgresql.org/docs/19/tutorial-transactions.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C1：国内商务数据分析职业活动",
+      "url": "https://osta.uestc.edu.cn/shangwushujufenxishiguojiazhiyejinengbiaozhun.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C1：国内商务数据分析职业活动",
+      "url": "https://osta.uestc.edu.cn/info/1026/1274.htm"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C1：国内商务数据分析职业活动",
+      "url": "https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/rcrs_4225/jnrc/202402/W020240227591373272377.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C2：美国BI职业活动",
+      "url": "https://www.onetonline.org/link/details/15-2051.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C2：美国BI职业活动",
+      "url": "https://www.onetonline.org/link/updates/15-2051.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C2：美国BI职业活动",
+      "url": "https://www.onetonline.org/help/license"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M1：SQL窗口与筛选方法",
+      "url": "https://www.postgresql.org/docs/19/tutorial-window.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M1：SQL窗口与筛选方法",
+      "url": "https://www.postgresql.org/about/licence/"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M2：可选BI工具路径",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M2：可选BI工具路径",
+      "url": "https://learn.microsoft.com/en-us/legal/termsofuse"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C3：国内人工智能工程技术活动",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202204/W020220417422568219867.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C3：国内人工智能工程技术活动",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202204/t20220417_2679282.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M3：AI评估、上下文和运行风险",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M3：AI评估、上下文和运行风险",
+      "url": "https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C4：国内大数据职业活动",
+      "url": "https://zsgx.mohrss.gov.cn/uploads/2024-10-24/大数据工程技术人员国家职业技术技能标准.pdf"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C4：国内大数据职业活动",
+      "url": "https://gsca.miit.gov.cn/zwgk/rcrs/art/2021/art_134c95ddd2ad454a9dcfae2342fbf9bc.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C5：美国数仓职业活动",
+      "url": "https://www.onetonline.org/link/details/15-1243.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C5：美国数仓职业活动",
+      "url": "https://www.onetonline.org/link/updates/15-1243.01"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "C5：美国数仓职业活动",
+      "url": "https://www.onetonline.org/help/license"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M4：Airflow重跑方法",
+      "url": "https://airflow.apache.org/docs/apache-airflow/3.4.0/best-practices.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M4：Airflow重跑方法",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M5：事务方法的适用条件",
+      "url": "https://www.postgresql.org/docs/19/tutorial-transactions.html"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M5：事务方法的适用条件",
+      "url": "https://www.postgresql.org/about/licence/"
+    },
+    {
+      "document": "分组审阅与补充-数据与智能.md",
+      "section": "M5：事务方法的适用条件",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-01：O*NET Web Developers",
+      "url": "https://www.onetonline.org/link/details/15-1254.00"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-01：O*NET Web Developers",
+      "url": "https://www.onetonline.org/link/updates/15-1254.00"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-01：O*NET Web Developers",
+      "url": "https://www.onetonline.org/help/license"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-02：O*NET Software Developers",
+      "url": "https://www.onetonline.org/link/details/15-1252.00"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-02：O*NET Software Developers",
+      "url": "https://www.onetonline.org/link/updates/15-1252.00"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-03：O*NET Software Quality Assurance Analysts and Testers",
+      "url": "https://www.onetonline.org/link/details/15-1253.00"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-03：O*NET Software Quality Assurance Analysts and Testers",
+      "url": "https://www.onetonline.org/link/updates/15-1253.00"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-04：BLS Web Developers and Digital Designers",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-04：BLS Web Developers and Digital Designers",
+      "url": "https://www.bls.gov/bls/linksite.htm"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-05：BLS Software Developers, Quality Assurance Analysts, and Testers",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-06：MDN Curriculum Core modules",
+      "url": "https://developer.mozilla.org/en-US/curriculum/core/"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-06：MDN Curriculum Core modules",
+      "url": "https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-07：MDN Curriculum Extensions modules",
+      "url": "https://developer.mozilla.org/en-US/curriculum/extensions/"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-08：ISTQB CTFL Syllabus v4.0.1",
+      "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-09：SWEBOK Guide v4.0a（部分核验，全文待核）",
+      "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-10：OpenAPI Specification v3.1.1（方法选读）",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-11：OWASP API1:2023 Broken Object Level Authorization",
+      "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/"
+    },
+    {
+      "document": "分组审阅与补充-软件与测试.md",
+      "section": "ST-12：GitHub Pull request reviews",
+      "url": "https://docs.github.com/en/pull-requests/reference/pull-request-reviews"
+    }
+  ]
+}

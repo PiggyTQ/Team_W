@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-23",
+  "status": "authored_content_for_future_implementation",
+  "coverage": [
+    {
+      "id": "data",
+      "name": "数据分析",
+      "document": "分组审阅与补充-数据与智能.md",
+      "topics": [
+        "职业与业务场景范围",
+        "问题/指标/数据准备/验证/呈现/维护",
+        "BI/产品/经营与数据科学边界",
+        "产物使用者、行业语境和责任发展"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "ai",
+      "name": "人工智能",
+      "document": "分组审阅与补充-数据与智能.md",
+      "topics": [
+        "应用/算法/平台不同工作",
+        "任务和数据到训练/评估/部署监测",
+        "模型、应用和系统质量的区别",
+        "原文与检索轨迹的证据边界"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "engineering",
+      "name": "数据工程",
+      "document": "分组审阅与补充-数据与智能.md",
+      "topics": [
+        "接入/转换/模型/质量/血缘/运行恢复",
+        "批处理/流处理/数仓/平台侧重",
+        "上下游契约与数据生命周期",
+        "原子发布须具备存储/平台条件"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "security",
+      "name": "网络安全",
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "topics": [
+        "风险/资产/控制到监测响应",
+        "安全运营/应用安全/授权测试/治理",
+        "授权和业务影响",
+        "证据与处置决定的职责边界"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "ops",
+      "name": "运维工程",
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "topics": [
+        "配置/变更/容量/故障/自动化/恢复",
+        "运维、DevOps与SRE的交叉",
+        "服务目标及业务验收",
+        "轮值/组织及环境差异的限定"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "delivery",
+      "name": "IT实施交付",
+      "document": "分组审阅与补充-安全运维与交付.md",
+      "topics": [
+        "调研/差异/配置集成/迁移/UAT/培训/支持",
+        "客户与厂商、技术与业务责任",
+        "行业/产品与交付模式差异",
+        "迁移是代表任务而非全部实施"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "frontend",
+      "name": "前端开发",
+      "document": "分组审阅与补充-软件与测试.md",
+      "topics": [
+        "用户任务到界面与状态",
+        "语义/布局/交互/数据/组件/可访问性/性能",
+        "设计、产品、后端和测试协作",
+        "项目环境和维护责任"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "backend",
+      "name": "后端开发",
+      "document": "分组审阅与补充-软件与测试.md",
+      "topics": [
+        "业务规则/数据事务/接口集成",
+        "重试副作用和故障处理",
+        "业务、平台和集成侧重",
+        "测试/运行/演进及团队责任"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "software",
+      "name": "通用软件开发",
+      "document": "分组审阅与补充-软件与测试.md",
+      "topics": [
+        "需求/设计/编码/验证/交付/维护",
+        "新建与遗留系统演进",
+        "与前后端的交叉关系",
+        "模块/系统/协作责任与发展选择"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    },
+    {
+      "id": "testing",
+      "name": "软件测试",
+      "document": "分组审阅与补充-软件与测试.md",
+      "topics": [
+        "需求审查/风险/设计/数据环境/执行/回归/反馈",
+        "手工/探索/自动化与质量关注",
+        "影响程度与修复优先级",
+        "R2比较摘要与正文同步"
+      ],
+      "adoption": "Use the authored Chinese content and cited source boundaries in the named document; do not treat added prose as already deployed."
+    }
+  ]
+}

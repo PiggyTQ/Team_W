@@ -6,11 +6,13 @@
     "scope": "本页以业务数据分析为主；BI侧重持续报表，产品分析侧重行为与实验，经营分析还需要行业与财务语境。数据科学的预测建模不是每项分析的必需环节。",
     "problem": "业务指标为什么变化，哪些解释有数据支持？",
     "daily": "先问清决策与分母，再取数、检查异常、分组比较，最后与业务复核解释。",
-    "environment": "需求可能在沟通后改变；月度报告需要稳定口径，临时分析更强调快速验证。对账与解释通常比画图更费心。",
+    "environment": "工作既包含数据处理和图表，也包含需求澄清、对账和解释；临时诊断与持续报表的节奏不同，各团队投入比例不同。",
     "sources": [
       "onet-bi",
       "postgres",
-      "powerbi"
+      "powerbi",
+      "cn-business-data-analyst-2024",
+      "postgres-window-19"
     ],
     "case": {
       "title": "一次典型工作：报名为什么减少了？",
@@ -87,7 +89,7 @@
         "use": "定位变化集中位置",
         "checks": [
           "分渠道合计为320与280",
-          "图表不截断横轴，标明记录数"
+          "本例条形图的数值轴从0开始，标明报名记录数及统计口径。"
         ],
         "example": {
           "kind": "registrations"
@@ -171,7 +173,7 @@
       "brief": "先在表格里复算，再用自己的话写发现与未知。",
       "input": "下载本页603行合成日志，含一条重复、一条测试和一条撤回。",
       "steps": [
-        "按最新状态排除测试与撤回，按报名ID去重。",
+        "先按registration_id选取updated_at最新的一行，再排除is_test=1与非active记录，最后按月份和渠道汇总。",
         "核对渠道合计与变化，写四句简报。"
       ],
       "deliverable": "一张口径卡、分组表及四句结论",
@@ -203,27 +205,36 @@
             ]
           ]
         },
-        "sourceId": "postgres",
-        "section": "Window selection and filtering; site-authored status-update example",
+        "sourceId": "postgres-window-19",
+        "section": "§3.5",
         "verifiedAt": "2026-11-22"
       }
     },
     "id": "data",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "onet-bi": [
         "problem",
         "daily",
-        "collaboration"
+        "collaboration",
+        "occupation.flow",
+        "occupation.tracks.1",
+        "occupation.outputs",
+        "occupation.collaboration"
       ],
       "postgres": [
-        "workflow",
-        "case.decisions",
-        "preparation",
-        "practice.fork"
+        "deliverables.1",
+        "practice.steps"
       ],
       "powerbi": [
         "preparation"
+      ],
+      "postgres-window-19": [
+        "practice.fork"
+      ],
+      "cn-business-data-analyst-2024": [
+        "occupation.flow",
+        "occupation.preparation"
       ]
     },
     "compare": {
@@ -234,11 +245,58 @@
       "preparation": "口径与有效分母、分组查询、区分变化和原因。",
       "practice": "复算同一报名CSV，写发现、依据、限制和下一步。"
     },
-    "focus": "业务指标与渠道变化"
+    "focus": "业务指标与渠道变化",
+    "occupation": {
+      "sourceIds": [
+        "cn-business-data-analyst-2024",
+        "onet-bi"
+      ],
+      "flow": [
+        {
+          "title": "明确决策与口径",
+          "text": "和需求方确定对象、期间、分母、业务定义及已知缺口，留下指标约定和取数条件。"
+        },
+        {
+          "title": "准备与核验",
+          "text": "查访问范围和来源，处理类型、缺失、重复与关联，核对明细、汇总及跨来源差异。"
+        },
+        {
+          "title": "分析与交付",
+          "text": "描述分布与分组差异，把观察、原因假设与下一步验证分开。交付可复算查询、表图、报告与局限。"
+        },
+        {
+          "title": "维护与跟进",
+          "text": "记录采用的口径、权限和刷新方式。复查使用反馈，后续结果不符时回到数据和假设。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "经营分析",
+          "text": "解释收入、成本或渠道变化，交付经营报告和分解表，由运营或财务核对业务含义。"
+        },
+        {
+          "title": "BI 与持续报表",
+          "text": "为业务使用者交付模型、看板和刷新说明，与数据工程核对数据供应。"
+        },
+        {
+          "title": "产品与用户分析",
+          "text": "与产品和采集人员确认事件含义，交付漏斗或分组分析及下一步验证建议。"
+        }
+      ],
+      "intro": "数据分析把需要作出的业务判断转化为指标、数据和可复核的解释。工作可以是持续经营报表，也可以围绕异常、用户行为或业务策略展开专项分析。",
+      "boundary": "与数据工程共享取数与建模，分析更关注指标怎样回答业务问题。与数据科学有方法交叉，描述或诊断任务未必需要训练预测模型。国内商务数据分析标准和美国 BI 活动各覆盖相关范围。",
+      "outputs": "指标口径、可复算工作表或查询、持续报表、专项分析报告。",
+      "collaboration": "业务定义决策，采集与数据工程确认来源和粒度，财务或运营核对口径，使用者复核解释。",
+      "preparation": "用表格或 SQL 展示清洗、关联和分组，能复算分母，用基本统计解释比较及限制。Power BI 是可选工具路径。",
+      "responsibility": "从复算一份结果，到独立澄清问题并处理多来源差异，再到协调跨团队指标与持续维护。",
+      "environment": "持续报表重视稳定定义、刷新和访问，专项诊断需要澄清新问题和资料缺口。行业知识及数据可用性影响两类工作的做法。",
+      "slice": "报名案例覆盖定义、处理、变化定位和解释边界。没有访问量、身份归并或实验输入，无法判断转化、人数或广告因果。",
+      "problem": "业务决策需要定义明确的指标，以及能复算的变化解释。"
+    }
   },
   "ai": {
     "name": "人工智能",
-    "englishName": "AI Application Engineer",
+    "englishName": "Artificial Intelligence Engineering",
     "lead": "让受限知识问答能回答、会拒答，并留下可复核的错误记录。",
     "scope": "本案是AI应用：组织资料、检索、输出契约和评估。算法研究更关注模型方法与实验；平台工程关注训练/推理基础设施。三者协作，但不能以一次问答原型代替全部方向。",
     "problem": "模型在明确任务里是否可靠，失败时怎样退出？",
@@ -246,7 +304,8 @@
     "environment": "实验输出有波动，数据范围和费用会限制方案；需要代码、评估及领域协作，演示可用不等于上线可靠。",
     "sources": [
       "cn-new-occupations",
-      "ai-rmf"
+      "ai-rmf",
+      "cn-ai-engineer-2021"
     ],
     "case": {
       "title": "活动须知问答：缺资料时能不能说不知道？",
@@ -302,7 +361,7 @@
       },
       {
         "title": "决定改进",
-        "description": "定位错检索还是错生成，保留尚未验证范围。",
+        "description": "先按无依据、错引和服务失败归类；检索或生成的具体原因须补查检索结果、提示与调用记录，不凭回答文本断定。",
         "output": "改进说明"
       }
     ],
@@ -476,16 +535,23 @@
       }
     },
     "id": "ai",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "ai-rmf": [
         "workflow",
         "case.decisions",
         "preparation",
-        "practice.fork"
+        "practice.fork",
+        "occupation.flow",
+        "occupation.environment"
       ],
       "cn-new-occupations": [
         "scope"
+      ],
+      "cn-ai-engineer-2021": [
+        "occupation.flow",
+        "occupation.tracks",
+        "occupation.outputs"
       ]
     },
     "compare": {
@@ -496,7 +562,54 @@
       "preparation": "任务边界、可复现实验、引用审核与拒答判断。",
       "practice": "读D1/D2短原文，独立审核三条回答后看教学对照。"
     },
-    "focus": "资料问答应用评测"
+    "focus": "资料问答应用评测",
+    "occupation": {
+      "sourceIds": [
+        "cn-ai-engineer-2021",
+        "ai-rmf"
+      ],
+      "flow": [
+        {
+          "title": "任务与输入",
+          "text": "明确用户任务、使用条件和错误后果，比较规则、搜索或人工基线，确认数据来源、使用范围与独立测试材料。"
+        },
+        {
+          "title": "开发与实验",
+          "text": "根据问题选用现有模型或训练方案，连接数据与业务接口，保存数据、配置、模型版本和可复现实验。"
+        },
+        {
+          "title": "评估与交付",
+          "text": "按场景核查错误、质量和运行表现，请领域人员复核。交付依赖、限制、人工接管和异常处理约定。"
+        },
+        {
+          "title": "持续监测",
+          "text": "跟踪反馈、资料和数据变化，保留事件与更新记录，按约定重新验证、回退或停用。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "应用集成",
+          "text": "交付原型、接口、评估记录和运行说明，重点在业务适配与失败处理。"
+        },
+        {
+          "title": "模型与算法",
+          "text": "准备数据及划分，验证训练或模型改动，交付基线、实验记录、模型和失败样本。"
+        },
+        {
+          "title": "平台与硬件",
+          "text": "平台提供共享部署与观测组件。芯片侧重硬件实现和验证，基础和产物随方向变化。"
+        }
+      ],
+      "intro": "人工智能工程把数据、算法、模型和软件系统组合起来，解决识别、预测、生成或辅助决策问题，工作延伸到评估、交付与运行。",
+      "boundary": "国内 2021 标准涵盖应用集成、平台、语言与语音、视觉和芯片等方向。算法研究侧重方法与实验，应用侧重任务与集成，平台侧重可复用运行能力，分工可交叉。",
+      "outputs": "数据与评估方案、实验或集成原型、错误记录、部署和监测说明。",
+      "collaboration": "领域人员核对任务和错误影响，数据人员核对输入，开发和平台处理依赖及运行，相关负责人决定可否交付。",
+      "preparation": "能编程处理输入、保存版本并写测试，理解统计、数据划分和评估。模型、平台与硬件另需各自基础。",
+      "responsibility": "从复现实验或集成一段流程，到提出基线并组织独立评估，再到负责复杂交付和长期运行约束。",
+      "environment": "问答、语音、视觉和芯片使用不同数据与设备。离线样例、真实使用及资料更新后需要分别评估，并考虑成本和人工接管。",
+      "slice": "文档问答属于应用侧评测。D1/D2 和 A1–A4 可检查回答及引用依据，定位具体检索或生成问题还需轨迹。",
+      "problem": "用数据、模型和系统解决识别、预测、生成或辅助决策任务。"
+    }
   },
   "security": {
     "name": "网络安全",
@@ -507,7 +620,10 @@
     "daily": "核对授权范围，按时间关联事件、检查资产与身份，记录替代解释并向处置人员交接。",
     "environment": "告警有噪声，时间紧但证据不能省；响应或值守安排依团队而异，操作资产前必须确认授权。",
     "sources": [
-      "nist-ir"
+      "nist-ir",
+      "cn-network-security-2020",
+      "onet-information-security",
+      "nice-work-roles"
     ],
     "case": {
       "title": "一次离线研判：失败登录后出现成功登录",
@@ -742,13 +858,26 @@
       ]
     },
     "id": "security",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "nist-ir": [
         "workflow",
         "case.decisions",
         "preparation",
-        "practice.fork"
+        "practice.fork",
+        "occupation.flow"
+      ],
+      "cn-network-security-2020": [
+        "occupation.flow",
+        "occupation.tracks"
+      ],
+      "onet-information-security": [
+        "occupation.flow",
+        "occupation.collaboration"
+      ],
+      "nice-work-roles": [
+        "occupation.boundary",
+        "occupation.tracks"
       ]
     },
     "compare": {
@@ -759,7 +888,56 @@
       "preparation": "认证日志、授权范围、证据定位与不确定性表达。",
       "practice": "用演练授权、资产卡和三条日志写一份可接手的说明。"
     },
-    "focus": "认证事件离线研判"
+    "focus": "认证事件离线研判",
+    "occupation": {
+      "sourceIds": [
+        "cn-network-security-2020",
+        "onet-information-security",
+        "nice-work-roles",
+        "nist-ir"
+      ],
+      "flow": [
+        {
+          "title": "资产与风险",
+          "text": "从业务和资产责任出发确认数据、依赖、授权范围及潜在影响，记录发现和优先事项。"
+        },
+        {
+          "title": "控制与验证",
+          "text": "与开发和运维约定访问、配置、日志和整改，保存验证方式、负责人和剩余风险。"
+        },
+        {
+          "title": "监测与响应",
+          "text": "按证据区分事实、推测和影响范围，交给有权限的负责人决定是否升级和执行响应。"
+        },
+        {
+          "title": "恢复与改进",
+          "text": "验证控制和业务恢复，记录行动与交接，更新流程、培训与后续责任。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "安全运营",
+          "text": "分诊告警和整理事件证据，交付时间线、影响范围和响应交接。"
+        },
+        {
+          "title": "应用安全与授权验证",
+          "text": "把安全目标落实到设计审查、控制验证和整改复核，测试先确认书面范围及业务影响。"
+        },
+        {
+          "title": "治理与风险",
+          "text": "为资产和控制负责人整理证据及处理状态，协调审核与教育；合规判断按实际职责处理。"
+        }
+      ],
+      "intro": "网络安全工作识别信息、资产与业务风险，落实并验证控制，监测异常，协调授权响应、恢复与改进。",
+      "boundary": "一个岗位可承担多种安全角色，也可专注其中一项。国内网络与信息安全管理员标准、美国分析师职业活动和 NICE 工作角色各有适用范围。",
+      "outputs": "资产与风险清单、控制和整改验证、事件时间线、恢复与响应交接。",
+      "collaboration": "业务确认影响与停机容忍，开发运维落实变更，响应负责人协调批准与执行，隐私、法务或审计按职责参与。",
+      "preparation": "用网络、系统、身份和日志基础定位证据，写清观察、缺口和授权边界，练习可复核交接。",
+      "responsibility": "从按规则整理线索，到负责一类检测或整改，再协调跨系统风险与控制效果。",
+      "environment": "内部团队持续维护资产，受托服务按客户授权和约定工作，产品安全参与开发生命周期。数据敏感性和业务连续性改变取舍。",
+      "slice": "认证日志是离线研判与交接练习。证据范围、权限及剩余未知决定可写的结论，控制建设与日常治理在案例之外。",
+      "problem": "了解资产面临的风险，验证控制，并协调异常响应与恢复。"
+    }
   },
   "ops": {
     "name": "运维工程",
@@ -771,7 +949,9 @@
     "environment": "发布窗口和事件会打断原计划；可能值守但不是所有岗位相同。回退速度要与数据一致性、权限和沟通一起考虑。",
     "sources": [
       "cn-new-occupations",
-      "sre"
+      "sre",
+      "onet-systems-admin",
+      "sre-introduction"
     ],
     "case": {
       "title": "发布后错误增加：回退还是继续观察？",
@@ -957,16 +1137,25 @@
       }
     },
     "id": "ops",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "sre": [
         "workflow",
         "case.decisions",
         "preparation",
-        "practice.fork"
+        "practice.fork",
+        "occupation.environment"
       ],
       "cn-new-occupations": [
         "scope"
+      ],
+      "onet-systems-admin": [
+        "occupation.flow",
+        "occupation.preparation"
+      ],
+      "sre-introduction": [
+        "occupation.boundary",
+        "occupation.tracks"
       ]
     },
     "compare": {
@@ -977,7 +1166,55 @@
       "preparation": "同口径指标、变更风险、恢复步骤与停止条件。",
       "practice": "复算0.5%/8%/0.5%，区分技术指标、业务复验与后续观察。"
     },
-    "focus": "服务变更与恢复验收"
+    "focus": "服务变更与恢复验收",
+    "occupation": {
+      "sourceIds": [
+        "onet-systems-admin",
+        "sre-introduction",
+        "sre"
+      ],
+      "flow": [
+        {
+          "title": "接管与准备",
+          "text": "核对依赖、配置基线、权限、恢复前提和升级路径，安排服务观测。"
+        },
+        {
+          "title": "例行维护与变更",
+          "text": "检查作业、补丁、容量和证书，为发布、扩容和配置调整明确停止或回退条件。"
+        },
+        {
+          "title": "诊断与恢复",
+          "text": "结合用户信号、依赖和变更记录判断影响，按授权恢复并复验数据、服务和业务路径。"
+        },
+        {
+          "title": "演练与改进",
+          "text": "演练从备份恢复，分析容量和成本趋势，把重复检查和处置逐步自动化。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "系统与网络",
+          "text": "管理主机、网络、身份、配置与备份，交付运行手册和恢复记录。"
+        },
+        {
+          "title": "云平台与交付",
+          "text": "维护可重复环境、发布流程、资源和访问约定，交付配置和运行记录。"
+        },
+        {
+          "title": "可靠性与专项运行",
+          "text": "SRE 用服务目标驱动改进，数据库、网络和存储专项则需对应技术与恢复验证。"
+        }
+      ],
+      "intro": "运维工程让系统持续可用并可恢复，通过配置与变更、监测、容量、备份演练、故障响应和自动化支持服务。",
+      "boundary": "系统运维、平台运行和 SRE 有交叉。DevOps 指开发与运行协作实践，SRE 更强调软件工程、服务目标与可靠性取舍。轮值和目标由服务及团队约定。",
+      "outputs": "服务和配置基线、变更记录、运行手册、恢复验收、容量与复盘行动。",
+      "collaboration": "业务确认关键流程，开发核对变更与依赖，安全核对访问风险，支持团队对外说明影响和更新时间。",
+      "preparation": "用系统、网络、HTTP、脚本和版本基础解释日志与指标，展示一次安全变更和恢复验证。",
+      "responsibility": "从按手册检查和恢复，到承担一个服务的变更与稳定性，再到改进跨服务恢复、容量和工程效率。",
+      "environment": "内部系统、对外在线服务和受托运行分别受到使用场景、流量与合同窗口约束。值守、现场和成本责任按岗位确认。",
+      "slice": "发布异常案例练习分窗指标、回退和业务复验。备份演练、容量管理和例行配置工作在本例之外。",
+      "problem": "让服务在变更和故障中保持可用，并具备可验证的恢复路径。"
+    }
   },
   "frontend": {
     "name": "前端开发",
@@ -988,7 +1225,11 @@
     "daily": "与产品/设计对齐流程，实现交互与接口状态，用键盘和浏览器验证错误恢复。",
     "environment": "界面需求、浏览器和真实输入差异大；视觉还原、可访问性与接口契约需要同时协调。",
     "sources": [
-      "mdn-forms"
+      "mdn-forms",
+      "onet-web-developers",
+      "bls-web",
+      "mdn-core",
+      "mdn-extensions"
     ],
     "case": {
       "title": "报名邮箱填错后，怎样让用户继续？",
@@ -1146,13 +1387,27 @@
       }
     },
     "id": "frontend",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "mdn-forms": [
         "workflow",
         "case.decisions",
         "preparation",
         "practice.fork"
+      ],
+      "onet-web-developers": [
+        "occupation.flow",
+        "occupation.outputs"
+      ],
+      "bls-web": [
+        "occupation.boundary",
+        "occupation.environment"
+      ],
+      "mdn-core": [
+        "occupation.preparation"
+      ],
+      "mdn-extensions": [
+        "occupation.preparation"
       ]
     },
     "compare": {
@@ -1163,7 +1418,56 @@
       "preparation": "语义HTML、状态处理、接口契约与键盘可达性。",
       "practice": "键盘尝试空值、abc和正确邮箱，记录反馈与焦点。"
     },
-    "focus": "表单错误恢复与状态"
+    "focus": "表单错误恢复与状态",
+    "occupation": {
+      "sourceIds": [
+        "onet-web-developers",
+        "bls-web",
+        "mdn-core",
+        "mdn-extensions"
+      ],
+      "flow": [
+        {
+          "title": "确认用户任务",
+          "text": "同产品和设计确认流程、内容、反馈、设备和浏览器范围，同后端确认接口与错误约定。"
+        },
+        {
+          "title": "实现结构和交互",
+          "text": "用语义结构、布局和可复用组件连接数据，处理空、等待、失败和重试等状态。"
+        },
+        {
+          "title": "验证与调试",
+          "text": "核对键盘、可访问性、浏览器兼容和性能，结合功能与环境调试并记录限制。"
+        },
+        {
+          "title": "发布与维护",
+          "text": "用源码、变更与验证记录协作交付，跟进缺陷、反馈与依赖更新。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "内容与展示",
+          "text": "关注结构、布局和可读性，交付响应式界面和兼容验证。"
+        },
+        {
+          "title": "业务交互",
+          "text": "关注接口、状态、异步和错误恢复，交付可操作流程及状态约定。"
+        },
+        {
+          "title": "设计系统与复杂交互",
+          "text": "面向多使用方维护组件文档，图形与可视化工作另需领域和性能验证。"
+        }
+      ],
+      "intro": "前端开发把用户任务与业务规则做成能理解、能操作的浏览器界面，并维护设备、输入方式、网络和版本变化下的体验。",
+      "boundary": "内容网站、业务应用、组件与复杂交互的侧重不同。Web 工作可能覆盖全站或专门分工，美国职业活动用于说明这种差异。",
+      "outputs": "可运行界面、组件及状态约定、兼容与可访问性记录、变更说明。",
+      "collaboration": "产品和设计确认用户流程，后端核对字段及兼容，测试协商异常、设备与回归范围。",
+      "preparation": "用 HTML、CSS、JavaScript、浏览器和 HTTP 基础做一个可键盘操作的界面，写出调试、状态和验证记录。",
+      "responsibility": "从完成一个交互并自检，到维护跨页面组件，再到为多团队解释体验、性能、兼容和维护取舍。",
+      "environment": "内容站强调可读与适配，业务应用涉及更多状态和网络异常，共享组件要考虑升级和兼容，多媒体项目还受渲染性能约束。",
+      "slice": "邮箱本机演示展示状态、输入保留、异步恢复与键盘路径。真实接口、辅助技术、性能和发布维护另需验证。",
+      "problem": "把用户任务做成清楚可用的界面，并持续处理状态、设备和版本变化。"
+    }
   },
   "backend": {
     "name": "后端开发",
@@ -1175,7 +1479,9 @@
     "environment": "接口是多人共同使用的契约；一次看似小改动可能影响旧客户端与数据，必须考虑兼容、超时与监测。",
     "sources": [
       "openapi",
-      "owasp-api"
+      "owasp-api",
+      "onet-software-developers",
+      "bls-web"
     ],
     "case": {
       "title": "一个查询接口，为什么不能只检查是否登录？",
@@ -1336,18 +1642,27 @@
       }
     },
     "id": "backend",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "openapi": [
         "workflow",
         "case.decisions",
-        "preparation"
+        "preparation",
+        "occupation.outputs"
       ],
       "owasp-api": [
         "workflow",
         "case.decisions",
         "preparation",
-        "practice.fork"
+        "practice.fork",
+        "occupation.preparation"
+      ],
+      "onet-software-developers": [
+        "occupation.flow"
+      ],
+      "bls-web": [
+        "occupation.boundary",
+        "occupation.tracks"
       ]
     },
     "compare": {
@@ -1358,7 +1673,56 @@
       "preparation": "协议与数据结构、对象授权、错误处理和测试。",
       "practice": "对R42列u-a、u-b、无会话与缺失对象的预期。"
     },
-    "focus": "报名对象及动作授权"
+    "focus": "报名对象及动作授权",
+    "occupation": {
+      "sourceIds": [
+        "onet-software-developers",
+        "bls-web",
+        "openapi",
+        "owasp-api"
+      ],
+      "flow": [
+        {
+          "title": "明确规则与接口",
+          "text": "确认状态、输入、错误、权限和兼容，以接口描述与业务示例供调用方核对。"
+        },
+        {
+          "title": "存储与副作用",
+          "text": "设计数据约束、事务边界及失败处理，说明重试、重复请求与外部副作用。"
+        },
+        {
+          "title": "集成与验证",
+          "text": "联调依赖，验证正常与异常、权限及数据一致性，保留测试与诊断证据。"
+        },
+        {
+          "title": "运行与演进",
+          "text": "观察日志、指标和故障，协调迁移、兼容与发布，写清运行手册和改动影响。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "业务服务",
+          "text": "重视领域规则和持久状态，交付接口、数据库变更和测试记录。"
+        },
+        {
+          "title": "系统集成",
+          "text": "关注契约、第三方差异、重试与对账，交付映射、失败路径和联调记录。"
+        },
+        {
+          "title": "平台服务",
+          "text": "为内部调用方交付共享能力、兼容说明和可观测性，关注升级影响和维护成本。"
+        }
+      ],
+      "intro": "后端开发把业务规则变成可调用、可验证、可维护的服务，持续管理接口、存储、事务、失败及系统演进。",
+      "boundary": "与前端交接调用契约，与数据工程共享存储和数据质量工作，与平台运维共享运行责任。对象授权属于其中一个质量关注。",
+      "outputs": "接口约定、规则和数据变更、集成测试、诊断及运行文档。",
+      "collaboration": "产品澄清业务规则，调用方核对契约，测试核异常与回归，运维和安全协同观测及访问验证。",
+      "preparation": "用语言、HTTP、SQL 和测试实现一个能解释错误、事务边界和重复请求行为的小服务。",
+      "responsibility": "从维护一个接口，到对一个服务的数据、兼容和恢复负责，再协调跨服务演进。",
+      "environment": "内部工具、对外交易服务和遗留集成对性能、一致性、权限和发布窗口的取舍不同。架构按问题和约束决定。",
+      "slice": "R42 对象授权演示检查会话、对象和动作，所用 403/404 是案例契约。存储设计、系统集成和运行维护需要其他证据。",
+      "problem": "让业务规则和数据通过可靠接口供其他系统及用户使用。"
+    }
   },
   "engineering": {
     "name": "数据工程",
@@ -1371,7 +1735,10 @@
     "sources": [
       "cn-new-occupations",
       "airflow",
-      "postgres"
+      "postgres",
+      "cn-bigdata-engineer-2021",
+      "onet-data-warehousing",
+      "postgres-transactions-19"
     ],
     "case": {
       "title": "昨天的分区失败了，重跑会不会把数据翻倍？",
@@ -1379,7 +1746,7 @@
       "question": "每天交付报名明细；昨天任务失败，恢复后同一分区仍应只有一份结果。",
       "input": "本站合成分区2026-05-15，原始ID为r1/r2/r2/r3/r4，渠道均website；固定输入批次b17。",
       "decisions": [
-        "固定分区和去重键，先写临时结果再原子替换，避免重试不断追加。",
+        "固定输入批次、分区和去重键；先检查目标存储支持的事务或发布机制，再采用本例约定的临时结果校验与原子切换。避免重试不断追加，且不得把该机制泛化到所有存储。",
         "记录输入版本、有效行数和检查结果；失败分区不冒充已完成。"
       ],
       "review": "同一批次重跑两次，目标4行且主键唯一；只证明本例重跑性质，不代表全管道吞吐表现。",
@@ -1550,7 +1917,7 @@
       "input": "上方b17/b18合成运行表和字段契约。",
       "steps": [
         "说明追加写与替换分区的差异。",
-        "列唯一键、空键和目标行数检查。"
+        "核对主键、空值、分区、目标行数与关键字段内容；同一b17输入重跑后，四个ID及channel逐项相同；为b18写发布阻断条件。"
       ],
       "deliverable": "一份分区重跑方案与三条检查",
       "checks": [
@@ -1602,7 +1969,7 @@
       }
     },
     "id": "engineering",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "airflow": [
         "workflow",
@@ -1617,6 +1984,18 @@
       ],
       "cn-new-occupations": [
         "scope"
+      ],
+      "postgres-transactions-19": [
+        "case.decisions"
+      ],
+      "cn-bigdata-engineer-2021": [
+        "occupation.flow",
+        "occupation.tracks",
+        "occupation.preparation"
+      ],
+      "onet-data-warehousing": [
+        "occupation.flow",
+        "occupation.outputs"
       ]
     },
     "compare": {
@@ -1627,7 +2006,58 @@
       "preparation": "主键/分区、SQL转换、幂等重跑、质量与血缘。",
       "practice": "对b17两次运行和b18空键，写发布/隔离检查。"
     },
-    "focus": "固定分区批处理"
+    "focus": "固定分区批处理",
+    "occupation": {
+      "sourceIds": [
+        "cn-bigdata-engineer-2021",
+        "onet-data-warehousing"
+      ],
+      "flow": [
+        {
+          "title": "对齐下游",
+          "text": "约定数据粒度、字段、来源、访问权限和交付时间，形成数据契约和模型。"
+        },
+        {
+          "title": "接入与转换",
+          "text": "记录批次或事件来源，清洗、关联和计算，保留字段映射、元数据和血缘。"
+        },
+        {
+          "title": "质量与发布",
+          "text": "检查候选结果的键、字段内容、质量与及时性。安排依赖和重试，按目标存储的机制发布可识别的完整版本。"
+        },
+        {
+          "title": "恢复与变更",
+          "text": "监测失败和延迟，处理回填、权限及上下游变更，通知受影响的使用者并更新说明。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "批处理",
+          "text": "交付接入映射、转换及重跑说明，处理输入版本、依赖和补数。"
+        },
+        {
+          "title": "数仓与分析数据层",
+          "text": "交付模型、字典与质量检查，和分析人员确定粒度和用途。"
+        },
+        {
+          "title": "流处理",
+          "text": "为持续事件约定时间、迟到、状态与恢复规则，交付监测和恢复手段。"
+        },
+        {
+          "title": "平台与治理",
+          "text": "提供共享组件、元数据、血缘、权限与运行记录。"
+        }
+      ],
+      "intro": "数据工程建立可运行的数据接入、转换、组织与交付流程，让下游知道数据来源、含义、可用时间和故障处理方式。",
+      "boundary": "数据工程与数据库、数仓和平台工作交叉，也为分析提供可用数据。国内大数据标准覆盖更宽的活动，美国数仓资料主要支持数仓侧。",
+      "outputs": "数据表与契约、转换代码、血缘与字典、质量和调度恢复记录。",
+      "collaboration": "上游开发说明字段变化，下游分析和业务确认粒度及时间，平台、运维和安全人员确认权限与恢复。",
+      "preparation": "用表、键、关联与粒度完成可解释转换。保存代码配置，为缺失、重跑及关键字段漂移设计检查。",
+      "responsibility": "从维护明确的转换，扩大到可验证、可恢复的数据交付，再协调跨系统变更、成本与下游影响。",
+      "environment": "日报批处理与持续流处理的时间和恢复要求不同。数据库、文件与对象存储的发布能力各异，所用工具随环境选取。",
+      "slice": "固定 b17 分区展示重试、去重和字段核对。真实发布需目标存储支持事务或一致版本切换，编排器本身无法提供这项保证。",
+      "problem": "持续向下游交付含义清楚、质量可查、故障可恢复的数据。"
+    }
   },
   "testing": {
     "name": "软件测试",
@@ -1636,9 +2066,11 @@
     "scope": "功能、探索式、自动化、性能与安全测试各有技术侧重；测试也包含需求审查、风险分析与沟通。本案仅覆盖一个价格边界，不代表完整测试体系。",
     "problem": "哪些失败最值得先发现，怎样证明问题和修复？",
     "daily": "审查需求，选择风险与边界，执行检查，记录可复现异常，复测并检查关联功能。",
-    "environment": "测试时间有限且环境会变化；需要与产品澄清预期，与开发协商严重程度，不能把所有未测部分写成通过。",
+    "environment": "与产品澄清预期，与开发及相关负责人共同核对影响证据、修复优先级和剩余风险；未测部分保持未测。",
     "sources": [
-      "istqb"
+      "istqb",
+      "onet-software-testers",
+      "bls-software"
     ],
     "case": {
       "title": "满100元优惠，99.99元是否也被减价？",
@@ -1821,13 +2253,24 @@
       }
     },
     "id": "testing",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "istqb": [
         "workflow",
         "case.decisions",
         "preparation",
-        "practice.fork"
+        "practice.fork",
+        "occupation.flow",
+        "occupation.preparation",
+        "occupation.environment"
+      ],
+      "onet-software-testers": [
+        "occupation.flow",
+        "occupation.outputs"
+      ],
+      "bls-software": [
+        "occupation.tracks",
+        "occupation.collaboration"
       ]
     },
     "compare": {
@@ -1836,9 +2279,57 @@
       "outputs": "边界用例表与可复现缺陷报告；供开发修复与发布判断。",
       "collaboration": "产品确认规则，开发复现修复，测试保留回归范围。",
       "preparation": "需求追溯、边界设计、复现条件与范围表达。",
-      "practice": "为99.99/100/100.01独立写预期、步骤和未测风险。"
+      "practice": "针对满80减8的新需求，为7999/8000/8001分先写预期，再记录观察、复现步骤和未测风险。"
     },
-    "focus": "金额规则边界测试"
+    "focus": "金额规则边界测试",
+    "occupation": {
+      "sourceIds": [
+        "onet-software-testers",
+        "bls-software",
+        "istqb"
+      ],
+      "flow": [
+        {
+          "title": "读需求与风险",
+          "text": "和产品或业务澄清无法确定的预期，安排范围和重点，为未覆盖项保留说明。"
+        },
+        {
+          "title": "设计与准备",
+          "text": "把风险变成检查、用例或探索目标，准备可追溯输入与版本环境。"
+        },
+        {
+          "title": "执行与诊断",
+          "text": "保留预期、观察和复现条件，分别记录影响程度、修复优先级和目前未知。"
+        },
+        {
+          "title": "确认与反馈",
+          "text": "复验修复并安排回归，向发布负责人交付验证范围、残余风险和后续建议。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "功能与探索",
+          "text": "用需求、用户流程和风险开展验证与观察，交付探索记录和复现证据。"
+        },
+        {
+          "title": "自动化与回归",
+          "text": "为重复验证设计脚本、数据和环境，持续维护可信的失败反馈。"
+        },
+        {
+          "title": "专项质量",
+          "text": "性能、可访问性和安全关注不同风险。按系统约束选择验证范围与所需专长。"
+        }
+      ],
+      "intro": "软件测试为质量与风险决策提供证据，活动包括需求评审、风险分析、设计、环境和数据准备、执行诊断以及结果沟通。",
+      "boundary": "测试与开发、产品和运行共享质量责任。手工执行、探索与自动化可互补，选择取决于风险和反馈。测试提供证据，发布负责人按权限作决定。",
+      "outputs": "范围与风险说明、测试设计和环境记录、缺陷复现、回归与剩余风险摘要。",
+      "collaboration": "产品和业务澄清预期与影响，开发复现与修复，平台协助环境，发布负责人综合证据与业务风险。",
+      "preparation": "展示如何读需求、设计输入、记录复现，结合日志、数据与接口解释观察。按任务需要选择脚本和工具。",
+      "responsibility": "从可靠复现异常，到安排一个功能的验证，再到协调系统风险、反馈和测试资产维护。",
+      "environment": "发布频率、数据可用性和风险改变范围与工具。影响严重程度由证据说明，修复顺序与发布决策还要综合业务风险和团队权限。",
+      "slice": "R1 是满 100 的边界示范，独立 R2 是满 80 减 8。写清预期、复现与未测风险，三条通过仍只说明三条的范围。",
+      "problem": "为软件质量和发布风险提供可复现的证据。"
+    }
   },
   "software": {
     "name": "通用软件开发",
@@ -1850,7 +2341,9 @@
     "environment": "需求与旧代码并存；可维护性来自清晰边界、测试与评审，不取决于某一种语言。",
     "sources": [
       "swebok",
-      "github-pr"
+      "github-pr",
+      "onet-software-developers",
+      "bls-software"
     ],
     "case": {
       "title": "金额门槛规则怎样改得安心？",
@@ -1986,24 +2479,28 @@
       "fork": {
         "title": "新增会员优惠，先问计算顺序",
         "question": "新需求：满减与会员95折可以叠加。先确认顺序、门槛基数和按分舍入。若产品明确“先满100减10，再95折”，10000分应付8550分；若顺序不同结果会变。本页原函数尚未支持会员折扣，不能写成已实现。",
-        "sourceId": "swebok",
-        "section": "Requirements clarification and construction verification; original business-rule change",
+        "sourceId": "github-pr",
+        "section": "Review and document the original business-rule change",
         "verifiedAt": "2026-11-22"
       }
     },
     "id": "software",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "github-pr": [
         "workflow",
         "case.decisions",
-        "preparation"
-      ],
-      "swebok": [
-        "scope",
         "preparation",
-        "growth",
-        "practice.fork"
+        "practice.fork",
+        "occupation.outputs"
+      ],
+      "onet-software-developers": [
+        "occupation.flow",
+        "occupation.collaboration"
+      ],
+      "bls-software": [
+        "occupation.boundary",
+        "occupation.tracks"
       ]
     },
     "compare": {
@@ -2014,7 +2511,55 @@
       "preparation": "问题拆解、程序设计、错误处理、测试与版本协作。",
       "practice": "给整数分函数补非法输入，解释未支持的优惠叠加。"
     },
-    "focus": "金额规则程序变更"
+    "focus": "金额规则程序变更",
+    "occupation": {
+      "sourceIds": [
+        "onet-software-developers",
+        "bls-software",
+        "github-pr"
+      ],
+      "flow": [
+        {
+          "title": "问题和需求",
+          "text": "与使用者核对场景、失败代价及可验收条件，读旧实现、文档和问题记录。"
+        },
+        {
+          "title": "设计与实现",
+          "text": "分解接口、数据结构与模块责任，比较改动范围及兼容取舍，增量实现。"
+        },
+        {
+          "title": "验证与集成",
+          "text": "用测试、调试及同行评审核对行为，处理依赖和合并后的集成问题。"
+        },
+        {
+          "title": "交付与演进",
+          "text": "写清版本、部署或升级条件、已知限制，跟进使用反馈、缺陷和后续维护。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "产品功能",
+          "text": "面向使用者交付可操作功能和使用说明，持续处理质量反馈。"
+        },
+        {
+          "title": "工具与系统",
+          "text": "为调用方交付命令、组件或服务能力，重视契约、稳定性和运行条件。"
+        },
+        {
+          "title": "遗留演进",
+          "text": "阅读历史实现，先保留已有行为并验证兼容，再修复、重构或迁移。"
+        }
+      ],
+      "intro": "通用软件开发将问题和需求变成可使用、可验证并能继续演进的软件。工作既发生在新建项目，也发生在已有系统和旧代码中。",
+      "boundary": "这是横跨前后端、工具、应用和系统开发的探索方向。前后端可以是软件开发的具体分工，工作边界随产品与团队变化。",
+      "outputs": "需求与设计说明、代码和测试、评审与集成记录、版本及维护文档。",
+      "collaboration": "使用者核验需求，开发共同评审，测试验证集成与风险，运行和支持同事接手发布和反馈。",
+      "preparation": "展示如何阅读已有代码、缩小问题、用版本管理保存可评审修改、写测试并说明验证边界。",
+      "responsibility": "从可复核的小改动，到维护模块及接口，再扩展到系统演进或跨团队协作。技术深化与协调都是发展选择。",
+      "environment": "新项目需验证设计假设，旧系统更重视兼容与迁移。工具、产品和嵌入式系统的交付、数据与运行制约不同。",
+      "slice": "金额函数展示澄清规则、实现和边界验证。系统设计、依赖集成与长期维护不由一次函数练习覆盖。",
+      "problem": "把需求做成可使用、可验证并能演进的软件。"
+    }
   },
   "delivery": {
     "name": "IT实施交付",
@@ -2025,7 +2570,9 @@
     "daily": "澄清范围与环境，配置权限与集成，组织迁移/UAT、切换和培训，维护问题与交接清单。",
     "environment": "依赖客户窗口、网络和多方签字，现场或远程均可能；技术完成与使用方验收不是同一件事。",
     "sources": [
-      "ms-migration"
+      "ms-migration",
+      "onet-systems-analysts",
+      "dynamics-implementation"
     ],
     "case": {
       "title": "迁移演练完成后，业务是否真的能报名？",
@@ -2273,13 +2820,21 @@
       }
     },
     "id": "delivery",
-    "version": "career-exploration-20261122-audit",
+    "version": "career-exploration-20261123-evidence",
     "sourceClaims": {
       "ms-migration": [
         "workflow",
         "case.decisions",
         "preparation",
         "practice.fork"
+      ],
+      "onet-systems-analysts": [
+        "occupation.flow",
+        "occupation.collaboration"
+      ],
+      "dynamics-implementation": [
+        "occupation.flow",
+        "occupation.environment"
       ]
     },
     "compare": {
@@ -2290,6 +2845,53 @@
       "preparation": "需求澄清、角色配置、验收/回退与责任交接。",
       "practice": "按合成检查单写允许、阻断与回退条件及残留责任。"
     },
-    "focus": "报名系统迁移演练"
+    "focus": "报名系统迁移演练",
+    "occupation": {
+      "sourceIds": [
+        "onet-systems-analysts",
+        "dynamics-implementation"
+      ],
+      "flow": [
+        {
+          "title": "调研与差异",
+          "text": "让实际用户和流程负责人确认现状、范围和成功条件。区分可配置项、流程调整和需要开发的缺口。"
+        },
+        {
+          "title": "配置与集成",
+          "text": "协调环境、身份、接口及字段映射，记录环境差异、责任和异常处理。"
+        },
+        {
+          "title": "演练与验收",
+          "text": "对账迁移数据并验证流程，由客户业务负责人按约定组织 UAT 和确认验收，技术负责人说明兼容、验证与恢复条件。"
+        },
+        {
+          "title": "切换与支持",
+          "text": "写明窗口、阻断项和增量回退依据，按角色培训并交给支持人员，跟进初期问题与责任。"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "业务应用实施",
+          "text": "为流程负责人交付适配差异、配置记录及按角色的验收场景。"
+        },
+        {
+          "title": "集成与迁移",
+          "text": "为技术负责人交付接口映射、环境记录、对账和切换方案。"
+        },
+        {
+          "title": "采纳与支持",
+          "text": "为用户及支持人员交付训练任务、已知问题、后续责任和故障路径。"
+        }
+      ],
+      "intro": "IT 实施交付把选定方案适配到使用方环境，从现状调研、配置集成、数据及流程验证走到切换、培训与持续支持。",
+      "boundary": "与业务分析、开发、数据和运维交叉。系统分析师活动只作部分参照。Dynamics 365 和 Azure 提供限定产品或迁移场景的方法。",
+      "outputs": "流程差异、配置与映射、UAT 证据、切换依据、培训及交接记录。",
+      "collaboration": "客户业务负责人确认流程和验收，技术负责人确认依赖与恢复，实施协调配置、培训和支持，批准按合同及项目职责。",
+      "preparation": "用访谈与流程建模澄清范围，能说明字段、接口、角色和环境差异，给出可复验记录与培训任务。",
+      "responsibility": "从完成配置和验证记录，到负责一个模块或流程交付，再协调多方依赖、方案及使用风险。",
+      "environment": "甲方持续维护流程和产品使用，乙方按范围与节点交付。SaaS、企业系统、基础设施和行业项目对环境、集成和培训各有侧重。",
+      "slice": "报名迁移案例观察映射、对账、UAT 与回退。600 行对 600 行仍需字段检查，有新记录时须重新评估回退与对账。",
+      "problem": "让已选方案适配实际流程，并能由客户验收和接手。"
+    }
   }
 }

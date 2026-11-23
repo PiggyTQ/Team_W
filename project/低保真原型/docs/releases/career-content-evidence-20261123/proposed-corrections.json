@@ -1,0 +1,80 @@
+{
+  "status": "proposed_not_applied",
+  "baselineVersion": "career-exploration-20261122-audit",
+  "baselineFile": "baseline/served-careers.json",
+  "note": "Review suggestions, not executable JSON Patch. Preserve user history and original examples. Only apply after verifying current values.",
+  "changes": [
+    {
+      "op": "replace",
+      "path": "/testing/compare/practice",
+      "classification": "confirmed_inconsistency",
+      "before": "为99.99/100/100.01独立写预期、步骤和未测风险。",
+      "after": "针对满80减8的新需求，为7999/8000/8001分先写预期，再记录观察、复现步骤和未测风险。",
+      "reason": "The independent trial is R2; the compare summary still describes R1. Keep the R1 worked example.",
+      "support": "分组审阅与补充-软件与测试.md §1.1; served-careers.json testing.practice.fork"
+    },
+    {
+      "op": "replace",
+      "path": "/ai/workflow/2/description",
+      "classification": "evidence_scope_correction",
+      "before": "定位错检索还是错生成，保留尚未验证范围。",
+      "after": "先按无依据、错引和服务失败归类；检索或生成的具体原因须补查检索结果、提示与调用记录，不凭回答文本断定。",
+      "reason": "The current case provides authored answers, not retrieval or model-call traces.",
+      "support": "分组审阅与补充-数据与智能.md；baseline/served-careers.json ai.case"
+    },
+    {
+      "op": "replace",
+      "path": "/engineering/case/decisions/0",
+      "classification": "condition_clarification",
+      "before": "固定分区和去重键，先写临时结果再原子替换，避免重试不断追加。",
+      "after": "固定输入批次、分区和去重键；先检查目标存储支持的事务或发布机制，再采用本例约定的临时结果校验与原子切换。避免重试不断追加，且不得把该机制泛化到所有存储。",
+      "reason": "A fixed partition and deduplication do not themselves create transactional or atomic publication semantics.",
+      "support": "分组审阅与补充-数据与智能.md；Airflow fixed-partition/rerun method; baseline engineering.case"
+    },
+    {
+      "op": "replace",
+      "path": "/testing/environment",
+      "classification": "wording_precision",
+      "before": "测试时间有限且环境会变化；需要与产品澄清预期，与开发协商严重程度，不能把所有未测部分写成通过。",
+      "after": "与产品澄清预期，与开发及相关负责人共同核对影响证据、修复优先级和剩余风险；未测部分保持未测。",
+      "reason": "Distinguish severity/impact from scheduling priority; use the original full value as a guard before editing.",
+      "support": "分组审阅与补充-软件与测试.md ST-08 §5.5"
+    },
+    {
+      "op": "replace",
+      "path": "/data/deliverables/1/checks/1",
+      "classification": "optional_wording_only",
+      "before": "图表不截断横轴，标明记录数",
+      "after": "本例条形图的数值轴从0开始，标明报名记录数及统计口径。",
+      "reason": "The existing horizontal bar chart is already correct; this narrows the wording rather than fixes an incorrect chart.",
+      "support": "分组审阅与补充-数据与智能.md；baseline current bar-chart presentation"
+    },
+    {
+      "op": "replace",
+      "path": "/data/environment",
+      "classification": "unsupported_generalization",
+      "before": "需求可能在沟通后改变；月度报告需要稳定口径，临时分析更强调快速验证。对账与解释通常比画图更费心。",
+      "after": "工作既包含数据处理和图表，也包含需求澄清、对账和解释；临时诊断与持续报表的节奏不同，各团队投入比例不同。",
+      "reason": "The present sources support these activities but not a universal comparison of effort or time.",
+      "support": "分组审阅与补充-数据与智能.md §3.1; O*NET BI occupational tasks"
+    },
+    {
+      "op": "replace",
+      "path": "/data/practice/steps/0",
+      "classification": "sequence_clarification",
+      "before": "按最新状态排除测试与撤回，按报名ID去重。",
+      "after": "先按registration_id选取updated_at最新的一行，再排除is_test=1与非active记录，最后按月份和渠道汇总。",
+      "reason": "Clarify the same order already implemented correctly in the current SQL; do not rewrite the algorithm.",
+      "support": "分组审阅与补充-数据与智能.md §3.1; current registration SQL"
+    },
+    {
+      "op": "replace",
+      "path": "/engineering/practice/steps/1",
+      "classification": "align_main_task_to_existing_counterexample",
+      "before": "列唯一键、空键和目标行数检查。",
+      "after": "核对主键、空值、分区、目标行数与关键字段内容；同一b17输入重跑后，四个ID及channel逐项相同；为b18写发布阻断条件。",
+      "reason": "The content comparison already exists in the fork; reflect it in the main task instead of counting rows alone.",
+      "support": "分组审阅与补充-数据与智能.md §3.3; current engineering.practice.fork"
+    }
+  ]
+}

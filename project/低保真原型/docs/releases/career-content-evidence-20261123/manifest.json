@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-23",
+  "status": "researched_content_supplement_not_implemented",
+  "baselineVersion": "career-exploration-20261122-audit",
+  "serverContentVerified": true,
+  "careerObjectsMatched": 10,
+  "existingSourceRecordsMatched": 15,
+  "authenticatedProductionBusinessTested": false,
+  "productionChanged": false,
+  "businessCodeChanged": false,
+  "fullWebsiteTestsRun": false,
+  "coverage": [
+    "data",
+    "ai",
+    "security",
+    "ops",
+    "frontend",
+    "backend",
+    "engineering",
+    "testing",
+    "software",
+    "delivery"
+  ],
+  "proposedCorrections": 8,
+  "primaryResearchScope": "See each grouped authored file for read sections, jurisdiction, rights and unsupported claims; partial/pending records are preserved.",
+  "validation": {
+    "allBeforeValuesMatchServedSnapshot": true,
+    "allTenDirectionsHaveAuthoredSupplement": true,
+    "internalMarkdownLinksValid": true
+  },
+  "files": [
+    {
+      "path": "baseline/content-comparison.json",
+      "bytes": 2999,
+      "sha256": "2a17e0df02e095dcda65cabe333794d96e938c271afab2d6aafcf13dbb9ebb46"
+    },
+    {
+      "path": "baseline/served-assets.json",
+      "bytes": 1810,
+      "sha256": "9fbcb0d6374db9e96a19497c3cd6ba070d58345c1126fe7d0f69f656be5551f6"
+    },
+    {
+      "path": "baseline/served-careers.json",
+      "bytes": 83637,
+      "sha256": "520c18f81030b0cafbb1d8b11c33994a5723773e29e105144c54070a0242d3ff"
+    },
+    {
+      "path": "baseline/served-sources.json",
+      "bytes": 10816,
+      "sha256": "1864a3421f20bb95c36768559bebd82fb45a53fdcf80d1dd8360c8bc19640536"
+    },
+    {
+      "path": "implementation-map.json",
+      "bytes": 5130,
+      "sha256": "130d33f58c55613a038bb3dd1f8e4c485e8392c9682c594077d76b5a59240c57"
+    },
+    {
+      "path": "proposed-corrections.json",
+      "bytes": 5316,
+      "sha256": "a3ed41f655d4192f49c4eca9f7406bab04faafc28cd90ba0debd44556b9aae94"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2405,
+      "sha256": "8fb1f6f736c26a45399f46abb12f36421157bbb3b29e6fb2ea40b2f938a897dd"
+    },
+    {
+      "path": "source-link-index.json",
+      "bytes": 20501,
+      "sha256": "85cb372a8182049d78f34b1c893af70aab3b07b8def4c93330c17acbd20a31c1"
+    },
+    {
+      "path": "分组审阅与补充-安全运维与交付.md",
+      "bytes": 33439,
+      "sha256": "02a156ed085370865ab5febd8e503be75d8b5971a069209b3aae4571a2404b22"
+    },
+    {
+      "path": "分组审阅与补充-数据与智能.md",
+      "bytes": 39100,
+      "sha256": "f4fe0c9049ab31c3d23279b0e90409190d001fd44f3432b37b5b40ff0cd5f4fc"
+    },
+    {
+      "path": "分组审阅与补充-软件与测试.md",
+      "bytes": 33676,
+      "sha256": "a4fe6d908180bd0ff8fb7b64a1df04b27e4c758158255b019886abdb5ec1d599"
+    },
+    {
+      "path": "来源采用与验收.md",
+      "bytes": 4442,
+      "sha256": "215a638cd58febec89babc301d74809c620685a88b35ccb2cfd685541130944d"
+    },
+    {
+      "path": "核查结论与补全总表.md",
+      "bytes": 8693,
+      "sha256": "2671fe495a53e6e839ce057a651af107b9d0e279bfa550b46ee69ed199b60ebe"
+    },
+    {
+      "path": "给Codex的内容完善提示词.md",
+      "bytes": 10002,
+      "sha256": "8d9490ffb1ec9a5d4c69dc479c27d7da1f37b8ea41802484335f7cc654d54c7d"
+    }
+  ]
+}

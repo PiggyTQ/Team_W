@@ -1,0 +1,2795 @@
+{
+  "data": {
+    "name": "数据分析",
+    "englishName": "Data Analyst",
+    "lead": "把“报名少了”拆成可复算的口径、渠道变化和下一步核对。",
+    "scope": "本页以业务数据分析为主；BI侧重持续报表，产品分析侧重行为与实验，经营分析还需要行业与财务语境。数据科学的预测建模不是每项分析的必需环节。",
+    "problem": "业务指标为什么变化，哪些解释有数据支持？",
+    "daily": "先问清决策与分母，再取数、检查异常、分组比较，最后与业务复核解释。",
+    "environment": "需求可能在沟通后改变；月度报告需要稳定口径，临时分析更强调快速验证。对账与解释通常比画图更费心。",
+    "sources": [
+      "onet-bi",
+      "postgres",
+      "powerbi"
+    ],
+    "case": {
+      "title": "一次典型工作：报名为什么减少了？",
+      "requester": "活动负责人",
+      "question": "5月有效报名比4月少，变化集中在哪里？下一步应该查什么？",
+      "input": "完整4月/5月的本站合成报名日志；registration_id、时间、渠道、测试标记、状态及更新时间。没有流量或转化数据。",
+      "decisions": [
+        "按报名ID取最新记录，排除测试与撤回；计数单位是报名记录，不是独立人数。",
+        "渠道分组与总计必须对账；当前证据只定位变化，不证明原因。"
+      ],
+      "review": "由活动负责人确认口径，同事用同一CSV和SQL重算；访问量、入口变更及采集机制另行核对。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "registration-summary"
+      }
+    },
+    "workflow": [
+      {
+        "title": "对齐口径",
+        "description": "明确统计对象、排除项和完整月份。",
+        "output": "指标口径卡"
+      },
+      {
+        "title": "复算变化",
+        "description": "去重后按渠道和月份汇总，对账600条有效记录。",
+        "output": "分析表与图"
+      },
+      {
+        "title": "解释边界",
+        "description": "总数320→280，净减少集中在官网；不把变化当成原因。",
+        "output": "发现、依据、限制与下一步"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "指标口径卡",
+        "description": "让业务与分析使用同一把尺子。",
+        "audience": "活动负责人、产品",
+        "use": "先统一统计含义",
+        "checks": [
+          "最新记录、排除项与时间边界明确",
+          "不同人可用相同输入复算"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "字段",
+            "约定"
+          ],
+          "rows": [
+            [
+              "统计单位",
+              "有效报名记录数；非独立人数"
+            ],
+            [
+              "去重键",
+              "registration_id"
+            ],
+            [
+              "时间范围",
+              "2026-04-01 ≤ registered_at < 2026-06-01"
+            ],
+            [
+              "排除",
+              "测试、撤回；以最新状态为准"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "分析表与图",
+        "description": "三个渠道与总量使用同一份数据。",
+        "audience": "活动运营、复核同事",
+        "use": "定位变化集中位置",
+        "checks": [
+          "分渠道合计为320与280",
+          "图表不截断横轴，标明记录数"
+        ],
+        "example": {
+          "kind": "registrations"
+        }
+      },
+      {
+        "title": "结论简报",
+        "description": "用能回到数据的四句话交付。",
+        "audience": "活动负责人",
+        "use": "决定下一轮核对",
+        "checks": [
+          "发现与原因推测分开",
+          "下一步对应缺少的资料"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "发现",
+              "text": "有效报名320→280，减少40条，下降12.5%。"
+            },
+            {
+              "label": "依据",
+              "text": "官网160→120；社群100→100；短视频60→60。"
+            },
+            {
+              "label": "限制",
+              "text": "没有访问量、转化率及采集核对，尚不能归因。"
+            },
+            {
+              "label": "下一步",
+              "text": "先核对官网入口变更和采集，再补流量与转化分母。"
+            }
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "口径定义",
+        "work": "区分报名记录与独立人数",
+        "quality": "避免不同分母造成假变化"
+      },
+      {
+        "skill": "SQL或表格",
+        "work": "去重、分组、保留处理记录",
+        "quality": "同一输入能重算出同一结果"
+      },
+      {
+        "skill": "统计与沟通",
+        "work": "描述差异并列出替代解释",
+        "quality": "不把相关变化写成因果"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "业务与产品",
+        "exchange": "提供决策问题，确认口径；接收简报后决定是否继续调查。"
+      },
+      {
+        "role": "数据工程",
+        "exchange": "确认字段来源、更新与缺失；接收采集问题清单。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "在复核下完成一份分析",
+        "description": "对照约定检查数据，让同事能够复算；主动说明无法回答什么。"
+      },
+      {
+        "title": "独立组织分析与后续验证",
+        "description": "面对口径分歧、多个来源和替代解释，组织评审而不强行给出原因。"
+      }
+    ],
+    "pitfalls": [
+      "看到官网下降就归因于广告，跳过流量与采集检查。",
+      "只交图表，缺少口径与复算记录。"
+    ],
+    "practice": {
+      "title": "用同一CSV做一份渠道变化小简报",
+      "brief": "先在表格里复算，再用自己的话写发现与未知。",
+      "input": "下载本页603行合成日志，含一条重复、一条测试和一条撤回。",
+      "steps": [
+        "按最新状态排除测试与撤回，按报名ID去重。",
+        "核对渠道合计与变化，写四句简报。"
+      ],
+      "deliverable": "一张口径卡、分组表及四句结论",
+      "checks": [
+        "合计320/280，官网变化-40，其他两项为0",
+        "明确统计单位，并写出还缺哪些数据"
+      ],
+      "route": "/career-map?career=data&skill=metric-definition&step=practice&view=study",
+      "fork": {
+        "title": "同一个报名ID，先排除还是先取最新？",
+        "question": "下面R-X为独立变式，不计入上方603行样本。R-X第一次有效、之后撤回。若先删除撤回行再去重，会把旧有效行“复活”。先取最新状态再排除；渠道表仍不能证明流量下降。",
+        "example": {
+          "kind": "table",
+          "columns": [
+            "报名ID",
+            "更新时间",
+            "状态"
+          ],
+          "rows": [
+            [
+              "R-X",
+              "2026-05-10T09:00:00+08:00",
+              "active"
+            ],
+            [
+              "R-X",
+              "2026-05-11T10:00:00+08:00",
+              "withdrawn"
+            ]
+          ]
+        },
+        "sourceId": "postgres",
+        "section": "Window selection and filtering; site-authored status-update example",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "data",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "onet-bi": [
+        "problem",
+        "daily",
+        "collaboration"
+      ],
+      "postgres": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ],
+      "powerbi": [
+        "preparation"
+      ]
+    },
+    "compare": {
+      "problem": "解释报名记录为什么变化，哪些判断还有数据缺口。",
+      "daily": "确认口径→去重排除→渠道对账→写限制与下一步。",
+      "outputs": "口径卡、渠道表图、四句简报；交给活动负责人决定查什么。",
+      "collaboration": "与活动负责人确认问题；与数据同事复算和核对采集。",
+      "preparation": "口径与有效分母、分组查询、区分变化和原因。",
+      "practice": "复算同一报名CSV，写发现、依据、限制和下一步。"
+    },
+    "focus": "业务指标与渠道变化",
+    "sourceRecords": [
+      {
+        "id": "onet-bi",
+        "publisher": "USDOL/ETA · O*NET® OnLine",
+        "title": "商业智能分析师：工作任务",
+        "url": "https://www.onetonline.org/link/details/15-2051.01",
+        "region": "美国",
+        "coverage": "仅15-2051.01职业活动；不覆盖全部数据分析，不用美国薪资/教育统计",
+        "version": "网页标注Updated 2026；未导入数据库",
+        "originalUpdated": "2026",
+        "accessed": "2026-11-21",
+        "license": "自有内容CC BY 4.0；外部资料除外",
+        "licenseUrl": "https://www.onetonline.org/help/license",
+        "usage": "中文概括工作活动并组织原创案例；USDOL/ETA未认可、背书或测试本改写。O*NET®为USDOL/ETA商标。",
+        "status": "read_original"
+      },
+      {
+        "id": "postgres",
+        "publisher": "PostgreSQL Global Development Group",
+        "title": "表表达式：筛选与分组",
+        "url": "https://www.postgresql.org/docs/19/queries-table-expressions.html",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "SQL转换方法；不是职业任职标准",
+        "version": "PostgreSQL 19文档",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": "https://www.postgresql.org/about/licence/",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "powerbi",
+        "publisher": "Microsoft Learn",
+        "title": "PL-300考试学习指南",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "可选Power BI路径，不是全体分析师必需资格",
+        "version": "技能范围标注2026-04-20",
+        "originalUpdated": "2026-04-20",
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": "https://learn.microsoft.com/en-us/legal/termsofuse",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      }
+    ],
+    "title": "数据分析",
+    "titleEn": "Data Analyst",
+    "output": "指标口径卡、分析表与图、结论简报",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "商业智能分析师：工作任务",
+        "url": "https://www.onetonline.org/link/details/15-2051.01"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "ai": {
+    "name": "人工智能",
+    "englishName": "AI Application Engineer",
+    "lead": "让受限知识问答能回答、会拒答，并留下可复核的错误记录。",
+    "scope": "本案是AI应用：组织资料、检索、输出契约和评估。算法研究更关注模型方法与实验；平台工程关注训练/推理基础设施。三者协作，但不能以一次问答原型代替全部方向。",
+    "problem": "模型在明确任务里是否可靠，失败时怎样退出？",
+    "daily": "定义任务与基线，组织数据，串联调用，逐类检查错误，与领域人员讨论可接受风险。",
+    "environment": "实验输出有波动，数据范围和费用会限制方案；需要代码、评估及领域协作，演示可用不等于上线可靠。",
+    "sources": [
+      "cn-new-occupations",
+      "ai-rmf"
+    ],
+    "case": {
+      "title": "活动须知问答：缺资料时能不能说不知道？",
+      "requester": "活动客服负责人",
+      "question": "只根据两份已批准活动须知回答；未写明的退款问题转人工。",
+      "input": "可查看的两份本站合成须知D1/D2；独立测试与客服预设记录。没有私人报名记录，也不调用模型。",
+      "decisions": [
+        "先固定答案依据和拒答规则，再用独立问题审核预设原型记录；本页不承诺两种系统的实测比较。",
+        "把无依据回答、错误引用和服务失败分开，不用流畅程度代替正确性。"
+      ],
+      "review": "客服复核引用是否支持回答；测试集与开发时的示例分离。此页结果是预设教学记录，不是实时模型调用。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "table",
+        "columns": [
+          "问题",
+          "依据",
+          "预期行为",
+          "教学记录"
+        ],
+        "rows": [
+          [
+            "几点签到？",
+            "D1 §2",
+            "引用时间",
+            "09:00–09:30，引用D1§2"
+          ],
+          [
+            "能否退款？",
+            "未提供",
+            "转人工",
+            "错误猜测退款规则"
+          ],
+          [
+            "其他城市也适用？",
+            "超出范围",
+            "说明范围",
+            "正确拒答"
+          ]
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "定边界",
+        "description": "写清批准文档与必须转人工的情形。",
+        "output": "任务约定"
+      },
+      {
+        "title": "检查回答",
+        "description": "对三类问题核对依据与拒答。",
+        "output": "测试与错误记录"
+      },
+      {
+        "title": "决定改进",
+        "description": "定位错检索还是错生成，保留尚未验证范围。",
+        "output": "改进说明"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "独立问题与评估记录",
+        "description": "检查正确依据和该拒答的情况。",
+        "audience": "客服、评估同事",
+        "use": "判断原型是否遵守边界",
+        "checks": [
+          "每条结果可回到原须知",
+          "测试题不混入开发示例"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "问题",
+            "依据",
+            "预期行为",
+            "教学记录"
+          ],
+          "rows": [
+            [
+              "几点签到？",
+              "D1 §2",
+              "引用时间",
+              "09:00–09:30，引用D1§2"
+            ],
+            [
+              "能否退款？",
+              "未提供",
+              "转人工",
+              "错误猜测退款规则"
+            ],
+            [
+              "其他城市也适用？",
+              "超出范围",
+              "说明范围",
+              "正确拒答"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "错误分析与修订决定",
+        "description": "不把三道题的表现扩成产品可靠率。",
+        "audience": "产品、开发",
+        "use": "决定先修哪类失败",
+        "checks": [
+          "错误与影响分开记录"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "观察",
+              "text": "退款问题产生无依据规则。"
+            },
+            {
+              "label": "修订",
+              "text": "资料无退款条款时拒答；增加新的独立边界题。"
+            },
+            {
+              "label": "尚未验证",
+              "text": "未测试多轮诱导、真实流量和服务中断。"
+            }
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "任务与数据边界",
+        "work": "决定什么能答、什么应转人工",
+        "quality": "评估标准能在调用前说明"
+      },
+      {
+        "skill": "程序与评估",
+        "work": "组织输入、输出与可复现实验",
+        "quality": "保留错误类别、引用与环境"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "客服与领域人员",
+        "exchange": "确认须知含义和错误影响；接收边界报告。"
+      },
+      {
+        "role": "后端与数据人员",
+        "exchange": "约定资料权限、接口失败和监测；接收运行限制。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "复现受限原型",
+        "description": "按固定输入重现结果，解释一次错误。"
+      },
+      {
+        "title": "对评估与运行边界负责",
+        "description": "面对资料更新和分布变化，组织独立评估与回退。"
+      }
+    ],
+    "pitfalls": [
+      "把提示词改得更长当成可靠性证明。",
+      "把教学测试成绩说成真实上线效果。"
+    ],
+    "practice": {
+      "title": "标注三条回答是否有依据",
+      "brief": "不用调用模型，先用原文判定回答能否成立。",
+      "input": "阅读下面D1/D2短原文，再审核A1–A3三条待审回答；这些回答尚未判定。",
+      "steps": [
+        "为A1–A3分别写：引用是否支持、原段落、需要怎样修正；保留自己的判断。",
+        "自己增加一个资料无法回答的问题，并写出应如何处理。"
+      ],
+      "deliverable": "一份问题—依据—错误—改进记录",
+      "checks": [
+        "未知问题不猜测",
+        "开发示例与新测试区分"
+      ],
+      "route": "/career-map?career=ai&skill=eval-cases&step=practice&view=study",
+      "materials": [
+        {
+          "id": "D1",
+          "title": "D1 · 本市活动到场须知",
+          "text": "§1 本须知用于本站虚构的本市周六活动。\n§2 签到时间为09:00–09:30；09:30停止签到。\n§3 签到出示电子报名码即可，本演练不要求纸质票。"
+        },
+        {
+          "id": "D2",
+          "title": "D2 · 使用范围说明",
+          "text": "§1 本活动须知只适用于本市这一次活动，不适用于其他城市或其他日期。\n§2 资料没有回答的问题应转交活动客服核实。"
+        }
+      ],
+      "attempts": {
+        "kind": "table",
+        "columns": [
+          "编号 / 用户问题",
+          "待审回答原文"
+        ],
+        "rows": [
+          [
+            "A1 · 什么时候签到？",
+            "签到08:30–09:00，见D1§2。"
+          ],
+          [
+            "A2 · 提前一天可以退款吗？",
+            "可以，提前24小时全额退，见D2§1。"
+          ],
+          [
+            "A3 · 必须打印纸质票吗？",
+            "本次签到出示电子报名码即可，不要求纸质票，见D1§3。"
+          ]
+        ],
+        "rowIds": [
+          "trial-ai-A1",
+          "trial-ai-A2",
+          "trial-ai-A3"
+        ]
+      },
+      "review": [
+        "A1：引用段落存在，但时间与D1§2不符，应改为09:00–09:30。",
+        "A2：D2§1只说明适用范围；两份资料均无退款规则，应转客服，不补写退款承诺。",
+        "A3：D1§3直接支持本次电子码/无需纸票的说明；不要外推到其他活动。",
+        "A4：D1§2确实存在，但只规定签到停止时间，没有完整的迟到入场政策；引用存在不等于推论有依据。"
+      ],
+      "fork": {
+        "title": "引用存在，是否就支持结论？",
+        "question": "A4问“09:35还能入场吗？”回答“09:30停止签到，所以09:35一定不能入场，见D1§2”。请区分停止签到与入场政策，写出仍需客服确认的部分。",
+        "sourceId": "ai-rmf",
+        "section": "MEASURE 2.1–2.3: documented tests and context limits; original citation-audit exercise",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "ai",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "ai-rmf": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ],
+      "cn-new-occupations": [
+        "scope"
+      ]
+    },
+    "compare": {
+      "problem": "让活动须知问答引用正确，缺资料时不猜规则。",
+      "daily": "定任务与资料边界→独立测试→分类错误→决定修订。",
+      "outputs": "问题—引用审核表与修订记录；供客服和开发复核。",
+      "collaboration": "客服确认答案依据；产品定边界，开发处理检索与调用。",
+      "preparation": "任务边界、可复现实验、引用审核与拒答判断。",
+      "practice": "读D1/D2短原文，独立审核三条回答后看教学对照。"
+    },
+    "focus": "资料问答应用评测",
+    "sourceRecords": [
+      {
+        "id": "ai-rmf",
+        "publisher": "NIST",
+        "title": "人工智能风险管理框架1.0",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+        "region": "美国自愿性框架；方法参考",
+        "coverage": "任务语境、评估与风险边界；不是职位定义",
+        "version": "NIST AI 100-1，1.0",
+        "originalUpdated": "2023-01",
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": null,
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "cn-new-occupations",
+        "publisher": "人社部等三部门；工信部教育与考试中心转载",
+        "title": "2019年新职业信息通知",
+        "url": "https://www.miiteec.org.cn/news_details?code=742",
+        "region": "中国；2019年公布范围参考",
+        "coverage": "人工智能、大数据、云计算工程技术人员的范围；不据此推断当前学历、工资或入职条件",
+        "version": "人社厅发〔2019〕48号；正文第（一）（三）（四）项",
+        "originalUpdated": "2019-04-01",
+        "accessed": "2026-11-22",
+        "license": "未核得再分发许可；仅原创概述和原文链接",
+        "licenseUrl": null,
+        "usage": "用于区分方向范围，不复制通知全文或后文市场判断。",
+        "status": "read_original"
+      }
+    ],
+    "title": "人工智能",
+    "titleEn": "AI Application Engineer",
+    "output": "独立问题与评估记录、错误分析与修订决定",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "人工智能风险管理框架1.0",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "security": {
+    "name": "网络安全",
+    "englishName": "Cybersecurity Analyst",
+    "lead": "把一串登录告警整理成可交接的事件事实、证据和未知。",
+    "scope": "本案聚焦安全运营中的日志研判。应用安全侧重威胁与控制验证，授权测试侧重明确许可范围，合规评估侧重要求与证据；同一岗位可能交叉。",
+    "problem": "异常是否值得升级，现有证据能支持什么处置？",
+    "daily": "核对授权范围，按时间关联事件、检查资产与身份，记录替代解释并向处置人员交接。",
+    "environment": "告警有噪声，时间紧但证据不能省；响应或值守安排依团队而异，操作资产前必须确认授权。",
+    "sources": [
+      "nist-ir"
+    ],
+    "case": {
+      "title": "一次离线研判：失败登录后出现成功登录",
+      "requester": "安全运营值班负责人",
+      "question": "服务账号连续失败后出现新设备成功登录，要不要升级复核？",
+      "input": "下方可查看演练授权、资产卡及E1–E3认证事件；未提供地点、IP定位、设备取证或账号持有者访谈。",
+      "decisions": [
+        "事实是登录结果和时间，恶意身份及根因尚未证实。",
+        "只建议核实会话和变更，不在示例中执行封禁或真实扫描。"
+      ],
+      "review": "响应负责人按日志编号复核账号、设备与变更；不能从“新设备”推成“异地”或已入侵。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "table",
+        "columns": [
+          "事件",
+          "日期时间（UTC+08:00）",
+          "账号 / 设备 / 观察"
+        ],
+        "rows": [
+          [
+            "E1",
+            "2026-05-15 09:00:00",
+            "svc-x / dev-a / 认证失败"
+          ],
+          [
+            "E2",
+            "2026-05-15 09:03:00",
+            "svc-x / dev-a / 09:00–09:03共20次失败，包含E1"
+          ],
+          [
+            "E3",
+            "2026-05-15 09:05:00",
+            "svc-x / dev-b / 成功，设备未登记"
+          ]
+        ],
+        "rowIds": [
+          "trial-security-E1",
+          "trial-security-E2",
+          "trial-security-E3"
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "定范围",
+        "description": "确认演练资产和可用日志。",
+        "output": "授权范围"
+      },
+      {
+        "title": "排时间线",
+        "description": "关联同一账号的失败与成功。",
+        "output": "事件时间线"
+      },
+      {
+        "title": "写交接",
+        "description": "分开事实、假设、缺口和建议。",
+        "output": "研判交接记录"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "事件时间线",
+        "description": "让响应者看到先后关系。",
+        "audience": "事件响应负责人",
+        "use": "核对升级依据",
+        "checks": [
+          "每项观察有事件编号"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "事件",
+            "日期时间（UTC+08:00）",
+            "账号 / 设备 / 观察"
+          ],
+          "rows": [
+            [
+              "E1",
+              "2026-05-15 09:00:00",
+              "svc-x / dev-a / 认证失败"
+            ],
+            [
+              "E2",
+              "2026-05-15 09:03:00",
+              "svc-x / dev-a / 09:00–09:03共20次失败，包含E1"
+            ],
+            [
+              "E3",
+              "2026-05-15 09:05:00",
+              "svc-x / dev-b / 成功，设备未登记"
+            ]
+          ],
+          "rowIds": [
+            "trial-security-E1",
+            "trial-security-E2",
+            "trial-security-E3"
+          ]
+        }
+      },
+      {
+        "title": "研判交接记录",
+        "description": "使下一位处理者知道什么还没证实。",
+        "audience": "响应与系统管理员",
+        "use": "选择核实与处置顺序",
+        "checks": [
+          "区分观察、解释与处置授权",
+          "不宣称已确认入侵"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "事实",
+              "text": "E1–E3显示同一账号短时失败后成功；新设备标记已记录。"
+            },
+            {
+              "label": "替代解释",
+              "text": "可能是配置重试后管理员登录，也可能是凭据被使用。"
+            },
+            {
+              "label": "建议",
+              "text": "升级复核账号持有者与变更工单，保存日志；处置由授权负责人决定。"
+            }
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "网络与认证",
+        "work": "读懂日志字段和会话关系",
+        "quality": "不混淆认证成功与操作合法"
+      },
+      {
+        "skill": "证据与沟通",
+        "work": "把判断链接到事件编号",
+        "quality": "交接可复核并保留未知"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "响应负责人",
+        "exchange": "接收事件范围、证据及建议，决定处置授权。"
+      },
+      {
+        "role": "系统与业务负责人",
+        "exchange": "提供变更及业务影响，协助排除合法操作。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "按规则核对告警",
+        "description": "在监督下记录事实、缺口和升级理由。"
+      },
+      {
+        "title": "组织跨源事件分析",
+        "description": "处理冲突证据与处置影响，推动完整交接和复盘。"
+      }
+    ],
+    "pitfalls": [
+      "把异常地点当成攻击者身份。",
+      "为了验证猜测而越过授权范围。"
+    ],
+    "practice": {
+      "title": "写一份可接手的事件说明",
+      "brief": "从E1–E3写事实、一个替代解释和下一步。",
+      "input": "使用下方AUTH授权、ASSET资产卡及E1–E3；不假设额外地点或变更信息。",
+      "steps": [
+        "每条判断标出证据编号。",
+        "列出仍缺的会话或变更信息。"
+      ],
+      "deliverable": "一份事件时间线与交接短文",
+      "checks": [
+        "事实可定位到E1–E3",
+        "没有无依据的根因结论"
+      ],
+      "route": "/career-map?career=security&skill=incident-handoff&step=practice&view=study",
+      "materials": [
+        {
+          "id": "AUTH",
+          "title": "AUTH · 合成演练授权",
+          "text": "范围：只阅读本页E1–E3与资产APP-DEMO。允许整理时间线和提出核对请求；不允许连接真实系统、扫描、封禁或撤销会话。升级决定交给演练响应负责人。"
+        },
+        {
+          "id": "ASSET",
+          "title": "ASSET · 资产与基准",
+          "text": "APP-DEMO：虚构报名API演练环境；svc-x为部署服务账号，负责人为演练系统管理员。已登记设备仅dev-a；事件窗口内没有提供审批变更工单。未登记设备不等于恶意设备。"
+        }
+      ],
+      "attempts": {
+        "kind": "table",
+        "columns": [
+          "事件",
+          "日期时间（UTC+08:00）",
+          "账号 / 设备 / 观察"
+        ],
+        "rows": [
+          [
+            "E1",
+            "2026-05-15 09:00:00",
+            "svc-x / dev-a / 认证失败"
+          ],
+          [
+            "E2",
+            "2026-05-15 09:03:00",
+            "svc-x / dev-a / 09:00–09:03共20次失败，包含E1"
+          ],
+          [
+            "E3",
+            "2026-05-15 09:05:00",
+            "svc-x / dev-b / 成功，设备未登记"
+          ]
+        ],
+        "rowIds": [
+          "trial-security-E1",
+          "trial-security-E2",
+          "trial-security-E3"
+        ]
+      },
+      "fork": {
+        "title": "把“补证据”写成可交接的请求",
+        "question": "请向演练系统管理员核对svc-x的变更工单及dev-b登记；向响应负责人申请会话复核。日期统一UTC+08:00，E2的20次包含E1，不能相加成21次。",
+        "sourceId": "nist-ir",
+        "section": "Incident analysis and coordinated information sharing; site-authored time-window convention",
+        "verifiedAt": "2026-11-22"
+      },
+      "review": [
+        "E1在2026-05-15 09:00:00失败；E2汇总09:00–09:03的20次失败且包含E1；E3在09:05:00成功。日期与时区为UTC+08:00，不能写成21次失败。",
+        "dev-b未登记是待核线索，不足以判定恶意或事件根因。ASSET没有提供变更审批或会话关联证据，替代解释仍需保留。",
+        "向演练系统管理员请求svc-x变更工单与dev-b登记核对；向响应负责人申请会话复核。AUTH只授权阅读与交接，不允许扫描、封禁或撤销会话。"
+      ]
+    },
+    "id": "security",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "nist-ir": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ]
+    },
+    "compare": {
+      "problem": "新设备成功登录是否值得升级复核，而非直接判定入侵。",
+      "daily": "核授权与资产→排时间线→分事实/解释→保存并交接。",
+      "outputs": "带E1–E3编号的时间线、替代解释和待核项交接。",
+      "collaboration": "值班与响应负责人复核；系统管理员核对变更和会话。",
+      "preparation": "认证日志、授权范围、证据定位与不确定性表达。",
+      "practice": "用演练授权、资产卡和三条日志写一份可接手的说明。"
+    },
+    "focus": "认证事件离线研判",
+    "sourceRecords": [
+      {
+        "id": "nist-ir",
+        "publisher": "NIST",
+        "title": "事件响应建议与考虑",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf",
+        "region": "美国框架方法参考",
+        "coverage": "事件分析、响应与恢复；不代表国内合规结论",
+        "version": "SP 800-61r3",
+        "originalUpdated": "2025-04-03",
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": null,
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      }
+    ],
+    "title": "网络安全",
+    "titleEn": "Cybersecurity Analyst",
+    "output": "事件时间线、研判交接记录",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "事件响应建议与考虑",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "ops": {
+    "name": "运维工程",
+    "englishName": "Operations / Reliability Engineer",
+    "lead": "从用户受影响的信号出发，决定是否回退，并证明恢复确实发生。",
+    "scope": "运维可覆盖系统、网络、容量与支持；DevOps强调开发与运行协作及交付自动化；SRE以软件工程和服务目标管理可靠性。本案只展示一次服务发布后的异常处理。",
+    "problem": "服务哪里影响用户，怎样安全恢复并避免重复事故？",
+    "daily": "观察延迟/错误/流量，查发布与依赖，验证变更和回退，更新运行手册。",
+    "environment": "发布窗口和事件会打断原计划；可能值守但不是所有岗位相同。回退速度要与数据一致性、权限和沟通一起考虑。",
+    "sources": [
+      "cn-new-occupations",
+      "sre"
+    ],
+    "case": {
+      "title": "发布后错误增加：回退还是继续观察？",
+      "requester": "服务负责人",
+      "question": "活动报名API发布后错误升高，要采取什么恢复动作？",
+      "input": "两个5分钟合成窗口：发布前1000请求/5错误，发布后1000请求/80错误；回退演练预案，无数据迁移。",
+      "decisions": [
+        "错误率0.5%→8%，但先核对请求口径、发布时间与依赖，不把相关性直接当根因。",
+        "由变更负责人确认回退权限；回退后继续观察同口径指标及核心流程。"
+      ],
+      "review": "回退演练后的5分钟有800请求、4错误，错误率0.5%。请求数可不同，窗口长度、错误定义与请求范围必须可比；仍须复验核心报名流程并继续观察。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "table",
+        "columns": [
+          "窗口",
+          "请求",
+          "错误",
+          "错误率"
+        ],
+        "rows": [
+          [
+            "发布前",
+            1000,
+            5,
+            "0.5%"
+          ],
+          [
+            "发布后",
+            1000,
+            80,
+            "8%"
+          ],
+          [
+            "回退演练后（5分钟）",
+            800,
+            4,
+            "0.5%"
+          ]
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "判断影响",
+        "description": "比较同口径窗口，核实用户流程。",
+        "output": "影响说明"
+      },
+      {
+        "title": "选择恢复",
+        "description": "确认回退前提与负责人。",
+        "output": "恢复步骤"
+      },
+      {
+        "title": "验证与交接",
+        "description": "重测核心流程，保留后续观察。",
+        "output": "恢复记录"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "运行窗口对照",
+        "description": "各窗口分别以错误数除以本窗口请求数；不要求请求量相等。",
+        "audience": "服务与变更负责人",
+        "use": "判断升级与恢复优先级",
+        "checks": [
+          "窗口长度、错误定义与请求范围可比；各窗口保留自己的请求量"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "窗口",
+            "请求",
+            "错误",
+            "错误率"
+          ],
+          "rows": [
+            [
+              "发布前",
+              1000,
+              5,
+              "0.5%"
+            ],
+            [
+              "发布后",
+              1000,
+              80,
+              "8%"
+            ],
+            [
+              "回退演练后（5分钟）",
+              800,
+              4,
+              "0.5%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "恢复运行手册",
+        "description": "约定谁执行、何时停止与怎样验证。",
+        "audience": "授权操作人与后续值班",
+        "use": "减少临场猜测",
+        "checks": [
+          "有停止/升级条件",
+          "数据兼容性是回退前提"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "执行前",
+              "text": "确认当前发布标识、回退包、负责人；若涉及不可逆迁移则暂停。"
+            },
+            {
+              "label": "验证",
+              "text": "同一5分钟窗口核对请求/错误；重测报名、查询；记录未覆盖流程。"
+            },
+            {
+              "label": "交接",
+              "text": "记录时间、执行人、影响和后续观察；根因另开复盘。"
+            }
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "系统与HTTP诊断",
+        "work": "区分服务错误、流量和依赖问题",
+        "quality": "先核实影响再选择命令"
+      },
+      {
+        "skill": "可靠性与自动化",
+        "work": "定义窗口、回退和健康检查",
+        "quality": "恢复能被观察和复验"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "开发与变更负责人",
+        "exchange": "提供发布差异与回退前提；接收指标与操作记录。"
+      },
+      {
+        "role": "业务与值班",
+        "exchange": "确认核心流程是否恢复；接收剩余影响和观察计划。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "按手册恢复局部服务",
+        "description": "在授权下执行并留证，不跳过验证。"
+      },
+      {
+        "title": "改善可恢复性",
+        "description": "针对重复事故完善发布门禁、观测与演练；平衡可靠性投入。"
+      }
+    ],
+    "pitfalls": [
+      "只看到CPU下降就宣布服务恢复。",
+      "默认所有发布都能直接回滚。"
+    ],
+    "practice": {
+      "title": "从三窗口写恢复验收",
+      "brief": "复算上表错误率，说明能确认与不能确认的范围。",
+      "input": "上方合成窗口和“无迁移”前提。",
+      "steps": [
+        "写出回退前须确认的条件。",
+        "为核心用户流程写复验项。"
+      ],
+      "deliverable": "一份恢复检查单与限制说明",
+      "checks": [
+        "分别使用1000、1000、800作为各窗口分母",
+        "不把一个窗口或错误率回落当长期SLO/完整恢复"
+      ],
+      "route": "/career-map?career=ops&skill=rollback-verify&step=practice&view=study",
+      "fork": {
+        "title": "错误率下降，但报名流程仍失败",
+        "question": "演练分岔：技术窗口为800请求/4错误，但黑盒报名步骤仍失败。本演练由服务负责人决定停止继续发布、升级排查并交接观察；只有技术指标改善不能宣布恢复。此约定不是通用生产阈值。",
+        "sourceId": "sre",
+        "section": "SLIs, correctness and Aggregation conventions",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "ops",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "sre": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ],
+      "cn-new-occupations": [
+        "scope"
+      ]
+    },
+    "compare": {
+      "problem": "发布后错误升高，何时回退、怎样确认恢复范围。",
+      "daily": "核对窗口与变更→确认恢复权限→执行预案→复验。",
+      "outputs": "三窗口观测和恢复检查单；交给服务及变更负责人。",
+      "collaboration": "与开发核对变更、与服务负责人确认回退和用户流程。",
+      "preparation": "同口径指标、变更风险、恢复步骤与停止条件。",
+      "practice": "复算0.5%/8%/0.5%，区分技术指标、业务复验与后续观察。"
+    },
+    "focus": "服务变更与恢复验收",
+    "sourceRecords": [
+      {
+        "id": "sre",
+        "publisher": "Google",
+        "title": "Site Reliability Engineering：服务目标",
+        "url": "https://sre.google/sre-book/service-level-objectives/",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "SLI、窗口与可靠性取舍；不是所有运维岗位要求",
+        "version": "在线章节；原文更新日期未标注",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": null,
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "cn-new-occupations",
+        "publisher": "人社部等三部门；工信部教育与考试中心转载",
+        "title": "2019年新职业信息通知",
+        "url": "https://www.miiteec.org.cn/news_details?code=742",
+        "region": "中国；2019年公布范围参考",
+        "coverage": "人工智能、大数据、云计算工程技术人员的范围；不据此推断当前学历、工资或入职条件",
+        "version": "人社厅发〔2019〕48号；正文第（一）（三）（四）项",
+        "originalUpdated": "2019-04-01",
+        "accessed": "2026-11-22",
+        "license": "未核得再分发许可；仅原创概述和原文链接",
+        "licenseUrl": null,
+        "usage": "用于区分方向范围，不复制通知全文或后文市场判断。",
+        "status": "read_original"
+      }
+    ],
+    "title": "运维工程",
+    "titleEn": "Operations / Reliability Engineer",
+    "output": "运行窗口对照、恢复运行手册",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "Site Reliability Engineering：服务目标",
+        "url": "https://sre.google/sre-book/service-level-objectives/"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "frontend": {
+    "name": "前端开发",
+    "englishName": "Front-end Developer",
+    "lead": "把报名规则变成可理解、可操作、出错后能继续的界面。",
+    "scope": "Web前端涉及语义结构、交互、状态、可访问性和性能；框架应用、设计系统与图形可视化侧重点不同。本案是表单交互，不代表所有前端工作。",
+    "problem": "用户怎样完成任务，并理解页面每一种状态？",
+    "daily": "与产品/设计对齐流程，实现交互与接口状态，用键盘和浏览器验证错误恢复。",
+    "environment": "界面需求、浏览器和真实输入差异大；视觉还原、可访问性与接口契约需要同时协调。",
+    "sources": [
+      "mdn-forms"
+    ],
+    "case": {
+      "title": "报名邮箱填错后，怎样让用户继续？",
+      "requester": "活动产品与设计",
+      "question": "报名表不能只显示红框；用户要知道哪里错、怎么改，提交中不能重复发送。",
+      "input": "邮箱必填与格式要求、等待/成功/失败状态及键盘路径；本页仅本机延迟模拟，不连接报名后台。",
+      "decisions": [
+        "标签与错误说明建立程序关联；失败保留原输入并把焦点送到错误处。",
+        "浏览器校验改善体验，服务端仍须独立校验与去重。"
+      ],
+      "review": "产品对照流程，测试人员只用键盘走通空值、格式错误、修正与成功；真实网络故障另测。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "brief",
+        "rows": [
+          {
+            "label": "可操作表单预览",
+            "text": "可操作表单和状态验收记录；供产品、测试和接手者使用。"
+          }
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "拆状态",
+        "description": "列空值、非法值、等待和结果。",
+        "output": "状态约定"
+      },
+      {
+        "title": "实现反馈",
+        "description": "让错误可读、输入保留、焦点可达。",
+        "output": "可操作表单"
+      },
+      {
+        "title": "验证路径",
+        "description": "用键盘复走错误与修正。",
+        "output": "检查记录"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "可操作表单预览",
+        "description": "试填错误邮箱再修正；仅为本站本机演示，不发送资料。",
+        "audience": "产品、用户与测试",
+        "use": "验证错误恢复能否理解",
+        "checks": [
+          "有显式标签与错误关联",
+          "修正不丢原输入"
+        ],
+        "example": {
+          "kind": "form"
+        }
+      },
+      {
+        "title": "状态验收记录",
+        "description": "把交互标准写成可执行路径。",
+        "audience": "测试与接手同事",
+        "use": "复验状态一致性",
+        "checks": [
+          "结果与预期分开"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "输入/状态",
+            "预期反馈",
+            "复核方式"
+          ],
+          "rows": [
+            [
+              "空邮箱",
+              "必填错误并聚焦输入",
+              "键盘提交"
+            ],
+            [
+              "abc",
+              "格式错误，保留abc",
+              "修正再提交"
+            ],
+            [
+              "有效邮箱 / 等待",
+              "本机延迟模拟；提交禁用，改动取消旧结果",
+              "连续点击及等待时改动"
+            ],
+            [
+              "选择模拟成功",
+              "仅本机成功；未发资料或创建报名",
+              "观察本机状态"
+            ],
+            [
+              "选择模拟失败",
+              "失败保留输入，可以重试",
+              "换演练结果再试"
+            ]
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "语义HTML与键盘",
+        "work": "为表单建立标签和可达路径",
+        "quality": "不只依靠颜色表达错误"
+      },
+      {
+        "skill": "状态与接口契约",
+        "work": "区分加载、成功、失败与重试",
+        "quality": "避免重复提交和输入丢失"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "产品与设计",
+        "exchange": "提供任务流程与状态规则；接收可交互版本。"
+      },
+      {
+        "role": "后端与测试",
+        "exchange": "对齐错误码与校验，复核真实接口与异常。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "交付一个完整交互",
+        "description": "在评审下覆盖正常、错误和键盘路径。"
+      },
+      {
+        "title": "维护跨页面体验",
+        "description": "统一组件状态、性能与可访问性，评估改动影响。"
+      }
+    ],
+    "pitfalls": [
+      "只还原静态稿，不实现等待与错误。",
+      "把前端校验当成权限或安全控制。"
+    ],
+    "practice": {
+      "title": "只用键盘走完错误恢复",
+      "brief": "先在本页记录当前案例的尝试；下方技能入口将使用另一套练习材料。",
+      "input": "空值、abc及示例邮箱三组输入。",
+      "steps": [
+        "写下三种输入的反馈和焦点去向。",
+        "补一个网络失败的预期状态。"
+      ],
+      "deliverable": "交互状态清单与一个实现尝试",
+      "checks": [
+        "Tab顺序可达、错误可读",
+        "区分演示与真实提交"
+      ],
+      "route": "/career-map?career=frontend&skill=form-errors&step=practice&view=study",
+      "fork": {
+        "title": "等待时改动输入，会发生什么？",
+        "question": "先用有效邮箱启动本机模拟，等待时改成abc：旧成功/失败结果必须取消，不能把新输入显示成旧请求成功。真实网络、服务端校验和无障碍辅助技术仍需另测。",
+        "sourceId": "mdn-forms",
+        "section": "Required versus format validation; site-authored asynchronous simulation",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "frontend",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "mdn-forms": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ]
+    },
+    "compare": {
+      "problem": "邮箱填错后，用户能理解错误并保留输入继续。",
+      "daily": "拆状态→接标签和错误→保留输入/焦点→键盘复验。",
+      "outputs": "可操作表单和状态验收记录；供产品、测试和接手者使用。",
+      "collaboration": "产品与设计确定反馈；前后端和测试对齐接口及状态。",
+      "preparation": "语义HTML、状态处理、接口契约与键盘可达性。",
+      "practice": "键盘尝试空值、abc和正确邮箱，记录反馈与焦点。"
+    },
+    "focus": "表单错误恢复与状态",
+    "sourceRecords": [
+      {
+        "id": "mdn-forms",
+        "publisher": "Mozilla Contributors",
+        "title": "客户端表单验证",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "表单约束/反馈及服务端仍需校验",
+        "version": "在线教学章节；更新日期未单独核定",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "文档CC BY-SA 2.5或以后版本；本例代码独立原创",
+        "licenseUrl": "https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      }
+    ],
+    "title": "前端开发",
+    "titleEn": "Front-end Developer",
+    "output": "可操作表单预览、状态验收记录",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "客户端表单验证",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "backend": {
+    "name": "后端开发",
+    "englishName": "Back-end Developer",
+    "lead": "让报名记录接口返回正确对象，并在错误与越权时可靠拒绝。",
+    "scope": "后端包含业务规则、接口、存储与运行可靠性；平台、中间件和高并发服务各有深入方向。本案聚焦一个业务接口，与前端和数据工程存在交叉。",
+    "problem": "业务规则怎样在多次请求、权限和失败下保持一致？",
+    "daily": "约定请求响应，实现校验和对象权限，维护事务、集成测试及运行日志。",
+    "environment": "接口是多人共同使用的契约；一次看似小改动可能影响旧客户端与数据，必须考虑兼容、超时与监测。",
+    "sources": [
+      "openapi",
+      "owasp-api"
+    ],
+    "case": {
+      "title": "一个查询接口，为什么不能只检查是否登录？",
+      "requester": "活动产品与前端团队",
+      "question": "用户查询自己的报名R42，其他人不能靠改ID读到记录。",
+      "input": "R42属于u-a；服务端校验会话。本演练u-a可读R42，但没有registration:edit动作权限；客户端owner字段不是权限依据。",
+      "decisions": [
+        "先验证会话，再针对请求对象检查所有者与策略；敏感字段按响应契约裁剪。",
+        "本教学契约使用403表示已登录但无权；真实产品也可按策略统一404，须保持一致。"
+      ],
+      "review": "测试以u-a、u-b及无会话分别请求同一对象，核对响应和日志，不只看正常请求。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "brief",
+        "rows": [
+          {
+            "label": "接口契约节选",
+            "text": "请求响应契约与身份/对象测试矩阵；交给前端和测试。"
+          }
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "约定接口",
+        "description": "说明对象、字段和失败语义。",
+        "output": "请求响应约定"
+      },
+      {
+        "title": "实现规则",
+        "description": "校验会话并检查对象权限。",
+        "output": "业务与权限逻辑"
+      },
+      {
+        "title": "验证边界",
+        "description": "用不同身份请求同一对象。",
+        "output": "集成测试矩阵"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "接口契约节选",
+        "description": "客户端明确能收到什么，而不是猜字段。",
+        "audience": "前端与集成同事",
+        "use": "协作实现查询",
+        "checks": [
+          "字段含义和错误语义明确",
+          "描述不能代替真实权限实现"
+        ],
+        "example": {
+          "kind": "code",
+          "language": "http",
+          "code": "GET /registrations/R42\nCookie: session=<server-verified>\n\n200 OK\n{\"id\":\"R42\",\"event\":\"E10\",\"status\":\"active\"}\n\n401: no valid session\n403: authenticated user cannot read this object\n404: object does not exist"
+        }
+      },
+      {
+        "title": "身份与对象权限矩阵",
+        "description": "把能查到与不能查到都留下证据。",
+        "audience": "测试、安全与维护者",
+        "use": "防止只验证登录、不验证对象",
+        "checks": [
+          "用户B不能读用户A对象",
+          "客户端owner不影响判断"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "身份",
+            "对象 / 动作",
+            "预期"
+          ],
+          "rows": [
+            [
+              "u-a",
+              "R42 / GET",
+              "200"
+            ],
+            [
+              "u-a",
+              "R42 / PATCH",
+              "403"
+            ],
+            [
+              "u-b",
+              "R42 / GET",
+              "403"
+            ],
+            [
+              "无会话",
+              "R42 / GET",
+              "401"
+            ],
+            [
+              "u-a",
+              "missing / GET",
+              "404"
+            ]
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "HTTP与数据契约",
+        "work": "说明成功、非法输入与失败",
+        "quality": "调用方无需依赖内部实现"
+      },
+      {
+        "skill": "权限与一致性",
+        "work": "服务端逐对象校验，设计事务与重试",
+        "quality": "不同身份与重复请求不破坏规则"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "前端与产品",
+        "exchange": "提供业务流程；对齐错误语义和兼容要求。"
+      },
+      {
+        "role": "测试、安全与运维",
+        "exchange": "检查越权、失败和观测；接收接口变更影响。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "交付一个有边界的接口",
+        "description": "在评审下完成校验、异常和集成测试。"
+      },
+      {
+        "title": "负责服务兼容与运行质量",
+        "description": "在多客户端、并发和故障下设计可维护的规则。"
+      }
+    ],
+    "pitfalls": [
+      "用请求体的owner代替会话身份。",
+      "只写200测试，不检查越权与错误。"
+    ],
+    "practice": {
+      "title": "补全对象访问测试",
+      "brief": "先在本页记录当前案例的尝试；下方技能入口将使用另一套练习材料。",
+      "input": "R42/u-a/u-b与上方接口约定。",
+      "steps": [
+        "列出会话失效、对象缺失和跨用户访问。",
+        "说明为何前端隐藏按钮不能代替权限检查。"
+      ],
+      "deliverable": "一份接口测试矩阵与权限说明",
+      "checks": [
+        "每行有身份、对象与预期",
+        "不以客户端字段判定归属"
+      ],
+      "route": "/career-map?career=backend&skill=object-authorization&step=practice&view=study",
+      "fork": {
+        "title": "同一个对象，可读是否就可改？",
+        "question": "比较u-a对R42的GET与PATCH；本演练策略还检查动作权限，owner相等不代表所有操作都允许。请写清会话、对象与动作三层检查。",
+        "sourceId": "owasp-api",
+        "section": "API1:2023 object-level authorization checks for the requested action",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "backend",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "openapi": [
+        "workflow",
+        "case.decisions",
+        "preparation"
+      ],
+      "owasp-api": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ]
+    },
+    "compare": {
+      "problem": "查询报名时只允许访问有权查看的对象。",
+      "daily": "定接口契约→查会话→逐对象授权→裁剪响应→测异常。",
+      "outputs": "请求响应契约与身份/对象测试矩阵；交给前端和测试。",
+      "collaboration": "与产品定权限政策，前端定响应契约，测试复核异常。",
+      "preparation": "协议与数据结构、对象授权、错误处理和测试。",
+      "practice": "对R42列u-a、u-b、无会话与缺失对象的预期。"
+    },
+    "focus": "报名对象及动作授权",
+    "sourceRecords": [
+      {
+        "id": "openapi",
+        "publisher": "OpenAPI Initiative / Linux Foundation",
+        "title": "OpenAPI规范3.1.1",
+        "url": "https://spec.openapis.org/oas/v3.1.1.html",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "接口描述与安全要求；不实现权限逻辑",
+        "version": "3.1.1",
+        "originalUpdated": "2024-10-24",
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": "https://github.com/OAI/OpenAPI-Specification/blob/main/LICENSE",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "owasp-api",
+        "publisher": "OWASP API Security Project",
+        "title": "API1：对象级授权失效",
+        "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "逐对象授权检查；案例与代码为本站原创",
+        "version": "API Security Top 10 2023",
+        "originalUpdated": "2023",
+        "accessed": "2026-11-22",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": null,
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      }
+    ],
+    "title": "后端开发",
+    "titleEn": "Back-end Developer",
+    "output": "接口契约节选、身份与对象权限矩阵",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "OpenAPI规范3.1.1",
+        "url": "https://spec.openapis.org/oas/v3.1.1.html"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "engineering": {
+    "name": "数据工程",
+    "englishName": "Data Engineer",
+    "lead": "让每日报名数据按同一粒度进入下游，失败后能重跑而不重复。",
+    "scope": "批处理、流处理、数仓建模和数据平台是不同侧重。本案是分区批处理，关注契约、质量、血缘与恢复；不把分析结论当成管道已可靠。",
+    "problem": "多源数据怎样稳定、可追溯地交给分析与业务？",
+    "daily": "对齐粒度与字段，编写转换和调度，检查质量/新鲜度，处理失败、回填和上游变更。",
+    "environment": "上游字段与到达时间会变化；下游需要可预测的分区和质量说明，值守取决于数据时效承诺。",
+    "sources": [
+      "cn-new-occupations",
+      "airflow",
+      "postgres"
+    ],
+    "case": {
+      "title": "昨天的分区失败了，重跑会不会把数据翻倍？",
+      "requester": "分析师与活动运营",
+      "question": "每天交付报名明细；昨天任务失败，恢复后同一分区仍应只有一份结果。",
+      "input": "本站合成分区2026-05-15，原始ID为r1/r2/r2/r3/r4，渠道均website；固定输入批次b17。",
+      "decisions": [
+        "固定分区和去重键，先写临时结果再原子替换，避免重试不断追加。",
+        "记录输入版本、有效行数和检查结果；失败分区不冒充已完成。"
+      ],
+      "review": "同一批次重跑两次，目标4行且主键唯一；只证明本例重跑性质，不代表全管道吞吐表现。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "table",
+        "columns": [
+          "字段",
+          "规则"
+        ],
+        "rows": [
+          [
+            "registration_id",
+            "非空、分区内唯一"
+          ],
+          [
+            "registered_at",
+            "事件日期决定分区"
+          ],
+          [
+            "channel",
+            "固定枚举；未知值隔离"
+          ],
+          [
+            "batch_id",
+            "来源批次b17可追溯"
+          ]
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "定契约",
+        "description": "约定一行代表什么、字段和到达时间。",
+        "output": "数据契约"
+      },
+      {
+        "title": "转换并检查",
+        "description": "按固定批次去重，检查空键与分区。",
+        "output": "可发布分区"
+      },
+      {
+        "title": "重跑与交接",
+        "description": "复验重跑一致性并记录血缘。",
+        "output": "质量与恢复记录"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "分区数据契约",
+        "description": "让上下游知道一行的含义。",
+        "audience": "上游开发、分析师",
+        "use": "约束接入与使用",
+        "checks": [
+          "主键、分区与空值规则明确"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "字段",
+            "规则"
+          ],
+          "rows": [
+            [
+              "registration_id",
+              "非空、分区内唯一"
+            ],
+            [
+              "registered_at",
+              "事件日期决定分区"
+            ],
+            [
+              "channel",
+              "固定枚举；未知值隔离"
+            ],
+            [
+              "batch_id",
+              "来源批次b17可追溯"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "重跑与质量记录",
+        "description": "交付数据之外，也交付为什么可信。",
+        "audience": "下游分析与数据值班",
+        "use": "判断能否安全使用该分区",
+        "checks": [
+          "核四个ID与channel，而不只核数量和重复键",
+          "同批次/分区固定；检查失败不发布"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "运行",
+            "输入 / 目标行",
+            "数量 / 内容检查",
+            "发布状态"
+          ],
+          "rows": [
+            [
+              "b17/run1",
+              "5 / 4",
+              "唯一键通过；内容见下表",
+              "演练发布"
+            ],
+            [
+              "b17/retry",
+              "5 / 4",
+              "四个ID与channel逐项相同",
+              "可发布"
+            ],
+            [
+              "b17/bad-retry",
+              "5 / 4",
+              "r3内容被覆盖；行数仍为4",
+              "阻断"
+            ],
+            [
+              "b18",
+              "含空键 / 未发布",
+              "契约检查失败",
+              "隔离"
+            ]
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "粒度与SQL转换",
+        "work": "定义主键、分区与关联",
+        "quality": "不因关联或重跑制造重复"
+      },
+      {
+        "skill": "调度与质量工程",
+        "work": "组织依赖、检查、回填与血缘",
+        "quality": "失败可定位，结果可恢复"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "上游开发",
+        "exchange": "对齐字段变更、事件时间和输入版本。"
+      },
+      {
+        "role": "分析师与运维",
+        "exchange": "接收可用分区、质量告知与恢复状态。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "维护一条固定输入管道",
+        "description": "按契约转换、检查与重跑，说明去重处理。"
+      },
+      {
+        "title": "负责跨系统数据交付",
+        "description": "处理变更、回填和延迟传播，并管理下游影响。"
+      }
+    ],
+    "pitfalls": [
+      "重试时不断INSERT，把同一分区叠加。",
+      "记录数对上就忽略字段含义和新鲜度。"
+    ],
+    "practice": {
+      "title": "为一次重跑写检查规则",
+      "brief": "判断run1/retry为什么一致，并为b18写阻断条件。",
+      "input": "上方b17/b18合成运行表和字段契约。",
+      "steps": [
+        "说明追加写与替换分区的差异。",
+        "列唯一键、空键和目标行数检查。"
+      ],
+      "deliverable": "一份分区重跑方案与三条检查",
+      "checks": [
+        "同一批次结果稳定",
+        "失败批次不进入正式下游"
+      ],
+      "route": "/career-map?career=engineering&skill=idempotent-batch&step=practice&view=study",
+      "fork": {
+        "title": "同为4行，内容真的一致吗？",
+        "question": "固定分区2026-05-15、输入批次b17，按registration_id排序，逐项比较registration_id与channel。bad-retry把r3改成community，虽仍4行且无重复，也必须阻断。此表是原创合成对照，未运行Airflow。",
+        "example": {
+          "kind": "table",
+          "columns": [
+            "registration_id",
+            "run1.channel",
+            "retry.channel",
+            "bad-retry.channel"
+          ],
+          "rows": [
+            [
+              "r1",
+              "website",
+              "website",
+              "website"
+            ],
+            [
+              "r2",
+              "website",
+              "website",
+              "website"
+            ],
+            [
+              "r3",
+              "website",
+              "website",
+              "community"
+            ],
+            [
+              "r4",
+              "website",
+              "website",
+              "website"
+            ]
+          ]
+        },
+        "sourceId": "airflow",
+        "section": "Creating a task: identical reruns and fixed input/output partitions",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "engineering",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "airflow": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ],
+      "postgres": [
+        "workflow",
+        "case.decisions",
+        "preparation"
+      ],
+      "cn-new-occupations": [
+        "scope"
+      ]
+    },
+    "compare": {
+      "problem": "失败分区重跑后，如何仍只向下游交付一份可信数据。",
+      "daily": "定粒度与契约→固定批次→去重替换分区→检查并发布。",
+      "outputs": "分区契约、重跑和质量记录；供下游分析与值班使用。",
+      "collaboration": "上游核字段与变更，分析师核粒度，值班接失败记录。",
+      "preparation": "主键/分区、SQL转换、幂等重跑、质量与血缘。",
+      "practice": "对b17两次运行和b18空键，写发布/隔离检查。"
+    },
+    "focus": "固定分区批处理",
+    "sourceRecords": [
+      {
+        "id": "postgres",
+        "publisher": "PostgreSQL Global Development Group",
+        "title": "表表达式：筛选与分组",
+        "url": "https://www.postgresql.org/docs/19/queries-table-expressions.html",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "SQL转换方法；不是职业任职标准",
+        "version": "PostgreSQL 19文档",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": "https://www.postgresql.org/about/licence/",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "airflow",
+        "publisher": "Apache Software Foundation",
+        "title": "Airflow最佳实践",
+        "url": "https://airflow.apache.org/docs/apache-airflow/3.4.0/best-practices.html",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "固定分区和重跑一致性；Airflow为可选工具",
+        "version": "3.4.0",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "Apache-2.0；本页不复制代码或图表",
+        "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "cn-new-occupations",
+        "publisher": "人社部等三部门；工信部教育与考试中心转载",
+        "title": "2019年新职业信息通知",
+        "url": "https://www.miiteec.org.cn/news_details?code=742",
+        "region": "中国；2019年公布范围参考",
+        "coverage": "人工智能、大数据、云计算工程技术人员的范围；不据此推断当前学历、工资或入职条件",
+        "version": "人社厅发〔2019〕48号；正文第（一）（三）（四）项",
+        "originalUpdated": "2019-04-01",
+        "accessed": "2026-11-22",
+        "license": "未核得再分发许可；仅原创概述和原文链接",
+        "licenseUrl": null,
+        "usage": "用于区分方向范围，不复制通知全文或后文市场判断。",
+        "status": "read_original"
+      }
+    ],
+    "title": "数据工程",
+    "titleEn": "Data Engineer",
+    "output": "分区数据契约、重跑与质量记录",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "表表达式：筛选与分组",
+        "url": "https://www.postgresql.org/docs/19/queries-table-expressions.html"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "testing": {
+    "name": "软件测试",
+    "englishName": "Software Test Engineer",
+    "lead": "把“折扣应该正确”变成边界、复现步骤和可追溯的回归证据。",
+    "scope": "功能、探索式、自动化、性能与安全测试各有技术侧重；测试也包含需求审查、风险分析与沟通。本案仅覆盖一个价格边界，不代表完整测试体系。",
+    "problem": "哪些失败最值得先发现，怎样证明问题和修复？",
+    "daily": "审查需求，选择风险与边界，执行检查，记录可复现异常，复测并检查关联功能。",
+    "environment": "测试时间有限且环境会变化；需要与产品澄清预期，与开发协商严重程度，不能把所有未测部分写成通过。",
+    "sources": [
+      "istqb"
+    ],
+    "case": {
+      "title": "满100元优惠，99.99元是否也被减价？",
+      "requester": "活动产品负责人",
+      "question": "订单满100元减10元；测试预发布计算器是否正确处理边界。",
+      "input": "合成需求R1及99.99/100/100.01示范；预设缺陷是先把金额按整数元四舍五入，再判断100元门槛（不是按分取整）。 只有门槛判断用取整值，实际扣减仍基于原始分金额。",
+      "decisions": [
+        "用边界值而不是大量相近正常值；先确认金额精度和优惠口径。",
+        "缺陷报告分别写预期与实际，修复后还要看其他门槛逻辑。"
+      ],
+      "review": "产品确认R1，开发按输入复现；测试保留构建号和回归范围，不宣称无缺陷。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "table",
+        "columns": [
+          "输入金额",
+          "预期实付",
+          "合成实际"
+        ],
+        "rows": [
+          [
+            99.99,
+            99.99,
+            89.99
+          ],
+          [
+            100,
+            90,
+            90
+          ],
+          [
+            100.01,
+            90.01,
+            90.01
+          ]
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "选风险",
+        "description": "澄清门槛与金额精度。",
+        "output": "风险与边界设计"
+      },
+      {
+        "title": "记录失败",
+        "description": "复现99.99的错误优惠。",
+        "output": "缺陷报告"
+      },
+      {
+        "title": "复测关联",
+        "description": "复测修复，并列未覆盖范围。",
+        "output": "回归记录"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "边界检查表",
+        "description": "输入与预期先独立于实现。",
+        "audience": "产品、开发",
+        "use": "对齐需求与复现",
+        "checks": [
+          "包含门槛前、等于、门槛后"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "输入金额",
+            "预期实付",
+            "合成实际"
+          ],
+          "rows": [
+            [
+              99.99,
+              99.99,
+              89.99
+            ],
+            [
+              100,
+              90,
+              90
+            ],
+            [
+              100.01,
+              90.01,
+              90.01
+            ]
+          ]
+        }
+      },
+      {
+        "title": "可复现缺陷报告",
+        "description": "让开发不用猜环境和步骤。",
+        "audience": "开发与发布负责人",
+        "use": "判断修复优先级与回归",
+        "checks": [
+          "环境、步骤、预期、实际齐全",
+          "只说明已测范围"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "环境与步骤",
+              "text": "演练构建demo-A；输入99.99，提交价格计算。"
+            },
+            {
+              "label": "预期/实际",
+              "text": "预期99.99，实际89.99；与R1门槛约定不符。"
+            },
+            {
+              "label": "回归范围",
+              "text": "复查三边界及其他优惠叠加；支付与退款未测。"
+            }
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "需求与测试设计",
+        "work": "选择边界、状态与风险",
+        "quality": "预期不照抄当前系统"
+      },
+      {
+        "skill": "复现与回归",
+        "work": "保留环境、输入与观察",
+        "quality": "别人能够重现并判断修复"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "产品",
+        "exchange": "解决需求歧义，确认失败对用户的影响。"
+      },
+      {
+        "role": "开发与发布负责人",
+        "exchange": "接收复现证据；共同判断修复和剩余风险。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "可靠复现一个失败",
+        "description": "按标准写证据，区分预期和实际。"
+      },
+      {
+        "title": "组织基于风险的验证",
+        "description": "面对复杂依赖安排验证优先级，向团队解释未覆盖风险。"
+      }
+    ],
+    "pitfalls": [
+      "通过数量很多就声称质量充分。",
+      "修复后只检查同一输入。"
+    ],
+    "practice": {
+      "title": "新门槛：先为满80减8写预期",
+      "brief": "上方是已解释示范；下面换为R2新输入，先独立写预期，再打开教学对照。",
+      "input": "R2：满80元减8元，金额用整数分处理，不叠加其他优惠。输入7999/8000/8001分；尚未公开本题预期。",
+      "steps": [
+        "先写三条预期与需求依据。",
+        "对照后将演练实际与预期分列，写复现步骤及未测范围。"
+      ],
+      "deliverable": "边界表与一份缺陷短报",
+      "checks": [
+        "预期来自需求",
+        "保留未测范围"
+      ],
+      "route": "/career-map?career=testing&skill=boundary&step=practice&view=study",
+      "review": [
+        "R2预期：7999→7999分；8000→7200分；8001→7201分。",
+        "预设缺陷同样先按整数元四舍五入再判门槛时，演练实际为7199/7200/7201分；第一条与需求不符。此为合成观察，不是实际产品运行。",
+        "三个边界不覆盖全部优惠、支付、退款或系统行为。"
+      ],
+      "fork": {
+        "title": "示范之后，再独立推演新边界",
+        "question": "R2：满80元减8元，金额用整数分处理，不叠加其他优惠。输入7999/8000/8001分；尚未公开本题预期。",
+        "sourceId": "istqb",
+        "section": "CTFL 4.0.1 §4.2.2 Boundary Value Analysis; original integer-cent exercise",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "testing",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "istqb": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ]
+    },
+    "compare": {
+      "problem": "满100减10是否在99.99等门槛边界产生错误。",
+      "daily": "核需求口径→选边界→分预期/观察→复现和回归。",
+      "outputs": "边界用例表与可复现缺陷报告；供开发修复与发布判断。",
+      "collaboration": "产品确认规则，开发复现修复，测试保留回归范围。",
+      "preparation": "需求追溯、边界设计、复现条件与范围表达。",
+      "practice": "为99.99/100/100.01独立写预期、步骤和未测风险。"
+    },
+    "focus": "金额规则边界测试",
+    "sourceRecords": [
+      {
+        "id": "istqb",
+        "publisher": "ISTQB®",
+        "title": "Foundation Level教学大纲",
+        "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf",
+        "region": "国际专业教学资料",
+        "coverage": "测试活动、追溯和缺陷管理；认证不是任职必需",
+        "version": "CTFL 4.0.1",
+        "originalUpdated": "2024-09-15",
+        "accessed": "2026-11-21",
+        "license": "版权页有用途限制；不复制大纲、题库或培训课件",
+        "licenseUrl": null,
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      }
+    ],
+    "title": "软件测试",
+    "titleEn": "Software Test Engineer",
+    "output": "边界检查表、可复现缺陷报告",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "Foundation Level教学大纲",
+        "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "software": {
+    "name": "通用软件开发",
+    "englishName": "Software Developer",
+    "lead": "把一条可验收的业务规则做成可维护的功能，而不只是写出能运行的代码。",
+    "scope": "通用软件开发覆盖问题拆解、设计、编码、测试与维护，与前端、后端并非互斥。本案用一个纯函数说明规则实现；嵌入式、桌面、移动与平台产品有各自约束。",
+    "problem": "怎样把需求变成可验证、可修改并可交接的软件行为？",
+    "daily": "澄清验收条件、拆分模块、写实现与测试，参与评审并记录发布影响。",
+    "environment": "需求与旧代码并存；可维护性来自清晰边界、测试与评审，不取决于某一种语言。",
+    "sources": [
+      "swebok",
+      "github-pr"
+    ],
+    "case": {
+      "title": "金额门槛规则怎样改得安心？",
+      "requester": "活动产品与维护团队",
+      "question": "实现满100减10，使用整数分，拒绝负金额，方便以后更换活动规则。",
+      "input": "合成验收R1：9999→9999分，10000→9000分；不处理支付、税或多优惠叠加。",
+      "decisions": [
+        "把金额运算与页面、数据库隔离；边界测试来自验收而非实现。",
+        "评审说明取舍与未覆盖项，不用一份代码推断已完成整个系统。"
+      ],
+      "review": "同事对照R1审阅边界与错误处理；集成到产品后仍需接口/界面及回归检查。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "brief",
+        "rows": [
+          {
+            "label": "规则实现节选",
+            "text": "函数、验收/错误用例与设计评审说明；供同事维护。"
+          }
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "拆验收",
+        "description": "把需求写成输入/输出与排除项。",
+        "output": "验收样例"
+      },
+      {
+        "title": "实现边界",
+        "description": "用整数分和纯函数隔离规则。",
+        "output": "规则函数与测试"
+      },
+      {
+        "title": "评审交接",
+        "description": "说明设计、验证与未覆盖部分。",
+        "output": "变更评审记录"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "规则实现节选",
+        "description": "用一个明确边界承载规则。",
+        "audience": "接手开发与评审人",
+        "use": "支持修改与复核",
+        "checks": [
+          "金额为安全整数且非负",
+          "等于门槛时有测试"
+        ],
+        "example": {
+          "kind": "code",
+          "language": "javascript",
+          "code": "function payable(cents) {\n  if (!Number.isSafeInteger(cents) || cents < 0) {\n    throw new Error(\"Invalid amount\");\n  }\n  return cents >= 10000 ? cents - 1000 : cents;\n}\n// 9999 -> 9999; 10000 -> 9000; 10001 -> 9001"
+        }
+      },
+      {
+        "title": "变更评审与发布说明",
+        "description": "让团队知道改了什么、为什么与如何检查。",
+        "audience": "评审人、维护与测试",
+        "use": "评估合并与发布影响",
+        "checks": [
+          "实现、测试和未覆盖范围清楚"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "设计",
+              "text": "只处理整数分的门槛折扣，金额解析由调用方负责。"
+            },
+            {
+              "label": "验证",
+              "text": "覆盖9999/10000/10001、负数与非整数。"
+            },
+            {
+              "label": "边界",
+              "text": "未接支付；多个优惠叠加须新约定与测试。"
+            }
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "问题建模与程序基础",
+        "work": "把规则拆为输入、输出与错误",
+        "quality": "实现边界能被解释"
+      },
+      {
+        "skill": "测试、版本与评审",
+        "work": "保持小变更和可追溯验证",
+        "quality": "后续维护者能理解取舍"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "产品与测试",
+        "exchange": "确认验收与风险，接收行为和验证说明。"
+      },
+      {
+        "role": "评审人与维护者",
+        "exchange": "审阅变更、替代方案和兼容影响。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "独立完成小功能切片",
+        "description": "在清楚约定下实现、测试并处理评审意见。"
+      },
+      {
+        "title": "负责模块演进",
+        "description": "处理跨模块依赖、旧行为与发布风险，保持可维护边界。"
+      }
+    ],
+    "pitfalls": [
+      "测试只复制函数当前输出。",
+      "用炫技抽象替代清楚的小功能。"
+    ],
+    "practice": {
+      "title": "给折扣函数写验收与错误用例",
+      "brief": "先写预期，再解释为什么使用整数分。",
+      "input": "上方R1与原创函数节选。",
+      "steps": [
+        "补一个非法输入和边界测试。",
+        "提出优惠叠加前必须问的问题。"
+      ],
+      "deliverable": "测试清单和一段设计说明",
+      "checks": [
+        "不把函数示例当完整产品",
+        "错误输入有明确处理"
+      ],
+      "route": "/career-map?career=software&skill=acceptance-slices&step=practice&view=study",
+      "fork": {
+        "title": "新增会员优惠，先问计算顺序",
+        "question": "新需求：满减与会员95折可以叠加。先确认顺序、门槛基数和按分舍入。若产品明确“先满100减10，再95折”，10000分应付8550分；若顺序不同结果会变。本页原函数尚未支持会员折扣，不能写成已实现。",
+        "sourceId": "swebok",
+        "section": "Requirements clarification and construction verification; original business-rule change",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "software",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "github-pr": [
+        "workflow",
+        "case.decisions",
+        "preparation"
+      ],
+      "swebok": [
+        "scope",
+        "preparation",
+        "growth",
+        "practice.fork"
+      ]
+    },
+    "compare": {
+      "problem": "把金额门槛规则做成可验证、可维护的程序变更。",
+      "daily": "拆验收→隔离金额规则→整数分实现→边界测试与评审。",
+      "outputs": "函数、验收/错误用例与设计评审说明；供同事维护。",
+      "collaboration": "产品确认规则，同事评审取舍，测试检查集成后的行为。",
+      "preparation": "问题拆解、程序设计、错误处理、测试与版本协作。",
+      "practice": "给整数分函数补非法输入，解释未支持的优惠叠加。"
+    },
+    "focus": "金额规则程序变更",
+    "sourceRecords": [
+      {
+        "id": "github-pr",
+        "publisher": "GitHub Docs",
+        "title": "Pull request评审",
+        "url": "https://docs.github.com/en/pull-requests/reference/pull-request-reviews",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "代码协作与评审方法，非整个软件开发职业定义",
+        "version": "在线文档；更新日期未知",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": null,
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      },
+      {
+        "id": "swebok",
+        "publisher": "IEEE Computer Society",
+        "title": "SWEBOK软件工程知识体系",
+        "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf",
+        "region": "国际专业知识体系；非岗位硬门槛",
+        "coverage": "需求、构造、测试与可维护性，参考第1/4章；不是固定语言或工具清单",
+        "version": "4.0a",
+        "originalUpdated": "2026-08",
+        "accessed": "2026-11-22",
+        "license": "版权页允许有限教育/个人复制并要求署名；本页只原创概括和链接，不镜像书籍。",
+        "licenseUrl": null,
+        "usage": "工作范围与方法参考；本例代码、数据与评审记录独立原创。",
+        "status": "read_original"
+      }
+    ],
+    "title": "通用软件开发",
+    "titleEn": "Software Developer",
+    "output": "规则实现节选、变更评审与发布说明",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "Pull request评审",
+        "url": "https://docs.github.com/en/pull-requests/reference/pull-request-reviews"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  },
+  "delivery": {
+    "name": "IT实施交付",
+    "englishName": "IT Implementation Specialist",
+    "lead": "把系统方案变成能验收、能交接、出问题能回退的实际使用流程。",
+    "scope": "实施可包括配置、集成、数据迁移、用户培训与支持；不同产品和行业差异明显。本案是小型报名系统迁移演练，不代表所有ERP或云实施要求。",
+    "problem": "方案怎样在使用方环境落地，并有证据证明可用？",
+    "daily": "澄清范围与环境，配置权限与集成，组织迁移/UAT、切换和培训，维护问题与交接清单。",
+    "environment": "依赖客户窗口、网络和多方签字，现场或远程均可能；技术完成与使用方验收不是同一件事。",
+    "sources": [
+      "ms-migration"
+    ],
+    "case": {
+      "title": "迁移演练完成后，业务是否真的能报名？",
+      "requester": "活动运营与客户项目负责人",
+      "question": "把旧报名系统迁到演练环境；30分钟窗口内验证权限、数据与核心业务，保留旧环境回退。",
+      "input": "600条原创合成源/目标CSV及摘要清单可下载；切换前演练约定冻结写入，窗口30分钟，保留源环境。仅演练，不执行生产迁移。",
+      "decisions": [
+        "记录数相同不足以验收，还需抽查映射、校验摘要与关键流程。",
+        "权限或核心流程未通过则不切换；明确谁批准、谁支持与何时回退。"
+      ],
+      "review": "业务用户执行UAT并确认；实施人员交接配置、残留问题和支持责任，不代替客户签署验收。",
+      "nature": "original_synthetic",
+      "preview": {
+        "kind": "table",
+        "columns": [
+          "检查项",
+          "合成证据",
+          "责任人"
+        ],
+        "rows": [
+          [
+            "记录数",
+            "600 → 600",
+            "数据负责人"
+          ],
+          [
+            "摘要/字段",
+            "对id/email/status按规则规范化排序；两份完整摘要见清单",
+            "技术负责人"
+          ],
+          [
+            "权限",
+            "访客不可读取报名明细",
+            "安全与测试"
+          ],
+          [
+            "核心流程",
+            "报名/查询通过；导出未测",
+            "业务用户"
+          ]
+        ]
+      }
+    },
+    "workflow": [
+      {
+        "title": "对齐范围",
+        "description": "确认环境、角色、窗口与验收责任人。",
+        "output": "实施约定"
+      },
+      {
+        "title": "演练与验收",
+        "description": "核数据、权限和用户流程。",
+        "output": "UAT证据"
+      },
+      {
+        "title": "切换交接",
+        "description": "满足门禁才批准切换；保留回退与支持。",
+        "output": "交接与待办"
+      }
+    ],
+    "deliverables": [
+      {
+        "title": "迁移/UAT检查单",
+        "description": "把技术数据和用户流程一起验收。",
+        "audience": "业务验收人与技术负责人",
+        "use": "决定是否允许切换",
+        "checks": [
+          "数目、摘要与字段映射分别检查",
+          "业务用户确认核心流程"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "检查项",
+            "合成证据",
+            "责任人"
+          ],
+          "rows": [
+            [
+              "记录数",
+              "600 → 600",
+              "数据负责人"
+            ],
+            [
+              "摘要/字段",
+              "对id/email/status按规则规范化排序；两份完整摘要见清单",
+              "技术负责人"
+            ],
+            [
+              "权限",
+              "访客不可读取报名明细",
+              "安全与测试"
+            ],
+            [
+              "核心流程",
+              "报名/查询通过；导出未测",
+              "业务用户"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "切换门禁与回退",
+        "description": "在窗口前约定停止条件。",
+        "audience": "项目负责人",
+        "use": "避免技术完成后仓促上线",
+        "checks": [
+          "未测关键项需明确决策"
+        ],
+        "example": {
+          "kind": "brief",
+          "rows": [
+            {
+              "label": "允许条件",
+              "text": "权限与核心流程通过，业务批准；未测导出若为本期必要项则阻断。"
+            },
+            {
+              "label": "回退",
+              "text": "冻结写入且未产生新数据时按演练方案回切；若目标已有新报名，先暂停写入并保全/对账增量，由负责人决定，不能直接回旧库。"
+            }
+          ]
+        }
+      },
+      {
+        "title": "用户交接记录",
+        "description": "交付使用方法，也交付谁接住问题。",
+        "audience": "使用方管理员与支持",
+        "use": "维持后续可用性",
+        "checks": [
+          "残留问题、负责人和支持渠道可查"
+        ],
+        "example": {
+          "kind": "table",
+          "columns": [
+            "交接项",
+            "内容"
+          ],
+          "rows": [
+            [
+              "培训",
+              "管理员完成报名/查询演练"
+            ],
+            [
+              "待办",
+              "导出验证待业务排期，不标完成"
+            ],
+            [
+              "支持",
+              "工单队列与技术联系人已确认"
+            ]
+          ]
+        }
+      }
+    ],
+    "preparation": [
+      {
+        "skill": "流程与验收",
+        "work": "把需求拆成可签认的场景",
+        "quality": "不能用配置完成代替业务可用"
+      },
+      {
+        "skill": "环境、权限与迁移",
+        "work": "管理差异、依赖与回退",
+        "quality": "保留检查证据和责任人"
+      }
+    ],
+    "collaboration": [
+      {
+        "role": "客户业务与管理员",
+        "exchange": "提供实际使用流程与权限；亲自执行并确认UAT。"
+      },
+      {
+        "role": "产品/开发与运维",
+        "exchange": "解决集成和环境问题，接收配置、待办及支持责任。"
+      }
+    ],
+    "growth": [
+      {
+        "title": "完成受指导的配置与检查",
+        "description": "按清单留证，遇到范围外问题及时升级。"
+      },
+      {
+        "title": "协调一个可验收的交付范围",
+        "description": "管理多方依赖、风险、窗口和交接，不独自替业务作决定。"
+      }
+    ],
+    "pitfalls": [
+      "两边记录数相同就宣布迁移成功。",
+      "培训完成后没有问题接收人。"
+    ],
+    "practice": {
+      "title": "做一次Go/No-Go判断",
+      "brief": "使用上方检查单，解释导出未测会不会阻断本次范围。",
+      "input": "600条合成记录、权限/UAT结果及30分钟窗口。",
+      "steps": [
+        "写允许、阻断和回退条件。",
+        "给每个残留问题指定应确认的角色。"
+      ],
+      "deliverable": "一页验收决定与交接清单",
+      "checks": [
+        "不把未测写成通过",
+        "责任与范围均明确"
+      ],
+      "route": "/career-map?career=delivery&skill=go-no-go&step=practice&view=study",
+      "files": [
+        {
+          "url": "/examples/career-exploration/migration-source.csv",
+          "label": "源端合成CSV"
+        },
+        {
+          "url": "/examples/career-exploration/migration-target.csv",
+          "label": "目标端合成CSV"
+        },
+        {
+          "url": "/examples/career-exploration/migration-check.json",
+          "label": "字段规则及完整摘要"
+        }
+      ],
+      "fork": {
+        "title": "切换后新增了报名，还能直接回切吗？",
+        "question": "对账按registration_id排序，email去首尾空白并小写，status将confirmed映射为active；固定这三字段，以紧凑JSON的UTF-8字节算SHA-256，不能用行数代替。若切换后产生M601，旧库没有它，原“冻结写入”前提已不成立：先保全新记录及对账，再由负责人决定回退路径。",
+        "example": {
+          "kind": "table",
+          "columns": [
+            "registration_id",
+            "源字段",
+            "目标字段"
+          ],
+          "rows": [
+            [
+              "M001",
+              " Person001@EXAMPLE.INVALID  / confirmed",
+              "person001@example.invalid / active"
+            ],
+            [
+              "M002",
+              " Person002@EXAMPLE.INVALID  / confirmed",
+              "person002@example.invalid / active"
+            ]
+          ]
+        },
+        "sourceId": "ms-migration",
+        "section": "Migration windows, data validation and maintaining a fallback; original write-freeze scenario",
+        "verifiedAt": "2026-11-22"
+      }
+    },
+    "id": "delivery",
+    "version": "career-exploration-20261122-audit",
+    "sourceClaims": {
+      "ms-migration": [
+        "workflow",
+        "case.decisions",
+        "preparation",
+        "practice.fork"
+      ]
+    },
+    "compare": {
+      "problem": "迁移后业务是否真能报名，是否可以在限定窗口切换。",
+      "daily": "核范围/环境→映射配置→数据与UAT→决定切换/回退→交接。",
+      "outputs": "UAT、Go/No-Go与支持交接；交给客户业务及支持负责人。",
+      "collaboration": "客户用户执行UAT，开发/运维核配置，负责人批准切换。",
+      "preparation": "需求澄清、角色配置、验收/回退与责任交接。",
+      "practice": "按合成检查单写允许、阻断与回退条件及残留责任。"
+    },
+    "focus": "报名系统迁移演练",
+    "sourceRecords": [
+      {
+        "id": "ms-migration",
+        "publisher": "Microsoft Learn",
+        "title": "执行云迁移",
+        "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/execute-migration",
+        "region": "跨地区技术/方法参考，非招聘样本",
+        "coverage": "Azure迁移的窗口、验证与回退方法；不代表所有实施岗位",
+        "version": "在线框架章节；更新日期未核定",
+        "originalUpdated": null,
+        "accessed": "2026-11-21",
+        "license": "未核得本站再分发授权；不再分发原文或素材。",
+        "licenseUrl": "https://learn.microsoft.com/en-us/legal/termsofuse",
+        "usage": "本站原创解释与合成案例；只链接原文，不复制其图表、课程或题库。",
+        "status": "read_original"
+      }
+    ],
+    "title": "IT实施交付",
+    "titleEn": "IT Implementation Specialist",
+    "output": "迁移/UAT检查单、切换门禁与回退、用户交接记录",
+    "provenance": {
+      "type": "project_original",
+      "version": "career-exploration-20261122-audit",
+      "contentTypes": [
+        "referenced_public_methods",
+        "original_synthetic"
+      ],
+      "records": [
+        "src/content/career-exploration.json",
+        "src/content/career-exploration-sources.json"
+      ],
+      "reference": {
+        "label": "执行云迁移",
+        "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/execute-migration"
+      },
+      "contentNote": "职业说明参考一手方法资料；案例、代码、数据和产物为本站原创合成教学示例。",
+      "referenceNote": "技术方法及职业活动参考不构成国内招聘要求；完整来源、日期、范围与改编方式随投影保留。"
+    }
+  }
+}
