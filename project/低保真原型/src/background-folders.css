@@ -1,32 +1,15 @@
 html body #root#root#root#root #main.workspace .background-assessment {
   --folder-ink: #244a70;
   --folder-muted: #6c8094;
-  & .background-review-layout {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:22px;align-items:start;min-height:376px}
-  & .background-review-sidebar {min-width:0;max-height:320px;overflow-y:auto;overscroll-behavior:contain auto;padding:17px;border:1px solid #e7e1d6;border-radius:16px;background:#fffefa;scrollbar-width:thin;scrollbar-color:#d6dfe5 transparent;transition:max-height 200ms ease}
-  & .background-review-sidebar[data-expanded="true"] {max-height:376px}
-  & .background-review-sidebar>.panel {margin:0;padding:0;border:0;box-shadow:none;background:transparent}
-  & .background-review-sidebar h2 {font-size:18px!important;line-height:1.5!important;margin:0 0 16px}
-  & .background-review-sidebar .field {min-width:0;margin:0 0 14px}
-  & .background-review-sidebar :is(select,input) {max-width:100%;min-width:0}
-  & .background-review-sidebar .cols2 {grid-template-columns:minmax(0,1fr);gap:8px}
-  & .background-review-sidebar .record {padding:16px 0;margin:0;border:0;border-top:1px solid #e8e8df;border-radius:0;box-shadow:none;background:transparent}
-  & .background-review-sidebar .record h3 {font-size:14px!important;margin:0}
-  & .background-review-sidebar .record p {font-size:12px!important;margin:5px 0;line-height:1.7}
-  & .background-review-sidebar .record .actions {gap:7px;margin-top:10px}
-  & .background-review-sidebar .record .actions button {padding:7px 10px;min-height:36px;font-size:12px!important}
-  & .background-review-sidebar .section-head {gap:8px;flex-wrap:wrap;margin-bottom:12px}
-  & .background-review-sidebar .guided-start {margin:12px 0 0;padding:12px 0;border:0;background:transparent;box-shadow:none}
-  & .background-review-sidebar .guided-start-heading {display:block}
-  & .background-review-sidebar .guided-start h3 {font-size:15px!important;margin:0 0 12px}
-  & .background-review-sidebar .context-help {display:inline-flex;margin:0 0 10px}
-  & .background-review-sidebar .guided-start .actions {display:block}
-  & .background-review-sidebar .background-review-hint {font-size:12px!important;color:#6c8094;margin:5px 0}
   & .background-folders {position:relative;min-width:0;padding:14px 18px 10px;border:1px solid #e9e4d9;border-radius:18px;background:#fffefa;isolation:isolate;--binder-text:#5d471d;--folder-width:76px;--folder-height:236px}
+  & .background-folders + .notice {margin-block:16px 0}
   & .folder-wall-decoration {position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:-1}
   & .folder-wall-decoration>svg {display:block;width:100%;height:100%}
   & .folder-desk-heading {display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px}
   & .folder-desk-heading h3 {font-size:18px!important;margin:0;color:var(--folder-ink)}
   & .folder-heading-label {display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-width:0}
+  & .folder-filter {display:inline-flex;align-items:center;flex-wrap:wrap;gap:8px;color:var(--folder-muted);font-size:12px}
+  & .folder-filter select {width:auto;min-width:8em;max-width:100%;min-height:36px;font-size:13px}
   & button.folder-collection-toggle {min-height:36px;padding:4px 6px!important;border:0!important;background:transparent!important;box-shadow:none!important;color:#496b88!important;font-size:11px!important;text-decoration:underline;text-underline-offset:3px}
   & .folder-entry-actions {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0}
   & button.folder-entry-button {display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 12px!important;border:1px solid #e1d9c9!important;border-radius:20px!important;background:#fffefa!important;color:var(--folder-ink)!important;box-shadow:none!important;font-size:12px!important;white-space:nowrap}
@@ -138,8 +121,9 @@ html body #root#root#root#root #main.workspace .background-assessment {
   & .folder-demo-content dl>div {margin:0 0 17px}
   & .folder-demo-content dt {font-size:13px;font-weight:600;color:#294d70;margin:0 0 5px}
   & .folder-demo-content dd {margin:0;font-size:13px;line-height:1.85;color:#576f85}
-  & .folder-desk-footer {display:flex;justify-content:flex-end;align-items:center;min-height:40px;margin-top:8px}
-  & .folder-practice-link {display:inline-flex;align-items:center;min-height:40px;font-size:12px!important;color:#526f8c;text-decoration:underline;text-underline-offset:4px}
+  & .folder-desk-footer {display:flex;flex-wrap:wrap;align-items:center;column-gap:16px;min-height:40px;margin-top:8px}
+  & .folder-empty {margin:0;color:var(--folder-muted);font-size:13px!important}
+  & .folder-practice-link {display:inline-flex;align-items:center;min-height:40px;margin-inline-start:auto;font-size:12px!important;color:#526f8c;text-decoration:underline;text-underline-offset:4px}
 }
 @media (hover:hover) {
   html body #root#root#root#root #main.workspace .background-assessment {
@@ -152,8 +136,6 @@ html body #root#root#root#root #main.workspace .background-assessment {
 }
 @container workspace (max-width:850px) {
   html body #root#root#root#root #main.workspace .background-assessment {
-    & .background-review-layout {gap:16px;grid-template-columns:minmax(210px,1fr) minmax(0,2fr)}
-    & .background-review-sidebar {padding:13px}
     & .background-folders {padding:15px 12px 12px}
     & .folder-desk-heading {flex-wrap:wrap}
     & .folder-stage {height:250px}
@@ -161,9 +143,6 @@ html body #root#root#root#root #main.workspace .background-assessment {
 }
 @container workspace (max-width:680px) {
   html body #root#root#root#root #main.workspace .background-assessment {
-    & .background-review-layout {grid-template-columns:minmax(0,1fr);min-height:0}
-    & .background-review-sidebar {max-height:260px}
-    & .background-review-sidebar[data-expanded="true"] {max-height:360px}
     & .folder-desk-heading {align-items:flex-start;gap:10px}
     & .folder-desk-heading h3 {font-size:16px!important}
     & .folder-entry-actions {width:100%;gap:6px}
@@ -198,7 +177,7 @@ html body #root#root#root#root #main.workspace .background-assessment {
 }
 @media (prefers-reduced-motion:reduce) {
   html body #root#root#root#root #main.workspace .background-assessment {
-    & :is(.folder-trigger,.folder-create-trigger,.folder-assembly,.folder-peek,.folder-document-body,.background-review-sidebar,.folder-shelf) {animation:none!important;transition:none!important}
+    & :is(.folder-trigger,.folder-create-trigger,.folder-assembly,.folder-peek,.folder-document-body,.folder-shelf) {animation:none!important;transition:none!important}
     & .folder-document-body {opacity:1;transform:none}
   }
 }

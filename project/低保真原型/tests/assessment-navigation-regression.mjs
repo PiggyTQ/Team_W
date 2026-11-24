@@ -4,7 +4,7 @@ import {mkdir, writeFile} from 'node:fs/promises';
 import {KEY, scenarioState} from '../src/model.js';
 
 const origin = process.env.CAREER_PREVIEW_ORIGIN || 'http://127.0.0.1:5184';
-const output = 'checks/assessment-navigation-20261107';
+const output = process.env.CAREER_CHECK_OUTPUT || 'checks/assessment-navigation-20261107';
 const order = ['assessment-review', 'assessment-profile', 'assessment-analysis', 'assessment-resumes'];
 const mapReturn = '/career-map?career=ops&node=skill:linux';
 const browser = await chromium.launch({channel: process.env.CAREER_BROWSER_CHANNEL || 'msedge', headless: true});
@@ -33,6 +33,7 @@ try {
       const checkOrder = async () => {
         assert.deepEqual(await page.locator('.assessment-hub > .hub-section').evaluateAll(elements => elements.map(element => element.id)), order);
         assert.equal(await review.count(), 1);
+        assert.equal(await review.locator(':scope > .background-folders').count(), 1);
         assert.equal(await originalNode.evaluate(element => element.isConnected), true, 'Background section must keep the same DOM node.');
       };
       const focus = id => page.waitForFunction(id => document.activeElement?.id === id, id);
@@ -41,7 +42,6 @@ try {
       await checkOrder();
       await jumps.nth(0).click();
       await focus('assessment-review');
-      await page.getByRole('button', {name: '收起全部材料', exact: true}).click();
       await jumps.nth(1).click();
       await focus('assessment-profile');
       await checkOrder();
@@ -83,6 +83,7 @@ try {
 
       await page.reload();
       await focus('assessment-review');
+      assert.equal(await review.locator(':scope > .background-folders').count(), 1);
       assert.deepEqual(await page.locator('.assessment-hub > .hub-section').evaluateAll(elements => elements.map(element => element.id)), order);
       const after = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), KEY);
       for (const key of ['claims', 'tasks', 'preferences', 'goal', 'budget', 'analysis', 'resumes']) {

@@ -25,7 +25,7 @@ export function operationSteps(flow,c,variant=''){
  case 'materials':return [step('materials.entry','先进入经历录入','点这里记录一段已经做过的经历，保存候选后再回来逐项确认。',L('资料与经历','.tabs'),c=>c.path==='/assessment'&&c.tab==='资料经历',{route:'/assessment',satisfied:c=>c.path==='/assessment'&&c.tab==='资料经历'}),
  step('materials.save','保存经历，再逐项核对','分步填写经历或粘贴原文，再填写标题。保存后逐项核对，此时记录仍待确认。',B(['保存并核对经历','保存为待确认候选']),(c,b)=>c.s.claims.length>b.claims&&c.tab==='原文确认',{route:'/assessment?tab=资料经历'}),
  step('materials.queue','进入背景评估','在准备总览中定位待核对材料，接着逐项核对原文与本人贡献。',L('背景评估','.assessment-hub-jumps'),c=>c.tab==='原文确认',{route:'/assessment?tab=原文确认',satisfied:c=>c.tab==='原文确认'}),
- step('materials.review','打开这一项，核对原文','点“修正 / 确认此项”，检查记录是不是自己做过的，以及本人负责的部分。',B(['修正 / 确认此项','明确重新审阅']),c=>c.modal==='claim',{route:'/assessment?tab=原文确认'}),
+ step('materials.review','打开这一项，核对原文','在个人经历档案中打开待核对的档案袋，再点“修正 / 确认此项”核对原文和本人贡献。',T('.folder-trigger[data-reviewable="true"], .folder-document [data-folder-review]'),c=>c.modal==='claim',{route:'/assessment?tab=原文确认'}),
  step('materials.confirm','核对后，由本人确认','阅读弹窗中的原文、贡献和处置方式；确认无误再点这里。不要为了结束引导确认不真实的内容。',B('确认这一项并查看回执','dialog[open]'),(c,b)=>c.modal!=='claim'&&c.s.profileVersion>b.profile,{modal:'claim',route:'/assessment?tab=原文确认'}),
  step('materials.analysis-tab','用确认材料查看差距','定位总览中的能力评估，再选择想对照的职业。进入区块不会自动生成分析。',L('能力评估','.assessment-hub-jumps'),c=>c.path==='/assessment'&&c.tab==='四维与差距',{route:'/assessment?tab=四维与差距',satisfied:c=>c.tab==='四维与差距'}),
  step('materials.analyze','主动建立对照快照','核对职业范围后点此按钮，生成基于当前确认材料的模拟对照。缺项继续保留未知。',B(['创建模拟差距快照','显式更新模拟分析']), (c,b)=>!!c.s.analysis&&(!b.hasAnalysis||(c.s.analysisHistory?.length||0)>b.analyses),{route:'/assessment?tab=四维与差距'})];

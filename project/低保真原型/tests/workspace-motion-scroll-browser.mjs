@@ -135,15 +135,13 @@ try{
   return {probes};
  });
 
- await check('资料列表优先滚动自身且上下边界继续滚动页面',{route:'/assessment'},async page=>{
-  const panel=page.locator('.background-review-sidebar');await panel.scrollIntoViewIfNeeded();
-  await panel.evaluate(el=>el.scrollTop=0);const initial=await mainTop(page);await wheelOn(page,'.background-review-sidebar',140);
-  await page.waitForFunction(()=>document.querySelector('.background-review-sidebar').scrollTop>0);
-  assert.equal(await mainTop(page),initial);
-  await panel.evaluate(el=>el.scrollTop=el.scrollHeight);const beforeDown=await mainTop(page);await wheelOn(page,'.background-review-sidebar',150);
+ await check('在个人经历档案上滚轮上下移动评估页面',{route:'/assessment'},async page=>{
+  const selector='#assessment-review > .background-folders .folder-shelf';
+  const archiveShelf=page.locator(selector);await archiveShelf.scrollIntoViewIfNeeded();
+  const beforeDown=await mainTop(page);await wheelOn(page,selector,150);
   await page.waitForFunction(before=>document.getElementById('main').scrollTop>before,beforeDown);
-  await panel.scrollIntoViewIfNeeded();await panel.evaluate(el=>el.scrollTop=0);const beforeUp=await mainTop(page);assert.ok(beforeUp>0);
-  await wheelOn(page,'.background-review-sidebar',-150);await page.waitForFunction(before=>document.getElementById('main').scrollTop<before,beforeUp);
+  await archiveShelf.scrollIntoViewIfNeeded();const beforeUp=await mainTop(page);assert.ok(beforeUp>0);
+  await wheelOn(page,selector,-150);await page.waitForFunction(before=>document.getElementById('main').scrollTop<before,beforeUp);
  });
 
  await check('计划明细列表滚动及边界交接不影响原幕布切换',{route:'/plan'},async page=>{

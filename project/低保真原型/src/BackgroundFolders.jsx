@@ -1,5 +1,6 @@
 import React, {useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
 import {demoExperiences} from './background-demo-experiences';
+import {canRejectClaim} from './model';
 import './background-folders.css';
 
 const entryFiles = [
@@ -8,6 +9,7 @@ const entryFiles = [
 ];
 
 const folderTones = ['butter', 'honey', 'vanilla', 'saffron', 'lemon', 'straw', 'gold', 'maize'];
+const claimStatuses = ['全部', '待确认', '疑似重复', '矛盾', '已拒绝', '已确认', '已关联重复', '已撤回'];
 
 function folderTone(id) {
   // Stable pseudo-random yellows keep each book's color through rerenders and reordering.
@@ -82,19 +84,21 @@ function DemoExperience({experience}) {
 
 export default function BackgroundFolders({claims, renderExperience, renderManual, renderImport, go, link, routeKey, live = false}) {
   const uid = useId(), root = useRef(null), buttons = useRef({}), documents = useRef({}), animation = useRef(null);
-  const stage = useRef(null), createButton = useRef(null), entryChooser = useRef(null);
+  const stage = useRef(null), createButton = useRef(null), entryChooser = useRef(null), filterControl = useRef(null);
   const operation = useRef(0), sourceRect = useRef(null), returnTo = useRef(null), closingFrom = useRef(null);
   const queued = useRef(null), afterClose = useRef(null), shouldRestore = useRef(true), pendingFocus = useRef(null);
   const state = useRef({id: null, phase: 'closed'}), actions = useRef({}), latest = useRef({go, link});
   const [view, setView] = useState(state.current), [visited, setVisited] = useState([]);
   const [choosing, setChoosing] = useState(false);
+  const [claimFilter, setClaimFilter] = useState('全部');
   const [showDemo, setShowDemo] = useState(claims.length === 0), previousClaimCount = useRef(claims.length);
   const reduced = useRef(false), previousRoute = useRef(routeKey);
   const personalFolders = claims.map((claim, index) => ({id: 'claim:' + claim.id, claim, title: claim.title || '未命名经历',
     number: String(index + 1).padStart(2, '0'), stamp: claim.status, tone: folderTone('claim:' + claim.id)}));
   const demoFolders = demoExperiences.map((demo, index) => ({id: 'demo:' + demo.id, demo, title: demo.title,
     number: String(index + 1).padStart(2, '0'), stamp: '演示', tone: folderTone('demo:' + demo.id)}));
-  const folders = showDemo ? demoFolders : personalFolders;
+  const folders = showDemo ? demoFolders : personalFolders.filter(file => claimFilter === '全部' || file.claim.status === claimFilter);
+  const noMatches = !showDemo && claims.length > 0 && folders.length === 0;
   const files = [...entryFiles, ...personalFolders.concat(demoFolders).filter(file => file.id === view.id)];
   latest.current = {go, link};
   const change = value => {state.current = value; setView(value);};
@@ -186,13 +190,16 @@ export default function BackgroundFolders({claims, renderExperience, renderManua
     if (previousRoute.current !== routeKey) {
       previousRoute.current = routeKey;
       setChoosing(false);
+      setClaimFilter('全部');
       queued.current = null; afterClose.current = null; pendingFocus.current = null;
       actions.current.close(undefined, false);
     }
   }, [routeKey]);
   useEffect(() => {
-    if (claims.length > previousClaimCount.current) setShowDemo(false);
-    else if (!claims.length) setShowDemo(true);
+    if (claims.length > previousClaimCount.current) {
+      setShowDemo(false);
+      setClaimFilter('全部');
+    } else if (!claims.length) setShowDemo(true);
     previousClaimCount.current = claims.length;
   }, [claims.length]);
   useEffect(() => {
@@ -243,7 +250,9 @@ export default function BackgroundFolders({claims, renderExperience, renderManua
       } else {
         const next = queued.current, action = afterClose.current;
         queued.current = null; afterClose.current = null;
-        if (!action && !next && shouldRestore.current) pendingFocus.current = returnTo.current?.isConnected ? returnTo.current : buttons.current[view.id];
+        if (!action && !next && shouldRestore.current) {
+          pendingFocus.current = returnTo.current?.isConnected ? returnTo.current : buttons.current[view.id] ?? filterControl.current;
+        }
         change({id: null, phase: 'closed'});
         if (action) action();
         else if (next) requestAnimationFrame(() => {if(root.current?.isConnected && previousRoute.current === routeKey && state.current.phase === 'closed')actions.current.open(next.id, next.trigger);});
@@ -261,11 +270,18 @@ export default function BackgroundFolders({claims, renderExperience, renderManua
     <div className="folder-desk-heading" inert={view.phase === 'open' || view.phase === 'closing'}>
       <div className="folder-heading-label"><h3>个人经历档案</h3>{claims.length > 0 && <button className="folder-collection-toggle" type="button" aria-pressed={showDemo}
         onClick={event => {const trigger = event.currentTarget; closeFolder(() => {setShowDemo(value => !value); pendingFocus.current = trigger;});}}>{showDemo ? '返回我的经历' : '查看演示经历'}</button>}</div>
+      {!showDemo && claims.length > 0 && <label className="folder-filter">
+        <span>按状态筛选</span>
+        <select ref={filterControl} value={claimFilter} onChange={event => setClaimFilter(event.target.value)}>
+          {claimStatuses.map(status => <option key={status} value={status}>{status}</option>)}
+        </select>
+      </label>}
     </div>
     <div className="folder-stage" ref={stage} data-phase={view.phase} data-folder={view.id || undefined} data-choosing={choosing}>
       <div className="folder-shelf" inert={view.phase === 'open' || view.phase === 'closing'}>
       <div className="folder-row" inert={view.phase === 'open' || view.phase === 'closing'}>
         {folders.map((file, index) => <button type="button" key={file.id} className="folder-trigger" data-folder={file.id} data-demo={!!file.demo} data-tone={file.tone} data-active={view.id === file.id} style={{'--folder-index': Math.min(index, 5)}}
+          data-reviewable={file.claim && canRejectClaim(file.claim)}
           ref={element => {buttons.current[file.id] = element;}} title={file.title} aria-labelledby={uid + '-spine-' + file.id} aria-describedby={uid + '-status-' + file.id}
           aria-expanded={view.id === file.id && view.phase !== 'closing'} aria-controls={view.id === file.id ? uid + '-' + file.id : undefined}
           onClick={event => openFolder(file.id, event.currentTarget)}>
@@ -322,6 +338,9 @@ export default function BackgroundFolders({claims, renderExperience, renderManua
         {!file.claim && !file.demo && <div className="folder-document-footer">按原文记录，保存后逐项核对。</div>}
       </section>)}
     </div>
-    <div className="folder-desk-footer" inert={view.phase === 'open' || view.phase === 'closing'}>{link('/learning', '没有经历？先了解实践', 'folder-practice-link')}</div>
+    <div className="folder-desk-footer" inert={view.phase === 'open' || view.phase === 'closing'}>
+      <p className="folder-empty" role="status">{noMatches ? '当前筛选下没有材料' : ''}</p>
+      {link('/learning', '没有经历？先了解实践', 'folder-practice-link')}
+    </div>
   </section>;
 }

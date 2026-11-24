@@ -41,6 +41,26 @@
 }
 #root #main.workspace .interest-heading h2 { margin: 0 0 7px; }
 #root #main.workspace .interest-heading p { margin: 0; color: var(--interest-muted); }
+#root #main.workspace .interest-heading-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+#root #main.workspace .interest-test-link {
+  min-height: 44px;
+  padding-inline: 18px;
+  border-color: var(--interest-ink) !important;
+  border-radius: 11px;
+  background-color: var(--interest-ink) !important;
+  color: #fff !important;
+  white-space: nowrap;
+}
+#root #main.workspace .interest-test-link:hover {
+  border-color: #1c3c5d !important;
+  background-color: #1c3c5d !important;
+}
 #root #main.workspace .interest-status {
   padding: 7px 12px;
   background: #f0f5fa;
@@ -132,7 +152,7 @@
 #root #main.workspace .interest-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; padding: 14px 16px; border: 1px solid #e8eff5; border-radius: 12px; background: #f9fbfd; }
 #root #main.workspace .interest-footer p { margin: 0; color: #56718c; font-size: 12px; }
 #root #main.workspace .interest-footer > span { color: var(--interest-muted); font-size: 12px; }
-#root #main.workspace .interest-assessment button:focus-visible { outline: 3px solid #6a8bab; outline-offset: 4px; }
+#root #main.workspace .interest-assessment :is(button, .interest-test-link):focus-visible { outline: 3px solid #6a8bab; outline-offset: 4px; }
 #root #main.workspace .interest-assessment:lang(en) .interest-ring-name { font-size: 13px; }
 @container workspace (max-width: 900px) {
   #root #main.workspace .interest-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 18px; }

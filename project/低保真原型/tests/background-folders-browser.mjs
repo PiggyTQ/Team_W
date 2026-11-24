@@ -4,7 +4,7 @@ import {mkdir, writeFile} from 'node:fs/promises';
 import {KEY, scenarioState} from '../src/model.js';
 
 const origin = process.env.CAREER_PREVIEW_ORIGIN || 'http://127.0.0.1:5184';
-const output = 'checks/gray-folder-entry-20261107';
+const output = process.env.CAREER_CHECK_OUTPUT || 'checks/gray-folder-entry-20261107';
 const browser = await chromium.launch({channel: process.env.CAREER_BROWSER_CHANNEL || 'msedge', headless: true});
 const results = [], errors = [];
 await mkdir(output, {recursive: true});
@@ -99,15 +99,24 @@ try {
 
   await check('demo-default-actions-draft-save', {}, async page => {
     const before = await read(page), bounds = await geometry(page);
-    const left = await page.locator('.background-review-sidebar').boundingBox();
-    const right = await page.locator('.background-folders').boundingBox();
-    assert.ok(Math.abs(right.width / left.width - 2) < .05);
+    const review = page.locator('#assessment-review');
+    const archive = review.locator(':scope > .background-folders');
+    const archiveBounds = await archive.boundingBox();
+    const availableWidth = await review.evaluate(element => {
+      const style = getComputedStyle(element);
+      return element.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    });
+    assert.ok(Math.abs(archiveBounds.width - availableWidth) < 2);
+    assert.equal(await review.locator('.background-review-sidebar, .background-review-layout').count(), 0);
+    for (const obsoleteText of ['处理队列', '核对经历与个人贡献', '查看全部材料与处置', '收起全部材料']) {
+      assert.equal(await review.getByText(obsoleteText, {exact: true}).count(), 0);
+    }
     assert.ok(bounds.height < 550);
     assert.equal(await page.locator('.folder-trigger[data-demo="true"]').count(), 4);
     assert.equal(await page.locator('.folder-trigger .binder-ring').count(), 4);
     assert.equal(await page.locator('.folder-create-trigger .binder-ring').count(), 1);
     const practice = await page.locator('.folder-practice-link').boundingBox();
-    assert.ok(practice.x > right.x + right.width / 2 && practice.y > right.y + right.height - 60);
+    assert.ok(practice.x > archiveBounds.x + archiveBounds.width / 2 && practice.y > archiveBounds.y + archiveBounds.height - 60);
     assert.equal(await page.getByText('记录自己的部分，未知也可以先留空。', {exact: true}).count(), 0);
     await page.locator('#assessment-review').screenshot({animations: 'disabled', path: `${output}/four-demo-binders.png`});
     await choose(page);
@@ -138,14 +147,13 @@ try {
     assert.match(await sheet(page).locator('.folder-experience').innerText(), /本人整理了活动报名表/);
     await close(page);
     for (const key of ['tasks', 'preferences', 'goal', 'budget', 'resumes']) assert.deepEqual(after[key], before[key]);
-    const filter = page.locator('.background-review-sidebar select');
+    const filter = archive.getByRole('combobox', {name: '按状态筛选'});
+    assert.equal(await filter.inputValue(), '全部');
     await filter.selectOption('已确认');
-    assert.equal(await page.locator('.background-review-sidebar .record').count(), 0);
-    await page.locator('.background-review-sidebar').getByRole('button', {name: '查看操作步骤', exact: true}).click();
-    assert.ok(await page.locator('[popover]:popover-open').count() + await page.getByText('准备一段课程项目、作品或实际经历。', {exact: true}).count() > 0);
-    await page.keyboard.press('Escape');
+    assert.equal(await archive.locator('.folder-trigger').count(), 0);
+    assert.equal(await archive.locator('.folder-create-trigger').isVisible(), true);
     await filter.selectOption('全部');
-    assert.equal(await page.locator('.background-review-sidebar .record').count(), 1);
+    assert.equal(await archive.locator('.folder-trigger').count(), 1);
   });
 
   await check('four-readonly-demo-experiences', {}, async page => {
@@ -188,6 +196,10 @@ try {
       await page.waitForFunction(id => document.activeElement?.dataset.folder === id, 'claim:' + claim.id);
     }
     assert.deepEqual(await read(page), before, 'Opening folders must not change records.');
+    const review = page.locator('#assessment-review');
+    const filter = review.getByRole('combobox', {name: '按状态筛选'});
+    assert.deepEqual(new Set(await filter.locator('option').evaluateAll(options => options.map(option => option.value))),
+      new Set(['全部', '待确认', '疑似重复', '矛盾', '已拒绝', '已确认', '已撤回', '已关联重复']));
     await open(page, 'claim:claim-conflict');
     await sheet(page).getByRole('button', {name: '修正 / 确认此项', exact: true}).click();
     const modal = page.locator('dialog:modal');
@@ -199,6 +211,24 @@ try {
     assert.match(await sheet(page).locator('.section-head').innerText(), /已确认/);
     await close(page);
     assert.equal(await trigger(page, 'claim:claim-conflict').locator('.folder-stamp').innerText(), '已确认');
+    const receipt = review.getByText(/^确认回执：claim-conflict/);
+    const receiptBounds = await receipt.boundingBox();
+    const archiveBounds = await review.locator('.background-folders').boundingBox();
+    assert.ok(receiptBounds.y >= archiveBounds.y + archiveBounds.height);
+    await filter.selectOption('疑似重复');
+    assert.deepEqual(await review.locator('.folder-trigger').evaluateAll(folders => folders.map(folder => folder.dataset.folder)), ['claim:claim-dup']);
+    await open(page, 'claim:claim-dup');
+    await sheet(page).getByRole('button', {name: '修正 / 确认此项', exact: true}).click();
+    await modal.getByRole('combobox', {name: '重复 / 矛盾处置', exact: true}).selectOption('关联已有材料，不重复计数');
+    await modal.getByRole('button', {name: '确认这一项并查看回执', exact: true}).click();
+    await page.waitForFunction(key => JSON.parse(localStorage.getItem(key)).claims.find(c => c.id === 'claim-dup').status === '已关联重复', KEY);
+    assert.match(await sheet(page).locator('.section-head').innerText(), /已关联重复/);
+    await close(page);
+    await filter.and(page.locator(':focus')).waitFor();
+    assert.equal(await review.locator('.folder-trigger').count(), 0);
+    await filter.selectOption('已关联重复');
+    assert.deepEqual(await review.locator('.folder-trigger').evaluateAll(folders => folders.map(folder => folder.dataset.folder)), ['claim:claim-dup']);
+    await filter.selectOption('全部');
     const saved = await read(page);
     await page.locator('.folder-collection-toggle').click();
     assert.equal(await page.locator('.folder-trigger[data-demo="true"]').count(), 4);

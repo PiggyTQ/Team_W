@@ -31,5 +31,5 @@ export function useServerWorkspace(user,state,setState){
     const mutationId=crypto.randomUUID();
     return controller.current.applyExternal(({revision})=>apiRequest('/api/commands',{data:{type,payload,baseVersion:revision,mutationId}}));
   };
-  return {...sync,catalog,catalogError,command,retryCatalog:()=>setCatalogEpoch(x=>x+1),ready:['saved','pending','saving','save-error','conflict','expired'].includes(sync.status),flush:()=>{if(SERVER_AUTH&&user?.id&&state.logged)controller.current.enqueue(state);return controller.current.flush();},applyExternal:action=>controller.current.applyExternal(action),retry:()=>controller.current.retry(),reload:()=>controller.current.reload(),current:()=>controller.current.current()};
+  return {...sync,catalog,catalogError,command,retryCatalog:()=>setCatalogEpoch(x=>x+1),ready:['saved','pending','saving','save-error','conflict','expired'].includes(sync.status),flush:(next=state)=>{if(SERVER_AUTH&&user?.id&&next.logged)controller.current.enqueue(next);return controller.current.flush();},applyExternal:action=>controller.current.applyExternal(action),retry:()=>controller.current.retry(),reload:()=>controller.current.reload(),current:()=>controller.current.current()};
 }

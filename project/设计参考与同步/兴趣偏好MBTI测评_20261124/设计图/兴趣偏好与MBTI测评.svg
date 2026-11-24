@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1168" viewBox="0 0 1440 1168" role="img" aria-labelledby="title description">
+  <title id="title">爱好与兴趣偏好及 MBTI 测评桌面线框</title>
+  <desc id="description">自上而下为原模块入口、独立答题页和结果页。进度、题目和计数采用布局占位。</desc>
+  <defs>
+    <style>
+      text { font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; fill: #193b5b; font-size: 15px; }
+      .note { fill: #55708a; font-size: 13px; }
+      .title { font-size: 29px; font-weight: 700; }
+      .heading { font-size: 20px; font-weight: 700; }
+      .label { font-size: 16px; font-weight: 600; }
+      .panel { fill: #fffefa; stroke: #e9dfd3; }
+      .soft { fill: #f2f7fc; stroke: #d7e5f2; }
+      .control { fill: #fff; stroke: #cdddeb; }
+      .primary { fill: #245687; stroke: #245687; }
+      .on-primary { fill: #fff; font-weight: 600; }
+      .radio { stroke: #6f89a4; fill: none; stroke-width: 1.5; }
+    </style>
+    <g id="pair">
+      <rect width="382" height="46" rx="8" class="soft"/>
+      <path d="M 49 23 H 333" stroke="#c8d9e9" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="191" cy="23" r="2.5" fill="#92a8bd"/>
+    </g>
+  </defs>
+  <rect width="1440" height="1168" fill="#f7f4ed"/>
+  <text x="44" y="38" class="note">爱好与兴趣偏好 · 实施前桌面线框</text>
+
+  <g transform="translate(44 58)">
+    <rect width="1352" height="114" rx="17" class="panel"/>
+    <text x="26" y="46" class="heading">爱好与兴趣偏好</text>
+    <text x="26" y="75" class="note">了解自己更喜欢怎样思考、协作和行动。</text>
+    <rect x="1139" y="25" width="78" height="40" rx="10" class="soft"/>
+    <text x="1178" y="50" text-anchor="middle" class="note">尚未选择</text>
+    <rect x="1232" y="25" width="94" height="40" rx="10" class="primary"/>
+    <text x="1279" y="50" text-anchor="middle" class="on-primary">测一测</text>
+  </g>
+
+  <g transform="translate(44 194)">
+    <rect width="1352" height="514" rx="17" class="panel"/>
+    <text x="28" y="37" class="note">← 返回爱好与兴趣偏好</text>
+    <text x="28" y="82" class="title">MBTI 兴趣偏好测评</text>
+    <text x="28" y="111" class="note">选择每道题中更符合平时习惯的一项。</text>
+
+    <rect x="28" y="144" width="284" height="173" rx="12" class="soft"/>
+    <text x="48" y="180" class="label">答题进度</text>
+    <text x="48" y="204" class="note">已答题数 / 总题数</text>
+    <rect x="48" y="223" width="244" height="7" rx="3.5" fill="#d5e5f2"/>
+    <text x="48" y="261" class="note">可返回上一组查看和修改答案。</text>
+    <text x="48" y="284" class="note">答完全部题目后查看结果。</text>
+
+    <rect x="336" y="144" width="986" height="296" rx="12" class="control"/>
+    <text x="359" y="178" class="label">本组题目</text>
+    <text x="359" y="216" class="label">题号　题干</text>
+    <rect x="359" y="229" width="453" height="52" rx="9" class="soft"/>
+    <circle cx="380" cy="255" r="6" class="radio"/>
+    <circle cx="380" cy="255" r="3" fill="#31658f"/>
+    <text x="398" y="260">A　选项内容</text>
+    <rect x="845" y="229" width="453" height="52" rx="9" class="control"/>
+    <circle cx="866" cy="255" r="6" class="radio"/>
+    <text x="884" y="260">B　选项内容</text>
+    <path d="M359 302H1298" stroke="#e2eaf1"/>
+    <text x="359" y="338" class="label">题号　题干</text>
+    <rect x="359" y="350" width="453" height="52" rx="9" class="control"/>
+    <circle cx="380" cy="376" r="6" class="radio"/>
+    <text x="398" y="381">A　选项内容</text>
+    <rect x="845" y="350" width="453" height="52" rx="9" class="control"/>
+    <circle cx="866" cy="376" r="6" class="radio"/>
+    <text x="884" y="381">B　选项内容</text>
+    <rect x="336" y="457" width="104" height="40" rx="9" class="control"/>
+    <text x="388" y="482" text-anchor="middle">上一组</text>
+    <rect x="1218" y="457" width="104" height="40" rx="9" class="primary"/>
+    <text x="1270" y="482" text-anchor="middle" class="on-primary">下一组</text>
+  </g>
+
+  <g transform="translate(44 730)">
+    <rect width="1352" height="396" rx="17" class="panel"/>
+    <text x="28" y="37" class="note">← 返回爱好与兴趣偏好</text>
+    <text x="28" y="82" class="title">你的 MBTI 测评结果</text>
+    <rect x="28" y="106" width="438" height="205" rx="12" class="soft"/>
+    <text x="49" y="144" class="note">测评类型</text>
+    <text x="49" y="195" class="title">四字母类型</text>
+    <text x="49" y="232" class="label">类型简介</text>
+    <text x="49" y="256" class="note">复用兴趣偏好模块中的类型说明与特征。</text>
+
+    <text x="499" y="134" class="label">各维度计数</text>
+    <g transform="translate(499 153)">
+      <use href="#pair"/><text x="16" y="29">E</text><text x="359" y="29">I</text>
+      <use href="#pair" x="410"/><text x="426" y="29">S</text><text x="769" y="29">N</text>
+      <use href="#pair" y="60"/><text x="16" y="89">T</text><text x="359" y="89">F</text>
+      <use href="#pair" x="410" y="60"/><text x="426" y="89">J</text><text x="769" y="89">P</text>
+    </g>
+    <text x="499" y="301" class="note">计数区域为布局占位。实际结果来自答题。</text>
+
+    <rect x="28" y="334" width="106" height="40" rx="9" class="control"/>
+    <text x="81" y="359" text-anchor="middle">重新测评</text>
+    <rect x="1125" y="334" width="197" height="40" rx="9" class="primary"/>
+    <text x="1224" y="359" text-anchor="middle" class="on-primary">设为我的兴趣偏好</text>
+  </g>
+</svg>

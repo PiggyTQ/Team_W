@@ -8,7 +8,7 @@ function arcPath(index, radius = 112) {
   return `M ${start.join(' ')} A ${radius} ${radius} 0 0 1 ${end.join(' ')}`;
 }
 
-export default function InterestAssessment({preferences = {}, onChange}) {
+export default function InterestAssessment({preferences = {}, onChange, link}) {
   const savedType = getInterestType(preferences.interestType);
   const savedGroup = savedType?.group || getInterestGroup(preferences.interestGroup);
   const [activeId, setActiveId] = useState(savedGroup?.id || 'NT');
@@ -25,7 +25,10 @@ export default function InterestAssessment({preferences = {}, onChange}) {
   return <section className="interest-assessment" aria-labelledby={uid + '-title'}>
     <header className="interest-heading">
       <div><h2 id={uid + '-title'}>爱好与兴趣偏好</h2><p>了解自己更喜欢怎样思考、协作和行动。</p></div>
-      <span className="interest-status">{currentType && !isSaved ? <>待保存 · {currentType}</> : savedType ? <>我的 MBTI · {savedType.id}</> : savedGroup ? <>已选分组 · {savedGroup.id}</> : '尚未选择'}</span>
+      <div className="interest-heading-actions">
+        <span className="interest-status">{currentType && !isSaved ? <>待保存 · {currentType}</> : savedType ? <>我的 MBTI · {savedType.id}</> : savedGroup ? <>已选分组 · {savedGroup.id}</> : '尚未选择'}</span>
+        {link('/assessment/mbti', '测一测', 'button interest-test-link')}
+      </div>
     </header>
     <div className="interest-layout">
       <figure className="interest-ring">
