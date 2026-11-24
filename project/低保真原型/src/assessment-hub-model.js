@@ -1,7 +1,7 @@
 import {profileInsights} from './profile-insights-model.js';
 import {resumeLibrary} from './resume-import-model.js';
 export const assessmentEntry='/assessment?tab=资料经历';
-export const hubSections={review:{tab:'原文确认',id:'assessment-review'},profile:{tab:'成果档案',id:'assessment-profile'},analysis:{tab:'四维与差距',id:'assessment-analysis'},resume:{tab:'当前简历',id:'assessment-resumes'}};
+export const hubSections={review:{tab:'原文确认',id:'assessment-review'},profile:{tab:'成果档案',id:'assessment-profile'},analysis:{tab:'四维与差距',id:'assessment-analysis'},recommendation:{tab:'综合评估',id:'assessment-recommendations'},resume:{tab:'当前简历',id:'assessment-resumes'}};
 export const hubSectionForTab=tab=>Object.keys(hubSections).find(k=>hubSections[k].tab===tab)||null;
 export function assessmentEntryMode(tab,search=''){return tab==='资料经历'||(!tab&&new URLSearchParams(search).has('resumeType'));}
 export function assessmentEntryLink(to){if(!to.startsWith('/'))return to;const u=new URL(to,'http://prototype.local');if(u.pathname==='/assessment'&&!u.searchParams.get('tab'))u.searchParams.set('tab','资料经历');return u.pathname+u.search+u.hash;}

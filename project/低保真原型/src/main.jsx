@@ -35,7 +35,7 @@ import AssessmentHub from './AssessmentHub';
 import MbtiAssessment from './MbtiAssessment';
 import {getInterestType} from './interest-assessment-model';
 import FolderImportContent from './FolderImportContent';
-import {assessmentEntryMode} from './assessment-hub-model';
+import {assessmentEntryMode,hubSections} from './assessment-hub-model';
 import './assessment-hub.css';
 import ExperienceWriter from './ExperienceWriter';
 import WritingHint from './WritingHint';
@@ -261,6 +261,7 @@ function App() {
   const timer = useRef(null), urlObj = new URL(url, location.origin), path = urlObj.pathname, tab = urlObj.searchParams.get("tab") || "", id = path.split("/")[2];
   const projectPage=path.startsWith('/learning/projects/');
   const mbtiPage=path==='/assessment/mbti';
+  const resumePage=path==='/assessment'&&tab===hubSections.resume.tab;
   const taskPage=assistantTaskPage(path),assistantPath=path==='/assistant'||!!taskPage;
   const [assistantRouteError,setAssistantRouteError]=useState(null);
   const page = pages.find((p) => p[1] === (mbtiPage ? "/assessment" : projectPage ? "/learning" : taskPage ? "/assistant" : ["/plan/goals","/plan/schedule"].includes(path) ? "/plan" : path.startsWith("/work") ? "/work" : path.startsWith("/reports") ? "/reports" : path)) || pages[2];
@@ -275,6 +276,15 @@ function App() {
   const [mailLink,setMailLink]=useState(()=>SERVER_AUTH?readMailLink():null);
   useEffect(()=>{const changed=()=>{const next=readMailLink();if(next)setMailLink(next);};window.addEventListener('hashchange',changed);return()=>window.removeEventListener('hashchange',changed);},[]);
   const workspace=useServerWorkspace(SERVER_AUTH?authUser:null,s,setS);
+  useEffect(()=>{
+    if(!resumePage||!s.logged||(SERVER_AUTH&&(!authReady||!workspace.ready)))return;
+    const frame=requestAnimationFrame(()=>{
+      const region=document.getElementById(hubSections.resume.id);
+      region?.scrollIntoView({block:'start'});
+      region?.focus({preventScroll:true});
+    });
+    return()=>cancelAnimationFrame(frame);
+  },[resumePage,s.logged,authReady,workspace.ready]);
   const {mainRef,preparePageReveal}=useWorkspacePageReveal(url,!publicRoute&&s.logged&&(!SERVER_AUTH||workspace.ready));
   const careerSources=useCareerReportSources({enabled:s.logged&&(path.startsWith('/reports')||['reportPreflight','reportMerge','export'].includes(modal?.type)),live:SERVER_AUTH,ownerId:authUser?.id,revision:workspace.revision});
   const reportState={...s,reportSources:careerSources};
@@ -632,7 +642,7 @@ function App() {
       tell("\u5DF2\u51BB\u7ED3\u8F93\u5165\u5E76\u521B\u5EFA\u6A21\u62DF\u5206\u6790\u5FEB\u7167\uFF1B\u6CA1\u6709\u6267\u884C\u771F\u5B9E\u80FD\u529B\u5206\u6790\u3002");
     }}>{SERVER_AUTH?(s.analysis?"更新职业材料对照":"建立职业材料对照"):(s.analysis ? "显式更新模拟分析" : "创建模拟差距快照")}</B>}{s.analysisStale && <Notice>当前依据已变更，下面是旧快照；请显式更新。</Notice>}{s.analysis && <><p>快照 {s.analysis.id} · 本人画像 v{s.analysis.profileVersion} · {fmt(s.analysis.date)}</p><AssessmentResultView s={s} link={link} precheck={precheck} feedback={feedback} /></>}</Panel>}</>;
     return <>{materialReturn?<div className="atlas-material-return">{link(materialReturn,'返回刚才的地图位置 →')}<span>核对完成后，可回同一支线继续对照。</span></div>:<AtlasPracticeContext task={originMapTask} link={link}/>}
-<PageHead title="我的经历与职业准备" description="在一处核对经历、看清准备缺口，再把确认材料用于简历。"/><SegmentedControl className="tabs assessment-mode-tabs" aria-label="页面模式">{React.cloneElement(link('/assessment?tab=准备总览','准备总览'),{'aria-current':!isEntry?'page':undefined})}{React.cloneElement(link('/assessment?tab=资料经历','资料与经历'),{'aria-current':isEntry?'page':undefined})}</SegmentedControl>{isEntry?entryPanel:<AssessmentHub s={s} tab={tab} hash={urlObj.hash||location.hash} update={update} link={link} go={go} open={open} tell={tell} reviewReceipt={reviewReceipt} analysis={analysisPanel} renderManual={args=>renderBackgroundManual({...args,embedded:true})} renderImport={renderBackgroundImport} renderExperience={renderBackgroundExperience}/>}</>;
+<PageHead title="我的经历与职业准备" description="核对已有经历，了解兴趣和技能，找到值得进一步探索的职业。"/><SegmentedControl className="tabs assessment-mode-tabs" aria-label="页面模式">{React.cloneElement(link('/assessment?tab=准备总览','准备总览'),{'aria-current':!isEntry&&!resumePage?'page':undefined})}{React.cloneElement(link('/assessment?tab=资料经历','资料与经历'),{'aria-current':isEntry?'page':undefined})}</SegmentedControl>{resumePage?<div id={hubSections.resume.id} tabIndex={-1}><CurrentResumes s={s} update={update} link={link} go={go} open={open} tell={tell}/></div>:isEntry?entryPanel:<AssessmentHub s={s} tab={tab} hash={urlObj.hash||location.hash} update={update} link={link} go={go} open={open} tell={tell} reviewReceipt={reviewReceipt} analysis={analysisPanel} renderManual={args=>renderBackgroundManual({...args,embedded:true})} renderImport={renderBackgroundImport} renderExperience={renderBackgroundExperience}/>}</>;
   }
   function careerPage() {
     const modes=tabs(['职业方向','比较','企业与岗位','我的机会']);

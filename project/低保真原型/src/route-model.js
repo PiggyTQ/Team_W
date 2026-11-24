@@ -1,6 +1,6 @@
 import {assistantTaskPage} from './assistant-task-model.js';
 const tabs={
- '/assessment':['准备总览','资料经历','原文确认','四维与差距','成果档案','当前简历'],
+ '/assessment':['准备总览','资料经历','原文确认','四维与差距','成果档案','综合评估','当前简历'],
  '/careers':['职业方向','比较','企业与岗位','我的机会'],
  '/plan':['计划总览','执行','复盘'],
  '/learning':['资源中心','我的资源'],

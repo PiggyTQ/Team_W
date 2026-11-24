@@ -34,7 +34,8 @@ export function flowNavigation(s, path, tab = '', search = '') {
     s.claims.length ? `已有 ${s.claims.length} 项记录，可复用并逐项确认。` : '想好一个感兴趣的方向即可继续；没有简历也能手填经历。');
   if (path === '/assessment') {
     if (tab === '当前简历') return item(entry('/assessment?tab=成果档案', '返回我的画像'), entry('/reports?tab=岗位简历', '前往简历编辑台'), '每个目标分别选择当前简历；上传原稿的内容仍需本人逐项确认。');
-    if ((!tab&&!params.has('resumeType'))||tab==='准备总览') return item(entry('/careers','返回职业探索'),entry(pending?assessment+'#assessment-review':!recorded?'/assessment?tab=资料经历':'/plan',pending?'处理待核对材料 →':!recorded?'记录已有经历 →':'安排下一项行动 →'),'材料、画像、准备差距和简历已在本页串联；查看不会代你确认或更新分析。');
+    if (tab === '综合评估') return item(entry(gap+'#assessment-analysis', '返回能力评估'), entry('/careers', '继续探索职业'), '打开职业详情可进一步了解工作内容与要求。');
+    if ((!tab&&!params.has('resumeType'))||tab==='准备总览') return item(entry('/careers','返回职业探索'),entry(pending?assessment+'#assessment-review':!recorded?'/assessment?tab=资料经历':'/plan',pending?'处理待核对材料 →':!recorded?'记录已有经历 →':'安排下一项行动 →'),'在总览中可查看评估依据和职业建议。');
     if (tab === '资料经历'||params.has('resumeType')) return item(entry('/careers', '上一步：职业探索'), entry(assessment, '下一步：核对经历原文'), s.claimDraft.title || s.claimDraft.text ? '草稿已保存在本机；点击“保存并核对经历”后，逐项确认原文。' : '填写实际经历，保存后逐项核对原文；缺少的信息可稍后补充。');
     if (tab === '原文确认') return item(entry('/assessment?tab=资料经历', '上一步：资料与经历'), entry(gap, '下一步：查看差距与未知'), pending ? `${pending} 项仍待核对；继续不会代你确认，未确认内容保持未知。` : recorded ? `已本人确认 ${recorded} 项；接下来查看对照依据与未知。` : '尚无确认材料；可以补充经历，也可先了解差距页。', !recorded ? entry('/assessment?tab=资料经历', '补充经历') : null);
     return item(entry(assessment, '上一步：经历确认'), entry('/plan', '下一步：安排目标计划'), s.analysisStale ? '已有分析依据发生变化；请在本页复查，继续不会更新分析。' : s.analysis ? '结合当前依据与未知安排小行动；不必先确定长期目标。' : '尚未生成模拟对照；可在本页查看规则，也可带着未知安排独立探索。');

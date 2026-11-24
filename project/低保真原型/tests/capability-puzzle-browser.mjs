@@ -68,7 +68,7 @@ try {
     await page.locator('.information-drawer').waitFor();
     await page.getByRole('button', {name: '关闭详情', exact: true}).click();
     assert.deepEqual(await read(page), before);
-    assert.deepEqual(await page.locator('.assessment-hub > .hub-section').evaluateAll(elements => elements.map(el => el.id)), ['assessment-review', 'assessment-profile', 'assessment-analysis', 'assessment-resumes']);
+    assert.deepEqual(await page.locator('.assessment-hub > .hub-section').evaluateAll(elements => elements.map(el => el.id)), ['assessment-review', 'assessment-profile', 'assessment-analysis', 'assessment-recommendations']);
   });
 
   await check('career-switch-keeps-shared-skill-and-snapshot', {saved: true}, async page => {

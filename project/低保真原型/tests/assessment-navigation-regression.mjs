@@ -5,7 +5,7 @@ import {KEY, scenarioState} from '../src/model.js';
 
 const origin = process.env.CAREER_PREVIEW_ORIGIN || 'http://127.0.0.1:5184';
 const output = process.env.CAREER_CHECK_OUTPUT || 'checks/assessment-navigation-20261107';
-const order = ['assessment-review', 'assessment-profile', 'assessment-analysis', 'assessment-resumes'];
+const order = ['assessment-review', 'assessment-profile', 'assessment-analysis', 'assessment-recommendations'];
 const mapReturn = '/career-map?career=ops&node=skill:linux';
 const browser = await chromium.launch({channel: process.env.CAREER_BROWSER_CHANNEL || 'msedge', headless: true});
 const results = [], errors = [];
@@ -75,8 +75,10 @@ try {
       await jumps.nth(0).click();
       await focus('assessment-review');
       await jumps.nth(3).click();
-      await page.locator('.assessment-detail-drawer').waitFor();
-      await page.locator('.assessment-detail-drawer').getByRole('button', {name: '关闭详情', exact: true}).click();
+      await focus('assessment-recommendations');
+      assert.equal(new URL(page.url()).searchParams.get('tab'), '综合评估');
+      assert.equal(await page.locator('.current-resumes,.resume-import-panel').count(), 0);
+      await checkOrder();
       await page.goBack();
       await focus('assessment-review');
       await checkOrder();
@@ -90,6 +92,13 @@ try {
         assert.deepEqual(after[key], before[key], `${key} must remain unchanged by navigation.`);
       }
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+
+      await page.goto(origin + '/assessment?tab=我的简历#assessment-resumes');
+      await focus('assessment-resumes');
+      assert.equal(new URL(page.url()).searchParams.get('tab'), '当前简历');
+      assert.equal(await page.locator('#assessment-resumes .current-resumes').count(), 1);
+      assert.equal(await page.locator('#assessment-recommendations').count(), 0);
+
       results.push({name, status: 'pass'});
       console.log('PASS', name);
     } catch (error) {

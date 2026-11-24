@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="710" viewBox="0 0 1440 710" role="img" aria-labelledby="title desc">
+  <title id="title">综合评估 · 职业推荐局部线框</title>
+  <desc id="desc">上半部分展示评估待补齐状态，下半部分展示评估齐备后的推荐职业卡片。职业与依据为布局占位。</desc>
+  <defs>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #20242a; }
+      .heading { font-size: 22px; font-weight: 700; }
+      .label { font-size: 16px; font-weight: 700; }
+      .body { font-size: 14px; fill: #414953; }
+      .caption { font-size: 14px; font-weight: 600; fill: #50565e; }
+      .action { font-size: 14px; font-weight: 600; text-decoration: underline; }
+      .frame { fill: #fff; stroke: #d5d7da; }
+      .soft { fill: #f4f5f6; stroke: #e0e2e4; }
+    </style>
+  </defs>
+  <rect width="1440" height="710" fill="#f3f3f3"/>
+  <text class="caption" x="26" y="27">评估待补齐时</text>
+  <rect class="frame" x="22" y="39" width="1396" height="239" rx="20"/>
+  <text class="heading" x="48" y="82">综合评估</text>
+  <text class="body" x="48" y="112">根据背景、爱好和能力评估，推荐可进一步探索的职业。</text>
+  <g transform="translate(48 129)">
+    <rect class="frame" width="438" height="55" rx="12"/>
+    <rect class="frame" x="453" width="438" height="55" rx="12"/>
+    <rect class="frame" x="906" width="438" height="55" rx="12"/>
+    <text class="label" x="14" y="34">背景评估</text>
+    <text class="action" text-anchor="end" x="423" y="33">已确认经历 →</text>
+    <text class="label" x="467" y="34">爱好评估</text>
+    <text class="action" text-anchor="end" x="876" y="33">待选择偏好 →</text>
+    <text class="label" x="920" y="34">能力评估</text>
+    <text class="action" text-anchor="end" x="1329" y="33">待完成评估 →</text>
+  </g>
+  <rect class="soft" x="48" y="198" width="1344" height="62" rx="12"/>
+  <text class="label" x="66" y="223">补齐评估后查看推荐</text>
+  <text class="body" x="66" y="246">上方评估入口可返回填写或更新所需依据。</text>
+
+  <text class="caption" x="26" y="323">评估齐备时</text>
+  <rect class="frame" x="22" y="335" width="1396" height="350" rx="20"/>
+  <text class="heading" x="48" y="378">综合评估</text>
+  <text class="body" x="48" y="408">根据背景、爱好和能力评估，推荐可进一步探索的职业。</text>
+  <g transform="translate(48 425)">
+    <rect class="frame" width="438" height="55" rx="12"/>
+    <rect class="frame" x="453" width="438" height="55" rx="12"/>
+    <rect class="frame" x="906" width="438" height="55" rx="12"/>
+    <text class="label" x="14" y="34">背景评估</text>
+    <text class="action" text-anchor="end" x="423" y="33">已确认经历 →</text>
+    <text class="label" x="467" y="34">爱好评估</text>
+    <text class="action" text-anchor="end" x="876" y="33">已选择偏好 →</text>
+    <text class="label" x="920" y="34">能力评估</text>
+    <text class="action" text-anchor="end" x="1329" y="33">已有评估结果 →</text>
+  </g>
+  <g transform="translate(48 502)">
+    <rect class="soft" width="438" height="158" rx="12"/>
+    <rect class="soft" x="453" width="438" height="158" rx="12"/>
+    <rect class="soft" x="906" width="438" height="158" rx="12"/>
+    <text class="label" x="16" y="30">推荐职业名称</text>
+    <text class="body" x="16" y="56">背景或技能对应的依据</text>
+    <text class="body" x="16" y="80">工作偏好与职业任务的对应</text>
+    <text class="body" x="16" y="104">相关能力与下一步可补足的技能</text>
+    <text class="action" x="16" y="134">查看职业详情 →</text>
+    <text class="label" x="469" y="30">推荐职业名称</text>
+    <text class="body" x="469" y="56">对应的评估依据</text>
+    <text class="action" x="469" y="134">查看职业详情 →</text>
+    <text class="label" x="922" y="30">推荐职业名称</text>
+    <text class="body" x="922" y="56">对应的评估依据</text>
+    <text class="action" x="922" y="134">查看职业详情 →</text>
+  </g>
+</svg>
