@@ -329,13 +329,12 @@ export default function BackgroundFolders({claims, renderExperience, renderManua
       {files.map(file => <section key={file.id} id={uid + '-' + file.id} ref={element => {documents.current[file.id] = element;}}
         className="folder-document" data-folder={file.id} data-tone={file.tone} data-phase={view.id === file.id ? view.phase : 'closed'} hidden={view.id !== file.id} aria-labelledby={uid + '-' + file.id + '-title'}>
         <div className="folder-document-tab" aria-hidden="true">{file.number ? file.number + ' · ' : ''}{file.stamp}</div>
-        <header className="folder-document-heading"><div><span className="folder-paper-kicker">{file.claim || file.demo ? '经历详情' : '个人经历档案'}</span><h3 className="folder-document-title" id={uid + '-' + file.id + '-title'} tabIndex={-1} translate={file.claim ? 'no' : undefined} data-i18n={file.claim ? 'off' : undefined}>{label(file)}</h3></div><button type="button" className="folder-return" onClick={() => closeFolder()}>{file.claim || file.demo ? '← 收回档案袋' : '← 返回档案'}</button></header>
+        <header className="folder-document-heading"><div><h3 className="folder-document-title" id={uid + '-' + file.id + '-title'} tabIndex={-1} translate={file.claim ? 'no' : undefined} data-i18n={file.claim ? 'off' : undefined}>{label(file)}</h3></div><button type="button" className="folder-return" onClick={() => closeFolder()}>{file.claim || file.demo ? '← 收回档案袋' : '← 返回档案'}</button></header>
         <div className="folder-document-body" inert={view.phase !== 'open'} onSubmitCapture={event => {if (state.current.phase !== 'open') {event.preventDefault(); event.stopPropagation();}}}>
           {visited.includes(file.id) && (file.demo ? <DemoExperience experience={file.demo}/> : file.claim ? renderExperience(file.claim, {inFolder: true})
             : file.id === 'manual' ? renderManual({navigate, onImport: () => openFolder('import'), link: paperLink})
               : renderImport({active: view.id === file.id && !['closed', 'closing'].includes(view.phase), navigate, close: () => closeFolder(), onManual: () => openFolder('manual'), link: paperLink}))}
         </div>
-        {!file.claim && !file.demo && <div className="folder-document-footer">按原文记录，保存后逐项核对。</div>}
       </section>)}
     </div>
     <div className="folder-desk-footer" inert={view.phase === 'open' || view.phase === 'closing'}>

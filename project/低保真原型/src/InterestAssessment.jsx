@@ -24,9 +24,9 @@ export default function InterestAssessment({preferences = {}, onChange, link}) {
 
   return <section className="interest-assessment" aria-labelledby={uid + '-title'}>
     <header className="interest-heading">
-      <div><h2 id={uid + '-title'}>爱好与兴趣偏好</h2><p>了解自己更喜欢怎样思考、协作和行动。</p></div>
+      <h2 id={uid + '-title'}>爱好与兴趣偏好</h2>
       <div className="interest-heading-actions">
-        <span className="interest-status">{currentType && !isSaved ? <>待保存 · {currentType}</> : savedType ? <>我的 MBTI · {savedType.id}</> : savedGroup ? <>已选分组 · {savedGroup.id}</> : '尚未选择'}</span>
+        <span className="interest-status" role="status">{currentType && !isSaved ? <>待保存 · {currentType}</> : savedType ? <>我的 MBTI · {savedType.id}</> : savedGroup ? <>已选分组 · {savedGroup.id}</> : '尚未选择'}</span>
         {link('/assessment/mbti', '测一测', 'button interest-test-link')}
       </div>
     </header>
@@ -52,7 +52,7 @@ export default function InterestAssessment({preferences = {}, onChange, link}) {
         <div className="interest-type-heading" aria-live="polite"><span>{active.id} · {active.name}</span><span>选择具体 MBTI 类型</span></div>
         <div className="interest-cards" id={typesId} role="group" aria-label="选择具体 MBTI 类型">
           {active.types.map((type, index) => <button key={type} type="button" className="interest-card" data-interest-type={active.id} data-interest-tone={['blue', 'yellow', 'mist', 'gold'][index]} data-mbti-type={type} aria-label={type} aria-pressed={currentType === type} aria-controls={detailId} onClick={() => setSelectedType(type)}>
-            <span className="interest-card-main"><span className="interest-mbti-badge"><strong>{type}</strong></span><span className="interest-card-state">{currentType === type ? (isSaved ? '我的人格' : '已选择') : '点击选择'}<span aria-hidden="true">{currentType === type ? ' ✓' : ' →'}</span></span></span>
+            <span className="interest-card-main"><span className="interest-mbti-badge"><strong>{type}</strong></span><span className="interest-card-state">{currentType === type && (isSaved ? '我的人格' : '已选择')}<span aria-hidden="true">{currentType === type ? ' ✓' : ' →'}</span></span></span>
             <span className="interest-traits">{interestTraits[type].map(trait => <span className="interest-trait" key={trait}>{trait}</span>)}</span>
           </button>)}
         </div>
@@ -72,6 +72,5 @@ export default function InterestAssessment({preferences = {}, onChange, link}) {
         </div>
       </div>
     </section>
-    <footer className="interest-footer"><p role="status">{currentType && !isSaved ? <>待保存：{currentType}</> : savedType ? <>当前选择：{savedType.id}</> : '请先选择具体 MBTI 类型，再保存兴趣偏好。'}</p><span>兴趣会随经历变化，选择不限制职业方向。</span></footer>
   </section>;
 }

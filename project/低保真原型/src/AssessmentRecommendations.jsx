@@ -12,10 +12,7 @@ export default function AssessmentRecommendations({result, section, jump, link})
   return (
     <section className="hub-section hub-recommendations" id={section.id} tabIndex={-1} aria-labelledby="hub-recommendation-title">
       <header>
-        <div>
-          <h2 id="hub-recommendation-title">综合评估</h2>
-          <p>结合已确认的经历、爱好偏好和能力评估，推荐值得进一步探索的职业。</p>
-        </div>
+        <h2 id="hub-recommendation-title">综合评估</h2>
       </header>
       <ul className="hub-recommendation-inputs">
         <li>{jump('review', <>
@@ -63,10 +60,9 @@ export default function AssessmentRecommendations({result, section, jump, link})
             </li>;
           })}
         </ul>
-        <p className="hub-recommendation-note">推荐用于缩小探索范围。可到职业详情核对实际任务、技能要求与学习方向。</p>
       </> : <div className="hub-recommendation-empty">
-        <h3>{status === 'incomplete' ? '完善评估后查看职业推荐' : '现有评估暂未匹配到职业'}</h3>
-        <p>{status === 'incomplete' ? '点选上方的评估项，补齐确认经历、爱好偏好和能力记录。' : '可以补充有明确技能的经历，或在能力拼图中自评更多技能。'}</p>
+        <h3>{status === 'incomplete' ? '补齐三项评估后查看推荐' : '现有评估暂未匹配到职业'}</h3>
+        {status === 'insufficient' && <p>补充有明确技能的经历，或自评更多技能。</p>}
       </div>}
     </section>
   );

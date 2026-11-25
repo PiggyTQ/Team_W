@@ -1,7 +1,7 @@
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
-import {KEY,scenarioState} from '../src/model.js';
+import {KEY,makeAnalysis,scenarioState} from '../src/model.js';
 import {blankGoal,emptyStageRecords,savePeriodGoal,stageStorageKey} from '../src/plan-stage-model.js';
 
 const origin=process.env.CAREER_PREVIEW_ORIGIN||'http://127.0.0.1:5185';
@@ -20,10 +20,12 @@ const freeze=(page,time)=>page.evaluate(time=>{
  }
 },time);
 
-async function setup({route='/app',width=1100,height=650,reducedMotion='no-preference'}={}){
+async function setup({route='/app',width=1100,height=650,reducedMotion='no-preference',withAnalysis=false}={}){
  const context=await browser.newContext({viewport:{width,height},timezoneId:'Asia/Singapore',reducedMotion});
  const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
  const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Singapore'}).format(new Date());
+ const state=scenarioState('PT05');
+ if(withAnalysis)state.analysis=makeAnalysis(state);
  let records=emptyStageRecords();
  for(let index=0;index<18;index++)records=savePeriodGoal(records,'week',today,{...blankGoal('week',today),title:'滚动检查目标 '+(index+1)});
  await page.addInitScript(({key,state,records,stageKey})=>{
@@ -32,7 +34,7 @@ async function setup({route='/app',width=1100,height=650,reducedMotion='no-prefe
   localStorage.setItem('career-prototype-operation-guide-v1',JSON.stringify({enabled:false,neverPrompt:true}));
   window.__reveals=[];const original=Element.prototype.animate;
   Element.prototype.animate=function(...args){const animation=original.apply(this,args);if(this.closest('.page-surface'))window.__reveals.push(animation);return animation;};
- },{key:KEY,state:scenarioState('PT05'),records,stageKey:stageStorageKey('local')});
+ },{key:KEY,state,records,stageKey:stageStorageKey('local')});
  await page.goto(origin+route);await page.locator('.page-surface').waitFor();
  if(route==='/career-map')await page.locator('.skill-tree-board').waitFor();
  return {context,page};
@@ -65,8 +67,8 @@ async function wheelOn(page,selector,delta){
 }
 
 try{
- await check('普通状态摘要不会延迟个人评估的入场',{},async page=>{
-  await navigate(page,'/assessment');await page.locator('.hub-snapshot-state').waitFor({state:'attached'});
+ await check('普通状态摘要不会延迟个人评估的入场',{withAnalysis:true},async page=>{
+  await navigate(page,'/assessment');await page.locator('.hub-snapshot-state').waitFor();
   assert.notEqual(await page.locator('#main').getAttribute('data-page-reveal-state'),'waiting');await settled(page);
  });
 

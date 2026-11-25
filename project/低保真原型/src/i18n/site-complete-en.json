@@ -8336,5 +8336,19 @@
   "从评估结果中选择想进一步了解的职业": "Choose a suggested career to explore",
   "本人确认的经历、已选兴趣和技能自评。": "Your confirmed experience, selected interests, and skills self-assessments.",
   "结合评估依据的职业建议与探索入口。": "Career suggestions and links based on your assessment inputs.",
-  "查看建议不会改变已有职业目标。": "Viewing suggestions keeps your current career goal."
+  "查看建议不会改变已有职业目标。": "Viewing suggestions keeps your current career goal.",
+  "还没有确认经历": "No confirmed experience yet",
+  "确认材料已就绪": "Confirmed materials ready",
+  "快照属于另一个职业方向，请更新。": "This snapshot covers a different career. Update it to continue.",
+  "快照材料或来源已不可用。": "The snapshot's materials or sources are unavailable.",
+  "依据已变更，请更新快照。": "The evidence has changed. Update the snapshot.",
+  "已有确认材料": "Confirmed materials available",
+  "尚无对应确认材料": "No matching confirmed materials",
+  "补齐三项评估后查看推荐": "Complete all three assessments for recommendations",
+  "补充有明确技能的经历，或自评更多技能。": "Add experience that names specific skills, or assess more skills.",
+  "蓝色也包含未自评的技能。": "Blue also includes skills you have not assessed.",
+  "先确认一段经历，再建立能力对照。": "Confirm an experience before comparing skills.",
+  "资料不足或来源已撤回，无法建立对照。": "Comparison requires available sources and enough evidence.",
+  "未知项不计为零分。": "Unknown items do not count as zero.",
+  "至少需要两份同职业、同规则的快照。": "Comparison requires two snapshots for the same career and rules."
 }

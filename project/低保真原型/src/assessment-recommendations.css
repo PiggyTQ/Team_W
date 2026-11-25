@@ -99,15 +99,11 @@
   margin-top: auto;
 }
 
-.hub-recommendation-empty p,
-.hub-recommendations .hub-recommendation-note {
-  color: #52667d;
-}
-
-.hub-recommendation-empty p {
+#main.workspace .hub-recommendation-empty > h3:last-child {
   margin: 0;
 }
 
-.hub-recommendations .hub-recommendation-note {
-  margin: 12px 0 0;
+.hub-recommendation-empty p {
+  color: #52667d;
+  margin: 0;
 }
