@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="710" viewBox="0 0 1440 710" role="img" aria-labelledby="title desc">
   <title id="title">综合评估 · 职业推荐局部线框</title>
-  <desc id="desc">上半部分展示评估待补齐状态，下半部分展示评估齐备后的推荐职业卡片。职业与依据为布局占位。</desc>
+  <desc id="desc">上半部分展示评估待补齐状态，下半部分展示推荐职位。每张卡片依次说明背景、兴趣和能力依据。</desc>
   <defs>
     <style>
       text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #20242a; }
@@ -52,16 +52,20 @@
     <rect class="soft" width="438" height="158" rx="12"/>
     <rect class="soft" x="453" width="438" height="158" rx="12"/>
     <rect class="soft" x="906" width="438" height="158" rx="12"/>
-    <text class="label" x="16" y="30">推荐职业名称</text>
-    <text class="body" x="16" y="56">背景或技能对应的依据</text>
-    <text class="body" x="16" y="80">工作偏好与职业任务的对应</text>
-    <text class="body" x="16" y="104">相关能力与下一步可补足的技能</text>
+    <text class="label" x="16" y="30">职位名称</text>
+    <text class="body" x="16" y="56">背景评估　已确认经历与相关线索</text>
+    <text class="body" x="16" y="80">爱好与兴趣　已选工作偏好与对应任务</text>
+    <text class="body" x="16" y="104">能力评估　自评、有效对照与待补技能</text>
     <text class="action" x="16" y="134">查看职业详情 →</text>
-    <text class="label" x="469" y="30">推荐职业名称</text>
-    <text class="body" x="469" y="56">对应的评估依据</text>
+    <text class="label" x="469" y="30">职位名称</text>
+    <text class="body" x="469" y="56">背景评估　已确认经历与相关线索</text>
+    <text class="body" x="469" y="80">爱好与兴趣　已选工作偏好与对应任务</text>
+    <text class="body" x="469" y="104">能力评估　自评、有效对照与待补技能</text>
     <text class="action" x="469" y="134">查看职业详情 →</text>
-    <text class="label" x="922" y="30">推荐职业名称</text>
-    <text class="body" x="922" y="56">对应的评估依据</text>
+    <text class="label" x="922" y="30">职位名称</text>
+    <text class="body" x="922" y="56">背景评估　已确认经历与相关线索</text>
+    <text class="body" x="922" y="80">爱好与兴趣　已选工作偏好与对应任务</text>
+    <text class="body" x="922" y="104">能力评估　自评、有效对照与待补技能</text>
     <text class="action" x="922" y="134">查看职业详情 →</text>
   </g>
 </svg>

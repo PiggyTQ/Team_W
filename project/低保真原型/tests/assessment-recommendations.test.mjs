@@ -37,16 +37,57 @@ test('uses saved group choices and records a learning status without awarding ma
   assert.deepEqual(result.careers[0].preferenceFit, {matched: true, task: '实现组件'});
 });
 
-test('work style can order equivalent evidence and cannot create an unsupported candidate', () => {
+test('changing the saved preference can reorder the same background and self-assessment', () => {
   const claims = [claim(' sql ')];
   const collaborative = assessmentRecommendations(fixture({claims, capabilityMastery: {SQL: true}}));
   const structured = assessmentRecommendations(fixture({claims, interestType: 'ESTJ', capabilityMastery: {SQL: true}}));
   assert.equal(collaborative.careers[0].id, 'data');
-  assert.notEqual(structured.careers[0].id, 'data');
+  assert.equal(structured.careers[0].id, 'engineering');
+  assert.equal(structured.careers[0].preferenceFit.task, '质量与恢复');
+  assert.equal(structured.careers.find(career => career.id === 'data').preferenceFit.task, null);
   assert.deepEqual(new Set(structured.careers.map(item => item.id)), new Set(['data', 'backend', 'engineering']));
-  const unsupported = assessmentRecommendations(fixture({claims: [claim('未分类技能')], capabilityMastery: {JavaScript: false}}));
-  assert.equal(unsupported.status, 'insufficient');
-  assert.deepEqual(unsupported.careers, []);
+});
+
+test('uses confirmed untagged experience and keeps textual mentions separate from self-assessed mastery', () => {
+  const untagged = claim('未知', {title: '学生会报名页', text: '使用 ＪａｖａＳｃｒｉｐｔ 和 CSS 刷新页面。没有用过 Python。'});
+  const pending = claim('SQL', {id: 'draft', status: '待确认', text: 'SQL 数据分析'});
+  const result = assessmentRecommendations(fixture({claims: [untagged, pending], interestType: 'ISTP', capabilityMastery: {JavaScript: false}}));
+  assert.equal(result.status, 'ready');
+  assert.equal(result.exploratory, false);
+  assert.deepEqual(result.careers.map(career => career.position), ['前端开发工程师']);
+  assert.deepEqual(result.careers[0].backgroundTitles, ['学生会报名页']);
+  assert.deepEqual(result.careers[0].backgroundSkills, []);
+  assert.deepEqual(result.careers[0].mentionedSkills, ['CSS', 'JavaScript']);
+  assert.deepEqual(result.careers[0].masteredSkills, []);
+  assert.deepEqual(result.careers[0].learningSkills, ['JavaScript']);
+});
+
+test('reads required skill names and aliases without matching substrings or planned work', () => {
+  const record = claim('未知', {text: '我用 Java 和 REST API 实现接口。计划学习 JavaScript。'});
+  const result = assessmentRecommendations(fixture({claims: [record], interestType: 'INTP', capabilityMastery: {Git: true}}));
+  assert.equal(result.careers[0].id, 'backend');
+  assert.deepEqual(new Set(result.careers[0].mentionedSkills), new Set(['Java', '接口设计']));
+  assert.ok(!result.careers.some(career => career.id === 'frontend'));
+});
+
+test('negative self-assessments give a learning direction when positive links are missing', () => {
+  const result = assessmentRecommendations(fixture({claims: [claim('未知')], interestType: 'ISTP', capabilityMastery: {JavaScript: false}}));
+  assert.equal(result.status, 'ready');
+  assert.equal(result.exploratory, true);
+  assert.deepEqual(result.careers.map(career => career.id), ['frontend']);
+  assert.deepEqual(result.careers[0].masteredSkills, []);
+  assert.deepEqual(result.careers[0].learningSkills, ['JavaScript']);
+  assert.equal(result.careers[0].backgroundCount, 0);
+});
+
+test('ability can change the leading role even when another role has an explicit background link', () => {
+  const claims = [claim('日志分析', {careerLinks: [{career: 'security'}]})];
+  const old = assessmentRecommendations(fixture({claims, interestType: 'ISTP', capabilityMastery: {Linux: true}}));
+  const changed = assessmentRecommendations(fixture({claims, interestType: 'ISTP', capabilityMastery: {HTML: true, CSS: true, JavaScript: true}}));
+  assert.equal(old.careers[0].id, 'security');
+  assert.equal(changed.careers[0].id, 'frontend');
+  assert.deepEqual(changed.careers[0].masteredSkills, ['HTML', 'CSS', 'JavaScript']);
+  assert.equal(changed.careers[1].id, 'security');
 });
 
 test('honors explicit career links without inferring a skill from the association', () => {
