@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "新旧数据和下游兼容检查",
+    "失败重跑与回填不重复/漏失"
+  ],
+  "open": [
+    {
+      "criterion": "变更沟通及访问范围",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "端到端保证尚未覆盖部分",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

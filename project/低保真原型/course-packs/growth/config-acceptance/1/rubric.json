@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "配置/权限符合已给业务矩阵",
+    "UAT步骤能由接手者重复执行"
+  ],
+  "open": [
+    {
+      "criterion": "业务确认与技术职责",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "哪些尚需用户决定",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

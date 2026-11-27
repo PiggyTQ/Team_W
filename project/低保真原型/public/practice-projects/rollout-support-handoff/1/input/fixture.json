@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "id": "core",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "permission",
+      "required": true,
+      "status": "not_run"
+    },
+    {
+      "id": "help",
+      "required": false,
+      "status": "failed"
+    }
+  ],
+  "delta": [
+    {
+      "id": "POST-CUTOVER-1"
+    }
+  ],
+  "support": {
+    "owner": "exercise-support-role"
+  },
+  "training": [
+    {
+      "role": "member",
+      "scenario": "register-and-cancel"
+    },
+    {
+      "role": "support",
+      "scenario": "find-and-escalate"
+    }
+  ]
+}

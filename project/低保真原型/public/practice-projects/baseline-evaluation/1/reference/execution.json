@@ -1,0 +1,144 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  {\r\n+   mae: 0,\r\n-   mae: 1.3333333333333333,\r\n    predictions: [\r\n      {\r\n        id: 'V1',\r\n        prediction: 5\r\n      },\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/baseline-evaluation/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: {\r\n    trainIds: [ 'T1', 'T2', 'T3' ],\r\n    predictions: [\r\n      { id: 'V1', prediction: 5 },\r\n      { id: 'V2', prediction: 5 },\r\n      { id: 'V3', prediction: 5 }\r\n    ],\r\n    mae: 0\r\n  },\r\n  expected: {\r\n    trainIds: [ 'T1', 'T2', 'T3' ],\r\n    predictions: [\r\n      { id: 'V1', prediction: 5 },\r\n      { id: 'V2', prediction: 5 },\r\n      { id: 'V3', prediction: 5 }\r\n    ],\r\n    mae: 1.3333333333333333\r\n  },\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/baseline-evaluation/1/reference/broken.mjs:1\r\nexport const solve=()=>{\"trainIds\":[\"T1\",\"T2\",\"T3\"],\"predictions\":[{\"id\":\"V1\",\"prediction\":5},{\"id\":\"V2\",\"prediction\":5}],\"mae\":1.3333333333333333};\r\n                                  ^\r\n\r\nSyntaxError: Unexpected token ':'\r\n    at compileSourceTextModule (node:internal/modules/esm/utils:319:16)\r\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:89:18)\r\n    at #translate (node:internal/modules/esm/loader:438:20)\r\n    at afterLoad (node:internal/modules/esm/loader:506:29)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:511:12)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:564:36)\r\n    at afterResolve (node:internal/modules/esm/loader:611:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)\r\n    at node:internal/modules/esm/loader:636:32\r\n    at TracingChannel.tracePromise (node:diagnostics_channel:370:14)\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "baseline-evaluation",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:53.490Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"baseline-evaluation\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:53.405Z\"}\n",
+    "inputDigest": "013307942e7fd62bfcc85bf5c7b2efac46e27e21c30b7789e36a4c68b2d726ee",
+    "artifactDigest": "347403ffe2e424ce42909c7617a9d488fb44015a90c035602a86664517aac9f9"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "baseline-evaluation",
+    "version": 1,
+    "inputDigest": "013307942e7fd62bfcc85bf5c7b2efac46e27e21c30b7789e36a4c68b2d726ee",
+    "artifactDigest": "05cbca560f849bc09778b691c75657a2f133ea33abdd4b27f324d7368a8f3004",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:53.369Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "baseline-evaluation",
+    "version": 1,
+    "inputDigest": "013307942e7fd62bfcc85bf5c7b2efac46e27e21c30b7789e36a4c68b2d726ee",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:53.369Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "baseline-evaluation",
+    "version": 1,
+    "inputDigest": "013307942e7fd62bfcc85bf5c7b2efac46e27e21c30b7789e36a4c68b2d726ee",
+    "artifactDigest": "347403ffe2e424ce42909c7617a9d488fb44015a90c035602a86664517aac9f9",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:53.369Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

@@ -1,0 +1,194 @@
+/* These local roles participate in the existing important type layer.
+   Unlayered font-size overrides cannot outrank the shared type-system rules. */
+@layer type-system {
+ #root #main :is(.career-jobs-experience,.opportunity-start,.opportunities-layout,.opportunity-research-toolbar,.personal-opportunity-summary) {
+  --ui-type-body:16px;--ui-type-note:13px;--ui-type-section:24px;--ui-type-card:22px;
+ }
+ #root #main .career-jobs-experience .jobs-research-card h3 {--ui-type-card:23px;}
+ #root #main .career-jobs-experience :is(.jobs-research-excerpt,.jobs-open-questions) h4 {--ui-type-card:16px;}
+ #root #main .career-jobs-experience :is(.jobs-card-facts dt,.jobs-query-count,.jobs-result-total,.catalog-job-location,.discovery-source-note,.jobs-draft-note,.catalog-draft-note) {--ui-type-body:13px;}
+ #root #main .career-jobs-experience :is(.jobs-card-facts dd,.jobs-card-compare,.jobs-research-card>header p) {--ui-type-body:14px;}
+ #root #main .career-jobs-experience :is(.status-chip,.jobs-querybar .field>span,.jobs-query-count,.jobs-result-total) {font-size:13px!important;}
+ #root #main .career-jobs-experience .jobs-research-card h3 a {font-size:inherit!important;}
+ #root #main .career-jobs-experience .job-field-comparison :is(th,td) {--ui-type-body:16px;}
+ #root #main .career-jobs-experience .job-field-comparison :is(.job-compare-group th,thead th:first-child,tbody th[scope="row"]) {--ui-type-body:13px;}
+ #root #main .opportunity-start h2 {--ui-type-section:28px;}
+ #root #main .opportunity-start h3 {--ui-type-card:22px;}
+ #root #main .opportunity-start h4 {--ui-type-card:18px;}
+ #root #main .opportunity-start :is(.opportunity-example-label,.opportunity-start-inputs,.opportunity-start-note) {--ui-type-body:13px;}
+ #root #main .opportunity-research-example blockquote>span {font-size:13px!important;}
+ #root #main .opportunity-list {--ui-type-body:14px;--ui-type-card:17px;--ui-type-section:20px;}
+ #root #main .opportunity-detail>header h2 {--ui-type-section:26px;}
+ #root #main .opportunity-content h3 {--ui-type-card:22px;}
+ #root #main .opportunity-content h4 {--ui-type-card:18px;}
+ #root #main .opportunity-content .facts dt {--ui-type-body:13px;}
+ #root #main .opportunity-progress {--ui-type-body:15px;--ui-type-note:13px;}
+ #root #main .opportunity-progress strong {font-size:15px!important;}
+ #root #main .opportunity-counts strong {font-size:26px!important;font-variant-numeric:tabular-nums;}
+ #root #main .opportunity-counts span {font-size:14px!important;}
+ #root #main .opportunities-layout .status-chip {font-size:13px!important;}
+ #root #main .application-timeline h3 {--ui-type-card:18px;}
+ #root #main .jobs-official-directory h2 {--ui-type-section:21px;}
+ #root #main .jobs-official-directory .jobs-official-links strong {font-size:18px!important;}
+ #root #main .jobs-official-directory footer>a {font-size:14px!important;}
+ #root #main .jobs-official-toggle>span>strong {font-size:18px!important;}
+ /* Inspection is portalled to body, outside #root and #main. */
+ body>.job-discovery-drawer {--ui-type-body:16px;--ui-type-note:13px;--ui-type-card:18px;--ui-type-section:24px;}
+ body>.job-discovery-drawer :is(p,li,td,th,label,input,textarea,select,button,summary,blockquote,dt,dd,a) {font-size:var(--ui-type-body)!important;}
+ body>.job-discovery-drawer .information-drawer-heading h2 {font-size:var(--ui-type-section)!important;}
+ body>.job-discovery-drawer :is(h3,h4) {font-size:var(--ui-type-card)!important;}
+ body>.job-discovery-drawer :is(.caption,small,.status-chip) {font-size:13px!important;}
+ body>.job-discovery-drawer .facts dt {font-size:13px!important;}
+ /* Only the two forms on this route inherit these form roles. */
+ #root dialog:has(.job-research-fields,.job-event-editor) {--ui-type-body:16px;--ui-type-note:13px;--ui-type-section:24px;--ui-type-card:19px;}
+ #root dialog:has(.job-research-fields,.job-event-editor) :is(.caption,.quality-note,.writing-hint) {--ui-type-body:13px;}
+}
+
+html body #root#root#root#root#root #main {
+ & .career-jobs-experience {container:jobs-panel / inline-size;}
+ & .career-jobs-experience .jobs-research-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
+ & .career-jobs-experience .jobs-research-card {padding:24px;}
+ & .career-jobs-experience .jobs-research-card>header {grid-template-columns:44px minmax(0,1fr);column-gap:14px;}
+ & .career-jobs-experience .jobs-card-icon {grid-row:auto;}
+ & .career-jobs-experience .jobs-research-card h3 {line-height:1.45;margin:7px 0 8px;}
+ & .career-jobs-experience .jobs-research-card>header p {line-height:1.6;}
+ & .career-jobs-experience .jobs-card-scope {margin-top:18px;line-height:1.8;}
+ & .career-jobs-experience .jobs-research-excerpt {padding:10px 0;margin:10px 0 0;}
+ & .career-jobs-experience .catalog-job-location {margin:12px 0 8px;}
+ & .career-jobs-experience .actions .jobs-card-compare {margin:0;min-height:44px;padding:10px 15px;}
+ & .career-jobs-experience :is(.jobs-research-excerpt,.jobs-open-questions) h4 {margin:0 0 9px;line-height:1.55;}
+ & .career-jobs-experience .jobs-research-excerpt blockquote {padding:12px 14px;background:#f3f7fa;border-radius:8px;line-height:1.85;}
+ & .career-jobs-experience .catalog-excerpt p {line-height:1.85;-webkit-line-clamp:4;}
+ & .career-jobs-experience .jobs-open-questions {padding-block:18px;}
+ & .career-jobs-experience .jobs-open-questions li {line-height:1.8;margin-block:5px;}
+ & .career-jobs-experience .jobs-card-facts {gap:16px 25px;padding-top:18px;}
+ & .career-jobs-experience .jobs-card-facts dt {line-height:1.5;margin-bottom:6px;}
+ & .career-jobs-experience .jobs-card-facts dd {line-height:1.65;}
+ & .career-jobs-experience .jobs-querybar {padding:16px;gap:14px 18px;margin-bottom:18px;}
+ & .career-jobs-experience .jobs-querybar :is(input,select) {min-height:46px;}
+ & .career-jobs-experience .jobs-querybar>button {min-height:46px;}
+ & .career-jobs-experience .catalog-querybar {grid-template-columns:minmax(220px,1.5fr) repeat(3,minmax(140px,1fr));}
+ & .career-jobs-experience .catalog-querybar .catalog-filter-actions>button {min-height:44px;padding:9px 14px;}
+ & .career-jobs-experience .jobs-results-header {align-items:center;flex-wrap:wrap;gap:12px;}
+ & .career-jobs-experience .job-field-comparison table {min-width:660px;}
+ & .career-jobs-experience .job-field-comparison .table-wrap {max-height:none;overflow:auto;}
+ & .career-jobs-experience .job-field-comparison :is(th,td) {padding:16px 18px;line-height:1.75;}
+ & .career-jobs-experience .jobs-comparison-bar>button {margin-left:0;min-height:44px;}
+ & .career-jobs-experience :is(.actions,.jobs-research-heading) :is(button,a.button) {min-height:44px;padding:10px 15px;}
+ /* The official directory is a set of verified links, not a live vacancy feed. */
+ & .career-jobs-experience .jobs-external-source.jobs-official-directory {display:block;padding:10px 22px;margin-bottom:16px;border-radius:14px;background:#edf5fb;}
+ & .jobs-official-toggle {display:flex;align-items:center;gap:13px;padding:0;min-height:0;cursor:pointer;list-style:none;}
+ & .jobs-official-toggle::-webkit-details-marker {display:none;}
+ & .jobs-official-toggle>span {display:flex;align-items:center;flex-wrap:wrap;gap:6px 18px;flex:1;min-width:0;}
+ & .jobs-official-toggle>svg {flex:none;}
+ & .jobs-official-toggle>svg:last-child {transition:transform .15s;}
+ & .jobs-official-directory[open] .jobs-official-toggle>svg:last-child {transform:rotate(90deg);}
+ & .jobs-official-intro {margin:16px 0;}
+ & .jobs-official-intro p {line-height:1.8;}
+ & .jobs-official-links>a>span {display:grid;gap:6px;}
+ & .jobs-official-directory>header {display:flex;align-items:start;gap:13px;margin-bottom:17px;}
+ & .jobs-official-directory>header>svg {flex:none;margin-top:3px;}
+ & .jobs-official-directory>header>div {min-width:0;}
+ & .jobs-official-directory h2 {margin:0 0 6px;line-height:1.5;}
+ & .jobs-official-directory p {margin:0;line-height:1.75;max-width:80ch;}
+ & .jobs-official-links {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+ & .jobs-official-links>a {position:relative;display:grid;align-content:start;gap:6px;min-width:0;padding:15px 35px 15px 16px;border:1px solid #d4e1eb;border-radius:10px;background:#fffefa;color:#143f65;text-decoration:none;white-space:normal;}
+ & .jobs-official-links>a:hover {border-color:#92b7d2;background:#fff;}
+ & .jobs-official-links strong {line-height:1.5;}
+ & .jobs-official-links small {line-height:1.6;color:#526c82;}
+ & .jobs-official-links svg {position:absolute;right:13px;top:19px;}
+ & .jobs-official-directory>footer {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;margin-top:16px;padding:0;border:0;background:transparent;}
+ & .jobs-official-directory>footer small {line-height:1.65;color:#546f82;}
+ & .jobs-official-directory>footer a {display:inline-flex;align-items:center;gap:7px;min-height:36px;line-height:1.6;white-space:normal;}
+ & .opportunity-start {container:opportunity-welcome / inline-size;}
+ & .opportunity-start-main {padding:30px 32px;gap:26px;}
+ & .opportunity-start-main>div {max-width:76ch;}
+ & .opportunity-start h2 {margin:0 0 14px;}
+ & .opportunity-start-main p {line-height:1.85;}
+ & .opportunity-start-main>img {width:135px;height:125px;}
+ & .opportunity-research-example {padding:27px 32px;}
+ & .opportunity-research-example blockquote {padding:18px 20px;margin:20px 0 25px;}
+ & .opportunity-research-example blockquote>p {line-height:1.85;}
+ & .opportunity-example-findings {gap:26px;align-items:start;}
+ & .opportunity-example-findings h4 {line-height:1.55;align-items:start;margin-bottom:13px;}
+ & .opportunity-example-findings h4 svg {margin-top:3px;}
+ & .opportunity-example-findings p {line-height:1.85;max-width:48ch;}
+ & .career-workspace-content:has(>.opportunities-layout) {container:opportunities-panel / inline-size;}
+ &:has(.opportunity-research-toolbar) .opportunities-layout {grid-template-columns:250px minmax(0,1fr);gap:24px;}
+ &:has(.opportunity-research-toolbar) .opportunity-detail {container:opportunity-detail / inline-size;}
+ &:has(.opportunity-research-toolbar) .opportunity-detail>header {gap:18px;padding:25px;}
+ &:has(.opportunity-research-toolbar) .opportunity-detail>header>div {min-width:0;flex:1;}
+ &:has(.opportunity-research-toolbar) .opportunity-detail>header h2 {margin:0 0 9px;}
+ &:has(.opportunity-research-toolbar) .opportunity-detail>header p {line-height:1.75;margin-bottom:9px;}
+ &:has(.opportunity-research-toolbar) .opportunity-list {padding:20px 16px;}
+ &:has(.opportunity-research-toolbar) .opportunity-select {padding:17px 11px;}
+ &:has(.opportunity-research-toolbar) .opportunity-select h3 {margin:8px 0;line-height:1.6;}
+ &:has(.opportunity-research-toolbar) .opportunity-content {padding:25px;}
+ &:has(.opportunity-research-toolbar) .opportunity-content :is(p,dd) {line-height:1.85;}
+ &:has(.opportunity-research-toolbar) .opportunity-content .facts {grid-template-columns:120px minmax(0,1fr);}
+ &:has(.opportunity-research-toolbar) .detail-tabs {display:flex;gap:8px;flex-wrap:wrap;padding:0 20px;}
+ &:has(.opportunity-research-toolbar) .detail-tabs button {flex:1 1 120px;line-height:1.6;}
+ & .opportunity-progress {gap:20px;padding:20px 24px;}
+ & .opportunity-progress strong {line-height:1.6;}
+ & .opportunity-progress small {line-height:1.7;}
+ & .application-timeline p {line-height:1.85;}
+ & .opportunity-record-toggle {width:100%;}
+}
+
+body>dialog.job-discovery-drawer {width:min(680px,calc(100vw - 32px));color:#254b68;}
+body>.job-discovery-drawer .information-drawer-content {padding:24px;}
+body>.job-discovery-drawer .discovery-detail .facts {grid-template-columns:105px minmax(0,1fr);}
+body>.job-discovery-drawer .discovery-detail :is(p,dd,li) {line-height:1.85;}
+body>.job-discovery-drawer .catalog-job-text {white-space:pre-wrap;}
+body>.job-discovery-drawer .discovery-detail .facts :is(dt,dd) {padding:12px 10px;}
+body>.job-discovery-drawer .information-drawer-heading {gap:18px;}
+body>.job-discovery-drawer .information-drawer-heading h2 {line-height:1.45;}
+body>.job-discovery-drawer .actions {gap:10px;}
+body>.job-discovery-drawer .actions>:is(button,a) {min-height:44px;}
+#root dialog:has(.job-research-fields,.job-event-editor) :is(p,label,textarea,summary,dd) {line-height:1.8;}
+#root dialog:has(.job-research-fields,.job-event-editor) :is(input,select) {min-height:44px;}
+
+@container jobs-panel (max-width:1050px) {
+ html body #root#root#root#root#root #main .career-jobs-experience .catalog-querybar {grid-template-columns:repeat(2,minmax(0,1fr));}
+ html body #root#root#root#root#root #main .jobs-official-links {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@container jobs-panel (max-width:880px) {
+ html body #root#root#root#root#root #main .career-jobs-experience .jobs-research-grid {grid-template-columns:minmax(0,1fr);}
+}
+@container jobs-panel (max-width:560px) {
+ html body #root#root#root#root#root #main .career-jobs-experience .catalog-querybar {grid-template-columns:minmax(0,1fr);}
+ html body #root#root#root#root#root #main .career-jobs-experience .jobs-querybar>.field {flex-basis:100%;}
+ html body #root#root#root#root#root #main .career-jobs-experience .jobs-query-count {width:100%;margin-left:0;}
+ html body #root#root#root#root#root #main .career-jobs-experience .jobs-research-card {padding:18px;}
+ html body #root#root#root#root#root #main .jobs-official-links {grid-template-columns:minmax(0,1fr);}
+}
+@container opportunity-welcome (max-width:1040px) {
+ html body #root#root#root#root#root #main .opportunity-example-findings {grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
+ html body #root#root#root#root#root #main .opportunity-example-findings>section:nth-child(3) {grid-column:1/-1;border:0;border-top:1px solid #d2e2eb;padding:20px 0 0;}
+ html body #root#root#root#root#root #main .opportunity-example-findings>section:nth-child(3) p {max-width:80ch;}
+}
+@container opportunity-welcome (max-width:660px) {
+ html body #root#root#root#root#root #main .opportunity-start-main {align-items:start;padding:22px;gap:14px;}
+ html body #root#root#root#root#root #main .opportunity-start-main>img {width:80px;height:80px;}
+ html body #root#root#root#root#root #main .opportunity-research-example {padding:22px;}
+ html body #root#root#root#root#root #main .opportunity-example-findings {grid-template-columns:minmax(0,1fr);gap:20px;}
+ html body #root#root#root#root#root #main .opportunity-example-findings>section+section {grid-column:auto;border:0;border-top:1px solid #d2e2eb;padding:20px 0 0;}
+ html body #root#root#root#root#root #main .opportunity-start .opportunity-start-note {padding-inline:22px;}
+}
+@container opportunities-panel (max-width:900px) {
+ html body #root#root#root#root#root #main:has(.opportunity-research-toolbar) .opportunities-layout {grid-template-columns:minmax(0,1fr);gap:16px;}
+ html body #root#root#root#root#root #main .opportunity-record-toggle {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;min-height:44px;}
+ html body #root#root#root#root#root #main .opportunities-layout>.opportunity-list {display:none;}
+ html body #root#root#root#root#root #main .opportunities-layout.records-open>.opportunity-list {display:flex;}
+}
+@container opportunity-detail (max-width:650px) {
+ html body #root#root#root#root#root #main:has(.opportunity-research-toolbar) .opportunity-detail>header {flex-wrap:wrap;}
+ html body #root#root#root#root#root #main .opportunity-progress {grid-template-columns:minmax(0,1fr);gap:12px;padding:18px 22px;}
+ html body #root#root#root#root#root #main .opportunity-progress>button {min-height:52px;}
+ html body #root#root#root#root#root #main:has(.opportunity-research-toolbar) .opportunity-content .facts {grid-template-columns:90px minmax(0,1fr);}
+}
+@media(max-width:640px) {
+ body>dialog.job-discovery-drawer {width:calc(100vw - 16px);}
+ body>.job-discovery-drawer .information-drawer-content {padding:18px;}
+ body>.job-discovery-drawer .discovery-detail .facts {grid-template-columns:80px minmax(0,1fr);}
+}

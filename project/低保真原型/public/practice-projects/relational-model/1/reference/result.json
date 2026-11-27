@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "id": "C1",
+      "orders": 2,
+      "cents": 20000
+    },
+    {
+      "id": "C2",
+      "orders": 1,
+      "cents": 6000
+    },
+    {
+      "id": "C3",
+      "orders": 0,
+      "cents": 0
+    }
+  ],
+  "orphans": []
+}

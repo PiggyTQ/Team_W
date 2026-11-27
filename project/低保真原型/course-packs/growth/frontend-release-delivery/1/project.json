@@ -1,0 +1,128 @@
+{
+  "id": "frontend-release-delivery",
+  "version": 1,
+  "legacy": false,
+  "career": "frontend",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "业务界面完整交付",
+    "en": "Frontend release delivery"
+  },
+  "next": [
+    "cross-registration-service",
+    "cross-service-incident",
+    "cross-security-remediation"
+  ],
+  "prior": "data-workbench",
+  "adapter": "interface",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "release-checks"
+  ],
+  "brief": {
+    "zh": "上线审阅人要直接打开详情并刷新。维护列表和详情路由；接口版本不兼容时明确展示契约变化，而不是把错误页面当成正常发布。",
+    "en": "A release reviewer must open detail URLs directly and survive refresh and API changes. Maintain list navigation and show a contract-change state."
+  },
+  "outputs": {
+    "zh": [
+      "可运行多页面应用",
+      "验收记录、使用/运行与变更说明"
+    ],
+    "en": [
+      "Runnable routes",
+      "a compatibility check and release instructions"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "核心流程和状态回归",
+      "约定桌面宽度无溢出，键盘关键流程可达"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A detail refresh using an unsupported API version must not be labelled ready. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "深链接刷新或接口版本变化导致关键流程丢失应被捕获",
+    "en": "A detail refresh using an unsupported API version must not be labelled ready."
+  },
+  "review": {
+    "zh": [
+      "取舍、易用性与维护",
+      "运行条件和接手说明"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "上线审阅人要直接打开详情并刷新。维护列表和详情路由；接口版本不兼容时明确展示契约变化，而不是把错误页面当成正常发布。",
+      "深链接刷新或接口版本变化导致关键流程丢失应被捕获；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A release reviewer must open detail URLs directly and survive refresh and API changes.",
+      "Reproduce this failure first: A detail refresh using an unsupported API version must not be labelled ready.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "深链接刷新或接口版本变化导致关键流程丢失应被捕获",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "index.html"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "frontend",
+      "branch": "quality",
+      "skill": "release-checks",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

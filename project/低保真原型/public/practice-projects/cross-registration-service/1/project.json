@@ -1,0 +1,277 @@
+{
+  "id": "cross-registration-service",
+  "version": 1,
+  "legacy": false,
+  "career": "frontend",
+  "relatedCareers": [
+    "backend",
+    "testing",
+    "delivery",
+    "software"
+  ],
+  "level": "integrated",
+  "kind": "cross-career",
+  "title": {
+    "zh": "活动报名服务联合交付",
+    "en": "Registration service collaboration"
+  },
+  "next": [],
+  "prior": null,
+  "adapter": "interface",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "form-errors"
+  ],
+  "brief": {
+    "zh": "以实施、后端、前端和测试角色轮换交付报名流程。消费同一版email接口契约，在实际界面与本机服务暴露旧mail字段错误，修订后共同验收。",
+    "en": "Rotate implementation, backend, frontend and testing roles to deliver an activity registration flow. Consume a versioned field contract and repair the recorded mismatch."
+  },
+  "outputs": {
+    "zh": [
+      "需求到验收的追溯",
+      "服务/界面/测试与修改包"
+    ],
+    "en": [
+      "Contract",
+      "runnable UI/service",
+      "acceptance trace and revised role handoffs"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "界面调用对应版本接口，业务记录一致",
+      "缺陷意见有对应修改和复验"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A legacy mail field sent to the email-field contract must fail joint acceptance. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "接口字段变更不通知前端造成流程失败应在联合验收暴露",
+    "en": "A legacy mail field sent to the email-field contract must fail joint acceptance."
+  },
+  "review": {
+    "zh": [
+      "交接是否可执行，反馈/修改是否有依据",
+      "模拟角色如实标注，本人贡献与责任不混淆"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "以实施、后端、前端和测试角色轮换交付报名流程。消费同一版email接口契约，在实际界面与本机服务暴露旧mail字段错误，修订后共同验收。",
+      "接口字段变更不通知前端造成流程失败应在联合验收暴露；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Rotate implementation, backend, frontend and testing roles to deliver an activity registration flow.",
+      "Reproduce this failure first: A legacy mail field sent to the email-field contract must fail joint acceptance.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "接口字段变更不通知前端造成流程失败应在联合验收暴露",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [
+    {
+      "role": "需求/实施",
+      "produces": "业务流程、权限和验收",
+      "consumedBy": "后端/前端/测试",
+      "requiredOutput": "stage-1.json",
+      "inputDigest": "eda8c4e5a1689e4c21b0395aac399449ab07c084e98953ba76f3a38ddd94e65c",
+      "expectedOutputDigest": "0c719d60182f5eca4d17ed4f7c8b8efce13f052d08b68f2cd64b177a87de9bc0",
+      "canonicalOutputDigest": "072186b3ed283ddcbcd67e73c4fb95b0a972cd78880b6d551c1e10281df4ad36",
+      "feedbackCode": "cross-registration-service-stage-1",
+      "roleLabel": {
+        "zh": "需求/实施",
+        "en": "Requirements and implementation"
+      },
+      "receiverLabel": {
+        "zh": "后端/前端/测试",
+        "en": "Backend, frontend and testing"
+      }
+    },
+    {
+      "role": "后端",
+      "produces": "版本化接口和错误契约",
+      "consumedBy": "前端/测试",
+      "requiredOutput": "stage-2.json",
+      "inputDigest": "69b1f642890e600d107bbe0bb7221319108b13f1fa83d7a876fe28c78699f846",
+      "expectedOutputDigest": "a4074a22ef014cc28f507ef57bcd6fc5930d71c78e4914993a935b7dcf6e3c05",
+      "canonicalOutputDigest": "4efcfd9a797a212f342bd5292fc579ec4e51402a6ae78c4e5a3fa8d24cf84283",
+      "feedbackCode": "cross-registration-service-stage-2",
+      "roleLabel": {
+        "zh": "后端",
+        "en": "Backend"
+      },
+      "receiverLabel": {
+        "zh": "前端/测试",
+        "en": "Frontend and testing"
+      }
+    },
+    {
+      "role": "前端",
+      "produces": "可操作界面与状态",
+      "consumedBy": "测试/实施",
+      "requiredOutput": "stage-3.json",
+      "inputDigest": "156d904a5c57fa2216ddf7d205a236ce7d1a18c73ffd45cf8c69163b03b72997",
+      "expectedOutputDigest": "1f7a1b53b958f018dd9ee884935d138ee5ee4ecd575e94b2e5e312bd4a952ea5",
+      "canonicalOutputDigest": "b5e118b7b704cf5d3b936e5a70f6f1ff5e3b6f23ccbd1df4df3c7a7b1a9632cd",
+      "feedbackCode": "cross-registration-service-stage-3",
+      "roleLabel": {
+        "zh": "前端",
+        "en": "Frontend"
+      },
+      "receiverLabel": {
+        "zh": "测试/实施",
+        "en": "Testing and implementation"
+      }
+    },
+    {
+      "role": "测试/实施",
+      "produces": "缺陷、修订验收与交接",
+      "consumedBy": "相关实现者",
+      "requiredOutput": "stage-4.json",
+      "inputDigest": "b74c78cad12bbf10d19184cdf06c45e8ee1a7355712c26090f442f662a6a1d14",
+      "expectedOutputDigest": "8d11c36ea2a53da1feded3e2682177e5b8b02a37af307ac33e0932cb5466ccdd",
+      "canonicalOutputDigest": "75b3ec14bec0e302dc8563222dde875d6076601ac630bbe377366ecf7dd7d83b",
+      "feedbackCode": "cross-registration-service-stage-4",
+      "roleLabel": {
+        "zh": "测试/实施",
+        "en": "Testing and implementation"
+      },
+      "receiverLabel": {
+        "zh": "相关实现者",
+        "en": "Relevant implementers"
+      }
+    }
+  ],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "index.html",
+    "handoff.json",
+    "stage-1.json",
+    "stage-2.json",
+    "stage-3.json",
+    "stage-4.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "frontend",
+      "branch": "interaction",
+      "skill": "form-errors",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json",
+        "stage-4.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "backend",
+      "branch": "api",
+      "skill": "api-contract",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json",
+        "stage-4.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "testing",
+      "branch": "defects",
+      "skill": "retest-regression",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json",
+        "stage-4.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "delivery",
+      "branch": "setup",
+      "skill": "role-matrix",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json",
+        "stage-4.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "software",
+      "branch": "verification",
+      "skill": "unit-tests",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json",
+        "stage-4.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

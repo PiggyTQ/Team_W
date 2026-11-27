@@ -1,0 +1,24 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "评估",
+  "to": "资料/实现者",
+  "content": "证据错误、越权和不可答反馈",
+  "payload": {
+    "unanswerable": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "release": "limited_fixture_only",
+    "unresolvedContractDefect": "A private source must not enter a member answer."
+  },
+  "consumerFeedback": {
+    "code": "cross-knowledge-assistant-stage-3",
+    "issue": {
+      "zh": "不可访问资料被用来回答即使文本正确也必须失败",
+      "en": "A private source must not enter a member answer."
+    }
+  },
+  "requiredRevision": 2
+}

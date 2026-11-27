@@ -1,0 +1,126 @@
+{
+  "id": "accessible-form",
+  "version": 1,
+  "legacy": false,
+  "career": "frontend",
+  "relatedCareers": [],
+  "level": 1,
+  "kind": "career-core",
+  "title": {
+    "zh": "可访问表单与状态恢复",
+    "en": "Accessible form and state recovery"
+  },
+  "next": [
+    "data-workbench"
+  ],
+  "prior": null,
+  "adapter": "interface",
+  "estimatedHours": [
+    2,
+    4
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "form-errors"
+  ],
+  "brief": {
+    "zh": "活动协调员需要可使用的报名表单。实现标签与键盘纠错、等待、失败与重试；等待时修改输入，要取消旧响应的影响，避免覆盖或清空新输入。",
+    "en": "An activity coordinator needs a usable registration form. Implement labelled fields, keyboard errors, waiting, failure, retry and cancellation when input changes."
+  },
+  "outputs": {
+    "zh": [
+      "页面源码与状态说明",
+      "浏览器检查和修改记录"
+    ],
+    "en": [
+      "Runnable HTML",
+      "state tests and a revision note"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "键盘路径、错误提示和输入保留",
+      "等待后真实mock成功/失败状态可复现"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A late response must not overwrite an edited input or clear it after failure. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "等待时改输入，旧请求结果不能覆盖新输入",
+    "en": "A late response must not overwrite an edited input or clear it after failure."
+  },
+  "review": {
+    "zh": [
+      "界面可理解性",
+      "自动检查外的辅助技术与体验限制"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "活动协调员需要可使用的报名表单。实现标签与键盘纠错、等待、失败与重试；等待时修改输入，要取消旧响应的影响，避免覆盖或清空新输入。",
+      "等待时改输入，旧请求结果不能覆盖新输入；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An activity coordinator needs a usable registration form.",
+      "Reproduce this failure first: A late response must not overwrite an edited input or clear it after failure.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "等待时改输入，旧请求结果不能覆盖新输入",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "index.html"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "frontend",
+      "branch": "interaction",
+      "skill": "form-errors",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "files": {
+    "result.json": "[\n  {\n    \"id\": \"old\",\n    \"cents\": 9000,\n    \"api\": \"v1\"\n  },\n  {\n    \"id\": \"new\",\n    \"cents\": 8550,\n    \"api\": \"v2\"\n  },\n  {\n    \"id\": \"round\",\n    \"cents\": 8551,\n    \"api\": \"v2\"\n  }\n]",
+    "notes.md": "# Legacy change and refactoring\n\nA maintainer adds member pricing after the existing discount while preserving old API callers. Compare legacy and new rule behavior.\n\n## Input and contract\ninput/fixture.json; input/dictionary.md; project version 1\n\n## Finding and reproducible output\n```json\n[\n  {\n    \"id\": \"old\",\n    \"cents\": 9000,\n    \"api\": \"v1\"\n  },\n  {\n    \"id\": \"new\",\n    \"cents\": 8550,\n    \"api\": \"v2\"\n  },\n  {\n    \"id\": \"round\",\n    \"cents\": 8551,\n    \"api\": \"v2\"\n  }\n]\n```\n\n## Failure prevented\nApplying membership before the fixed discount changes the promised price.\n\n## Decision and limits\nAccept only the specified result set. Escalate a missing identity, permission, business probe or required not-run item. This is an original synthetic teaching reference, not evidence of learner execution or real employment.\n\n## Contribution and handoff\nReference authored with AI assistance for Avemly. The learner must replace this attribution with their own factual contribution; review open criteria before archiving.",
+    "solution.mjs": "import {runScenario} from './model.mjs';\nexport const solve=input=>runScenario(\"legacy-change\",input);\n"
+  }
+}

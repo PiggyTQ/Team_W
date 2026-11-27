@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "旧调用方回归和新行为符合契约",
+    "迁移前后数据与故障恢复核对"
+  ],
+  "open": [
+    {
+      "criterion": "兼容策略和风险",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "操作权限与可维护性",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

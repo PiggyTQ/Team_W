@@ -1,0 +1,1 @@
+export const solve=()=>[{"version":"v1","rate":0.005,"recovered":true,"rollbackAllowed":true},{"version":"v2","rate":0.08,"recovered":false,"rollbackAllowed":true},{"version":"rollback","rate":0.004285714285714286,"recovered":true,"rollbackAllowed":false}];

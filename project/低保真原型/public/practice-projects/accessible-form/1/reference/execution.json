@@ -1,0 +1,154 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  [\r\n    {\r\n      id: 'empty',\r\n      retained: '',\r\n      state: 'required'\r\n...\r\n      id: 'format',\r\n+     retained: '',\r\n+     state: 'success'\r\n-     retained: 'bad',\r\n-     state: 'format'\r\n    },\r\n    {\r\n      id: 'success',\r\n+     retained: '',\r\n-     retained: 'a@example.invalid',\r\n      state: 'success'\r\n    },\r\n    {\r\n      id: 'failure',\r\n+     retained: '',\r\n+     state: 'success'\r\n-     retained: 'b@example.invalid',\r\n-     state: 'failed'\r\n    },\r\n    {\r\n      id: 'edited',\r\n+     retained: '',\r\n+     state: 'success'\r\n-     retained: 'new@example.invalid',\r\n-     state: 'cancelled'\r\n    },\r\n    {\r\n      id: 'timeout',\r\n+     retained: '',\r\n+     state: 'success'\r\n-     retained: 'c@example.invalid',\r\n-     state: 'retry'\r\n    }\r\n  ]\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/accessible-form/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    { id: 'empty', state: 'required', retained: '' },\r\n    { id: 'format', state: 'success', retained: '' },\r\n    { id: 'success', state: 'success', retained: '' },\r\n    { id: 'failure', state: 'success', retained: '' },\r\n    { id: 'edited', state: 'success', retained: '' },\r\n    { id: 'timeout', state: 'success', retained: '' }\r\n  ],\r\n  expected: [\r\n    { id: 'empty', state: 'required', retained: '' },\r\n    { id: 'format', state: 'format', retained: 'bad' },\r\n    { id: 'success', state: 'success', retained: 'a@example.invalid' },\r\n    { id: 'failure', state: 'failed', retained: 'b@example.invalid' },\r\n    {\r\n      id: 'edited',\r\n      state: 'cancelled',\r\n      retained: 'new@example.invalid'\r\n    },\r\n    { id: 'timeout', state: 'retry', retained: 'c@example.invalid' }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  [\r\n    {\r\n      id: 'empty',\r\n      retained: '',\r\n      state: 'required'\r\n...\r\n      retained: 'new@example.invalid',\r\n+     state: 'success'\r\n-     state: 'cancelled'\r\n    },\r\n    {\r\n      id: 'timeout',\r\n      retained: 'c@example.invalid',\r\n      state: 'retry'\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/accessible-form/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    { id: 'empty', state: 'required', retained: '' },\r\n    { id: 'format', state: 'format', retained: 'bad' },\r\n    { id: 'success', state: 'success', retained: 'a@example.invalid' },\r\n    { id: 'failure', state: 'failed', retained: 'b@example.invalid' },\r\n    { id: 'edited', state: 'success', retained: 'new@example.invalid' },\r\n    { id: 'timeout', state: 'retry', retained: 'c@example.invalid' }\r\n  ],\r\n  expected: [\r\n    { id: 'empty', state: 'required', retained: '' },\r\n    { id: 'format', state: 'format', retained: 'bad' },\r\n    { id: 'success', state: 'success', retained: 'a@example.invalid' },\r\n    { id: 'failure', state: 'failed', retained: 'b@example.invalid' },\r\n    {\r\n      id: 'edited',\r\n      state: 'cancelled',\r\n      retained: 'new@example.invalid'\r\n    },\r\n    { id: 'timeout', state: 'retry', retained: 'c@example.invalid' }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "accessible-form",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:55.080Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"accessible-form\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:54.993Z\"}\n",
+    "inputDigest": "1d12244ea68873c11d13cd4729f7d1b7676fa2c8547eecaaa90f4bbb43bdc581",
+    "artifactDigest": "c4683e42caaff3fbdc6ba51ef8a73eba39f2de121f5905ab4dbcda4611583c1e"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "accessible-form",
+    "version": 1,
+    "inputDigest": "1d12244ea68873c11d13cd4729f7d1b7676fa2c8547eecaaa90f4bbb43bdc581",
+    "artifactDigest": "794d6cc017e3a151f6839fe2cf64237ee6ebf9606a8e6236a11068f8bbf1b5f6",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:54.958Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:index.html",
+        "passed": true,
+        "detail": "index.html"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:index.html",
+        "passed": true,
+        "detail": "HTML structure only; browser behavior is not executed by this check"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "accessible-form",
+    "version": 1,
+    "inputDigest": "1d12244ea68873c11d13cd4729f7d1b7676fa2c8547eecaaa90f4bbb43bdc581",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:54.958Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "accessible-form",
+    "version": 1,
+    "inputDigest": "1d12244ea68873c11d13cd4729f7d1b7676fa2c8547eecaaa90f4bbb43bdc581",
+    "artifactDigest": "c4683e42caaff3fbdc6ba51ef8a73eba39f2de121f5905ab4dbcda4611583c1e",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:54.958Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:index.html",
+        "passed": true,
+        "detail": "index.html"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:index.html",
+        "passed": true,
+        "detail": "HTML structure only; browser behavior is not executed by this check"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

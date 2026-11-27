@@ -119,6 +119,518 @@
           "en": "Rollback decision, recovery acceptance and follow-up actions"
         }
       }
+    },
+    "multi-source-analysis": {
+      "1": {
+        "title": {
+          "zh": "多来源业务分析",
+          "en": "Multi-source business analysis"
+        },
+        "purpose": {
+          "zh": "活动负责人要核对官网与社群订单。订单表每行一单，支付表每行一笔支付；A1分两次支付，另有未付款订单。先确定关联粒度，再交付订单级对账与业务简报。",
+          "en": "The activity owner needs an order and payment reconciliation. Aggregate payments at order grain before joining; distinguish orders, paid amounts and unpaid orders."
+        },
+        "standard": {
+          "zh": "SQL/工作簿及关联说明、图表、分析简报与局限",
+          "en": "SQL, order-level reconciliation and a short analysis brief"
+        }
+      }
+    },
+    "analysis-change-handoff": {
+      "1": {
+        "title": {
+          "zh": "数据变化下的分析交付",
+          "en": "Analysis delivery under change"
+        },
+        "purpose": {
+          "zh": "财务使用者收到两版业务导出：金额单位从元变为分，记录状态也发生变化。分别复算每版有效记录与金额，说明差异来自哪里、哪些结果不能直接混算。",
+          "en": "The finance analyst receives two extracts with changed currency units and status rules. Reproduce both versions and explain which totals may be compared."
+        },
+        "standard": {
+          "zh": "版本化查询与报告、变更影响、复算证据和使用说明",
+          "en": "Version-aware SQL, a difference report and consumer instructions"
+        }
+      }
+    },
+    "baseline-evaluation": {
+      "1": {
+        "title": {
+          "zh": "基线与独立评估",
+          "en": "Baseline and independent evaluation"
+        },
+        "purpose": {
+          "zh": "项目负责人需要一个可解释的数值预测起点。仅用训练集计算均值基线，在独立样本逐行预测、复算MAE，并检查切分泄漏和遗漏ID。",
+          "en": "Estimate a numerical outcome with a training-only mean baseline. Retain every evaluation ID, calculate absolute errors and check split isolation."
+        },
+        "standard": {
+          "zh": "切分清单与程序、逐行预测、指标复算与误差切片",
+          "en": "Split IDs, executable baseline, predictions and error slices"
+        }
+      }
+    },
+    "grounded-assistant-delivery": {
+      "1": {
+        "title": {
+          "zh": "受限知识助手交付",
+          "en": "Bounded knowledge assistant delivery"
+        },
+        "purpose": {
+          "zh": "活动服务协调员需要有依据的问答。资料里有签到说明和仅工作人员可见的内部信息；依据身份、文档版本与事实范围回答，缺资料或越权时拒答并留记录。",
+          "en": "A service coordinator needs answers from a bounded document set. Enforce role, fact and version matches, and refuse unavailable or unsupported answers."
+        },
+        "standard": {
+          "zh": "资料/评估契约与实现或离线重现、引用/拒答/错误报告和维护交接",
+          "en": "Answer and citation records, refusal tests and a maintenance handoff"
+        }
+      }
+    },
+    "app-authorization-retest": {
+      "1": {
+        "title": {
+          "zh": "应用权限整改复验",
+          "en": "Application authorization retest"
+        },
+        "purpose": {
+          "zh": "应用负责人怀疑“隐藏按钮”没有解决越权。围绕本机实验服务的O1/O2对象，以未登录、本人、他人和编辑权限实际发请求，复现后复验服务端整改。",
+          "en": "An application owner asks you to reproduce and repair object-level access. Test anonymous, owner, another user and edit permissions against a loopback service."
+        },
+        "standard": {
+          "zh": "复现证据、修复或整改建议、授权测试矩阵和回归结果",
+          "en": "HTTP reproduction, an authorization matrix and regression evidence"
+        }
+      }
+    },
+    "detection-response-handoff": {
+      "1": {
+        "title": {
+          "zh": "检测与响应交接",
+          "en": "Detection and response handoff"
+        },
+        "purpose": {
+          "zh": "安全值班收到正常变更和混合登录日志。关联同一用户短时间内的失败与成功、核对批准设备，交出命中、误报、漏报和需二线补查的证据。",
+          "en": "An analyst receives mixed login events and an approved-device list. Correlate short failure bursts with subsequent success and quantify false alarms and misses."
+        },
+        "standard": {
+          "zh": "查询、事件链与命中清单、误漏报、建议处置和复盘交接",
+          "en": "Executable event query, hit IDs, false positives and an escalation handoff"
+        }
+      }
+    },
+    "alert-rule-regression": {
+      "1": {
+        "title": {
+          "zh": "告警规则与反例",
+          "en": "Alert rules and counterexamples"
+        },
+        "purpose": {
+          "zh": "报名服务值班要减少短尖峰和低流量告警。编写可执行的JSON教学规则，对连续窗口、无流量、缺失、异常计数和恢复逐时核对；这不是PromQL兼容实现。",
+          "en": "An operator needs an error-rate rule that ignores low traffic and isolated spikes. Evaluate consecutive windows, labels, no traffic, missing data and recovery."
+        },
+        "standard": {
+          "zh": "规则YAML与测试fixtures、实际检查报告和局限",
+          "en": "Executable JSON rule, time-series fixtures and trigger records"
+        }
+      }
+    },
+    "reliability-release-drill": {
+      "1": {
+        "title": {
+          "zh": "服务上线与可靠性演练",
+          "en": "Reliability release drill"
+        },
+        "purpose": {
+          "zh": "发布负责人发现候选版本错误增多。结合每版请求分母、核心业务探测与发布后新增记录，决定何时停止、能否回退，以及是否真的恢复。",
+          "en": "A release owner must decide whether a rollback restored the service. Reconcile technical probes, the critical business flow and records written after release."
+        },
+        "standard": {
+          "zh": "发布/恢复记录、证据定位、验证结果和复盘行动",
+          "en": "Probe results, a release/rollback log and recovery decision"
+        }
+      }
+    },
+    "accessible-form": {
+      "1": {
+        "title": {
+          "zh": "可访问表单与状态恢复",
+          "en": "Accessible form and state recovery"
+        },
+        "purpose": {
+          "zh": "活动协调员需要可使用的报名表单。实现标签与键盘纠错、等待、失败与重试；等待时修改输入，要取消旧响应的影响，避免覆盖或清空新输入。",
+          "en": "An activity coordinator needs a usable registration form. Implement labelled fields, keyboard errors, waiting, failure, retry and cancellation when input changes."
+        },
+        "standard": {
+          "zh": "页面源码与状态说明、浏览器检查和修改记录",
+          "en": "Runnable HTML, state tests and a revision note"
+        }
+      }
+    },
+    "data-workbench": {
+      "1": {
+        "title": {
+          "zh": "数据工作台与接口异常",
+          "en": "Data workbench and API faults"
+        },
+        "purpose": {
+          "zh": "运营人员需要按组筛选记录并翻页。让筛选、页码、空态和错误态保持一致，制造A慢B快的请求顺序，确认旧响应不会覆盖当前结果。",
+          "en": "An operator needs filterable records with pagination. Keep the current filter and page consistent, handle empty/error states, and reject older asynchronous responses."
+        },
+        "standard": {
+          "zh": "可运行工作台与组件说明、接口状态与回归用例",
+          "en": "Runnable record interface, response-order tests and state notes"
+        }
+      }
+    },
+    "frontend-release-delivery": {
+      "1": {
+        "title": {
+          "zh": "业务界面完整交付",
+          "en": "Frontend release delivery"
+        },
+        "purpose": {
+          "zh": "上线审阅人要直接打开详情并刷新。维护列表和详情路由；接口版本不兼容时明确展示契约变化，而不是把错误页面当成正常发布。",
+          "en": "A release reviewer must open detail URLs directly and survive refresh and API changes. Maintain list navigation and show a contract-change state."
+        },
+        "standard": {
+          "zh": "可运行多页面应用、验收记录、使用/运行与变更说明",
+          "en": "Runnable routes, a compatibility check and release instructions"
+        }
+      }
+    },
+    "contract-api": {
+      "1": {
+        "title": {
+          "zh": "校验与权限明确的API",
+          "en": "Validated and authorized API"
+        },
+        "purpose": {
+          "zh": "接口使用方需要稳定的读写契约。本机HTTP服务要区分未登录、他人对象、编辑权限不足和非法金额，同时保持本人正常读写路径可用。",
+          "en": "An API consumer needs a stable read/edit contract with explicit authentication, ownership, action permission and amount validation."
+        },
+        "standard": {
+          "zh": "服务实现和接口说明、数据约束与测试结果",
+          "en": "Loopback HTTP service, response matrix and error contract"
+        }
+      }
+    },
+    "retry-concurrency": {
+      "1": {
+        "title": {
+          "zh": "重复请求与并发一致性",
+          "en": "Retry and concurrent consistency"
+        },
+        "purpose": {
+          "zh": "报名库存只有少量名额，但客户端会并发与重试。以幂等键、身份和数量约束请求，拒绝同键换人或换载荷，保证不重复扣减、不超卖、失败不半提交。",
+          "en": "A booking owner has two seats and retried requests. Preserve idempotency, reject changed payloads under a reused key and avoid overselling or partial commits."
+        },
+        "standard": {
+          "zh": "一致性实现与测试、副作用、事务和恢复说明",
+          "en": "Executable booking service, concurrent request tests and an invariant report"
+        }
+      }
+    },
+    "service-evolution-delivery": {
+      "1": {
+        "title": {
+          "zh": "可演进服务与迁移交接",
+          "en": "Service evolution and migration"
+        },
+        "purpose": {
+          "zh": "服务使用方仍有以元为单位的旧客户端，新客户端需要整数分。保持记录身份，分别提供两个版本的响应和兼容检查，再写清迁移边界。",
+          "en": "A consuming team needs a new cents-based response while an old client still expects yuan. Preserve IDs and both versioned contracts."
+        },
+        "standard": {
+          "zh": "版本化服务和迁移方案、回归、诊断与接手运行说明",
+          "en": "Versioned response adapter, old/new contract tests and migration notes"
+        }
+      }
+    },
+    "relational-model": {
+      "1": {
+        "title": {
+          "zh": "原始表到可复算数据模型",
+          "en": "Reproducible relational model"
+        },
+        "purpose": {
+          "zh": "报表使用者要看到全部客户及订单，包括还没有订单的客户。建立客户与订单粒度，写SQL汇总并检查孤立订单，不能用内连接静默丢掉零订单客户。",
+          "en": "A reporting owner needs a customer/order model including customers with no orders. Specify keys, cardinality and orphan checks."
+        },
+        "standard": {
+          "zh": "转换SQL、结果CSV和模型字典、质量检查报告",
+          "en": "Schema, SQL customer totals and integrity exceptions"
+        }
+      }
+    },
+    "partition-replay": {
+      "1": {
+        "title": {
+          "zh": "固定分区重跑与发布",
+          "en": "Partition replay and publishing"
+        },
+        "purpose": {
+          "zh": "下游需要可安全重跑的每日数据分区。处理同批重复、重放和错误分区；发现不合法批次时保留上一份可用分区，并给出隔离记录。",
+          "en": "A data consumer needs a safe daily partition replacement. Deduplicate replayed rows, quarantine wrong-partition input and retain the last good partition on failure."
+        },
+        "standard": {
+          "zh": "处理和发布实现、内容对照、质量阻断与恢复记录",
+          "en": "Idempotent batch transform, reconciliation and quarantine records"
+        }
+      }
+    },
+    "data-contract-evolution": {
+      "1": {
+        "title": {
+          "zh": "数据契约演进与下游交付",
+          "en": "Data contract evolution"
+        },
+        "purpose": {
+          "zh": "上游把金额字段改名，下游仍要读历史与新增数据。兼容两个字段、保留来源版本，缺少必要金额时阻断发布，并交代哪些消费者受影响。",
+          "en": "A downstream analyst needs historical and incremental data after an amount-field rename. Normalize both forms and block missing required values."
+        },
+        "standard": {
+          "zh": "模型/契约与变更实现、血缘、回填核对及维护交接",
+          "en": "Compatibility transform, lineage and publish/block evidence"
+        }
+      }
+    },
+    "defect-evidence": {
+      "1": {
+        "title": {
+          "zh": "需求到可复现缺陷",
+          "en": "Reproducible defect evidence"
+        },
+        "purpose": {
+          "zh": "测试人员收到满8000分优惠的边界投诉。实际调用缺陷与修复函数，以7999、8000等精确金额复现“先取整再判断”的差异，提交可重复的缺陷记录。",
+          "en": "A tester investigates a discount boundary at 8000 cents. Reproduce rounding-based behavior with exact values and distinguish expected from observed results."
+        },
+        "standard": {
+          "zh": "用例与执行记录、缺陷报告及未测风险",
+          "en": "Minimal reproduction, versioned defect and retest records"
+        }
+      }
+    },
+    "api-ui-regression": {
+      "1": {
+        "title": {
+          "zh": "接口与界面回归",
+          "en": "API and UI regression"
+        },
+        "purpose": {
+          "zh": "测试人员要保护授权、失败后输入保留和正常提交。对原创建模程序的缺陷版与修复版逐条执行测试，保留期望、实际输出和失败，而不是一律写通过。",
+          "en": "A tester protects an API/UI behavior matrix before and after a fix. Run each supplied case and retain both expected and actual outputs."
+        },
+        "standard": {
+          "zh": "API/UI测试与数据、失败诊断、确认与回归报告",
+          "en": "Executable regression cases and linked failures"
+        }
+      }
+    },
+    "release-risk-review": {
+      "1": {
+        "title": {
+          "zh": "发布风险与验证交接",
+          "en": "Release risk review"
+        },
+        "purpose": {
+          "zh": "发布负责人需要从测试报告作有界判断。把关键失败、未执行项和可选检查分开，指出阻断条件及剩余风险，不用平均通过率掩盖必要功能未测。",
+          "en": "A release owner needs a decision from critical failures, passed tests and unexecuted scope. Identify blockers separately from optional checks."
+        },
+        "standard": {
+          "zh": "风险/范围及测试计划、执行、缺陷、回归和剩余风险包",
+          "en": "Risk-prioritized test report and a bounded release recommendation"
+        }
+      }
+    },
+    "rule-tool": {
+      "1": {
+        "title": {
+          "zh": "规则或转换工具",
+          "en": "Rule and conversion tool"
+        },
+        "purpose": {
+          "zh": "小店需要按整数分计算优惠的工具。实现优惠门槛、边界与错误返回，拒绝负值和小数，保留能被下一位维护者复现的测试。",
+          "en": "A shop needs a deterministic discount tool using integer cents. Implement boundary cases and reject negative or non-integer amounts."
+        },
+        "standard": {
+          "zh": "代码、测试和使用说明",
+          "en": "Executable function, boundary tests and rule notes"
+        }
+      }
+    },
+    "legacy-change": {
+      "1": {
+        "title": {
+          "zh": "遗留代码变更与重构",
+          "en": "Legacy change and refactoring"
+        },
+        "purpose": {
+          "zh": "维护者要在已有满减后增加会员优惠。先保护旧调用方，再修改顺序与取整规则；对照新旧行为说明为何改动，以及哪种重构会破坏价格。",
+          "en": "A maintainer adds member pricing after the existing discount while preserving old API callers. Compare legacy and new rule behavior."
+        },
+        "standard": {
+          "zh": "修改代码和保护性测试、变更/评审记录",
+          "en": "Protected refactor, compatibility tests and review changes"
+        }
+      }
+    },
+    "versioned-toolkit": {
+      "1": {
+        "title": {
+          "zh": "可发布与可维护工具包",
+          "en": "Versioned maintainable toolkit"
+        },
+        "purpose": {
+          "zh": "接手者要从解压包运行一个金额命令行工具。交付参数、版本、退出码和错误说明，在独立Node进程重现正常和缺参命令，不能只在开发机截图。",
+          "en": "A user must run a small cents-based CLI from an extracted release. Provide arguments, exit codes, version output and a useful error path."
+        },
+        "standard": {
+          "zh": "代码、版本化包和验证、运行文档、变更记录和维护边界",
+          "en": "Install-free CLI, runnable package and release/change instructions"
+        }
+      }
+    },
+    "config-acceptance": {
+      "1": {
+        "title": {
+          "zh": "需求到配置与验收",
+          "en": "Configuration and acceptance"
+        },
+        "purpose": {
+          "zh": "实施顾问要把业务角色落到权限配置与UAT。制作可执行配置，对照每个角色的允许和拒绝动作，指出哪些业务决定仍需使用者确认。",
+          "en": "An implementation consultant maps role requirements into a configuration and executable UAT matrix. Check allowed and denied actions."
+        },
+        "standard": {
+          "zh": "需求/差异与配置、UAT用例和问题清单",
+          "en": "Permission configuration, UAT results and unresolved decisions"
+        }
+      }
+    },
+    "migration-reconciliation": {
+      "1": {
+        "title": {
+          "zh": "数据迁移与系统集成",
+          "en": "Migration reconciliation"
+        },
+        "purpose": {
+          "zh": "实施负责人要核对源系统与目标系统。按约定规范化邮箱和状态，逐项比较内容与新增记录；行数相等不能替代对账，也不能回退覆盖新增数据。",
+          "en": "An implementation owner compares source and target records after normalization. Reconcile email, status and incremental records, not only row counts."
+        },
+        "standard": {
+          "zh": "迁移/集成结果和复算、差异处置、UAT与停止条件",
+          "en": "Mapping, transformed records, content differences and rollback constraints"
+        }
+      }
+    },
+    "rollout-support-handoff": {
+      "1": {
+        "title": {
+          "zh": "上线培训与支持交接",
+          "en": "Rollout and support handoff"
+        },
+        "purpose": {
+          "zh": "业务团队需要一次有限切换、培训和支持交接。核对必需功能是否实际执行，保全切换后新增记录，明确各角色如何验收以及谁接手未解决项。",
+          "en": "A customer team needs a cutover decision, role-based training and a support owner. Required untested items block acceptance and new records need preservation."
+        },
+        "standard": {
+          "zh": "切换与回退/停止方案、验收、培训指南和支持交接包",
+          "en": "Cutover checklist, training scenarios and support handoff"
+        }
+      }
+    },
+    "cross-registration-service": {
+      "1": {
+        "title": {
+          "zh": "活动报名服务联合交付",
+          "en": "Registration service collaboration"
+        },
+        "purpose": {
+          "zh": "以实施、后端、前端和测试角色轮换交付报名流程。消费同一版email接口契约，在实际界面与本机服务暴露旧mail字段错误，修订后共同验收。",
+          "en": "Rotate implementation, backend, frontend and testing roles to deliver an activity registration flow. Consume a versioned field contract and repair the recorded mismatch."
+        },
+        "standard": {
+          "zh": "需求到验收的追溯、服务/界面/测试与修改包",
+          "en": "Contract, runnable UI/service, acceptance trace and revised role handoffs"
+        }
+      }
+    },
+    "cross-metric-service": {
+      "1": {
+        "title": {
+          "zh": "指标与数据服务交付",
+          "en": "Metric service collaboration"
+        },
+        "purpose": {
+          "zh": "以数据工程、接口和分析角色轮换交付指标服务。从订单与分次支付模型到接口金额和使用方简报逐层对账，把一对多放大金额的问题反馈到上游并复验。",
+          "en": "Rotate data engineering, API and analysis roles. Reconcile a payment fan-out defect across the model, service totals and consumer report."
+        },
+        "standard": {
+          "zh": "数据契约与可复算模型/接口、报告、差异和发布交接",
+          "en": "Data model, fixed metric response, reconciliation and feedback revision"
+        }
+      }
+    },
+    "cross-knowledge-assistant": {
+      "1": {
+        "title": {
+          "zh": "受限知识助手联合交付",
+          "en": "Knowledge assistant collaboration"
+        },
+        "purpose": {
+          "zh": "以资料/安全、服务与评估角色轮换交付受限问答。传递文档版本和访问范围，对可答、不可答和越权题复验，留出可接手的引用与拒答记录。",
+          "en": "Rotate document/security, service and evaluation roles. Propagate document versions and access rules through answers and refusal tests."
+        },
+        "standard": {
+          "zh": "资料与服务契约、评测、修订与运行交接",
+          "en": "Document/service contract, answer checks and a revised security handoff"
+        }
+      }
+    },
+    "cross-service-incident": {
+      "1": {
+        "title": {
+          "zh": "服务发布与故障联合演练",
+          "en": "Service incident collaboration"
+        },
+        "purpose": {
+          "zh": "以开发、运维和业务测试角色轮换演练恢复。技术指标恢复后继续验证报名等核心流程；只要业务仍失败，就不能结束联合验收。",
+          "en": "Rotate release, operations and business-testing roles. A technical recovery must also restore the user flow before joint acceptance."
+        },
+        "standard": {
+          "zh": "发布/恢复操作包、业务复验、因果证据和复盘",
+          "en": "Release evidence, business probes and revised recovery handoffs"
+        }
+      }
+    },
+    "cross-security-remediation": {
+      "1": {
+        "title": {
+          "zh": "应用安全整改闭环",
+          "en": "Security remediation collaboration"
+        },
+        "purpose": {
+          "zh": "以安全、开发与复验角色轮换闭环授权问题。在实验服务实际重现对象/动作越权，修订服务端，再检查正常功能和拒绝路径；界面隐藏不算整改完成。",
+          "en": "Rotate security, implementation and retest roles. Reproduce an object/action authorization issue and verify server-side rejection alongside normal behavior."
+        },
+        "standard": {
+          "zh": "复现与修复/整改记录、回归和授权范围内的剩余风险报告",
+          "en": "Server correction, HTTP regression and residual-risk handoff"
+        }
+      }
+    },
+    "cross-migration-launch": {
+      "1": {
+        "title": {
+          "zh": "业务系统迁移上线交接",
+          "en": "Migration launch collaboration"
+        },
+        "purpose": {
+          "zh": "以业务、工程/运维与UAT角色轮换处理迁移。传递映射与验收范围，核对规范化内容、差异和切换后新增记录，给出停止、保全与回退交接。",
+          "en": "Rotate business, engineering/operations and UAT roles. Compare normalized content, preserve post-cutover changes and document rollback boundaries."
+        },
+        "standard": {
+          "zh": "映射/数据/权限核对包、切换决定、培训与支持说明",
+          "en": "Migration reconciliation, cutover decision and support revision"
+        }
+      }
     }
   },
   "skills": {

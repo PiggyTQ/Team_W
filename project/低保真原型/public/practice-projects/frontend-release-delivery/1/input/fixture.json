@@ -1,0 +1,24 @@
+{
+  "pages": {
+    "/list": "items",
+    "/detail/7": "item-7"
+  },
+  "supportedVersion": 2,
+  "routes": [
+    {
+      "path": "/detail/7",
+      "reload": true,
+      "apiVersion": 2
+    },
+    {
+      "path": "/list",
+      "reload": true,
+      "apiVersion": 1
+    },
+    {
+      "path": "/missing",
+      "reload": true,
+      "apiVersion": 2
+    }
+  ]
+}

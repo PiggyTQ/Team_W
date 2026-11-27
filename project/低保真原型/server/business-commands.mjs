@@ -1,3 +1,5 @@
+import {growthProject} from '../src/practice-registry.js';
+import {checkGrowthArtifact,artifactDigest} from './practice-growth/checker.mjs';
 import {createHash,randomUUID} from 'node:crypto';
 import {businessError} from './business-error.mjs';
 import {makeTask,checkStart,addClaim} from '../src/model.js';
@@ -16,7 +18,7 @@ import {
   PRACTICE_ROLES,PRACTICE_SCOPES,sameProjectPractice
 } from '../src/practice-project-model.js';
 
-const COMMANDS=new Set(['assessment.create','skill.check','report.compile','report.compose','task.create','task.edit','task.start','task.submit','task.selfcheck','task.complete','evidence.candidates','experience.record','claim.confirm','claim.withdraw','claim.link']);
+const COMMANDS=new Set(['assessment.create','skill.check','report.compile','report.compose','task.create','task.edit','task.start','task.submit','task.selfcheck','task.complete','evidence.candidates','experience.record','claim.confirm','claim.withdraw','claim.link','project.evaluate']);
 const origin='server-command-v1';
 const sorted=value=>Array.isArray(value)?value.map(sorted):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,sorted(value[key])])):value;
 const hash=value=>createHash('sha256').update(JSON.stringify(sorted(value))).digest('hex');
@@ -96,15 +98,17 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
       }else if(type==='task.create'){
         fields(payload,['draft','confirmation']);requireValue(payload.confirmation==='CREATE_TASK','CONFIRMATION_REQUIRED');
         const d=payload.draft;
-        fields(d,['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another','practiceRole','practiceScope']);
+        fields(d,['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another','practiceRole','practiceScope','practiceInstance']);
         text(d.title,200);text(d.purpose,4000);requireValue(typeof d.hours==='number'&&Number.isFinite(d.hours)&&d.hours>0&&d.hours<=168,'INVALID_TASK_HOURS');
         requireValue(!checkStart(s,d),'TASK_PRECHECK_FAILED',409);
         const template=d.template||'external',course=business.courseLibrary.map().get(template);
-        requireValue(template==='external'||course?.status==='published','COURSE_NOT_READY',409);
+        requireValue(template==='external'||course?.status==='published'||course?.canStart,'COURSE_NOT_READY',409);
         if(d.courseVersion!==undefined)requireValue(Number.isInteger(d.courseVersion)&&course?.versions.some(row=>row.version===d.courseVersion),'COURSE_VERSION_UNAVAILABLE',409);
         requireValue(d.another===true||!s.tasks.some(t=>t.template===template&&t.purpose===d.purpose&&!['取消','跳过'].includes(t.status)),'DUPLICATE_TASK',409);
         if(d.jobId)requireValue(s.jobs.some(job=>job.id===d.jobId),'NOT_FOUND',404);
-        const task={...makeTask(s,{...d,template,...(course?{courseVersion:d.courseVersion||course.content_version}:{})}),id:randomUUID(),owner:userId,authority};
+        if(d.practiceInstance!==undefined)requireValue(growthProject(template)&&business.courseLibrary.course(template,d.courseVersion||course.content_version).growth.instances?.some(v=>v.id===d.practiceInstance),'INVALID_PROJECT_INSTANCE',409);
+        const task={...makeTask(s,{...d,template,...(course?{courseVersion:d.courseVersion||course.content_version}:{})}),id:randomUUID(),owner:userId,authority,...(d.practiceInstance?{practiceInstance:d.practiceInstance}:{})};
+        if(growthProject(template))task.career=business.courseLibrary.course(template,task.courseVersion).growth.career;
         if(guidedTask(task)){
           const project=business.courseLibrary.course(template,task.courseVersion).project;
           requireValue(!!project,'COURSE_NOT_READY',409);
@@ -115,6 +119,29 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         }
         next={...s,tasks:[...s.tasks,task],taskDraft:null,planVersion:s.planVersion+1,jobs:s.jobs.map(job=>job.id===d.jobId?{...job,taskId:task.id,status:'准备'}:job),...(task.atlas?{atlasDrafts:Object.fromEntries(Object.entries(s.atlasDrafts||{}).filter(([key])=>key!==atlasPracticeKey(task.atlas)))}:{})};
         refs={taskId:task.id};
+      }else if(type==='project.evaluate'){
+        fields(payload,['taskId','taskVersion']);
+        const task=s.tasks.find(row=>row.id===payload.taskId);requireValue(!!task,'NOT_FOUND',404);
+        requireValue(task.version===payload.taskVersion,'VERSION_CONFLICT',409);
+        requireValue(growthProject(task.template)&&!stoppedTask(task)&&!task.completed,'INVALID_TASK_STATE',409);
+        const course=business.courseLibrary.course(task.template,task.courseVersion);
+        requireValue(course.status!=='retired','COURSE_RETIRED',409);
+        requireValue(!!course.growth,'COURSE_NOT_READY',409);
+        const source=db.prepare("SELECT body FROM course_assets WHERE course_id=? AND version=? AND relative_path='input/fixture.json'").get(task.template,task.courseVersion);
+        requireValue(!!source,'COURSE_NOT_READY',409);
+        let input=JSON.parse(Buffer.from(source.body).toString('utf8'));
+        const frozenReference=db.prepare("SELECT body FROM course_assets WHERE course_id=? AND version=? AND relative_path='reference/result.json'").get(task.template,task.courseVersion);
+        requireValue(!!frozenReference,'COURSE_NOT_READY',409);
+        let expected=JSON.parse(Buffer.from(frozenReference.body).toString('utf8'));
+        if(task.practiceInstance){
+          const instance=course.growth.instances?.find(v=>v.id===task.practiceInstance);
+          requireValue(!!instance,'INVALID_PROJECT_INSTANCE',409);
+          const asset=db.prepare('SELECT body FROM course_assets WHERE course_id=? AND version=? AND relative_path=?').get(task.template,task.courseVersion,instance.asset);
+          requireValue(!!asset,'COURSE_NOT_READY',409);const frozenInstance=JSON.parse(Buffer.from(asset.body).toString('utf8'));input=frozenInstance.input;expected=frozenInstance.expected;
+        }
+        const result={...checkGrowthArtifact(course.growth,input,task.draft,{now,expected}),packHash:course.packHash,expectedDigest:artifactDigest(JSON.stringify(expected)),instance:task.practiceInstance||null};
+        next=withTask(s,{...task,projectCheck:{...result,authority},version:task.version+1,selfcheck:false});
+        refs={taskId:task.id,result};
       }else if(type==='task.edit'){
         fields(payload,['taskId','taskVersion','planVersion','draft','confirmation']);
         requireValue(payload.confirmation==='EDIT_TASK','CONFIRMATION_REQUIRED');
@@ -129,6 +156,7 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         fields(payload,['taskId','taskVersion','attemptId','confirmation','language']);
         const task=s.tasks.find(row=>row.id===payload.taskId);requireValue(!!task,'NOT_FOUND',404);
         requireValue(task.version===payload.taskVersion,'VERSION_CONFLICT',409);
+        requireValue(business.courseLibrary.map().get(task.template)?.status!=='retired','COURSE_RETIRED',409);
         requireValue(!stoppedTask(task),'TASK_PAUSED',409);
         requireValue(task.mode!=='recorded','INVALID_TASK_STATE',409);
         if(type!=='task.selfcheck')requireValue(!dependencyBlock(s,task),'INVALID_DEPENDENCY',409);
@@ -137,6 +165,7 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
         }else if(type==='task.submit'){
           requireValue(!task.completed&&task.status!=='完成','INVALID_TASK_STATE',409);
           requireValue(payload.confirmation==='SUBMIT_ATTEMPT','CONFIRMATION_REQUIRED');
+          if(growthProject(task.template))requireValue(task.projectCheck?.passed&&task.projectCheck.artifactDigest===artifactDigest(task.draft),'PROJECT_STEPS_CHANGED',409);
           const project=guidedTask(task)?business.courseLibrary.course(task.template,task.courseVersion).project:null;
           const submission=project?createProjectDeliverable(project,task.projectPractice||newProjectPractice(),payload.language):null;
           const ready=submission?withTask(s,{...task,draft:submission.document,contribution:submission.contribution}):s;
@@ -151,14 +180,16 @@ export function createBusinessCommands({db,business,knowledge,now=Date.now}){
           const attempt=task.attempts.find(row=>row.id===payload.attemptId);requireValue(!!attempt,'NOT_FOUND',404);
           requireValue(!task.completed,'INVALID_TASK_STATE',409);
           const isLatest=task.attempts.at(-1)?.id===attempt.id;
+          if(growthProject(task.template))requireValue(isLatest&&attempt.text===task.draft&&attempt.contribution===task.contribution&&task.projectCheck?.artifactDigest===artifactDigest(task.draft),'PROJECT_STEPS_CHANGED',409);
           if(guidedTask(task))requireValue(isLatest&&sameProjectPractice(attempt.practiceSnapshot,task.projectPractice),'PROJECT_STEPS_CHANGED',409);
           next=withTask(s,{...task,version:task.version+1,check:isLatest?'自检记录':task.check,
-            ...(guidedTask(task)?{selfcheck:true}:{}),
+            ...((guidedTask(task)||growthProject(task.template))?{selfcheck:true}:{}),
             attempts:task.attempts.map(row=>row.id===attempt.id?{...row,result:'自检记录',feedback:'本人自检记录：仅记录用户声明的核对动作，不构成独立核验。',selfcheckReceipt:authority}:row)});
           refs.attemptId=attempt.id;
         }else{
           requireValue(payload.confirmation==='COMPLETE_LIMITED_SCOPE','CONFIRMATION_REQUIRED');
           const last=task.attempts.at(-1);
+          if(growthProject(task.template))requireValue(last?.text===task.draft&&last?.contribution===task.contribution&&task.projectCheck?.passed&&task.projectCheck.artifactDigest===artifactDigest(task.draft),'PROJECT_STEPS_CHANGED',409);
           requireValue(!!last&&last.result==='自检记录'&&task.selfcheck===true&&!!task.contribution?.trim(),'COURSE_COMPLETION_INCOMPLETE',409);
           if(guidedTask(task))requireValue(
             sameProjectPractice(last.practiceSnapshot,task.projectPractice)&&last.contribution===task.contribution,
@@ -244,16 +275,20 @@ export function guardCommandRecords(previous,next){
   const previousTasks=new Map(previous.tasks.map(row=>[row.id,row]));
   for(const task of next.tasks){
     const old=previousTasks.get(task.id);
+    if(growthProject(task.template)||growthProject(old?.template))requireValue(!!old&&old.template===task.template&&old.courseVersion===task.courseVersion&&old.practiceInstance===task.practiceInstance,'SERVER_RECORD_PROTECTED',409);
     if(guidedTask(task))requireValue(guidedTask(old)&&old.template===task.template&&old.courseVersion===task.courseVersion&&
       old.career===task.career,'COMMAND_REQUIRED',409);
     if(guidedTask(old))requireValue(guidedTask(task),'SERVER_RECORD_PROTECTED',409);
+    if(task.projectCheck!==undefined||old?.projectCheck!==undefined)requireValue(identical(task.projectCheck,old?.projectCheck),'SERVER_RECORD_PROTECTED',409);
     if(task.projectPractice!==undefined){
       normalizeProjectPractice(task.projectPractice);
-      if(old?.projectPractice!==undefined){
+
+    if(old?.projectPractice!==undefined){
         requireValue(old.projectPractice.role===task.projectPractice.role&&old.projectPractice.scope===task.projectPractice.scope,'SERVER_RECORD_PROTECTED',409);
       }
       if(old?.completed)requireValue(sameProjectPractice(old.projectPractice,task.projectPractice),'SERVER_RECORD_PROTECTED',409);
     }
+
     if(old?.projectPractice!==undefined)requireValue(task.projectPractice!==undefined,'SERVER_RECORD_PROTECTED',409);
     if(isServer(task)||isServer(old)){
       requireValue(!!old&&identical(old.authority,task.authority),'SERVER_RECORD_PROTECTED',409);

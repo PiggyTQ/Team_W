@@ -1,0 +1,127 @@
+{
+  "id": "migration-reconciliation",
+  "version": 1,
+  "legacy": false,
+  "career": "delivery",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "数据迁移与系统集成",
+    "en": "Migration reconciliation"
+  },
+  "next": [
+    "rollout-support-handoff"
+  ],
+  "prior": "config-acceptance",
+  "adapter": "handoff",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "migration"
+  ],
+  "brief": {
+    "zh": "实施负责人要核对源系统与目标系统。按约定规范化邮箱和状态，逐项比较内容与新增记录；行数相等不能替代对账，也不能回退覆盖新增数据。",
+    "en": "An implementation owner compares source and target records after normalization. Reconcile email, status and incremental records, not only row counts."
+  },
+  "outputs": {
+    "zh": [
+      "迁移/集成结果和复算",
+      "差异处置、UAT与停止条件"
+    ],
+    "en": [
+      "Mapping",
+      "transformed records",
+      "content differences and rollback constraints"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "规范化关键字段/摘要/数量均核对",
+      "权限和关键业务流程可复验"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Equal row counts do not excuse a wrong status or loss of new records. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "行数相等但关键状态错误，或新数据回退丢失，必须失败",
+    "en": "Equal row counts do not excuse a wrong status or loss of new records."
+  },
+  "review": {
+    "zh": [
+      "映射选择与残余问题",
+      "客户验收与回退责任"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "实施负责人要核对源系统与目标系统。按约定规范化邮箱和状态，逐项比较内容与新增记录；行数相等不能替代对账，也不能回退覆盖新增数据。",
+      "行数相等但关键状态错误，或新数据回退丢失，必须失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An implementation owner compares source and target records after normalization.",
+      "Reproduce this failure first: Equal row counts do not excuse a wrong status or loss of new records.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "行数相等但关键状态错误，或新数据回退丢失，必须失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "delivery",
+      "branch": "setup",
+      "skill": "migration",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

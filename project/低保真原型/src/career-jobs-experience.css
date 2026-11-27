@@ -1,0 +1,108 @@
+/* Scoped to job discovery; existing private opportunity and salary surfaces retain their own styles. */
+html body #root#root #main .career-jobs-experience{--jobs-ink:#123f65;--jobs-muted:#526b83;--jobs-line:#e4ddd0;--jobs-blue:#edf5fc;min-width:0;width:100%;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-research-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:22px 0 20px;}
+html body #root#root #main .career-jobs-experience .jobs-research-heading h2{font-size:25px;line-height:1.4;letter-spacing:-.02em;margin:0 0 7px;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-research-heading p{font-size:15px;line-height:1.75;color:var(--jobs-muted);max-width:72ch;margin:0;}
+html body #root#root #main .career-jobs-experience .jobs-research-heading>.button{flex:none;font-size:14px;white-space:nowrap;}
+html body #root#root #main .career-jobs-experience .jobs-external-source{display:flex;align-items:center;gap:14px;padding:17px 20px;border:1px solid #d5e3ef;border-radius:14px;background:#eef6fc;margin:0 0 22px;}
+html body #root#root #main .career-jobs-experience .jobs-external-source>.product-icon{flex:none;}
+html body #root#root #main .career-jobs-experience .jobs-external-source>div{flex:1;min-width:160px;}
+html body #root#root #main .career-jobs-experience .jobs-external-source strong{font-size:15px;font-weight:650;}
+html body #root#root #main .career-jobs-experience .jobs-external-source p{color:#496882;font-size:13px;line-height:1.65;margin:3px 0 0;}
+html body #root#root #main .career-jobs-experience .jobs-external-source>a{display:inline-flex;align-items:center;gap:6px;font-size:13px;line-height:1.5;flex:none;min-height:38px;white-space:nowrap;}
+html body #root#root #main .career-jobs-experience .jobs-external-source>a.button{background:transparent;border-color:#c5d7e5;padding:8px 12px;}
+html body #root#root #main .career-jobs-experience .jobs-querybar{display:flex;flex-wrap:wrap;align-items:end;gap:14px;padding:18px 20px;background:#fffefa;border:1px solid var(--jobs-line);border-radius:14px;margin:0 0 24px;}
+html body #root#root #main .career-jobs-experience .jobs-querybar>.field{display:grid;gap:7px;margin:0;flex:0 1 200px;min-width:0;}
+html body #root#root #main .career-jobs-experience .jobs-querybar>.field:first-child{flex:1 1 290px;}
+html body #root#root #main .career-jobs-experience .jobs-querybar .field>span{font-size:13px;line-height:1.5;color:var(--jobs-muted);}
+html body #root#root #main .career-jobs-experience .jobs-querybar :is(input,select){width:100%;box-sizing:border-box;min-width:0;min-height:43px;padding:9px 12px;border-radius:9px;border:1px solid #d9dfdf;background:#fff;color:var(--jobs-ink);font-size:14px;line-height:1.5;margin:0;}
+html body #root#root #main .career-jobs-experience .jobs-querybar input::placeholder{color:#64758a;opacity:1;}
+html body #root#root #main .career-jobs-experience .jobs-query-count{font-size:13px;line-height:1.5;color:var(--jobs-muted);align-self:center;margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap;}
+html body #root#root #main .career-jobs-experience .jobs-querybar>button{min-height:43px;font-size:13px;padding:9px 14px;}
+html body #root#root #main .career-jobs-experience .catalog-querybar{display:grid;grid-template-columns:minmax(220px,1.6fr) repeat(3,minmax(140px,1fr));gap:15px 18px;}
+html body #root#root #main .career-jobs-experience .catalog-filter-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;grid-column:1/-1;}
+html body #root#root #main .career-jobs-experience .catalog-filter-actions>button{display:inline-flex;align-items:center;gap:7px;width:auto;min-height:41px;padding:9px 14px;margin:0;font-size:13px;line-height:1.5;border-radius:9px;}
+html body #root#root #main .career-jobs-experience .catalog-filter-actions .catalog-reset{background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;}
+html body #root#root #main .career-jobs-experience .catalog-draft-note{margin:0 0 0 auto;font-size:13px;line-height:1.6;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-results-header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 15px;}
+html body #root#root #main .career-jobs-experience .jobs-results-header h2{font-size:22px;line-height:1.5;margin:0;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-results-header p{font-size:13px;line-height:1.65;color:var(--jobs-muted);margin:5px 0 0;}
+html body #root#root #main .career-jobs-experience .jobs-result-total{font-size:13px;line-height:1.6;vertical-align:middle;font-weight:400;color:var(--jobs-muted);margin-left:8px;font-variant-numeric:tabular-nums;}
+html body #root#root #main .career-jobs-experience .discovery-source-note{border:0;padding:0;margin:0;max-width:420px;font-size:13px;line-height:1.7;color:var(--jobs-muted);}
+html body #root#root #main .career-jobs-experience .discovery-source-note summary{color:var(--jobs-muted);font-size:13px;cursor:pointer;}
+html body #root#root #main .career-jobs-experience .discovery-source-note p{font-size:13px;line-height:1.7;margin:8px 0 0;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:12px 0;border-block:1px solid var(--jobs-line);margin:0 0 20px;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar>div{display:flex;align-items:center;gap:8px;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar strong{font-size:14px;font-weight:600;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar>div>span{font-size:13px;color:var(--jobs-muted);font-variant-numeric:tabular-nums;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar>p{font-size:13px;color:var(--jobs-muted);line-height:1.6;margin:0;flex:1;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar>button{margin-left:auto;font-size:13px;line-height:1.5;min-height:37px;padding:8px 12px;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;flex:1;min-width:0;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar li{display:flex;align-items:center;gap:5px;background:var(--jobs-blue);padding:4px 7px 4px 10px;border-radius:7px;max-width:280px;min-width:0;font-size:12px;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar li>span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+html body #root#root #main .career-jobs-experience .jobs-comparison-bar li>button{border:0;background:transparent;min-width:28px;min-height:28px;padding:4px;display:grid;place-items:center;flex:none;}
+html body #root#root #main .career-jobs-experience .jobs-research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:0;width:100%;}
+html body #root#root #main .career-jobs-experience .jobs-research-card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--jobs-line);background:#fffefa;border-radius:15px;padding:23px;margin:0;box-shadow:none;}
+html body #root#root #main .career-jobs-experience .jobs-research-card>header{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:start;gap:7px 12px;}
+html body #root#root #main .career-jobs-experience .jobs-card-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#e8f3fb;grid-row:span 2;}
+html body #root#root #main .career-jobs-experience .jobs-research-card h3{font-size:20px;line-height:1.45;letter-spacing:-.015em;margin:9px 0 6px;overflow-wrap:anywhere;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-research-card p{font-size:14px;line-height:1.75;color:var(--jobs-muted);margin:0;overflow-wrap:anywhere;}
+html body #root#root #main .career-jobs-experience .jobs-research-card .status-chip{font-size:11px;font-weight:500;line-height:1.6;background:#f7f1e1;color:#6c592b;border:0;border-radius:5px;padding:3px 6px;display:inline-block;white-space:normal;}
+html body #root#root #main .career-jobs-experience .jobs-research-card .jobs-card-compare{display:inline-flex;gap:5px;align-items:center;justify-self:start;grid-column:2;min-height:31px;margin:2px 0 0;border:0;padding:4px 0;background:transparent;color:#235e89;font-size:12px;}
+html body #root#root #main .career-jobs-experience .jobs-research-card .jobs-card-compare[aria-pressed=true]{font-weight:650;color:#134f75;background:transparent;}
+html body #root#root #main .career-jobs-experience .jobs-research-card .jobs-card-scope{margin:18px 0 0;color:var(--jobs-ink);max-width:65ch;}
+html body #root#root #main .career-jobs-experience .jobs-research-card .catalog-job-location{margin:12px 0 0;font-size:13px;}
+html body #root#root #main .career-jobs-experience .jobs-research-excerpt{padding:15px 0;margin:16px 0 0;border-block:1px solid #e3e9ed;background:transparent;}
+html body #root#root #main .career-jobs-experience .jobs-research-excerpt h4,html body #root#root #main .career-jobs-experience .jobs-open-questions h4{font-size:12px;line-height:1.6;font-weight:600;margin:0 0 7px;color:#486a85;}
+html body #root#root #main .career-jobs-experience .jobs-research-excerpt blockquote{font-size:15px;line-height:1.8;color:var(--jobs-ink);padding:0;margin:0;border:0;}
+html body #root#root #main .career-jobs-experience .catalog-excerpt p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;line-height:1.8;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-open-questions{padding:14px 0 16px;margin:0;background:transparent;border:0;}
+html body #root#root #main .career-jobs-experience .jobs-open-questions ul{padding-left:18px;margin:0;color:var(--jobs-muted);font-size:13px;line-height:1.9;}
+html body #root#root #main .career-jobs-experience .jobs-card-facts{display:flex;flex-wrap:wrap;gap:12px 24px;margin:auto 0 0;padding:16px 0 0;border-top:1px solid var(--jobs-line);}
+html body #root#root #main .career-jobs-experience .jobs-card-facts>div{min-width:70px;max-width:100%;}
+html body #root#root #main .career-jobs-experience .jobs-card-facts dt{font-size:11px;line-height:1.5;color:var(--jobs-muted);margin:0 0 4px;}
+html body #root#root #main .career-jobs-experience .jobs-card-facts dd{font-size:13px;line-height:1.65;margin:0;color:var(--jobs-ink);overflow-wrap:anywhere;}
+html body #root#root #main .career-jobs-experience .jobs-research-card .actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;}
+html body #root#root #main .career-jobs-experience :is(.actions,.jobs-research-heading) :is(button,a.button){font-size:13px;line-height:1.5;min-height:41px;padding:10px 14px;border-radius:9px;white-space:normal;}
+html body #root#root #main .career-jobs-experience .discovery-receipt{font-size:13px;line-height:1.7;border-radius:9px;padding:12px 16px;background:#eaf5ed;border:1px solid #ccdfd0;color:#315b43;}
+html body #root#root #main .career-jobs-experience .jobs-empty{border:1px solid var(--jobs-line);padding:32px;border-radius:14px;background:#fffefa;margin:0;}
+html body #root#root #main .career-jobs-experience .jobs-empty h3{font-size:21px;line-height:1.5;margin:12px 0 7px;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .jobs-empty p{font-size:14px;line-height:1.75;max-width:65ch;margin:0 0 16px;color:var(--jobs-muted);}
+html body #root#root #main .career-jobs-experience .job-field-comparison{margin:0 0 24px;padding:0;border:1px solid var(--jobs-line);border-radius:14px;background:#fffefa;overflow:hidden;}
+html body #root#root #main .career-jobs-experience .job-field-comparison>header{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:17px 20px;}
+html body #root#root #main .career-jobs-experience .job-field-comparison>header>div{display:flex;align-items:center;gap:10px;}
+html body #root#root #main .career-jobs-experience .job-field-comparison h2{font-size:20px;line-height:1.5;margin:0;}
+html body #root#root #main .career-jobs-experience .job-field-comparison>header>button{font-size:12px;min-height:35px;padding:7px 11px;}
+html body #root#root #main .career-jobs-experience .job-field-comparison .table-wrap{margin:0;max-height:540px;overflow:auto;}
+html body #root#root #main .career-jobs-experience .job-field-comparison table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px;line-height:1.75;}
+html body #root#root #main .career-jobs-experience .job-field-comparison :is(th,td){border:0;border-bottom:1px solid #e4e9ec;padding:15px 20px;vertical-align:top;text-align:left;min-width:0;max-width:none;overflow-wrap:anywhere;font-size:14px;line-height:1.75;background:transparent;}
+html body #root#root #main .career-jobs-experience .job-field-comparison thead{background:#edf5fc;}
+html body #root#root #main .career-jobs-experience .job-field-comparison thead th{font-size:15px;font-weight:650;position:relative;padding-right:44px;color:var(--jobs-ink);}
+html body #root#root #main .career-jobs-experience .job-field-comparison thead th:first-child{width:130px;font-size:12px;padding-right:20px;}
+html body #root#root #main .career-jobs-experience .job-field-comparison thead th>button{position:absolute;right:10px;top:12px;display:grid;place-items:center;width:28px;min-height:28px;padding:4px;background:transparent;border:0;}
+html body #root#root #main .career-jobs-experience .job-field-comparison tbody th[scope=row]{font-weight:500;color:#4d6b83;font-size:13px;}
+html body #root#root #main .career-jobs-experience .job-field-comparison .job-compare-group th{font-size:12px;line-height:1.5;color:#57718a;background:#f7fafc;padding:9px 20px;font-weight:600;letter-spacing:.015em;}
+html body #root#root #main .career-jobs-experience .job-field-comparison>p{font-size:12px;line-height:1.6;color:var(--jobs-muted);margin:0;padding:13px 20px;}
+html body #root#root #main .career-jobs-experience .catalog-pagination{display:flex;align-items:center;justify-content:center;gap:15px;margin:24px 0 12px;}
+html body #root#root #main .career-jobs-experience .catalog-pagination :is(span,button){font-size:13px;line-height:1.5;min-height:40px;}
+html body #root#root #main .career-jobs-experience :is(button,a,input,select,summary):focus-visible{outline:3px solid #4f8eba;outline-offset:3px;}
+html body #root#root #main .career-jobs-experience button:disabled{opacity:1;background:#f0f2f3;border-color:#e0e4e6;color:#687787;cursor:not-allowed;}
+html body #root#root #main .career-jobs-experience ::selection{background:#dcecf9;color:#113f65;}
+@media(max-width:1250px){html body #root#root #main .career-jobs-experience .jobs-external-source{flex-wrap:wrap;}html body #root#root #main .career-jobs-experience .catalog-querybar{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:900px){html body #root#root #main .career-jobs-experience .jobs-research-grid{grid-template-columns:minmax(0,1fr);}html body #root#root #main .career-jobs-experience .jobs-research-heading{align-items:start;flex-wrap:wrap;}}
+
+/* Keep actual job requirements in the first viewport; the page already has its main title. */
+html body #root#root#root #main .career-jobs-experience .jobs-research-heading{margin:6px 0 12px;gap:14px;}
+html body #root#root#root #main .career-jobs-experience .jobs-research-heading h2{font-size:20px;margin:0;line-height:1.5;}
+html body #root#root#root #main .career-jobs-experience .jobs-external-source{padding:8px 13px;gap:11px;margin:0 0 13px;flex-wrap:nowrap;border-radius:9px;background:#edf5fb;}
+html body #root#root#root #main .career-jobs-experience .jobs-external-source p{margin:0;flex:1;font-size:13px;line-height:1.6;}
+html body #root#root#root #main .career-jobs-experience .jobs-external-source a{min-height:32px;}
+html body #root#root#root #main .career-jobs-experience .jobs-querybar{padding:13px 16px;margin-bottom:16px;gap:10px 16px;}
+html body #root#root#root #main .career-jobs-experience .catalog-querybar{grid-template-columns:minmax(190px,1.55fr) repeat(3,minmax(130px,1fr));}
+html body #root#root#root #main .career-jobs-experience .catalog-querybar .catalog-filter-actions{gap:8px;}
+html body #root#root#root #main .career-jobs-experience .catalog-querybar .catalog-filter-actions>button{min-height:36px;padding:6px 12px;}
+html body #root#root#root #main .career-jobs-experience .jobs-results-header{margin-bottom:12px;}
+
+html body #root#root#root #main:has(.career-jobs-experience)>.server-save-status:not(.server-save-error){position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip-path:inset(50%);}
+html body #root#root#root #main .career-jobs-experience .jobs-research-card{padding:20px;}
+html body #root#root#root #main .career-jobs-experience .jobs-research-excerpt{margin-top:10px;padding:10px 0;}

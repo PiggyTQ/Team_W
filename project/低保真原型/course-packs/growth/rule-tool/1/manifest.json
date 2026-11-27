@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 3,
+  "projectId": "rule-tool",
+  "version": 1,
+  "files": [
+    {
+      "path": "assignment.en.md",
+      "bytes": 1319,
+      "sha256": "3483e97ca9a6f91ad8c4105cf9016cc6746651ffec6c4fe1f0fe13eb2ca4937d",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "assignment.md",
+      "bytes": 997,
+      "sha256": "098da63d7a5298b069005353d938273908641063cfd0c4a1d260dd0b270b8e2c",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 125,
+      "sha256": "3d17b163e0014acca02c697260b316c164d02fde86fe5fa4f33d7602199454ce",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/dictionary.md",
+      "bytes": 907,
+      "sha256": "b0d63f2acc6ce09c05522ffeda34f465e8c8ce76027095c51ae3b5600dbfc764",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/fixture.json",
+      "bytes": 91,
+      "sha256": "a1aa97dc3c770d0374304e2acfaacd944fb5b02c89ed738495092c9d597b489e",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "project.json",
+      "bytes": 4000,
+      "sha256": "ba26374aac75ec5081e5108992442ee52dd8925cfb877c4ac7c4c347e1b9bbd9",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "project.zip",
+      "bytes": 18521,
+      "sha256": "9c1fe36de91ca0934e4170ce339906838f7cb3dabdbb9ff2b8afb4e4da5ff6fd",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "reference/artifact.json",
+      "bytes": 2195,
+      "sha256": "baee24eb45dac855d3a0fd07c2e90e065e01a6f1fcd85bca0321d8291045087e",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/broken.mjs",
+      "bytes": 339,
+      "sha256": "b56d8ba35c365aa76e0a4c4b4ac0dacbe4b1463029ed289c22aa6a8e93231e77",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/counterexample.json",
+      "bytes": 3181,
+      "sha256": "a05f010a0691a85fd4f2484276dc7b4c5b0b305cfc8de92c9380346f1800b038",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/execution.json",
+      "bytes": 7959,
+      "sha256": "eabd3e821674b76dbf7461a6367f10afa2a3216d58cc21e254ba28865a5cd44a",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/failure.md",
+      "bytes": 296,
+      "sha256": "19ce5810031b9624d95b94abf27e62943f280454f717ff88e0399f6dbe42267c",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/model.mjs",
+      "bytes": 9683,
+      "sha256": "be07765b7ca3b973b7793373f88e537b0171ccefacfed1eef39b005331ca993c",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/result.json",
+      "bytes": 495,
+      "sha256": "52ed79741a2a31235d70bfda2470e5fd6b2eae636459765942dd3d0cf3633a22",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/runtime-scope.md",
+      "bytes": 121,
+      "sha256": "059a76524b04cc3a31568bec6d2ef3687c1cfa8bd777c3d4dda232b115370e50",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/solution.mjs",
+      "bytes": 1077,
+      "sha256": "fad91ffa3b8c4a9247ade97d9ef2d3800f7e9bebc329d366b7cc6eca82b00a92",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/test-subject.mjs",
+      "bytes": 640,
+      "sha256": "a8f4fb64ab1c64214176da7c1a89447e2c11be655c322ec9175c15e3351e706c",
+      "kind": "reference"
+    },
+    {
+      "path": "rubric.json",
+      "bytes": 528,
+      "sha256": "c562a1850b753063bd8092656f39e04d9428ed92c0717f52fbb2805d95b05ca8",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "RUN.md",
+      "bytes": 751,
+      "sha256": "9b81201e1c0c0cf9bffed106bc4ba041911a7197f5b1d9f1583972e0caab164c",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "solution.mjs",
+      "bytes": 284,
+      "sha256": "dd4938ea5cee836986b26fb3e8dfa3ee153065441dbee35256bd5d0f5476cc04",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 4172,
+      "sha256": "49df8408f9a28c8c4de37fca8e7d7364b17374069c96f2c3fbed682b2e9321ce",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "starter/solution.mjs",
+      "bytes": 284,
+      "sha256": "dd4938ea5cee836986b26fb3e8dfa3ee153065441dbee35256bd5d0f5476cc04",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "test-subject.mjs",
+      "bytes": 640,
+      "sha256": "a8f4fb64ab1c64214176da7c1a89447e2c11be655c322ec9175c15e3351e706c",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "verify.mjs",
+      "bytes": 1172,
+      "sha256": "9255483baba55744ccb10838d6a7413fd9cc666cdfd1e849557ab4dcafae10fe",
+      "kind": "original-synthetic"
+    }
+  ],
+  "status": "frozen-local-trial",
+  "humanPilot": "not_performed"
+}

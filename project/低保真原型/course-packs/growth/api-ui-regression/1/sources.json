@@ -1,0 +1,114 @@
+{
+  "publisher": "Avemly project authors",
+  "kind": "original-synthetic",
+  "license": "Original locally authored teaching inputs and code. Local Avemly practice use. Public redistribution policy requires owner decision.",
+  "copyright": "Avemly project authors",
+  "thirdPartyMaterialCopied": false,
+  "seed": 20261126,
+  "generator": "scripts/author-practice-growth.py; scripts/freeze-practice-growth.mjs",
+  "upstreamCandidatesAdopted": false,
+  "methodReferencesAreLinks": true,
+  "createdAt": "2026-11-26",
+  "review": {
+    "technical": "reference_and_counterexample_executed",
+    "domain": "not_performed",
+    "learnerPilot": "not_performed"
+  },
+  "ownerRole": "practice-content-editor",
+  "assignedPerson": null,
+  "sources": [
+    {
+      "sourceId": "avemly-original-api-ui-regression",
+      "publisher": "Avemly / AI-assisted local authorship",
+      "title": "API and UI regression",
+      "originalUrl": null,
+      "actualFileUrl": null,
+      "materialType": "original-synthetic",
+      "readFiles": [
+        "input/fixture.json",
+        "input/dictionary.md",
+        "reference/solution.mjs"
+      ],
+      "supports": "The bounded teaching contract and fixed regression inputs",
+      "doesNotSupport": "Real corporate provenance, professional certification or independent learner mastery",
+      "region": "Synthetic local teaching context",
+      "upstreamVersion": "1",
+      "originalDate": "2026-11-26",
+      "reviewedAt": "2026-11-26T04:30:57.889Z",
+      "license": "Local practice materials; public redistribution policy pending owner review",
+      "licenseUrl": null,
+      "applicableFiles": [
+        "input/",
+        "reference/",
+        "starter/"
+      ],
+      "notice": "Original synthetic teaching materials; AI-assisted authorship; no third-party material copied",
+      "modifications": "Authored for this practice; see CHANGELOG.md",
+      "thirdPartyExceptions": [],
+      "canCache": true,
+      "canAdapt": "within local practice",
+      "canRedistribute": false
+    }
+  ],
+  "methodReferences": [
+    {
+      "id": "openapi-311",
+      "publisher": "OpenAPI Initiative",
+      "title": "OpenAPI Specification 3.1.1",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "section": "4.8.30 Security Requirement Object; 4.4 Data Types",
+      "careers": [
+        "backend",
+        "testing"
+      ],
+      "upstreamVersion": "3.1.1",
+      "originalDate": "2024-10-24",
+      "accessedAt": "2026-11-26",
+      "kind": "read-method-link-only",
+      "fileUrl": null,
+      "license": null,
+      "licenseReview": "No text, code, dataset, image or file copied; redistribution licence not asserted",
+      "use": "Method orientation only; original implementation and synthetic inputs",
+      "notSupport": "Promtool compatibility, complete official curriculum coverage or official endorsement",
+      "cached": false,
+      "adapted": false,
+      "redistributed": false
+    }
+  ],
+  "materialRecords": [
+    {
+      "projectId": "api-ui-regression",
+      "version": 1,
+      "path": "input/fixture.json",
+      "originalFilename": "fixture.json",
+      "format": ".json",
+      "encoding": "UTF-8",
+      "bytes": 570,
+      "sha256": "6ceb1dfcff217cad1a707906ea17dcf39f16c5f42e0dc71a81d9f2238dece111",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    },
+    {
+      "projectId": "api-ui-regression",
+      "version": 1,
+      "path": "input/dictionary.md",
+      "originalFilename": "dictionary.md",
+      "format": ".md",
+      "encoding": "UTF-8",
+      "bytes": 1135,
+      "sha256": "ff50fdfa0a57b15616992f25dd1f79d75663cd810217190bc62ada217aea89f6",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    }
+  ]
+}

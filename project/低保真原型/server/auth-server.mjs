@@ -46,7 +46,7 @@ async function readJSON(req,maxBytes=8192) {
   catch{throw failure('INVALID_REQUEST',400);}
 }
 
-export async function createAuthServer({database=process.env.AUTH_DATABASE||'./server/data/auth.sqlite',knowledgeDatabase,origin=process.env.PUBLIC_ORIGIN||'http://127.0.0.1:3001',production=process.env.NODE_ENV==='production',trustProxy=process.env.TRUST_PROXY==='1',now=Date.now,agentFactory=agentFromEnvironment,opsToken=process.env.OPS_READ_TOKEN||'',mailTransport=mailTransportFromEnvironment(),mailKey=process.env.MAIL_OUTBOX_KEY||'',mailDeliveryIntervalMs=10000}={}) {
+export async function createAuthServer({database=process.env.AUTH_DATABASE||'./server/data/auth.sqlite',knowledgeDatabase,origin=process.env.PUBLIC_ORIGIN||'http://127.0.0.1:3001',production=process.env.NODE_ENV==='production',practiceTrials=!production,trustProxy=process.env.TRUST_PROXY==='1',now=Date.now,agentFactory=agentFromEnvironment,opsToken=process.env.OPS_READ_TOKEN||'',mailTransport=mailTransportFromEnvironment(),mailKey=process.env.MAIL_OUTBOX_KEY||'',mailDeliveryIntervalMs=10000}={}) {
   const publicURL=new URL(origin);
   if(publicURL.origin!==origin||production&&publicURL.protocol!=='https:')throw new Error('PUBLIC_ORIGIN must be an HTTPS origin in production');
   mkdirSync(dirname(resolve(database)),{recursive:true,mode:0o700});
@@ -57,7 +57,7 @@ export async function createAuthServer({database=process.env.AUTH_DATABASE||'./s
     CREATE TABLE IF NOT EXISTS sessions(token_hash TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,expires_at INTEGER NOT NULL,last_seen INTEGER NOT NULL);
     CREATE INDEX IF NOT EXISTS session_user ON sessions(user_id);
     CREATE TABLE IF NOT EXISTS rate_limits(key TEXT PRIMARY KEY,count INTEGER NOT NULL,reset_at INTEGER NOT NULL);`);
-  const business=createBusinessStore(db,{now});
+  const business=createBusinessStore(db,{now,allowLocalTrials:practiceTrials&&!production});
   const mail=createAccountMail({db,origin,send:mailTransport,key:mailKey,now});
   const administration=createPlatformAdmin({db,now}),guidanceFile=process.env.AI_REVIEWED_KNOWLEDGE_FILE||undefined;
   administration.seedBaseline(loadGuidance(guidanceFile));

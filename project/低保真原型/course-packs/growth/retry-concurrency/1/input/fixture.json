@@ -1,0 +1,30 @@
+{
+  "capacity": 2,
+  "requests": [
+    {
+      "id": "R1",
+      "key": "K1",
+      "owner": "alice",
+      "quantity": 1
+    },
+    {
+      "id": "R2",
+      "key": "K1",
+      "owner": "alice",
+      "quantity": 1
+    },
+    {
+      "id": "R3",
+      "key": "K2",
+      "owner": "bob",
+      "quantity": 2
+    },
+    {
+      "id": "R4",
+      "key": "K3",
+      "owner": "alice",
+      "quantity": 1,
+      "fail": true
+    }
+  ]
+}

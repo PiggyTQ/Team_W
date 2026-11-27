@@ -1,0 +1,17 @@
+{
+  "projectId": "cross-migration-launch",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "f600ef549cb9da43b6a271bed18d3e8d3d469d0b11e399423a1263f055a250e0",
+  "bytes": 57520,
+  "files": 33,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-migration-launch\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:55.134Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

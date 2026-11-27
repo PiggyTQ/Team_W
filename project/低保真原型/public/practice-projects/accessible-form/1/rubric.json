@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "键盘路径、错误提示和输入保留",
+    "等待后真实mock成功/失败状态可复现"
+  ],
+  "open": [
+    {
+      "criterion": "界面可理解性",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "自动检查外的辅助技术与体验限制",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

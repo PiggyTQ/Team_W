@@ -1,0 +1,1 @@
+export const solve=()=>[{"input":0,"output":0,"error":null},{"input":9999,"output":9999,"error":null},{"input":10000,"output":9000,"error":null},{"input":10001,"output":9001,"error":null},{"input":-1,"output":null,"error":null},{"input":10.5,"output":null,"error":"invalid_cents"},{"input":"10000","output":null,"error":"invalid_cents"}];

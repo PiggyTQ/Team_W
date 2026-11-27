@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "promtool或等价真实规则检查记录",
+    "指定时刻数值、触发/不触发、标签及恢复正确"
+  ],
+  "open": [
+    {
+      "criterion": "告警与用户影响的关系",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "测试范围不等于真实事故效果",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

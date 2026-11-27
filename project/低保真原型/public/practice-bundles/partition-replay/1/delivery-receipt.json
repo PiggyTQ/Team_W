@@ -1,0 +1,17 @@
+{
+  "projectId": "partition-replay",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "8e23f01caaeab83bfd07d04afef56975579804ee2f9b012639fdf13e80675e9d",
+  "bytes": 43647,
+  "files": 33,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"partition-replay\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:50.147Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

@@ -1,0 +1,1955 @@
+{
+  "schemaVersion": 1,
+  "status": "implementation_specification_not_published_courses",
+  "scope": {
+    "core": 30,
+    "crossCareer": 6,
+    "total": 36,
+    "existingCourseIds": [
+      "quality",
+      "ai-eval",
+      "log",
+      "restore"
+    ],
+    "newIndependentProjects": 32
+  },
+  "baseline": {
+    "localCommitObserved": "867fff3",
+    "productionReleaseFromHandoff": "dev-20261126-867fff3-20261126T012540Z",
+    "independentlyCheckedProduction": false
+  },
+  "instructions": [
+    "This is an authored task specification, not downloadable course assets or verified results.",
+    "Keep historical course IDs and v1/v2 data immutable; changes use new versions.",
+    "All named fixtures, code, reference outputs and checks must be built and verified during implementation.",
+    "Do not invent exact skill node IDs, licensing approval, execution results or human sign-off."
+  ],
+  "progression": {
+    "data": [
+      "quality",
+      "multi-source-analysis",
+      "analysis-change-handoff"
+    ],
+    "ai": [
+      "ai-eval",
+      "baseline-evaluation",
+      "grounded-assistant-delivery"
+    ],
+    "security": [
+      "log",
+      "app-authorization-retest",
+      "detection-response-handoff"
+    ],
+    "ops": [
+      "restore",
+      "alert-rule-regression",
+      "reliability-release-drill"
+    ],
+    "frontend": [
+      "accessible-form",
+      "data-workbench",
+      "frontend-release-delivery"
+    ],
+    "backend": [
+      "contract-api",
+      "retry-concurrency",
+      "service-evolution-delivery"
+    ],
+    "engineering": [
+      "relational-model",
+      "partition-replay",
+      "data-contract-evolution"
+    ],
+    "testing": [
+      "defect-evidence",
+      "api-ui-regression",
+      "release-risk-review"
+    ],
+    "software": [
+      "rule-tool",
+      "legacy-change",
+      "versioned-toolkit"
+    ],
+    "delivery": [
+      "config-acceptance",
+      "migration-reconciliation",
+      "rollout-support-handoff"
+    ]
+  },
+  "projects": [
+    {
+      "id": "quality",
+      "primaryCareer": "data",
+      "level": 1,
+      "title": "数据质量与口径复核",
+      "goal": "保留现有数据质量项目，正确说明数据是否支持既定描述统计。",
+      "inputPackage": [
+        "现有v1/v2材料及来源快照，保持原任务可读",
+        "新版本如需修订，保留原始摘录、派生工作表、字典和错误注入清单"
+      ],
+      "requiredOutputs": [
+        "质量问题清单与处理依据",
+        "可复算分组结果与结论限制"
+      ],
+      "plannedDeterministicChecks": [
+        "同一口径下原始/处理后计数和分组结果可复算",
+        "重复、缺失和非法值处理能追溯"
+      ],
+      "requiredFailureCase": "加入同键冲突记录，不能仅删除重复后宣称全部正确",
+      "openReviewFocus": [
+        "统计对象和分母",
+        "修正依据与发布建议"
+      ],
+      "sourceCandidates": [
+        "existing-quality",
+        "dft-road-data",
+        "gds-case"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": "quality",
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "multi-source-analysis"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "multi-source-analysis",
+      "primaryCareer": "data",
+      "level": 2,
+      "title": "多来源业务分析",
+      "goal": "正确关联多张表并回答一个业务问题，解释哪些变化尚不能归因。",
+      "inputPackage": [
+        "原创业务需求与指标字典",
+        "至少两张有明确粒度和一对多关系的合成或可再分发表",
+        "独立核对用数据与结果"
+      ],
+      "requiredOutputs": [
+        "SQL/工作簿及关联说明",
+        "图表、分析简报与局限"
+      ],
+      "plannedDeterministicChecks": [
+        "连接前后基数与总量对账",
+        "固定数据的分组及指标复算一致"
+      ],
+      "requiredFailureCase": "故意一对多连接导致重复累计，检查必须捕获",
+      "openReviewFocus": [
+        "问题与指标是否对应",
+        "事实、假设和下一步验证分开"
+      ],
+      "sourceCandidates": [
+        "dft-road-data",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "quality",
+      "nextProjects": [
+        "analysis-change-handoff"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "analysis-change-handoff",
+      "primaryCareer": "data",
+      "level": 3,
+      "title": "数据变化下的分析交付",
+      "goal": "独立处理口径/数据版本变化，并向使用者交接可信结果。",
+      "inputPackage": [
+        "陌生业务背景与两版输入",
+        "字段/口径变更通知及不完整需求",
+        "不公开完整解决步骤的独立核对集"
+      ],
+      "requiredOutputs": [
+        "版本化查询与报告",
+        "变更影响、复算证据和使用说明"
+      ],
+      "plannedDeterministicChecks": [
+        "旧/新口径结果各自可重现",
+        "所有差异能定位版本与输入"
+      ],
+      "requiredFailureCase": "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用",
+      "openReviewFocus": [
+        "变更判断与沟通",
+        "未解决问题及责任交接"
+      ],
+      "sourceCandidates": [
+        "dft-road-data",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "multi-source-analysis",
+      "nextProjects": [
+        "cross-metric-service",
+        "cross-migration-launch"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "ai-eval",
+      "primaryCareer": "ai",
+      "level": 1,
+      "title": "客服助手评测",
+      "goal": "保留现有离线评测，区分依据、错误严重性与评估边界。",
+      "inputPackage": [
+        "现有版本材料、教学输入输出和政策",
+        "如新版本变化则单独冻结评测材料"
+      ],
+      "requiredOutputs": [
+        "逐条评测记录",
+        "严重错误、未知项和交付建议"
+      ],
+      "plannedDeterministicChecks": [
+        "问题/预测ID完整，引用能定位",
+        "固定规则与预设记录对照一致"
+      ],
+      "requiredFailureCase": "漏交最难样例不能仍显示完整评测完成",
+      "openReviewFocus": [
+        "政策遵守与证据",
+        "少量题目不能外推职业或产品可靠性"
+      ],
+      "sourceCandidates": [
+        "existing-ai-eval",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": "ai-eval",
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "baseline-evaluation"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "baseline-evaluation",
+      "primaryCareer": "ai",
+      "level": 2,
+      "title": "基线与独立评估",
+      "goal": "以低依赖模型或预设预测理解基线、无泄漏切分、指标和误差。",
+      "inputPackage": [
+        "小型可再分发数据与字段说明",
+        "基线实现和独立切分规范",
+        "新输入及参考逐行预测"
+      ],
+      "requiredOutputs": [
+        "切分清单与程序",
+        "逐行预测、指标复算与误差切片"
+      ],
+      "plannedDeterministicChecks": [
+        "样本ID不跨训练/评估重叠",
+        "MAE等所选指标按逐行预测复算"
+      ],
+      "requiredFailureCase": "预处理使用评估标签或漏交样本，检查应明确失败",
+      "openReviewFocus": [
+        "基线选择和适用范围",
+        "参数选择不偷看独立评价结果"
+      ],
+      "sourceCandidates": [
+        "uci-wine",
+        "palmer-penguins"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "ai-eval",
+      "nextProjects": [
+        "grounded-assistant-delivery"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "grounded-assistant-delivery",
+      "primaryCareer": "ai",
+      "level": 3,
+      "title": "受限知识助手交付",
+      "goal": "在明确资料、权限和运行边界下交付能复核的问答方案。",
+      "inputPackage": [
+        "本站原创文档、权限和拒答要求",
+        "可答/不可答独立题与故障记录",
+        "离线可用的预测和调用轨迹包；真实API可选"
+      ],
+      "requiredOutputs": [
+        "资料/评估契约与实现或离线重现",
+        "引用/拒答/错误报告和维护交接"
+      ],
+      "plannedDeterministicChecks": [
+        "评测ID集合完整，引用版本对应",
+        "可确定回答规则和错误分类复算"
+      ],
+      "requiredFailureCase": "引用存在却不支持结论或越权文档被用作依据，应判失败",
+      "openReviewFocus": [
+        "资料范围与权限",
+        "根因需轨迹，成本与真实运行区分"
+      ],
+      "sourceCandidates": [
+        "squad2",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "baseline-evaluation",
+      "nextProjects": [
+        "cross-knowledge-assistant"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "log",
+      "primaryCareer": "security",
+      "level": 1,
+      "title": "离线日志初筛",
+      "goal": "保留现有安全日志项目，形成证据可定位的升级与交接。",
+      "inputPackage": [
+        "现有合成日志与授权边界",
+        "保留现有版本及示例状态"
+      ],
+      "requiredOutputs": [
+        "时间线、观察与替代解释",
+        "升级理由和缺失证据"
+      ],
+      "plannedDeterministicChecks": [
+        "事件引用存在、时区和顺序一致",
+        "观察引用不会指向其他版本"
+      ],
+      "requiredFailureCase": "以新设备直接宣称入侵，评价应指出推断超范围",
+      "openReviewFocus": [
+        "授权范围",
+        "影响与不确定性"
+      ],
+      "sourceCandidates": [
+        "existing-log",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": "log",
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "app-authorization-retest"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "app-authorization-retest",
+      "primaryCareer": "security",
+      "level": 2,
+      "title": "应用权限整改复验",
+      "goal": "在隔离小应用中复现一个有界授权问题并验证整改。",
+      "inputPackage": [
+        "本站受控应用及账号/对象/动作矩阵",
+        "已知缺陷、修复前后版本和本地测试",
+        "仅自有实验环境的操作范围"
+      ],
+      "requiredOutputs": [
+        "复现证据、修复或整改建议",
+        "授权测试矩阵和回归结果"
+      ],
+      "plannedDeterministicChecks": [
+        "本人/他人/未登录/不同动作响应符合契约",
+        "修复后正向功能与拒绝路径均验证"
+      ],
+      "requiredFailureCase": "只隐藏前端按钮而服务端仍返回数据，必须失败",
+      "openReviewFocus": [
+        "影响证据与授权边界",
+        "不能扩成全应用安全认证"
+      ],
+      "sourceCandidates": [
+        "owasp-bola",
+        "juice-shop",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "log",
+      "nextProjects": [
+        "detection-response-handoff"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "detection-response-handoff",
+      "primaryCareer": "security",
+      "level": 3,
+      "title": "检测与响应交接",
+      "goal": "独立关联混合日志，形成可复现查询、误漏报分析和响应交接。",
+      "inputPackage": [
+        "经核对的正常/异常日志及标签说明",
+        "任务授权、资产背景和变更记录",
+        "独立变式，不采用已公布答案原样重测"
+      ],
+      "requiredOutputs": [
+        "查询、事件链与命中清单",
+        "误漏报、建议处置和复盘交接"
+      ],
+      "plannedDeterministicChecks": [
+        "查询输出与指定标签/事件ID对照",
+        "时间与主机/用户关联规则一致"
+      ],
+      "requiredFailureCase": "全部事件都报异常以换取命中率，应在误报/范围检查中暴露",
+      "openReviewFocus": [
+        "证据与归因边界",
+        "响应授权和可接手性"
+      ],
+      "sourceCandidates": [
+        "splunk-attack",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "app-authorization-retest",
+      "nextProjects": [
+        "cross-knowledge-assistant",
+        "cross-security-remediation"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "restore",
+      "primaryCareer": "ops",
+      "level": 1,
+      "title": "故障恢复与回退",
+      "goal": "保留现有故障恢复项目，明确恢复条件与尚未验证事项。",
+      "inputPackage": [
+        "现有版本故障背景、发布/恢复指标与教学记录"
+      ],
+      "requiredOutputs": [
+        "恢复步骤和停止/回退条件",
+        "业务复验与交接说明"
+      ],
+      "plannedDeterministicChecks": [
+        "窗口指标按各自分母复算",
+        "必要检查项及时间线身份一致"
+      ],
+      "requiredFailureCase": "技术指标恢复而核心业务仍失败，不应宣称全面恢复",
+      "openReviewFocus": [
+        "恢复依据",
+        "责任、风险与未知"
+      ],
+      "sourceCandidates": [
+        "existing-restore",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": "restore",
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "alert-rule-regression"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "alert-rule-regression",
+      "primaryCareer": "ops",
+      "level": 2,
+      "title": "告警规则与反例",
+      "goal": "用真实规则文件和时序fixtures验证持续时间、分母、标签与恢复。",
+      "inputPackage": [
+        "固定Prometheus/promtool版本和规则模板",
+        "正常、短尖峰、持续故障、无流量、缺失、恢复时序",
+        "可离线执行的期望集合"
+      ],
+      "requiredOutputs": [
+        "规则YAML与测试fixtures",
+        "实际检查报告和局限"
+      ],
+      "plannedDeterministicChecks": [
+        "promtool或等价真实规则检查记录",
+        "指定时刻数值、触发/不触发、标签及恢复正确"
+      ],
+      "requiredFailureCase": "计数器重置或低请求量误触发，回归必须捕获",
+      "openReviewFocus": [
+        "告警与用户影响的关系",
+        "测试范围不等于真实事故效果"
+      ],
+      "sourceCandidates": [
+        "prom-rules",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "restore",
+      "nextProjects": [
+        "reliability-release-drill"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "reliability-release-drill",
+      "primaryCareer": "ops",
+      "level": 3,
+      "title": "服务上线与可靠性演练",
+      "goal": "组织变更、观测、假设验证、恢复及业务验收。",
+      "inputPackage": [
+        "原创小服务或可运行演示的固定版本",
+        "发布包、遥测和故障开关/固定证据包",
+        "依赖、停止条件及业务探测"
+      ],
+      "requiredOutputs": [
+        "发布/恢复记录",
+        "证据定位、验证结果和复盘行动"
+      ],
+      "plannedDeterministicChecks": [
+        "服务探测和固定指标可复算",
+        "恢复前后版本与操作记录一致"
+      ],
+      "requiredFailureCase": "旧库/旧版本缺少发布后新增数据时不能直接回退",
+      "openReviewFocus": [
+        "故障假设与原因证据",
+        "回退、业务和后续观察"
+      ],
+      "sourceCandidates": [
+        "otel-demo",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "alert-rule-regression",
+      "nextProjects": [
+        "cross-service-incident",
+        "cross-migration-launch"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "accessible-form",
+      "primaryCareer": "frontend",
+      "level": 1,
+      "title": "可访问表单与状态恢复",
+      "goal": "制作可操作表单并正确处理输入、等待、失败及键盘恢复。",
+      "inputPackage": [
+        "原创需求、字段/状态/接口mock契约",
+        "空值、非法、成功、超时/失败输入",
+        "最小可运行代码骨架"
+      ],
+      "requiredOutputs": [
+        "页面源码与状态说明",
+        "浏览器检查和修改记录"
+      ],
+      "plannedDeterministicChecks": [
+        "键盘路径、错误提示和输入保留",
+        "等待后真实mock成功/失败状态可复现"
+      ],
+      "requiredFailureCase": "等待时改输入，旧请求结果不能覆盖新输入",
+      "openReviewFocus": [
+        "界面可理解性",
+        "自动检查外的辅助技术与体验限制"
+      ],
+      "sourceCandidates": [
+        "mdn-learning",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "data-workbench"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "data-workbench",
+      "primaryCareer": "frontend",
+      "level": 2,
+      "title": "数据工作台与接口异常",
+      "goal": "制作筛选、分页和异步数据界面，处理并发请求与组件复用。",
+      "inputPackage": [
+        "原创数据列表/过滤契约和mock服务",
+        "空数据、错误、慢响应和乱序响应",
+        "可重用组件要求"
+      ],
+      "requiredOutputs": [
+        "可运行工作台与组件说明",
+        "接口状态与回归用例"
+      ],
+      "plannedDeterministicChecks": [
+        "过滤/分页结果与契约一致",
+        "旧响应被取消或不覆盖新请求"
+      ],
+      "requiredFailureCase": "快速改变筛选造成旧结果覆盖，应在测试中失败",
+      "openReviewFocus": [
+        "组件边界和可访问性",
+        "哪些状态尚未覆盖"
+      ],
+      "sourceCandidates": [
+        "mdn-learning",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "accessible-form",
+      "nextProjects": [
+        "frontend-release-delivery"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "frontend-release-delivery",
+      "primaryCareer": "frontend",
+      "level": 3,
+      "title": "业务界面完整交付",
+      "goal": "独立交付多页面界面，说明接口、兼容、性能和可维护性。",
+      "inputPackage": [
+        "陌生业务需求与接口契约",
+        "多屏幕/输入方式和网络条件",
+        "后端预制交接件及变更意见"
+      ],
+      "requiredOutputs": [
+        "可运行多页面应用",
+        "验收记录、使用/运行与变更说明"
+      ],
+      "plannedDeterministicChecks": [
+        "核心流程和状态回归",
+        "约定桌面宽度无溢出，键盘关键流程可达"
+      ],
+      "requiredFailureCase": "深链接刷新或接口版本变化导致关键流程丢失应被捕获",
+      "openReviewFocus": [
+        "取舍、易用性与维护",
+        "运行条件和接手说明"
+      ],
+      "sourceCandidates": [
+        "mdn-learning",
+        "github-pr",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "data-workbench",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-service-incident",
+        "cross-security-remediation"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "contract-api",
+      "primaryCareer": "backend",
+      "level": 1,
+      "title": "校验与权限明确的API",
+      "goal": "实现一个有明确业务行为、输入检查和动作授权的服务。",
+      "inputPackage": [
+        "原创业务与对象关系说明",
+        "API契约、错误状态和权限矩阵",
+        "本地服务及测试骨架"
+      ],
+      "requiredOutputs": [
+        "服务实现和接口说明",
+        "数据约束与测试结果"
+      ],
+      "plannedDeterministicChecks": [
+        "合法/非法/无会话/跨用户动作检查",
+        "响应与契约及存储结果一致"
+      ],
+      "requiredFailureCase": "验证了登录但遗漏对象/动作授权必须失败",
+      "openReviewFocus": [
+        "业务边界与错误语义",
+        "接口文档不替代运行控制"
+      ],
+      "sourceCandidates": [
+        "openapi",
+        "owasp-bola",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "retry-concurrency"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "retry-concurrency",
+      "primaryCareer": "backend",
+      "level": 2,
+      "title": "重复请求与并发一致性",
+      "goal": "明确并实现重试、并发占用和失败下的业务效果。",
+      "inputPackage": [
+        "预约或库存的原创业务契约",
+        "稳定请求ID与并发/失败注入脚本",
+        "隔离本地数据库"
+      ],
+      "requiredOutputs": [
+        "一致性实现与测试",
+        "副作用、事务和恢复说明"
+      ],
+      "plannedDeterministicChecks": [
+        "重复请求不重复业务效果",
+        "并发占用和中途失败按契约保持状态"
+      ],
+      "requiredFailureCase": "先返回成功后写入失败或同请求重复扣减应被捕获",
+      "openReviewFocus": [
+        "一致性选择与边界",
+        "不把某种幂等方案写成通用唯一答案"
+      ],
+      "sourceCandidates": [
+        "openapi",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "contract-api",
+      "nextProjects": [
+        "service-evolution-delivery"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "service-evolution-delivery",
+      "primaryCareer": "backend",
+      "level": 3,
+      "title": "可演进服务与迁移交接",
+      "goal": "独立处理接口兼容、数据变更和服务运行交接。",
+      "inputPackage": [
+        "旧/新调用方和数据样本",
+        "兼容/迁移要求与可逆边界",
+        "日志/错误/回退及验证脚本"
+      ],
+      "requiredOutputs": [
+        "版本化服务和迁移方案",
+        "回归、诊断与接手运行说明"
+      ],
+      "plannedDeterministicChecks": [
+        "旧调用方回归和新行为符合契约",
+        "迁移前后数据与故障恢复核对"
+      ],
+      "requiredFailureCase": "只按空库测试导致旧数据迁移失败必须暴露",
+      "openReviewFocus": [
+        "兼容策略和风险",
+        "操作权限与可维护性"
+      ],
+      "sourceCandidates": [
+        "openapi",
+        "github-pr",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "retry-concurrency",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-service-incident",
+        "cross-security-remediation"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "relational-model",
+      "primaryCareer": "engineering",
+      "level": 1,
+      "title": "原始表到可复算数据模型",
+      "goal": "理解粒度、主外键及关联，制作模型、字典和质量检查。",
+      "inputPackage": [
+        "原创或许可清楚的customers/orders/payments",
+        "字段及业务粒度字典",
+        "SQL/本地数据库与测试骨架"
+      ],
+      "requiredOutputs": [
+        "转换SQL、结果CSV和模型字典",
+        "质量检查报告"
+      ],
+      "plannedDeterministicChecks": [
+        "唯一/非空/关系及总额检查",
+        "关联基数和可复算结果一致"
+      ],
+      "requiredFailureCase": "一对多支付连接重复订单金额应被捕获",
+      "openReviewFocus": [
+        "模型粒度选择",
+        "上游问题和处理理由"
+      ],
+      "sourceCandidates": [
+        "dbt-jaffle",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "partition-replay"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "partition-replay",
+      "primaryCareer": "engineering",
+      "level": 2,
+      "title": "固定分区重跑与发布",
+      "goal": "验证固定批次的内容一致、迟到数据和失败不发布。",
+      "inputPackage": [
+        "分区数据、批次版本与迟到记录",
+        "发布机制及目标存储前提",
+        "run/retry/bad-retry可重现脚本"
+      ],
+      "requiredOutputs": [
+        "处理和发布实现",
+        "内容对照、质量阻断与恢复记录"
+      ],
+      "plannedDeterministicChecks": [
+        "同输入重跑字段内容与摘要一致",
+        "异常批次不替换最后可用结果"
+      ],
+      "requiredFailureCase": "行数相同但关键字段变化必须失败",
+      "openReviewFocus": [
+        "原子性适用条件",
+        "隔离、补数与下游可见性"
+      ],
+      "sourceCandidates": [
+        "dbt-jaffle",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "relational-model",
+      "nextProjects": [
+        "data-contract-evolution"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "data-contract-evolution",
+      "primaryCareer": "engineering",
+      "level": 3,
+      "title": "数据契约演进与下游交付",
+      "goal": "独立处理上游结构改变、回填、血缘和下游兼容。",
+      "inputPackage": [
+        "两版上游数据/契约和下游需求",
+        "历史分区与增量、错误映射",
+        "发布/回填验收用例"
+      ],
+      "requiredOutputs": [
+        "模型/契约与变更实现",
+        "血缘、回填核对及维护交接"
+      ],
+      "plannedDeterministicChecks": [
+        "新旧数据和下游兼容检查",
+        "失败重跑与回填不重复/漏失"
+      ],
+      "requiredFailureCase": "字段改名后静默全空或回填覆盖增量应失败",
+      "openReviewFocus": [
+        "变更沟通及访问范围",
+        "端到端保证尚未覆盖部分"
+      ],
+      "sourceCandidates": [
+        "dbt-jaffle",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "partition-replay",
+      "nextProjects": [
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-migration-launch"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "defect-evidence",
+      "primaryCareer": "testing",
+      "level": 1,
+      "title": "需求到可复现缺陷",
+      "goal": "根据明确需求设计测试，分开预期和观察并复现异常。",
+      "inputPackage": [
+        "原创需求与固定版本小应用",
+        "已埋入的金额/状态缺陷",
+        "全新边界输入与执行方法"
+      ],
+      "requiredOutputs": [
+        "用例与执行记录",
+        "缺陷报告及未测风险"
+      ],
+      "plannedDeterministicChecks": [
+        "边界预期由需求计算",
+        "缺陷步骤能在给定版本重现"
+      ],
+      "requiredFailureCase": "只报告截图而没有输入/版本/预期不能通过复现检查",
+      "openReviewFocus": [
+        "风险和需求追溯",
+        "严重程度与修复优先级"
+      ],
+      "sourceCandidates": [
+        "istqb",
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "api-ui-regression"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "api-ui-regression",
+      "primaryCareer": "testing",
+      "level": 2,
+      "title": "接口与界面回归",
+      "goal": "为包含状态、权限和变化的应用建立可维护回归。",
+      "inputPackage": [
+        "原创接口/界面及版本变更",
+        "独立测试数据、缺陷版本与修复版本",
+        "测试工具运行骨架"
+      ],
+      "requiredOutputs": [
+        "API/UI测试与数据",
+        "失败诊断、确认与回归报告"
+      ],
+      "plannedDeterministicChecks": [
+        "坏版本出现预期失败、修复版通过",
+        "清理和隔离避免测试顺序污染"
+      ],
+      "requiredFailureCase": "测试只查HTTP200或界面标题而漏关键行为应暴露",
+      "openReviewFocus": [
+        "覆盖取舍与脆弱用例",
+        "未测范围"
+      ],
+      "sourceCandidates": [
+        "istqb",
+        "openapi",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "defect-evidence",
+      "nextProjects": [
+        "release-risk-review"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "release-risk-review",
+      "primaryCareer": "testing",
+      "level": 3,
+      "title": "发布风险与验证交接",
+      "goal": "独立确定有限范围测试，执行并交接剩余风险。",
+      "inputPackage": [
+        "陌生需求、变更说明和应用版本",
+        "环境限制与已知未解决问题",
+        "发布决策角色和证据模板"
+      ],
+      "requiredOutputs": [
+        "风险/范围及测试计划",
+        "执行、缺陷、回归和剩余风险包"
+      ],
+      "plannedDeterministicChecks": [
+        "执行记录与实际版本和用例对上",
+        "未执行项目不能混为通过"
+      ],
+      "requiredFailureCase": "关键失败被平均总分掩盖时应明确不满足发布约定",
+      "openReviewFocus": [
+        "发布建议的依据",
+        "质量信息与决定权边界"
+      ],
+      "sourceCandidates": [
+        "istqb",
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "api-ui-regression",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-service-incident",
+        "cross-security-remediation",
+        "cross-migration-launch"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "rule-tool",
+      "primaryCareer": "software",
+      "level": 1,
+      "title": "规则或转换工具",
+      "goal": "制作有明确输入、边界和错误行为的小工具。",
+      "inputPackage": [
+        "原创规则需求与输入/输出格式",
+        "金额或批量转换的正反样例",
+        "程序与测试骨架"
+      ],
+      "requiredOutputs": [
+        "代码、测试和使用说明"
+      ],
+      "plannedDeterministicChecks": [
+        "正常/边界/非法输入确定性检查",
+        "相同输入得到约定输出"
+      ],
+      "requiredFailureCase": "浮点金额、空输入或非法记录静默通过应失败",
+      "openReviewFocus": [
+        "需求澄清",
+        "设计与错误处理"
+      ],
+      "sourceCandidates": [
+        "exercism-js",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "legacy-change"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "legacy-change",
+      "primaryCareer": "software",
+      "level": 2,
+      "title": "遗留代码变更与重构",
+      "goal": "在已有行为保护下修改需求并解释兼容和设计取舍。",
+      "inputPackage": [
+        "本站原创旧代码和行为说明",
+        "变更请求、调用方和回归集",
+        "待修复缺陷及评审意见"
+      ],
+      "requiredOutputs": [
+        "修改代码和保护性测试",
+        "变更/评审记录"
+      ],
+      "plannedDeterministicChecks": [
+        "旧行为回归与新规则测试",
+        "重构前后约定行为等价"
+      ],
+      "requiredFailureCase": "只通过新用例却破坏旧调用方应失败",
+      "openReviewFocus": [
+        "重构理由与范围",
+        "评审意见怎样落实"
+      ],
+      "sourceCandidates": [
+        "github-pr",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "rule-tool",
+      "nextProjects": [
+        "versioned-toolkit"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "versioned-toolkit",
+      "primaryCareer": "software",
+      "level": 3,
+      "title": "可发布与可维护工具包",
+      "goal": "独立交付能被他人安装、运行、验证和更新的工具。",
+      "inputPackage": [
+        "陌生需求和发布环境约定",
+        "兼容、配置与错误要求",
+        "预制用户反馈或单人模拟审阅"
+      ],
+      "requiredOutputs": [
+        "代码、版本化包和验证",
+        "运行文档、变更记录和维护边界"
+      ],
+      "plannedDeterministicChecks": [
+        "干净环境按说明构建运行",
+        "示例命令、错误返回和测试重现"
+      ],
+      "requiredFailureCase": "仅开发机可运行或发布包漏依赖/配置应失败",
+      "openReviewFocus": [
+        "可接手性与设计权衡",
+        "不虚构真实用户评价"
+      ],
+      "sourceCandidates": [
+        "github-pr",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "legacy-change",
+      "nextProjects": [
+        "cross-registration-service"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "config-acceptance",
+      "primaryCareer": "delivery",
+      "level": 1,
+      "title": "需求到配置与验收",
+      "goal": "将业务流程映射到配置、权限及可执行验收。",
+      "inputPackage": [
+        "原创小型业务流程和可配置示例",
+        "现状/目标差异、角色和数据",
+        "配置工具或真实可用低配置演示"
+      ],
+      "requiredOutputs": [
+        "需求/差异与配置",
+        "UAT用例和问题清单"
+      ],
+      "plannedDeterministicChecks": [
+        "配置/权限符合已给业务矩阵",
+        "UAT步骤能由接手者重复执行"
+      ],
+      "requiredFailureCase": "配置满足演示却遗漏关键业务角色应捕获",
+      "openReviewFocus": [
+        "业务确认与技术职责",
+        "哪些尚需用户决定"
+      ],
+      "sourceCandidates": [
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [
+        "migration-reconciliation"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "guided",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "migration-reconciliation",
+      "primaryCareer": "delivery",
+      "level": 2,
+      "title": "数据迁移与系统集成",
+      "goal": "核对映射、数据、权限与异常处理，不以行数相等代替成功。",
+      "inputPackage": [
+        "原创源/目标数据、字段映射和APImock",
+        "冻结/增量和异常记录约定",
+        "转换、对账与权限检查脚本"
+      ],
+      "requiredOutputs": [
+        "迁移/集成结果和复算",
+        "差异处置、UAT与停止条件"
+      ],
+      "plannedDeterministicChecks": [
+        "规范化关键字段/摘要/数量均核对",
+        "权限和关键业务流程可复验"
+      ],
+      "requiredFailureCase": "行数相等但关键状态错误，或新数据回退丢失，必须失败",
+      "openReviewFocus": [
+        "映射选择与残余问题",
+        "客户验收与回退责任"
+      ],
+      "sourceCandidates": [
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "config-acceptance",
+      "nextProjects": [
+        "rollout-support-handoff"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "constrained_extension",
+      "newIndependentInputsRequired": false,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "rollout-support-handoff",
+      "primaryCareer": "delivery",
+      "level": 3,
+      "title": "上线培训与支持交接",
+      "goal": "独立组织有限范围切换、验收、培训和后续支持。",
+      "inputPackage": [
+        "陌生实施范围、约束和相关角色",
+        "配置/迁移预制交接件及残留问题",
+        "切换/新增数据/失败情境"
+      ],
+      "requiredOutputs": [
+        "切换与回退/停止方案",
+        "验收、培训指南和支持交接包"
+      ],
+      "plannedDeterministicChecks": [
+        "清单引用实际版本与证据",
+        "接手者按运行/验收步骤可复现"
+      ],
+      "requiredFailureCase": "未测必需功能被写通过或没有新增数据处理应失败",
+      "openReviewFocus": [
+        "业务适用性和责任",
+        "沟通、培训与剩余风险"
+      ],
+      "sourceCandidates": [
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve concrete node IDs from the current skill tree; retain explicit mapping evidence; do not invent IDs.",
+      "kind": "career-core",
+      "relatedCareers": [],
+      "existingCourseId": null,
+      "recommendedPriorProject": "migration-reconciliation",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-migration-launch"
+      ],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "cross-registration-service",
+      "kind": "cross-career",
+      "primaryCareer": "frontend",
+      "relatedCareers": [
+        "backend",
+        "testing",
+        "delivery",
+        "software"
+      ],
+      "level": "integrated",
+      "title": "活动报名服务联合交付",
+      "goal": "把需求、接口、界面、验证和业务验收连接为可使用的小服务。",
+      "roleHandoffs": [
+        {
+          "role": "需求/实施",
+          "produces": "业务流程、权限和验收",
+          "consumedBy": "后端/前端/测试"
+        },
+        {
+          "role": "后端",
+          "produces": "版本化接口和错误契约",
+          "consumedBy": "前端/测试"
+        },
+        {
+          "role": "前端",
+          "produces": "可操作界面与状态",
+          "consumedBy": "测试/实施"
+        },
+        {
+          "role": "测试/实施",
+          "produces": "缺陷、修订验收与交接",
+          "consumedBy": "相关实现者"
+        }
+      ],
+      "inputPackage": [
+        "原创报名业务与固定验收范围",
+        "可运行的mock/服务/界面和角色交接模板"
+      ],
+      "requiredOutputs": [
+        "需求到验收的追溯",
+        "服务/界面/测试与修改包"
+      ],
+      "plannedDeterministicChecks": [
+        "界面调用对应版本接口，业务记录一致",
+        "缺陷意见有对应修改和复验"
+      ],
+      "requiredFailureCase": "接口字段变更不通知前端造成流程失败应在联合验收暴露",
+      "openReviewFocus": [
+        "交接是否可执行，反馈/修改是否有依据",
+        "模拟角色如实标注，本人贡献与责任不混淆"
+      ],
+      "sourceCandidates": [
+        "openapi",
+        "mdn-learning",
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve current concrete skill nodes per role. Multiple career tags alone do not satisfy handoff.",
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "cross-metric-service",
+      "kind": "cross-career",
+      "primaryCareer": "engineering",
+      "relatedCareers": [
+        "data",
+        "backend",
+        "testing"
+      ],
+      "level": "integrated",
+      "title": "指标与数据服务交付",
+      "goal": "让数据契约、模型、接口和分析输出在变化下仍可共同核对。",
+      "roleHandoffs": [
+        {
+          "role": "数据工程",
+          "produces": "字段/粒度/更新契约与模型",
+          "consumedBy": "分析/后端"
+        },
+        {
+          "role": "后端",
+          "produces": "指标服务或固定结果接口",
+          "consumedBy": "分析/测试"
+        },
+        {
+          "role": "分析/测试",
+          "produces": "对账、报告与变更反馈",
+          "consumedBy": "数据提供者"
+        }
+      ],
+      "inputPackage": [
+        "源表、指标需求和上游变更",
+        "模型/接口骨架及独立对账数据"
+      ],
+      "requiredOutputs": [
+        "数据契约与可复算模型/接口",
+        "报告、差异和发布交接"
+      ],
+      "plannedDeterministicChecks": [
+        "明细/模型/接口/报告的口径及汇总一致",
+        "改字段后旧输出不得无提示误用"
+      ],
+      "requiredFailureCase": "订单与支付一对多放大金额，应能定位到来源与模型",
+      "openReviewFocus": [
+        "交接是否可执行，反馈/修改是否有依据",
+        "模拟角色如实标注，本人贡献与责任不混淆"
+      ],
+      "sourceCandidates": [
+        "dbt-jaffle",
+        "openapi",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve current concrete skill nodes per role. Multiple career tags alone do not satisfy handoff.",
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "cross-knowledge-assistant",
+      "kind": "cross-career",
+      "primaryCareer": "ai",
+      "relatedCareers": [
+        "engineering",
+        "backend",
+        "security",
+        "testing"
+      ],
+      "level": "integrated",
+      "title": "受限知识助手联合交付",
+      "goal": "串起资料/权限、服务、独立评估和发布限制。",
+      "roleHandoffs": [
+        {
+          "role": "资料/安全",
+          "produces": "允许资料、版本和访问策略",
+          "consumedBy": "AI/后端"
+        },
+        {
+          "role": "AI/后端",
+          "produces": "原型或离线可重现服务与轨迹",
+          "consumedBy": "测试/业务评估"
+        },
+        {
+          "role": "评估",
+          "produces": "证据错误、越权和不可答反馈",
+          "consumedBy": "资料/实现者"
+        }
+      ],
+      "inputPackage": [
+        "原创文档、不同角色及允许/禁止访问矩阵",
+        "预设调用轨迹或本地运行，默认不需要付费API",
+        "独立可答/不可答和权限测试"
+      ],
+      "requiredOutputs": [
+        "资料与服务契约",
+        "评测、修订与运行交接"
+      ],
+      "plannedDeterministicChecks": [
+        "文档权限与预测ID完整",
+        "引用支持/越权/缺资料行为按契约检查"
+      ],
+      "requiredFailureCase": "不可访问资料被用来回答即使文本正确也必须失败",
+      "openReviewFocus": [
+        "交接是否可执行，反馈/修改是否有依据",
+        "模拟角色如实标注，本人贡献与责任不混淆"
+      ],
+      "sourceCandidates": [
+        "squad2",
+        "owasp-bola",
+        "openapi",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve current concrete skill nodes per role. Multiple career tags alone do not satisfy handoff.",
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "cross-service-incident",
+      "kind": "cross-career",
+      "primaryCareer": "ops",
+      "relatedCareers": [
+        "backend",
+        "frontend",
+        "testing"
+      ],
+      "level": "integrated",
+      "title": "服务发布与故障联合演练",
+      "goal": "将技术恢复和用户业务复验共同作为验收依据。",
+      "roleHandoffs": [
+        {
+          "role": "开发",
+          "produces": "发布变更、配置和已知风险",
+          "consumedBy": "运维/测试"
+        },
+        {
+          "role": "运维",
+          "produces": "指标/日志/恢复行动及版本",
+          "consumedBy": "业务探测/测试"
+        },
+        {
+          "role": "测试/前端",
+          "produces": "关键业务复验与反馈",
+          "consumedBy": "发布/恢复负责人"
+        }
+      ],
+      "inputPackage": [
+        "原创小服务或锁版本演示和故障记录",
+        "不同窗口请求计数/指标与业务探测",
+        "不可逆变更和回退停止条件"
+      ],
+      "requiredOutputs": [
+        "发布/恢复操作包",
+        "业务复验、因果证据和复盘"
+      ],
+      "plannedDeterministicChecks": [
+        "错误率分母及指标复算正确",
+        "技术/核心流程均满足明确条件才标恢复"
+      ],
+      "requiredFailureCase": "指标正常而报名仍失败时不得结束联合验收",
+      "openReviewFocus": [
+        "交接是否可执行，反馈/修改是否有依据",
+        "模拟角色如实标注，本人贡献与责任不混淆"
+      ],
+      "sourceCandidates": [
+        "prom-rules",
+        "otel-demo",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve current concrete skill nodes per role. Multiple career tags alone do not satisfy handoff.",
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "cross-security-remediation",
+      "kind": "cross-career",
+      "primaryCareer": "security",
+      "relatedCareers": [
+        "backend",
+        "frontend",
+        "testing"
+      ],
+      "level": "integrated",
+      "title": "应用安全整改闭环",
+      "goal": "将授权发现、整改和正反向回归形成同一证据链。",
+      "roleHandoffs": [
+        {
+          "role": "安全",
+          "produces": "授权范围与可复现证据",
+          "consumedBy": "开发"
+        },
+        {
+          "role": "开发",
+          "produces": "服务端/界面修正及契约变化",
+          "consumedBy": "测试/安全"
+        },
+        {
+          "role": "测试/安全",
+          "produces": "复验、回归及残余风险",
+          "consumedBy": "业务负责人"
+        }
+      ],
+      "inputPackage": [
+        "本站隔离应用、动作/对象权限矩阵",
+        "缺陷版本/修复骨架与正常流程",
+        "合成授权和整改请求"
+      ],
+      "requiredOutputs": [
+        "复现与修复/整改记录",
+        "回归和授权范围内的剩余风险报告"
+      ],
+      "plannedDeterministicChecks": [
+        "服务器拒绝越权同时允许正常业务",
+        "旧复现失效，相关行为回归"
+      ],
+      "requiredFailureCase": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+      "openReviewFocus": [
+        "交接是否可执行，反馈/修改是否有依据",
+        "模拟角色如实标注，本人贡献与责任不混淆"
+      ],
+      "sourceCandidates": [
+        "owasp-bola",
+        "juice-shop",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve current concrete skill nodes per role. Multiple career tags alone do not satisfy handoff.",
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    },
+    {
+      "id": "cross-migration-launch",
+      "kind": "cross-career",
+      "primaryCareer": "delivery",
+      "relatedCareers": [
+        "engineering",
+        "ops",
+        "testing",
+        "data"
+      ],
+      "level": "integrated",
+      "title": "业务系统迁移上线交接",
+      "goal": "从映射和冻结到迁移、业务UAT、切换/回退及支持。",
+      "roleHandoffs": [
+        {
+          "role": "业务/实施",
+          "produces": "范围、权限、UAT与切换约定",
+          "consumedBy": "工程/运维/测试"
+        },
+        {
+          "role": "工程/运维",
+          "produces": "迁移结果、对账、增量和回退边界",
+          "consumedBy": "测试/业务"
+        },
+        {
+          "role": "测试/业务",
+          "produces": "验收与未测/残留项",
+          "consumedBy": "实施/支持"
+        }
+      ],
+      "inputPackage": [
+        "原创源/目标记录和完整规范化规则",
+        "权限、UAT与新增数据情境",
+        "配置及培训/支持交接模板"
+      ],
+      "requiredOutputs": [
+        "映射/数据/权限核对包",
+        "切换决定、培训与支持说明"
+      ],
+      "plannedDeterministicChecks": [
+        "关键字段/内容摘要与业务结果一致",
+        "切换后新增记录有保全/对账，不能直接覆盖"
+      ],
+      "requiredFailureCase": "行数相同但状态映射错误或回退丢新增记录应阻断",
+      "openReviewFocus": [
+        "交接是否可执行，反馈/修改是否有依据",
+        "模拟角色如实标注，本人贡献与责任不混淆"
+      ],
+      "sourceCandidates": [
+        "ms-testing",
+        "own-fixtures"
+      ],
+      "authoringStatus": "specification_only_materials_and_reference_results_not_built",
+      "effortEstimateHours": null,
+      "skillMapping": "Resolve current concrete skill nodes per role. Multiple career tags alone do not satisfy handoff.",
+      "existingCourseId": null,
+      "recommendedPriorProject": null,
+      "nextProjects": [],
+      "isForcedUnlockChain": false,
+      "guideMode": "independent_transfer_or_handoff",
+      "newIndependentInputsRequired": true,
+      "currentVerification": {
+        "materials": false,
+        "license": false,
+        "referenceReproduced": false,
+        "learnerPilot": false
+      }
+    }
+  ]
+}

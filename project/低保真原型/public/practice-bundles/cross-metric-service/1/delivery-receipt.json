@@ -1,0 +1,17 @@
+{
+  "projectId": "cross-metric-service",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "c5bc894bc2c4068ff8ffeeefb06b1bc7d6e654f4923e4e93ca6f1546d46bd321",
+  "bytes": 58951,
+  "files": 38,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-metric-service\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:53.776Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

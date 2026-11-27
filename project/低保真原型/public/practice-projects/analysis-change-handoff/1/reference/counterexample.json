@@ -1,0 +1,7 @@
+{
+  "files": {
+    "result.json": "[\n  {\n    \"version\": \"v1\",\n    \"unit\": \"yuan\",\n    \"count\": 1,\n    \"cents\": 120\n  },\n  {\n    \"version\": \"v2\",\n    \"unit\": \"cent\",\n    \"count\": 2,\n    \"cents\": 17000\n  }\n]",
+    "notes.md": "# Analysis delivery under change\n\nThe finance analyst receives two extracts with changed currency units and status rules. Reproduce both versions and explain which totals may be compared.\n\n## Input and contract\ninput/fixture.json; input/dictionary.md; project version 1\n\n## Finding and reproducible output\n```json\n[\n  {\n    \"version\": \"v1\",\n    \"unit\": \"yuan\",\n    \"count\": 1,\n    \"cents\": 12000\n  },\n  {\n    \"version\": \"v2\",\n    \"unit\": \"cent\",\n    \"count\": 2,\n    \"cents\": 17000\n  }\n]\n```\n\n## Failure prevented\nTreating yuan as cents silently changes the monetary scale.\n\n## Decision and limits\nAccept only the specified result set. Escalate a missing identity, permission, business probe or required not-run item. This is an original synthetic teaching reference, not evidence of learner execution or real employment.\n\n## Contribution and handoff\nReference authored with AI assistance for Avemly. The learner must replace this attribution with their own factual contribution; review open criteria before archiving.",
+    "query.sql": "SELECT version,unit,COUNT(*) AS count,SUM(CASE WHEN unit='yuan' THEN amount*100 ELSE amount END) AS cents FROM version_rows WHERE status='active' GROUP BY version,unit ORDER BY version;"
+  }
+}

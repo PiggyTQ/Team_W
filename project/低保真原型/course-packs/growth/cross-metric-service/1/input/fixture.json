@@ -1,0 +1,52 @@
+{
+  "orders": [
+    {
+      "id": "A1",
+      "customer": "C1",
+      "channel": "web",
+      "cents": 12000
+    },
+    {
+      "id": "A2",
+      "customer": "C1",
+      "channel": "community",
+      "cents": 8000
+    },
+    {
+      "id": "A3",
+      "customer": "C2",
+      "channel": "web",
+      "cents": 6000
+    }
+  ],
+  "payments": [
+    {
+      "id": "P1",
+      "order": "A1",
+      "cents": 6000
+    },
+    {
+      "id": "P2",
+      "order": "A1",
+      "cents": 6000
+    },
+    {
+      "id": "P3",
+      "order": "A2",
+      "cents": 8000
+    }
+  ],
+  "customers": [
+    {
+      "id": "C1"
+    },
+    {
+      "id": "C2"
+    },
+    {
+      "id": "C3"
+    }
+  ],
+  "version": 2,
+  "revision": 2
+}

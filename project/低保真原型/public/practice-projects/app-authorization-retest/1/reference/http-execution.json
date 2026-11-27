@@ -1,0 +1,52 @@
+{
+  "kind": "actual_loopback_HTTP_requests",
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:22:00.900Z",
+  "passed": true,
+  "evidence": [
+    {
+      "id": "anonymous",
+      "status": 401,
+      "body": {
+        "error": "denied_or_invalid"
+      }
+    },
+    {
+      "id": "own-read",
+      "status": 200,
+      "body": {
+        "object": "O1",
+        "owner": "alice"
+      }
+    },
+    {
+      "id": "other-read",
+      "status": 403,
+      "body": {
+        "error": "denied_or_invalid"
+      }
+    },
+    {
+      "id": "own-edit-denied",
+      "status": 403,
+      "body": {
+        "error": "denied_or_invalid"
+      }
+    },
+    {
+      "id": "own-edit",
+      "status": 200,
+      "body": {
+        "object": "O1",
+        "owner": "alice"
+      }
+    },
+    {
+      "id": "invalid-amount",
+      "status": 422,
+      "body": {
+        "error": "denied_or_invalid"
+      }
+    }
+  ]
+}

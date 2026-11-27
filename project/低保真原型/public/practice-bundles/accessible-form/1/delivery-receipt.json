@@ -1,0 +1,17 @@
+{
+  "projectId": "accessible-form",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "3c3e20cbccccd4309e52d5af2982ef62c7edf1eec5215a5a045360dd2d8dbe38",
+  "bytes": 50949,
+  "files": 30,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"accessible-form\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:48.195Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

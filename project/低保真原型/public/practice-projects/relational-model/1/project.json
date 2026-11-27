@@ -1,0 +1,126 @@
+{
+  "id": "relational-model",
+  "version": 1,
+  "legacy": false,
+  "career": "engineering",
+  "relatedCareers": [],
+  "level": 1,
+  "kind": "career-core",
+  "title": {
+    "zh": "原始表到可复算数据模型",
+    "en": "Reproducible relational model"
+  },
+  "next": [
+    "partition-replay"
+  ],
+  "prior": null,
+  "adapter": "data",
+  "estimatedHours": [
+    2,
+    4
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "dataset-grain"
+  ],
+  "brief": {
+    "zh": "报表使用者要看到全部客户及订单，包括还没有订单的客户。建立客户与订单粒度，写SQL汇总并检查孤立订单，不能用内连接静默丢掉零订单客户。",
+    "en": "A reporting owner needs a customer/order model including customers with no orders. Specify keys, cardinality and orphan checks."
+  },
+  "outputs": {
+    "zh": [
+      "转换SQL、结果CSV和模型字典",
+      "质量检查报告"
+    ],
+    "en": [
+      "Schema",
+      "SQL customer totals and integrity exceptions"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "唯一/非空/关系及总额检查",
+      "关联基数和可复算结果一致"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "An inner join drops the customer with zero orders. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "一对多支付连接重复订单金额应被捕获",
+    "en": "An inner join drops the customer with zero orders."
+  },
+  "review": {
+    "zh": [
+      "模型粒度选择",
+      "上游问题和处理理由"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "报表使用者要看到全部客户及订单，包括还没有订单的客户。建立客户与订单粒度，写SQL汇总并检查孤立订单，不能用内连接静默丢掉零订单客户。",
+      "一对多支付连接重复订单金额应被捕获；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A reporting owner needs a customer/order model including customers with no orders.",
+      "Reproduce this failure first: An inner join drops the customer with zero orders.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "一对多支付连接重复订单金额应被捕获",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "query.sql"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "engineering",
+      "branch": "modeling",
+      "skill": "dataset-grain",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

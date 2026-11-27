@@ -1,0 +1,5249 @@
+{
+  "frontend:semantic-html": {
+    "title": [
+      "语义化 HTML",
+      "Semantic HTML"
+    ],
+    "explain": [
+      [
+        "HTML元素声明含义与交互契约。链接表示导航，按钮表示动作，浏览器因此提供不同的键盘和表单行为；把div画成按钮并不会自动获得这些能力。先选语义，再做外观，能减少自己补写和维护的交互。",
+        "HTML elements declare meaning and interaction contracts. Links navigate and buttons act, so browsers provide different keyboard and form behaviors. Styling a div does not supply them. Start with semantics to avoid recreating native interaction."
+      ],
+      [
+        "字段的名称回答“这里填什么”。label的for与输入id相同，能同时建立可访问名称与点击聚焦关系。placeholder只显示输入示例，填写后会消失，不应单独充当标签；错误说明也应关联到对应字段。",
+        "A field name explains what to enter. Matching label for and input id creates an accessible name and click-to-focus association. A placeholder is a disappearing example, not a sufficient label. Related error text should also be associated with the field."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "语义化 HTML：完整示范",
+        "Semantic HTML: worked example"
+      ],
+      "given": [
+        "合成报名表：邮箱、保存和查看帮助。保存提交，帮助展开说明但不提交。",
+        "Synthetic registration form: Email, Save and Show help. Save submits; Help expands instructions without submitting."
+      ],
+      "steps": [
+        {
+          "title": [
+            "标明字段与动作",
+            "Identify field and actions"
+          ],
+          "detail": [
+            "给邮箱input设置id=email和type=email；label for=email写明“邮箱”。两按钮职责不同，不能只靠颜色区分。",
+            "Use id=email and type=email, associated with an Email label. The two actions need distinct behavior, not merely different colors."
+          ]
+        },
+        {
+          "title": [
+            "写出提交边界",
+            "Encode submission boundaries"
+          ],
+          "detail": [
+            "保存写button type=submit，帮助写button type=button；两者放在form内，提交统一由form的submit处理。",
+            "Give Save type=submit and Help type=button. Handle submission at the form so Enter and Save share the same path."
+          ]
+        },
+        {
+          "title": [
+            "只用键盘核对",
+            "Check with the keyboard"
+          ],
+          "detail": [
+            "标签点击聚焦邮箱；Tab到帮助并激活时只展开说明；保存或回车才触发提交校验，错误后保留原输入。",
+            "The label focuses Email. Activating Help only reveals instructions. Save or Enter triggers submission checks, preserving input on failure."
+          ]
+        }
+      ],
+      "result": [
+        "帮助不会误提交，字段有明确名称，回车与保存使用同一提交入口。",
+        "Help never submits accidentally; Email has a name, and Enter and Save use the same submission entry point."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "帮助是次要按钮，可以省略type。",
+        "A secondary Help button can omit type."
+      ],
+      "why": [
+        "普通form中的button可能默认提交；视觉主次不决定提交语义。",
+        "A button in an ordinary form can default to submission; visual priority does not determine semantics."
+      ],
+      "correct": [
+        "显式设置type=button并验证鼠标、键盘均不提交。",
+        "Set type=button and verify both pointer and keyboard activation."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "取消按钮只关闭编辑区，应怎样实现？",
+        "Cancel only closes the editor. Which implementation fits?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "type=button，关闭后恢复合理焦点",
+            "type=button with logical focus restoration"
+          ],
+          "feedback": [
+            "正确：动作和语义一致，用户也能继续原任务。",
+            "Correct: the semantics match, and focus preserves task continuity."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "type=submit但颜色调淡",
+            "A muted type=submit button"
+          ],
+          "feedback": [
+            "颜色不能改变提交行为，仍可能保存用户不想提交的数据。",
+            "Color does not prevent unwanted submission."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "没有href的a，只处理鼠标",
+            "An anchor without href and only a mouse handler"
+          ],
+          "feedback": [
+            "这没有完整原生按钮行为；取消是动作，应使用按钮。",
+            "This lacks complete native button behavior; cancellation is an action."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "制作姓名、邮箱、保存和取消表单，记录名称与提交行为。",
+        "Build name/email/Save/Cancel and record their names and submission behavior."
+      ],
+      "sample": [
+        "label关联稳定id，保存提交、取消不提交；邮箱错误可读且保留其他字段，关闭后回到编辑入口。",
+        "Associate labels with stable IDs; Save submits and Cancel does not. Email errors remain readable, other values persist, and closure restores the edit trigger."
+      ],
+      "criteria": [
+        [
+          "每个输入能通过名称识别，不只靠placeholder。",
+          "Every input is named beyond its placeholder."
+        ],
+        [
+          "分别验证回车、保存和取消，取消不提交。",
+          "Check Enter, Save and Cancel separately; Cancel sends nothing."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://developer.mozilla.org/en-US/curriculum/core/semantic-html/",
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button"
+    ]
+  },
+  "frontend:responsive-css": {
+    "title": [
+      "响应式 CSS 布局",
+      "Responsive CSS layout"
+    ],
+    "explain": [
+      [
+        "布局必须计算实际内容区，而非整块屏幕。列宽、gap与padding共同消耗空间；固定列在容器缩小时不会自动变得合理。判断断点的依据是内容何时失去可读、可操作的空间，而不是设备名称。",
+        "Layout uses the actual content area, not the whole screen. Tracks, gaps and padding consume space together. Fixed columns do not automatically adapt. A breakpoint belongs where content becomes unusable, rather than to a device label."
+      ],
+      [
+        "Grid和Flex项目的内容最小尺寸可能阻止收缩。长代码要求600px时，即使给轨道1fr也可能撑宽页面。允许轨道和项目收缩以后，还要决定内容如何换行或局部滚动，不能把裁剪当修复。",
+        "Intrinsic minimums can stop grid or flex items shrinking. A 600px code line can overflow a 1fr track. After permitting shrinking, choose wrapping or local scrolling; clipping is not a layout repair."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "响应式 CSS 布局：完整示范",
+        "Responsive CSS layout: worked example"
+      ],
+      "given": [
+        "内容区720px，左列280px，gap24px；右列有600px长代码。",
+        "A 720px content area has a 280px rail, a 24px gap and a 600px code line."
+      ],
+      "steps": [
+        {
+          "title": [
+            "算剩余空间",
+            "Calculate remaining space"
+          ],
+          "detail": [
+            "720−280−24=416。右列不是440，也没有600可用宽度；先确认720是否已经扣除外框padding。",
+            "720−280−24=416. Verify that padding has already been removed from the measured content width."
+          ]
+        },
+        {
+          "title": [
+            "分开处理轨道与代码",
+            "Separate track and code handling"
+          ],
+          "detail": [
+            "右轨道用minmax(0,1fr)，项目按需min-width:0；代码自身overflow-x:auto，正文正常换行。",
+            "Use a zero-minimum fractional track and min-width:0 where needed; scroll the code block locally while prose wraps."
+          ]
+        },
+        {
+          "title": [
+            "在窄处重排",
+            "Reflow when narrow"
+          ],
+          "detail": [
+            "内容区500时右侧只剩196px。表单已难读，应改为单列；测页面scrollWidth与clientWidth，并检查按钮没有被切掉。",
+            "At 500px only 196px remains. Stack columns before the form becomes unreadable, then measure overflow and inspect controls."
+          ]
+        }
+      ],
+      "result": [
+        "宽处280/416两栏，窄处单列；长代码可读，整页不横向溢出。",
+        "Use 280/416 columns when wide and a stack when narrow; keep code readable without page overflow."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "给body设置overflow:hidden让滚动条消失。",
+        "Hide body overflow to remove the scrollbar."
+      ],
+      "why": [
+        "滚动条消失可能只是把按钮和内容末尾裁掉，空间冲突仍在。",
+        "The scrollbar may disappear only because controls and text are clipped."
+      ],
+      "correct": [
+        "定位撑宽元素，修正最小尺寸或重排；滚动只放在明确的数据区域。",
+        "Fix the forcing minimum or reflow, with scrolling confined to deliberate data regions."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "内容区900、左列300、gap20，右列还有多少？",
+        "A 900px content area has a 300px rail and a 20px gap. What remains?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "600px",
+            "600px"
+          ],
+          "feedback": [
+            "还需扣除20px间距。",
+            "The 20px gap also consumes space."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "580px",
+            "580px"
+          ],
+          "feedback": [
+            "正确：900−300−20=580。若900是外框宽度，还要先扣padding。",
+            "Correct: 900−300−20=580; remove padding first if 900 is an outer measurement."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "固定450px",
+            "Always 450px"
+          ],
+          "feedback": [
+            "平分不符合已经给定的左列与间距。",
+            "Equal halves ignore the specified rail and gap."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "把含80字符长词的三张卡片放进360与1200px容器，记录重排与溢出。",
+        "Arrange three cards, including an 80-character token, at 360px and 1200px. Record reflow and overflow."
+      ],
+      "sample": [
+        "窄处单列，宽处多列；可收缩轨道配合适当断词。测量整页不溢出，放大后操作仍可达。",
+        "Use one column when narrow and multiple when space permits, shrinkable tracks and deliberate wrapping. Measure overflow and inspect controls under zoom."
+      ],
+      "criteria": [
+        [
+          "按可用空间重排，不用设备名称代替测量。",
+          "Reflow follows available space rather than device names."
+        ],
+        [
+          "长词、按钮和缩放均检查，不用隐藏整页溢出。",
+          "Check tokens, controls and zoom without hiding page overflow."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://developer.mozilla.org/en-US/curriculum/core/css-layout/",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/min-width"
+    ]
+  },
+  "frontend:dom-events": {
+    "title": [
+      "JavaScript 与事件",
+      "JavaScript and events"
+    ],
+    "explain": [
+      [
+        "点击有起点和传播路径。target是起点，currentTarget是当前监听器所在元素；按钮内部图标被点击时，两者常常不同。事件委托利用传播在父级处理动态子项，前提是能识别真实动作边界。",
+        "A click has an origin and propagation path. target identifies the origin; currentTarget owns the active listener. They often differ for an icon inside a button. Delegation handles dynamic children at a parent only when the action boundary is resolved correctly."
+      ],
+      [
+        "默认行为与传播独立。preventDefault阻止可取消的默认动作，stopPropagation影响事件传播；阻止提交不代表父监听不会运行。异步处理应保存需要的元素或值，不把任意子节点数据直接当业务授权。",
+        "Defaults and propagation are separate. preventDefault cancels a cancelable default; stopPropagation affects propagation. Preventing submission does not suppress every ancestor handler. Capture required values before asynchronous work and do not treat child data as authorization."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "JavaScript 与事件：完整示范",
+        "JavaScript and events: worked example"
+      ],
+      "given": [
+        "列表#tasks中有删除button data-id=K，其内含span图标；空白点击不能删除。",
+        "The #tasks list contains a delete button with data-id=K and a span icon. Whitespace clicks must do nothing."
+      ],
+      "steps": [
+        {
+          "title": [
+            "识别监听位置",
+            "Identify the listener"
+          ],
+          "detail": [
+            "监听在列表上。点span时target是span，currentTarget是列表，直接读target.dataset.id可能没有值。",
+            "The list listener sees span as target and the list as currentTarget; target.dataset.id may be absent."
+          ]
+        },
+        {
+          "title": [
+            "定位动作并核对归属",
+            "Resolve the scoped action"
+          ],
+          "detail": [
+            "用closest查找删除按钮，并确认它属于当前列表。没有匹配就返回；不要让点击整行任意位置都被理解为删除。",
+            "Find the delete button with closest and confirm it belongs to this list. Return if none matches."
+          ]
+        },
+        {
+          "title": [
+            "按稳定ID处理与清理",
+            "Act on stable identity and clean up"
+          ],
+          "detail": [
+            "读取K交给删除逻辑，不用可变化的行号。组件退出时移除自己绑定的监听，重挂载后一点击只处理一次。",
+            "Delete by stable K rather than a changing row index. Remove owned listeners on disposal so remounting does not duplicate the action."
+          ]
+        }
+      ],
+      "result": [
+        "文字与图标触发同一删除，空白不触发；重挂载不重复执行。",
+        "Text and icon trigger the same deletion; whitespace does not, and remounts do not duplicate it."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只有target等于button才算按钮点击。",
+        "A button click is valid only when target equals the button."
+      ],
+      "why": [
+        "嵌套span/svg也是按钮可见区域，这种判断会让图标点击失效。",
+        "A nested span or SVG is part of the visible hit area; this rejects it."
+      ],
+      "correct": [
+        "通过closest识别按钮并验证容器归属，再读取稳定标识。",
+        "Resolve the closest action, check containment and use stable identity."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "在submit事件中调用preventDefault，是否证明父级click监听不会运行？",
+        "Does preventDefault in submit prove that a parent click listener will not run?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "能，提交和冒泡相同",
+            "Yes; submission and propagation are identical"
+          ],
+          "feedback": [
+            "默认行为与传播不同，submit与click也是不同事件。",
+            "Defaults and propagation differ, and submit and click are separate events."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "能，因为currentTarget总是按钮",
+            "Yes; currentTarget is always the button"
+          ],
+          "feedback": [
+            "currentTarget由监听器绑定位置决定。",
+            "currentTarget depends on the listener location."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "不能，需要分别分析事件类型与传播",
+            "No; analyze event types and propagation separately"
+          ],
+          "feedback": [
+            "正确：需要明确监听哪种事件，以及在哪一层处理。",
+            "Correct: identify the event type and listener level."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "给动态列表委托删除，覆盖图标、文字、空白和重新挂载。",
+        "Delegate deletion in a dynamic list, checking icon, text, whitespace and remounts."
+      ],
+      "sample": [
+        "列表监听器接受所属按钮的稳定ID，删除后修正选择；新增行无需逐个重绑，卸载时清理监听。",
+        "Accept only owned buttons with stable IDs, repair selection after deletion, avoid per-row rebinding and clean up on disposal."
+      ],
+      "criteria": [
+        [
+          "能说明target/currentTarget差别与归属检查。",
+          "Explain target/currentTarget and containment."
+        ],
+        [
+          "新增行和重复挂载不会导致遗漏或重复动作。",
+          "Dynamic rows and remounts cause neither missing nor duplicate actions."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget",
+      "https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/"
+    ]
+  },
+  "frontend:keyboard": {
+    "title": [
+      "键盘与焦点",
+      "Keyboard and focus"
+    ],
+    "explain": [
+      [
+        "焦点是键盘当前操作位置。模态对话框要求背景暂时不可交互，焦点进入、内部导航、关闭及返回共同构成完整行为。只画遮罩或添加aria-modal不能自动完成这些步骤。",
+        "Focus is the current keyboard location. A modal requires an inert background, focus entry, internal navigation, closure and restoration. An overlay or aria-modal alone does not implement that lifecycle."
+      ],
+      [
+        "初始焦点要服务于阅读和任务：长说明可以先聚焦可聚焦标题，短编辑可先聚焦首个字段。非模态侧栏允许用户继续操作正文，通常不应把焦点锁在侧栏里；两者不能只按外形套同一规则。",
+        "Initial focus serves the task: a focusable heading may suit long instructions, while a first field may suit a short editor. Non-modal sidebars generally let users return to the main area and should not copy a modal trap."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "键盘与焦点：完整示范",
+        "Keyboard and focus: worked example"
+      ],
+      "given": [
+        "编辑按钮打开姓名、邮箱、保存、关闭的模态，触发按钮仍在。",
+        "Edit opens a modal with name, email, Save and Close; its trigger remains."
+      ],
+      "steps": [
+        {
+          "title": [
+            "打开并建立名称",
+            "Open with a name"
+          ],
+          "detail": [
+            "记录编辑按钮，打开有可访问名称的dialog，将焦点送到合适字段或标题，并令背景不可操作。",
+            "Remember Edit, open a named dialog, focus an appropriate field or heading and make the background inert."
+          ]
+        },
+        {
+          "title": [
+            "验证内部键盘路径",
+            "Verify internal navigation"
+          ],
+          "detail": [
+            "Tab与Shift+Tab覆盖所有控件并在首尾循环；焦点始终可见，不能进入遮罩后的背景。",
+            "Tab and Shift+Tab visit all controls and wrap at the ends; focus stays visible and out of the background."
+          ]
+        },
+        {
+          "title": [
+            "关闭并恢复原任务",
+            "Close and restore context"
+          ],
+          "detail": [
+            "关闭或Escape退出后恢复背景，焦点回到编辑按钮。若该按钮已删除，选择合理后续位置，而不是已隐藏输入。",
+            "Close or Escape restores the background and Edit trigger. If the trigger was removed, choose a logical successor, not a hidden field."
+          ]
+        }
+      ],
+      "result": [
+        "不用鼠标也能打开、编辑、关闭并继续原任务。",
+        "The user can open, edit, close and resume without a mouse."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "所有右侧帮助面板都强制Tab在内部循环。",
+        "Trap Tab inside every right-side help panel."
+      ],
+      "why": [
+        "普通非模态面板仍应允许操作正文，强制循环会阻断用户任务。",
+        "A non-modal panel should allow work in the main area; trapping blocks that task."
+      ],
+      "correct": [
+        "先确定是否真正模态，再决定背景和焦点规则。",
+        "Decide modality before choosing background and focus rules."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "关闭模态后原编辑按钮仍存在，焦点应通常回到哪里？",
+        "When the trigger still exists after modal closure, where should focus normally return?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "打开它的编辑按钮",
+            "The Edit trigger"
+          ],
+          "feedback": [
+            "正确：恢复有意义的位置；特定工作流有明确下一步时可另作安排。",
+            "Correct: restore meaningful context, unless the workflow defines a logical successor."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "浏览器地址栏",
+            "The browser address bar"
+          ],
+          "feedback": [
+            "这会丢掉应用内任务位置。",
+            "This loses the application task location."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "已隐藏的输入框",
+            "The hidden field"
+          ],
+          "feedback": [
+            "不可见焦点无法支持可理解的后续键盘操作。",
+            "Invisible focus cannot support understandable navigation."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为长说明、两输入及取消按钮的模态写键盘验收记录。",
+        "Record keyboard checks for long instructions, two fields and Cancel."
+      ],
+      "sample": [
+        "核对名称、初始焦点、Tab/Shift+Tab顺序、Escape关闭及恢复；在200%缩放下复查焦点可见。",
+        "Check naming, initial focus, Tab/Shift+Tab, Escape and restoration; recheck visible focus at 200% zoom."
+      ],
+      "criteria": [
+        [
+          "记录实际按键和观察，不只罗列ARIA属性。",
+          "Record keys and observations beyond ARIA attributes."
+        ],
+        [
+          "说明模态和非模态焦点策略不同。",
+          "Distinguish modal and non-modal focus policy."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+      "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      "https://www.w3.org/WAI/test-evaluate/preliminary/"
+    ]
+  },
+  "frontend:form-errors": {
+    "title": [
+      "表单错误与提示",
+      "Form errors and feedback"
+    ],
+    "explain": [
+      [
+        "错误信息要把失败变成可执行的下一步：哪个字段、为什么失败、怎样修正。只有红色边框不能向不辨色或使用屏幕阅读器的人传达原因；一次消失的toast也不能替代持续存在的字段说明。",
+        "An error should identify the field, cause and correction. A red border alone does not communicate to everyone, and a disappearing toast cannot replace persistent field guidance."
+      ],
+      [
+        "字段格式错误、服务拒绝和网络故障不是同一状态。格式错误可以就地修；网络失败可能只需重试。失败后保留已经输入的内容，避免用户因修一个字段而重复填写全部信息。",
+        "Invalid format, service rejection and network failure are distinct. A format can be corrected locally, while a network failure may need a retry. Preserve values so fixing one field does not require re-entering everything."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "表单错误与提示：完整示范",
+        "Form errors and feedback: worked example"
+      ],
+      "given": [
+        "姓名=林，邮箱=lin@，服务器尚未收到请求。希望失败后用户能改正邮箱。",
+        "Name is Lin, email is lin@ and no request has reached the server. The user must be able to correct the email."
+      ],
+      "steps": [
+        {
+          "title": [
+            "明确失败条件",
+            "Identify the failure"
+          ],
+          "detail": [
+            "提交时发现邮箱缺少完整域名，消息写“请输入完整邮箱，例如name@example.com”，而不是“操作失败”。",
+            "Submission detects the incomplete email; explain the expected format instead of saying only Operation failed."
+          ]
+        },
+        {
+          "title": [
+            "关联错误并保持输入",
+            "Associate feedback and preserve values"
+          ],
+          "detail": [
+            "邮箱用aria-describedby关联错误文本，按需要设置aria-invalid；姓名和邮箱原文都保留。把焦点送到错误摘要或首错字段，采用一致策略。",
+            "Associate the message with Email, expose invalid state as appropriate and preserve both values. Focus a summary or the first invalid field consistently."
+          ]
+        },
+        {
+          "title": [
+            "修正后再次提交",
+            "Correct and resubmit"
+          ],
+          "detail": [
+            "用户改为lin@example.com，只清除相应格式错误；若此时网络失败，显示可重试状态，不能再说邮箱格式不对。",
+            "After correction, clear the relevant format error. A later network failure needs retry feedback, not another invalid-email message."
+          ]
+        }
+      ],
+      "result": [
+        "用户知道改哪一项，已有信息不丢，格式与网络问题分别呈现。",
+        "The user knows what to fix, retains prior work and sees distinct validation and network feedback."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "失败后把整个表单reset，保证状态干净。",
+        "Reset the entire form after failure to clean state."
+      ],
+      "why": [
+        "这抹去无错字段和待修正原文，把系统失败的成本转移给用户。",
+        "This erases correct fields and the input needing repair, imposing avoidable work."
+      ],
+      "correct": [
+        "保留输入，只更新相关错误与提交状态。",
+        "Preserve input and update only relevant errors and submission state."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "邮箱已通过格式检查，但服务暂时不可达，应显示什么？",
+        "Email passes format checks, but the service is unreachable. What should appear?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "邮箱无效，请全部重填",
+            "Invalid email; re-enter everything"
+          ],
+          "feedback": [
+            "失败不是邮箱格式造成的，重填也不能解决连通性。",
+            "The format did not cause the failure; re-entry cannot repair connectivity."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "保留内容，说明连接失败并提供重试",
+            "Preserve values, explain connection failure and offer retry"
+          ],
+          "feedback": [
+            "正确：消息对应实际失败，修复动作也相符。",
+            "Correct: the feedback and action match the failure."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "直接显示保存成功",
+            "Show Saved immediately"
+          ],
+          "feedback": [
+            "没有成功回执，不能制造成功状态。",
+            "There is no success receipt to justify that state."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "给手机号报名表写空值、格式错、重复报名和网络失败四种反馈及焦点行为。",
+        "Specify empty, invalid, duplicate-registration and network feedback for a phone form."
+      ],
+      "sample": [
+        "字段错误关联手机号，重复报名按产品允许的安全表述处理，网络失败保留内容；成功有可感知回执，均通过键盘核对。",
+        "Associate field errors, use a safe contract-defined duplicate message, retain input on network failure and expose an observable success receipt; check keyboard use."
+      ],
+      "criteria": [
+        [
+          "错误有具体原因与修正动作，状态不混为一谈。",
+          "Errors have causes and actions; states remain distinct."
+        ],
+        [
+          "错误、输入保留和成功通知可被键盘/辅助技术感知。",
+          "Feedback, preserved values and success are accessible."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      "https://www.w3.org/WAI/test-evaluate/preliminary/"
+    ]
+  },
+  "frontend:async-ui": {
+    "title": [
+      "请求与异步状态",
+      "Requests and async states"
+    ],
+    "explain": [
+      [
+        "请求状态至少区分未开始、等待、成功有数据、成功空集和失败。空集是服务成功回答“没有”，失败是“暂时不知道”；把它们都画成空白会让用户得出错误结论。",
+        "Distinguish idle, pending, populated success, empty success and failure. Empty means a successful answer of none; failure means the answer is unknown. Rendering both as blank misleads users."
+      ],
+      [
+        "响应到达顺序不等于用户意图顺序。最新搜索要由请求身份决定，而不是最后一个网络回调决定。fetch对HTTP错误通常仍给Response，必须检查ok；取消客户端等待也不保证服务器撤销写入。",
+        "Arrival order does not define user intent. Use request identity, not the last callback, to choose visible results. Fetch normally returns a Response for HTTP errors, requiring an ok check. Canceling a wait does not guarantee server rollback."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "请求与异步状态：完整示范",
+        "Requests and async states: worked example"
+      ],
+      "given": [
+        "用户先搜茶A，再搜咖啡B。B在100ms成功，A在500ms成功，随后又发C并收到HTTP503。",
+        "The user searches tea A then coffee B. B succeeds at 100ms and A at 500ms. A later C search receives HTTP503."
+      ],
+      "steps": [
+        {
+          "title": [
+            "给每次意图编号",
+            "Identify each intent"
+          ],
+          "detail": [
+            "A记为1、B记为2，把当前编号设2。B完成时2等于当前值，允许呈现咖啡结果并释放它的等待状态。",
+            "Assign A=1 and B=2; current=2. B may render coffee results and release its pending state."
+          ]
+        },
+        {
+          "title": [
+            "忽略过期完成",
+            "Ignore stale completion"
+          ],
+          "detail": [
+            "A完成时1不等于2，不改结果，也不把新请求的加载状态清掉。可取消旧请求，但身份检查仍清楚表达哪次结果有效。",
+            "When A finishes, 1 differs from 2; change neither results nor a newer request’s pending state. Identity expresses validity even when cancellation is used."
+          ]
+        },
+        {
+          "title": [
+            "把失败与空集分开",
+            "Separate failure from empty"
+          ],
+          "detail": [
+            "C先检查response.ok，503走错误与重试分支；成功返回[]才显示“无匹配”。保留搜索词以便修订或重试。",
+            "Check C’s response.ok: 503 enters an error/retry path; only a successful [] means no matches. Preserve the search text."
+          ]
+        }
+      ],
+      "result": [
+        "最终不被旧茶结果覆盖；503不会冒充“没有咖啡”。",
+        "Stale tea never replaces current results, and 503 never masquerades as no matches."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "所有finally都无条件把页面loading=false。",
+        "Every finally unconditionally sets page loading=false."
+      ],
+      "why": [
+        "旧请求完成可能清掉新请求仍在使用的等待状态。",
+        "An older completion can clear the pending state of a newer request."
+      ],
+      "correct": [
+        "只让当前请求更新其状态，必要时在卸载和新意图时取消旧请求。",
+        "Only the current request updates its state; cancel obsolete work when appropriate."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "最新请求D成功返回[]，旧请求C随后返回数据，应显示什么？",
+        "Latest request D returns []; older C then returns data. What should remain?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "显示C，因为它最后返回",
+            "Show C because it arrived last"
+          ],
+          "feedback": [
+            "网络顺序不代表当前意图。",
+            "Arrival order does not establish current intent."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "显示网络错误",
+            "Show a network failure"
+          ],
+          "feedback": [
+            "D已成功，空数组不是故障。",
+            "D succeeded; an empty array is not a failure."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "保留D的无匹配状态",
+            "Keep D’s empty-success state"
+          ],
+          "feedback": [
+            "正确：空结果也是有效的当前结果，不能被旧数据顶替。",
+            "Correct: empty success is valid current data."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "设计城市搜索，记录快慢交错、空集、503和重试四条时间线。",
+        "Design city search and record out-of-order, empty, 503 and retry timelines."
+      ],
+      "sample": [
+        "每条时间线注明请求编号、当前意图、响应与可见状态；只有当前响应能改变显示，错误保留查询且可重试。",
+        "Record request ID, current intent, response and visible state. Only current responses render; errors retain queries and support retry."
+      ],
+      "criteria": [
+        [
+          "明确成功空集与失败，检查HTTP状态后再解析。",
+          "Distinguish empty success from failure and inspect HTTP status."
+        ],
+        [
+          "晚到响应与晚到finally均不能覆盖新状态。",
+          "Neither stale responses nor finally blocks override newer state."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    ]
+  },
+  "frontend:state-ownership": {
+    "title": [
+      "组件状态归属",
+      "Component state ownership"
+    ],
+    "explain": [
+      [
+        "状态应记录无法直接计算的最小事实，例如选中ID。名称、筛选结果、计数等能由当前列表算出的信息可以派生，重复保存会制造两个副本不同步的问题。",
+        "State should hold minimal non-derivable facts, such as a selected ID. Names, filtered rows and counts can often be derived; storing duplicates creates disagreement."
+      ],
+      [
+        "多个组件共享选择时，把它放到共同拥有这项任务的层级。子组件用回调提出变化，父级更新唯一事实。删除对象也是状态转换：必须决定选择清空、移动到相邻项，还是显示已删除。",
+        "Shared selection belongs at the level owning that task. Children request changes through callbacks; one owner updates the fact. Deletion also needs an explicit selection transition: clear, move or show removal."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "组件状态归属：完整示范",
+        "Component state ownership: worked example"
+      ],
+      "given": [
+        "列表为{id:4,name:旧名称}、{id:9,name:乙}，selectedId=4；详情显示选中项。",
+        "Items are 4/Old name and 9/B, with selectedId=4; details show the selection."
+      ],
+      "steps": [
+        {
+          "title": [
+            "确定可信来源",
+            "Choose the source of truth"
+          ],
+          "detail": [
+            "保存items和selectedId，不再复制selectedObject。详情每次由items.find(id===selectedId)取得。",
+            "Store items and selectedId; derive the selected object from the current items."
+          ]
+        },
+        {
+          "title": [
+            "编辑同一对象",
+            "Edit the object"
+          ],
+          "detail": [
+            "把id4名称改为新名称，items替换该记录。详情重新派生后自动显示新名称，不需要单独同步第二份对象。",
+            "Replace item4 with New name. Re-deriving details displays it without synchronizing another object copy."
+          ]
+        },
+        {
+          "title": [
+            "删除后修正选择",
+            "Repair selection after deletion"
+          ],
+          "detail": [
+            "删除4后按本例约定把selectedId设为空，详情显示“请选择”。若只删items而不处理缺失，也必须有明确空态。",
+            "After deleting4, this example clears selectedId and shows Choose an item. Missing selections always need a defined empty state."
+          ]
+        }
+      ],
+      "result": [
+        "编辑和删除只维护一组事实，列表与详情不矛盾。",
+        "One set of facts keeps list and details consistent."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "分别在列表、详情各存一份完整选中对象。",
+        "Store a full selected-object copy in both list and detail."
+      ],
+      "why": [
+        "编辑与删除必须同步多个副本，一次漏同步就会显示已不存在的旧内容。",
+        "Every edit and deletion must synchronize copies; missing one produces stale content."
+      ],
+      "correct": [
+        "保留稳定ID并从当前数据派生，统一处理缺失选择。",
+        "Keep a stable ID, derive from current data and define missing selection."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "选中id8被删除，最重要的处理是什么？",
+        "Selected item8 is deleted. What matters most?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "按明确策略清空或移动选择，并呈现对应空态",
+            "Clear or move selection by a stated policy and render the result"
+          ],
+          "feedback": [
+            "正确：删除与选择必须形成一致转换。",
+            "Correct: deletion and selection form one coherent transition."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "继续保留旧对象作为当前详情",
+            "Keep the old object as current details"
+          ],
+          "feedback": [
+            "这把历史副本误当成当前真实对象。",
+            "That presents a historical copy as current."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "只把详情文字藏起来",
+            "Hide the detail text"
+          ],
+          "feedback": [
+            "隐藏没有修复状态，后续动作仍可能用旧ID。",
+            "Hiding does not repair the stale state."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "两个列表共享选中项；其中一个可以删除。画最小状态和更新流程。",
+        "Two lists share a selection and one can delete it. Draw the minimal state and update flow."
+      ],
+      "sample": [
+        "共同父级保存数据和selectedId，子列表回调选择/删除，详情派生当前对象；删除选中项时清空选择或采用已说明的相邻项策略。",
+        "A common owner holds data/selectedId; lists request selection/deletion and details derive the object. Deleting the selected object applies a declared fallback."
+      ],
+      "criteria": [
+        [
+          "能区分原始状态与派生值，避免重复副本。",
+          "Distinguish facts from derived values and avoid duplicate copies."
+        ],
+        [
+          "编辑、删除和无匹配场景都保持一致。",
+          "Editing, deletion and no-match states remain coherent."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://react.dev/learn/sharing-state-between-components",
+      "https://react.dev/learn/choosing-the-state-structure"
+    ]
+  },
+  "frontend:repro-build": {
+    "title": [
+      "依赖锁定与构建",
+      "Dependencies and builds"
+    ],
+    "explain": [
+      [
+        "package.json表达依赖约束，锁文件记录一次具体解析。两者角色不同：只有范围约束时，另一时间可能安装不同版本；锁文件与安装选项共同帮助重复构建，但不能证明所有平台产物完全相同。",
+        "package.json declares constraints while a lockfile records a concrete resolution. Ranges alone may resolve differently later. Locks and installation options support repeatability without proving identical outputs across platforms."
+      ],
+      [
+        "干净安装减少本机残留的影响。npm ci要求清单和锁文件匹配，不应在CI中偷偷修锁；Node/npm版本和影响依赖树的选项也应记录。构建完成后用提交与产物摘要识别真正验过的版本。",
+        "Clean installation removes local residue. npm ci requires manifest/lock agreement rather than silently repairing it. Record runtime versions and relevant install options, then identify verified builds by commit and artifact digests."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "依赖锁定与构建：完整示范",
+        "Dependencies and builds: worked example"
+      ],
+      "given": [
+        "开发者新增库Q到package.json，但没有更新锁文件；本机node_modules已有Q。",
+        "Q was added to package.json but not the lockfile; the developer already has Q locally."
+      ],
+      "steps": [
+        {
+          "title": [
+            "理解为何本机能过",
+            "Explain local success"
+          ],
+          "detail": [
+            "本机残留Q可使import成功，这不能证明全新环境可安装。先记录清单和锁文件的差异。",
+            "Residual Q can make imports work locally; record the manifest/lock difference rather than treating this as clean-install evidence."
+          ]
+        },
+        {
+          "title": [
+            "在干净环境暴露差异",
+            "Expose the mismatch"
+          ],
+          "detail": [
+            "按约定运行npm ci，应因不匹配而失败。不要删除锁文件、改跑任意安装来让流水线“变绿”。",
+            "A contracted npm ci should fail on disagreement. Do not delete the lockfile or substitute an unconstrained install merely to obtain green CI."
+          ]
+        },
+        {
+          "title": [
+            "修复后绑定证据",
+            "Repair and bind evidence"
+          ],
+          "detail": [
+            "在开发流程更新并审阅锁文件，再用相同运行时干净安装、测试和构建；记录提交、锁文件与输出摘要。",
+            "Update and review the lock in development, then clean-install, test and build with the recorded runtime; retain commit, lock and output identity."
+          ]
+        }
+      ],
+      "result": [
+        "失败被定位为依赖契约不一致，修复后有可重建的版本和对应证据。",
+        "The failure is traced to dependency disagreement, then repaired with traceable rebuild evidence."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "CI失败就删除锁文件重装。",
+        "Delete the lock whenever CI fails."
+      ],
+      "why": [
+        "这把已知解析改成另一次不受审阅的解析，可能掩盖真正差异。",
+        "That substitutes an unreviewed resolution and can conceal the problem."
+      ],
+      "correct": [
+        "修订并审核锁文件，保留干净安装作为验证。",
+        "Review the lock change and retain clean installation as verification."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "本机构建成功但CI提示锁文件与清单不一致，应该先做什么？",
+        "Local build passes but CI reports manifest/lock disagreement. What comes first?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "关闭一致性检查",
+            "Disable the consistency check"
+          ],
+          "feedback": [
+            "这移除了发现环境差异的证据。",
+            "That removes evidence of the environment mismatch."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "检查依赖变更并按开发流程更新和审查锁文件",
+            "Inspect dependency changes and update/review the lock in development"
+          ],
+          "feedback": [
+            "正确：先解释差异，再验证同一解析。",
+            "Correct: explain the difference before validating the resolution."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把本机node_modules打包上传",
+            "Upload local node_modules"
+          ],
+          "feedback": [
+            "本机残留和平台差异未被解决。",
+            "Local residue and platform differences remain."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "写一份同事能从新环境执行的构建记录，包含一次有意制造的锁文件失配。",
+        "Write a clean-environment build record including one deliberate lock mismatch."
+      ],
+      "sample": [
+        "列运行时/安装选项、提交与锁文件；记录失配应失败、修锁后安装/测试/构建及产物摘要，不把构建成功写成全部交互通过。",
+        "Record runtime/options, commit and lock, expected mismatch failure, repaired install/tests/build and output digests; do not equate building with full interaction checks."
+      ],
+      "criteria": [
+        [
+          "失败条件明确且没有自动绕过锁文件。",
+          "Mismatch failures are explicit and not bypassed."
+        ],
+        [
+          "最终证据绑定确切输入与产物身份。",
+          "Final evidence identifies exact inputs and artifacts."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.npmjs.com/cli/v11/commands/npm-ci/",
+      "https://developer.mozilla.org/en-US/curriculum/"
+    ]
+  },
+  "frontend:browser-tests": {
+    "title": [
+      "端到端交互检查",
+      "End-to-end interaction tests"
+    ],
+    "explain": [
+      [
+        "端到端测试检验用户能观察到的行为，而不是组件内部变量。保存按钮被点击只是动作，出现成功回执、刷新后内容仍在才是结果。清楚的预期把界面交互与持久化分开，也能定位哪一段失败。",
+        "End-to-end tests verify observable behavior rather than component internals. Clicking Save is an action; a success receipt and data surviving refresh are outcomes. Separate them to locate failures."
+      ],
+      [
+        "按角色和可访问名称定位，通常比依赖第几个div更贴近用户契约。条件等待针对真正就绪状态；固定睡眠只能猜。测试数据也需隔离，否则前一测试创建的记录会改变下一测试的起点。",
+        "Role/name locators reflect user contracts more closely than div positions. Wait for real readiness rather than sleeping for an assumed duration. Isolated data keeps earlier tests from altering later preconditions."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "端到端交互检查：完整示范",
+        "End-to-end interaction tests: worked example"
+      ],
+      "given": [
+        "合成笔记编辑器保存需1–3秒。需求：显示“已保存”，刷新后仍能找到新笔记。",
+        "A synthetic note editor saves in 1–3 seconds. It must show Saved and retain the note after refresh."
+      ],
+      "steps": [
+        {
+          "title": [
+            "设置独立起点",
+            "Set an independent starting point"
+          ],
+          "detail": [
+            "为本次测试使用唯一笔记标题和独立账户或隔离空间，先确认它不存在。避免依赖上次运行留下的数据。",
+            "Use a unique title and isolated account/space, first confirming absence rather than relying on an earlier run."
+          ]
+        },
+        {
+          "title": [
+            "操作并等候可见结果",
+            "Act and await the visible result"
+          ],
+          "detail": [
+            "通过标签填写正文，按名称点击保存，等待“已保存”状态或约定回执。即使只耗1秒也不需强等3秒。",
+            "Fill by label, click Save by name and wait for the contracted receipt. A one-second completion need not wait for a fixed three seconds."
+          ]
+        },
+        {
+          "title": [
+            "跨刷新复核",
+            "Verify across refresh"
+          ],
+          "detail": [
+            "重新加载后查找同一唯一标题与正文；再安排服务失败案例，确认错误可见且输入保留。成功消息不能代替这两类检查。",
+            "Reload and locate the same unique title/body. Separately inject service failure and verify readable errors with retained input."
+          ]
+        }
+      ],
+      "result": [
+        "证据分别覆盖点击、保存回执、持久化与失败恢复，不把页面能打开当成全链路通过。",
+        "Evidence distinguishes action, receipt, persistence and failure recovery."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "点击后sleep(3000)，然后不检查结果就判通过。",
+        "Sleep for three seconds after clicking and pass without an outcome assertion."
+      ],
+      "why": [
+        "慢环境仍可能没完成，快环境浪费时间；更重要的是，没有断言就无法发现假成功。",
+        "Slow environments may still be pending; fast ones waste time. With no assertion, false success remains undetected."
+      ],
+      "correct": [
+        "等待明确状态并断言真实内容；失败路径另做可控检查。",
+        "Wait for a stated condition, assert real content and control failure cases separately."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "按钮点击后出现成功toast，但刷新笔记消失，可以认定保存链路通过吗？",
+        "A success toast appears, but the note disappears on refresh. Did saving pass?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "通过，toast就是持久化证据",
+            "Yes; the toast proves persistence"
+          ],
+          "feedback": [
+            "toast只证明某一刻UI显示成功，不能证明数据保存。",
+            "A toast establishes only transient UI feedback."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "增加睡眠一定能修好",
+            "More sleep necessarily fixes it"
+          ],
+          "feedback": [
+            "没有证据说明这是时序问题，不能靠延时掩盖失败。",
+            "There is no evidence that delay explains the loss."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "不通过，持久化验收失败",
+            "No; the persistence criterion failed"
+          ],
+          "feedback": [
+            "正确：需要定位UI假成功还是服务存储问题，保留版本与输入证据。",
+            "Correct: investigate false UI success versus storage failure with version/input evidence."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为修改收货地址编写正常保存、拒绝保存、刷新和键盘提交的检查记录。",
+        "Specify address-edit checks for saving, rejection, refresh and keyboard submission."
+      ],
+      "sample": [
+        "每例有独立对象、明确输入、按名称操作、条件等待与结果断言；失败保留原输入，刷新验证真实存储。",
+        "Each case names isolated data, input, accessible operations, readiness condition and outcome. Rejection preserves input and refresh checks storage."
+      ],
+      "criteria": [
+        [
+          "断言面向用户结果而非仅无异常。",
+          "Assertions verify outcomes beyond absence of exceptions."
+        ],
+        [
+          "数据隔离且无固定睡眠代替就绪条件。",
+          "Data is isolated and readiness replaces arbitrary sleeps."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://playwright.dev/docs/best-practices",
+      "https://www.w3.org/WAI/test-evaluate/preliminary/"
+    ]
+  },
+  "frontend:web-vitals": {
+    "title": [
+      "加载与交互体验",
+      "Loading and interaction"
+    ],
+    "explain": [
+      [
+        "LCP关注主内容何时出现，INP关注交互后的响应延迟，CLS关注意外布局移动。它们对应不同的不适；图片把按钮推走属于稳定性问题，不能用加载速度改善代替位移修复证据。",
+        "LCP concerns main-content loading, INP interaction responsiveness and CLS unexpected layout shifts. They describe different discomfort; faster loading does not prove that a displaced button was stabilized."
+      ],
+      [
+        "实验室能控制条件并帮助定位，现场数据反映真实访问分布。比较前要对齐设备、网络、版本和时间窗。P75是分布位置，不是平均数，两个组的P75无法简单平均成总体P75。",
+        "Controlled lab conditions aid diagnosis; field data represents actual visit distributions. Align device, network, version and window. A percentile is a distribution position, not a mean, so subgroup P75s cannot simply be averaged."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "加载与交互体验：完整示范",
+        "Loading and interaction: worked example"
+      ],
+      "given": [
+        "合成复测：同设备下，未预留图片尺寸时CLS=0.24；预留尺寸后CLS=0.03，LCP保持2.1秒。",
+        "Synthetic repeat test on one device: CLS is 0.24 without image space and 0.03 with space; LCP remains 2.1 seconds."
+      ],
+      "steps": [
+        {
+          "title": [
+            "从现象选择指标",
+            "Choose the relevant metric"
+          ],
+          "detail": [
+            "按钮在图片到达时下移，先检查布局位移而非只问页面几秒打开。记录发生位移的元素及触发资源。",
+            "A button moves when the image arrives; investigate layout shift and identify moved elements and triggering resources."
+          ]
+        },
+        {
+          "title": [
+            "控制一次有意义的改变",
+            "Control a meaningful change"
+          ],
+          "detail": [
+            "为图片声明实际宽高或比例，保持版本外其他条件相同再测。CLS由0.24到0.03支持该受控场景稳定性改善。",
+            "Reserve image dimensions/aspect ratio and repeat under aligned conditions. The CLS difference supports improvement in this controlled scenario."
+          ]
+        },
+        {
+          "title": [
+            "限定结论并扩展验证",
+            "Bound and extend the conclusion"
+          ],
+          "detail": [
+            "LCP未变，所以不能写“加载提速”；还需检查其他内容和现场移动端分布，确认没有新位移或交互问题。",
+            "Unchanged LCP does not support faster loading. Check other content and mobile field distributions for remaining shifts or interaction problems."
+          ]
+        }
+      ],
+      "result": [
+        "可以写“本次受控场景位移减少”，不能直接写所有用户所有指标均改善。",
+        "Conclude reduced shift in this controlled scenario, not universal improvement across users and metrics."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "移动P75=4秒、桌面P75=2秒，所以总体P75=3秒。",
+        "Mobile P75=4s and desktop P75=2s, so overall P75=3s."
+      ],
+      "why": [
+        "分位数无法这样合并；组大小和原始分布都会影响总体排序位置。",
+        "Percentiles do not combine that way; group sizes and distributions determine the pooled position."
+      ],
+      "correct": [
+        "保留分组结果，需要总体时从可合并的原始分布重新计算。",
+        "Retain subgroup results and recompute an overall percentile from a suitable pooled distribution."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "图片预留空间后CLS下降，但LCP不变。最直接得到支持的结论是什么？",
+        "Reserving image space lowers CLS while LCP is unchanged. What is directly supported?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "该场景的布局稳定性改善",
+            "Layout stability improved in that scenario"
+          ],
+          "feedback": [
+            "正确：指标与现象一致，但仍需检查其他场景与现场分布。",
+            "Correct: the metric matches the symptom, within the tested scope."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "所有用户加载更快",
+            "All users load faster"
+          ],
+          "feedback": [
+            "LCP未变且只有受控样本，不支持这个推广。",
+            "Neither unchanged LCP nor the controlled sample supports that claim."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "所有交互延迟都消失",
+            "All interaction delays disappeared"
+          ],
+          "feedback": [
+            "没有INP或对应交互证据。",
+            "There is no relevant interaction evidence."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "对一个会插入通知条的页面制定复测：记录现象、指标、固定条件和结论范围。",
+        "Plan a retest for a page inserting a notification banner: symptom, metric, controlled conditions and conclusion scope."
+      ],
+      "sample": [
+        "若横幅把内容推下，记录CLS和位移元素；固定设备网络版本比较有无预留空间，并另看实际交互和分组现场数据。",
+        "For pushed content, record CLS and moved elements. Compare reserved/unreserved space under aligned conditions; separately examine interactions and grouped field data."
+      ],
+      "criteria": [
+        [
+          "指标与用户不适相对应。",
+          "The metric matches the user symptom."
+        ],
+        [
+          "结论注明实验条件，不混算分组P75。",
+          "State conditions and do not average subgroup P75s."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://web.dev/articles/vitals"
+    ]
+  },
+  "frontend:browser-security": {
+    "title": [
+      "浏览器内容安全",
+      "Browser content security"
+    ],
+    "explain": [
+      [
+        "文本与HTML解析是不同信任边界。名称、评论等不可信输入若交给innerHTML，浏览器会把其中标记解释成结构，可能引入攻击面；需求只是展示文本时，应采用文本节点或安全文本属性。",
+        "Text display and HTML parsing cross different trust boundaries. Feeding untrusted names/comments to innerHTML interprets markup and can introduce an attack surface. A text-display requirement should use text nodes or a safe text property."
+      ],
+      [
+        "CSP约束资源与脚本来源，是纵深防御，不会把错误输出处理自动变安全。策略应结合实际资源清单制定，检查响应头、控制台和实际行为；只看到存在CSP这个名字不能判断控制是否有效。",
+        "CSP restricts resource/script sources as defense in depth; it does not repair unsafe output handling. Build it from actual resource needs and inspect headers, violations and behavior, rather than checking only that a CSP header exists."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "浏览器内容安全：完整示范",
+        "Browser content security: worked example"
+      ],
+      "given": [
+        "合成资料卡：姓名字符串为<script>demo</script>，头像来自已批准图片域；姓名只需要原样显示。",
+        "A synthetic profile name is the literal string <script>demo</script>; its avatar uses an approved image domain. The name must display as text."
+      ],
+      "steps": [
+        {
+          "title": [
+            "按需求决定输出方式",
+            "Choose output by requirement"
+          ],
+          "detail": [
+            "姓名设置到textContent，保留尖括号字样作为文本；不拼接到HTML模板，不把它当代码或富文本需求。",
+            "Assign the name via textContent, preserving angle brackets as text rather than interpolating it into HTML."
+          ]
+        },
+        {
+          "title": [
+            "按资源清单设置策略",
+            "Define resource policy"
+          ],
+          "detail": [
+            "列出页面自己的脚本和批准图片域，再配置相应script-src/img-src；不为了消除一条报错放开所有来源。",
+            "Inventory scripts and approved image origins before configuring script-src/img-src; do not allow every source to silence a violation."
+          ]
+        },
+        {
+          "title": [
+            "验证呈现与拒绝",
+            "Check rendering and rejection"
+          ],
+          "detail": [
+            "确认姓名原样显示，批准头像能加载，未批准图片按策略被阻止；记录实际策略与检查范围。",
+            "Check literal text, allowed avatar loading and blocked unapproved images, recording the policy and checked scope."
+          ]
+        }
+      ],
+      "result": [
+        "姓名是数据，资源按策略加载；这仍不代替服务端对象权限和其他输入处理。",
+        "The name remains data and resources follow policy; server-side authorization and other input controls remain separate."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "已加CSP，可以继续把任意名字拼入innerHTML。",
+        "CSP makes arbitrary name interpolation into innerHTML acceptable."
+      ],
+      "why": [
+        "CSP不是输出编码的替代品，宽松或变化的策略也可能让错误再次暴露。",
+        "CSP does not replace safe output handling, and policy changes can expose the underlying defect."
+      ],
+      "correct": [
+        "先用符合内容类型的输出接口，CSP再作为额外控制。",
+        "Use output handling appropriate to the content first, with CSP as an additional control."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "需求是显示用户输入的字面文本，应该优先选什么？",
+        "The requirement is literal user-text display. What comes first?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "字符串拼成HTML，再盼CSP拦截",
+            "Build HTML and rely on CSP"
+          ],
+          "feedback": [
+            "这不必要地跨越了解析边界。",
+            "This unnecessarily crosses into markup parsing."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "文本节点或textContent",
+            "A text node or textContent"
+          ],
+          "feedback": [
+            "正确：不要求HTML解释，就不交给HTML解析器。",
+            "Correct: do not invoke an HTML parser when markup is not required."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "隐藏所有含尖括号的资料",
+            "Hide every value containing angle brackets"
+          ],
+          "feedback": [
+            "这损失有效文本，且没有说明真正安全的显示路径。",
+            "That discards legitimate text without defining safe rendering."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "设计显示评论正文和外域图片的资料页，列安全显示、资源允许及负面检查。",
+        "Design comment text and external-image display with safe rendering, allowed resources and negative checks."
+      ],
+      "sample": [
+        "评论走文本接口；图片来源按清单允许。分别检查文本不被解释、允许域可加载、未知域被阻止，并记录未覆盖的服务端权限。",
+        "Render comments as text and allow image origins by inventory. Check literal rendering, allowed and denied origins, and state separate server authorization scope."
+      ],
+      "criteria": [
+        [
+          "文本、HTML和资源来源的边界分开。",
+          "Separate text, markup and resource-origin boundaries."
+        ],
+        [
+          "不把CSP或页面通过当成全部安全保证。",
+          "Neither CSP nor a page check is a blanket security guarantee."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "https://developer.mozilla.org/en-US/curriculum/"
+    ]
+  },
+  "frontend:release-checks": {
+    "title": [
+      "上线验收与回归",
+      "Release and regression checks"
+    ],
+    "explain": [
+      [
+        "上线验收要回答“哪一个构建、在哪个环境、用哪些输入得到了什么结果”。测试通过只覆盖实际检查范围，构建成功只说明产物能生成，不能推出键盘、慢网络或数据持久化也正常。",
+        "Release acceptance identifies the build, environment, inputs and outcomes. Passing tests covers checked scope; a successful build alone does not establish keyboard behavior, slow-network handling or persistence."
+      ],
+      [
+        "风险来自变化路径及相邻路径。注册校验改变后，不只测试新邮箱成功，还要检查已有邮箱、失败后输入、键盘提交和会话状态。发布回执把验收与实际运行的资源身份连接起来，回退还需要数据兼容条件。",
+        "Risk follows changed and adjacent paths. New registration validation needs success, existing-email, retained-input, keyboard and session checks. A receipt links acceptance to deployed artifacts; rollback also needs data compatibility."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "上线验收与回归：完整示范",
+        "Release and regression checks: worked example"
+      ],
+      "given": [
+        "注册页修改邮箱校验。候选构建R7；环境为隔离测试服务，不涉及生产账户。",
+        "Registration email validation changed in candidate R7, tested against an isolated service."
+      ],
+      "steps": [
+        {
+          "title": [
+            "为变化列可观察标准",
+            "Define observable criteria"
+          ],
+          "detail": [
+            "正常新邮箱可提交，格式错有字段提示，重复邮箱按约定响应；每例保留输入和预期，不只写“注册正常”。",
+            "Specify new-email success, field feedback for invalid format and contracted duplicate behavior, with inputs and expectations."
+          ]
+        },
+        {
+          "title": [
+            "覆盖交互与失败路径",
+            "Exercise interaction and failure"
+          ],
+          "detail": [
+            "用键盘走流程，模拟慢响应与断网，确认不会重复提交或丢输入；再刷新检查成功账户状态。",
+            "Complete it by keyboard and test slow/offline responses for duplicates or lost input, then refresh to verify the successful state."
+          ]
+        },
+        {
+          "title": [
+            "核对版本与恢复条件",
+            "Identify build and recovery conditions"
+          ],
+          "detail": [
+            "把结果绑定R7资源摘要；未测英文长文写未测。恢复旧版前核对新账户或数据结构是否兼容，不能只换前端文件。",
+            "Bind evidence to R7 digests and mark unchecked English content unknown. Verify data/account compatibility before restoring old code."
+          ]
+        }
+      ],
+      "result": [
+        "交付的是可追溯、有范围的验收记录，不是无依据的全页通过标签。",
+        "Deliver traceable, scoped acceptance evidence rather than an unsupported all-clear label."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "页面打开且build成功，就把所有检查项填通过。",
+        "Mark every criterion passed because the page opens and builds."
+      ],
+      "why": [
+        "这把没有执行的操作伪装成结果，也无法帮助定位上线后的回归。",
+        "That invents evidence and obscures post-release diagnosis."
+      ],
+      "correct": [
+        "按每条输入与实际操作记录，通过、失败、未测分别呈现。",
+        "Record actual actions per input and distinguish passed, failed and untested."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "鼠标注册成功，但键盘和英文均未测，应怎样报告？",
+        "Mouse registration passes, but keyboard and English were not checked. How should this be reported?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "所有用户注册流程通过",
+            "Registration passes for all users"
+          ],
+          "feedback": [
+            "超出实际证据范围。",
+            "That exceeds the evidence."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "把未测项删掉",
+            "Remove untested criteria"
+          ],
+          "feedback": [
+            "删掉不会使风险消失，还会丢失待办。",
+            "Removal hides rather than resolves the gap."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "仅确认该构建的鼠标中文路径，另列待测项",
+            "Confirm that build’s checked mouse/Chinese path and list pending checks"
+          ],
+          "feedback": [
+            "正确：范围清楚，后续补测可继续核对。",
+            "Correct: scope is clear and pending checks remain actionable."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为密码重置页列五类验收并为每类指定输入、预期和证据位置。",
+        "Define five password-reset acceptance categories with inputs, expectations and evidence locations."
+      ],
+      "sample": [
+        "包含正常、过期凭据、重复动作、键盘和慢网络；记录构建/环境/实际结果，对未测或依赖服务保留明确范围。",
+        "Cover normal, expired credentials, repeated actions, keyboard and slow network, recording build/environment/results and dependency limits."
+      ],
+      "criteria": [
+        [
+          "证据绑定实际构建而非仅页面版本文字。",
+          "Evidence identifies the actual build beyond a displayed version."
+        ],
+        [
+          "失败与未测不被改写为通过。",
+          "Failed and untested cases remain distinct."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://playwright.dev/docs/best-practices",
+      "https://www.w3.org/WAI/test-evaluate/preliminary/",
+      "https://web.dev/articles/vitals"
+    ]
+  },
+  "backend:http-semantics": {
+    "title": [
+      "HTTP 与状态码",
+      "HTTP and status codes"
+    ],
+    "explain": [
+      [
+        "HTTP方法表达请求意图。安全方法的语义不要求改变服务状态；幂等描述多次同类请求与一次请求的预期效果相同，不要求每次响应正文和状态码相同。协议语义与额外业务防重契约需要分开理解。",
+        "HTTP methods express intent. Safe methods do not request state changes; idempotence means repeated equivalent requests have the same intended effect as one, not identical responses. Protocol semantics and additional business deduplication are distinct."
+      ],
+      [
+        "状态码表达响应类别，必须配合接口约定。未认证、无权限、输入错误、对象不存在和状态冲突的处理各不同；有的系统会为防泄漏统一呈现对象不存在，但这应是明确策略，而非任意用200包住所有失败。",
+        "Status codes categorize responses under a contract. Missing authentication, authorization, invalid input, absence and conflict differ. A documented concealment policy may use not-found responses, but arbitrary 200 responses should not erase failures."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "HTTP 与状态码：完整示范",
+        "HTTP and status codes: worked example"
+      ],
+      "given": [
+        "合成接口DELETE /notes/8：已认证且有删除权限。第一次删除已有笔记，第二次请求同一笔记。",
+        "Synthetic DELETE /notes/8: the caller is authenticated and authorized. It deletes an existing note, then repeats the same request."
+      ],
+      "steps": [
+        {
+          "title": [
+            "明确预期效果",
+            "Define the intended effect"
+          ],
+          "detail": [
+            "删除要求资源8不再存在；第一次成功后该效果已经成立。不要把“重复请求”误解成创建另一个删除对象。",
+            "The intended effect is absence of note8, already established by the first success."
+          ]
+        },
+        {
+          "title": [
+            "按契约产生响应",
+            "Respond under the contract"
+          ],
+          "detail": [
+            "本例约定第一次返回204、第二次404。虽然状态不同，资源最终仍不存在，删除的预期效果没有再次增加。",
+            "This contract returns 204 first and 404 on repetition. The resource remains absent, so the intended effect does not accumulate."
+          ]
+        },
+        {
+          "title": [
+            "与创建操作比较",
+            "Compare with creation"
+          ],
+          "detail": [
+            "POST创建笔记若每次都新增一条，就不能因请求文本相同而安全重试；需另有业务幂等键与原回执策略。",
+            "A POST that creates a new note each time is not safe to retry solely because its body matches; it needs an additional business idempotency contract."
+          ]
+        }
+      ],
+      "result": [
+        "两次不同响应可以对应幂等效果；状态一致并不是幂等性的定义。",
+        "Different responses can accompany an idempotent effect; identical status codes do not define idempotence."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把所有方法都当成可无条件重试，只要上次超时。",
+        "Retry every method unconditionally after a timeout."
+      ],
+      "why": [
+        "超时不证明未执行，重复创建或收费可能产生额外业务效果。",
+        "A timeout does not prove non-execution; creating or charging again may duplicate effects."
+      ],
+      "correct": [
+        "先判断方法语义及业务契约，再决定是否和如何重试。",
+        "Evaluate method semantics and the business contract before retrying."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "DELETE重复调用第一次204、第二次404，能据此判定它不幂等吗？",
+        "DELETE returns 204 then 404. Does this prove non-idempotence?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "不能，应检查重复请求是否增加了业务效果",
+            "No; inspect whether repetition adds an intended effect"
+          ],
+          "feedback": [
+            "正确：资源保持不存在可与幂等一致，还要核对具体接口契约。",
+            "Correct: continuing absence is compatible with idempotence, subject to the endpoint contract."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "能，因为状态码不同",
+            "Yes; the statuses differ"
+          ],
+          "feedback": [
+            "幂等关注预期效果，不要求响应相同。",
+            "Idempotence concerns the intended effect, not identical responses."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "不能，因为DELETE保证所有实现绝无缺陷",
+            "No; DELETE guarantees every implementation is correct"
+          ],
+          "feedback": [
+            "协议语义不能自动证明具体代码遵守约定。",
+            "Protocol semantics do not establish implementation correctness."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "给读取和创建订单写状态/响应约定，覆盖未登录、无对象权限、非法字段和重复意图。",
+        "Specify read/create order responses for missing login, denied object access, invalid fields and repeated intent."
+      ],
+      "sample": [
+        "读取保持安全语义，创建明确成功与失败结构；重复创建使用稳定幂等键绑定请求内容，返回原回执，跨权限响应不披露对象正文。",
+        "Preserve safe reads, specify creation outcomes and bind repeated creation to a stable key/content pair with receipt reuse; denied access reveals no object body."
+      ],
+      "criteria": [
+        [
+          "方法、效果与响应码的解释一致。",
+          "Method, effect and response meanings agree."
+        ],
+        [
+          "不把超时或相同正文误认为可重复写入。",
+          "Neither timeout nor matching text justifies duplicate writes."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html"
+    ]
+  },
+  "backend:api-contract": {
+    "title": [
+      "OpenAPI 与错误契约",
+      "OpenAPI and error contracts"
+    ],
+    "explain": [
+      [
+        "接口契约不仅是一个成功样例，还规定参数位置、类型、必填、范围、响应和安全条件。样例只展示一个值，schema才能描述允许集合；缺失字段与显式null也需要分别约定，不能被模糊的“可选”混在一起。",
+        "An API contract specifies parameter location, types, presence, ranges, responses and security. An example shows one instance; a schema defines allowed instances. Absence and explicit null also need distinct rules."
+      ],
+      [
+        "结构合法不等于业务可执行。quantity是整数且大于零，只解决形状和值域；商品存在、库存够不够、主体可否下单仍是业务或授权条件。错误也要有稳定、可理解的结构，方便调用者修正而不是解析堆栈文字。",
+        "Structural validity does not establish business validity. An integer quantity above zero does not prove product existence, stock or permission. Stable error shapes let clients respond without parsing internal stack messages."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "OpenAPI 与错误契约：完整示范",
+        "OpenAPI and error contracts: worked example"
+      ],
+      "given": [
+        "合成创建订单契约：quantity必填且integer、minimum=1；成功返回id/status。提交quantity=0、\"2\"和2。",
+        "Synthetic order contract: required integer quantity with minimum=1; success returns id/status. Inputs are 0, string \"2\" and integer2."
+      ],
+      "steps": [
+        {
+          "title": [
+            "依次检查存在与类型",
+            "Check presence and type"
+          ],
+          "detail": [
+            "先确认字段存在；字符串\"2\"不满足本例integer契约，不因可转换就偷偷改变客户端输入语义。",
+            "Check presence first; string \"2\" violates this integer contract even though it is convertible."
+          ]
+        },
+        {
+          "title": [
+            "检查范围并定位错误",
+            "Check bounds and identify errors"
+          ],
+          "detail": [
+            "0类型正确但小于1，返回约定输入错误并定位quantity。调用方可区分“类型错误”和“范围错误”。",
+            "Zero has the right type but fails the minimum. Return the contracted field error, distinguishing type from range failure."
+          ]
+        },
+        {
+          "title": [
+            "通过结构后执行业务",
+            "Continue to business checks"
+          ],
+          "detail": [
+            "2通过schema后再查商品、权限和库存。仅当业务提交成功才返回新id及状态，不能提前拼成功响应。",
+            "After integer2 passes the schema, check product, permission and stock. Return an ID/status only after successful business commitment."
+          ]
+        }
+      ],
+      "result": [
+        "三种输入得到不同、可解释的处理；schema、业务规则和响应各有清楚职责。",
+        "The three inputs receive explainable handling, with distinct schema, business and response responsibilities."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只写一个quantity=2成功样例，不写约束和失败结构。",
+        "Provide one successful quantity=2 example without constraints or errors."
+      ],
+      "why": [
+        "调用者无法知道0、字符串、缺失或null是否允许，测试也没有可靠判定依据。",
+        "Consumers cannot infer whether zero, strings, absence or null are valid."
+      ],
+      "correct": [
+        "声明schema与错误结构，再用正反例验证契约。",
+        "Specify schema and errors, then validate positive and negative examples."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "字段定义为可省略的字符串，就能推断显式null也合法吗？",
+        "A string field may be omitted. Is explicit null therefore valid?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "能，可省略等于可为null",
+            "Yes; optional means nullable"
+          ],
+          "feedback": [
+            "存在性和允许的类型是不同约束。",
+            "Presence and allowed types are distinct constraints."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "不能，需要看schema是否明确允许null",
+            "No; inspect whether the schema permits null"
+          ],
+          "feedback": [
+            "正确：缺字段与携带null不是同一输入。",
+            "Correct: absence and an explicit null are different inputs."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "能，示例里没有它就足够",
+            "Yes; omission from an example proves it"
+          ],
+          "feedback": [
+            "单个例子不能完整描述允许集合。",
+            "One example does not define all valid instances."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为任务筛选接口写status字段契约、成功响应和非法状态错误样例。",
+        "Specify status filtering, successful responses and invalid-status errors."
+      ],
+      "sample": [
+        "status列出允许值和缺省行为；成功列表为空也合法，未知状态返回字段级错误。缺失与null分别说明，权限不靠schema代替。",
+        "List allowed states and default behavior; an empty success list is valid and unknown states yield a field error. Distinguish absence/null and retain authorization."
+      ],
+      "criteria": [
+        [
+          "有明确类型、允许集合、缺省和错误结构。",
+          "Types, allowed values, defaults and errors are explicit."
+        ],
+        [
+          "成功样例之外还有能被拒绝的反例。",
+          "Negative examples accompany success cases."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://spec.openapis.org/oas/latest.html",
+      "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "https://spec.openapis.org/oas/v3.1.1.html"
+    ]
+  },
+  "backend:service-structure": {
+    "title": [
+      "Java 服务分层",
+      "Java service boundaries"
+    ],
+    "explain": [
+      [
+        "分层用职责建立可测试边界。控制器负责HTTP输入输出，业务服务执行下单等领域规则，存储适配负责读写。价值是同一规则可被多种入口复用，而不是每个类必须机械对应一层。",
+        "Layers create testable responsibilities. Controllers adapt HTTP, services implement domain operations and persistence adapters read/write. The value is reusable rules across entry points, not a mandatory class per layer."
+      ],
+      [
+        "事务边界应包住一个需要保持一致的业务动作。若校验、库存扣减和订单写入散在不同入口且独立提交，复用时很容易漏掉规则。将规则归属说清，比把方法命名为Service更重要。",
+        "A transaction should encompass a coherent business operation. Rules scattered across independently committing entry points are easily skipped. Explicit ownership matters more than naming a class Service."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "Java 服务分层：完整示范",
+        "Java service boundaries: worked example"
+      ],
+      "given": [
+        "合成下单：商品库存3，用户订2，单价10元；HTTP与批处理都允许下单。",
+        "Synthetic order: stock3, quantity2, price10. Both HTTP and a batch job can create orders."
+      ],
+      "steps": [
+        {
+          "title": [
+            "把传输与业务分开",
+            "Separate transport and domain"
+          ],
+          "detail": [
+            "控制器解析请求，按契约处理字段错误并取得可信主体；批处理把自己的格式转成同样的下单输入，不各算一份折扣或库存。",
+            "The controller parses and authenticates the request; batch input maps to the same order command rather than duplicating pricing/stock logic."
+          ]
+        },
+        {
+          "title": [
+            "由服务协调规则",
+            "Coordinate rules in the service"
+          ],
+          "detail": [
+            "服务检查权限、数量和库存，计算20元，并在同一业务提交边界内扣2、写订单。仓库接口只执行约定读写，不决定HTTP码。",
+            "The service checks permission/quantity/stock, calculates20 and coordinates deducting2 plus creating the order. Repositories implement storage, not HTTP status policy."
+          ]
+        },
+        {
+          "title": [
+            "在拒绝路径核对一致性",
+            "Check consistency on rejection"
+          ],
+          "detail": [
+            "另用数量4调用同一服务，应拒绝且库存仍3、无订单。对HTTP与批处理分别核对它们正确呈现这个共同结果。",
+            "Calling with quantity4 must leave stock3 and create no order. Check that HTTP and batch entry points faithfully expose the shared result."
+          ]
+        }
+      ],
+      "result": [
+        "成功库存1、订单金额20；失败不残留写入，两入口使用同一业务规则。",
+        "Success leaves stock1 and an order total20; failure leaves no partial write, with one rule shared by both entry points."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把库存规则只写在控制器，批处理直接调用存储。",
+        "Put stock checks only in the controller while batch writes storage directly."
+      ],
+      "why": [
+        "另一入口绕过了同一业务不变量，分层名词没有防止重复和遗漏。",
+        "The second entry point bypasses the invariant despite layered names."
+      ],
+      "correct": [
+        "把必须一致的规则收进可复用业务操作，传输层只做适配。",
+        "Centralize required rules in a reusable domain operation and keep transport as adaptation."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "HTTP与定时任务都创建订单，库存不足规则最适合归到哪里？",
+        "HTTP and scheduled work create orders. Where should insufficient-stock rules live?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "只在HTTP控制器",
+            "Only in the HTTP controller"
+          ],
+          "feedback": [
+            "定时任务会绕过它。",
+            "Scheduled work bypasses it."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "页面按钮的disabled属性",
+            "The page button’s disabled attribute"
+          ],
+          "feedback": [
+            "客户端状态不能约束后端其他调用者。",
+            "A client control cannot constrain other backend callers."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "二者共同调用的下单服务",
+            "The shared order operation"
+          ],
+          "feedback": [
+            "正确：同一业务入口保护不同传输路径。",
+            "Correct: one domain operation protects both transports."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为带优惠的下单操作分配控制器、服务和存储责任，并设计库存不足案例。",
+        "Allocate responsibilities for discounted ordering and design an insufficient-stock case."
+      ],
+      "sample": [
+        "控制器解析/映射，服务集中权限、价格与库存一致性，存储执行受约束读写；拒绝前后记录订单数与库存，确认无残留。",
+        "Controllers parse/map, services own permission/pricing/consistency and storage performs constrained operations; compare order count and stock before/after rejection."
+      ],
+      "criteria": [
+        [
+          "能说明规则归属与不同入口的复用。",
+          "Explain ownership and reuse across entry points."
+        ],
+        [
+          "失败状态有可观察数据结果，不仅一条错误消息。",
+          "Failure includes observed data state beyond an error message."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html",
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  },
+  "backend:state-rules": {
+    "title": [
+      "业务状态与幂等",
+      "State transitions and idempotency"
+    ],
+    "explain": [
+      [
+        "业务状态机列出“当前状态＋事件→新状态”。它让支付、取消等动作的前提可见：同一订单不能同时成功转成已支付与已取消。检查与变更需要一个能抵抗并发的原子边界，仅先读状态再无条件写并不够。",
+        "A state machine maps current state and event to a new state. Payment and cancellation require explicit preconditions; one order cannot successfully become both paid and canceled. Check-and-transition must resist concurrency."
+      ],
+      [
+        "幂等键标识同一次业务意图，不是任意请求的通行证。它应绑定主体、操作和相关请求内容，并保留原结果；同键改金额是冲突，不能覆盖原回执，也不能重复收费。",
+        "An idempotency key identifies one intent, not an unrestricted request. Bind it to actor, operation and relevant content, retaining the result. Reusing a key with a changed amount is a conflict, not a replacement receipt."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "业务状态与幂等：完整示范",
+        "State transitions and idempotency: worked example"
+      ],
+      "given": [
+        "合成订单O为待支付。请求键K支付30元成功后连接断开；随后同键重试30，再同键请求50。",
+        "Order O is pending. Key K pays30 successfully but loses the connection, then retries30 and later requests50 with K."
+      ],
+      "steps": [
+        {
+          "title": [
+            "完成一次受保护迁移",
+            "Commit one protected transition"
+          ],
+          "detail": [
+            "验证待支付前提，在同一受保护操作内记支付30、把订单改已支付并保存K的内容与回执。",
+            "Validate pending state, then protect payment30, state change and K’s content/receipt as one coherent operation."
+          ]
+        },
+        {
+          "title": [
+            "重复同意图读取回执",
+            "Replay the same intent"
+          ],
+          "detail": [
+            "K和30一致时返回原支付结果，不再次扣款。调用者不需要通过新请求猜测上次是否已经完成。",
+            "K with30 returns the original payment result rather than charging again."
+          ]
+        },
+        {
+          "title": [
+            "拒绝改变内容的复用",
+            "Reject changed-content reuse"
+          ],
+          "detail": [
+            "K改为50与已保存内容不一致，按契约拒绝；订单和原支付回执都保持不变。",
+            "K with50 conflicts with the saved intent; reject it while preserving the order and original receipt."
+          ]
+        }
+      ],
+      "result": [
+        "一次支付、可恢复的原回执和可解释的冲突，避免超时重试造成重复业务效果。",
+        "One payment, a recoverable receipt and explicit conflict prevent duplicate effects from uncertain retries."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "幂等缓存只按键查，不比较主体或金额。",
+        "Look up only the key without comparing actor or amount."
+      ],
+      "why": [
+        "不同意图可能误用一个回执，甚至把他人结果当成当前结果。",
+        "Different intents may reuse the wrong receipt, potentially across actors."
+      ],
+      "correct": [
+        "明确键的作用域与内容绑定，并以当前状态约束迁移。",
+        "Scope keys, bind request content and constrain transitions by state."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "同键首次支付10，重试改成12，应该怎样处理？",
+        "A key first pays10 and is retried with12. What should happen?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "按契约拒绝键与内容冲突，保留原回执",
+            "Reject the key/content conflict and retain the original receipt"
+          ],
+          "feedback": [
+            "正确：同键不允许悄悄变成新意图。",
+            "Correct: a key must not silently represent a new intent."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "再次扣12并更新缓存",
+            "Charge12 again and overwrite the receipt"
+          ],
+          "feedback": [
+            "产生了第二次、不同的业务效果。",
+            "That adds a second, different effect."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "忽略金额直接说12支付成功",
+            "Ignore the amount and report12 paid"
+          ],
+          "feedback": [
+            "结果与实际支付不符。",
+            "The result would contradict the payment."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "写待支付订单同时收到支付与取消的迁移表及并发结果。",
+        "Describe concurrent payment/cancellation on a pending order."
+      ],
+      "sample": [
+        "二者都要求待支付；原子条件迁移只允许一个成功，另一个读取当前状态得到约定冲突，不覆盖对方；同键同内容可取原结果。",
+        "Both require pending; an atomic conditional transition allows one winner and a contracted conflict for the other, without overwriting. Same-key/content retries reuse the result."
+      ],
+      "criteria": [
+        [
+          "有明确状态前提和并发冲突处理。",
+          "State preconditions and concurrent conflicts are explicit."
+        ],
+        [
+          "同键相同/不同内容与主体边界分别检查。",
+          "Check same/changed content and actor scope separately."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  },
+  "backend:schema-constraints": {
+    "title": [
+      "关系模型与约束",
+      "Relational design and constraints"
+    ],
+    "explain": [
+      [
+        "约束把数据规则放到每条写入都会经过的位置。主键标识行、唯一约束禁止重复键、外键维护引用、CHECK限制行内条件；它们解决不同问题。应用先查再写仍可能遇到并发，数据库约束能拒绝最后一道不合法写入。",
+        "Constraints enforce rules across write paths. Primary keys identify rows, uniqueness prevents duplicate keys, foreign keys maintain references and CHECK restricts row conditions. Application prechecks can race; database constraints remain a final enforcement point."
+      ],
+      [
+        "NULL表示未知或未提供，不是零。CHECK(amount>=0)并不等同于“金额必须提供且非负”：例如PostgreSQL在表达式为未知时可通过CHECK。要禁止缺失，还需要NOT NULL。外键允许的空值也要单独决定。",
+        "NULL is missing/unknown, not zero. In PostgreSQL, CHECK(amount>=0) can accept an unknown result, so it does not require a provided amount; add NOT NULL when absence is forbidden. Decide nullable references separately."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "关系模型与约束：完整示范",
+        "Relational design and constraints: worked example"
+      ],
+      "given": [
+        "合成表customers有客户C1；orders要求order_no唯一、customer_id必填且存在、amount必填且非负。",
+        "customers contains C1. orders requires a unique order_no, a present existing customer_id and a present nonnegative amount."
+      ],
+      "steps": [
+        {
+          "title": [
+            "把规则翻译为约束",
+            "Translate rules into constraints"
+          ],
+          "detail": [
+            "order_no设UNIQUE且按契约NOT NULL；customer_id同时设NOT NULL和外键；amount用NOT NULL加CHECK(amount>=0)。",
+            "Use uniqueness and contracted nullability for order_no, NOT NULL plus a foreign key for customer_id, and NOT NULL plus CHECK for amount."
+          ]
+        },
+        {
+          "title": [
+            "用反例识别每种职责",
+            "Map negative cases to rules"
+          ],
+          "detail": [
+            "客户C9触发引用失败；NULL客户触发非空失败；金额−1触发范围失败；NULL金额触发非空失败，不能指望非负CHECK替代它。",
+            "C9 violates the reference, a null customer violates presence, −1 violates the range and null amount violates presence rather than relying on CHECK."
+          ]
+        },
+        {
+          "title": [
+            "测试合法零与重复号",
+            "Check zero and duplication"
+          ],
+          "detail": [
+            "C1、amount=0允许；相同order_no第二次写入拒绝。记录实际启用的约束和环境，特别不要假定所有测试库默认外键行为相同。",
+            "C1 with amount0 is allowed; a second identical order_no is rejected. Record actual constraint configuration rather than assuming all test databases behave identically."
+          ]
+        }
+      ],
+      "result": [
+        "未知、非法、重复与合法零分别处理，规则不依赖唯一一种应用入口。",
+        "Missing, invalid, duplicate and genuine zero values are handled distinctly across application entry points."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只写CHECK(amount>=0)就声称金额必填。",
+        "Claim amount is required after adding only CHECK(amount>=0)."
+      ],
+      "why": [
+        "NULL参与比较可能得到未知，而非false；范围约束与非空约束不是一回事。",
+        "A null comparison may be unknown rather than false; range and presence are different rules."
+      ],
+      "correct": [
+        "禁止缺失时加NOT NULL，并实际试NULL、负数、零和正常值。",
+        "Use NOT NULL for required values and test null, negative, zero and normal values."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "在本例中，amount=NULL应由哪条规则明确拒绝？",
+        "Which rule explicitly rejects amount=NULL here?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "仅靠CHECK(amount>=0)",
+            "CHECK(amount>=0) alone"
+          ],
+          "feedback": [
+            "CHECK不一定拒绝未知结果，不能代替非空要求。",
+            "CHECK need not reject an unknown result."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "NOT NULL",
+            "NOT NULL"
+          ],
+          "feedback": [
+            "正确：它直接表达必须提供值，CHECK另管非负范围。",
+            "Correct: it requires a value; CHECK handles the range."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把NULL自动改0",
+            "Automatically replace NULL with0"
+          ],
+          "feedback": [
+            "这把未知金额伪装成实际零金额，改变了业务含义。",
+            "That disguises unknown as a real zero amount."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "给订单与明细写约束和四个反例：重复号、负金额、缺失客户、孤儿明细。",
+        "Specify order/line constraints and negative cases for duplication, negative amount, missing customer and orphan line."
+      ],
+      "sample": [
+        "分别用唯一、CHECK+NOT NULL、客户引用和明细外键；再验证零金额与正常引用可写入，避免只有拒绝测试没有合法对照。",
+        "Use uniqueness, CHECK+NOT NULL, customer references and line foreign keys, with valid zero/reference controls alongside rejection cases."
+      ],
+      "criteria": [
+        [
+          "每条规则有对应约束与具体输入。",
+          "Each rule maps to a constraint and concrete input."
+        ],
+        [
+          "说明NULL与零的区别及环境启用条件。",
+          "Distinguish null/zero and state environment configuration."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.postgresql.org/docs/current/ddl-constraints.html"
+    ]
+  },
+  "backend:atomicity": {
+    "title": [
+      "事务与并发更新",
+      "Transactions and concurrency"
+    ],
+    "explain": [
+      [
+        "事务让相关写入共同提交或共同撤回，原子性解决“只做了一半”。并发则是另一问题：两个事务都读到库存1，各自认为可以买，并不因为各自用了事务就自动正确。还要保护读取前提和状态转换。",
+        "Transactions commit or roll back related writes together, preventing partial operations. Concurrency is separate: two transactions can both read stock1 and decide to buy, even when each is atomic. Protect the precondition and transition."
+      ],
+      [
+        "条件更新把“有足够库存”放进写入条件，并检查实际修改了几行；也可按数据库与业务使用合适锁或隔离方案。扣库存和写订单仍要在同一事务中，否则扣了库存但订单失败又会形成不一致。",
+        "A conditional update embeds sufficient stock in the write and checks affected rows; suitable locking/isolation may also be used. Inventory and order creation must still share a transaction to avoid deduction without an order."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "事务与并发更新：完整示范",
+        "Transactions and concurrency: worked example"
+      ],
+      "given": [
+        "库存1，两名用户各买1。目标是不超卖，且成功订单与库存扣减一一对应。",
+        "Stock is1; two users each buy1. Prevent overselling and pair every successful order with its deduction."
+      ],
+      "steps": [
+        {
+          "title": [
+            "在写入时检查前提",
+            "Check the precondition when writing"
+          ],
+          "detail": [
+            "事务A执行库存>0才扣1的条件更新；影响1行说明A取得库存，暂不单独提交。",
+            "A conditionally deducts1 only while stock>0. One affected row means A obtained stock, without committing the deduction alone."
+          ]
+        },
+        {
+          "title": [
+            "让竞争请求得到明确结果",
+            "Give the competing request a result"
+          ],
+          "detail": [
+            "事务B按同样条件操作，在它可见的有效更新时刻已无库存，影响0行，按契约报库存不足，不继续插订单。",
+            "B applies the same condition; when its update is resolved, no stock remains. Zero affected rows means insufficient stock, so it creates no order."
+          ]
+        },
+        {
+          "title": [
+            "把成功与回滚一起核对",
+            "Check success and rollback"
+          ],
+          "detail": [
+            "A写订单并提交后库存0、成功订单1；若A写订单失败，整个事务回滚，库存应恢复，不留下半个动作。",
+            "After A creates and commits the order, stock0 pairs with one order. If order creation fails, roll back the whole operation, including stock."
+          ]
+        }
+      ],
+      "result": [
+        "成功状态是库存0、一张订单；任一中途失败不留下单独扣减。重复请求还需另有幂等设计。",
+        "Success means stock0 and one order; intermediate failures leave no isolated deduction. Retries additionally need idempotency."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "先SELECT库存，再无条件UPDATE；因为包在事务里，所以并发一定安全。",
+        "Read stock then update unconditionally; a transaction makes this safe."
+      ],
+      "why": [
+        "原子性不自动阻止两个请求基于同一个旧值做决定。",
+        "Atomicity alone does not prevent decisions based on the same stale value."
+      ],
+      "correct": [
+        "使用能保护不变量的条件更新/锁/隔离，检查结果并统一提交。",
+        "Choose conditional updates, locks or isolation that protect the invariant, checking results and committing coherently."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "条件扣库存影响0行，随后应该怎么处理？",
+        "The conditional stock update affects zero rows. What follows?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "仍然插入成功订单",
+            "Create a successful order anyway"
+          ],
+          "feedback": [
+            "未取得库存，继续写单会破坏业务不变量。",
+            "No stock was obtained; success would violate the invariant."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "把库存改成−1再标记待处理",
+            "Set stock to−1 and handle later"
+          ],
+          "feedback": [
+            "这改变了不超卖的约定，不是并发修复。",
+            "That abandons rather than enforces no overselling."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "停止该下单动作，按契约返回不足或冲突",
+            "Stop and return contracted insufficiency/conflict"
+          ],
+          "feedback": [
+            "正确：影响行数是业务前提是否成立的证据。",
+            "Correct: affected rows provide evidence of the precondition."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "库存5买2，安排订单写入失败与成功两种执行，记录事务前后数据。",
+        "With stock5 and quantity2, examine successful and failed order insertion."
+      ],
+      "sample": [
+        "成功后库存3且新增一单；订单写入失败回滚后仍库存5、无新单。另测并发和幂等重试，不以单请求成功代替。",
+        "Success gives stock3 and one order. Failed insertion restores stock5 with none. Test concurrency and retry identity separately."
+      ],
+      "criteria": [
+        [
+          "扣减与订单在同一事务，失败无部分提交。",
+          "Stock and order share one transaction without partial commit."
+        ],
+        [
+          "并发保护、影响行数及重试身份分别说明。",
+          "Explain concurrency protection, affected rows and retry identity."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+    ]
+  },
+  "backend:query-plan": {
+    "title": [
+      "索引与查询计划",
+      "Indexes and query plans"
+    ],
+    "explain": [
+      [
+        "查询计划描述数据库准备怎样取得结果：扫描方式、连接次序、估计行数和重复执行。看到“用了索引”不能直接判断快；取大部分表时顺序扫描可能更合理，索引还有回表与随机访问成本。",
+        "A plan describes scans, joins, estimates and repeated work. An index label alone does not establish speed; scanning most of a table can favor a sequential scan, with index lookup adding access costs."
+      ],
+      [
+        "EXPLAIN的cost是优化器模型单位，不是毫秒。EXPLAIN ANALYZE实际执行，提供实际行数与时间；它可能执行写语句，因此应在合适隔离环境使用。估计/实际行数差距和loops能帮助找错误假设。",
+        "EXPLAIN cost is a model unit, not milliseconds. EXPLAIN ANALYZE executes the statement and exposes observed rows/timing, including possible writes. Use an appropriate isolated environment and compare estimates, observations and loops."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "索引与查询计划：完整示范",
+        "Indexes and query plans: worked example"
+      ],
+      "given": [
+        "合成计划：外层估计10行、实际10000行；内层每次查询0.2ms，loops=10000。",
+        "Synthetic plan: outer estimated rows10 but observed rows10000; an inner operation takes 0.2ms per loop and runs10000 times."
+      ],
+      "steps": [
+        {
+          "title": [
+            "看规模估计差距",
+            "Inspect estimate error"
+          ],
+          "detail": [
+            "实际规模是估计的1000倍，先调查统计、谓词或数据分布，而不是只把cost抄成耗时。",
+            "The observed scale is 1000 times the estimate; inspect statistics, predicates and distribution rather than labeling cost as duration."
+          ]
+        },
+        {
+          "title": [
+            "识别重复工作",
+            "Identify repeated work"
+          ],
+          "detail": [
+            "单次0.2ms看似小，重复10000次约产生2000ms该节点工作量；真实总耗时仍受执行树与测量口径影响，不能简单加所有节点。",
+            "0.2ms repeated10000 times suggests about2000ms of that node’s work. Tree timing semantics still matter; do not add every node blindly."
+          ]
+        },
+        {
+          "title": [
+            "用同条件复测改动",
+            "Retest under aligned conditions"
+          ],
+          "detail": [
+            "修正相关统计或查询结构后，按同一输入规模看估计、实际行数与loops变化；再检查返回内容仍正确。",
+            "After an appropriate statistics/query change, compare estimates, rows and loops on aligned data and verify result correctness."
+          ]
+        }
+      ],
+      "result": [
+        "得到有证据的瓶颈假设，而不是“有索引所以快”或“cost就是毫秒”的标签。",
+        "Produce an evidenced bottleneck hypothesis rather than index/cost slogans."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "为每个过滤列都加索引，认为查询一定变快。",
+        "Index every filtered column and assume faster queries."
+      ],
+      "why": [
+        "选择性、访问比例、写入成本和实际计划都会影响收益，新增索引不等于被使用或更优。",
+        "Selectivity, access fraction, write cost and actual plans determine value; an added index may not be used or win."
+      ],
+      "correct": [
+        "先读计划与规模，提出可测假设，再用同负载验证。",
+        "Inspect plan/scale, form a testable hypothesis and compare under the same load."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "EXPLAIN ANALYZE用于一条DELETE时，哪项理解正确？",
+        "What is true of EXPLAIN ANALYZE on a DELETE?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "会执行，需在可控制的数据环境中安排",
+            "It executes and needs a controlled data environment"
+          ],
+          "feedback": [
+            "正确：必须考虑操作影响和验证安排。",
+            "Correct: account for effects and the verification environment."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "只是画计划，不执行删除",
+            "It only draws a plan"
+          ],
+          "feedback": [
+            "ANALYZE会实际执行，不能当只读说明工具。",
+            "ANALYZE executes; it is not purely descriptive."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "cost值直接等于毫秒",
+            "Cost directly equals milliseconds"
+          ],
+          "feedback": [
+            "cost是模型单位，实际时间是另一类信息。",
+            "Cost units and observed duration differ."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "比较唯一编号查一行与日期范围取九成数据的计划，记录访问路径和选择性。",
+        "Compare unique-ID lookup with a date range retrieving 90% of rows."
+      ],
+      "sample": [
+        "唯一查找通常适合高选择性索引，九成范围不能预设索引必胜；对齐规模、看实际行数/loops/耗时并核对结果。",
+        "A unique lookup may favor a selective index; do not assume it wins at90% retrieval. Align scale, inspect rows/loops/timing and verify content."
+      ],
+      "criteria": [
+        [
+          "区分估计cost与实际运行信息。",
+          "Distinguish modeled cost from observation."
+        ],
+        [
+          "提出与选择性、重复执行相关的解释，不只看节点名字。",
+          "Explain selectivity and repetition beyond node names."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.postgresql.org/docs/current/using-explain.html"
+    ]
+  },
+  "backend:session-auth": {
+    "title": [
+      "会话生命周期",
+      "Session lifecycle"
+    ],
+    "explain": [
+      [
+        "会话把后续请求关联到已认证主体。浏览器持有凭据不等于凭据仍有效：服务端还要检查签名或会话记录、到期和撤销状态，不能以一个前端logged=true决定身份。",
+        "A session associates later requests with an authenticated actor. Possessing a credential does not mean it remains valid; server verification must consider integrity, expiry and revocation rather than a frontend logged flag."
+      ],
+      [
+        "认证与授权也不同。会话证明主体后，每个请求仍需检查当前权限；权限降低时，过期缓存不能无限保留旧能力。Cookie的Secure、HttpOnly和SameSite各处理不同传输/脚本/跨站风险，不代替会话撤销。",
+        "Authentication and authorization differ. Once identified, the actor still needs current permission checks; stale caches must not preserve removed powers indefinitely. Cookie attributes address distinct risks, not revocation."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "会话生命周期：完整示范",
+        "Session lifecycle: worked example"
+      ],
+      "given": [
+        "合成账户在浏览器A有会话S，浏览器B有T。产品规定退出只撤销当前会话。",
+        "A synthetic account has session S in browserA and T in browserB. Logout revokes only the current session."
+      ],
+      "steps": [
+        {
+          "title": [
+            "识别当前凭据",
+            "Identify the credential"
+          ],
+          "detail": [
+            "A的请求携带S，服务端将它映射到账户并检查有效期。T是另一条独立会话，不用浏览器名称推断身份。",
+            "A presents S, which the server resolves and checks. T is separate; browser names do not establish identity."
+          ]
+        },
+        {
+          "title": [
+            "执行本次撤销",
+            "Revoke the current session"
+          ],
+          "detail": [
+            "A退出时撤销S并清理当前Cookie；即使保留旧Cookie副本再次请求，服务端也必须拒绝S。",
+            "Logout revokes S and clears its cookie; a replayed old S cookie must still be rejected server-side."
+          ]
+        },
+        {
+          "title": [
+            "按产品策略验证另一端",
+            "Verify the other device by policy"
+          ],
+          "detail": [
+            "T在本例仍可使用；若产品改为全端退出，需要明确撤销所有会话或采用等效机制，再分别验证。",
+            "T remains valid under this policy. Global logout would need a declared all-session revocation mechanism and separate checks."
+          ]
+        }
+      ],
+      "result": [
+        "退出的实际含义由撤销策略与服务端校验决定，不是仅把页面按钮切成“登录”。",
+        "Logout follows revocation policy and server checks, not simply changing the visible button."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "浏览器还有Cookie，所以即使会话已撤销也视为登录。",
+        "Accept a cookie even after its session is revoked."
+      ],
+      "why": [
+        "持有凭据不证明仍被接受，旧凭据重放会绕过退出。",
+        "Possession does not establish acceptance; replay could bypass logout."
+      ],
+      "correct": [
+        "服务端验证有效性与当前权限，按策略撤销并检查旧凭据重放。",
+        "Verify session validity/current permissions and test replay after revocation."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "当前会话S已退出，使用其旧Cookie请求受保护订单应怎样？",
+        "S is logged out; its old cookie requests a protected order. What should happen?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "Cookie存在就返回订单",
+            "Return it because the cookie exists"
+          ],
+          "feedback": [
+            "这忽略了服务端撤销。",
+            "That ignores revocation."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "认证失败，且不披露订单正文",
+            "Reject authentication without revealing order content"
+          ],
+          "feedback": [
+            "正确：退出必须在受保护请求上生效。",
+            "Correct: logout must affect protected requests."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "自动借用另一设备T的权限",
+            "Borrow session T from another device"
+          ],
+          "feedback": [
+            "请求没有提供T，不能替调用者推断凭据。",
+            "The request did not present T."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "写会话创建、到期、当前端退出、全端退出及权限降低的检查表。",
+        "Specify checks for creation, expiry, current/global logout and permission reduction."
+      ],
+      "sample": [
+        "每例列凭据、服务端状态、请求动作和预期；明确是否影响其他端，权限改变后重新核对对象访问，不将Cookie属性视为撤销机制。",
+        "List credential, server state, action and outcome, state effects on other devices and recheck object access after permission changes."
+      ],
+      "criteria": [
+        [
+          "凭据存在、认证有效与授权允许分别判断。",
+          "Distinguish credential presence, authentication and authorization."
+        ],
+        [
+          "撤销范围与旧凭据重放有具体预期。",
+          "Revocation scope and replay have explicit outcomes."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://owasp.org/www-project-application-security-verification-standard/",
+      "https://www.rfc-editor.org/rfc/rfc9110.html"
+    ]
+  },
+  "backend:object-authorization": {
+    "title": [
+      "对象访问控制",
+      "Object authorization"
+    ],
+    "explain": [
+      [
+        "对象ID只说明“找哪一条”，并不说明“谁可以做什么”。服务器需从可信认证上下文取得主体与租户，再结合动作和对象关系判定；不能让请求正文里的tenant_id替调用者授予权限。",
+        "An object ID locates a record; it does not grant an action. Derive actor/tenant from trusted authentication context and evaluate the action and object relationship. A client-supplied tenant_id cannot authorize the caller."
+      ],
+      [
+        "访问控制要覆盖每个路径。列表被限制而详情、修改、导出或批量处理漏检，仍会泄漏。拒绝时也要检查响应正文和存储副作用，而不是只看状态码；隐藏按钮不能约束直接接口请求。",
+        "Authorization applies to every path: scoped lists do not protect unguarded detail, update, export or batch endpoints. Check denied response bodies and side effects, not only status codes. Hidden buttons cannot secure direct requests."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "对象访问控制：完整示范",
+        "Object authorization: worked example"
+      ],
+      "given": [
+        "合成多租户工单：A租户有编号7“甲故障”，B租户也有编号7“乙故障”。A用户请求修改7。",
+        "Synthetic tenants A and B each have ticket7, with different text. A user requests an update to7."
+      ],
+      "steps": [
+        {
+          "title": [
+            "建立可信操作上下文",
+            "Establish trusted context"
+          ],
+          "detail": [
+            "从会话取得用户属于A，并确认它具有修改工单动作。即使请求正文声称租户B，也不改用B的上下文。",
+            "Resolve membership in A from the session and check update permission; a body claiming B does not replace it."
+          ]
+        },
+        {
+          "title": [
+            "在对象操作中加入范围",
+            "Scope the object operation"
+          ],
+          "detail": [
+            "查询与更新同时限定可信tenant=A、ticket_id=7及所需对象权限。仅WHERE id=7会把两个租户的本地编号混在一起。",
+            "Scope reads and writes by trusted tenant A, ticket7 and required object permissions, rather than id7 alone."
+          ]
+        },
+        {
+          "title": [
+            "检查允许和拒绝后的数据",
+            "Inspect allowed and denied effects"
+          ],
+          "detail": [
+            "合法操作只改“甲故障”；另测A请求B对象应拒绝或按隐藏策略找不到，正文不含“乙故障”，B数据也不变。",
+            "Only A’s ticket changes. A cross-tenant attempt is denied or concealed as not found, without B’s text or any B-side mutation."
+          ]
+        }
+      ],
+      "result": [
+        "主体、动作、租户和对象共同约束操作，拒绝无数据泄漏和副作用。",
+        "Actor, action, tenant and object jointly constrain the operation; denial leaks no data or side effect."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "列表已经按租户筛选，详情可只用id读取。",
+        "Scope the list but read details by ID alone."
+      ],
+      "why": [
+        "调用者可以直接构造详情请求，列表筛选不是详情授权。",
+        "Callers can construct detail requests directly; list filtering is not detail authorization."
+      ],
+      "correct": [
+        "在每个对象操作执行相应授权，并用跨账号案例验证。",
+        "Authorize each object operation and test cross-account cases."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "租户A请求参数写tenant_id=B，服务应优先相信哪里？",
+        "An A user sends tenant_id=B. Which source should establish tenant context?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "优先相信请求正文",
+            "The request body"
+          ],
+          "feedback": [
+            "不可信输入不能变成自身的授权依据。",
+            "Untrusted input cannot authorize itself."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "看前端是否显示这个按钮",
+            "Whether the frontend displays the button"
+          ],
+          "feedback": [
+            "直接请求无需经过页面按钮。",
+            "Direct requests bypass page controls."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "可信认证上下文及服务器授权关系",
+            "Trusted authentication context and server-side permission relationships"
+          ],
+          "feedback": [
+            "正确：请求可以定位目标，但允许与否由服务端判断。",
+            "Correct: requests identify targets; server-side policy permits actions."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为两租户相同编号工单写读取、修改和导出测试矩阵。",
+        "Build read/update/export checks for tickets with equal local IDs across tenants."
+      ],
+      "sample": [
+        "每动作包含本租户允许、跨租户拒绝及无权限主体；核对状态、返回正文和数据库前后值，拒绝不泄漏也不修改。",
+        "For each action cover owned access, cross-tenant denial and a denied actor; inspect status, body and before/after storage values."
+      ],
+      "criteria": [
+        [
+          "范围来自可信上下文，且覆盖详情/批量等路径。",
+          "Scope is trusted and covers all relevant paths."
+        ],
+        [
+          "拒绝的内容和副作用都被核对。",
+          "Denied bodies and effects are both verified."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+    ]
+  },
+  "backend:validation": {
+    "title": [
+      "输入校验与安全查询",
+      "Validation and safe queries"
+    ],
+    "explain": [
+      [
+        "边界校验先约束输入形状、类型和值域，业务校验再看当前状态与关系。客户端校验可以改善反馈，但攻击者或其他调用方能绕过它，所以服务器仍需独立执行。不能把无法解析的值悄悄当默认成功。",
+        "Boundary validation constrains shape, type and range; business validation checks current relationships/state. Client checks improve feedback but are bypassable, so the server repeats them independently and does not silently default invalid values."
+      ],
+      [
+        "查询参数中“值”和“结构”不同。参数化查询适合绑定值，排序字段等结构应由白名单映射到固定表达式，不能直接拼接用户给的字符串。错误响应也应避免内部SQL和堆栈泄漏。",
+        "Query values and structure differ. Bind values with parameters; map structural choices such as sort columns through an allowlist of fixed expressions. Do not concatenate arbitrary structure or expose SQL/stacks in errors."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "输入校验与安全查询：完整示范",
+        "Validation and safe queries: worked example"
+      ],
+      "given": [
+        "合成列表接口：size只接受整数1–100；sort只允许created或amount。收到size=0、101、abc与sort=other。",
+        "Synthetic listing: size accepts integers1–100; sort accepts created or amount. Inputs include0,101,abc and other."
+      ],
+      "steps": [
+        {
+          "title": [
+            "按契约识别类型",
+            "Parse by contract"
+          ],
+          "detail": [
+            "HTTP字符串abc不能成为整数，返回size类型错误；先明确是否接受十进制字符串，不能让每种语言的隐式转换随意决定。",
+            "abc cannot satisfy the integer contract; define accepted decimal syntax explicitly rather than relying on implicit coercion."
+          ]
+        },
+        {
+          "title": [
+            "核对范围与白名单",
+            "Check range and allowlist"
+          ],
+          "detail": [
+            "0与101拒绝；合法size=20再映射sort=amount到预置金额列。other不直接拼进SQL，也不回退为全量查询。",
+            "Reject0/101; allow20 and map amount to a predefined column. Reject other without SQL interpolation or unrestricted fallback."
+          ]
+        },
+        {
+          "title": [
+            "再执行权限与业务过滤",
+            "Apply authorization and domain rules"
+          ],
+          "detail": [
+            "合法参数仍只读取主体可访问数据；非法值返回字段级说明，成功空集与输入失败保持不同响应。",
+            "Valid parameters still access only authorized data. Field errors remain distinct from a successful empty result."
+          ]
+        }
+      ],
+      "result": [
+        "输入先被明确解释，再执行有权限、有限量的查询，错误不扩大发送范围。",
+        "Interpret inputs explicitly before bounded, authorized queries; errors never expand access."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "size解析失败就去掉LIMIT，方便用户总能看到结果。",
+        "Remove LIMIT after a parse failure so users always get results."
+      ],
+      "why": [
+        "这把非法请求变成更大查询，可能造成资源压力和不符合契约的暴露。",
+        "That turns invalid input into greater work and unintended exposure."
+      ],
+      "correct": [
+        "对缺省和非法值制定不同规则，非法值拒绝并保留可修正反馈。",
+        "Separate defaults from invalid inputs; reject invalid values with actionable feedback."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "客户端传入排序字段，哪种处理合理？",
+        "How should a client-supplied sort choice be handled?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "从允许值映射到固定列/表达式",
+            "Map allowed values to fixed columns/expressions"
+          ],
+          "feedback": [
+            "正确：结构由服务控制，未知值按契约拒绝。",
+            "Correct: the server controls structure and rejects unknown choices."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "原样拼到ORDER BY",
+            "Concatenate it into ORDER BY"
+          ],
+          "feedback": [
+            "不可信输入进入查询结构。",
+            "Untrusted input enters query structure."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "只检查字符串非空",
+            "Only check that it is nonempty"
+          ],
+          "feedback": [
+            "非空不代表它是允许的结构。",
+            "Nonempty does not establish an allowed structure."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "给分页接口准备size缺失、空串、0、100、101和abc的完整行为表。",
+        "Specify behavior for missing, empty,0,100,101 and abc size inputs."
+      ],
+      "sample": [
+        "缺失可采用明确缺省；空串与abc按约定拒绝；0/101越界，100合法。成功仍加授权范围与稳定排序，错误不变成无限查询。",
+        "A missing value can use a stated default; empty/abc are rejected by contract,0/101 are out of range and100 is valid. Success retains authorization and stable ordering."
+      ],
+      "criteria": [
+        [
+          "类型、范围、缺省和业务权限分开说明。",
+          "Distinguish type, range, defaults and authorization."
+        ],
+        [
+          "无隐式放大查询或内部错误泄漏。",
+          "No implicit unbounded fallback or internal error exposure."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+      "https://owasp.org/www-project-application-security-verification-standard/"
+    ]
+  },
+  "backend:integration-tests": {
+    "title": [
+      "集成与契约测试",
+      "Integration and contract tests"
+    ],
+    "explain": [
+      [
+        "单元测试可以用替身隔离规则，集成测试则跨过所声明的真实边界。若要证明UNIQUE或事务生效，必须让测试经过真实测试数据库；模拟仓库返回冲突只能证明服务如何处理那个模拟结果。",
+        "Unit tests can isolate rules with doubles; integration tests cross stated real boundaries. To establish uniqueness/transaction behavior, exercise a real test database. A mocked repository conflict establishes only how the service handles that mock."
+      ],
+      [
+        "集成范围需要如实记录。真实数据库配可控支付替身，可以验证本地订单与回滚，不代表已经连通真实支付商。测试要隔离账户和数据，既检查响应，也检查写入前后状态与重复调用结果。",
+        "State the integration scope honestly. A real database with a controlled payment double can verify local ordering/rollback, not a real provider connection. Isolate data and inspect responses, before/after state and repeated calls."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "集成与契约测试：完整示范",
+        "Integration and contract tests: worked example"
+      ],
+      "given": [
+        "合成订单服务连接临时真实库，支付为可控替身。初始订单0、库存5，购买2。",
+        "A synthetic service uses a temporary real database and controlled payment double. Initial orders0, stock5, quantity2."
+      ],
+      "steps": [
+        {
+          "title": [
+            "验证成功路径的两类证据",
+            "Check two kinds of success evidence"
+          ],
+          "detail": [
+            "支付替身返回成功后，接口给约定订单回执；数据库应新增1单、库存3。只看200或只看订单数都不完整。",
+            "After payment success, check the receipt plus one stored order and stock3, rather than only status or count."
+          ]
+        },
+        {
+          "title": [
+            "注入失败检查一致性",
+            "Inject failure and inspect consistency"
+          ],
+          "detail": [
+            "让写订单阶段按测试约定失败，核对事务回滚后无新单且库存回到5；再检查错误映射没有泄漏堆栈。",
+            "Cause a contracted insertion failure; verify no new order, stock5 and a safe error mapping."
+          ]
+        },
+        {
+          "title": [
+            "覆盖主体与重试边界",
+            "Check actor and retry boundaries"
+          ],
+          "detail": [
+            "另一账户读取该订单必须被拒绝；相同意图重试不再产生第二单。每例独立数据，不能依赖上例残留。",
+            "Another account must be denied the order, and retrying one intent must not create another. Keep cases independent."
+          ]
+        }
+      ],
+      "result": [
+        "证据覆盖真实存储约束与服务连接，但支付仍仅是受控替身范围。",
+        "Evidence spans real storage/service behavior while payment remains a controlled-double boundary."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把仓库和数据库全部模拟后，报告数据库唯一约束已验证。",
+        "Mock all storage and report that database uniqueness was verified."
+      ],
+      "why": [
+        "没有任何写入经过真实约束，这个结论超出测试边界。",
+        "No write crossed the real constraint, so the conclusion exceeds the test."
+      ],
+      "correct": [
+        "用临时真实库触发约束，并把外部替身范围写清。",
+        "Trigger constraints in a temporary real database and state external-double limits."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "只有模拟仓库返回重复错误的测试，能证明什么？",
+        "What does a mocked duplicate-error test establish?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "真实库一定拒绝重复",
+            "The real database certainly rejects duplicates"
+          ],
+          "feedback": [
+            "测试没有经过真实库。",
+            "The test never crossed the real database."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "服务能否把该模拟错误映射成约定响应",
+            "Whether the service maps that simulated error correctly"
+          ],
+          "feedback": [
+            "正确：这是有价值但更小的边界，仍需真实约束测试。",
+            "Correct: useful, narrower evidence that needs a separate real-constraint check."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "真实支付已经集成成功",
+            "A real payment integration passed"
+          ],
+          "feedback": [
+            "该测试与支付连接无关。",
+            "It says nothing about provider connectivity."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为创建用户的真实测试库接口设计正常、重复邮箱、并发重复和非法输入四例。",
+        "Design real-test-database cases for user creation, duplicate email, concurrent duplicates and invalid input."
+      ],
+      "sample": [
+        "为每例隔离邮箱，核对响应及最终行数；重复只留一条，非法不写入；记录数据库配置和替身依赖，不触及生产用户。",
+        "Use isolated emails, verify responses and row counts, retain one row for duplicates and none for invalid input, recording configuration/doubles without production data."
+      ],
+      "criteria": [
+        [
+          "声明哪些组件是真实、哪些是替身。",
+          "Identify real components and doubles."
+        ],
+        [
+          "响应、持久化、隔离及重复副作用都有断言。",
+          "Assert responses, storage, isolation and duplicate effects."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.spring.io/spring-boot/reference/testing/index.html",
+      "https://spec.openapis.org/oas/latest.html"
+    ]
+  },
+  "backend:timeouts-retry": {
+    "title": [
+      "超时与重试边界",
+      "Timeout and retry limits"
+    ],
+    "explain": [
+      [
+        "超时意味着调用者没有及时得到结果，不意味着服务端没执行。尤其是付款和创建操作，盲目重发可能把不确定的一次结果变成确定的两次副作用。重试要同时考虑业务幂等和资源预算。",
+        "A timeout means the caller did not receive a timely result, not that the server did nothing. Repeating payments/creation can duplicate effects. Retry decisions need both business idempotency and resource budgets."
+      ],
+      [
+        "次数、单次超时与退避共同消耗总时限。允许3次并不要求每次都跑满；剩余预算不足时应停止或缩短后续等待。退避和抖动帮助减少同步重试压力，但不能解决相同意图重复收费。",
+        "Attempts, per-attempt timeouts and backoff consume one deadline. A maximum of3 does not require3 full attempts; stop or shorten when budget runs out. Backoff/jitter reduce synchronized load but do not deduplicate charging."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "超时与重试边界：完整示范",
+        "Timeout and retry limits: worked example"
+      ],
+      "given": [
+        "合成调用最大3次，每次1秒超时，退避0.2与0.4秒；调用者总预算2秒，动作可能收费。",
+        "A synthetic charge allows3 attempts,1s each, with0.2/0.4s backoff, but the caller has a2s total budget."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先算朴素上界",
+            "Calculate the naive bound"
+          ],
+          "detail": [
+            "3×1＋0.2＋0.4=3.6秒，尚未计排队和处理开销，明显超过2秒总预算。",
+            "3×1+0.2+0.4=3.6 seconds before queueing/overhead, exceeding the two-second budget."
+          ]
+        },
+        {
+          "title": [
+            "保护同一次收费意图",
+            "Protect one charging intent"
+          ],
+          "detail": [
+            "首次请求带稳定幂等键，超时后查原状态或依契约用同键重试；不能换键把未知结果当新付款。",
+            "Use a stable key; after timeout query the prior state or retry with that key under the contract, not a new charging intent."
+          ]
+        },
+        {
+          "title": [
+            "按剩余预算决定下一步",
+            "Apply the remaining deadline"
+          ],
+          "detail": [
+            "第一次耗1秒、退避0.2后仅余约0.8秒；后续等待上限需服从剩余预算，结果仍未知时向用户说明待确认。",
+            "After1s plus0.2s, about0.8s remains. Bound any later wait by it and report an unresolved result as pending confirmation."
+          ]
+        }
+      ],
+      "result": [
+        "不跑满超过预算的流程，也不把超时误报为未扣款或成功。",
+        "Do not exceed the deadline or misreport an uncertain charge as failed or successful."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "超时立即换一个请求键再付一次。",
+        "Use a new key and charge again after timeout."
+      ],
+      "why": [
+        "服务端可能已完成首次付款，新键会允许第二次业务意图。",
+        "The first payment may already be committed; a new key can create another intent."
+      ],
+      "correct": [
+        "保留原身份，先核对回执与状态，并尊重总预算。",
+        "Retain intent identity, reconcile status/receipt and honor the deadline."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "付款超时且没有回执，最准确的初始结论是什么？",
+        "A payment times out without a receipt. What is initially established?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "一定没有扣款",
+            "No charge occurred"
+          ],
+          "feedback": [
+            "没有响应不是未执行的证据。",
+            "No response does not prove non-execution."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "一定已成功",
+            "It certainly succeeded"
+          ],
+          "feedback": [
+            "也没有成功依据。",
+            "Success has not been established either."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "结果未知，需要按原意图查证",
+            "The outcome is unknown and needs reconciliation"
+          ],
+          "feedback": [
+            "正确：按幂等身份查询或重试，而不是制造新付款。",
+            "Correct: reconcile by the original identity rather than create another payment."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为一次可能写入的外部调用制定2秒预算、最大重试和结果未知的用户反馈。",
+        "Specify a two-second write-call budget, retry limits and feedback for uncertainty."
+      ],
+      "sample": [
+        "明确单次超时、退避和剩余预算算法，使用原幂等身份核对；停止后保留待查回执/ID，提示结果待确认而不重复提交。",
+        "Define timeout/backoff/remaining-time rules, reconcile original identity and retain a receipt/ID for follow-up rather than duplicate submission."
+      ],
+      "criteria": [
+        [
+          "时间账包含退避与开销，不只乘请求超时。",
+          "Budget includes backoff and overhead."
+        ],
+        [
+          "未知结果与失败分开，重试不产生新意图。",
+          "Uncertain outcomes differ from failure; retries retain intent."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "https://www.rfc-editor.org/rfc/rfc9110.html"
+    ]
+  },
+  "backend:service-telemetry": {
+    "title": [
+      "服务日志与链路追踪",
+      "Service logs and tracing"
+    ],
+    "explain": [
+      [
+        "日志记录具体事件，指标聚合趋势，追踪把一次请求中的跨服务步骤关联起来。它们互补而不互相替代：平均错误率不能解释某个请求在哪一步失败，一条错误日志也不能说明问题影响了多少用户。",
+        "Logs describe events, metrics aggregate trends and traces relate steps across services. They complement one another: an aggregate rate cannot locate one failure, and one log cannot establish affected population."
+      ],
+      [
+        "关联ID方便查找，不是访问凭据。应尽量使用结构化字段记录阶段、结果与耗时，在采集前最小化敏感信息；每个用户或请求ID都作为指标标签会制造高基数，具体身份更适合受控日志/追踪。",
+        "Correlation IDs aid lookup, not authorization. Record structured stages, outcomes and durations while minimizing sensitive data before capture. Per-user/request metric labels create high cardinality; detailed identities belong in controlled logs/traces."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "服务日志与链路追踪：完整示范",
+        "Service logs and tracing: worked example"
+      ],
+      "given": [
+        "合成请求R42经API与库存服务；共同trace=T9。API返回500，库存span记录存储超时。",
+        "Synthetic request R42 crosses API and inventory, sharing trace T9. API returns500 and an inventory span records storage timeout."
+      ],
+      "steps": [
+        {
+          "title": [
+            "从请求串起调用",
+            "Connect the request"
+          ],
+          "detail": [
+            "用T9查询对应span与结构化日志，按父子关系和时间看API等候库存的阶段，而不是凭两条相近时间日志猜关联。",
+            "Query T9 spans/logs and inspect parent-child timing instead of guessing from nearby timestamps."
+          ]
+        },
+        {
+          "title": [
+            "形成可验证候选原因",
+            "Form a testable explanation"
+          ],
+          "detail": [
+            "本例能定位到库存读取的超时，但不能单凭这条日志断言磁盘坏了。检查同版本、同时间窗的存储延迟与错误模式。",
+            "The evidence locates a timed-out inventory read, not necessarily a broken disk. Inspect storage latency/errors for the aligned version/window."
+          ]
+        },
+        {
+          "title": [
+            "检查影响与信息暴露",
+            "Check impact and exposure"
+          ],
+          "detail": [
+            "对照请求量、错误率和延迟判断范围；日志保留错误类别/耗时，去掉Authorization、密钥与完整个人资料。",
+            "Use traffic, error and latency metrics to examine scope. Retain error categories/duration, not authorization headers, keys or full personal records."
+          ]
+        }
+      ],
+      "result": [
+        "得到能复查的调用路径与范围线索，同时不把诊断日志变成秘密仓库。",
+        "Produce a traceable path and impact clues without turning diagnostic logs into a secret store."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把完整请求头和正文全部写日志，方便以后找。",
+        "Log all headers and bodies for future debugging."
+      ],
+      "why": [
+        "这样可能泄漏凭据与个人信息，扩大访问和保留风险，且无关噪声会掩盖关键字段。",
+        "This can expose credentials/personal data, increase retention risk and obscure useful fields."
+      ],
+      "correct": [
+        "定义必要字段与脱敏规则，按诊断问题保留最少信息。",
+        "Define necessary fields/redaction and retain the minimum diagnostic information."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "哪项最适合作为常规低基数指标标签？",
+        "Which is most suitable as a routine low-cardinality metric label?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "有限集合的操作名与结果类别",
+            "A bounded operation name and outcome category"
+          ],
+          "feedback": [
+            "正确：适合汇总趋势，具体请求关联交给日志和追踪。",
+            "Correct: aggregate by bounded dimensions and use logs/traces for individual requests."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "每个独立请求ID",
+            "Every unique request ID"
+          ],
+          "feedback": [
+            "值随请求增长，不适合作为常规聚合标签。",
+            "Values grow with requests, undermining routine aggregation."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "完整访问令牌",
+            "The full access token"
+          ],
+          "feedback": [
+            "既敏感又高基数，不应采集为标签。",
+            "It is both sensitive and high-cardinality."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为API到库存的一条失败请求列日志字段、追踪关联、指标和脱敏规则。",
+        "Define logs, trace linkage, metrics and redaction for an API-to-inventory failure."
+      ],
+      "sample": [
+        "日志列阶段、结果、持续时间及受控关联ID；span连接调用；指标按操作/结果汇总流量、失败和延迟。凭据不入日志，范围结论与观察窗口对应。",
+        "Log stage/outcome/duration and controlled correlation, link spans and aggregate traffic/failures/latency by bounded dimensions. Omit credentials and state the observation window."
+      ],
+      "criteria": [
+        [
+          "区分单请求诊断与整体影响评估。",
+          "Separate request diagnosis from population impact."
+        ],
+        [
+          "说明必要字段、高基数和敏感信息的处理。",
+          "Address necessary fields, cardinality and sensitive information."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://opentelemetry.io/docs/concepts/signals/"
+    ]
+  },
+  "software:problem-model": {
+    "title": [
+      "问题与输入输出",
+      "Problem and input/output"
+    ],
+    "explain": [
+      [
+        "问题模型先定义输入、输出和约束，再选算法。“计算平均分”看似明确，但缺考、空列表、重复成绩、取整规则会改变答案。未约定的规则应提出并记录，不能偷偷用最方便的实现替代业务含义。",
+        "A problem model defines inputs, outputs and constraints before algorithms. Average score still leaves absence, empty lists, duplicates and rounding unresolved. Surface those choices instead of letting convenient implementation define the rule."
+      ],
+      [
+        "输入契约也规定错误行为。合法零分和缺考不同，未知结果和计算得到零不同。用少量具体输入输出例子能暴露歧义：同一组数据按不同分母会得到不同结果，因此必须让采用的定义可检查。",
+        "A contract includes error behavior. A real zero differs from absence, and unknown differs from computed zero. Concrete examples reveal ambiguities because alternative denominators produce different answers."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "问题与输入输出：完整示范",
+        "Problem and input/output: worked example"
+      ],
+      "given": [
+        "合成成绩为60、缺考、90。业务约定缺考排除，所有人缺考则返回“无可计算结果”，不写0。",
+        "Synthetic scores are60, absent,90. The contract excludes absence and returns No computable result if all are absent, not zero."
+      ],
+      "steps": [
+        {
+          "title": [
+            "把自然语言变成集合",
+            "Define the accepted set"
+          ],
+          "detail": [
+            "输入保留三条记录，但用于平均的是60与90两条；排除缺考不代表把记录删掉，仍可单列缺考数。",
+            "Retain three records but average the two observed scores; exclusion need not erase the absent record."
+          ]
+        },
+        {
+          "title": [
+            "按已约定分母计算",
+            "Compute by the defined denominator"
+          ],
+          "detail": [
+            "总分150，人数2，均分75；如果把缺考误当0，会用150/3=50，算式没错但问题模型错了。",
+            "Sum150 divided by2 gives75. Replacing absence with0 yields50: valid arithmetic under the wrong model."
+          ]
+        },
+        {
+          "title": [
+            "检查边界输出",
+            "Check boundary outcomes"
+          ],
+          "detail": [
+            "输入[0,90]均分45，零是有效成绩；输入[缺考]没有分母，按约定返回无结果，而不是用0补分母。",
+            "[0,90] averages45 because zero is valid. [absent] has no denominator and returns the contracted no-result outcome."
+          ]
+        }
+      ],
+      "result": [
+        "输出不仅有75，还能解释参与和排除的对象以及无结果的含义。",
+        "The result75 is accompanied by an explanation of inclusion, exclusion and no-result behavior."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "凡是空值都改成0再计算。",
+        "Replace every missing value with0 before computing."
+      ],
+      "why": [
+        "这会改变分母与业务含义，把未观测当成实际零分。",
+        "That changes the denominator and disguises missing observations as real zeros."
+      ],
+      "correct": [
+        "分别建模合法零、缺失与空集合，并写明确例子。",
+        "Model valid zero, missing values and an empty accepted set separately."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "按本课契约，输入[0,80,缺考]均分是多少？",
+        "Under this contract, what is the mean of [0,80,absent]?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "约26.67，因为三条记录",
+            "About26.67 because there are three records"
+          ],
+          "feedback": [
+            "缺考被排除，不能参加这个分母。",
+            "Absence is excluded from this denominator."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "40，零分保留而缺考排除",
+            "40, retaining zero and excluding absence"
+          ],
+          "feedback": [
+            "正确：80/2=40；同时可报告一人缺考。",
+            "Correct:80/2=40, with absence reported separately."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "80，因为0也不算成绩",
+            "80 because zero is not a score"
+          ],
+          "feedback": [
+            "契约明确零是有效成绩。",
+            "The contract explicitly accepts zero."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "设计导入名单工具：允许空行、禁止重复编号。给输入、输出和失败契约及例子。",
+        "Design roster import allowing blank lines but rejecting duplicate IDs, with input/output/error examples."
+      ],
+      "sample": [
+        "区分空文件、纯空行、合法编号和冲突编号；注明整批拒绝还是部分接收，并保留行号/原值。例子应能唯一决定结果。",
+        "Distinguish empty files, blank-only input, valid IDs and duplicate conflicts; define atomic or partial acceptance and preserve row/raw values."
+      ],
+      "criteria": [
+        [
+          "定义了空、零/空值、重复与规模等会改变结果的条件。",
+          "Define result-changing boundaries such as absence and duplication."
+        ],
+        [
+          "每条规则有明确输入和可观察输出，不以实现细节代替需求。",
+          "Rules have observable examples rather than implementation-defined behavior."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+      "https://csed.acm.org/knowledge-areas/"
+    ]
+  },
+  "software:acceptance-slices": {
+    "title": [
+      "验收条件与交付切片",
+      "Acceptance and delivery slices"
+    ],
+    "explain": [
+      [
+        "交付切片贯穿一个小而完整的用户结果。只有表、接口或按钮属于内部进度，用户仍可能无法完成任务。小切片缩小的是场景和范围，不是省略结果所需的关键步骤。",
+        "A delivery slice spans one small, complete user outcome. A table, endpoint or button alone is internal progress if the user cannot finish. Reduce scenario scope, not the essential steps needed for the outcome."
+      ],
+      [
+        "验收条件把“完成”变成可观察事实：在什么前提下，用户做什么，应看到和保留什么。先验收一个完整本地路径，再增加筛选、共享和同步等约束，能更早发现需求理解错误。",
+        "Acceptance states preconditions, actions and observable retained results. Validating one complete local path before adding filters, sharing and synchronization exposes misunderstandings earlier."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "验收条件与交付切片：完整示范",
+        "Acceptance and delivery slices: worked example"
+      ],
+      "given": [
+        "合成待办工具需要创建、完成、筛选和云同步。第一片只承诺本机保存并回看一项待办。",
+        "A synthetic task tool ultimately needs create/complete/filter/cloud sync. The first slice promises one locally saved, recoverable item."
+      ],
+      "steps": [
+        {
+          "title": [
+            "选一个可观察结果",
+            "Choose an observable outcome"
+          ],
+          "detail": [
+            "用户输入“准备简报”，点击保存后能看到这项待办；刷新后仍存在。先不包含云同步和多设备。",
+            "Entering Prepare brief, saving and refreshing must retain that item. Cloud and multi-device behavior are outside this slice."
+          ]
+        },
+        {
+          "title": [
+            "补齐贯穿路径",
+            "Complete the vertical path"
+          ],
+          "detail": [
+            "该片仍需要输入界面、校验、持久化和回读；建表或画按钮不能单独满足刷新保留的验收。",
+            "The slice still needs input, validation, persistence and reload; a table or button alone cannot satisfy retention."
+          ]
+        },
+        {
+          "title": [
+            "加入一个失败条件",
+            "Add one failure condition"
+          ],
+          "detail": [
+            "空标题保存应有说明且不生成空记录。成功和失败都可观察后，再把“完成状态”作为下一片扩展。",
+            "Blank-title saving must explain rejection and create nothing. With success and failure observable, completion state can become the next slice."
+          ]
+        }
+      ],
+      "result": [
+        "第一片范围小但能完成一件真实任务，后续每片在已成立的路径上增加能力。",
+        "The first slice is small but complete, allowing later slices to extend a working path."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "第一阶段只做数据库，第二阶段只做API，最后才首次让用户操作。",
+        "Build database, then API, then let users try everything only at the end."
+      ],
+      "why": [
+        "长期只有技术部件，没有早期用户结果，需求错误可能到最后才暴露。",
+        "This delays meaningful feedback while producing disconnected components."
+      ],
+      "correct": [
+        "按一个用户结果纵向切开，每片都有输入、结果和验收。",
+        "Slice vertically by user outcome with input, result and acceptance."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "哪一个更像可验收的第一片？",
+        "Which is an acceptable first delivery slice?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "创建三个数据表",
+            "Create three tables"
+          ],
+          "feedback": [
+            "这是内部工作，尚无可完成的用户结果。",
+            "That is internal work without a complete user outcome."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "把所有页面按钮画完",
+            "Draw every page button"
+          ],
+          "feedback": [
+            "外观完成不等于任务可用。",
+            "Visual completion does not establish usable behavior."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "输入一条待办并在刷新后回看",
+            "Enter one task and recover it after refresh"
+          ],
+          "feedback": [
+            "正确：有动作、可见结果与持久化标准。",
+            "Correct: action, visible outcome and persistence are specified."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "把个人清单的创建、完成、筛选、共享拆成三个递进用户切片。",
+        "Split create/complete/filter/share into three incremental user slices."
+      ],
+      "sample": [
+        "可先创建并回看，再完成并按状态筛选，最后在明确权限下共享；各片列正常、空输入/无匹配和权限失败的验收。",
+        "First create/recover, then complete/filter, then share under defined permissions; specify relevant normal, empty and denied cases."
+      ],
+      "criteria": [
+        [
+          "每片端到端产生可观察价值。",
+          "Each slice produces an observable end-to-end outcome."
+        ],
+        [
+          "明确暂不包含的范围，避免把未做能力说成已完成。",
+          "State excluded scope rather than claiming unfinished capability."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  },
+  "software:design-boundaries": {
+    "title": [
+      "模块职责与接口",
+      "Module boundaries and interfaces"
+    ],
+    "explain": [
+      [
+        "模块围绕职责与变化原因划界。解析器理解CSV或JSON格式，领域逻辑理解订单/价格规则，存储器理解文件或数据库；如果领域规则直接依赖某一CSV列位置，改格式会迫使业务规则跟着改。",
+        "Modules separate responsibilities and reasons for change. Parsers understand formats, domain logic understands business rules and storage understands persistence. Coupling rules to CSV column positions makes format changes disturb business behavior."
+      ],
+      [
+        "接口是调用者依赖的约定，应该说清输入、输出、错误和单位，而不是泄露全部内部结构。两个实现可共用同一组契约样例，让替换适配器时验证行为保持一致。接口也不能大到把所有职责混在一起。",
+        "An interface states inputs, outputs, errors and units without exposing every internal structure. Shared contract examples let alternative adapters be checked for equivalent behavior, while keeping responsibilities focused."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "模块职责与接口：完整示范",
+        "Module boundaries and interfaces: worked example"
+      ],
+      "given": [
+        "合成运费规则：重量不超过2kg收费8元，超过则12元。数据可来自CSV或JSON，领域只接收规范重量数值。",
+        "Synthetic shipping: up to2kg costs8; above2 costs12. CSV and JSON input map to the same normalized weight."
+      ],
+      "steps": [
+        {
+          "title": [
+            "把格式转换放在边界",
+            "Normalize at the boundary"
+          ],
+          "detail": [
+            "CSV读取weight列、JSON读取weight属性；两者都转换并验证成kg数值，缺失/非法值作为输入错误，不在运费函数里查列号。",
+            "CSV/JSON adapters produce validated numeric kilograms; missing/invalid values are input errors, not column handling inside pricing."
+          ]
+        },
+        {
+          "title": [
+            "让领域函数只表达规则",
+            "Keep domain logic focused"
+          ],
+          "detail": [
+            "shipping(1.5)=8，shipping(3)=12；函数不应知道输入原本是CSV还是JSON，且负数不合法。",
+            "shipping(1.5)=8 and shipping(3)=12; the function need not know the source format, and negatives are invalid."
+          ]
+        },
+        {
+          "title": [
+            "用同一契约验证替换",
+            "Check alternatives with one contract"
+          ],
+          "detail": [
+            "同一批1.5、2、3和非法输入经过两种适配器后，比较规范模型与最终运费；换格式不复制运费规则。",
+            "Run1.5,2,3 and invalid cases through both adapters, comparing normalized models and charges without duplicating the rule."
+          ]
+        }
+      ],
+      "result": [
+        "格式变化被限制在适配器，规则有一个可信实现及可复用的契约例子。",
+        "Format changes stay within adapters while the rule has one implementation and reusable contract cases."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "新增JSON支持时复制整套CSV运费计算再改字段。",
+        "Copy the CSV pricing implementation to add JSON."
+      ],
+      "why": [
+        "两份规则会独立演化，一处改边界另一处漏改就产生不同价格。",
+        "Copies evolve separately and can disagree at a threshold."
+      ],
+      "correct": [
+        "解析到规范模型，领域规则只维护一次，分别测试适配器。",
+        "Normalize inputs and maintain the rule once, testing each adapter separately."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "把CSV列顺序调整后，哪部分理应首先承担变化？",
+        "CSV columns change order. Which part should normally adapt?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "CSV解析适配器，领域契约保持不变",
+            "The CSV adapter, preserving the domain contract"
+          ],
+          "feedback": [
+            "正确：只要规范输入含义不变，领域无须跟着列位置修改。",
+            "Correct: unchanged normalized meaning should preserve domain behavior."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "所有调用者和运费函数",
+            "All callers and the pricing function"
+          ],
+          "feedback": [
+            "这说明格式细节泄漏到多个层。",
+            "That indicates widespread format coupling."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把所有运费结果重新写死",
+            "Hard-code every resulting charge"
+          ],
+          "feedback": [
+            "这没有解决职责边界，且不能处理新输入。",
+            "That neither fixes the boundary nor handles new inputs."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为CSV和JSON订单导入画模块接口，包含金额单位与错误输出。",
+        "Design CSV/JSON order-import module contracts, including amount units and errors."
+      ],
+      "sample": [
+        "两解析器输出相同的订单模型与行级错误；金额单位明确为分，领域不读原始列号，存储接收已验证模型，重复规则统一。",
+        "Both parsers produce one order model and row errors; amounts use explicit cents, domain logic ignores raw columns and duplicate rules remain shared."
+      ],
+      "criteria": [
+        [
+          "格式、领域和存储职责可区分。",
+          "Format, domain and storage responsibilities are distinct."
+        ],
+        [
+          "替换实现有同输入/同输出的契约检查。",
+          "Alternative implementations share input/output contract checks."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+      "https://csed.acm.org/knowledge-areas/"
+    ]
+  },
+  "software:control-flow": {
+    "title": [
+      "控制流与函数",
+      "Control flow and functions"
+    ],
+    "explain": [
+      [
+        "条件决定走哪条路径，返回决定一条路径何时结束。边界上的等号、零值和错误分支经常比普通输入更容易出错；一个清楚的函数应让每种合法输入得到明确结果，非法输入得到约定拒绝。",
+        "Conditions choose paths and returns end them. Equality, zero and error cases often reveal more than ordinary inputs. A clear function gives every valid input a result and rejects invalid inputs explicitly."
+      ],
+      [
+        "守卫式提前返回能减少嵌套，但前提是不会跳过必要清理或产生部分状态。不要用if amount判断“金额合法”：在很多语言里0是假值，但它可以是合法金额；合法性来自契约，不是真值转换。",
+        "Guard returns reduce nesting only when cleanup and consistency remain correct. A truthiness test is not amount validation: zero may be false-like but valid. Contract rules, not coercion, define validity."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "控制流与函数：完整示范",
+        "Control flow and functions: worked example"
+      ],
+      "given": [
+        "合成优惠：金额必须是非负整数分；满200减30，否则原价。输入199、200、201、0和−1。",
+        "Synthetic discount: amounts are nonnegative integer cents; totals at least200 receive30 off. Inputs199,200,201,0,−1."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先处理非法输入",
+            "Reject invalid input first"
+          ],
+          "detail": [
+            "检查整数且>=0，−1拒绝；不要静默改0，否则调用者不知道发生了输入错误。",
+            "Require an integer>=0 and reject−1 rather than silently substituting0."
+          ]
+        },
+        {
+          "title": [
+            "写出包含等号的阈值",
+            "Make the inclusive boundary explicit"
+          ],
+          "detail": [
+            "amount>=200才减30，所以199→199，200→170，201→171。若误写>，恰好200会错。",
+            "Use amount>=200:199→199,200→170,201→171. A strict > fails exactly at200."
+          ]
+        },
+        {
+          "title": [
+            "核对合法零与返回",
+            "Check zero and returns"
+          ],
+          "detail": [
+            "0通过合法性检查但不达优惠门槛，返回0；每条路径只返回一个约定结果，不把错误也当数字成功返回。",
+            "Zero passes validation without the discount and returns0. Each path returns one contracted outcome; errors are not numeric success."
+          ]
+        }
+      ],
+      "result": [
+        "非法、边界和普通路径有可追踪结果，函数可用具体输入逐项解释。",
+        "Invalid, boundary and ordinary paths have traceable, explainable outcomes."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "用if amount排除无效值，导致0也被拒绝。",
+        "Use if amount for validity and reject0."
+      ],
+      "why": [
+        "真值与业务合法性不同，0可能是有效输入。",
+        "Truthiness and domain validity differ; zero may be valid."
+      ],
+      "correct": [
+        "明确类型和范围校验，条件分支只表达真实业务门槛。",
+        "Validate type/range explicitly and let branches encode the real threshold."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "本例金额200应返回多少？",
+        "What should200 return under this contract?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "200，因为只有大于200才优惠",
+            "200 because only amounts above200 qualify"
+          ],
+          "feedback": [
+            "需求写满200，包含等号。",
+            "The requirement includes200."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "170，因为200−30=170",
+            "170 because200−30=170"
+          ],
+          "feedback": [
+            "正确：输入合法且位于包含的阈值。",
+            "Correct: valid input at the inclusive threshold."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "错误，因为阈值输入不合法",
+            "An error because threshold inputs are invalid"
+          ],
+          "feedback": [
+            "阈值属于合法范围，不应额外排除。",
+            "The threshold is valid input."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为满150减20且金额非负整数的规则写伪代码与149、150、151、0、负值结果。",
+        "Specify pseudocode and outputs for a20 discount at150, covering149,150,151,0 and a negative."
+      ],
+      "sample": [
+        "先拒绝非法类型和负值，再用>=150判断；结果149、130、131、0，负值拒绝。说明返回与错误类型，保留边界测试。",
+        "Reject invalid types/negatives, then apply >=150; outputs149,130,131,0 and rejection. Define result/error types and keep boundary tests."
+      ],
+      "criteria": [
+        [
+          "覆盖阈值前、等于、阈值后和合法零。",
+          "Cover below/equal/above threshold and valid zero."
+        ],
+        [
+          "错误不伪装成默认数值成功。",
+          "Errors do not masquerade as default numeric success."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.python.org/3/tutorial/controlflow.html"
+    ]
+  },
+  "software:structures-cost": {
+    "title": [
+      "数据结构与复杂度",
+      "Data structures and complexity"
+    ],
+    "explain": [
+      [
+        "数据结构选择要对应操作与语义。列表保留顺序，集合表达不重复成员，映射把键关联到值。只因为结果元素一样就替换结构，可能丢掉顺序或重复次数；先说明业务需要，再讨论性能。",
+        "Choose structures by operations and semantics. Lists preserve order, sets model distinct membership and maps associate keys with values. Equivalent members do not mean equivalent ordering or multiplicity; establish meaning before performance."
+      ],
+      [
+        "复杂度描述输入增长时工作量怎样增长，不直接给出毫秒。哈希集合通常能以平均常数时间查成员，但需要额外空间且依实现和输入；两两比较最坏会随n²增长。小数据“都很快”不能推断大数据等价。",
+        "Complexity describes growth, not milliseconds. Hash membership is typically average constant time with extra space and assumptions; pairwise comparison can grow quadratically. Similar small-input timings do not establish equivalent scaling."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "数据结构与复杂度：完整示范",
+        "Data structures and complexity: worked example"
+      ],
+      "given": [
+        "合成输入b,a,b,c,a；要求去重但保留第一次出现的顺序。",
+        "Synthetic input b,a,b,c,a must be deduplicated while preserving first occurrence."
+      ],
+      "steps": [
+        {
+          "title": [
+            "拆开成员与顺序职责",
+            "Separate membership from order"
+          ],
+          "detail": [
+            "使用seen集合判断是否出现过，output列表保存最终次序。单独使用Python set不能表达原输入首次顺序的契约。",
+            "Use seen for membership and an output list for order; a Python set alone does not express first-occurrence order."
+          ]
+        },
+        {
+          "title": [
+            "逐项跟踪状态",
+            "Trace each item"
+          ],
+          "detail": [
+            "b未见→加入两者；a未见→加入；第二个b已见→跳过；c加入；最后a跳过。每步都保留同一个成员判断规则。",
+            "Add b, add a, skip repeated b, add c, skip repeated a, using one consistent membership rule."
+          ]
+        },
+        {
+          "title": [
+            "核对语义和增长",
+            "Check semantics and growth"
+          ],
+          "detail": [
+            "output为b,a,c；每个输入做一次成员判断，平均线性过程，seen与output需额外空间。空输入输出空列表。",
+            "Output is b,a,c. One membership test per input gives an average linear process with extra space; empty input gives an empty list."
+          ]
+        }
+      ],
+      "result": [
+        "集合负责“是否见过”，列表负责“以什么顺序交付”，两者共同满足契约。",
+        "The set answers whether seen; the list records delivery order, jointly satisfying the contract."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只比较去重后数量，顺序不检查。",
+        "Check only the deduplicated count."
+      ],
+      "why": [
+        "b,a,c和a,b,c数量相同，但可能不满足首次顺序需求。",
+        "The same count can conceal an incorrect ordering."
+      ],
+      "correct": [
+        "同时断言成员、无重复和首次顺序。",
+        "Assert membership, uniqueness and first-occurrence order."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "输入d,c,d,b，保首次顺序的结果是什么？",
+        "Deduplicate d,c,d,b by first occurrence. What is the result?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "b,c,d，因为集合会排序",
+            "b,c,d because a set sorts"
+          ],
+          "feedback": [
+            "集合不提供这种排序契约，而且需求是首次顺序。",
+            "That is not a set-order guarantee or the requested order."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "d,c,d,b，因为去重只检查大小",
+            "d,c,d,b because deduplication concerns only size"
+          ],
+          "feedback": [
+            "重复d仍在，连去重契约也未满足。",
+            "The duplicate remains."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "d,c,b",
+            "d,c,b"
+          ],
+          "feedback": [
+            "正确：重复的第二个d被跳过，其余按首次出现保留。",
+            "Correct: skip the second d and retain first-occurrence order."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "比较1000个ID的两两重复扫描与seen集合方案，列顺序、时间增长和额外空间。",
+        "Compare pairwise and seen-set duplicate detection for1000 IDs: order, growth and space."
+      ],
+      "sample": [
+        "两两最坏二次，集合平均线性但需空间；要求保序时另留列表。用空、全重复与多样输入检查成员和顺序，不承诺固定毫秒。",
+        "Pairwise is quadratic in the worst case; hashing averages linear with space. Preserve order separately and test empty, repeated and varied inputs without fixed-millisecond promises."
+      ],
+      "criteria": [
+        [
+          "复杂度与具体耗时分开，说明假设。",
+          "Separate growth from measured time and state assumptions."
+        ],
+        [
+          "结构选择满足顺序和重复的业务语义。",
+          "Structures preserve required ordering and multiplicity."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.python.org/3/tutorial/datastructures.html",
+      "https://csed.acm.org/knowledge-areas/"
+    ]
+  },
+  "software:errors": {
+    "title": [
+      "错误处理与边界输入",
+      "Errors and edge cases"
+    ],
+    "explain": [
+      [
+        "错误至少分输入不合法、外部资源失败和程序缺陷。它们需要不同动作：用户能修正一行金额，但不能靠改金额修复磁盘不可写。错误分类是恢复策略的依据，不是给所有异常换同一句话。",
+        "Distinguish invalid input, external-resource failure and defects. Users can fix an amount, not repair disk permissions by changing it. Classification guides recovery rather than replacing every exception with one message."
+      ],
+      [
+        "异常应在能够理解和处理它的边界捕获，保留原因与上下文，同时不泄漏秘密。清理资源用可靠的finally或上下文管理；不能用宽泛捕获返回默认成功，否则调用者连失败是否发生都不知道。",
+        "Catch exceptions where they can be understood and handled, preserving useful context without secrets. Use reliable cleanup, and avoid broad catches returning false success."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "错误处理与边界输入：完整示范",
+        "Errors and edge cases: worked example"
+      ],
+      "given": [
+        "合成CSV导入金额列：第4行是bad；也可能文件不存在。要求坏行可记录，文件不存在则停止整次导入。",
+        "Synthetic CSV import has bad in amount row4; the file may also be absent. Row parsing may be recorded, while missing input stops the import."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先判断资源可否取得",
+            "Acquire the resource"
+          ],
+          "detail": [
+            "打开文件若失败，返回文件不可读的约定错误，不进入逐行金额解析；不能把FileNotFoundError解释成第1行金额错误。",
+            "If opening fails, return the contracted resource error without row parsing; do not mislabel missing input as an invalid amount."
+          ]
+        },
+        {
+          "title": [
+            "在行边界处理可恢复错误",
+            "Handle row-level recovery"
+          ],
+          "detail": [
+            "第4行转换整数产生ValueError，记录行4、字段amount和原值bad；按本例策略保留坏行问题，继续其他合法行。",
+            "For row4, record the parse error with field/raw value; continue valid rows only under this stated partial-import policy."
+          ]
+        },
+        {
+          "title": [
+            "给出真实结果并清理",
+            "Report and clean up"
+          ],
+          "detail": [
+            "报告已接收行与拒绝行，不将坏行当0；退出时关闭文件。若写结果文件失败，另报存储失败，不宣称导入已完成。",
+            "Report accepted/rejected rows without replacing bad with0, close resources and report output-write failure separately."
+          ]
+        }
+      ],
+      "result": [
+        "调用者知道是修输入、找文件还是处理存储故障，且不会收到假成功。",
+        "The caller knows whether to repair input, locate a file or handle storage failure, without false success."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "except Exception后返回0，避免程序报错。",
+        "Catch Exception and return0 to avoid errors."
+      ],
+      "why": [
+        "0可能是合法金额，吞掉错误会把未知/失败变成看似真实的数据。",
+        "Zero may be legitimate; swallowing failures fabricates valid-looking data."
+      ],
+      "correct": [
+        "捕获具体可处理异常，保留行号和原因；无法恢复时明确失败。",
+        "Handle specific recoverable exceptions with context and fail explicitly otherwise."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "金额bad和文件不存在应使用相同的“金额设0继续”处理吗？",
+        "Should bad amount and missing file both become0 and continue?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "不应，按错误类型与恢复契约分开",
+            "No; separate by type and recovery contract"
+          ],
+          "feedback": [
+            "正确：先判断能恢复什么，再决定继续或停止。",
+            "Correct: recovery capability determines continuation."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "应当，所有异常统一最简单",
+            "Yes; one policy is simplest"
+          ],
+          "feedback": [
+            "它混淆了可恢复行错误和缺失资源，还制造数据。",
+            "It conflates row recovery with unavailable input and invents data."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "都向用户展示完整系统堆栈",
+            "Show complete internal stacks for both"
+          ],
+          "feedback": [
+            "堆栈可能泄露内部细节，也不等于可操作的反馈。",
+            "Stacks can reveal internals without actionable guidance."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "设计导入工具对坏金额、缺文件、重复ID和写盘失败的错误与清理策略。",
+        "Specify import behavior for malformed amounts, missing files, duplicate IDs and failed output writes."
+      ],
+      "sample": [
+        "分别列继续/停止条件，记录必要行号和原值；拒绝不伪造0，重复不擅自覆盖，资源总能释放，失败不会被报告成功。",
+        "Define continue/stop conditions, retain necessary row/raw context, invent no zeros, overwrite no duplicates silently and clean resources without false success."
+      ],
+      "criteria": [
+        [
+          "错误与恢复动作对应，不用一个默认值吞掉所有问题。",
+          "Recovery follows error meaning, not one default."
+        ],
+        [
+          "清理、秘密最小化与实际结果都有说明。",
+          "Address cleanup, minimized disclosure and truthful outcomes."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.python.org/3/tutorial/errors.html",
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+      "https://docs.python.org/3/tutorial/controlflow.html"
+    ]
+  },
+  "software:unit-tests": {
+    "title": [
+      "单元测试与边界",
+      "Unit tests and boundaries"
+    ],
+    "explain": [
+      [
+        "单元测试针对小边界上的明确行为。安排输入、调用动作、断言预期是三个不同步骤；预期值来自需求和独立推导，而不是在测试里复制实现，否则同一个错误可能在两边同时出现。",
+        "A unit test checks explicit behavior at a small boundary. Setup, action and assertion are distinct; derive expectations independently from the requirement rather than copying the implementation and its possible bug."
+      ],
+      [
+        "普通、空、边界和错误都是契约的一部分。只断言“不抛异常”无法区分正确数值与错误结果；测试也应彼此独立，控制时间、随机和外部状态，让失败能稳定说明哪条规则被破坏。",
+        "Normal, empty, boundary and error cases are contractual. No-exception assertions miss wrong values. Independent tests with controlled time/random/external state make failures diagnostic and repeatable."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "单元测试与边界：完整示范",
+        "Unit tests and boundaries: worked example"
+      ],
+      "given": [
+        "合成函数total返回金额和：total([4,9])=13，total([])=0。错误实现却返回列表长度。",
+        "Synthetic total sums amounts: [4,9]→13 and []→0. A faulty implementation returns list length."
+      ],
+      "steps": [
+        {
+          "title": [
+            "给出独立预期",
+            "Derive expectations independently"
+          ],
+          "detail": [
+            "按加法4+9算出13，不在测试里再次调用被测算法来求“预期”。空列表约定为加法单位0。",
+            "Derive13 from4+9, not by calling the implementation for its expected value. The empty contract uses additive identity0."
+          ]
+        },
+        {
+          "title": [
+            "写具体值断言",
+            "Assert concrete values"
+          ],
+          "detail": [
+            "一条断言total([4,9])==13，另一条total([])==0。只写函数可调用，两种实现都会通过。",
+            "Assert the two values separately. Both implementations can pass a merely callable/no-exception check."
+          ]
+        },
+        {
+          "title": [
+            "用故意破坏验证测试价值",
+            "Check defect sensitivity"
+          ],
+          "detail": [
+            "长度实现返回2，会被第一条抓住；它在空输入返回0却能通过第二条，说明需要有区分力的组合。",
+            "The length implementation returns2 and fails the normal case, while still passing empty0; a discriminating combination is needed."
+          ]
+        }
+      ],
+      "result": [
+        "测试既覆盖需求，也确实能发现代表性错误，不以测试数量替代证据。",
+        "Tests cover the contract and detect a representative defect rather than relying on count."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "预期值完全重复被测函数中的同一段条件代码。",
+        "Copy the same condition code to calculate expected values."
+      ],
+      "why": [
+        "实现和测试可能以同一种方式犯错，测试只证明两份代码一致。",
+        "Both can share the same defect, establishing agreement rather than correctness."
+      ],
+      "correct": [
+        "从需求手算边界预期，加入能区分错误实现的反例。",
+        "Derive boundary expectations from the contract and include discriminating cases."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "函数把[2,8]错误算成2，哪种断言能发现？",
+        "A faulty sum returns2 for[2,8]. Which assertion catches it?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "调用不抛异常",
+            "Calling does not throw"
+          ],
+          "feedback": [
+            "错误数值同样能正常返回。",
+            "Wrong values can return normally."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "返回值严格等于10",
+            "The value equals10"
+          ],
+          "feedback": [
+            "正确：这是独立算出的具体期望。",
+            "Correct:10 is a concrete independently derived expectation."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "返回类型是数字",
+            "The return type is numeric"
+          ],
+          "feedback": [
+            "2也是数字，不足以判断业务结果。",
+            "Two is also numeric."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "给满250减25的非负整数金额规则写249、250、251和负值的测试。",
+        "Test a25 discount at250 for249,250,251 and a negative."
+      ],
+      "sample": [
+        "预期249、225、226，负值按契约拒绝；再故意把>=改>，确认250用例失败，说明错误被捕获。",
+        "Expect249,225,226 and rejection; deliberately change>= to> and confirm the250 case detects it."
+      ],
+      "criteria": [
+        [
+          "预期来源独立，断言具体结果/错误。",
+          "Expectations are independent and concrete."
+        ],
+        [
+          "至少一个代表缺陷会使测试失败，且测试彼此隔离。",
+          "A representative defect fails and tests remain independent."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.python.org/3/library/unittest.html",
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  },
+  "software:debugging": {
+    "title": [
+      "复现与定位",
+      "Reproduction and debugging"
+    ],
+    "explain": [
+      [
+        "调试是用证据区分候选原因。最小复现保留能稳定触发问题的最少条件；一次同时改缓存、排序和数据库，虽然现象可能消失，却无法知道哪项起作用，也难以防止回归。",
+        "Debugging distinguishes hypotheses with evidence. A minimal reproduction preserves the smallest reliable trigger. Changing cache, sorting and database together may remove a symptom without explaining or preventing it."
+      ],
+      [
+        "好的假设必须能被观察推翻。先固定版本、输入、时间顺序，再设计只改变有意义因素的实验。日志和调试器也可能改变竞态时序，因此难复现时应保留出现条件与频率，不编造确定根因。",
+        "A useful hypothesis can be falsified. Fix version/input/order, then vary a meaningful factor. Instrumentation can affect races, so retain conditions/frequency instead of inventing certainty when reproduction is hard."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "复现与定位：完整示范",
+        "Reproduction and debugging: worked example"
+      ],
+      "given": [
+        "合成函数第一次读取名称“甲”，修改为“乙”后第二次仍返回“甲”；怀疑缓存失效遗漏。",
+        "Synthetic reads return A, then still A after updating to B; cache invalidation is suspected."
+      ],
+      "steps": [
+        {
+          "title": [
+            "固定最小复现",
+            "Fix the reproduction"
+          ],
+          "detail": [
+            "在同一版本执行读取→更新→再读三步，记录每步值。去掉不相关界面，确认错误确实在这个顺序出现。",
+            "Reproduce read→update→read on one version, recording values without unrelated UI."
+          ]
+        },
+        {
+          "title": [
+            "做能区分假设的实验",
+            "Design a distinguishing experiment"
+          ],
+          "detail": [
+            "仅对这个测试关闭缓存；若二次读变乙，支持缓存相关方向，但仍需查缓存键、更新时失效及写入时点。",
+            "Disable cache only for this test. If B appears, investigate keys, invalidation and write timing rather than declaring all caching broken."
+          ]
+        },
+        {
+          "title": [
+            "修复并保留回归",
+            "Repair and retain regression"
+          ],
+          "detail": [
+            "修正该更新路径的失效后，用原三步验证乙；另查未更新重复读和不同对象，避免把所有缓存永久关闭当结案。",
+            "Repair that path and verify B, then check unchanged reads and other objects; do not substitute blanket cache removal for a diagnosis."
+          ]
+        }
+      ],
+      "result": [
+        "结论来自可重放实验和相邻对照，修复有防回归证据。",
+        "The conclusion follows replayable experiments and controls, with regression evidence."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "现象消失后立刻写“确定是数据库问题”，不保存复现。",
+        "Call it a database root cause as soon as the symptom disappears."
+      ],
+      "why": [
+        "症状消失和根因成立不是同一件事，没有区分实验也不能排除其他因素。",
+        "Symptom recovery does not establish cause or exclude alternatives."
+      ],
+      "correct": [
+        "记录候选、实验、预期和观察，再写与证据相符的结论。",
+        "Record hypotheses, experiments, expectations and observations before concluding."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "关缓存后问题消失，可以直接认定应该永久禁用全部缓存吗？",
+        "The issue disappears without caching. Must all caching be disabled permanently?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "可以，所有缓存都是错的",
+            "Yes; all caching is wrong"
+          ],
+          "feedback": [
+            "这把一个诊断实验扩大成无依据的全局设计结论。",
+            "That overgeneralizes a diagnostic experiment."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "不可以，所以实验毫无价值",
+            "No, so the experiment has no value"
+          ],
+          "feedback": [
+            "它有区分候选的价值，只需保留结论边界。",
+            "It remains valuable evidence within its scope."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "不可以，还需定位缓存键和失效路径",
+            "No; investigate keying and invalidation"
+          ],
+          "feedback": [
+            "正确：实验缩小了方向，尚未决定最合适的修复。",
+            "Correct: it narrows the cause without establishing the best repair."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "一个函数只在空列表时报错，制作最小复现、两条假设与一个区分实验。",
+        "A function fails only on empty input. Build a reproduction, two hypotheses and one distinguishing experiment."
+      ],
+      "sample": [
+        "固定版本，用[]与单元素对照；定位是否读取首项或除以长度，再只改对应守卫并复查空/非空和原输出。",
+        "Fix the version, compare empty/singleton, distinguish first-item access from divide-by-length, change the relevant guard and retain both regressions."
+      ],
+      "criteria": [
+        [
+          "实验能区分原因，而非只重复发生问题。",
+          "The experiment distinguishes causes beyond reproducing symptoms."
+        ],
+        [
+          "修复有原复现和相邻正常场景的对照。",
+          "Verify both the original trigger and adjacent normal behavior."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  },
+  "software:refactor": {
+    "title": [
+      "重构与兼容性",
+      "Refactoring and compatibility"
+    ],
+    "explain": [
+      [
+        "重构改变内部组织而保持约定外部行为。把一个大函数拆成计算和格式化可以改善职责，但若顺便改返回类型、舍入或错误规则，就包含了行为变更，应该单独说明而不是藏在“清理代码”里。",
+        "Refactoring changes internal organization while preserving contracted external behavior. Splitting calculation from formatting may improve responsibilities, but return-type, rounding or error changes are behavioral changes that must be declared."
+      ],
+      [
+        "先锁定行为再移动结构。普通、边界和错误样例帮助判断新实现是否兼容；没有证据时先补最关键的行为记录。重复代码看起来相似也可能承担不同需求，不能为了消除重复而抹去有意差异。",
+        "Characterize behavior before restructuring. Normal, boundary and error cases reveal compatibility. Similar-looking duplicate code can encode intentional differences, so extracting it must not erase requirements."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "重构与兼容性：完整示范",
+        "Refactoring and compatibility: worked example"
+      ],
+      "given": [
+        "合成折扣函数输入整数分，满1000减100，返回数字。现在希望拆成计算与展示两部分。",
+        "A synthetic discount takes integer cents, deducts100 at1000 and returns a number. Split calculation from display."
+      ],
+      "steps": [
+        {
+          "title": [
+            "记录外部契约",
+            "Record the external contract"
+          ],
+          "detail": [
+            "给999、1000、1001保留预期999、900、901；负值拒绝。调用者依赖的是数值，不只是屏幕上的字符。",
+            "Characterize999→999,1000→900,1001→901 and negative rejection; callers depend on numbers, not just displayed characters."
+          ]
+        },
+        {
+          "title": [
+            "小步分离职责",
+            "Separate responsibilities in small steps"
+          ],
+          "detail": [
+            "提取calculate只返回整数金额，format只负责按约定显示。旧对外函数仍给调用者原类型，必要时把展示放在原边界之外。",
+            "Extract numeric calculation and formatting separately while preserving the old public return type."
+          ]
+        },
+        {
+          "title": [
+            "比较行为而非只看代码",
+            "Compare behavior, not appearance"
+          ],
+          "detail": [
+            "分别核对类型、数值、错误与调用者。如果结果900变成字符串\"900\"，虽然UI相似，类型契约已经改变，不能算纯重构。",
+            "Compare types, values, errors and callers. String \"900\" is not the same contract as number900 despite similar display."
+          ]
+        }
+      ],
+      "result": [
+        "内部职责更清楚而外部行为有证据保持；确需改契约时另做迁移。",
+        "Internal responsibilities improve with evidenced behavior preservation; intentional contract changes need migration."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "为了统一写法，直接把两个相似函数的>=与>全部改成一样。",
+        "Unify >= and > in similar functions to remove duplication."
+      ],
+      "why": [
+        "阈值差别可能是不同需求；未确认就合并会造成边界行为变化。",
+        "The difference may be intentional; unverified unification changes boundary behavior."
+      ],
+      "correct": [
+        "先判断差异是否有意，用契约测试保护后再提取或明确修缺陷。",
+        "Determine intent, characterize behavior, then extract or explicitly fix a defect."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "返回数字30改成字符串\"30\"，显示相同，属于已证明兼容的重构吗？",
+        "Changing number30 to string \"30\" looks the same. Is that proven compatible refactoring?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "不是，返回类型变化需明确处理",
+            "No; the type change needs explicit handling"
+          ],
+          "feedback": [
+            "正确：应保留原类型或把它作为行为变更评估迁移。",
+            "Correct: preserve it or assess migration as a behavior change."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "是，屏幕相同就够了",
+            "Yes; identical display suffices"
+          ],
+          "feedback": [
+            "调用者可能要计算或严格比较，类型也是契约。",
+            "Callers may calculate or compare strictly; type is contractual."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "是，因为代码行数减少",
+            "Yes; there are fewer lines"
+          ],
+          "feedback": [
+            "行数不能证明外部行为不变。",
+            "Line count is not behavioral evidence."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "两处折扣逻辑只有一个边界符号不同，制定提取前的核对与迁移计划。",
+        "Plan characterization and extraction for two discount functions differing at one boundary."
+      ],
+      "sample": [
+        "列相同与不同场景，向需求确认边界意图；测试保护各自契约后提取共同部分，若统一行为则单列破坏性影响和迁移。",
+        "Document shared/different cases, confirm threshold intent, protect contracts and extract only common parts; declare migration if unifying behavior."
+      ],
+      "criteria": [
+        [
+          "明确区分结构调整、修缺陷和契约改变。",
+          "Separate restructuring, defect fixes and contract changes."
+        ],
+        [
+          "结果包含类型、错误、边界及调用者验证。",
+          "Verify types, errors, boundaries and callers."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+      "https://semver.org/"
+    ]
+  },
+  "software:git-branches": {
+    "title": [
+      "Git 分支与合并",
+      "Git branches and merges"
+    ],
+    "explain": [
+      [
+        "Git分支是指向提交的可移动引用。合并通常比较共同祖先与双方改动，目的是整合意图；文本冲突只是Git无法自动决定的编辑位置，没有文本冲突也不保证业务兼容。",
+        "A Git branch is a movable commit reference. A merge compares changes relative to a common ancestor to combine intent. Text conflicts mark unresolved edits; a conflict-free merge still does not establish semantic compatibility."
+      ],
+      [
+        "解决冲突需要知道双方为何改。ours/theirs是特定操作上下文中的两侧，不是“正确/错误”标签。先保留现有未提交工作，再在隔离演练仓库理解冲突；不要在用户主工程用重置或整份覆盖来练习。",
+        "Conflict resolution requires both intentions. ours/theirs are contextual sides, not correctness labels. Preserve uncommitted work and rehearse in a separate repository rather than resetting or overwriting shared work."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "Git 分支与合并：完整示范",
+        "Git branches and merges: worked example"
+      ],
+      "given": [
+        "合成配置的共同祖先是timeout=10,retries=1；A改timeout=20，B改retries=3，合并时同一行冲突。",
+        "A synthetic base has timeout10/retries1. BranchA changes timeout20; B changes retries3, conflicting on one line."
+      ],
+      "steps": [
+        {
+          "title": [
+            "读共同祖先和两边意图",
+            "Inspect base and intentions"
+          ],
+          "detail": [
+            "共同祖先说明旧值；A调整等待预算，B调整重试次数。只看带标记的最终文件还不足以知道两项改动的目的。",
+            "The base shows old values; A changes waiting budget and B retries. Read both intentions, not just the conflict markers."
+          ]
+        },
+        {
+          "title": [
+            "合成符合两项意图的内容",
+            "Combine the intended content"
+          ],
+          "detail": [
+            "在确认两者可同时成立后写timeout=20,retries=3，删除冲突标记。不是整份选择A或B，而是逐项保留规则。",
+            "After checking compatibility, resolve to timeout20/retries3 and remove markers, preserving both rules rather than choosing a whole side."
+          ]
+        },
+        {
+          "title": [
+            "验证并审查完整差异",
+            "Validate and review the full diff"
+          ],
+          "detail": [
+            "检查配置可解析、时间总预算仍允许这组值，再看status/diff并运行相关测试。暂存冲突解决不等于业务验收已经通过。",
+            "Check parsing and total timing budget, inspect status/diff and run relevant tests. Staging a resolution is not itself business acceptance."
+          ]
+        }
+      ],
+      "result": [
+        "合并结果保留双方意图且有兼容检查；无标记只是一项必要条件。",
+        "The result preserves both intentions with compatibility evidence; no markers is only one necessary condition."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "删除冲突标记并保留任意一边，就算正确完成。",
+        "Remove markers and keep either side arbitrarily."
+      ],
+      "why": [
+        "语法可能成立，但另一边有效改动会悄悄消失。",
+        "Syntax may pass while a valid change is lost."
+      ],
+      "correct": [
+        "逐项解释共同祖先与两边改动，检查整合后的行为。",
+        "Explain base and both changes, then validate the combined behavior."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "本例若直接整份采用A，遗漏了什么？",
+        "What is lost if the whole A version is accepted?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "A的timeout=20",
+            "A’s timeout20"
+          ],
+          "feedback": [
+            "采用A会保留它，不是遗漏项。",
+            "A’s version retains that change."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "B将retries改为3的意图",
+            "B’s retries3 change"
+          ],
+          "feedback": [
+            "正确：解决文本冲突也必须防止有效意图被覆盖。",
+            "Correct: textual resolution must preserve valid intent."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "共同祖先本身一定丢失",
+            "The base necessarily disappears from history"
+          ],
+          "feedback": [
+            "选择文件内容与提交历史是否保留不是同一概念。",
+            "Resolved content and preservation of commit history differ."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "只在独立临时仓库演练两个分支改同一配置，记录基线、双方意图和验证。",
+        "Rehearse conflicting configuration changes only in a separate temporary repository."
+      ],
+      "sample": [
+        "记录提交关系，保留原配置与两侧差异，逐项整合后检查解析/业务预算/测试；主工作区不重置，不把删除标记等同正确合并。",
+        "Record commits/base/diffs, combine intentionally and check parsing/budget/tests. Do not reset shared work or equate marker removal with correctness."
+      ],
+      "criteria": [
+        [
+          "合并解释能覆盖双方变更与共同祖先。",
+          "Explain both changes relative to the base."
+        ],
+        [
+          "演练隔离，验证最终差异而非仅冲突标记。",
+          "Rehearse in isolation and verify the final diff."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+      "https://github.com/skills/introduction-to-github"
+    ]
+  },
+  "software:code-review": {
+    "title": [
+      "代码审查与反馈",
+      "Code review"
+    ],
+    "explain": [
+      [
+        "代码审查把注意力放在具体变化的风险：输入条件、控制流、权限、数据和错误处理。有效意见指出位置、触发条件、影响和可验证的修正方向，让作者知道下一步怎样证明问题已解决。",
+        "Code review evaluates change-specific risks in inputs, control flow, permissions, data and errors. Useful feedback locates the issue, trigger, impact and a verifiable correction so authors can demonstrate resolution."
+      ],
+      [
+        "必须修复与可选建议要分开。业务边界变错属于正确性问题，变量名偏好未必应阻塞。审查结论也有范围：看过代码、测试通过、实际运行是不同证据，不能用批准动作代替未做的验证。",
+        "Distinguish blockers from suggestions. Incorrect boundaries affect correctness; naming preferences may not block. Reading code, passing tests and executing a path are different evidence, not interchangeable with approval."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "代码审查与反馈：完整示范",
+        "Code review: worked example"
+      ],
+      "given": [
+        "合成优惠规则“金额满500减50”，改动把>=500写成>500，没有补测500。",
+        "Synthetic contract: deduct50 at totals at least500. A change uses >500 instead of >=500, without a500 test."
+      ],
+      "steps": [
+        {
+          "title": [
+            "从需求走到具体触发",
+            "Connect requirement to trigger"
+          ],
+          "detail": [
+            "499不受影响，501仍优惠，只有500会从450变成500；先写清这条可复现行为，而不是泛泛说逻辑不好。",
+            "499 is unchanged and501 still qualifies, but500 changes from450 to500. State that precise trigger instead of criticizing vaguely."
+          ]
+        },
+        {
+          "title": [
+            "写有依据的阻塞意见",
+            "Write an evidenced blocker"
+          ],
+          "detail": [
+            "指出条件行和满500的约定，要求恢复包含边界或明确需求已变；给输入500、预期450作为可验证例子。",
+            "Reference the condition and inclusive requirement, asking for restoration or an explicit requirement change, with500→450 as evidence."
+          ]
+        },
+        {
+          "title": [
+            "在修订后复查",
+            "Recheck the revision"
+          ],
+          "detail": [
+            "核对修改及499/500/501测试，并检查其他调用路径是否复用这条规则。已解决意见按最终差异关闭，不只看作者回复“已改”。",
+            "Inspect the revision and499/500/501 tests plus shared callers; resolve based on the final diff, not only a claim that it is fixed."
+          ]
+        }
+      ],
+      "result": [
+        "审查意见能触发实际修正与验证，风格建议不掩盖正确性风险。",
+        "Review leads to a concrete repair and verification without burying correctness under style."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只评论“代码太差，需要重写”。",
+        "Comment only that the code is bad and must be rewritten."
+      ],
+      "why": [
+        "没有位置、条件与影响，作者无法验证到底要修什么，也不利于形成可复查证据。",
+        "Without location, trigger and impact, the author cannot verify the requested repair."
+      ],
+      "correct": [
+        "给出具体反例、规则依据与期望，区分阻塞和建议。",
+        "Provide a counterexample, rule and expectation, separating blockers from suggestions."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "下面哪条意见最可行动？",
+        "Which review comment is most actionable?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "写法不喜欢，换一种",
+            "I dislike this style; use another"
+          ],
+          "feedback": [
+            "没有可验证的需求或问题。",
+            "There is no verifiable problem or requirement."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "测试数量不够，多写十条",
+            "There are too few tests; add ten"
+          ],
+          "feedback": [
+            "数量不能说明缺少哪项行为证据。",
+            "A count does not identify missing behavioral evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "此处>漏掉满500场景，输入500应得450，请补边界测试",
+            "The > excludes500; expected500→450. Add a boundary test"
+          ],
+          "feedback": [
+            "正确：位置、触发、期望和验证动作都清楚。",
+            "Correct: location, trigger, expectation and verification are explicit."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "审查把缺失金额默认为0并入库的改动，写一条阻塞和一条可选建议。",
+        "Review a change defaulting missing amounts to0, with one blocker and one suggestion."
+      ],
+      "sample": [
+        "阻塞指出缺失输入被伪装成真实零收入，要求按契约拒绝或保留未知并补用例；可选建议可改善错误命名，但不能替代数据修复。",
+        "Block the fabricated zero with contract-based rejection/unknown handling and a regression case; a naming suggestion is optional and does not replace the data fix."
+      ],
+      "criteria": [
+        [
+          "重要意见包含具体输入、影响与规则依据。",
+          "Important feedback includes input, impact and rule."
+        ],
+        [
+          "区分必要修复、风格建议与实际验证范围。",
+          "Separate required fixes, preferences and verified scope."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.github.com/en/pull-requests/reference/pull-request-reviews",
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  },
+  "software:release-version": {
+    "title": [
+      "发布版本与交接",
+      "Versioned releases and handoff"
+    ],
+    "explain": [
+      [
+        "版本号是契约变化的说明，构建身份是实际内容的标识。相同页脚版本可能对应不同源码或依赖，只有提交、依赖锁、构建配置和产物摘要能把“测试了什么”与“运行了什么”连起来。",
+        "A version describes contract change; build identity identifies actual content. Identical displayed versions can hide different source/dependencies. Commits, locks, configuration and artifact digests connect tested and running content."
+      ],
+      [
+        "语义版本要求先定义公开API。稳定版本的破坏性API改变应按相应主版本规则处理，不能因为叫“修复”就自动发patch。发布还包括迁移和恢复条件：旧代码是否能读取新数据，比回退按钮是否存在更重要。",
+        "Semantic versioning starts with a declared public API. Incompatible changes in a stable API need the appropriate major version, even when called fixes. Migration/recovery also require old code to understand new data."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "发布版本与交接：完整示范",
+        "Versioned releases and handoff: worked example"
+      ],
+      "given": [
+        "合成产品稳定公开API为2.4.1，候选移除旧字段name，改用displayName；页面仍显示2.4.1。",
+        "A synthetic stable public API is2.4.1. A candidate removes name for displayName, while its page still displays2.4.1."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先判断对调用者的影响",
+            "Assess consumer impact"
+          ],
+          "detail": [
+            "依赖name的调用者会失败，属于公开契约不兼容，不因新名字更合理而变成兼容修复。",
+            "Consumers relying on name break; a better field name does not make the removal compatible."
+          ]
+        },
+        {
+          "title": [
+            "设计版本与迁移",
+            "Plan version and migration"
+          ],
+          "detail": [
+            "按本例SemVer政策安排主版本变化，或先兼容提供新旧字段并声明弃用周期；记录客户如何迁移及何时移除。",
+            "Under this SemVer policy plan a major change, or first support both fields with a stated deprecation/migration period."
+          ]
+        },
+        {
+          "title": [
+            "绑定实际产物与恢复",
+            "Bind artifacts and recovery"
+          ],
+          "detail": [
+            "构建后记录摘要，部署验收核对实际资源而不是页脚。回退前核对数据库和外部调用是否仍兼容旧字段。",
+            "Record build digests and verify actual served artifacts rather than the footer; check data and external-protocol compatibility before rollback."
+          ]
+        }
+      ],
+      "result": [
+        "发布记录说明真实内容、兼容影响、迁移和回退前提，版本号不再是装饰。",
+        "The release record identifies content, compatibility, migration and recovery conditions rather than treating a version as decoration."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把删字段称为修复，就直接升级到2.4.2。",
+        "Call the field removal a fix and publish2.4.2."
+      ],
+      "why": [
+        "是否破坏调用者由公开契约决定，不由变更名称决定。",
+        "Compatibility follows the public contract, not the change label."
+      ],
+      "correct": [
+        "分析消费者影响，采用声明的版本政策并给迁移路径。",
+        "Assess consumer impact, apply the version policy and provide migration."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "页脚版本相同，但资源摘要不同，能直接复用另一构建的验收结论吗？",
+        "The footer version matches but artifact digests differ. Can prior build acceptance be reused automatically?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "不能，先识别实际构建并判断需重验范围",
+            "No; identify the build and determine revalidation scope"
+          ],
+          "feedback": [
+            "正确：证据要绑定实际内容。",
+            "Correct: evidence belongs to identified content."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "能，版本文字是唯一依据",
+            "Yes; displayed version is sufficient"
+          ],
+          "feedback": [
+            "不同产物可能有不同代码，旧证据不能自动覆盖。",
+            "Different artifacts can contain different code."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "能，只要文件名一样",
+            "Yes, if filenames match"
+          ],
+          "feedback": [
+            "文件名不能证明字节或行为一致。",
+            "Filenames do not establish identical bytes or behavior."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "给稳定API删除字段的发布写版本、迁移、产物身份、验收与恢复记录。",
+        "Write version, migration, artifact, acceptance and recovery notes for removing a stable API field."
+      ],
+      "sample": [
+        "列消费者影响、过渡方案和移除时间，记录提交/依赖锁/产物摘要及实际检查；明确旧代码对新数据和调用者兼容性，未测范围如实列出。",
+        "Record consumers, transition/removal timing, commit/lock/digests and actual checks, including old-code compatibility with new data and callers and any untested scope."
+      ],
+      "criteria": [
+        [
+          "版本决策基于公开契约而非主观“修复”命名。",
+          "Version decisions follow the public contract."
+        ],
+        [
+          "证据、迁移和恢复都能对应实际构建。",
+          "Evidence, migration and recovery identify the actual build."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://semver.org/",
+      "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+    ]
+  }
+}

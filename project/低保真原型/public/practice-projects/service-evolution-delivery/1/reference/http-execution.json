@@ -1,0 +1,45 @@
+{
+  "kind": "actual_loopback_HTTP_requests",
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:22:00.937Z",
+  "passed": true,
+  "evidence": [
+    {
+      "version": "v1",
+      "body": [
+        {
+          "id": "L1",
+          "total": 120.99
+        },
+        {
+          "id": "L2",
+          "total": 0
+        },
+        {
+          "id": "L3",
+          "total": 8.01
+        }
+      ]
+    },
+    {
+      "version": "v2",
+      "body": [
+        {
+          "id": "L1",
+          "totalCents": 12099,
+          "currency": "CNY"
+        },
+        {
+          "id": "L2",
+          "totalCents": 0,
+          "currency": "CNY"
+        },
+        {
+          "id": "L3",
+          "totalCents": 801,
+          "currency": "CNY"
+        }
+      ]
+    }
+  ]
+}

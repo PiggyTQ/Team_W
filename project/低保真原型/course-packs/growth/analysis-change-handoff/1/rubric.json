@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "旧/新口径结果各自可重现",
+    "所有差异能定位版本与输入"
+  ],
+  "open": [
+    {
+      "criterion": "变更判断与沟通",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "未解决问题及责任交接",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

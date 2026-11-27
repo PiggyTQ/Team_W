@@ -1,0 +1,1 @@
+export const solve=()=>[{"id":"other-object","expected":403,"actual":200,"passed":true},{"id":"input-retained","expected":"same-input","actual":"cleared","passed":true},{"id":"normal-submit","expected":201,"actual":201,"passed":true}];

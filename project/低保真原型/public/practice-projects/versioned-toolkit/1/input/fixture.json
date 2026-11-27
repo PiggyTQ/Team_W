@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "commands": [
+    {
+      "id": "valid",
+      "amount": "10000"
+    },
+    {
+      "id": "missing"
+    },
+    {
+      "id": "invalid",
+      "amount": "1.5"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "AI/后端",
+  "to": "测试/业务评估",
+  "content": "原型或离线可重现服务与轨迹",
+  "payload": {
+    "answers": [
+      {
+        "id": "Q1",
+        "answer": "09:00–09:30",
+        "citation": "D1"
+      },
+      {
+        "id": "Q2",
+        "answer": null,
+        "citation": null
+      },
+      {
+        "id": "Q3",
+        "answer": null,
+        "citation": null
+      },
+      {
+        "id": "Q4",
+        "answer": null,
+        "citation": null
+      }
+    ],
+    "unresolvedContractDefect": "A private source must not enter a member answer."
+  },
+  "consumerFeedback": {
+    "code": "cross-knowledge-assistant-stage-2",
+    "issue": {
+      "zh": "不可访问资料被用来回答即使文本正确也必须失败",
+      "en": "A private source must not enter a member answer."
+    }
+  },
+  "requiredRevision": 2
+}

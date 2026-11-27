@@ -1,0 +1,66 @@
+{
+  "zh": {
+    "activity": "随堂诊断",
+    "title": "购物按钮为什么突然跳动？",
+    "scenario": "商品列表打开后，补货提示异步插入列表上方。用户还没点击，「加入购物车」按钮就被挤到了下方。",
+    "metricPrompt": "这条反馈应该先查哪个指标？",
+    "metricFeedback": {
+      "LCP": "LCP 关注可视区最大的内容元素何时绘制。此处按钮已经可见，问题出在位置突然变化。",
+      "INP": "INP 关注交互之后页面多久给出视觉反馈。这里位置变化发生在点击之前。",
+      "CLS": "选对了。提示条插入时挤动了已经可见的按钮，这是 CLS 捕捉的意外布局位移。"
+    },
+    "reviewTitle": "判断修复是否有效",
+    "change": "新版给提示条预留位置，再填入相同的补货信息。",
+    "sample": "合成实验数据。每版同一移动视口、网络限速、冷缓存与操作，各跑 3 次，取中位数。",
+    "metric": "指标",
+    "before": "修复前",
+    "after": "修复后",
+    "conclusionPrompt": "你会怎样写复测结论？",
+    "conclusions": {
+      "loading": {
+        "choice": "主内容加载更快，说明按钮跳动已经修复。",
+        "feedback": "主内容加载时间和控件位置是两项不同的观察。回到 CLS 那一行，再结合按钮的位置变化判断。"
+      },
+      "validation": {
+        "choice": "受控实验中位移减小，继续查真实用户的布局稳定性。",
+        "feedback": "正确。CLS 从 0.19 降到 0.03，支持实验条件下布局更稳定。记录按钮是否仍有位移，再按移动端和桌面端分别比较现场 CLS 的第 75 百分位。"
+      },
+      "universal": {
+        "choice": "三次复测足以确认所有用户都已达标。",
+        "feedback": "这组实验只覆盖一种环境。真实用户的设备、网络和访问过程各异，仍需核对现场分布。"
+      }
+    }
+  },
+  "en": {
+    "activity": "Quick diagnosis",
+    "title": "Why does the cart button jump?",
+    "scenario": "A restock banner loads above the product list after the page opens. It pushes the Add to cart button down before the user clicks anything.",
+    "metricPrompt": "Which metric should you investigate first?",
+    "metricFeedback": {
+      "LCP": "LCP tracks when the largest visible content element renders. The button is already visible and suddenly changes position.",
+      "INP": "INP tracks how quickly the page responds visually to an interaction. The button moves before the user interacts.",
+      "CLS": "Correct. The banner moves an already visible button. CLS captures that unexpected layout shift."
+    },
+    "reviewTitle": "Check whether the fix worked",
+    "change": "The new build reserves room for the banner, then fills it with the same restock information.",
+    "sample": "Synthetic lab data. Median of 3 runs per build with the same mobile viewport, network throttling, cold cache, and interaction.",
+    "metric": "Metric",
+    "before": "Before",
+    "after": "After",
+    "conclusionPrompt": "What conclusion would you write?",
+    "conclusions": {
+      "loading": {
+        "choice": "Main content loads faster, so the button no longer jumps.",
+        "feedback": "Content loading time and button position measure different things. Use the CLS row together with the observed position change."
+      },
+      "validation": {
+        "choice": "Shifts decreased in the lab. Check layout stability for real users next.",
+        "feedback": "Correct. CLS drops from 0.19 to 0.03 under these test conditions. Record whether the button still shifts, then compare the 75th percentile of field CLS for mobile and desktop separately."
+      },
+      "universal": {
+        "choice": "Three retests confirm that every user now meets the target.",
+        "feedback": "The experiment covers one environment. Real users have different devices, networks, and browsing behavior. Check the field distribution next."
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+const amount=process.argv[2];if(!amount||!/^\d+$/.test(amount)){console.error('Usage: tool <integer cents>');process.exitCode=2;}else console.log(JSON.stringify({cents:Number(amount),version:"1.0.0"}));

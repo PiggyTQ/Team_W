@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Avemly 本地预览</title>
+  </head>
+  <body>
+    <p id="preview-status" role="status">正在打开本地预览…</p>
+    <script type="module">
+      import {loadPrototypeState, savePrototypeState} from '/src/storage-recovery-model.js';
+
+      const status = document.getElementById('preview-status');
+      const lesson = '/career-map?career=frontend&branch=quality&skill=web-vitals&step=learn&view=study';
+      const localPreview = location.hostname === '127.0.0.1' && import.meta.env.DEV &&
+        import.meta.env.VITE_AUTH_MODE === 'demo' && import.meta.env.VITE_LOCAL_SOURCE_PREVIEW === '1';
+
+      if (localPreview) {
+        const previous = loadPrototypeState(localStorage);
+        if (previous.status === 'ready' && !previous.state.logged) {
+          const state = previous.raw === null ? {...previous.state, goal:'frontend'} : JSON.parse(previous.raw);
+          const saved = savePrototypeState(localStorage, {...state, logged:true, onboard:true});
+          if (saved.status !== 'saved') {
+            status.textContent = '浏览器无法保存演示会话。请允许此本地站点存储数据，然后刷新。';
+          } else {
+            location.replace(lesson);
+          }
+        } else {
+          location.replace(lesson);
+        }
+      } else {
+        status.textContent = '请从低保真原型文件夹双击「一键预览网站」来启动。';
+      }
+    </script>
+  </body>
+</html>

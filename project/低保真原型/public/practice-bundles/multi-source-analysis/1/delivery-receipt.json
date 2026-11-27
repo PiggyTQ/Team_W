@@ -1,0 +1,17 @@
+{
+  "projectId": "multi-source-analysis",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "67a71818f20a57dadcb7a41bb6c0a633542dc7064bd107f45e5a803a8650fb38",
+  "bytes": 47419,
+  "files": 35,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"multi-source-analysis\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:46.510Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

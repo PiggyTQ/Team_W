@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import test from 'node:test';
+import {registeredProject,growthProject} from '../src/practice-registry.js';
 import {makeTask,fresh,learning,careers} from '../src/model.js';
 import {matchesTaskTitle,taskCopy} from '../src/native-task-copy.js';
 import {protectUserContent,setLanguage} from '../src/i18n/render.js';
@@ -15,7 +16,8 @@ test('published native task copy stays aligned with bilingual projects and skill
 test('v2 project fields follow the language switch on an existing saved record', () => {
   for (const {id} of learning) {
     const path = new URL('../course-packs/practice-20261113/' + id + '/project.json',import.meta.url);
-    const {version,title,brief,outcome} = JSON.parse(fs.readFileSync(path,'utf8'));
+    const p=growthProject(id)?registeredProject(id):null;
+    const {version,title,brief,outcome} = p?{...p,outcome:{zh:p.outputs.zh.join('、'),en:p.outputs.en.join(', ')}}:JSON.parse(fs.readFileSync(path,'utf8'));
     const task = makeTask(fresh(),{
       template:id,courseVersion:version,title:title.zh,purpose:brief.zh,product:outcome.zh,hours:2
     });

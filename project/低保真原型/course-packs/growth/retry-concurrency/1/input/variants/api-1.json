@@ -1,0 +1,65 @@
+{
+  "identity": {
+    "parentProject": "retry-concurrency",
+    "parentVersion": 1,
+    "id": "api-1",
+    "seed": 1,
+    "ruleVersion": 1,
+    "checker": "growth-rules-1",
+    "inputDigest": "ce2b1cb39bfb4076168a84b7acb0d8b77a135d0c257691fefbfa085df94bc41d",
+    "expectedDigest": "17a266d0676bef31608c374f4ae70d530d8c831295094249aa6983dce68bc03c",
+    "rubricDigest": "d36c9be06342eaa51f59435dcdafe05f8a37ce40552c77b184c2fafddc69b5e0",
+    "independence": "Controlled public teaching extension; not an unseen mastery assessment"
+  },
+  "input": {
+    "capacity": 1,
+    "requests": [
+      {
+        "id": "V1",
+        "key": "same",
+        "owner": "alice",
+        "quantity": 1
+      },
+      {
+        "id": "V2",
+        "key": "same",
+        "owner": "alice",
+        "quantity": 1
+      },
+      {
+        "id": "V3",
+        "key": "same",
+        "owner": "bob",
+        "quantity": 1
+      },
+      {
+        "id": "V4",
+        "key": "other",
+        "owner": "bob",
+        "quantity": 1
+      }
+    ]
+  },
+  "expected": {
+    "remaining": 0,
+    "responses": [
+      {
+        "id": "V1",
+        "status": 201
+      },
+      {
+        "id": "V2",
+        "status": 201
+      },
+      {
+        "id": "V3",
+        "status": 409
+      },
+      {
+        "id": "V4",
+        "status": 409
+      }
+    ],
+    "committed": 1
+  }
+}

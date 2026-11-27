@@ -1,0 +1,70 @@
+/* Read-mode expansion: scoped to these career pages, retaining the Avemly shell. */
+html body #root#root#root#root#root #main {
+ & .career-reading{max-width:1320px;}
+ & .career-reading .career-reading-hero{padding:25px 28px;background:#edf6fc;border-color:#d7e6ef;gap:20px;}
+ & .career-reading .career-hero-title{align-items:flex-start;gap:20px;}
+ & .career-reading .career-hero-title>img{width:100px;height:102px;}
+ & .career-reading .career-hero-title h1{font-size:32px;line-height:1.25;}
+ & .career-reading .career-hero-title .career-english-name{font-size:14px;color:#526a80;margin:5px 0 12px;}
+ & .career-reading .career-reading-question{font-size:21px;font-weight:650;margin:8px 0;line-height:1.5;max-width:45ch;}
+ & .career-reading .career-occupation-intro{font-size:15px;max-width:66ch;line-height:1.8;padding:0;}
+ & .career-reading .career-hero-actions{gap:8px;padding-top:0;}
+ & .career-reading .career-hero-actions button{font-size:14px;padding:9px 12px;}
+ & .career-first-look{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;grid-column:1/-1;border-top:1px solid #cee0ed;padding:18px 0 0;margin:0;}
+ & .career-first-look dt{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;margin-bottom:7px;}
+ & .career-first-look dd{font-size:14px;line-height:1.8;margin:0;}
+ & .career-reading .career-section-nav{position:sticky;top:0;z-index:3;gap:12px 22px;padding:15px 5px;box-shadow:0 5px 10px -9px #173b62;}
+ & .career-reading .career-reading-section{scroll-margin-top:85px;padding-top:32px;}
+ & .career-reading .career-reading-section h2{font-size:25px;line-height:1.4;}
+ & .career-reading .career-reading-section h3{font-size:19px;line-height:1.5;}
+ & .career-reading .career-section-heading{justify-content:space-between;gap:14px;}
+ & .career-reading .career-section-heading>a{font-size:14px;font-weight:600;}
+ & .career-work-moments{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:24px 0 32px;}
+ & .career-work-moments>li{position:relative;padding:24px;background:#fffefa;border:1px solid #e5dfd2;border-radius:15px;display:flex;flex-direction:column;min-width:0;}
+ & .career-work-moments>li:not(:last-child)::after{content:'';position:absolute;top:42px;right:-21px;width:20px;border-top:1px solid #a9c9df;}
+ & .career-moment-number{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#e5f1fb;color:#07558a;font-weight:700;font-variant-numeric:tabular-nums;}
+ & .career-work-moments>li:last-child .career-moment-number{background:#fff0b7;}
+ & .career-work-moments h3{margin:17px 0 5px;}
+ & .career-work-moments p{font-size:15px;color:#455f77;margin:6px 0 20px;line-height:1.8;}
+ & .career-work-moments>li>div{display:flex;gap:9px;align-items:flex-start;margin-top:auto;padding-top:14px;border-top:1px solid #dfebf3;font-size:14px;font-weight:600;}
+ & .career-work-moments>li>div>svg{flex:none;}
+ & .career-scope-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(290px,1fr);gap:30px;align-items:start;margin:10px 0 25px;}
+ & .career-specialisations>h3{margin:0 0 15px;}
+ & .career-specialisations dl{margin:0;}
+ & .career-specialisations dl>div{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:15px 0;border-bottom:1px solid #e3e3dc;}
+ & .career-specialisations dt{font-size:15px;font-weight:700;line-height:1.7;}
+ & .career-specialisations dd{font-size:15px;line-height:1.8;margin:0;color:#455f77;}
+ & .career-boundary-panel{padding:23px;background:#e9f3fa;border-radius:14px;min-width:0;}
+ & .career-boundary-panel h3{margin:13px 0 8px;}
+ & .career-boundary-panel p{font-size:15px;line-height:1.8;}
+ & .career-boundary-panel details{font-size:13px;padding:12px 0 0;margin:15px 0 0;border-color:#cadde9;}
+ & .career-boundary-panel details p{font-size:13px;}
+ & .career-full-workflow{font-size:14px;padding:15px 0;border-color:#dedfd8;}
+ & .career-full-workflow ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 30px;padding:0 0 0 22px;}
+ & .career-full-workflow h4{font-size:15px;margin:15px 0 4px;}
+ & .career-full-workflow p{font-size:14px;margin:0;}
+ & .career-reading .career-preparation-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px;}
+ & .career-reading .career-preparation-rows>div{display:block;background:#fffefa;border:1px solid #e5dfd2;border-radius:13px;padding:21px;}
+ & .career-reading .career-preparation-rows p{font-size:15px;line-height:1.8;}
+ & .career-reading .career-preparation-rows h3{margin:0 0 12px;}
+ & .career-reading .career-example-table{border:1px solid #d6e4ed;border-radius:10px;overflow:auto;background:#fff;margin:15px 0;}
+ & .career-reading .career-example-table table{table-layout:auto;}
+ & .career-reading .career-example-table :is(th,td){border:0;border-bottom:1px solid #e3ebef;padding:12px 13px;line-height:1.65;}
+ & .career-reading .career-example-table th{background:#dfedf7;font-size:14px;color:#244a68;}
+ & .career-reading .career-example-table tbody tr:nth-child(even){background:#f5f9fc;}
+ & .career-reading .career-example-table td:first-child{font-weight:600;}
+ & .career-reading .career-example-table td.is-numeric{text-align:right;font-variant-numeric:tabular-nums;}
+ & .career-reading .career-example-table tr.is-total{background:#e8f2fa;font-weight:700;}
+ & .career-reading .career-example-table tr.is-total td{border-top:1px solid #adcadd;}
+ & .career-reading .career-example-table tr:last-child td{border-bottom:0;}
+ & .career-reading .career-artifact{border-radius:15px;}
+ & .career-reading .career-artifact .career-artifact-body{gap:25px;}
+ & .career-reading .career-artifact .career-artifact-use{background:#eef5fa;}
+ @media(max-width:1180px){
+  & .career-reading-hero{grid-template-columns:minmax(0,1fr);}
+  & .career-reading .career-hero-actions{justify-content:flex-end;}
+  & .career-reading .career-hero-title>img{width:80px;height:85px;}
+  & .career-scope-layout{grid-template-columns:minmax(0,1fr) minmax(270px,.8fr);gap:22px;}
+  & .career-specialisations dl>div{grid-template-columns:120px minmax(0,1fr);gap:15px;}
+ }
+}

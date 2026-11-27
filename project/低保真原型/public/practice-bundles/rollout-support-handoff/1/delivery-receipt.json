@@ -1,0 +1,17 @@
+{
+  "projectId": "rollout-support-handoff",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "5ad6a6ac204ecef6159a574de835b194c6c4ccf81d32f781826f9fdd79fdf603",
+  "bytes": 42264,
+  "files": 28,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rollout-support-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.960Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

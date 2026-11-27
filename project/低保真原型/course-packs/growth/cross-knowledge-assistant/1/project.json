@@ -1,0 +1,252 @@
+{
+  "id": "cross-knowledge-assistant",
+  "version": 1,
+  "legacy": false,
+  "career": "ai",
+  "relatedCareers": [
+    "engineering",
+    "backend",
+    "security",
+    "testing"
+  ],
+  "level": "integrated",
+  "kind": "cross-career",
+  "title": {
+    "zh": "受限知识助手联合交付",
+    "en": "Knowledge assistant collaboration"
+  },
+  "next": [],
+  "prior": null,
+  "adapter": "evaluation",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "retrieval-grounding"
+  ],
+  "brief": {
+    "zh": "以资料/安全、服务与评估角色轮换交付受限问答。传递文档版本和访问范围，对可答、不可答和越权题复验，留出可接手的引用与拒答记录。",
+    "en": "Rotate document/security, service and evaluation roles. Propagate document versions and access rules through answers and refusal tests."
+  },
+  "outputs": {
+    "zh": [
+      "资料与服务契约",
+      "评测、修订与运行交接"
+    ],
+    "en": [
+      "Document/service contract",
+      "answer checks and a revised security handoff"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "文档权限与预测ID完整",
+      "引用支持/越权/缺资料行为按契约检查"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A private source must not enter a member answer. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "不可访问资料被用来回答即使文本正确也必须失败",
+    "en": "A private source must not enter a member answer."
+  },
+  "review": {
+    "zh": [
+      "交接是否可执行，反馈/修改是否有依据",
+      "模拟角色如实标注，本人贡献与责任不混淆"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "以资料/安全、服务与评估角色轮换交付受限问答。传递文档版本和访问范围，对可答、不可答和越权题复验，留出可接手的引用与拒答记录。",
+      "不可访问资料被用来回答即使文本正确也必须失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Rotate document/security, service and evaluation roles.",
+      "Reproduce this failure first: A private source must not enter a member answer.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "不可访问资料被用来回答即使文本正确也必须失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [
+    {
+      "role": "资料/安全",
+      "produces": "允许资料、版本和访问策略",
+      "consumedBy": "AI/后端",
+      "requiredOutput": "stage-1.json",
+      "inputDigest": "bb0648676c6fd32fde6fb2d8a4a188f9de18a60e5fc30ed92c88cecb10ce3b1b",
+      "expectedOutputDigest": "7671d4637a99c05c753c4caffb2f6a4218955e49f1037fd1e21485d46d9126d3",
+      "canonicalOutputDigest": "a46a09b5c16781b134a6021da71ab104eeb51c61d04bc540334f813551e9eb4d",
+      "feedbackCode": "cross-knowledge-assistant-stage-1",
+      "roleLabel": {
+        "zh": "资料/安全",
+        "en": "Content and security"
+      },
+      "receiverLabel": {
+        "zh": "AI/后端",
+        "en": "AI and backend"
+      }
+    },
+    {
+      "role": "AI/后端",
+      "produces": "原型或离线可重现服务与轨迹",
+      "consumedBy": "测试/业务评估",
+      "requiredOutput": "stage-2.json",
+      "inputDigest": "eb6704413da3269d3012a0e9062f7f01172f27a70b6ddff28161af716f6ec203",
+      "expectedOutputDigest": "dfe8a2e2b0218727e69ab6cb1e1765d9fe40ebb507758bfb7d1eb1cf8e6d81e9",
+      "canonicalOutputDigest": "9c43c7a28094eb0a6c6aead1879a8960c5c07bc8fc545047fd2fa77fcdd6de69",
+      "feedbackCode": "cross-knowledge-assistant-stage-2",
+      "roleLabel": {
+        "zh": "AI/后端",
+        "en": "AI and backend"
+      },
+      "receiverLabel": {
+        "zh": "测试/业务评估",
+        "en": "Testing and business evaluation"
+      }
+    },
+    {
+      "role": "评估",
+      "produces": "证据错误、越权和不可答反馈",
+      "consumedBy": "资料/实现者",
+      "requiredOutput": "stage-3.json",
+      "inputDigest": "b72d29776b5ab3cc27dfb3c62c85ff927cb17f640477f73ca933becd2d0169c6",
+      "expectedOutputDigest": "5c94a7a1a9199dfc987d4f764e727b69c1d7373d009efa35ec1bebdf446b5a92",
+      "canonicalOutputDigest": "7e62b8b1891db87cbf14e563ead0728dd0dd6f715b4f199a2d55c3f9ecca43ed",
+      "feedbackCode": "cross-knowledge-assistant-stage-3",
+      "roleLabel": {
+        "zh": "评估",
+        "en": "Evaluation"
+      },
+      "receiverLabel": {
+        "zh": "资料/实现者",
+        "en": "Content owner and implementer"
+      }
+    }
+  ],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "handoff.json",
+    "solution.mjs",
+    "stage-1.json",
+    "stage-2.json",
+    "stage-3.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "ai",
+      "branch": "application",
+      "skill": "retrieval-grounding",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "engineering",
+      "branch": "governance",
+      "skill": "lineage",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "backend",
+      "branch": "api",
+      "skill": "api-contract",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "security",
+      "branch": "identity",
+      "skill": "authorization",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "testing",
+      "branch": "defects",
+      "skill": "retest-regression",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

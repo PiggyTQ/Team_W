@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/detail/7",
+    "restored": true,
+    "state": "ready"
+  },
+  {
+    "path": "/list",
+    "restored": false,
+    "state": "contract_changed"
+  },
+  {
+    "path": "/missing",
+    "restored": false,
+    "state": "ready"
+  }
+]

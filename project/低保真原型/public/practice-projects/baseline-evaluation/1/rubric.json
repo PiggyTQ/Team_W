@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "样本ID不跨训练/评估重叠",
+    "MAE等所选指标按逐行预测复算"
+  ],
+  "open": [
+    {
+      "criterion": "基线选择和适用范围",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "参数选择不偷看独立评价结果",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

@@ -1,0 +1,17 @@
+{
+  "projectId": "frontend-release-delivery",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "6bd2c319e8f0ffbcb4278bf730cb726ff92b1d02835a70ee03339e42fc22a646",
+  "bytes": 46227,
+  "files": 30,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"frontend-release-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:48.821Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

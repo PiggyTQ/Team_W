@@ -1,0 +1,126 @@
+{
+  "id": "partition-replay",
+  "version": 1,
+  "legacy": false,
+  "career": "engineering",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "固定分区重跑与发布",
+    "en": "Partition replay and publishing"
+  },
+  "next": [
+    "data-contract-evolution"
+  ],
+  "prior": "relational-model",
+  "adapter": "data",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "idempotent-batch"
+  ],
+  "brief": {
+    "zh": "下游需要可安全重跑的每日数据分区。处理同批重复、重放和错误分区；发现不合法批次时保留上一份可用分区，并给出隔离记录。",
+    "en": "A data consumer needs a safe daily partition replacement. Deduplicate replayed rows, quarantine wrong-partition input and retain the last good partition on failure."
+  },
+  "outputs": {
+    "zh": [
+      "处理和发布实现",
+      "内容对照、质量阻断与恢复记录"
+    ],
+    "en": [
+      "Idempotent batch transform",
+      "reconciliation and quarantine records"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "同输入重跑字段内容与摘要一致",
+      "异常批次不替换最后可用结果"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Appending a replay duplicates a record instead of replacing the partition. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "行数相同但关键字段变化必须失败",
+    "en": "Appending a replay duplicates a record instead of replacing the partition."
+  },
+  "review": {
+    "zh": [
+      "原子性适用条件",
+      "隔离、补数与下游可见性"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "下游需要可安全重跑的每日数据分区。处理同批重复、重放和错误分区；发现不合法批次时保留上一份可用分区，并给出隔离记录。",
+      "行数相同但关键字段变化必须失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A data consumer needs a safe daily partition replacement.",
+      "Reproduce this failure first: Appending a replay duplicates a record instead of replacing the partition.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "行数相同但关键字段变化必须失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "query.sql"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "engineering",
+      "branch": "batch",
+      "skill": "idempotent-batch",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import {growthProject} from './practice-registry';
 import {clearTrialRecovery} from './career-trial-model';
 import CareerMaterialLinks from './CareerMaterialLinks';
 import CareerComparisonPage from './CareerComparisonPage';
@@ -107,6 +108,7 @@ import {TaskEditor,TaskExecutionList,ReviewEditor,AINoteEditor} from './TaskEdit
 import {stoppedTask} from './task-edit-model';
 import './task-editing.css';
 import JobDiscovery from "./JobDiscovery";
+import CareerWorkspace from "./CareerWorkspace";
 import AssistantChat from "./AssistantChat";
 import CheesePanelCompanion from './CheesePanelCompanion';
 import {legacySkillLink, recordSkillAssessment, skillStudyKey} from './skill-tree-model';
@@ -184,6 +186,7 @@ import './workbench-reference.css';
 import './career-exploration-reference.css';
 import './learning-assistant-reference.css';
 import './report-atlas-account.css';
+import './workspace-navigation-proportions.css';
 // Real-account mode never reads the prototype's persisted login flag or private
 // business records. Business APIs will be added in a separate slice.
 const livePageRecords=new Map();
@@ -496,7 +499,7 @@ function App() {
     const saved=d.atlas&&atlasSavedDraft(s,d);
     if(saved)d={...saved,...(d.unavailable!==undefined?{unavailable:d.unavailable}:{})};
     const draft = { title: "\u77ED\u9A8C\u8BC1\u884C\u52A8", template: "external", kind: "\u672C\u4EBA\u8BB0\u5F55\u7684\u5916\u90E8\u884C\u52A8", purpose: s.decision.question || "", hours: 1, association: "\u72EC\u7ACB\u63A2\u7D22", career: s.goal, product: "\u5B9E\u9645\u884C\u52A8\u3001\u7ED3\u679C\u3001\u53CD\u9988\u4E0E\u9650\u5236", source: url, ...d };
-    if(SERVER_AUTH&&learning.some(l=>l.id===draft.template)){const course=workspace.catalog?.courses.find(c=>c.id===draft.template);if(!course||course.status!=='published'){tell('课程目录未就绪，请先读取或重试课程目录。');return;}draft.courseVersion=draft.courseVersion||course.content_version;if(d.hours===undefined)draft.hours=learning.find(l=>l.id===draft.template)?.hours||1;}
+    if(SERVER_AUTH&&learning.some(l=>l.id===draft.template)){const course=workspace.catalog?.courses.find(c=>c.id===draft.template);if(!course||(course.status!=='published'&&!course.canStart)){tell('课程目录未就绪，请先读取或重试课程目录。');return;}draft.courseVersion=draft.courseVersion||course.content_version;if(d.hours===undefined)draft.hours=learning.find(l=>l.id===draft.template)?.hours||1;}
     saveTaskDraft(draft);
     open("precheck", draft);
   };
@@ -646,9 +649,10 @@ function App() {
   }
   function careerPage() {
     const modes=tabs(['职业方向','比较','企业与岗位','我的机会']);
-    if(!tab||tab==='职业方向')return <>{!urlObj.searchParams.has('career')&&<PageHead persistentDescription title="职业探索与比较" description="通过具体任务、产物与协作认识职业。"/>}{modes}<CareerBrowser s={s} url={url} filter={careerFilter} onFilter={setCareerFilter} move={move} link={link} open={open} toggleCompare={toggleCompare} update={update} ownerKey={authUser?.id||'local'} sync={workspace}/></>;
-    if(tab==='比较')return <>{modes}<CareerComparisonPage url={url} move={move} s={s} link={link} toggleCompare={toggleCompare} open={open} update={update} precheck={precheck} tell={tell} ownerKey={authUser?.id||'local'} sync={workspace}/></>;
-    if (["\u4F01\u4E1A\u4E0E\u5C97\u4F4D", "\u6211\u7684\u673A\u4F1A"].includes(tab)) return <><PageHead title={tab === "\u6211\u7684\u673A\u4F1A" ? "\u6211\u7684\u673A\u4F1A\u4E0E\u6C42\u804C\u8FDB\u5C55" : "\u4F01\u4E1A\u4E0E\u76EE\u6807\u5C97\u4F4D\u7814\u7A76"} description={tab === "企业与岗位" ? "查找来源、了解企业与具体岗位要求；主动加入后再进入个人机会管理。" : "这里只管理本人保存或导入的机会。私人笔记、准备任务、材料版本与求职事件分别记录。"} />{tabs(["\u804C\u4E1A\u65B9\u5411", "\u6BD4\u8F83", "\u4F01\u4E1A\u4E0E\u5C97\u4F4D", "\u6211\u7684\u673A\u4F1A"])}{tab === "企业与岗位" ? <><JobDiscovery s={s} update={update} link={link} url={url} />{s.presets.length>0&&<SavedSearches s={s} update={update} go={go} confirmAction={confirmAction}/>}</> : <OpportunitiesView s={s} tab={tab} url={url} link={link} move={go} open={open} precheck={precheck} startTask={startTask} update={update} confirmAction={confirmAction} />}</>;
+    const layout=(heading,body)=><CareerWorkspace heading={heading} navigation={modes}>{body}</CareerWorkspace>;
+    if(!tab||tab==='职业方向')return layout(!careers.some(c=>c.id===urlObj.searchParams.get('career'))&&<PageHead persistentDescription title="职业探索与比较" description="通过具体任务、产物与协作认识职业。"/>,<CareerBrowser s={s} url={url} filter={careerFilter} onFilter={setCareerFilter} move={move} link={link} open={open} toggleCompare={toggleCompare} update={update} ownerKey={authUser?.id||'local'} sync={workspace}/>);
+    if(tab==='比较')return layout(<PageHead persistentDescription title="看清工作差别，再选尝试方向" description="从具体问题和交付物比较，不用工具名称替你作决定。"/>,<CareerComparisonPage hideHeading url={url} move={move} s={s} link={link} toggleCompare={toggleCompare} open={open} update={update} precheck={precheck} tell={tell} ownerKey={authUser?.id||'local'} sync={workspace}/>);
+    if(['企业与岗位','我的机会'].includes(tab))return layout(<PageHead title={tab==='我的机会'?'我的机会与求职进展':'企业与目标岗位研究'} description={tab==='企业与岗位'?'查找来源、了解企业与具体岗位要求；主动加入后再进入个人机会管理。':'这里只管理本人保存或导入的机会。私人笔记、准备任务、材料版本与求职事件分别记录。'}/>,tab==='企业与岗位'?<><JobDiscovery s={s} update={update} link={link} url={url}/>{s.presets.length>0&&<SavedSearches s={s} update={update} go={go} confirmAction={confirmAction}/>}</>:<OpportunitiesView s={s} tab={tab} url={url} link={link} move={go} open={open} precheck={precheck} startTask={startTask} update={update} confirmAction={confirmAction}/>);
     return <Empty title="页面不存在">{link('/careers','返回职业列表')}</Empty>;
   }
   function toggleCompare(cid) {
@@ -729,6 +733,12 @@ function App() {
       }}
       onCandidate={(row,attempt)=>open('evidence',{taskId:row.id,attemptId:attempt.id,
         skills:[atlasTaskSkill(row)||learning.find(unit=>unit.id===row.template).skill],contribution:attempt.contribution})}
+      onArtifact={(taskId,patch)=>setTask(taskId,patch)}
+      onLocalCommand={(type,row,result)=>{
+        if(type==='task.submit'&&result?.passed)update(previous=>submitTaskAttempt(previous,row.id));
+        if(type==='task.selfcheck')setTask(row.id,{selfcheck:true,attempts:row.attempts.map((a,i)=>i===row.attempts.length-1?{...a,result:'自检记录'}:a)});
+        if(type==='task.complete'&&row.selfcheck&&row.contribution.trim())setTask(row.id,{completed:true,status:'完成'});
+      }}
       download={download}/>;
   }
   function learningPage() {
@@ -1028,7 +1038,7 @@ function App() {
             return;
           }
           if(SERVER_AUTH){
-            const keys=['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another','practiceRole','practiceScope'];
+            const keys=['title','template','career','purpose','hours','association','kind','source','product','courseVersion','atlas','learningStage','priority','placementReason','jobId','another','practiceRole','practiceScope','practiceInstance'];
             const draft=Object.fromEntries(keys.filter(key=>f[key]!==undefined).map(key=>[key,key==='hours'?Number(f[key]):f[key]]));
             try{const receipt=await workspace.command('task.create',{draft,confirmation:'CREATE_TASK'});const saved=workspace.current().state;const created=saved.tasks.find(row=>row.id===receipt.refs.taskId);close();go(taskRoute(saved,created));tell(authMessage('TASK_CREATED',language));}catch(error){fail(authMessage(error.code,language));}return;
           }
@@ -1319,7 +1329,7 @@ function App() {
     setAiSide(false);
     move("/");
   })}>退出</B></div></details></header><WorkspaceSidebar s={s} page={page[0]} admin={admin} mobile={mobile} collapsed={sidebarLayout.collapsed} toggle={sidebarLayout.toggle} go={go} onNavigate={navigateSidebar} open={open} Icon={Icon} navIcons={navIcons} route={url} ai={{s,conv,update,onOpen:()=>setAiSide(false),send:sendAI,liveAgent:SERVER_AUTH?liveAgent:null}}/></>}
- <DiscussionEnvironment.Provider value={{state:s,workspace,user:authUser,update,link,open,liveAgent}}><PageGuidanceProvider routeKey={path+tab}><main ref={mainRef} id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${assistantPath && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && !assistantPath && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={mbtiPage?{to:"/assessment",label:page[2]}:planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage||projectPage||mbtiPage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{SERVER_AUTH&&authUser&&['/plan','/assessment'].includes(path)&&urlObj.searchParams.get('discussionDraft')&&<DiscussionDraftReview key={authUser.id+urlObj.searchParams.get('discussionDraft')} id={urlObj.searchParams.get('discussionDraft')} state={s} workspace={workspace} link={link} update={update}/>} {content()}</div>{!publicRoute&&<div id="learning-discussion-dock"/>}{!assistantPath && <footer><span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span><B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider></DiscussionEnvironment.Provider>
+ <DiscussionEnvironment.Provider value={{state:s,workspace,user:authUser,update,link,open,liveAgent}}><PageGuidanceProvider routeKey={path+tab}><main ref={mainRef} id="main" className={publicRoute ? "publicmain" : `workspace ${!admin?"student-workspace":""} ${path==="/app"?"workbench-home":""} ${path === "/career-map" ? "atlas-workspace" : ""} ${assistantPath && (!tab || tab === "咨询与方案") ? "assistant-workspace" : ""}`}>{SERVER_AUTH&&authUser&&!publicRoute&&<ServerSaveStatus sync={workspace} onDownload={()=>download("职业成长_本页未保存记录.json",JSON.stringify(workspace.current().state||s,null,2),"application/json")} onReload={()=>confirmAction("重新载入账户记录？","这会用服务器最新记录替换本页未保存改动。请先下载本页记录；取消会保留当前输入。",()=>workspace.reload().catch(error=>tell(authMessage(error.code,language))))}/>} {!SERVER_AUTH&&storageRecovery}{!publicRoute && !assistantPath && (<WorkspaceContextBar s={s} path={path} tab={tab} search={urlObj.search} page={pageTitle} parentPage={mbtiPage?{to:"/assessment",label:page[2]}:planSubpage?{to:"/plan",label:page[2]}:undefined} admin={admin} hideGuide={path==="/career-map"||planSubpage||projectPage||mbtiPage} link={link}/>)}{navigationNotice&&<div role="status" className="notice route-recovery">该页签已不可用，已返回本页默认内容。请从页面页签继续。</div>}<div className={`page-surface surface-${page[0]}`}>{SERVER_AUTH&&authUser&&['/plan','/assessment'].includes(path)&&urlObj.searchParams.get('discussionDraft')&&<DiscussionDraftReview key={authUser.id+urlObj.searchParams.get('discussionDraft')} id={urlObj.searchParams.get('discussionDraft')} state={s} workspace={workspace} link={link} update={update}/>} {content()}</div>{!publicRoute&&<div id="learning-discussion-dock"/>}{!assistantPath && <footer>{path!=='/careers'&&<span>{SERVER_AUTH?'课程正文与实践素材已接入；AI 只读建议按服务与授权状态开放。':'本原型不接真实登录、AI 或后台；媒体使用全黑图片占位。'}</span>}<B onClick={() => open("legal")}>使用说明与边界</B></footer>}</main></PageGuidanceProvider></DiscussionEnvironment.Provider>
  {!publicRoute&&!projectPage&&<FlowNavigation s={s} path={path} tab={tab} search={urlObj.search} link={link} />}
  {!publicRoute&&!projectPage&&!mbtiPage&&<OperationGuide s={s} path={path} tab={tab} search={urlObj.search} modal={modal?.type} error={error} toast={toast} go={go}/>}
  {aiSide && s.logged && <Modal title="AI 上下文侧栏 · 同一会话" drawer className="cheese-context-drawer" companion="perch" onClose={() => setAiSide(false)}>{aiContent(true)}</Modal>}{dialogContent()}<StatusToast message={toast} revision={toastRevision} onDismiss={()=>setToast("")}/></>;

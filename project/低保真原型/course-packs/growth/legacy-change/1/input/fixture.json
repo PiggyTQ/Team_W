@@ -1,0 +1,22 @@
+{
+  "calls": [
+    {
+      "id": "old",
+      "api": "v1",
+      "member": false,
+      "cents": 10000
+    },
+    {
+      "id": "new",
+      "api": "v2",
+      "member": true,
+      "cents": 10000
+    },
+    {
+      "id": "round",
+      "api": "v2",
+      "member": true,
+      "cents": 10001
+    }
+  ]
+}

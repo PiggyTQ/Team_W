@@ -1,0 +1,128 @@
+{
+  "id": "detection-response-handoff",
+  "version": 1,
+  "legacy": false,
+  "career": "security",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "检测与响应交接",
+    "en": "Detection and response handoff"
+  },
+  "next": [
+    "cross-knowledge-assistant",
+    "cross-security-remediation"
+  ],
+  "prior": "app-authorization-retest",
+  "adapter": "security",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "incident-handoff"
+  ],
+  "brief": {
+    "zh": "安全值班收到正常变更和混合登录日志。关联同一用户短时间内的失败与成功、核对批准设备，交出命中、误报、漏报和需二线补查的证据。",
+    "en": "An analyst receives mixed login events and an approved-device list. Correlate short failure bursts with subsequent success and quantify false alarms and misses."
+  },
+  "outputs": {
+    "zh": [
+      "查询、事件链与命中清单",
+      "误漏报、建议处置和复盘交接"
+    ],
+    "en": [
+      "Executable event query",
+      "hit IDs",
+      "false positives and an escalation handoff"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "查询输出与指定标签/事件ID对照",
+      "时间与主机/用户关联规则一致"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Marking every successful login suspicious produces false positives. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "全部事件都报异常以换取命中率，应在误报/范围检查中暴露",
+    "en": "Marking every successful login suspicious produces false positives."
+  },
+  "review": {
+    "zh": [
+      "证据与归因边界",
+      "响应授权和可接手性"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "安全值班收到正常变更和混合登录日志。关联同一用户短时间内的失败与成功、核对批准设备，交出命中、误报、漏报和需二线补查的证据。",
+      "全部事件都报异常以换取命中率，应在误报/范围检查中暴露；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An analyst receives mixed login events and an approved-device list.",
+      "Reproduce this failure first: Marking every successful login suspicious produces false positives.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "全部事件都报异常以换取命中率，应在误报/范围检查中暴露",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "security",
+      "branch": "detection",
+      "skill": "incident-handoff",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

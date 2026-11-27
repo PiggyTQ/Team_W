@@ -1,0 +1,50 @@
+{
+  "rule": {
+    "threshold": 0.05,
+    "for": 2,
+    "minRequests": 100,
+    "label": "registration"
+  },
+  "counters": [
+    {
+      "minute": 0,
+      "requestsTotal": 0,
+      "errorsTotal": 0
+    },
+    {
+      "minute": 1,
+      "requestsTotal": 100,
+      "errorsTotal": 10
+    },
+    {
+      "minute": 2,
+      "requestsTotal": 200,
+      "errorsTotal": 20
+    },
+    {
+      "minute": 3,
+      "requestsTotal": 20,
+      "errorsTotal": 1
+    },
+    {
+      "minute": 4,
+      "requestsTotal": 120,
+      "errorsTotal": 2
+    },
+    {
+      "minute": 5,
+      "requestsTotal": 120,
+      "errorsTotal": 2
+    },
+    {
+      "minute": 6,
+      "requestsTotal": 220,
+      "errorsTotal": null
+    },
+    {
+      "minute": 7,
+      "requestsTotal": 320,
+      "errorsTotal": 3
+    }
+  ]
+}

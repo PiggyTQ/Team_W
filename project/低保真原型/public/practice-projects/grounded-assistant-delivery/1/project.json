@@ -1,0 +1,126 @@
+{
+  "id": "grounded-assistant-delivery",
+  "version": 1,
+  "legacy": false,
+  "career": "ai",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "受限知识助手交付",
+    "en": "Bounded knowledge assistant delivery"
+  },
+  "next": [
+    "cross-knowledge-assistant"
+  ],
+  "prior": "baseline-evaluation",
+  "adapter": "evaluation",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "retrieval-grounding"
+  ],
+  "brief": {
+    "zh": "活动服务协调员需要有依据的问答。资料里有签到说明和仅工作人员可见的内部信息；依据身份、文档版本与事实范围回答，缺资料或越权时拒答并留记录。",
+    "en": "A service coordinator needs answers from a bounded document set. Enforce role, fact and version matches, and refuse unavailable or unsupported answers."
+  },
+  "outputs": {
+    "zh": [
+      "资料/评估契约与实现或离线重现",
+      "引用/拒答/错误报告和维护交接"
+    ],
+    "en": [
+      "Answer and citation records",
+      "refusal tests and a maintenance handoff"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "评测ID集合完整，引用版本对应",
+      "可确定回答规则和错误分类复算"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A member must not receive the staff-only budget even if the answer is factually correct. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "引用存在却不支持结论或越权文档被用作依据，应判失败",
+    "en": "A member must not receive the staff-only budget even if the answer is factually correct."
+  },
+  "review": {
+    "zh": [
+      "资料范围与权限",
+      "根因需轨迹，成本与真实运行区分"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "活动服务协调员需要有依据的问答。资料里有签到说明和仅工作人员可见的内部信息；依据身份、文档版本与事实范围回答，缺资料或越权时拒答并留记录。",
+      "引用存在却不支持结论或越权文档被用作依据，应判失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A service coordinator needs answers from a bounded document set.",
+      "Reproduce this failure first: A member must not receive the staff-only budget even if the answer is factually correct.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "引用存在却不支持结论或越权文档被用作依据，应判失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "ai",
+      "branch": "application",
+      "skill": "retrieval-grounding",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

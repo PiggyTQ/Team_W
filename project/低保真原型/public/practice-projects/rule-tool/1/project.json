@@ -1,0 +1,125 @@
+{
+  "id": "rule-tool",
+  "version": 1,
+  "legacy": false,
+  "career": "software",
+  "relatedCareers": [],
+  "level": 1,
+  "kind": "career-core",
+  "title": {
+    "zh": "规则或转换工具",
+    "en": "Rule and conversion tool"
+  },
+  "next": [
+    "legacy-change"
+  ],
+  "prior": null,
+  "adapter": "code",
+  "estimatedHours": [
+    2,
+    4
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "unit-tests"
+  ],
+  "brief": {
+    "zh": "小店需要按整数分计算优惠的工具。实现优惠门槛、边界与错误返回，拒绝负值和小数，保留能被下一位维护者复现的测试。",
+    "en": "A shop needs a deterministic discount tool using integer cents. Implement boundary cases and reject negative or non-integer amounts."
+  },
+  "outputs": {
+    "zh": [
+      "代码、测试和使用说明"
+    ],
+    "en": [
+      "Executable function",
+      "boundary tests and rule notes"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "正常/边界/非法输入确定性检查",
+      "相同输入得到约定输出"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A negative amount is invalid rather than a valid discounted output. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "浮点金额、空输入或非法记录静默通过应失败",
+    "en": "A negative amount is invalid rather than a valid discounted output."
+  },
+  "review": {
+    "zh": [
+      "需求澄清",
+      "设计与错误处理"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "小店需要按整数分计算优惠的工具。实现优惠门槛、边界与错误返回，拒绝负值和小数，保留能被下一位维护者复现的测试。",
+      "浮点金额、空输入或非法记录静默通过应失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A shop needs a deterministic discount tool using integer cents.",
+      "Reproduce this failure first: A negative amount is invalid rather than a valid discounted output.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "浮点金额、空输入或非法记录静默通过应失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "software",
+      "branch": "verification",
+      "skill": "unit-tests",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

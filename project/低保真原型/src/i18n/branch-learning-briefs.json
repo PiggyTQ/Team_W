@@ -1,0 +1,494 @@
+{
+  "data:metric-definition": [
+    ["把退款事件换算为按订单计的退款率，说明哪些订单进入分母。","Calculate an order-level refund rate and explain which orders belong in the denominator."],
+    ["退款指标卡，附观察窗口、分子分母和计算结果。","A refund metric card with its observation window, numerator, denominator and result."]
+  ],
+  "data:sql-joins": [
+    ["追踪订单如何在关联时被重复，并写出保留无明细订单的每单一行查询。","Trace why joins duplicate orders and write a one-row-per-order query that keeps orders without line items."],
+    ["一条可运行的 SQL 查询、输出对账和 ON / WHERE 的差异说明。","An executable SQL query, reconciled output and an explanation of ON versus WHERE."]
+  ],
+  "data:aggregation": [
+    ["用有效分母合并各渠道退款率，并解释组筛选如何改变汇总范围。","Combine channel refund rates with their denominators and explain how group filters change scope."],
+    ["分渠道与整体退款率表，标明订单筛选、组筛选与总计范围。","A channel and overall refund-rate table with row filters, group filters and total scope."]
+  ],
+  "data:missing": [
+    ["区分缺记录、缺值和有效零，判断哪些读数参与均值。","Distinguish missing records, missing values and observed zeros when calculating a mean."],
+    ["一张读数对账表，附到达率、字段覆盖率和有效均值。","A reading reconciliation with arrival rate, field coverage and the observed mean."]
+  ],
+  "data:duplicate-conflict": [
+    ["按业务键识别可去重的记录，保留同键不同值供追查。","Use a business key to collapse exact duplicates and preserve conflicting values for investigation."],
+    ["去重与待裁决清单，附原始行号和保留原因。","A deduplication and conflict log with original row IDs and retention reasons."]
+  ],
+  "data:quality-rules": [
+    ["为发货订单定义缺邮编与格式错误两类规则，给出各自检查范围。","Define missing and malformed postal-code rules and specify which shipping orders each rule checks."],
+    ["两条质量规则，附适用分母、负责人和修复后的复查办法。","Two data quality rules with denominators, owners and post-fix verification."]
+  ],
+  "data:descriptive": [
+    ["比较均值、中位数和长尾，判断少量慢请求如何改变对服务的描述。","Compare mean, median and tail to explain what a few slow requests do to a service summary."],
+    ["一份耗时摘要，附样本数、单位、两种统计量和尾部解释。","A latency summary with sample size, units, both statistics and an interpretation of the tail."]
+  ],
+  "data:sampling": [
+    ["用总体构成校正分组满意率，并说明样本未覆盖谁。","Weight group satisfaction rates by population shares and identify who the sample misses."],
+    ["一份加权估计，附各组权重和覆盖假设。","A weighted estimate with group weights and coverage assumptions."]
+  ],
+  "data:experiment": [
+    ["用两组实验数据计算绝对变化和相对变化，判断推广前还缺哪些证据。","Calculate absolute and relative lift and identify the evidence needed for a rollout decision."],
+    ["实验结果简报，附计算、随机化单位、观察窗口和推广前的复核项。","An experiment readout with calculations, allocation unit, observation window and rollout checks."]
+  ],
+  "data:star-schema": [
+    ["为销售事实表和产品维度定粒度，发现维表重复如何放大金额。","Specify sales fact and product dimension grain and spot when duplicate product keys inflate amounts."],
+    ["一张星型模型草图，附关联键与金额对账。","A star-schema sketch with join keys and a sales reconciliation."]
+  ],
+  "data:pivot-tables": [
+    ["按区域配置透视表，并在源数据增加后复算合计。","Build a regional pivot and reconcile its totals after adding source rows."],
+    ["透视字段配置及刷新前后的区域金额对账。","Pivot field settings and regional totals before and after refresh."]
+  ],
+  "data:chart-choice": [
+    ["为时间趋势与地区比较选不同图形，并在图上明确缺测季度。","Choose charts for time trends and regional comparisons and make a missing quarter visible."],
+    ["两张图表草图，标明缺测、单位和比较基线。","Two chart sketches with missing data, units and comparison baseline marked."]
+  ],
+  "data:decision-brief": [
+    ["在指标口径变化时写清退款率的观察、限制和建议。","Brief a refund-rate change by separating the observation, limitations and next action after a metric definition changes."],
+    ["一份四段简报，写明观察、证据、限制和下一步。","A four-part brief with observation, evidence, limitations and next steps."]
+  ],
+  "ai:task-baseline": [
+    ["把工单升级定义成可评估的预测任务，并衡量简单规则漏掉了什么。","Define ticket escalation as an evaluation task and measure what a simple rule misses."],
+    ["任务与基线记录，附标签口径、误报和漏报代价。","A task and baseline record with label definition, false alarms and missed-case cost."]
+  ],
+  "ai:python-data": [
+    ["读入工单数据时保住编号前导零，并区分坏日期与原始空值。","Preserve leading zeros in IDs and distinguish invalid dates from missing dates on import."],
+    ["一段可重复的 pandas 转换脚本，附原列和解析状态。","A repeatable pandas transform with original fields and parse status."]
+  ],
+  "ai:split-leakage": [
+    ["按客户与时间划分数据，并确定预处理能看到哪些样本。","Split by customer and time and determine which samples preprocessing may use."],
+    ["一份训练与验证划分表，附客户隔离和拟合顺序。","A train/validation split plan with customer isolation and preprocessing order."]
+  ],
+  "ai:generalization": [
+    ["比较模型训练与验证误差，选择该查的切片并保留最终测试集。","Compare train and validation errors, choose slices to investigate and reserve the final test set."],
+    ["一份模型差异判断，附待查切片和留出集使用条件。","A model comparison with investigation slices and conditions for using the holdout."]
+  ],
+  "ai:output-contract": [
+    ["给工单抽取定义结构化输出，并处理缺字段与无效枚举。","Define structured output for ticket extraction and handle missing fields and invalid enum values."],
+    ["一份 JSON 字段契约与失败处理表，附人工接管条件。","A JSON field contract and failure-handling table with handoff criteria."]
+  ],
+  "ai:retrieval-grounding": [
+    ["判断检索到的政策片段能支持哪些回答，并在证据不足时保留未知。","Decide which claims a retrieved policy excerpt supports and mark what remains unknown."],
+    ["一份片段与回答对照，附来源版本和缺证回应。","An evidence-to-answer table with source version and a response for missing evidence."]
+  ],
+  "ai:tool-boundaries": [
+    ["区分订单只读查询、退款预览与需要人工批准的真实操作。","Distinguish read-only order lookup, refund previews and actions that need human approval."],
+    ["一张工具权限表，附参数范围、确认点和超时处理。","A tool permission matrix with argument scope, approval points and timeout handling."]
+  ],
+  "ai:metric-tradeoff": [
+    ["计算两档阈值的精确率和召回率，用漏检代价解释如何选择。","Calculate precision and recall for two thresholds and use the cost of misses to explain the choice."],
+    ["一张阈值权衡表，附两组指标和选择理由。","A threshold comparison with both sets of metrics and a decision rationale."]
+  ],
+  "ai:eval-cases": [
+    ["把退款规则拆成典型、边界、失败和权限限制用例。","Turn a refund policy into typical, boundary, failure and permission-limit cases."],
+    ["四类评测记录，逐例写输入、预期和严重错误判据。","Four evaluation cases with inputs, expected behavior and severe-failure criteria."]
+  ],
+  "ai:failure-review": [
+    ["按证据、格式、工具使用归类失败，按风险安排修复和回归。","Group failures by evidence, format and tool use, then prioritize fixes and regression by risk."],
+    ["一份错例分类与回归清单，含优先级和独立复核范围。","A failure and regression log with priorities and an independent review scope."]
+  ],
+  "ai:reproducibility": [
+    ["找出两次评测不可直接比较的因素，确定重跑最少要登记什么。","Identify why two evaluations may differ and what a rerun needs to record."],
+    ["一份最小复现清单，连起模型、提示、样本和评分版本。","A minimal reproduction record tying model, prompt, sample and scoring versions together."]
+  ],
+  "ai:monitoring": [
+    ["按工单类型追查转人工率上升，设计验证质量变化的监测。","Investigate rising handoffs by ticket type and design monitoring that tests for a quality change."],
+    ["一份分群监测方案，附基线、信号和告警后核查。","A segmented monitoring plan with baseline, signals and post-alert checks."]
+  ],
+  "ai:human-oversight": [
+    ["为可能冻结账户的建议划分人工批准、暂停与继续的条件。","Set human approval, stop and proceed conditions for a proposed account freeze."],
+    ["一份人工复核证据包，附责任人、暂停条件和审计记录。","A human review packet with an owner, stop conditions and an audit record."]
+  ],
+  "security:network-path": [
+    ["依据可观察的响应区分域名解析、连接和应用层故障。","Use observed responses to distinguish DNS, connection and application-stage failures."],
+    ["一张请求路径图，标注每处症状与尚待核实的环节。","A request path diagram with symptoms and unverified stages marked."]
+  ],
+  "security:transport-trust": [
+    ["沿浏览器、网关与服务标出 TLS 终止点和身份校验的位置。","Trace TLS termination and identity verification across browser, gateway and service."],
+    ["一张信任边界图，附各跳加密与身份校验记录。","A trust-boundary diagram noting encryption and identity checks at each hop."]
+  ],
+  "security:authorized-scope": [
+    ["把书面授权转成清楚的资产、账户、时间与停止条件。","Translate written approval into explicit asset, account, time and stop boundaries."],
+    ["一份范围确认清单，逐项标记允许范围和需升级的问题。","A scope checklist marking approved boundaries and questions to escalate."]
+  ],
+  "security:authentication": [
+    ["追踪合成账户改密码和退出后的会话状态，明确撤销预期。","Trace a synthetic account’s sessions after password change and logout and specify expected revocation."],
+    ["会话生命周期检查表，列出设备、操作和预期状态。","A session lifecycle checklist with devices, actions and expected states."]
+  ],
+  "security:authorization": [
+    ["按主体、动作和资源定义服务端授权，区分订单所有者与只读角色。","Define server authorization by subject, action and resource for order owners and read-only roles."],
+    ["一张读取与取消的授权矩阵，列明允许和拒绝预期。","A read/cancel authorization matrix with allow and deny expectations."]
+  ],
+  "security:secrets": [
+    ["为已泄露的测试密钥安排轮换，核对旧密钥失效与业务影响。","Plan rotation for an exposed test key and verify its revocation and operational impact."],
+    ["密钥轮换记录，附撤销时间、影响检查和历史副本待办。","A key rotation record with revocation time, impact checks and follow-up for old copies."]
+  ],
+  "security:event-logs": [
+    ["将不同源的时间转成同一时区，并用已有会话字段关联事件。","Normalize timestamps across sources and correlate events using available session fields."],
+    ["一条事件时间线，附原始时区、关联依据和缺失字段。","An event timeline with source timezones, correlation evidence and missing fields."]
+  ],
+  "security:triage": [
+    ["分析登录失败警报并比较正常重试和异常访问两种解释。","Triage a login alert by comparing ordinary retries with anomalous access."],
+    ["一份初筛记录，附两个解释、所需证据和采集缺口。","A triage record with two hypotheses, needed evidence and collection gaps."]
+  ],
+  "security:incident-handoff": [
+    ["把超时告警转成接班人能继续核实的记录，区分事实、推断和未知。","Turn a timeout alert into a handoff that separates facts, hypotheses and unknowns."],
+    ["一份值班交接记录，包含日志引用、负责人和下次 UTC 更新时间。","A responder handoff with a log reference, an owner and the next update in UTC."]
+  ],
+  "security:threat-model": [
+    ["沿上传服务的数据流标出信任边界，给关键资产匹配防护措施。","Map a file upload flow’s trust boundaries and match safeguards to key assets."],
+    ["一张数据流图与防护核对清单，写明每项保护的对象。","A data flow diagram and safeguard checklist identifying what each control protects."]
+  ],
+  "security:safe-input": [
+    ["分别处理查询的输入值和可选排序字段，保留合规输入的原义。","Handle query values and sortable field names separately while preserving legitimate values."],
+    ["一份搜索输入契约，列明参数绑定和字段允许列表。","A search input contract specifying bound values and an allowlist of fields."]
+  ],
+  "security:verify-control": [
+    ["为订单访问控制明确拒绝预期，并核对正常访问是否受影响。","Define denial expectations for an order access control and verify normal access is preserved."],
+    ["一份防护复验记录，标明身份、版本、预期及实际证据。","A control review record with identities, version, expectations and observed evidence."]
+  ],
+  "ops:service-account": [
+    ["为日志采集进程分配最小读写权限，区分目录遍历和文件访问。","Assign minimal read and write access to a collector and distinguish directory traversal from file access."],
+    ["一份服务账号权限表，标注日志、状态目录及应被拒绝的操作。","A service-account permission table for logs, state directories and denied operations."]
+  ],
+  "ops:http-diagnosis": [
+    ["从连接超时或 HTTP 响应判断请求停在哪一段，并选择下一条证据。","Use a connection timeout or HTTP response to locate where a request stopped and choose what to inspect next."],
+    ["一张请求诊断记录，附网络、TLS 与 HTTP 各段的观察。","A request diagnosis log with observations at the network, TLS and HTTP stages."]
+  ],
+  "ops:signal-triage": [
+    ["把发布、流量、延迟和 CPU 画在同一时间线上，区分线索与用户影响。","Align release, traffic, latency and CPU on one timeline to distinguish clues from user impact."],
+    ["一份排查时间线，附发布和负载两种解释与对照证据。","A triage timeline with release and load hypotheses and evidence to compare them."]
+  ],
+  "ops:container-build": [
+    ["区分构建依赖与运行依赖，为容器准备可复现的构建和运行配置。","Separate build and runtime dependencies to define reproducible container builds and runtime configuration."],
+    ["一份多阶段镜像草案，注明锁定依赖、运行身份和配置注入。","A multistage image draft showing locked dependencies, runtime identity and configuration injection."]
+  ],
+  "ops:deployment-health": [
+    ["为慢启动和依赖短暂不可用分别选择探针，预测何时接流量或重启。","Choose probes for slow startup and temporary dependency failure and predict when traffic or restarts occur."],
+    ["启动、就绪与存活探针表，附各自失败时的预期行为。","A startup, readiness and liveness probe plan with expected behavior on failure."]
+  ],
+  "ops:infra-state": [
+    ["读懂基础设施计划中的新增和替换，识别需要暂停审批的数据风险。","Read additions and replacements in an infrastructure plan and identify data risk that calls for review."],
+    ["一份变更审查记录，标注数据库替换、审批和停止条件。","A change review record covering database replacement, approval and stop conditions."]
+  ],
+  "ops:four-signals": [
+    ["用同一窗口的请求数与 5xx 计算错误率，配置能区分短峰、低流量和持续异常的告警。","Calculate an error rate from same-window requests and 5xx counts, then configure an alert that distinguishes spikes, low traffic and sustained errors."],
+    ["一份告警规则与逐分钟运行结果，说明发现延迟和误报的取舍。","An alert rule and minute-by-minute results explaining detection delay and false-alarm trade-offs."]
+  ],
+  "ops:slo-budget": [
+    ["从有效请求量和服务目标算出可用坏事件预算，说明哪些请求被排除。","Calculate the bad-event budget from valid requests and the service objective and state which requests are excluded."],
+    ["一份错误预算账，列明目标、已用、剩余和统计口径。","An error budget ledger with target, usage, remainder and inclusion rules."]
+  ],
+  "ops:telemetry": [
+    ["用指标找时间窗、追踪找调用段，再用日志补足单次请求的细节。","Use metrics to choose a time window, traces to locate a span and logs to explain a specific request."],
+    ["一份跨服务观测记录，列出关联字段、缺失信息和采样限制。","A cross-service telemetry record with correlation fields, gaps and sampling limits."]
+  ],
+  "ops:canary-gate": [
+    ["用同一窗口的请求与失败比较灰度和稳定组，按证据决定暂停或延长。","Compare canary and stable failure rates in the same window and use the evidence to pause or extend observation."],
+    ["一次灰度发布判断，附组别分母、样本限制和停止门槛。","A canary decision with per-group denominators, sample limits and stop thresholds."]
+  ],
+  "ops:rollback-verify": [
+    ["在版本回退后用真实用户路径与历史数据状态判断是否恢复。","Verify recovery after rollback using user paths and existing data state."],
+    ["一份支付回退验收表，记录请求、订单状态和稳定观察窗口。","A payment rollback checklist covering requests, order state and a stability observation window."]
+  ],
+  "ops:incident-review": [
+    ["用故障时间线定位发现与止血间隔，并把改进写成可验收行动。","Use an incident timeline to identify detection and mitigation delays and make follow-ups verifiable."],
+    ["一份事件复盘，附影响、时间线和两项有负责人的改进。","An incident review with impact, timeline and two follow-up actions with owners."]
+  ],
+  "frontend:semantic-html": [
+    ["利用原生表单元素让邮件输入、帮助和提交动作可识别。","Use native form elements to make the email field, help and submit action identifiable."],
+    ["一段带标签和帮助说明的 HTML 表单，附保存与取消行为。","An HTML form with labels and help text plus expected save and cancel behavior."]
+  ],
+  "frontend:responsive-css": [
+    ["让卡片随容器重排，并验证窄屏和超长文案时仍可阅读。","Reflow cards with their container and verify readability in narrow layouts and with long text."],
+    ["一段响应式布局 CSS，附宽窄容器与长词的溢出检查。","Responsive layout CSS with wide, narrow and long-word overflow checks."]
+  ],
+  "frontend:dom-events": [
+    ["用事件委托让动态列表正确识别删除按钮，处理按钮内图标的点击。","Use event delegation to identify delete buttons in a dynamic list, including clicks on icons inside buttons."],
+    ["一段删除事件处理代码，附按钮、图标与无关区域点击的预期。","A delegated delete handler with expected results for button, icon and unrelated clicks."]
+  ],
+  "frontend:keyboard": [
+    ["用键盘完成编辑对话框的打开、导航、关闭与焦点返回。","Design keyboard behavior for opening, navigating and closing an edit dialog and restoring focus."],
+    ["一份对话框焦点顺序表，附初始焦点、Tab、Esc 和关闭后位置。","A dialog focus checklist covering initial focus, Tab, Escape and focus after closing."]
+  ],
+  "frontend:form-errors": [
+    ["为邮箱输入与保存反馈设计清楚的消息、焦点和输入保留行为。","Design messages, focus and input retention for email validation and save feedback."],
+    ["一张四状态表，记录空值、格式错误、服务端拒绝和成功的反馈。","A four-state table for empty input, malformed input, server rejection and success."]
+  ],
+  "frontend:async-ui": [
+    ["处理搜索请求乱序，确保迟到的旧结果不会覆盖用户最新操作。","Handle search responses arriving out of order so a late response cannot overwrite the latest action."],
+    ["一份搜索状态处理代码或流程，附乱序、失败与重试的预期。","Search state code or a flow with expected behavior for out-of-order responses, errors and retries."]
+  ],
+  "frontend:state-ownership": [
+    ["为两个列表的共同选中项确定唯一来源，推演删除后另一列表如何更新。","Give two lists one source of truth for selection and trace how deletion updates the other list."],
+    ["一张状态归属与更新流图，附删除当前项的结果。","A state ownership and update diagram showing what happens when the selected item is deleted."]
+  ],
+  "frontend:repro-build": [
+    ["验证干净环境能否安装并构建，识别依赖清单与锁文件不同步。","Verify installation and build in a clean environment and detect manifest and lockfile drift."],
+    ["一份可复现构建清单，记录锁文件、干净安装及预期失败。","A reproducible build checklist with lockfile, clean install and expected failure."]
+  ],
+  "frontend:browser-tests": [
+    ["为异步保存写浏览器测试，按可见语义定位并等待成功状态。","Test asynchronous saving in a browser by locating visible semantics and waiting for success."],
+    ["一条浏览器测试用例，附隔离数据和可见状态断言。","A browser test case with isolated data and an assertion on visible state."]
+  ],
+  "frontend:web-vitals": [
+    ["区分首屏加载慢、点击响应慢和页面跳动，选对 LCP、INP 或 CLS 来定位问题。","Distinguish slow loading, sluggish interaction and layout shifts, then select LCP, INP or CLS to investigate."],
+    ["一份页面性能排查记录，按设备对照数据并写下复测方案。","A page performance diagnosis with device-level comparisons and a retest plan."]
+  ],
+  "frontend:browser-security": [
+    ["把用户名称安全地作为文本呈现，并说明页面允许从哪里加载资源。","Render user names safely as text and describe which sources the page may load resources from."],
+    ["一份文本呈现和资源策略检查表，标明允许来源及预期表现。","A safe rendering and resource policy checklist with allowed sources and expected behavior."]
+  ],
+  "frontend:release-checks": [
+    ["为修改过的注册页准备上线验证，覆盖关键操作、输入方式和回退。","Prepare release verification for a changed registration page across key actions, input methods and rollback."],
+    ["一份注册发布检查表，附环境、正常与失败路径、未测范围和回退办法。","A registration release checklist with environment, success and failure paths, untested scope and rollback."]
+  ],
+  "backend:http-semantics": [
+    ["为读取与创建订单选择 HTTP 响应，并说明重复请求的语义。","Choose HTTP responses for reading and creating orders and define what repeated requests mean."],
+    ["订单接口响应表，含成功、输入错误、认证与授权结果。","An order API response table covering success, bad input, authentication and authorization."]
+  ],
+  "backend:api-contract": [
+    ["把订单查询的筛选、响应和错误写成前后端能共用的契约。","Specify order search filters, responses and errors in a shared API contract."],
+    ["一份 OpenAPI 片段，附成功、错误和未找到示例。","An OpenAPI excerpt with success, error and not-found examples."]
+  ],
+  "backend:service-structure": [
+    ["把订单创建的参数校验、库存规则和持久化分配到合适的层。","Assign input validation, inventory rules and persistence for order creation to the appropriate layers."],
+    ["一张订单服务分层图，附库存不足时的测试和预期。","An order-service responsibility diagram with an out-of-stock test and expected result."]
+  ],
+  "backend:state-rules": [
+    ["为订单支付和取消画出合法转换，推演两种请求同时到达时的结果。","Map valid payment and cancellation transitions and reason about concurrent requests."],
+    ["订单状态表，含允许转换、并发冲突处理和重试预期。","An order state table with allowed transitions, concurrency handling and retry expectations."]
+  ],
+  "backend:schema-constraints": [
+    ["把唯一订单号、非负金额和明细归属转成数据库约束。","Translate unique order numbers, nonnegative amounts and line ownership into database constraints."],
+    ["一份表定义与边界用例，覆盖空值、负值、重复和孤儿明细。","Table definitions and boundary cases for nulls, negative values, duplicates and orphan lines."]
+  ],
+  "backend:atomicity": [
+    ["给创建订单与扣库存划定事务边界，推演第二步失败时如何保持一致。","Set a transaction boundary for order creation and inventory decrement and predict state after the second step fails."],
+    ["一份事务设计，附失败回滚和重试后库存核对。","A transaction design with rollback and inventory checks after retry."]
+  ],
+  "backend:query-plan": [
+    ["比较唯一键查找与大范围筛选，结合访问方式和估计行数判断索引作用。","Compare unique-key lookup with a broad filter and use access method and estimated rows to assess an index."],
+    ["一份 EXPLAIN 审查记录，附访问方式、选择性和待测假设。","An EXPLAIN review with access method, selectivity and assumptions to test."]
+  ],
+  "backend:session-auth": [
+    ["为退出、密码重置与权限变化规定会话撤销行为，考虑客户端有多个设备。","Specify session revocation for logout, password reset and permission changes across devices."],
+    ["一份会话撤销表，分别写出本机和其他设备的预期。","A session revocation table with expected behavior on the current and other devices."]
+  ],
+  "backend:object-authorization": [
+    ["为同编号工单明确租户、主体和动作约束，使每次访问都有授权判断。","Define tenant, subject and action rules for tickets with the same ID so each access has an authorization check."],
+    ["租户工单访问矩阵，列明查询、更新与拒绝预期。","A tenant-ticket access matrix with lookup, update and denial expectations."]
+  ],
+  "backend:validation": [
+    ["在 API 边界拒绝无效分页与排序值，并给调用者明确返回结果。","Reject invalid pagination and sort values at the API boundary and define clear caller-facing behavior."],
+    ["一份分页参数契约，附边界、错误类型和未知排序字段的用例。","A pagination parameter contract with boundary, type-error and unknown sort-field cases."]
+  ],
+  "backend:integration-tests": [
+    ["为订单创建选择真实测试库和可控支付替身，并覆盖关键状态变化。","Use a real test database and a controlled payment substitute to cover important order creation outcomes."],
+    ["四条集成用例，覆盖成功、回滚、账号隔离和重试。","Four integration cases for success, rollback, account isolation and retries."]
+  ],
+  "backend:timeouts-retry": [
+    ["遇到付款结果未知时，先查操作状态再决定是否重试，并界定时间预算。","When a payment outcome is unknown, check operation status before retrying and define the time budget."],
+    ["一份重试策略，写明超时、退避、重复操作识别和终止条件。","A retry policy with timeout, backoff, duplicate-operation handling and stop conditions."]
+  ],
+  "backend:service-telemetry": [
+    ["用关联 ID 将 API 和库存服务的调用串起来，在采集前过滤敏感值。","Correlate API and inventory calls by ID and filter sensitive values before collecting telemetry."],
+    ["一份请求观测方案，附日志字段、指标、追踪和脱敏规则。","A request observability plan with log fields, metrics, traces and redaction rules."]
+  ],
+  "engineering:dataset-grain": [
+    ["说明明细与日汇总的一行各代表什么，判断何时金额会重复相加。","Specify what a row represents in detail and daily tables and identify when amounts would be double-counted."],
+    ["两张数据集粒度卡，标明键、可加范围与对账方法。","Two dataset grain cards with keys, additive scope and reconciliation."]
+  ],
+  "engineering:transform-sql": [
+    ["将已付订单转换成日销售额，并核对过滤、分组和金额是否一致。","Transform paid orders into daily sales and verify filtering, grouping and totals."],
+    ["一条日销售 SQL 与对账表，列出每日有效订单和金额。","A daily sales query with reconciled order counts and amounts by day."]
+  ],
+  "engineering:partition-evolution": [
+    ["处理同一数据集的月分区和日分区，在迁移时保持读写兼容。","Read a dataset with both monthly and daily partitions and preserve compatibility during migration."],
+    ["一份一周数据的读取计划，附新旧分区覆盖和漏读复核。","A week-long read plan covering both partition layouts and checks for omitted data."]
+  ],
+  "engineering:dag-intervals": [
+    ["区分任务触发时刻和实际处理的数据窗，并写出输入就绪条件。","Distinguish a task’s trigger time from its logical data interval and specify input readiness."],
+    ["一张调度时间轴，列明 Airflow 版本、调度方式、窗口和前置依赖。","A scheduling timeline with Airflow version, timetable, interval and upstream dependencies."]
+  ],
+  "engineering:idempotent-batch": [
+    ["设计批任务的重跑写入，使部分失败后恢复时每个窗口只产出一份结果。","Design retry writes so a partially failed batch yields one result per window after recovery."],
+    ["一份批处理重跑方案，附输出键、提交边界与失败对照。","A batch retry plan with output key, commit boundary and failure/retry comparison."]
+  ],
+  "engineering:backfills": [
+    ["从源数据更正追踪受影响的滚动窗口，为补数定范围和验收。","Trace a source correction through affected rolling windows and set the scope and criteria for a backfill."],
+    ["一份补数作业清单，含窗口顺序、并发限制和结果对账。","A backfill run sheet with window order, concurrency limits and result reconciliation."]
+  ],
+  "engineering:event-time": [
+    ["用事件时间和迟到限制判断记录应归入哪个窗口、何时更正。","Use event time and allowed lateness to decide window assignment and when to correct results."],
+    ["一张迟到事件处理表，标明窗口归属、更新或补算去向。","A late-event handling table with window assignment and update or recomputation outcomes."]
+  ],
+  "engineering:dedup-replay": [
+    ["用稳定事件 ID 控制重复写入，并找出超出去重保留期的重放缺口。","Control duplicate writes with stable event IDs and identify replay gaps beyond the deduplication retention window."],
+    ["一份事件重放与去重策略，列明键、保留期和恢复校验。","An event replay and deduplication policy with keys, retention and recovery checks."]
+  ],
+  "engineering:incremental-validation": [
+    ["将新增、修改和删除纳入增量口径，并与同窗口全量结果对照。","Account for inserts, updates and deletions in an incremental load and compare it with a full rebuild for the same window."],
+    ["一份增量对账表，附预期计数、可修正窗口和下游通知。","An incremental reconciliation with expected counts, correction window and downstream notification."]
+  ],
+  "engineering:pipeline-tests": [
+    ["把重复事件、缺客户键与非法金额转成可验证的数据约束。","Translate duplicate events, missing customer keys and invalid amounts into verifiable data rules."],
+    ["一份管道测试表，逐项写失败去向、拦截条件及修复验收。","A pipeline test matrix with failure handling, blocking conditions and post-fix checks."]
+  ],
+  "engineering:lineage": [
+    ["用作业、运行和数据集追踪失败上游对哪些下游造成影响。","Trace a failed upstream run’s impact using job, run and dataset relationships."],
+    ["一张血缘图，附成功与失败的运行、数据版本及受影响下游。","A lineage diagram with successful and failed runs, dataset versions and affected downstream systems."]
+  ],
+  "engineering:freshness-recovery": [
+    ["当任务延迟时判断仪表板是否仍可用，并定义恢复后怎样核验。","Assess dashboard availability after a job delay and define how to verify recovery."],
+    ["一份延迟处置记录，附通知、临时标记和恢复复查人。","A delay response note with notification, temporary labeling and a recovery reviewer."]
+  ],
+  "testing:acceptance": [
+    ["把退款需求改写成可观察的前置条件、操作与通过或拒绝结果。","Translate refund requirements into observable preconditions, actions and accept or reject outcomes."],
+    ["一张验收用例表，逐项关联需求并包含拒绝例子。","An acceptance case table linking each requirement to checks, including rejection cases."]
+  ],
+  "testing:risk-priority": [
+    ["用发生可能性和后果比较支付、登录与低影响界面问题。","Rank payment, login and low-impact UI risks by likelihood and consequence."],
+    ["一份风险排序，说明先测哪些路径、为什么以及暂未覆盖什么。","A risk ranking showing which paths to test first, why and what remains uncovered."]
+  ],
+  "testing:test-levels": [
+    ["把价格计算、支付契约和结算路径分给各自最合适的测试层。","Choose the most suitable test level for pricing logic, the payment contract and overall checkout."],
+    ["一份分层测试计划，附三个风险、依赖替身和预期。","A layered test plan with three risks, dependency substitutes and expectations."]
+  ],
+  "testing:boundary": [
+    ["从整数数量规则选出最容易漏测的端点、界外值和错误类型。","Select easily missed endpoints, adjacent outside values and invalid types from an integer quantity rule."],
+    ["一份边界用例表，给出每个输入的通过或拒绝预期。","A boundary case table with an accept or reject expectation for each input."]
+  ],
+  "testing:decision-tables": [
+    ["把会员和金额条件展开成四种组合，找出刚好达标时应收多少运费。","Expand membership and purchase amount into four combinations and determine the fee at the exact threshold."],
+    ["一张免运费决策表，含四种组合及阈值核验。","A shipping-fee decision table with all four combinations and a threshold check."]
+  ],
+  "testing:state-transition": [
+    ["按订单状态与事件写出合法转换和应被拒绝的转换。","Identify permitted and rejected transitions for each order state and event."],
+    ["一张订单状态转换用例表，列前态、事件、预期后态或拒绝。","An order-transition test table with prior state, event and expected next state or rejection."]
+  ],
+  "testing:exploratory": [
+    ["围绕跨标签页和断网恢复设计一次有主题与时间边界的探索。","Plan a time-boxed exploration of cross-tab behavior and recovery after a network loss."],
+    ["一份探索章程与观察表，含待查线索和下一轮问题。","An exploratory charter and notes template with evidence to inspect and questions for the next session."]
+  ],
+  "testing:defect-reproduction": [
+    ["把偶发重复下单整理成同事能核对的最小场景，并记录出现频率。","Document an intermittent duplicate order as a minimal case a colleague can verify, with its observed frequency."],
+    ["一份缺陷单，附环境、最少步骤、预期、实际与证据。","A defect report with environment, minimal steps, expected result, actual result and evidence."]
+  ],
+  "testing:retest-regression": [
+    ["区分退款上限原缺陷的重测与余额、权限等受影响路径的回归。","Distinguish retesting the refund limit defect from regression checks on balance, permissions and related paths."],
+    ["一份重测与回归清单，记录各项预期和未测范围。","A retest and regression checklist with expectations and untested scope."]
+  ],
+  "testing:test-data": [
+    ["给并行的购物车测试准备独立数据，确保用例可重复运行和清理。","Isolate data for parallel shopping cart tests so cases can be repeated and cleaned up."],
+    ["一份测试数据方案，附每例身份、初始化与清理策略。","A test data plan with per-case identities, setup and cleanup."]
+  ],
+  "testing:stable-assertions": [
+    ["用可访问名称定位异步保存动作，并等待用户可见的结果。","Locate an asynchronous save action by accessible name and wait for its visible result."],
+    ["一条稳定的操作与断言，附失败时应保留的证据。","A stable test action and assertion with evidence to retain on failure."]
+  ],
+  "testing:ci-evidence": [
+    ["区分功能断言失败和网络中断需要保留的证据，制定重试与合并门禁。","Decide what evidence to retain for assertion failures and network interruptions, then define retry and merge gates."],
+    ["一份持续集成故障处理表，附版本、日志、重试与阻断规则。","A CI failure-handling table with version, logs, retry rules and blocking criteria."]
+  ],
+  "software:problem-model": [
+    ["为导入工具定义输入、输出和错误处理，明确空行与重复编号的差别。","Define inputs, outputs and error handling for an import tool, including blank rows and duplicate IDs."],
+    ["一份导入契约，附字段约束和三个输入输出例子。","An import contract with field constraints and three input/output examples."]
+  ],
+  "software:acceptance-slices": [
+    ["把清单工具拆成可以单独交付验证的小功能，先形成最小可用流程。","Split a checklist tool into independently verifiable increments that form a usable first flow."],
+    ["一份功能切片顺序，附每片的用户结果和最低验收。","An ordered list of feature slices with visible outcomes and minimum acceptance checks."]
+  ],
+  "software:design-boundaries": [
+    ["把 CSV、JSON 解析与共用业务规则分开，使改输入格式时影响可控。","Separate CSV and JSON parsing from shared business rules to contain format changes."],
+    ["一张模块边界图，标明解析接口、业务输入与变更影响。","A module boundary diagram with parser interfaces, business inputs and change impact."]
+  ],
+  "software:control-flow": [
+    ["写出满减函数，处理有效金额、刚好达标与非法输入。","Implement a threshold discount function for valid amounts, the exact threshold and invalid inputs."],
+    ["一个满减函数及边界测试，列出门槛前后和负值的预期。","A discount function with boundary tests below, at and above the threshold and for negative input."]
+  ],
+  "software:structures-cost": [
+    ["比较扫描与集合查重的时间、空间和保序取舍。","Compare pairwise scanning and set-based duplicate detection for time, space and order preservation."],
+    ["一份查重方案对比，说明输入增长时的操作量与额外空间。","A duplicate-detection comparison showing work and memory as the input grows."]
+  ],
+  "software:errors": [
+    ["把单行非法金额和整个输入文件缺失分开处理，决定何时继续或停止。","Handle an invalid amount in one row separately from a missing input file, deciding when to continue or stop."],
+    ["一份导入错误处理表，记录错误上下文、恢复和停止条件。","An import error-handling table with context, recovery and stop conditions."]
+  ],
+  "software:unit-tests": [
+    ["为满减规则写有明确预期的单元测试，覆盖门槛和非法金额。","Write unit tests with explicit expectations at the discount boundary and for invalid amounts."],
+    ["一组满减单元测试，覆盖低于、等于、高于门槛与负值。","A discount test suite covering amounts below, at and above the threshold and a negative value."]
+  ],
+  "software:debugging": [
+    ["将空列表崩溃缩到最小复现，并通过对照缩小原因。","Minimize an empty-list failure and use a comparison case to narrow down the cause."],
+    ["一份调试记录，附最小输入、原因假设和回归测试。","A debugging record with minimal input, a cause hypothesis and a regression test."]
+  ],
+  "software:refactor": [
+    ["先锁定两处折扣逻辑在端点的行为，再提取可以共用的部分。","Capture the current boundary behavior of two discount implementations before extracting shared logic."],
+    ["一份重构计划，附原有行为用例、提取步骤及回归复核。","A refactoring plan with existing behavior cases, extraction steps and regression checks."]
+  ],
+  "software:git-branches": [
+    ["合并两个分支的配置改动，说明怎样保留超时和重试两方意图。","Merge configuration changes from two branches while preserving both timeout and retry requirements."],
+    ["一份合并记录，附冲突片段、取舍理由和相关检查。","A merge record with conflicting edits, resolution rationale and relevant checks."]
+  ],
+  "software:code-review": [
+    ["从一处边界运算符变更识别行为差异，并指出缺失的测试。","Identify a behavioral change introduced by a boundary operator and point out the missing test."],
+    ["两条可定位的代码审查意见，写明影响、例子和可验证修正。","Two actionable code review comments with impact, an example and a verifiable fix."]
+  ],
+  "software:release-version": [
+    ["根据公开 API 删除字段的影响判断发布版本，并交代使用方怎样迁移。","Classify a release that removes a public API field and plan how consumers will migrate."],
+    ["一份发布记录，含版本、兼容变化、迁移和回退。","A release note with version, compatibility impact, migration and rollback."]
+  ],
+  "delivery:workflows": [
+    ["把邮件转单流程画出来，找出负责人缺失的交接并标出待确认假设。","Map an email-based ticket workflow, locate unowned handoffs and flag assumptions to confirm."],
+    ["一张目标业务流程图，标明角色、交接、例外和待确认项。","A target workflow diagram with roles, handoffs, exceptions and open questions."]
+  ],
+  "delivery:scope-acceptance": [
+    ["为首期建单和转派写范围与验收，明确新增短信需求如何处理。","Define first-release scope and acceptance for ticket creation and routing and handle a new SMS request."],
+    ["一份范围与验收清单，附排除项、审批人和变更记录。","A scope and acceptance checklist with exclusions, approver and change record."]
+  ],
+  "delivery:dependency-owners": [
+    ["为上线依赖分配负责人、期限和完成证据，明确资源未就绪时怎样升级。","Assign owners, due dates and completion evidence to launch dependencies and define escalation for blockers."],
+    ["一份上线依赖清单，覆盖账号、历史数据和第三方回调。","A launch dependency register covering accounts, historical data and third-party callbacks."]
+  ],
+  "delivery:environments": [
+    ["核对演练环境的地址、租户、版本和开关，避免影响生产通知。","Verify exercise environment endpoints, tenants, versions and switches to avoid affecting production notifications."],
+    ["一份环境核对表，附测试与生产隔离检查。","An environment checklist with isolation checks between test and production."]
+  ],
+  "delivery:role-matrix": [
+    ["从客服、主管和外包的职责推导工单权限，并为拒绝情况写预期。","Derive ticket permissions for agents, supervisors and contractors and specify expected denials."],
+    ["一张岗位权限矩阵，列出允许、拒绝和上线前验证。","A role permission matrix with allow/deny expectations and launch checks."]
+  ],
+  "delivery:migration": [
+    ["用记录数和业务金额核对试迁结果，安排失败行修复后重跑。","Reconcile a migration trial by record count and business totals and plan retries for failed rows."],
+    ["一份迁移对账与重跑单，附成功和失败记录数、金额与复核项。","A migration reconciliation and retry sheet with success and failure counts, amounts and checks."]
+  ],
+  "delivery:uat": [
+    ["让客服和主管按真实角色完成建单、转派与解决，并留下验收证据。","Design role-based acceptance testing for ticket creation, routing and resolution with evidence to retain."],
+    ["一份业务验收脚本，附角色、预期、缺陷记录和签收条件。","A UAT script with roles, expectations, defect log and sign-off criteria."]
+  ],
+  "delivery:cutover": [
+    ["在切换窗口内排迁移、验证和回退，并找出最迟决策点。","Schedule migration, validation and rollback within a cutover window and identify the latest decision point."],
+    ["一份切换时间表，附负责人、判断点和回退预留。","A cutover schedule with owners, decision points and reserved rollback time."]
+  ],
+  "delivery:go-no-go": [
+    ["用关键支付用例、剩余风险和回退证据做上线判断。","Make a launch decision using critical payment checks, remaining risks and rollback evidence."],
+    ["一份上线决策单，写明门槛、证据、批准人和复查条件。","A go/no-go record with gates, evidence, approver and conditions for reconsideration."]
+  ],
+  "delivery:role-training": [
+    ["以客服日常动作安排培训，让参加者能独立完成建单、补信息和升级。","Plan training around daily support tasks so participants can create, update and escalate tickets."],
+    ["一份按角色的演练脚本，附可观察结果与问题记录表。","A role-based training script with observable outcomes and an issue log."]
+  ],
+  "delivery:support-triage": [
+    ["把“登录不了”转成可分派的支持问题，用影响范围判断升级优先级。","Turn a vague login report into an actionable support ticket and prioritize escalation by impact."],
+    ["一份支持分流记录，含环境、起始时间、影响、证据和待查问题。","A support triage record with environment, start time, impact, evidence and open questions."]
+  ],
+  "delivery:handoff": [
+    ["把已上线项目交给支持团队，查清手册、备份和未决事项的接手条件。","Hand a live project to support by clarifying what they need for manuals, backups and open issues."],
+    ["一份交接清单，列访问申请、责任人、验收和下次更新时间。","A handoff checklist with access requests, owners, acceptance and next update time."]
+  ]
+}

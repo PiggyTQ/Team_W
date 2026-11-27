@@ -1,0 +1,1 @@
+export const solve=()=>{"reconciliation":{"normalized":[{"id":"U1","email":"alice@example.invalid","status":"active"},{"id":"U2","email":"bob@example.invalid","status":"pending"}],"differences":["U2"],"rollbackAllowed":false,"preserve":[]},"decision":"rollback_available","feedback":{"to":"ops","issue":"new_data_preservation"},"revision":2};

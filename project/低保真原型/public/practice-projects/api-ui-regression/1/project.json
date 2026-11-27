@@ -1,0 +1,125 @@
+{
+  "id": "api-ui-regression",
+  "version": 1,
+  "legacy": false,
+  "career": "testing",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "接口与界面回归",
+    "en": "API and UI regression"
+  },
+  "next": [
+    "release-risk-review"
+  ],
+  "prior": "defect-evidence",
+  "adapter": "test",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "retest-regression"
+  ],
+  "brief": {
+    "zh": "测试人员要保护授权、失败后输入保留和正常提交。对原创建模程序的缺陷版与修复版逐条执行测试，保留期望、实际输出和失败，而不是一律写通过。",
+    "en": "A tester protects an API/UI behavior matrix before and after a fix. Run each supplied case and retain both expected and actual outputs."
+  },
+  "outputs": {
+    "zh": [
+      "API/UI测试与数据",
+      "失败诊断、确认与回归报告"
+    ],
+    "en": [
+      "Executable regression cases and linked failures"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "坏版本出现预期失败、修复版通过",
+      "清理和隔离避免测试顺序污染"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A blanket passed label conceals a failing case in the broken version. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "测试只查HTTP200或界面标题而漏关键行为应暴露",
+    "en": "A blanket passed label conceals a failing case in the broken version."
+  },
+  "review": {
+    "zh": [
+      "覆盖取舍与脆弱用例",
+      "未测范围"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "测试人员要保护授权、失败后输入保留和正常提交。对原创建模程序的缺陷版与修复版逐条执行测试，保留期望、实际输出和失败，而不是一律写通过。",
+      "测试只查HTTP200或界面标题而漏关键行为应暴露；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A tester protects an API/UI behavior matrix before and after a fix.",
+      "Reproduce this failure first: A blanket passed label conceals a failing case in the broken version.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "测试只查HTTP200或界面标题而漏关键行为应暴露",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "testing",
+      "branch": "defects",
+      "skill": "retest-regression",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

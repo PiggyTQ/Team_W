@@ -1,0 +1,1985 @@
+{
+  "data": {
+    "caseTitle": [
+      "沿“报名减少”案例，看分析责任怎样扩大",
+      "How responsibility grows in the registration-decline case"
+    ],
+    "caseContext": [
+      "仍使用代表案例的4月/5月合成日志：有效报名320→280，官网160→120，社群与短视频合计不变。没有访问量或转化数据。下面比较的是责任范围，不是年限或职级。",
+      "Use the same synthetic April/May logs: valid registrations fall from 320 to 280; website registrations fall from 160 to 120 and the other channels are unchanged in total. Traffic and conversion data are absent. The scopes below are not job levels or years of experience."
+    ],
+    "stages": [
+      {
+        "title": [
+          "把一份结果做得可复算",
+          "Produce one reproducible result"
+        ],
+        "task": [
+          "按报名ID取最新状态，排除测试与撤回，按月份和渠道计数；把输入版本、SQL与排除规则交给复核同事。",
+          "Keep the latest state per registration ID, exclude tests and withdrawals, and count by month/channel. Give the reviewer the input version, SQL and exclusions."
+        ],
+        "artifact": {
+          "title": [
+            "分析表节选",
+            "Analysis excerpt"
+          ],
+          "excerpt": [
+            "4月320；5月280；变化−40（−12.5%）。官网−40；社群0；短视频0。计数单位：报名记录，非独立人数。",
+            "April 320; May 280; change −40 (−12.5%). Website −40; community 0; short-video 0. Unit: registration records, not distinct people."
+          ]
+        },
+        "authority": [
+          "可选择实现该口径的查询写法；统计定义由活动负责人确认，复核同事重算后才能作为本次简报依据。",
+          "Choose the query implementation; the event owner confirms definitions and a peer recomputes the result before it supports the brief."
+        ],
+        "evidence": [
+          "别人用同一份日志重算得到320与280，三个渠道分别加总等于当月总计。",
+          "Another person obtains 320 and 280 from the same logs, and channels reconcile to each monthly total."
+        ]
+      },
+      {
+        "title": [
+          "独立组织一次诊断",
+          "Organise an investigation"
+        ],
+        "task": [
+          "把“少了40条”拆成可验证的问题：官网入口是否变更、埋点是否漏报、访问量是否变化。为每个问题列缺少的资料和提供人，不急于写原因。",
+          "Turn the 40-record decline into testable questions about entry changes, collection gaps and traffic. Record the missing evidence and its owner for each question before attributing a cause."
+        ],
+        "artifact": {
+          "title": [
+            "诊断清单节选",
+            "Investigation excerpt"
+          ],
+          "excerpt": [
+            "官网−40已确认；入口变更记录：待产品提供；采集完整性：待数据工程核对；转化率：缺访问分母，暂不计算。",
+            "Website −40 confirmed; entry-change log pending from product; collection completeness pending from data engineering; no traffic denominator, so conversion is not calculated."
+          ]
+        },
+        "authority": [
+          "可安排分析顺序并提出补数需求；改变采集、上线实验或停止活动，仍由相关负责人审批。",
+          "Choose analysis order and request evidence; collection changes, experiments and stopping an event require the responsible owners’ approval."
+        ],
+        "evidence": [
+          "能把发现、假设和未决项分开；新资料到达后修订结论，并说明哪些判断随之改变。",
+          "Separate findings, hypotheses and unresolved items; revise the conclusion when evidence arrives and explain which decisions change."
+        ]
+      },
+      {
+        "title": [
+          "维护多人共用的统计规则",
+          "Maintain shared measurement rules"
+        ],
+        "task": [
+          "当运营要按人数、财务要按报名记录看数据时，保留两个有名字的指标；设计口径版本、变更审核和重算影响说明。",
+          "When operations needs people and finance needs registration records, retain two named metrics with versioned definitions, review and restatement impact."
+        ],
+        "artifact": {
+          "title": [
+            "口径变更记录节选",
+            "Definition-change excerpt"
+          ],
+          "excerpt": [
+            "报名记录数v1继续使用registration_id；“独立报名人数”为新增提议，需另给人员去重键和权限，不能悄悄替换旧报表。",
+            "Registration-record count v1 keeps registration_id. A distinct-person count is a separate proposal needing its own identity key and access rules; it must not silently replace the old report."
+          ]
+        },
+        "authority": [
+          "组织业务与数据负责人评审，明确指标维护人；不能自行把不同口径拼成可比趋势。",
+          "Coordinate business/data-owner review and name a maintainer; do not merge incompatible definitions into a trend."
+        ],
+        "evidence": [
+          "一次口径变更能追到批准、版本和受影响报表；旧结论仍能按原规则复现。",
+          "A definition change is traceable to approval, version and affected reports, while old conclusions remain reproducible."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "一份简报怎样在团队里交付",
+        "How the brief passes through the team"
+      ],
+      "input": [
+        "活动负责人要解释5月报名减少；分析师只有两个月报名日志，不能据此得出获客转化原因。",
+        "The event owner asks about the May decline; two months of registration logs cannot establish acquisition or conversion causes."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "活动负责人 → 分析师",
+            "Event owner → analyst"
+          ],
+          "action": [
+            "确认有效报名、月份边界与计数单位。",
+            "Confirm validity, monthly boundaries and the counted entity."
+          ],
+          "output": [
+            "委托：先定位减少集中在哪个渠道，不要求编造原因。",
+            "Brief: locate the decline by channel without inventing a cause."
+          ]
+        },
+        {
+          "actor": [
+            "分析师 → 复核同事",
+            "Analyst → peer reviewer"
+          ],
+          "action": [
+            "发送原始CSV版本、SQL及分渠道对账表。",
+            "Send the CSV version, SQL and channel reconciliation."
+          ],
+          "output": [
+            "交付：320→280、官网−40和可复算过程。",
+            "Delivery: 320→280, website −40 and a reproducible process."
+          ]
+        },
+        {
+          "actor": [
+            "分析师 → 数据工程/产品",
+            "Analyst → data engineering/product"
+          ],
+          "action": [
+            "分别请求采集完整性证据和入口变更记录，保留待回复状态。",
+            "Request collection evidence and entry-change records separately; keep them pending until answered."
+          ],
+          "output": [
+            "问题清单明确资料提供人，未获得资料不写“已排除”。",
+            "The issue list names evidence owners; missing evidence is not marked cleared."
+          ]
+        },
+        {
+          "actor": [
+            "分析师 → 活动负责人",
+            "Analyst → event owner"
+          ],
+          "action": [
+            "交付发现、限制与下一轮核对，由负责人决定后续调查投入。",
+            "Deliver findings, limits and next checks; the owner decides investigation effort."
+          ],
+          "output": [
+            "简报：下降12.5%，变化集中官网；原因未定。",
+            "Brief: down 12.5%, concentrated on the website; cause unresolved."
+          ]
+        }
+      ],
+      "acceptance": [
+        "同事能复算，业务知道可据此决定“下一步查什么”，同时知道它还不能回答“为什么”。",
+        "A peer can recompute the result and the business can choose what to investigate next without mistaking it for a causal explanation."
+      ],
+      "rework": {
+        "problem": [
+          "初稿写“广告效果变差导致报名下降”。",
+          "The draft says advertising deterioration caused the decline."
+        ],
+        "revision": [
+          "删除无证因果，保留官网变化，并把流量、入口和采集列为待核。",
+          "Remove the unsupported cause, retain the website finding and list traffic, entry and collection checks."
+        ],
+        "result": [
+          "简报从猜测原因改为可执行的调查入口；没有伪造已获得的新数据。",
+          "The brief becomes an actionable investigation starting point without inventing new evidence."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "GOV.UK：数据质量框架指导",
+          "GOV.UK: Government Data Quality Framework guidance"
+        ],
+        "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework-guidance",
+        "supports": [
+          "支持按用途定义质量、维护元数据和告知限制；报名案例、责任层次与交接片段为本站原创。",
+          "Supports fitness for purpose, metadata maintenance and communicating limits; the case, responsibility scopes and handoff excerpts are original."
+        ]
+      }
+    ]
+  },
+  "ai": {
+    "caseTitle": [
+      "沿活动问答案例，从核对回答到维护使用边界",
+      "From reviewing answers to maintaining the event assistant’s scope"
+    ],
+    "caseContext": [
+      "沿用D1/D2两份合成须知与三条预设问答记录。本页没有调用模型；流畅回答不等于有依据，缺失的退款规则必须转人工。",
+      "Use synthetic notices D1/D2 and three preset answer records. No model is called here. Fluency is not evidence, and the missing refund policy requires human referral."
+    ],
+    "stages": [
+      {
+        "title": [
+          "逐条核对一次问答记录",
+          "Review a set of answer records"
+        ],
+        "task": [
+          "把每条回答与文档原文对照，分别检查结论、引用位置和越界行为；错误引用与接口失败分开登记。",
+          "Compare each answer to the source text, checking claims, citation location and out-of-scope behavior. Record wrong citations separately from service failures."
+        ],
+        "artifact": {
+          "title": [
+            "审核表节选",
+            "Review excerpt"
+          ],
+          "excerpt": [
+            "签到时间：D1§2支持09:00–09:30；退款：D1/D2未给规则，预设回答却猜测，判为无依据；其他城市：应说明超出范围。",
+            "Check-in: D1 §2 supports 09:00–09:30. Refunds: neither document gives a rule, so the preset guess is unsupported. Other cities: state that they are outside scope."
+          ]
+        },
+        "authority": [
+          "可以标记不符与提交修订建议；须知含义由客服/领域负责人确认，不能由开发者补写业务政策。",
+          "Flag mismatches and propose revisions; the domain owner confirms policy meaning, rather than the developer inventing it."
+        ],
+        "evidence": [
+          "每个有依据判断能定位到具体段落；没有资料的回答明确停在未知，不以措辞自信判对。",
+          "Each supported judgment points to a passage; missing information stays unknown regardless of confident wording."
+        ]
+      },
+      {
+        "title": [
+          "组织一轮可复查的改进",
+          "Run a reviewable improvement cycle"
+        ],
+        "task": [
+          "先固定独立问题和判定条件，再让开发修拒答与资料选择；用原问题及新问题回归，保留改前/改后文档和系统版本。",
+          "Fix independent questions and criteria before changing abstention or retrieval behavior. Recheck old and new questions while retaining document and system versions."
+        ],
+        "artifact": {
+          "title": [
+            "失败处置记录节选",
+            "Failure-action excerpt"
+          ],
+          "excerpt": [
+            "错误类别：退款无依据回答；预期：说明资料未提供并转人工；变更：补拒答分支；回归：签到时间仍须正确引用D1§2。",
+            "Failure: unsupported refund answer. Expected: explain the gap and refer to a person. Change: add an abstention path. Regression: check-in must still cite D1 §2 correctly."
+          ]
+        },
+        "authority": [
+          "可协调评测、开发和复测；是否开放新问题类型、可接受的错误影响及上线由业务/系统负责人批准。",
+          "Coordinate evaluation, development and retest; owners approve new scope, acceptable impacts and release."
+        ],
+        "evidence": [
+          "先按可观察回答区分错误；要定位资料、检索、生成或服务原因，还需补检索结果、提示与调用记录。修复后用独立回归记录核对已支持行为是否保留。",
+          "Classify observable answer failures first. Attribution to sources, retrieval, generation or service also needs retrieved results, prompts and call records. After a fix, independently recorded regression results must check that supported behavior is preserved."
+        ]
+      },
+      {
+        "title": [
+          "让资料与运行规则持续受控",
+          "Maintain controlled knowledge and operation"
+        ],
+        "task": [
+          "为须知发布、撤回和过期建立版本规则；把人工接手、监测与停用条件写入运行约定，而不是仅优化提示词。",
+          "Version publication, withdrawal and expiry of notices, and document human handoff, monitoring and stop conditions instead of only tuning prompts."
+        ],
+        "artifact": {
+          "title": [
+            "运行约定节选",
+            "Operating agreement excerpt"
+          ],
+          "excerpt": [
+            "当前资料集：D1/D2；退款仍转人工；文档变更先回归引用与拒答；服务不可用单独提示，不输出猜测答案。",
+            "Current sources: D1/D2. Refunds remain human-handled. Document changes require citation/abstention regression. Service outages get a separate message rather than a guessed answer."
+          ]
+        },
+        "authority": [
+          "与客服、数据权限和系统负责人共同维护；不能因为离线几题通过，就授权访问私人报名数据或扩大承诺范围。",
+          "Maintain this with domain, access and system owners; a few offline passes do not grant private-data access or broader promises."
+        ],
+        "evidence": [
+          "文档换版或故障时能说明受影响问题、选择恢复版本，并给出需要人工处理的队列。",
+          "When sources change or fail, identify affected questions, select a recovery version and route cases to people."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "一次错误退款回答怎样被修正",
+        "How an unsupported refund answer is corrected"
+      ],
+      "input": [
+        "已批准资料只有D1/D2，预设记录对“能否退款”给了资料外答案。",
+        "Only D1/D2 are approved; the preset refund answer contains an unsupported policy."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "客服负责人 → AI应用人员",
+            "Domain owner → AI application practitioner"
+          ],
+          "action": [
+            "确认可回答的问题范围，指出文档没有退款条款。",
+            "Confirm the allowed question scope and that refunds are undocumented."
+          ],
+          "output": [
+            "可核查的范围说明，不补造退款规则。",
+            "A scope statement without an invented refund policy."
+          ]
+        },
+        {
+          "actor": [
+            "AI应用人员 → 开发",
+            "Practitioner → developer"
+          ],
+          "action": [
+            "提交原问题、错误回答、所用文档版本及预期转人工行为。",
+            "Send the question, wrong answer, source versions and expected referral."
+          ],
+          "output": [
+            "修订单：无依据时拒答，服务失败另报。",
+            "Change request: abstain without support; report service failure separately."
+          ]
+        },
+        {
+          "actor": [
+            "测试/客服 → AI应用人员",
+            "Tester/domain reviewer → practitioner"
+          ],
+          "action": [
+            "用退款新问法和已知签到问题回归，逐条复核引用。",
+            "Test a refund paraphrase and the supported check-in question, reviewing citations."
+          ],
+          "output": [
+            "待交付：逐题记录拒答与已支持回答的实际表现；未复测前不写已通过，调试用过的问题不能继续称为独立测试。",
+            "Required output: record actual abstention and supported-answer behavior per question. Do not mark a pass before retesting, and do not call questions used for tuning independent tests."
+          ]
+        },
+        {
+          "actor": [
+            "系统负责人 → 客服团队",
+            "System owner → support team"
+          ],
+          "action": [
+            "批准可用范围并交接人工接手入口和故障处理。",
+            "Approve the usable scope and hand over referral and outage handling."
+          ],
+          "output": [
+            "客服知道哪些由系统回答、哪些必须由人确认。",
+            "Support knows which answers are supported and which need a person."
+          ]
+        }
+      ],
+      "acceptance": [
+        "已支持问题引用正确；无依据问题转人工；服务失败没有伪装成政策答案。",
+        "Supported questions cite correctly, unsupported ones refer to a person, and service failure is not disguised as a policy answer."
+      ],
+      "rework": {
+        "problem": [
+          "开发把“退款请咨询客服”写进资料，再宣称资料已经证明不可退款。",
+          "A developer adds “ask support” and claims this proves refunds are prohibited."
+        ],
+        "revision": [
+          "区分流程指引与政策事实，删除“不可退款”，保留资料缺失及转人工。",
+          "Separate referral instructions from policy facts, remove “refunds prohibited” and retain the gap/referral."
+        ],
+        "result": [
+          "系统没有凭空新增业务承诺，领域负责人仍拥有政策解释与发布责任。",
+          "No policy commitment is invented; the domain owner retains interpretation and publication responsibility."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "Microsoft：生成式AI可观测性",
+          "Microsoft: Observability in generative AI"
+        ],
+        "url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability",
+        "supports": [
+          "支持开发前评估、质量/运行监测和问题定位；不要求本站使用Azure，也不为三条合成记录提供实测背书。",
+          "Supports evaluation, quality/operational monitoring and tracing; it neither requires Azure nor validates the three synthetic records."
+        ]
+      }
+    ]
+  },
+  "security": {
+    "caseTitle": [
+      "沿登录事件，看事实记录怎样变成有授权的响应",
+      "From login evidence to an authorised response"
+    ],
+    "caseContext": [
+      "沿用svc-x的E1–E3：09:00–09:03共20次失败（包含E1），09:05在未登记设备dev-b成功。没有定位、设备取证或本人访谈，尚不能判定入侵。",
+      "Use E1–E3 for svc-x: 20 failures during 09:00–09:03, including E1, followed by success on unregistered dev-b at 09:05. No location, device forensics or owner interview establishes compromise."
+    ],
+    "stages": [
+      {
+        "title": [
+          "做出可追溯的初步研判",
+          "Produce a traceable first assessment"
+        ],
+        "task": [
+          "按时间和事件编号整理结果，核对账号用途和允许演练范围，列出确认事实与需要复核的问题。",
+          "Organise events by time/ID, check the account’s purpose and exercise authority, and separate facts from questions."
+        ],
+        "artifact": {
+          "title": [
+            "事件卡节选",
+            "Incident-card excerpt"
+          ],
+          "excerpt": [
+            "已知：20次失败后dev-b成功；未知：设备持有人、是否有合法变更、会话行为；建议：升级给响应负责人复核。",
+            "Known: success on dev-b after 20 failures. Unknown: device owner, legitimate change and session activity. Recommendation: escalate for review."
+          ]
+        },
+        "authority": [
+          "可以标记异常与建议补证；封禁、撤销会话和通知业务均按授权流程，由响应/系统负责人确认。",
+          "Flag anomalies and request evidence; blocking, session revocation and business notification follow the responsible owners’ authority."
+        ],
+        "evidence": [
+          "其他值班员能按E1–E3复查，且不会把20次失败重复累计为21次或把新设备写成异地。",
+          "Another responder can verify E1–E3 without double-counting 21 failures or calling a new device a new location."
+        ]
+      },
+      {
+        "title": [
+          "组织一次范围受控的响应",
+          "Coordinate a scoped response"
+        ],
+        "task": [
+          "向账号负责人核实变更，向系统人员请求授权范围内的会话记录；把每项处置的批准、执行和效果分开登记。",
+          "Ask the account owner about changes and request authorised session records. Separate approval, execution and observed effect for each action."
+        ],
+        "artifact": {
+          "title": [
+            "处置跟踪节选",
+            "Action-tracking excerpt"
+          ],
+          "excerpt": [
+            "核实dev-b登记：待账号负责人回复；撤销会话：未批准、未执行；业务影响：尚未确认。每项有负责人与下次复核点。",
+            "Verify dev-b registration: awaiting account owner. Revoke session: unapproved and unexecuted. Business impact: unknown. Each item has an owner and review point."
+          ]
+        },
+        "authority": [
+          "可分派调查和更新影响判断；不得把提出建议当成获批，也不能跨出演练或生产授权范围。",
+          "Assign investigations and update scope, but a recommendation is not approval and exercise authority is not production authority."
+        ],
+        "evidence": [
+          "新证据能改变事件级别或排除假设，交班时没有“已处理”却缺少执行凭证的项目。",
+          "New evidence changes severity or hypotheses, and no handoff item is marked done without execution evidence."
+        ]
+      },
+      {
+        "title": [
+          "把个案经验变成可维护的响应规则",
+          "Turn case learning into maintainable response practice"
+        ],
+        "task": [
+          "与系统及业务负责人评审账号基线、升级条件和证据保留规则；用合成事件检验新设备提示能否帮助复核，同时记录误报来源。",
+          "Review account baselines, escalation and evidence retention with system/business owners; test the new-device signal on synthetic cases and record false positives."
+        ],
+        "artifact": {
+          "title": [
+            "规则改进提议节选",
+            "Rule-improvement proposal"
+          ],
+          "excerpt": [
+            "未登记设备成功→进入核实队列；必须关联账号用途、变更记录和会话证据；不能仅凭该信号自动宣告入侵。",
+            "Success on an unregistered device enters review; link account purpose, changes and session evidence. The signal alone cannot declare compromise."
+          ]
+        },
+        "authority": [
+          "组织评审并维护版本；改变自动处置权限、日志保留或业务影响阈值需相应负责人批准。",
+          "Coordinate review and versioning; owners approve changes to automated action, retention or business-impact thresholds."
+        ],
+        "evidence": [
+          "可说明新规则覆盖什么、漏什么、谁接手及如何撤回；单次事件结案不冒充整个系统安全。",
+          "Explain coverage, gaps, ownership and rollback without treating one closed case as system-wide security."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "登录告警怎样交给下一班继续处理",
+        "How the login investigation continues across shifts"
+      ],
+      "input": [
+        "E1–E3及演练资产卡可读，缺账号负责人回复与会话行为证据。",
+        "E1–E3 and the exercise asset card are available; owner confirmation and session behavior are missing."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "安全值班 → 响应负责人",
+            "Security responder → response lead"
+          ],
+          "action": [
+            "发送事件时间线、资产用途、未知项和建议复核范围。",
+            "Send the timeline, asset purpose, unknowns and proposed scope."
+          ],
+          "output": [
+            "E1包含在20次失败内；dev-b未登记，尚未证实恶意。",
+            "E1 is included in 20 failures; dev-b is unregistered, not proven malicious."
+          ]
+        },
+        {
+          "actor": [
+            "响应负责人 → 系统/账号负责人",
+            "Response lead → system/account owner"
+          ],
+          "action": [
+            "确认调查与处置授权，核查合法变更和可用日志。",
+            "Confirm investigation/action authority and check legitimate changes and logs."
+          ],
+          "output": [
+            "授权记录与补证请求分别编号。",
+            "Approval and evidence requests have separate references."
+          ]
+        },
+        {
+          "actor": [
+            "系统人员 → 安全值班",
+            "System operator → security responder"
+          ],
+          "action": [
+            "按授权返回证据或记录无法提供的原因；执行动作另给凭证。",
+            "Return authorised evidence or explain its absence; provide a separate receipt for actions."
+          ],
+          "output": [
+            "调查证据不等同处置完成证明。",
+            "Investigation evidence is not proof of completed containment."
+          ]
+        },
+        {
+          "actor": [
+            "本班 → 下一班",
+            "Outgoing → incoming responder"
+          ],
+          "action": [
+            "交接已知、未知、已批准/已执行动作和未完事项负责人。",
+            "Hand over facts, unknowns, approvals, executions and remaining owners."
+          ],
+          "output": [
+            "下一班先跟进账号核实，不重复未经批准的动作。",
+            "The next shift follows up owner verification without repeating unapproved actions."
+          ]
+        }
+      ],
+      "acceptance": [
+        "接手人能定位原证据、知道下一步由谁做，且不会误把“怀疑”当结论或把“批准”当执行。",
+        "The recipient finds original evidence and next owners without confusing suspicion, approval and execution."
+      ],
+      "rework": {
+        "problem": [
+          "初稿写“账号已入侵、已恢复”，但只有E1–E3。",
+          "The draft says compromised and recovered, supported only by E1–E3."
+        ],
+        "revision": [
+          "改为待核异常；把处置、业务恢复和根因三个结论拆开，分别要求证据。",
+          "Record an anomaly under review and separate containment, business recovery and root cause, each needing evidence."
+        ],
+        "result": [
+          "交接保留可继续调查的状态，没有伪造已执行处置或恢复。",
+          "The handoff supports continued investigation without fabricated action or recovery."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "NIST SP800-61r3：事件响应",
+          "NIST SP800-61r3: Incident response"
+        ],
+        "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+        "supports": [
+          "支持将准备、检测、响应与恢复纳入组织风险管理；本例角色分工和日志为原创合成。",
+          "Supports preparation, detection, response and recovery within organisational risk management; roles and logs here are synthetic."
+        ]
+      },
+      {
+        "title": [
+          "Google SRE：事件管理",
+          "Google SRE: Managing incidents"
+        ],
+        "url": "https://sre.google/sre-book/managing-incidents/",
+        "supports": [
+          "支持明确角色、协同行动和状态沟通，不代表安全处置有统一职级授权。",
+          "Supports clear roles, coordinated action and status communication, not universal security authority by job level."
+        ]
+      }
+    ]
+  },
+  "ops": {
+    "caseTitle": [
+      "沿发布后故障，看从执行预案到维护可靠性的变化",
+      "From running a recovery plan to maintaining service reliability"
+    ],
+    "caseContext": [
+      "沿用报名API演练：发布前5/1000=0.5%，发布后80/1000=8%；无数据迁移，回退演练后4/800=0.5%。这些是合成窗口，不是生产监控。",
+      "Use the registration-API exercise: errors rise from 5/1000=0.5% to 80/1000=8%; no data migration occurs. After the rollback exercise, 4/800=0.5%. These are synthetic windows, not production monitoring."
+    ],
+    "stages": [
+      {
+        "title": [
+          "按批准预案完成一次恢复操作",
+          "Execute one approved recovery procedure"
+        ],
+        "task": [
+          "核对服务、发布版本与5分钟窗口，记录异常指标，按已批准步骤回退演练，并检查核心报名流程。",
+          "Verify service, release and five-minute windows, record impact, execute the approved rollback exercise and check core registration."
+        ],
+        "artifact": {
+          "title": [
+            "恢复记录节选",
+            "Recovery-record excerpt"
+          ],
+          "excerpt": [
+            "发布前0.5%→发布后8%；回退演练后0.5%（4/800）。核心报名流程仍需复验；错误下降不等于根因已确认。",
+            "Before release 0.5% → after 8%; post-rollback exercise 0.5% (4/800). Core registration still needs verification; lower errors do not establish root cause."
+          ]
+        },
+        "authority": [
+          "在预案和授权内执行；超出步骤、涉及数据或扩大影响时暂停并升级给变更负责人。",
+          "Execute within the plan and authority; escalate changes beyond the steps or involving data or wider impact."
+        ],
+        "evidence": [
+          "别人能找到操作顺序、版本和前后指标，并确认没有用截图替代执行记录。",
+          "Another operator can identify sequence, versions and before/after observations, with action records beyond screenshots."
+        ]
+      },
+      {
+        "title": [
+          "协调一段故障处理过程",
+          "Coordinate an incident segment"
+        ],
+        "task": [
+          "分别让开发核查发布差异、业务验证报名、值班员观察同口径窗口；统一更新时间和操作记录，避免多人各自改系统。",
+          "Assign release-diff review, business registration checks and comparable-window observation, with shared update times and action logs."
+        ],
+        "artifact": {
+          "title": [
+            "协调状态节选",
+            "Coordination-state excerpt"
+          ],
+          "excerpt": [
+            "恢复指标：0.5%；业务复验：待确认；根因：未定；开发负责差异分析，业务负责人确认用户流程。",
+            "Recovery metric 0.5%; business verification pending; root cause unresolved. Development reviews the diff and the business owner confirms the user journey."
+          ]
+        },
+        "authority": [
+          "协调分工和升级；发布、回退或扩大变更仍按变更授权决定，值班不自动拥有无限生产权限。",
+          "Coordinate work and escalation; release and rollback follow change authority rather than unlimited on-call access."
+        ],
+        "evidence": [
+          "能把“指标好转”“业务可用”“原因查明”分开报告，保持接班者能继续处理。",
+          "Report metric recovery, usable business flow and established cause separately so the next shift can continue."
+        ]
+      },
+      {
+        "title": [
+          "把恢复经验变成可靠性改进",
+          "Turn recovery into reliability improvements"
+        ],
+        "task": [
+          "复盘发现时间、恢复动作和验证缺口，与开发/业务共同改发布门槛、回退演练及监测覆盖。",
+          "Review detection, recovery actions and verification gaps, then improve release gates, rollback exercises and monitoring with development/business."
+        ],
+        "artifact": {
+          "title": [
+            "改进任务节选",
+            "Improvement-task excerpt"
+          ],
+          "excerpt": [
+            "发布验证增加核心报名成功路径；回退后保留同口径指标与业务复验；设置负责人及复核记录。门槛提议须评审后生效。",
+            "Add core registration to release checks; retain comparable metrics and business verification after rollback. Name owners and review records; proposed gates need review before use."
+          ]
+        },
+        "authority": [
+          "推动可复查的改进与容量/风险取舍；业务目标和允许风险由服务负责人共同确认。",
+          "Drive verifiable improvements and capacity/risk trade-offs; the service owner agrees business objectives and acceptable risk."
+        ],
+        "evidence": [
+          "后续演练能检验改进是否有效，未完成项有负责人，而不是以写完复盘文档作为闭环。",
+          "A later exercise tests whether changes work, with named owners for gaps rather than treating a written postmortem as completion."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "从报警到恢复确认的协作链",
+        "The chain from alert to recovery confirmation"
+      ],
+      "input": [
+        "报名API发布后错误率升到8%，已有无数据迁移的回退演练预案。",
+        "The registration API reaches 8% errors after release; an exercise rollback plan exists without data migration."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "值班员 → 开发/变更负责人",
+            "On-call → developer/change owner"
+          ],
+          "action": [
+            "交出两个5分钟窗口和发布时间，请确认回退前提与权限。",
+            "Provide comparable windows and release time; confirm rollback conditions and authority."
+          ],
+          "output": [
+            "不是“CPU高所以重启”，而是具体服务、版本与用户错误证据。",
+            "Identify the service, version and user-error evidence rather than restarting because CPU is high."
+          ]
+        },
+        {
+          "actor": [
+            "变更负责人 → 操作人员",
+            "Change owner → operator"
+          ],
+          "action": [
+            "确认本例无数据迁移，按已批准演练步骤回退并记录。",
+            "Confirm no data migration and execute/log the approved exercise steps."
+          ],
+          "output": [
+            "操作记录与观察窗口可对应。",
+            "Actions are linked to observation windows."
+          ]
+        },
+        {
+          "actor": [
+            "操作人员 → 业务负责人",
+            "Operator → business owner"
+          ],
+          "action": [
+            "报告4/800=0.5%，请用核心流程复验而不只看状态灯。",
+            "Report 4/800=0.5% and request a core-journey check rather than a status-light check."
+          ],
+          "output": [
+            "业务复验和指标恢复分开确认。",
+            "Confirm business behavior separately from metric recovery."
+          ]
+        },
+        {
+          "actor": [
+            "值班员 → 下一班/改进负责人",
+            "On-call → next shift/improvement owner"
+          ],
+          "action": [
+            "交出尚未确认的根因、继续观察项和发布差异调查。",
+            "Hand over unresolved cause, observation and release-diff investigation."
+          ],
+          "output": [
+            "恢复后的调查不丢失，也不声称已有根因结论。",
+            "Investigation continues after recovery without inventing a cause."
+          ]
+        }
+      ],
+      "acceptance": [
+        "指标窗口可比、批准与操作有记录、核心报名经业务复验；根因没有证实时仍保持未知。",
+        "Windows are comparable, approval/actions are logged and the business validates registration; unproven cause stays unknown."
+      ],
+      "rework": {
+        "problem": [
+          "初稿写“回退后错误少了，问题已彻底解决”。",
+          "The draft claims fewer errors after rollback mean the problem is completely solved."
+        ],
+        "revision": [
+          "补业务复验和后续观察；把根因研究列为独立待办。",
+          "Add business verification and observation; keep root-cause work as a separate item."
+        ],
+        "result": [
+          "恢复通报可用于接班与继续调查，结论没有超出本例证据。",
+          "The recovery update supports handoff and investigation within the evidence."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "Google SRE：事件管理",
+          "Google SRE: Managing incidents"
+        ],
+        "url": "https://sre.google/sre-book/managing-incidents/",
+        "supports": [
+          "支持明确指挥、操作与沟通角色，减少未经协调的变更；本例错误率与恢复窗口为原创。",
+          "Supports clear command, operational and communication roles and coordinated changes; error rates/windows here are original."
+        ]
+      },
+      {
+        "title": [
+          "Google SRE：值班",
+          "Google SRE: Being on-call"
+        ],
+        "url": "https://sre.google/sre-book/being-on-call/",
+        "supports": [
+          "支持明确升级路径、流程与复盘；不照搬Google的人员配比或值班政策。",
+          "Supports escalation, procedures and postmortems without imposing Google staffing or on-call policy."
+        ]
+      }
+    ]
+  },
+  "frontend": {
+    "caseTitle": [
+      "沿报名表单，看从实现状态到维护交互约定",
+      "From implementing a registration form to maintaining interaction rules"
+    ],
+    "caseContext": [
+      "沿用邮箱必填、格式校验与等待/成功/失败的本机演示。没有真实报名后台，因而键盘与状态可在本页观察，真实网络、服务端去重和接口错误仍需联调。",
+      "Use the local email-form demo with required/format checks and waiting/success/failure states. There is no real registration backend, so keyboard and state behavior are observable here while real networks, server deduplication and API errors need integration testing."
+    ],
+    "stages": [
+      {
+        "title": [
+          "交付一个能完成任务的表单",
+          "Deliver a form that supports task completion"
+        ],
+        "task": [
+          "实现可见标签、字段与错误的程序关联；空值或格式错误给出修正方法，失败保留输入，等待时避免重复发送。",
+          "Associate labels and errors with the field, explain required/format corrections, preserve input on failure and prevent duplicate sends while waiting."
+        ],
+        "artifact": {
+          "title": [
+            "状态验收表节选",
+            "State-check excerpt"
+          ],
+          "excerpt": [
+            "空邮箱→提示必填、不发送；格式错→关联说明并定位；等待→显示进行中；失败→保留邮箱；成功→明确完成。本页只验证本机模拟。",
+            "Empty email: required error, no send. Invalid format: linked correction. Waiting: visible progress. Failure: retained email. Success: explicit completion. This page checks only a local simulation."
+          ]
+        },
+        "authority": [
+          "可决定组件实现与修正细节；产品确认流程，设计/可访问性复核反馈，服务端仍独立校验。",
+          "Choose implementation and correction details; product confirms flow, design/accessibility reviews feedback, and the server validates independently."
+        ],
+        "evidence": [
+          "只用键盘能从错误走到修正与成功，错误不只依赖红色，且失败不会清空已填内容。",
+          "Keyboard users can move from error to correction and success; errors are not color-only and failure does not clear input."
+        ]
+      },
+      {
+        "title": [
+          "负责一次前后端状态联调",
+          "Own the interaction contract during integration"
+        ],
+        "task": [
+          "把本机模拟换成真实接口前，和后端约定格式失败、重复提交、服务不可用及成功含义；测试响应晚到时旧请求不会覆盖新输入。",
+          "Before replacing the demo with a real API, agree format failure, duplicate submission, unavailability and success semantics. Test that late responses do not overwrite new input."
+        ],
+        "artifact": {
+          "title": [
+            "联调约定节选",
+            "Integration-agreement excerpt"
+          ],
+          "excerpt": [
+            "成功必须来自本轮有效请求；用户修改邮箱后，旧响应不能清空或覆盖新值；重复提交由服务端策略兜底，前端禁用不是唯一防线。",
+            "Success must belong to the current request. Editing the email prevents an old response from clearing/overwriting it. Server policy handles duplicates; disabling a button is not the only control."
+          ]
+        },
+        "authority": [
+          "可以提出状态契约和修正方案；接口语义由前后端共同确认，真实网络验收完成前不能把本机演示写成已联调。",
+          "Propose states and fixes; frontend/backend owners agree API semantics, and a local demo is not recorded as completed integration."
+        ],
+        "evidence": [
+          "联调记录含正常、失败、重试与旧响应场景，能区分界面错误、请求失败和服务端拒绝。",
+          "Integration evidence covers success, failure, retry and stale responses and distinguishes UI, transport and server rejection."
+        ]
+      },
+      {
+        "title": [
+          "让多个表单遵守同一套可用约定",
+          "Maintain consistent form behavior across features"
+        ],
+        "task": [
+          "抽出经过验证的字段、错误摘要和提交状态模式，记录哪些属于通用交互、哪些是某个业务表单专有规则。",
+          "Extract verified field/error/submit patterns and distinguish shared interaction from form-specific business rules."
+        ],
+        "artifact": {
+          "title": [
+            "组件约定节选",
+            "Component-agreement excerpt"
+          ],
+          "excerpt": [
+            "通用：标签、错误关联、键盘焦点、等待反馈；业务专有：邮箱规则、重复报名含义、成功后去向。修改公共组件需回归使用它的表单。",
+            "Shared: labels, linked errors, keyboard focus and waiting feedback. Specific: email rules, duplicate-registration meaning and next destination. Shared changes require dependent-form regression."
+          ]
+        },
+        "authority": [
+          "组织组件使用者与设计/测试评审；不能为了样式一致删掉业务必要状态，也不把组件通过等同整站可访问。",
+          "Coordinate users, design and test; visual consistency cannot remove necessary states, and a component pass is not site-wide accessibility."
+        ],
+        "evidence": [
+          "新表单可复用约定，公共修改能列出影响面并保留迁移/回归证据。",
+          "New forms reuse the agreement, and shared changes include impact, migration and regression evidence."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "邮箱报错怎样从设计走到可验收界面",
+        "How an email error becomes an accepted interaction"
+      ],
+      "input": [
+        "产品要求用户修正邮箱后继续报名；本页已有本机状态演示，但没有真实接口。",
+        "Product needs users to correct email and continue; a local state demo exists without a real API."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "产品/设计 → 前端",
+            "Product/design → frontend"
+          ],
+          "action": [
+            "交代字段含义、错误文案和成功后行为，不只交一张静态图。",
+            "Specify field meaning, error copy and post-success behavior rather than only a mockup."
+          ],
+          "output": [
+            "输入约定：必填、格式、等待、失败保留、成功反馈。",
+            "Agreement: required, format, waiting, retention on failure and success feedback."
+          ]
+        },
+        {
+          "actor": [
+            "前端 → 测试/设计",
+            "Frontend → tester/design"
+          ],
+          "action": [
+            "交付可交互演示及键盘路径，说明尚未连接后台。",
+            "Deliver the interactive demo and keyboard path, explicitly noting the absent backend."
+          ],
+          "output": [
+            "空值、格式错、修正、等待与失败可观察。",
+            "Empty, invalid, corrected, waiting and failed states are observable."
+          ]
+        },
+        {
+          "actor": [
+            "前端 ↔ 后端",
+            "Frontend ↔ backend"
+          ],
+          "action": [
+            "对齐错误含义、本轮请求识别与重复提交策略，再安排真实联调。",
+            "Agree error semantics, current-request association and deduplication before real integration."
+          ],
+          "output": [
+            "真实接口检查单与本机演示记录分开。",
+            "Keep API checks separate from local-demo records."
+          ]
+        },
+        {
+          "actor": [
+            "测试 → 产品负责人",
+            "Tester → product owner"
+          ],
+          "action": [
+            "反馈键盘流程与状态是否达到约定，列出未测网络情形。",
+            "Report whether keyboard/state behavior meets the agreement and list untested network cases."
+          ],
+          "output": [
+            "验收范围清楚，不用正常截图代替失败场景检查。",
+            "Acceptance has explicit scope beyond a successful screenshot."
+          ]
+        }
+      ],
+      "acceptance": [
+        "键盘可完成修正；错误能被程序关联并理解；等待/失败状态可辨认，真实接口部分另有证据。",
+        "Users can correct by keyboard, understand associated errors and distinguish waiting/failure; real-API behavior has separate evidence."
+      ],
+      "rework": {
+        "problem": [
+          "初稿只给红框，失败后把邮箱清空。",
+          "The draft shows only a red border and clears email on failure."
+        ],
+        "revision": [
+          "补可读错误说明、字段关联和焦点路径，失败保留原输入；重新走键盘流程。",
+          "Add readable linked errors and focus handling, retain input on failure and repeat the keyboard journey."
+        ],
+        "result": [
+          "用户知道错在哪里并能继续，验收记录说明改动与剩余联调范围。",
+          "Users can identify and correct the error; the record describes changes and remaining integration scope."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "W3C WAI：表单通知",
+          "W3C WAI: Form notifications"
+        ],
+        "url": "https://www.w3.org/WAI/tutorials/forms/notifications/",
+        "supports": [
+          "支持明确错误/成功反馈、字段错误关联与修正路径；组件职责层次和本机案例由本站设计。",
+          "Supports clear feedback, associated errors and correction paths; the responsibility scopes and local case are original."
+        ]
+      }
+    ]
+  },
+  "backend": {
+    "caseTitle": [
+      "沿R42查询接口，看从正确响应到一致的权限契约",
+      "From one correct response to a consistent authorisation contract"
+    ],
+    "caseContext": [
+      "沿用R42属于u-a的接口案例：u-a可读，但无registration:edit权限；u-b不能靠改ID或客户端owner读到R42。教学契约对已登录无权返回403，实际产品也可统一404。",
+      "Use R42 owned by u-a: u-a may read but lacks registration:edit; u-b must not gain access through an ID or client owner field. The teaching contract uses 403 for signed-in denial; products may consistently choose 404 instead."
+    ],
+    "stages": [
+      {
+        "title": [
+          "实现并验证一个接口契约",
+          "Implement and verify one API contract"
+        ],
+        "task": [
+          "从可信会话确定身份，读取真实对象归属后判定动作权限，按契约裁剪响应并记录必要的失败信息。",
+          "Derive identity from the trusted session, load actual ownership, check the requested action and shape the response/logs by contract."
+        ],
+        "artifact": {
+          "title": [
+            "身份—动作矩阵节选",
+            "Actor/action matrix excerpt"
+          ],
+          "excerpt": [
+            "u-a读R42：允许；u-a改R42：拒绝（无edit）；u-b读R42：403且无正文；无会话：认证失败。owner=u-a不能替代会话身份。",
+            "u-a reads R42: allow. u-a edits: deny without edit permission. u-b reads: 403 without content. No session: authentication fails. Client owner=u-a is not session identity."
+          ]
+        },
+        "authority": [
+          "可实现查询和授权检查；对象访问规则、返回字段和错误语义由产品/安全/接口使用方共同确认。",
+          "Implement query and checks; product, security and API consumers agree access policy, returned fields and error semantics."
+        ],
+        "evidence": [
+          "自动或手动对照允许与拒绝路径，拒绝时不泄露记录；不能只以一次200响应验收。",
+          "Check allowed and denied paths without content leakage; one 200 response cannot establish acceptance."
+        ]
+      },
+      {
+        "title": [
+          "负责接口变更及异常闭环",
+          "Own API changes and failure handling"
+        ],
+        "task": [
+          "新增返回字段或调整错误语义前，列出前端、测试和日志的依赖；排查越权或故障时保留请求关联，不把排障日志变成额外敏感数据出口。",
+          "Before adding fields or changing errors, identify frontend, test and logging dependencies. Correlate failures while keeping diagnostic logs from becoming a sensitive-data leak."
+        ],
+        "artifact": {
+          "title": [
+            "变更评审节选",
+            "Change-review excerpt"
+          ],
+          "excerpt": [
+            "拟新增内部备注字段：默认不进入用户响应；先确认消费者、字段权限和回归。原403语义保持；旧客户端影响另列。",
+            "Proposed internal-note field: excluded from user responses by default. Review consumers, field permission and regression first. Retain current 403 semantics and list legacy-client impact."
+          ]
+        },
+        "authority": [
+          "可提出兼容方案并协调联调；不能为省事把全部字段或服务账号权限暴露给客户端。",
+          "Propose compatibility and coordinate integration; convenience does not justify exposing all fields or service-account privilege."
+        ],
+        "evidence": [
+          "变更能指出受影响消费者、验证结果和回退方式；失败能回到具体请求及服务行为。",
+          "A change identifies consumers, evidence and rollback, and failures are traceable to requests and behavior."
+        ]
+      },
+      {
+        "title": [
+          "维护跨接口一致的业务与权限规则",
+          "Maintain consistent rules across APIs"
+        ],
+        "task": [
+          "把读、改、导出等动作整理成策略矩阵，统一可信租户/主体来源、对象关系、字段裁剪和审计要求，减少每个接口各写一套。",
+          "Maintain a policy matrix for read/edit/export with consistent trusted context, object relations, field shaping and audit rather than independent ad hoc checks."
+        ],
+        "artifact": {
+          "title": [
+            "策略矩阵提议节选",
+            "Policy-matrix proposal"
+          ],
+          "excerpt": [
+            "读取需对象归属；修改另需edit；导出需独立审批策略。只复用已评审规则，新增动作默认待确认，不能从“能读”推成“能改”。",
+            "Reading requires ownership; editing additionally needs edit permission; export has its own approval policy. New actions remain unapproved, and read permission never implies edit permission."
+          ]
+        },
+        "authority": [
+          "组织产品、安全和接口维护人评审；跨系统权限由相应所有者批准，不由单个接口作者自行扩大。",
+          "Coordinate product/security/API-owner review; appropriate owners approve cross-system access rather than a single author expanding it."
+        ],
+        "evidence": [
+          "能在新入口复用同一政策并测试拒绝路径，规则变更有版本和受影响接口清单。",
+          "New entry points apply the same policy and denial tests, with versioned policy changes and affected-API lists."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "R42接口怎样交给前端与测试",
+        "How the R42 API is handed to frontend and test"
+      ],
+      "input": [
+        "业务要求用户查询自己的报名；可信会话与服务端R42归属可用，客户端owner不可信。",
+        "Users need their own registration; trusted sessions and server ownership are available, while client owner fields are untrusted."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "产品/安全 → 后端",
+            "Product/security → backend"
+          ],
+          "action": [
+            "明确读与改是不同动作，列出对象归属和字段可见规则。",
+            "Specify separate read/edit actions, ownership and visible fields."
+          ],
+          "output": [
+            "规则：u-a可读R42但不能改；u-b不可读。",
+            "Policy: u-a may read R42 but not edit; u-b may not read."
+          ]
+        },
+        {
+          "actor": [
+            "后端 → 前端",
+            "Backend → frontend"
+          ],
+          "action": [
+            "交付请求/响应与拒绝语义，说明前端隐藏按钮不能替代服务端检查。",
+            "Deliver request/response and denial semantics; hidden UI is not a server control."
+          ],
+          "output": [
+            "前端能区分成功、无会话和无权，不依赖正文猜状态。",
+            "Frontend distinguishes success, no session and denied access without guessing from content."
+          ]
+        },
+        {
+          "actor": [
+            "后端 → 测试",
+            "Backend → tester"
+          ],
+          "action": [
+            "提供u-a/u-b/无会话的合成对照与R42固定归属。",
+            "Provide synthetic u-a/u-b/anonymous controls and fixed ownership."
+          ],
+          "output": [
+            "测试矩阵含本人读、本人改、他人读、无会话及伪造owner。",
+            "Tests cover own read/edit, other-user read, no session and forged owner."
+          ]
+        },
+        {
+          "actor": [
+            "测试/运维 → 接口维护人",
+            "Tester/operations → API maintainer"
+          ],
+          "action": [
+            "回传响应、正文是否泄漏和关联日志，不只报告状态码。",
+            "Return status, content-disclosure observations and correlated logs."
+          ],
+          "output": [
+            "异常可定位至授权逻辑或契约实现。",
+            "Failures can be located in policy or contract implementation."
+          ]
+        }
+      ],
+      "acceptance": [
+        "允许路径可用，拒绝路径无对象内容，动作与字段均符合已确认契约。",
+        "Allowed paths work; denied paths disclose no object content; actions and fields follow the agreed contract."
+      ],
+      "rework": {
+        "problem": [
+          "初稿登录后直接按ID查询，或相信owner=u-a。",
+          "The draft reads any ID after login or trusts owner=u-a."
+        ],
+        "revision": [
+          "用服务端身份和归属检查替换客户端自报；补u-b与伪造owner回归。",
+          "Use server identity/ownership and add u-b and forged-owner regression."
+        ],
+        "result": [
+          "成功登录不再被误当成访问所有对象的许可。",
+          "Successful authentication is no longer treated as permission for every object."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "OWASP：授权检查",
+          "OWASP: Authorization"
+        ],
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+        "supports": [
+          "支持最小权限、逐请求/对象检查与授权测试；本例响应契约、责任范围为原创。",
+          "Supports least privilege, request/object checks and authorisation tests; the response contract and responsibility scopes are original."
+        ]
+      }
+    ]
+  },
+  "engineering": {
+    "caseTitle": [
+      "沿b17分区重跑，看从交付一份数据到维护数据服务",
+      "From publishing one partition to maintaining a data service"
+    ],
+    "caseContext": [
+      "沿用2026-05-15分区、批次b17与r1/r2/r2/r3/r4，channel均website。去重后4条；本例发布方案以目标存储支持所需原子切换为前提。",
+      "Use partition 2026-05-15, batch b17 and IDs r1/r2/r2/r3/r4, all on website. Deduplication leaves four rows. The publication scheme assumes the target supports the required atomic switch."
+    ],
+    "stages": [
+      {
+        "title": [
+          "让一次重跑交出正确分区",
+          "Deliver a correct partition after retry"
+        ],
+        "task": [
+          "固定b17输入与分区，以registration_id去重，在临时结果核对行数/主键后按本例发布机制替换目标。",
+          "Fix b17 and the partition, deduplicate by registration_id, check staged count/keys and publish using the exercise mechanism."
+        ],
+        "artifact": {
+          "title": [
+            "分区交付记录节选",
+            "Partition-delivery excerpt"
+          ],
+          "excerpt": [
+            "输入5行；r2重复；有效ID={r1,r2,r3,r4}，输出4行。重复运行同一b17后目标仍为4行，不追加第二份。",
+            "Input 5 rows; r2 duplicated; valid IDs={r1,r2,r3,r4}; output 4 rows. Repeating b17 leaves 4 target rows rather than appending another copy."
+          ]
+        },
+        "authority": [
+          "可实现该批次转换与检查；发布权限及切换能力由存储/运行负责人确认，不能把某种文件改名假定为通用事务。",
+          "Implement the transform/checks; storage/operations owners confirm publication authority and atomicity rather than assuming every rename is transactional."
+        ],
+        "evidence": [
+          "两次重跑结果一致、键唯一，并能指出输入版本和发布结果；仅有调度“成功”不够。",
+          "Two retries agree, keys remain unique and input/publication are traceable; a green scheduler state alone is insufficient."
+        ]
+      },
+      {
+        "title": [
+          "负责失败恢复与下游可用性",
+          "Own failure recovery and downstream availability"
+        ],
+        "task": [
+          "区分暂存未完成、校验失败与已发布；失败时保留上次可用分区，向分析师说明数据日期、延迟和是否可安全使用。",
+          "Separate incomplete staging, failed validation and publication. Preserve the previous usable partition and tell analysts its date, delay and safe-use limits."
+        ],
+        "artifact": {
+          "title": [
+            "恢复通报节选",
+            "Recovery-update excerpt"
+          ],
+          "excerpt": [
+            "b17暂存失败：不发布；目标保留旧版并标明日期。重跑校验4行唯一后，才把2026-05-15标为可用。",
+            "If b17 staging fails, do not publish. Retain/date the old target. Mark 2026-05-15 available only after four-row uniqueness validation."
+          ]
+        },
+        "authority": [
+          "可组织重跑和通报；改变上游采集、跳过质量门槛或扩大补数范围须与数据/业务负责人确认。",
+          "Coordinate retries and updates; owners agree collection changes, waived quality gates or expanded backfill."
+        ],
+        "evidence": [
+          "下游能分辨“任务在运行”与“分区可用”，恢复不会默默覆盖仍需保留的数据版本。",
+          "Consumers distinguish a running task from available data, with retained versions respected during recovery."
+        ]
+      },
+      {
+        "title": [
+          "维护多人依赖的数据契约",
+          "Maintain a shared data contract"
+        ],
+        "task": [
+          "与上游约定字段/事件时间/批次版本，与下游约定可用时间与质量告知；字段变更先做影响分析和并行验证。",
+          "Agree fields, event time and batch versions upstream, and availability/quality notices downstream. Assess impact and validate changes before replacing fields."
+        ],
+        "artifact": {
+          "title": [
+            "契约提议节选",
+            "Contract-proposal excerpt"
+          ],
+          "excerpt": [
+            "registration_id非空且分区内唯一；事件日期决定分区；未知channel隔离并报告；字段改名需给消费者迁移期，旧版本不能直接消失。",
+            "registration_id is nonempty and unique within the partition; event date chooses it. Unknown channels are isolated/reported. Renames need consumer migration, not sudden removal of the old version."
+          ]
+        },
+        "authority": [
+          "组织上下游评审与版本维护；不能单方面改变计数含义、日期归属或承诺从未验证的准时交付。",
+          "Coordinate review/versioning without unilaterally changing counted entities, date boundaries or unverified delivery guarantees."
+        ],
+        "evidence": [
+          "可追到一个字段从来源到报表的影响，变更、异常及恢复都有消费者可理解的通知。",
+          "Trace a field from source to report, with consumer-readable change, incident and recovery communication."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "b17怎样从上游输入交到分析师手中",
+        "How b17 becomes usable by analysts"
+      ],
+      "input": [
+        "上游给固定b17的5行输入，其中r2重复；分析师等待2026-05-15报名分区。",
+        "Upstream supplies fixed b17 with five rows, including duplicate r2; analysts await the 2026-05-15 partition."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "上游开发 → 数据工程",
+            "Source developer → data engineer"
+          ],
+          "action": [
+            "交代字段含义、事件日期、批次和重复可能性。",
+            "Explain fields, event date, batch and duplicate possibilities."
+          ],
+          "output": [
+            "原始批次可回查，不使用不断变化的“最新文件”重跑。",
+            "The raw batch is reproducible rather than a changing latest file."
+          ]
+        },
+        {
+          "actor": [
+            "数据工程 → 运行/存储负责人",
+            "Data engineer → runtime/storage owner"
+          ],
+          "action": [
+            "确认暂存校验与目标切换能力，再安排发布。",
+            "Confirm staged validation and target switch capabilities before publication."
+          ],
+          "output": [
+            "校验前不让下游读到部分结果。",
+            "Consumers do not receive partial output before validation."
+          ]
+        },
+        {
+          "actor": [
+            "数据工程 → 分析师",
+            "Data engineer → analyst"
+          ],
+          "action": [
+            "交付分区日期、批次、去重规则、4行结果与质量说明。",
+            "Deliver date, batch, deduplication rule, four rows and quality notes."
+          ],
+          "output": [
+            "分析师知道这是报名明细，不是已汇总人数。",
+            "The analyst knows this is registration detail, not an aggregated person count."
+          ]
+        },
+        {
+          "actor": [
+            "分析师 → 数据工程/上游",
+            "Analyst → engineer/source owner"
+          ],
+          "action": [
+            "发现口径或字段问题时返回具体行ID和期望含义。",
+            "Return row IDs and expected meaning for definition/field issues."
+          ],
+          "output": [
+            "问题可定位到输入、转换或消费方式，不靠改总数掩盖。",
+            "Locate issues in input, transform or use rather than masking them by changing totals."
+          ]
+        }
+      ],
+      "acceptance": [
+        "输入版本可追溯，目标4行唯一且重复运行不变，下游收到可用范围和异常说明。",
+        "Input is traceable; four unique target rows survive retries; consumers receive availability and limits."
+      ],
+      "rework": {
+        "problem": [
+          "重跑直接追加，目标变成8行；通知却写“已成功”。",
+          "Retry appends another copy, leaving eight rows, while the update says success."
+        ],
+        "revision": [
+          "固定输入并重建暂存4行，核对发布机制后替换目标，补重复运行验证。",
+          "Rebuild four staged rows from fixed input, verify publication mechanics and test repeated execution."
+        ],
+        "result": [
+          "分区恢复为一份有效结果，“成功”与下游可用证据重新一致。",
+          "One valid partition remains and the success claim matches consumer-visible evidence."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "Apache Airflow：最佳实践",
+          "Apache Airflow: Best practices"
+        ],
+        "url": "https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html",
+        "supports": [
+          "支持重试一致性、固定分区输入和避免不完整结果；并不保证任意存储都支持本例原子发布。",
+          "Supports repeatable retries, fixed-partition inputs and complete outputs, without guaranteeing atomic publication on every store."
+        ]
+      }
+    ]
+  },
+  "testing": {
+    "caseTitle": [
+      "沿100元门槛缺陷，看从复现到质量判断的变化",
+      "From reproducing the 100-yuan defect to judging release risk"
+    ],
+    "caseContext": [
+      "沿用R1“满100元减10元”：99.99应付99.99，却因先把门槛金额四舍五入到整数元而得到89.99；100与100.01分别应付90与90.01。实际扣减仍基于原始分金额。",
+      "Use R1: spend at least 100 yuan to save 10. Rounding only the eligibility amount to whole yuan wrongly makes 99.99 become 89.99; 100 and 100.01 should yield 90 and 90.01. The discount is subtracted from original cents."
+    ],
+    "stages": [
+      {
+        "title": [
+          "把一个缺陷复现得清楚",
+          "Make one defect reproducible"
+        ],
+        "task": [
+          "对照R1选门槛下方、端点和上方输入，分开写预期与实际，注明门槛取整发生在哪里。",
+          "Test below, at and above the threshold against R1; separate expected/actual results and locate eligibility rounding."
+        ],
+        "artifact": {
+          "title": [
+            "缺陷报告节选",
+            "Defect-report excerpt"
+          ],
+          "excerpt": [
+            "输入99.99；预期99.99；实际89.99。100与100.01符合预期。疑点是门槛先按整数元四舍五入，不是所有金额都少10元。",
+            "Input 99.99; expected 99.99; actual 89.99. 100 and 100.01 match expectations. The issue is whole-yuan eligibility rounding, not a universal ten-yuan error."
+          ]
+        },
+        "authority": [
+          "可以判定本输入不符合已确认R1并提交缺陷；需求含义由产品确认，修复实现由开发决定。",
+          "Report nonconformance to agreed R1; product confirms requirement meaning and developers choose the fix."
+        ],
+        "evidence": [
+          "开发按同一输入能复现，报告包含需求、环境/构建与观察；缺构建号时明确补齐，不能靠一张截图结案。",
+          "Development can reproduce it with requirement, environment/build and observations; absent build information is obtained rather than replaced by a screenshot."
+        ]
+      },
+      {
+        "title": [
+          "组织修复确认和相关回归",
+          "Own confirmation and related regression"
+        ],
+        "task": [
+          "修复后先重测99.99，再覆盖100/100.01及金额解析路径；区分原缺陷已修复与其他逻辑仍可能受影响。",
+          "Retest 99.99 after the fix, then 100/100.01 and parsing paths; distinguish fixed behavior from remaining regression risk."
+        ],
+        "artifact": {
+          "title": [
+            "复测结论节选",
+            "Retest-summary excerpt"
+          ],
+          "excerpt": [
+            "确认项：99.99不再优惠；回归项：100仍减10、100.01仍减10；未覆盖：其他优惠叠加，本例无该需求，不据此宣称已验证。",
+            "Confirmation: 99.99 no longer qualifies. Regression: 100 and 100.01 still save 10. Stacked promotions are outside this case and are not claimed tested."
+          ]
+        },
+        "authority": [
+          "可建议关闭该缺陷或继续返工，并提出回归范围；产品/发布负责人结合风险决定是否发布。",
+          "Recommend closure, rework and regression scope; product/release owners decide release using the risk evidence."
+        ],
+        "evidence": [
+          "复测记录绑定修复构建，能说明检查了什么、没有检查什么以及为什么优先这些场景。",
+          "Results identify the fixed build and explain tested/untested scope and prioritisation."
+        ]
+      },
+      {
+        "title": [
+          "建立可持续的质量反馈",
+          "Maintain quality feedback across changes"
+        ],
+        "task": [
+          "把金额单位、阈值运算符和验收来源纳入评审与回归约定；用缺陷分布改进测试，不简单追求用例数量。",
+          "Bring money units, threshold operators and acceptance sources into review/regression agreements; improve tests from failure patterns instead of maximising case count."
+        ],
+        "artifact": {
+          "title": [
+            "质量改进提议节选",
+            "Quality-improvement proposal"
+          ],
+          "excerpt": [
+            "金额需求必须写单位与≥或>；边界用例保留9999/10000/10001分；规则变化时更新需求—用例关联，不直接删除旧失败记录。",
+            "Money requirements specify units and ≥ versus >. Keep 9999/10000/10001-cent boundaries. Update requirement/test links after changes without deleting historical failures."
+          ]
+        },
+        "authority": [
+          "与产品、开发共同评审质量门槛；测试人员提供证据和风险，不单独替业务接受未知影响。",
+          "Review gates with product/development; testing supplies evidence and risk rather than accepting unknown business impact alone."
+        ],
+        "evidence": [
+          "能追到需求变更影响哪些测试，并用后续缺陷/回归结果检验改进是否有用。",
+          "Trace requirement changes to tests and evaluate improvements through later defects and regression outcomes."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "99.99错误优惠怎样从发现走到复测",
+        "How the 99.99 discount defect reaches retest"
+      ],
+      "input": [
+        "R1门槛已给定，预设实现只在门槛判断前把金额四舍五入到整数元。",
+        "R1 is given; the preset implementation rounds to whole yuan only for eligibility."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "产品 → 测试",
+            "Product → tester"
+          ],
+          "action": [
+            "确认满100包含100，金额以分精度处理。",
+            "Confirm the inclusive threshold and cent precision."
+          ],
+          "output": [
+            "预期三点：99.99→99.99，100→90，100.01→90.01。",
+            "Expected points: 99.99→99.99, 100→90, 100.01→90.01."
+          ]
+        },
+        {
+          "actor": [
+            "测试 → 开发",
+            "Tester → developer"
+          ],
+          "action": [
+            "给出最小复现、预期/实际与环境构建，不以“优惠坏了”代替证据。",
+            "Provide minimal reproduction, expected/actual behavior and environment/build rather than “discount broken”."
+          ],
+          "output": [
+            "关键失败：99.99实际89.99。",
+            "Key failure: 99.99 actually becomes 89.99."
+          ]
+        },
+        {
+          "actor": [
+            "开发 → 测试",
+            "Developer → tester"
+          ],
+          "action": [
+            "提交修复说明及对应构建，指出受影响的金额解析或判断逻辑。",
+            "Return the fix description/build and affected parsing or eligibility logic."
+          ],
+          "output": [
+            "测试据改动安排原缺陷确认与附近边界回归。",
+            "Testing schedules confirmation and nearby-boundary regression from the change."
+          ]
+        },
+        {
+          "actor": [
+            "测试 → 产品/发布负责人",
+            "Tester → product/release owner"
+          ],
+          "action": [
+            "汇总通过项、未测范围和剩余风险，供发布决定。",
+            "Summarise passes, untested scope and remaining risk for release."
+          ],
+          "output": [
+            "关闭单个缺陷不等于宣布整个计算器无缺陷。",
+            "Closing one defect does not declare the calculator defect-free."
+          ]
+        }
+      ],
+      "acceptance": [
+        "原失败在指定修复构建不再出现，邻近边界保持符合R1，未测范围和发布决定各有记录。",
+        "The fixed build no longer fails the original case, nearby boundaries meet R1, and untested scope/release decisions are recorded."
+      ],
+      "rework": {
+        "problem": [
+          "开发只回复“已修复”，测试只点一次100元正常例就关闭。",
+          "The developer says fixed and the tester closes after only checking 100 yuan."
+        ],
+        "revision": [
+          "回到原99.99失败输入，绑定构建，再补100与100.01回归。",
+          "Revisit the original 99.99 failure, identify the build and add 100/100.01 regression."
+        ],
+        "result": [
+          "是否修好由具体行为证明，不靠状态标签或一个正常样例。",
+          "Behavior establishes the fix rather than a label or one normal example."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "Playwright：测试最佳实践",
+          "Playwright: Testing best practices"
+        ],
+        "url": "https://playwright.dev/docs/best-practices",
+        "supports": [
+          "支持验证用户可见行为与隔离可复现条件；门槛金额、缺陷和责任分配均为本站原创，不要求使用特定测试框架。",
+          "Supports user-visible behavior and isolated reproducibility; the threshold case and responsibility model are original and framework-independent."
+        ]
+      }
+    ]
+  },
+  "software": {
+    "caseTitle": [
+      "沿整数分优惠函数，看从写对代码到让变更可维护",
+      "From correct cents-based code to maintainable changes"
+    ],
+    "caseContext": [
+      "沿用R1：9999→9999分，10000→9000分；负金额拒绝。不处理支付、税或多优惠叠加。成长表现为能管理更完整的变更责任，不是多写代码行数。",
+      "Use R1: 9999→9999 cents and 10000→9000; reject negative values. Payment, tax and stacked offers are outside scope. Responsibility grows through managing changes, not line count."
+    ],
+    "stages": [
+      {
+        "title": [
+          "交付行为明确的一小段实现",
+          "Deliver a small implementation with clear behavior"
+        ],
+        "task": [
+          "把金额计算从页面和数据库中分离，先对照验收写边界/错误测试，再实现整数分门槛与扣减。",
+          "Separate calculation from UI/database, derive boundary/error tests from acceptance, then implement the integer-cent threshold and deduction."
+        ],
+        "artifact": {
+          "title": [
+            "行为记录节选",
+            "Behavior excerpt"
+          ],
+          "excerpt": [
+            "9999分不优惠；10000分减1000得9000；负金额返回明确错误。测试预期来自R1，不能从同一段实现复制一遍当答案。",
+            "9999 gets no discount; 10000−1000=9000; negative amounts produce an explicit error. Expected values come from R1 rather than duplicating the implementation."
+          ]
+        },
+        "authority": [
+          "可选择清晰的函数结构；金额规则由产品确认，合并前由评审人核对行为与错误处理。",
+          "Choose a clear function structure; product confirms rules and a reviewer checks behavior/errors before merge."
+        ],
+        "evidence": [
+          "同事能运行测试并解释端点为何这样处理；代码不偷偷包含未约定的叠加优惠。",
+          "A colleague can run/explain boundary tests and find no unagreed stacked-promotion behavior."
+        ]
+      },
+      {
+        "title": [
+          "负责一个变更从需求到交接",
+          "Own a change from brief to handoff"
+        ],
+        "task": [
+          "有人要求新增优惠时，先确认叠加顺序、单位与兼容影响；组织实现、评审和回归，说明部署后仍需集成验证。",
+          "Before adding an offer, clarify order, units and compatibility, then organise implementation, review and regression with later integration checks."
+        ],
+        "artifact": {
+          "title": [
+            "变更说明节选",
+            "Change-note excerpt"
+          ],
+          "excerpt": [
+            "现规则只支持单一满减；“多优惠叠加”待产品定顺序和冲突处理。未确认前保持R1行为，不能自行选最便宜组合。",
+            "Current behavior supports one threshold discount. Stacking order/conflicts need product decisions. Preserve R1 until agreed rather than choosing the cheapest combination unilaterally."
+          ]
+        },
+        "authority": [
+          "可提出替代设计与估算影响；产品决定业务取舍，维护者/发布负责人确认兼容与上线。",
+          "Propose alternatives and impact; product decides business trade-offs and maintainers/release owners approve compatibility and release."
+        ],
+        "evidence": [
+          "评审人知道改动理由、替代方案、影响面与回归结果，接手者不用重读聊天猜意图。",
+          "Reviewers see rationale, alternatives, impact and results; maintainers do not reconstruct intent from chat history."
+        ]
+      },
+      {
+        "title": [
+          "维护公共规则与团队变更方式",
+          "Maintain shared rules and change practices"
+        ],
+        "task": [
+          "当多个入口复用金额模块时，明确公共接口、错误契约、责任人和兼容策略；利用评审和测试发现重复规则或隐式依赖。",
+          "When several entry points use the module, maintain public interfaces, error contracts, ownership and compatibility, using review/tests to expose duplication and hidden dependencies."
+        ],
+        "artifact": {
+          "title": [
+            "维护约定节选",
+            "Maintenance-agreement excerpt"
+          ],
+          "excerpt": [
+            "金额输入单位统一为整数分；调用方不再自行按元取整；错误语义写入接口约定；公共规则变更列出所有消费者与迁移办法。",
+            "Inputs use integer cents; callers do not round yuan independently. Document error semantics and identify consumers/migration for shared rule changes."
+          ]
+        },
+        "authority": [
+          "组织调用方和评审人形成约定；不能以技术重构为由改变业务结果或强迫所有团队同时升级。",
+          "Coordinate consumers/reviewers without changing business behavior under a refactor or forcing simultaneous upgrades without agreement."
+        ],
+        "evidence": [
+          "模块更新可追到受影响入口、兼容判断与验证；改进能减少重复缺陷，而不只增加抽象层。",
+          "Updates identify affected entries, compatibility and validation, reducing repeated failures rather than merely adding abstraction."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "一条满减规则怎样交给下一位维护者",
+        "How a discount rule is handed to its next maintainer"
+      ],
+      "input": [
+        "R1给定门槛、扣减和负值约束；支付、税与叠加尚未纳入。",
+        "R1 defines threshold, deduction and negative-value rejection; payment, tax and stacking are excluded."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "产品/测试 → 开发",
+            "Product/test → developer"
+          ],
+          "action": [
+            "给出整数分输入和验收，明确未知或不处理的规则。",
+            "Provide cent-based inputs/acceptance and identify unknown/excluded rules."
+          ],
+          "output": [
+            "R1与边界/错误样例可独立阅读。",
+            "R1 and boundary/error examples stand alone."
+          ]
+        },
+        {
+          "actor": [
+            "开发 → 评审人",
+            "Developer → reviewer"
+          ],
+          "action": [
+            "提交实现、测试、设计理由和替代方案。",
+            "Submit implementation, tests, rationale and alternatives."
+          ],
+          "output": [
+            "函数只负责金额规则，I/O与界面保持外部。",
+            "The function handles the rule while I/O/UI remain external."
+          ]
+        },
+        {
+          "actor": [
+            "评审人 → 开发",
+            "Reviewer → developer"
+          ],
+          "action": [
+            "检查行为、复杂度、错误与测试是否匹配验收，给可操作反馈。",
+            "Review behavior, complexity, errors and acceptance-derived tests with actionable feedback."
+          ],
+          "output": [
+            "问题对应具体输入或维护影响，不是笼统“优化一下”。",
+            "Comments identify inputs or maintenance impact rather than “optimise it”."
+          ]
+        },
+        {
+          "actor": [
+            "开发 → 维护/集成同事",
+            "Developer → maintainer/integrator"
+          ],
+          "action": [
+            "交接单位、接口、未覆盖规则和集成验证需要。",
+            "Hand over units, interface, excluded rules and integration checks."
+          ],
+          "output": [
+            "接手者知道函数通过不等于支付与整套系统通过。",
+            "The recipient knows a function pass is not a payment/system pass."
+          ]
+        }
+      ],
+      "acceptance": [
+        "R1行为与错误稳定，理由及范围清楚，评审完成，后续集成责任明确。",
+        "R1 behavior/errors are stable, rationale/scope are clear, review is complete and integration ownership is explicit."
+      ],
+      "rework": {
+        "problem": [
+          "初稿用浮点元直接运算，测试预期也复制实现表达式。",
+          "The draft uses floating yuan and derives expected values by copying the implementation."
+        ],
+        "revision": [
+          "改用整数分表示，验收独立给出9999与10000的结果；用反例验证门槛。",
+          "Use integer cents, retain independent 9999/10000 expected values and test threshold counterexamples."
+        ],
+        "result": [
+          "测试能发现规则写错，而不是只证明两份相同代码给出同一值。",
+          "Tests can reveal a wrong rule rather than agreement between duplicated code."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "Google工程实践：代码评审检查内容",
+          "Google Engineering Practices: What to look for in review"
+        ],
+        "url": "https://google.github.io/eng-practices/review/reviewer/looking-for.html",
+        "supports": [
+          "支持设计、行为、复杂度、测试与维护角度的评审；R1与责任层次为本站原创，不是Google职级标准。",
+          "Supports reviewing design, functionality, complexity, tests and maintainability; R1 and responsibility scopes are original, not Google career levels."
+        ]
+      }
+    ]
+  },
+  "delivery": {
+    "caseTitle": [
+      "沿600条报名迁移演练，看从完成配置到组织业务验收",
+      "From configuration work to coordinating business acceptance"
+    ],
+    "caseContext": [
+      "沿用600条合成源/目标记录、校验摘要与30分钟演练窗口。切换前冻结写入并保留源环境；报名/查询通过但导出未测。仅演练，不执行生产迁移。",
+      "Use the 600-row synthetic source/target files, checksums and 30-minute exercise window. Writes are frozen before cutover and the source is retained. Registration/query pass while export remains untested. No production migration is performed."
+    ],
+    "stages": [
+      {
+        "title": [
+          "把一项迁移检查做完整",
+          "Complete a migration check"
+        ],
+        "task": [
+          "核对字段映射、规范化与排序后的摘要、记录数和权限，把结果与原始清单对应，不只看600→600。",
+          "Check mapping, checksums after defined normalisation/sorting, counts and permissions against the manifest rather than only 600→600."
+        ],
+        "artifact": {
+          "title": [
+            "迁移检查节选",
+            "Migration-check excerpt"
+          ],
+          "excerpt": [
+            "600→600；M001邮箱去首尾空白并小写，confirmed映射为active；按清单规则规范化后源/目标摘要一致。访客不可读明细；报名/查询通过；导出未测。",
+            "600→600. For M001, trim/lowercase the email and map confirmed to active. Source/target checksums match after manifest-defined normalisation. Guests cannot read detail; registration/query pass; export remains untested."
+          ]
+        },
+        "authority": [
+          "可执行获准的演练检查并报告异常；配置变更、权限扩大和验收签署需相应技术/业务负责人确认。",
+          "Run authorised exercise checks and report issues; owners approve configuration, access expansion and acceptance."
+        ],
+        "evidence": [
+          "复核人能定位CSV、映射、完整摘要与检查记录；相同条数没有掩盖字段错位或权限问题。",
+          "Reviewers can find CSVs, mapping, complete checksums and results without equal counts hiding mapping/access errors."
+        ]
+      },
+      {
+        "title": [
+          "组织一次端到端验收与切换演练",
+          "Coordinate acceptance and cutover rehearsal"
+        ],
+        "task": [
+          "安排业务用户按角色走报名、查询和导出，技术人员处理映射/环境问题；在30分钟窗口前明确通过门槛、暂停条件与回退责任。",
+          "Have business users test registration/query/export by role while technical owners handle mapping/environment issues. Agree gates, stop conditions and rollback ownership before the window."
+        ],
+        "artifact": {
+          "title": [
+            "验收与切换记录节选",
+            "Acceptance/cutover excerpt"
+          ],
+          "excerpt": [
+            "导出若为本次必需流程，未测即保持待验收，不建议切换；若经业务批准另排范围，记录批准人与剩余影响。冻结状态与回退入口单独确认。",
+            "If export is required, untested export leaves acceptance pending and blocks a cutover recommendation. Approved deferral records owner and impact. Confirm write freeze and rollback entry separately."
+          ]
+        },
+        "authority": [
+          "可提出切换/暂停建议并协调资源；业务用户确认可用，变更负责人批准操作，实施人员不能替客户签字。",
+          "Recommend cutover/pause and coordinate resources; business confirms usability and the change owner authorises action; the implementer does not sign for the client."
+        ],
+        "evidence": [
+          "每个必需流程有执行人、结果和问题状态，批准、技术完成与业务验收没有混成一个“已完成”。",
+          "Each required journey has an executor, result and issue status, separating approval, technical work and business acceptance."
+        ]
+      },
+      {
+        "title": [
+          "让交付后支持也有人接住",
+          "Maintain the transition into supported operation"
+        ],
+        "task": [
+          "把配置版本、权限、残留问题、回退办法和支持入口交给接手团队；安排演练验证接手者确实会排障和恢复。",
+          "Hand over versions, permissions, open issues, rollback and support routes, then rehearse that recipients can troubleshoot and restore."
+        ],
+        "artifact": {
+          "title": [
+            "支持交接节选",
+            "Support-handoff excerpt"
+          ],
+          "excerpt": [
+            "支持包：源/目标与映射版本、核验清单、导出未测项及负责人、操作手册、升级联系人；接手者能找到回退步骤并说明需要谁批准。",
+            "Support pack: versions/mapping, validation, untested export owner, runbook and escalation contact. Recipients locate rollback steps and explain required approval."
+          ]
+        },
+        "authority": [
+          "组织客户、技术与支持共同确认；合同范围、服务承诺及剩余风险由对应责任人决定，不因资料发出便自动算交接完成。",
+          "Coordinate client/technical/support acceptance; owners decide scope, commitments and residual risk, and sending documents alone is not a completed handoff."
+        ],
+        "evidence": [
+          "支持人员可依记录处理一次模拟问题，未完项有人承接且客户知道后续联系谁。",
+          "Support can handle a simulated issue from the records, open items have owners and the client knows whom to contact."
+        ]
+      }
+    ],
+    "handoff": {
+      "title": [
+        "迁移演练怎样从技术结果走到业务确认",
+        "How migration evidence reaches business acceptance"
+      ],
+      "input": [
+        "600条源/目标数据与摘要清单齐全，窗口30分钟，冻结写入并保留源环境；当前导出未测。",
+        "Source/target data and checksums exist for 600 rows, with a 30-minute window, frozen writes and retained source; export is currently untested."
+      ],
+      "steps": [
+        {
+          "actor": [
+            "客户业务/管理员 → 实施",
+            "Client business/admin → implementation"
+          ],
+          "action": [
+            "提供实际角色与必需流程，确认哪些必须在本次验收完成。",
+            "Identify roles and required journeys, including which must pass now."
+          ],
+          "output": [
+            "导出是必需还是可延期，由业务明示，不让技术团队自行猜。",
+            "Business explicitly decides whether export is required or deferrable."
+          ]
+        },
+        {
+          "actor": [
+            "实施 → 技术/数据负责人",
+            "Implementation → technical/data owner"
+          ],
+          "action": [
+            "交付字段映射、计数/摘要差异和环境约束，要求逐项确认。",
+            "Provide mapping, count/checksum differences and environment constraints."
+          ],
+          "output": [
+            "600→600与完整摘要一致分别记录，不能相互替代。",
+            "Record equal counts and matching complete checksums as separate evidence."
+          ]
+        },
+        {
+          "actor": [
+            "实施 → 业务用户",
+            "Implementation → business user"
+          ],
+          "action": [
+            "提供按角色UAT步骤，让实际使用者完成报名、查询与约定导出。",
+            "Provide role-based UAT so users perform registration, query and agreed export."
+          ],
+          "output": [
+            "业务结果由执行者确认；未测流程留待办或阻断。",
+            "Executors confirm business results; untested journeys remain pending or blocking."
+          ]
+        },
+        {
+          "actor": [
+            "实施/客户 → 支持团队",
+            "Implementation/client → support"
+          ],
+          "action": [
+            "共同确认操作、残留问题、升级与回退责任，安排接手演练。",
+            "Agree operations, issues, escalation and rollback ownership and rehearse handoff."
+          ],
+          "output": [
+            "技术完成、业务验收和支持接手分别有证据。",
+            "Technical completion, business acceptance and support readiness have separate evidence."
+          ]
+        }
+      ],
+      "acceptance": [
+        "必需流程和权限通过、数据核验可复查，未测项得到明确处理，支持人员能依手册接手；实际切换仍须授权。",
+        "Required journeys/access pass, data checks are reproducible, untested items are explicitly handled and support can use the runbook; actual cutover still needs authority."
+      ],
+      "rework": {
+        "problem": [
+          "初稿看到600→600便写“迁移全部验收”，忽略导出未测。",
+          "The draft claims full acceptance from 600→600 while ignoring untested export."
+        ],
+        "revision": [
+          "退回“技术核验部分完成”，按业务必需范围补导出或记录批准延期，再完成支持交接。",
+          "Record partial technical verification, test required export or document approved deferral, then complete support handoff."
+        ],
+        "result": [
+          "客户能据具体流程作决定，未将技术人员的自检当成业务签收。",
+          "The client decides from actual journeys rather than mistaking technical self-checks for business sign-off."
+        ]
+      }
+    },
+    "sources": [
+      {
+        "title": [
+          "Microsoft：上线准备",
+          "Microsoft: Prepare to go live"
+        ],
+        "url": "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-to-go-live",
+        "supports": [
+          "支持测试、迁移、切换、培训和支持准备；本文只用通用交付原则，不把D365工具或许可设为要求。",
+          "Supports testing, migration, cutover, training and support readiness; only general delivery principles are used, not D365 tool/license requirements."
+        ]
+      },
+      {
+        "title": [
+          "Microsoft：过渡与交接",
+          "Microsoft: Transition and handover"
+        ],
+        "url": "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/change-management-transition-handover",
+        "supports": [
+          "支持知识交接、支持人员培训及持续反馈；600条和30分钟是本站合成演练给定，不是官方验收门槛。",
+          "Supports knowledge transfer, support training and feedback; 600 rows and 30 minutes are synthetic exercise inputs, not official acceptance gates."
+        ]
+      }
+    ]
+  }
+}

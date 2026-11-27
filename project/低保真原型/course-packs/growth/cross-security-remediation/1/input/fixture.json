@@ -1,0 +1,61 @@
+{
+  "objects": {
+    "O1": {
+      "owner": "alice"
+    },
+    "O2": {
+      "owner": "bob"
+    }
+  },
+  "requests": [
+    {
+      "id": "anonymous",
+      "user": null,
+      "object": "O1",
+      "action": "read",
+      "scopes": []
+    },
+    {
+      "id": "own-read",
+      "user": "alice",
+      "object": "O1",
+      "action": "read",
+      "scopes": []
+    },
+    {
+      "id": "other-read",
+      "user": "bob",
+      "object": "O1",
+      "action": "read",
+      "scopes": []
+    },
+    {
+      "id": "own-edit-denied",
+      "user": "alice",
+      "object": "O1",
+      "action": "edit",
+      "scopes": []
+    },
+    {
+      "id": "own-edit",
+      "user": "alice",
+      "object": "O1",
+      "action": "edit",
+      "scopes": [
+        "edit"
+      ],
+      "cents": 1200
+    },
+    {
+      "id": "invalid-amount",
+      "user": "alice",
+      "object": "O1",
+      "action": "edit",
+      "scopes": [
+        "edit"
+      ],
+      "cents": -1
+    }
+  ],
+  "revision": 2
+}

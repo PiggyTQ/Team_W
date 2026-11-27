@@ -1,0 +1,128 @@
+{
+  "id": "data-contract-evolution",
+  "version": 1,
+  "legacy": false,
+  "career": "engineering",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "数据契约演进与下游交付",
+    "en": "Data contract evolution"
+  },
+  "next": [
+    "cross-metric-service",
+    "cross-knowledge-assistant",
+    "cross-migration-launch"
+  ],
+  "prior": "partition-replay",
+  "adapter": "data",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "lineage"
+  ],
+  "brief": {
+    "zh": "上游把金额字段改名，下游仍要读历史与新增数据。兼容两个字段、保留来源版本，缺少必要金额时阻断发布，并交代哪些消费者受影响。",
+    "en": "A downstream analyst needs historical and incremental data after an amount-field rename. Normalize both forms and block missing required values."
+  },
+  "outputs": {
+    "zh": [
+      "模型/契约与变更实现",
+      "血缘、回填核对及维护交接"
+    ],
+    "en": [
+      "Compatibility transform",
+      "lineage and publish/block evidence"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "新旧数据和下游兼容检查",
+      "失败重跑与回填不重复/漏失"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Using only the new field loses historical amounts. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "字段改名后静默全空或回填覆盖增量应失败",
+    "en": "Using only the new field loses historical amounts."
+  },
+  "review": {
+    "zh": [
+      "变更沟通及访问范围",
+      "端到端保证尚未覆盖部分"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "上游把金额字段改名，下游仍要读历史与新增数据。兼容两个字段、保留来源版本，缺少必要金额时阻断发布，并交代哪些消费者受影响。",
+      "字段改名后静默全空或回填覆盖增量应失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A downstream analyst needs historical and incremental data after an amount-field rename.",
+      "Reproduce this failure first: Using only the new field loses historical amounts.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "字段改名后静默全空或回填覆盖增量应失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "query.sql"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "engineering",
+      "branch": "governance",
+      "skill": "lineage",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

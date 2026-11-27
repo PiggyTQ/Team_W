@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "正常/边界/非法输入确定性检查",
+    "相同输入得到约定输出"
+  ],
+  "open": [
+    {
+      "criterion": "需求澄清",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "设计与错误处理",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

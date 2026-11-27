@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Data workbench and API faults</title>
+<style>body{margin:24px;font:17px/1.7 system-ui;background:#fbf8f0;color:#103f6b}main{max-width:780px;margin:auto}label{display:block;margin:16px 0}input,select,button{font:inherit;padding:9px;border:1px solid #b6cbd7;border-radius:8px}button{background:#ffca0a;cursor:pointer}li{padding:8px}a{color:#07558a}:focus-visible{outline:3px solid #07558a;outline-offset:3px}[role=alert]{color:#9b2c18}</style>
+<main><h1>Data workbench and API faults</h1><p>Original local teaching interface. No data is sent.</p>
+<label>Group <select id="group"><option>A</option><option>B</option><option>empty</option><option>error</option></select></label><button id="next">Next page</button><p id="status" role="status"></p><ul id="rows"></ul>
+</main><script>
+const broken=false,byId=id=>document.getElementById(id);let sequence=0,page=1;
+const show=()=>{const current=++sequence,group=byId('group').value;byId('status').textContent='Loading';setTimeout(()=>{if(!broken&&current!==sequence)return;byId('rows').replaceChildren();if(group==='error'){byId('status').textContent='Request failed; retry by choosing a group';return;}const rows=Array.from({length:12},(_,i)=>({id:i+1,group:(i+1)%2?'A':'B'})).filter(r=>r.group===group).slice((page-1)*3,page*3);byId('status').textContent=rows.length?'Ready':'No records';for(const r of rows){const li=document.createElement('li');li.textContent=group+' '+r.id;byId('rows').append(li);}},group==='A'?350:50);};byId('group').onchange=()=>{page=1;show()};byId('next').onclick=()=>{page=page%2+1;show()};show();
+</script></html>

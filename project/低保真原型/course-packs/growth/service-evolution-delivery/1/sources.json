@@ -1,0 +1,114 @@
+{
+  "publisher": "Avemly project authors",
+  "kind": "original-synthetic",
+  "license": "Original locally authored teaching inputs and code. Local Avemly practice use. Public redistribution policy requires owner decision.",
+  "copyright": "Avemly project authors",
+  "thirdPartyMaterialCopied": false,
+  "seed": 20261126,
+  "generator": "scripts/author-practice-growth.py; scripts/freeze-practice-growth.mjs",
+  "upstreamCandidatesAdopted": false,
+  "methodReferencesAreLinks": true,
+  "createdAt": "2026-11-26",
+  "review": {
+    "technical": "reference_and_counterexample_executed",
+    "domain": "not_performed",
+    "learnerPilot": "not_performed"
+  },
+  "ownerRole": "practice-content-editor",
+  "assignedPerson": null,
+  "sources": [
+    {
+      "sourceId": "avemly-original-service-evolution-delivery",
+      "publisher": "Avemly / AI-assisted local authorship",
+      "title": "Service evolution and migration",
+      "originalUrl": null,
+      "actualFileUrl": null,
+      "materialType": "original-synthetic",
+      "readFiles": [
+        "input/fixture.json",
+        "input/dictionary.md",
+        "reference/solution.mjs"
+      ],
+      "supports": "The bounded teaching contract and fixed regression inputs",
+      "doesNotSupport": "Real corporate provenance, professional certification or independent learner mastery",
+      "region": "Synthetic local teaching context",
+      "upstreamVersion": "1",
+      "originalDate": "2026-11-26",
+      "reviewedAt": "2026-11-26T04:30:56.423Z",
+      "license": "Local practice materials; public redistribution policy pending owner review",
+      "licenseUrl": null,
+      "applicableFiles": [
+        "input/",
+        "reference/",
+        "starter/"
+      ],
+      "notice": "Original synthetic teaching materials; AI-assisted authorship; no third-party material copied",
+      "modifications": "Authored for this practice; see CHANGELOG.md",
+      "thirdPartyExceptions": [],
+      "canCache": true,
+      "canAdapt": "within local practice",
+      "canRedistribute": false
+    }
+  ],
+  "methodReferences": [
+    {
+      "id": "openapi-311",
+      "publisher": "OpenAPI Initiative",
+      "title": "OpenAPI Specification 3.1.1",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "section": "4.8.30 Security Requirement Object; 4.4 Data Types",
+      "careers": [
+        "backend",
+        "testing"
+      ],
+      "upstreamVersion": "3.1.1",
+      "originalDate": "2024-10-24",
+      "accessedAt": "2026-11-26",
+      "kind": "read-method-link-only",
+      "fileUrl": null,
+      "license": null,
+      "licenseReview": "No text, code, dataset, image or file copied; redistribution licence not asserted",
+      "use": "Method orientation only; original implementation and synthetic inputs",
+      "notSupport": "Promtool compatibility, complete official curriculum coverage or official endorsement",
+      "cached": false,
+      "adapted": false,
+      "redistributed": false
+    }
+  ],
+  "materialRecords": [
+    {
+      "projectId": "service-evolution-delivery",
+      "version": 1,
+      "path": "input/fixture.json",
+      "originalFilename": "fixture.json",
+      "format": ".json",
+      "encoding": "UTF-8",
+      "bytes": 172,
+      "sha256": "b346bd7f2c4a4ed7eef9c948072d54d3bbde8a74741fb11ffcdc5c63a397ee5d",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    },
+    {
+      "projectId": "service-evolution-delivery",
+      "version": 1,
+      "path": "input/dictionary.md",
+      "originalFilename": "dictionary.md",
+      "format": ".md",
+      "encoding": "UTF-8",
+      "bytes": 966,
+      "sha256": "d90f400e501ea105a63825f74a1f4830297c17ae8aa1a481855b3c0177578364",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    }
+  ]
+}

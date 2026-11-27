@@ -1,0 +1,32 @@
+{
+  "mode": "single-person role rotation with original prefabricated teaching artifacts",
+  "stages": [
+    {
+      "role": "业务/实施",
+      "produces": "范围、权限、UAT与切换约定",
+      "consumedBy": "工程/运维/测试",
+      "artifact": "handoff-1.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "工程/运维",
+      "produces": "迁移结果、对账、增量和回退边界",
+      "consumedBy": "测试/业务",
+      "artifact": "handoff-2.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "测试/业务",
+      "produces": "验收与未测/残留项",
+      "consumedBy": "实施/支持",
+      "artifact": "handoff-3.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    }
+  ]
+}

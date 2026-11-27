@@ -1,0 +1,267 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  {\r\n    api: {\r\n+     cents: 32000,\r\n-     cents: 26000,\r\n      version: 2\r\n    },\r\n+   feedback: null,\r\n-   feedback: {\r\n-     issue: 'payment_fanout',\r\n-     order: 'A1',\r\n-     to: 'engineering'\r\n-   },\r\n    model: [\r\n      {\r\n        channel: 'web',\r\n        id: 'A1',\r\n        ordered: 12000,\r\n+       paid: 6000\r\n-       paid: 12000\r\n      },\r\n      {\r\n+       channel: 'web',\r\n+       id: 'A1',\r\n+       ordered: 12000,\r\n+       paid: 6000\r\n+     },\r\n+     {\r\n        channel: 'community',\r\n        id: 'A2',\r\n        ordered: 8000,\r\n        paid: 8000\r\n      },\r\n-     {\r\n-       channel: 'web',\r\n-       id: 'A3',\r\n-       ordered: 6000,\r\n-       paid: 0\r\n-     }\r\n    ],\r\n    revision: 2\r\n  }\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/cross-metric-service/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: {\r\n    model: [\r\n      { id: 'A1', channel: 'web', ordered: 12000, paid: 6000 },\r\n      { id: 'A1', channel: 'web', ordered: 12000, paid: 6000 },\r\n      { id: 'A2', channel: 'community', ordered: 8000, paid: 8000 }\r\n    ],\r\n    api: { version: 2, cents: 32000 },\r\n    feedback: null,\r\n    revision: 2\r\n  },\r\n  expected: {\r\n    model: [\r\n      { id: 'A1', channel: 'web', ordered: 12000, paid: 12000 },\r\n      { id: 'A2', channel: 'community', ordered: 8000, paid: 8000 },\r\n      { id: 'A3', channel: 'web', ordered: 6000, paid: 0 }\r\n    ],\r\n    api: { version: 2, cents: 26000 },\r\n    feedback: { to: 'engineering', issue: 'payment_fanout', order: 'A1' },\r\n    revision: 2\r\n  },\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/cross-metric-service/1/reference/broken.mjs:1\r\nexport const solve=()=>{\"model\":[{\"id\":\"A1\",\"channel\":\"web\",\"ordered\":24000,\"paid\":12000},{\"id\":\"A2\",\"channel\":\"community\",\"ordered\":8000,\"paid\":8000},{\"id\":\"A3\",\"channel\":\"web\",\"ordered\":6000,\"paid\":0}],\"api\":{\"version\":2,\"cents\":38000},\"feedback\":{\"to\":\"engineering\",\"issue\":\"payment_fanout\",\"order\":\"A1\"},\"revision\":2};\r\n                               ^\r\n\r\nSyntaxError: Unexpected token ':'\r\n    at compileSourceTextModule (node:internal/modules/esm/utils:319:16)\r\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:89:18)\r\n    at #translate (node:internal/modules/esm/loader:438:20)\r\n    at afterLoad (node:internal/modules/esm/loader:506:29)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:511:12)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:564:36)\r\n    at afterResolve (node:internal/modules/esm/loader:611:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)\r\n    at node:internal/modules/esm/loader:636:32\r\n    at TracingChannel.tracePromise (node:diagnostics_channel:370:14)\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"runtime\":\"v24.22.1\",\"rows\":3,\"scope\":\"Actual SQLite query over the supplied synthetic tables\"}\n"
+  },
+  "projectId": "cross-metric-service",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:31:00.329Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-metric-service\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:00.204Z\"}\n",
+    "inputDigest": "9d981ad9d49fb1902219e8ec0e2140f74bd3d4dd8c781d59f35fa4ed9d894d96",
+    "artifactDigest": "354b1f77fe6981499e28dd77ee16815edfc50d30620bfb7a8b17b4550a84d4ba"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "cross-metric-service",
+    "version": 1,
+    "inputDigest": "9d981ad9d49fb1902219e8ec0e2140f74bd3d4dd8c781d59f35fa4ed9d894d96",
+    "artifactDigest": "0aa10a2b3a92eaf4902ab126a90c0ac0df6e96d808b915b73b307930a97415a7",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:31:00.167Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:query.sql",
+        "passed": true,
+        "detail": "query.sql"
+      },
+      {
+        "id": "file:handoff.json",
+        "passed": true,
+        "detail": "handoff.json"
+      },
+      {
+        "id": "file:stage-1.json",
+        "passed": true,
+        "detail": "stage-1.json"
+      },
+      {
+        "id": "file:stage-2.json",
+        "passed": true,
+        "detail": "stage-2.json"
+      },
+      {
+        "id": "file:stage-3.json",
+        "passed": true,
+        "detail": "stage-3.json"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:handoff.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-1.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-2.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-3.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      },
+      {
+        "id": "role-handoff",
+        "passed": true,
+        "detail": "Input identity, receiving role, feedback and revision"
+      },
+      {
+        "id": "consumer:stage-1.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-2.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-3.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "cross-metric-service",
+    "version": 1,
+    "inputDigest": "9d981ad9d49fb1902219e8ec0e2140f74bd3d4dd8c781d59f35fa4ed9d894d96",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:31:00.167Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "cross-metric-service",
+    "version": 1,
+    "inputDigest": "9d981ad9d49fb1902219e8ec0e2140f74bd3d4dd8c781d59f35fa4ed9d894d96",
+    "artifactDigest": "354b1f77fe6981499e28dd77ee16815edfc50d30620bfb7a8b17b4550a84d4ba",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:31:00.167Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:query.sql",
+        "passed": true,
+        "detail": "query.sql"
+      },
+      {
+        "id": "file:handoff.json",
+        "passed": true,
+        "detail": "handoff.json"
+      },
+      {
+        "id": "file:stage-1.json",
+        "passed": true,
+        "detail": "stage-1.json"
+      },
+      {
+        "id": "file:stage-2.json",
+        "passed": true,
+        "detail": "stage-2.json"
+      },
+      {
+        "id": "file:stage-3.json",
+        "passed": true,
+        "detail": "stage-3.json"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:handoff.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-1.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-2.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-3.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      },
+      {
+        "id": "role-handoff",
+        "passed": true,
+        "detail": "Input identity, receiving role, feedback and revision"
+      },
+      {
+        "id": "consumer:stage-1.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-2.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-3.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

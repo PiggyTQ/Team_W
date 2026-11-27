@@ -1,0 +1,21 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "后端",
+  "to": "分析/测试",
+  "content": "指标服务或固定结果接口",
+  "payload": {
+    "version": 2,
+    "metric": "ordered_cents",
+    "cents": 26000,
+    "unresolvedContractDefect": "An inflated order amount must be traced to the one-to-many join."
+  },
+  "consumerFeedback": {
+    "code": "cross-metric-service-stage-2",
+    "issue": {
+      "zh": "订单与支付一对多放大金额，应能定位到来源与模型",
+      "en": "An inflated order amount must be traced to the one-to-many join."
+    }
+  },
+  "requiredRevision": 2
+}

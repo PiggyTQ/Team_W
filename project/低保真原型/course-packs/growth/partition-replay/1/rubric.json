@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "同输入重跑字段内容与摘要一致",
+    "异常批次不替换最后可用结果"
+  ],
+  "open": [
+    {
+      "criterion": "原子性适用条件",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "隔离、补数与下游可见性",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

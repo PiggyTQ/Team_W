@@ -1,0 +1,17 @@
+{
+  "projectId": "cross-registration-service",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "d81b8571b529278a1e144236565461d667705fb80f075054a8cd0f7d43c0a1a5",
+  "bytes": 71542,
+  "files": 39,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-registration-service\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:53.376Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

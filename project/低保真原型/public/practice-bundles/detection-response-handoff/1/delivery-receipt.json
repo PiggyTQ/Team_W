@@ -1,0 +1,17 @@
+{
+  "projectId": "detection-response-handoff",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "ffcaa3f8a61a8004efeb7f52d745175a00aeccd658cd925b18c0345993b5e6ad",
+  "bytes": 42414,
+  "files": 28,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"detection-response-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.507Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

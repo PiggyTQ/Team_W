@@ -1,0 +1,128 @@
+{
+  "id": "config-acceptance",
+  "version": 1,
+  "legacy": false,
+  "career": "delivery",
+  "relatedCareers": [],
+  "level": 1,
+  "kind": "career-core",
+  "title": {
+    "zh": "需求到配置与验收",
+    "en": "Configuration and acceptance"
+  },
+  "next": [
+    "migration-reconciliation"
+  ],
+  "prior": null,
+  "adapter": "handoff",
+  "estimatedHours": [
+    2,
+    4
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "role-matrix"
+  ],
+  "brief": {
+    "zh": "实施顾问要把业务角色落到权限配置与UAT。制作可执行配置，对照每个角色的允许和拒绝动作，指出哪些业务决定仍需使用者确认。",
+    "en": "An implementation consultant maps role requirements into a configuration and executable UAT matrix. Check allowed and denied actions."
+  },
+  "outputs": {
+    "zh": [
+      "需求/差异与配置",
+      "UAT用例和问题清单"
+    ],
+    "en": [
+      "Permission configuration",
+      "UAT results and unresolved decisions"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "配置/权限符合已给业务矩阵",
+      "UAT步骤能由接手者重复执行"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Omitting a required role changes a positive acceptance case into a denial. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "配置满足演示却遗漏关键业务角色应捕获",
+    "en": "Omitting a required role changes a positive acceptance case into a denial."
+  },
+  "review": {
+    "zh": [
+      "业务确认与技术职责",
+      "哪些尚需用户决定"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "实施顾问要把业务角色落到权限配置与UAT。制作可执行配置，对照每个角色的允许和拒绝动作，指出哪些业务决定仍需使用者确认。",
+      "配置满足演示却遗漏关键业务角色应捕获；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An implementation consultant maps role requirements into a configuration and executable UAT matrix.",
+      "Reproduce this failure first: Omitting a required role changes a positive acceptance case into a denial.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "配置满足演示却遗漏关键业务角色应捕获",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs",
+    "config.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "delivery",
+      "branch": "setup",
+      "skill": "role-matrix",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs",
+        "config.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

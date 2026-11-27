@@ -12,7 +12,7 @@ import {AUTH_POLICY} from '../src/auth-contract.js';
 test('authenticated business API persists per owner; account actions reauthenticate and revoke',async t=>{
   const dir=await mkdtemp(join(tmpdir(),'career-business-api-')),database=join(dir,'auth.sqlite'),origin='http://career.test';
   let server,base;
-  async function start(){server=await createAuthServer({database,origin});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));base=`http://127.0.0.1:${server.address().port}`;}
+  async function start(){server=await createAuthServer({database,origin,practiceTrials:false});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));base=`http://127.0.0.1:${server.address().port}`;}
   await start();t.after(async()=>{await new Promise(resolve=>server.close(resolve));await rm(dir,{recursive:true,force:true});});
   function agent(){const jar=new Map();let csrf='';return {async request(path,{data,method=data?'POST':'GET',headers={}}={}){const response=await fetch(base+path,{method,headers:{Origin:origin,Cookie:[...jar].map(([k,v])=>`${k}=${v}`).join('; '),...(data?{'Content-Type':'application/json','X-CSRF-Token':csrf}:{}),...headers},...(data?{body:JSON.stringify(data)}:{})});for(const cookie of response.headers.getSetCookie()){const [key,value]=cookie.split(';')[0].split('=');jar.set(key,value);}const body=await response.json();if(body.csrfToken)csrf=body.csrfToken;return {status:response.status,body};}};}
   const anonymous=agent(),alice=agent(),bob=agent(),aliceOther=agent();

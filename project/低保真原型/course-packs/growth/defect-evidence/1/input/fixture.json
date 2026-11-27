@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "id": "C0",
+      "cents": 0,
+      "version": "bug-1"
+    },
+    {
+      "id": "C1",
+      "cents": 7999,
+      "version": "bug-1"
+    },
+    {
+      "id": "C2",
+      "cents": 8000,
+      "version": "bug-1"
+    },
+    {
+      "id": "C3",
+      "cents": 8001,
+      "version": "bug-1"
+    }
+  ]
+}

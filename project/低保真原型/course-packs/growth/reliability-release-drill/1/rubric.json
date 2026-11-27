@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "服务探测和固定指标可复算",
+    "恢复前后版本与操作记录一致"
+  ],
+  "open": [
+    {
+      "criterion": "故障假设与原因证据",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "回退、业务和后续观察",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

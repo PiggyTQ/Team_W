@@ -2628,11 +2628,11 @@
     ],
     "method": [
       "选关键页面与用户群；记录设备、网络、缓存和版本；先用实验工具定位资源/主线程/位移；再按现场分布评估，通常关注桌面与移动分别的75分位。",
-      "Define routes/groups and record device/network/cache/version. Diagnose resources/main-thread/shifts in lab, then evaluate field distributions and segmented75th percentiles."
+      "Choose key pages and user groups. Record the device, network, cache state, and build. Use lab tools to trace resources, main-thread work, or layout shifts. Check field distributions and compare the 75th percentile for mobile and desktop separately."
     ],
     "example": [
       "图片未预留尺寸，加载后把按钮推下80px。^先固定图片比例或尺寸，减少位移。^修改后复核CLS与真实操作，不把LCP变快当作位移问题已解决。",
-      "An unsized image pushes a button80px after loading.^Reserve its size/aspect ratio.^Recheck CLS and interaction rather than assuming fasterLCP fixes shifting."
+      "An image loads without reserved space and pushes a button down by 80 px.^Reserve space using its dimensions or aspect ratio.^Retest the original interaction and check CLS again. Faster LCP alone cannot establish that the shift is fixed."
     ],
     "verify": [
       "重复控制条件测量并保留分布；查看慢交互与位移来源；声明未覆盖的用户环境。",

@@ -1,0 +1,1 @@
+export const solve=()=>[{"id":"C0","expected":0,"observed":0,"reproduced":false},{"id":"C1","expected":7999,"observed":7199,"reproduced":false},{"id":"C2","expected":7200,"observed":7200,"reproduced":false},{"id":"C3","expected":7201,"observed":7201,"reproduced":false}];

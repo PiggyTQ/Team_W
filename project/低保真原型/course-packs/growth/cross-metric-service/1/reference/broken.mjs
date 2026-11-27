@@ -1,0 +1,1 @@
+export const solve=()=>{"model":[{"id":"A1","channel":"web","ordered":24000,"paid":12000},{"id":"A2","channel":"community","ordered":8000,"paid":8000},{"id":"A3","channel":"web","ordered":6000,"paid":0}],"api":{"version":2,"cents":38000},"feedback":{"to":"engineering","issue":"payment_fanout","order":"A1"},"revision":2};

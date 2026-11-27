@@ -1,0 +1,3392 @@
+{
+  "testing:acceptance": {
+    "title": [
+      "可观察的验收条件",
+      "Observable acceptance criteria"
+    ],
+    "explain": [
+      [
+        "“不能转账”不仅是出现错误提示，还要求这次业务动作没有产生被禁止的结果。验收条件应说明何时适用、做什么，以及界面、数据和外部动作分别应该发生什么，才能区分“提示正确但仍扣款”和真正的拒绝。",
+        "A rejected transfer is more than an error label. Criteria describe when the rule applies, the action and observable UI, data and external effects, distinguishing a warning followed by a debit from actual rejection."
+      ],
+      [
+        "可追踪性是需求与证据的双向联系。需求R1对应余额不足用例T1；T1失败时能回到受影响的R1。十个成功金额也可能没有覆盖一次拒绝后的余额和流水，数量不能代替规则覆盖。",
+        "Traceability links requirements and evidence in both directions. If R1 maps to insufficient-funds test T1, its failure identifies R1. Ten successful amounts may still leave rejected-transfer balances and ledger entries untested."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "余额不足的转账验收",
+        "An insufficient-funds transfer"
+      ],
+      "given": [
+        "合成账户甲余额30，乙70；禁止透支。甲尝试转账45，不含手续费或并发。",
+        "Synthetic accounts A and B have 30 and 70. Overdraft is forbidden; A requests 45. Fees and concurrency are excluded."
+      ],
+      "steps": [
+        {
+          "title": [
+            "固定前置",
+            "Fix the baseline"
+          ],
+          "detail": [
+            "记录甲30、乙70和本笔业务流水数0。没有前置快照，就无法证明提交后是否发生错误改变。",
+            "Record A=30, B=70 and zero related ledger entries so changes can be detected."
+          ]
+        },
+        {
+          "title": [
+            "执行并观察",
+            "Act and observe"
+          ],
+          "detail": [
+            "只提交一次45，记录拒绝，再重新读取双方余额，而不只看按钮变灰或提示出现。",
+            "Submit 45 once, record rejection and reread both balances, not only the button or toast."
+          ]
+        },
+        {
+          "title": [
+            "关联证据",
+            "Link the evidence"
+          ],
+          "detail": [
+            "将拒绝、余额30/70、流水仍0关联到R1。任一余额或流水变化都使T1失败。",
+            "Attach rejection, unchanged 30/70 and zero entries to R1. Any balance or ledger change fails T1."
+          ]
+        }
+      ],
+      "result": [
+        "应拒绝，余额30/70不变，无新增转账流水。",
+        "Reject with unchanged balances 30/70 and no transfer entry."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "看到红字就标通过。",
+        "Pass after seeing the warning."
+      ],
+      "why": [
+        "提示不证明数据库没有更新。",
+        "A warning does not establish unchanged data."
+      ],
+      "correct": [
+        "分别检查反馈、双方余额和流水。",
+        "Check feedback, both balances and ledger separately."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "库存4件，用户购买6件，规则禁止超卖。哪个结果满足拒绝验收？",
+        "Stock is 4 and a user orders 6. Which satisfies rejection under a no-overselling rule?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "显示缺货，但库存-2。",
+            "Show out of stock, but stock becomes -2."
+          ],
+          "feedback": [
+            "数据已进入非法状态，提示不能抵消副作用。",
+            "The data became invalid; the warning does not undo the effect."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "拒绝、库存仍4、没有创建已支付订单。",
+            "Reject, retain stock 4 and create no paid order."
+          ],
+          "feedback": [
+            "同时验证拒绝及库存、订单副作用。",
+            "This checks rejection and both stock and order effects."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "下单成功，再给客服备注。",
+            "Accept and add a support note."
+          ],
+          "feedback": [
+            "备注不能改变禁止超卖规则。",
+            "A note does not change the rule."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为“文件大于5MB必须拒绝”写验收条件，含两个副作用检查。",
+        "Write criteria for rejecting files above 5 MB, including two side-effect checks."
+      ],
+      "sample": [
+        "合成例：提交6MB文件，提示限制；不产生可下载的新文件或成功附件记录。临时文件处理需另外约定。",
+        "Submit a synthetic 6 MB file, show the limit, and create neither a downloadable file nor a successful attachment record. Define temporary-file handling separately."
+      ],
+      "criteria": [
+        [
+          "预期来自规则，没有偷偷新增要求。",
+          "Derive expectations from the rule."
+        ],
+        [
+          "既检查反馈，也检查业务数据。",
+          "Check both feedback and business data."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:risk-priority": {
+    "title": [
+      "按风险安排测试时间",
+      "Allocating test time by risk"
+    ],
+    "explain": [
+      [
+        "风险优先级用于分配有限时间。影响描述出错后果，可能性描述当前证据支持的发生倾向；先分别讨论，再按明确约定排序。等级相乘只是排序模型，不是实际事故概率。",
+        "Risk priority allocates limited time. Impact concerns consequences and likelihood concerns evidence-supported tendency. Discuss them separately before applying an agreed rule; multiplying ranks does not produce probabilities."
+      ],
+      [
+        "先检查独立阻断门槛，例如凭据不得泄漏。它不能因估计发生率低就被界面问题挤走。分值接近时补充影响范围、近期变更和绕过方案，而不是假装主观数字有精确统计意义。",
+        "Check independent blocking gates such as credential disclosure. A low likelihood estimate must not erase a hard gate. For similar scores, inspect reach, recent changes and workarounds instead of pretending ranks are precise statistics."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "三项风险与一小时预算",
+        "Three risks and a one-hour budget"
+      ],
+      "given": [
+        "教学等级1至5：重复付款L3/I5、预计35分钟，搜索排序L4/I2、20分钟，按钮错位L5/I1、10分钟。总预算60分钟，另留5分钟记录结论；本轮未发现凭据泄漏证据，但该项保留独立阻断门槛。",
+        "Teaching ranks and estimates: duplicate payment L3/I5, 35 minutes; search L4/I2, 20 minutes; alignment L5/I1, 10 minutes. The budget is 60 minutes including 5 for reporting. No credential-disclosure evidence is currently found; its independent blocking gate remains."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先看门槛",
+            "Check gates"
+          ],
+          "detail": [
+            "先核独立阻断项。本轮无凭据泄漏证据，进入一般排序；这不等于证明绝无泄漏。若发现证据，应升级处理并重新安排预算。",
+            "Check independent gates first. With no current disclosure evidence, rank the other items; absence of evidence is not proof of absence. Discovery requires escalation and replanning."
+          ]
+        },
+        {
+          "title": [
+            "计算排序",
+            "Calculate ranks"
+          ],
+          "detail": [
+            "三项为15、8、5，按本模型先测付款。15不是15%的发生概率。",
+            "Scores are 15, 8 and 5, prioritizing payment. Fifteen is not a 15 percent probability."
+          ]
+        },
+        {
+          "title": [
+            "把排序落实为时间分配",
+            "Allocate the ranked work"
+          ],
+          "detail": [
+            "按已给估算先测付款35分钟，再测搜索20分钟，最后5分钟记录：35+20+5=60。按钮错位需10分钟，列待测并指定负责人；预计时间若超出，要重新分配并保留未测范围。",
+            "Use 35 minutes for payment, 20 for search and 5 for reporting: 35+20+5=60. Alignment needs another 10, so defer it with an owner. If estimates slip, replan and retain the untested scope."
+          ]
+        }
+      ],
+      "result": [
+        "这一小时覆盖付款与搜索并留下记录，按钮错位尚未测试；硬门槛独立保留。排序说明先做什么，时间预算说明实际能做多少。",
+        "This hour covers payment and search plus reporting; alignment remains untested and hard gates remain independent. Ranking determines order, while the budget determines feasible coverage."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "平均通过率很高，付款失败可以忽略。",
+        "Ignore a payment failure because the average pass rate is high."
+      ],
+      "why": [
+        "平均值掩盖后果差异。",
+        "An average hides consequence differences."
+      ],
+      "correct": [
+        "先看硬门槛，再说明排序和剩余风险。",
+        "Check gates before ranking and residual risk."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "A为2×5，B为4×3，无额外门槛。按该模型先测哪项？",
+        "A is 2×5 and B is 4×3, with no extra gates. Which ranks first?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "B，12高于10，仍说明等级依据。",
+            "B: 12 exceeds 10; document ranking evidence."
+          ],
+          "feedback": [
+            "计算正确，也承认等级是约定。",
+            "Correct ranking with its agreed scope."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "A，影响高就永远先测。",
+            "Always A because its impact is higher."
+          ],
+          "feedback": [
+            "这偷偷换掉了题目排序规则。",
+            "This silently changes the stated rule."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "B发生概率12%。",
+            "B has a 12 percent probability."
+          ],
+          "feedback": [
+            "12是分值，不是统计概率。",
+            "Twelve is a rank, not a probability."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "安排登录失败、账单导出错误与帮助错字的测试，并列缺少的信息。",
+        "Prioritize login failure, invoice export error and a help typo, including missing evidence."
+      ],
+      "sample": [
+        "先核登录影响人数与绕过、账单是否影响付款；不编造概率。注明每项动作、未测范围和复核人。",
+        "Establish login reach and workarounds and whether invoices affect payment. Do not invent probabilities; record actions, untested scope and reviewers."
+      ],
+      "criteria": [
+        [
+          "影响与可能性分开。",
+          "Separate impact and likelihood."
+        ],
+        [
+          "排序依据可解释。",
+          "Make ranking evidence explainable."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:test-levels": {
+    "title": [
+      "在合适边界验证风险",
+      "Testing risks at the right boundary"
+    ],
+    "explain": [
+      [
+        "层级由观察对象和边界决定。单元测试直接检查金额函数，集成测试观察与真实数据库的约定，系统测试验证部件组成的用户任务。把所有风险都放进整页点击，会增加定位成本。",
+        "Levels depend on the object and boundary: a unit tests the converter, integration tests real database agreements and system tests the assembled user task. Full-page clicks for every risk increase diagnosis cost."
+      ],
+      [
+        "层级不是好坏排名。模拟库可以验证错误处理，却不能证明真实约束或事务；系统成功也不覆盖所有函数输入。选择能暴露风险的最小必要边界，再补真正跨边界检查。",
+        "Levels are not quality ranks. Mocks can test error handling but not real constraints or transactions. System success does not cover all function inputs. Choose the smallest meaningful boundary and add real cross-boundary checks."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "金额、唯一键与结算流程",
+        "Amounts, uniqueness and checkout"
+      ],
+      "given": [
+        "同版本包含金额换算、订单唯一键和结算页面。按本例规则1.235元应为124分。",
+        "One version has amount conversion, order uniqueness and checkout. The teaching rule converts 1.235 yuan to 124 cents."
+      ],
+      "steps": [
+        {
+          "title": [
+            "检查局部规则",
+            "Check the local rule"
+          ],
+          "detail": [
+            "直接输入1.235断言124分，并补零与非法类型，不必每个值都启动浏览器。",
+            "Assert 124 cents for 1.235, adding zero and invalid types without a browser for each value."
+          ]
+        },
+        {
+          "title": [
+            "检查真实约束",
+            "Check the real constraint"
+          ],
+          "detail": [
+            "在隔离库写订单P7，再写P7，核对唯一约束拒绝与程序的冲突映射。",
+            "Insert P7 twice in an isolated database and verify the rejection and application conflict mapping."
+          ]
+        },
+        {
+          "title": [
+            "检查用户任务",
+            "Check the user task"
+          ],
+          "detail": [
+            "浏览器完成下单并查订单、付款记录；将三份证据关联，而不让一个成功页面替代前两项。",
+            "Order through the browser and inspect order and payment records, retaining all three evidence scopes."
+          ]
+        }
+      ],
+      "result": [
+        "三层分别回答数值、集成和流程风险。",
+        "The checks address numerical, integration and workflow risks separately."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "模拟库返回重复，就说唯一约束已验证。",
+        "Claim uniqueness after a mock returns duplicate."
+      ],
+      "why": [
+        "尚未触及真实数据库。",
+        "The real database was never exercised."
+      ],
+      "correct": [
+        "保留单元检查，再做隔离库重复写入。",
+        "Keep the unit check and exercise an isolated database."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "要证明真实外键拒绝无父订单的明细，直接证据是？",
+        "What directly proves that a real foreign key rejects an orphan line?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "让模拟函数报错。",
+            "Make the mock fail."
+          ],
+          "feedback": [
+            "只证明程序处理这个返回值。",
+            "This tests response handling."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "看正常订单页面。",
+            "Inspect a normal order page."
+          ],
+          "feedback": [
+            "没有制造孤儿记录条件。",
+            "No orphan condition is attempted."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "隔离库插入孤儿明细，核对拒绝且未写入。",
+            "Insert an orphan in an isolated database and verify rejection with no write."
+          ],
+          "feedback": [
+            "实际跨过要验证的依赖边界。",
+            "This exercises the required dependency boundary."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "给密码长度、会话写入和重新登录选择测试边界。",
+        "Choose boundaries for password length, session persistence and signing in again."
+      ],
+      "sample": [
+        "长度函数覆盖端点；隔离存储验证会话；浏览器验证登录后访问保护页。每层保留相关拒绝路径。",
+        "Test length edges directly, persistence against isolated storage, and protected access in a browser, with relevant denial paths."
+      ],
+      "criteria": [
+        [
+          "边界与风险对应。",
+          "Match boundary to risk."
+        ],
+        [
+          "不把模拟当成全系统证明。",
+          "Do not treat mocks as whole-system proof."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:boundary": {
+    "title": [
+      "范围端点与输入类型",
+      "Range endpoints and input types"
+    ],
+    "explain": [
+      [
+        "等价类把预期行为相同的输入分组，边界值检查有序类交界。整数10至20且含端点时，10与20有效，9与21是相邻无效值，能发现把大于等于写成大于的错误。",
+        "Equivalence classes group common behavior; boundaries examine ordered transitions. For integers 10–20 inclusive, 10 and 20 are valid and 9 and 21 adjacent invalid values, exposing strict-versus-inclusive mistakes."
+      ],
+      [
+        "类型还要单独检查。15.5、空值或字符串不能只因数值在范围内就通过。连续金额的邻近值由单位和精度决定，不是永远加减1；先明确契约再选择输入。",
+        "Types require separate checks: fractions, empty values and strings are not valid merely because of numerical position. Adjacent monetary values follow units and precision, not always plus or minus one."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "10至20件的批量提交",
+        "Submitting 10–20 items"
+      ],
+      "given": [
+        "规则要求整数10至20，含端点；拒绝时不建任务。",
+        "Counts must be integers 10–20 inclusive; rejection creates no task."
+      ],
+      "steps": [
+        {
+          "title": [
+            "划分行为",
+            "Partition"
+          ],
+          "detail": [
+            "整数10至20有效；小于10和大于20分别无效；小数和缺失另列。",
+            "Integers 10–20 are valid, lower and higher integers invalid; fractions and missing values are separate."
+          ]
+        },
+        {
+          "title": [
+            "选择邻域",
+            "Choose neighbors"
+          ],
+          "detail": [
+            "先测9、10、20、21，三值边界设计再补11与19，不只测15。",
+            "Test 9, 10, 20 and 21, adding 11 and 19 for three-value coverage instead of only 15."
+          ]
+        },
+        {
+          "title": [
+            "观察副作用",
+            "Observe effects"
+          ],
+          "detail": [
+            "10与20可建任务；9与21拒绝且任务数不增。10被拒绝可定位到下界包含性。",
+            "Ten and twenty create tasks; nine and twenty-one do not. Rejecting ten reveals lower-edge inclusion trouble."
+          ]
+        }
+      ],
+      "result": [
+        "二值边界集9、10、20、21不替代其他类型测试。",
+        "The two-value set 9, 10, 20, 21 does not replace type checks."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只测15就声称覆盖端点。",
+        "Claim edge coverage after testing 15."
+      ],
+      "why": [
+        "中间值不能区分严格与包含比较。",
+        "A midpoint does not distinguish strict and inclusive comparisons."
+      ],
+      "correct": [
+        "明确类型、包含关系、端点与邻近无效值。",
+        "Specify type, inclusivity, edges and adjacent invalid values."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "整数允许5至7且含端点，二值边界重点是哪组？",
+        "For integers 5–7 inclusive, which is the two-value boundary focus?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "4、5、7、8。",
+            "4, 5, 7, 8."
+          ],
+          "feedback": [
+            "包括两端有效值和相邻无效值。",
+            "These cover valid edges and adjacent invalid values."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "只有6。",
+            "Only 6."
+          ],
+          "feedback": [
+            "普通合法值没有覆盖端点。",
+            "An ordinary valid value misses the edges."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "5.5与6.5。",
+            "5.5 and 6.5."
+          ],
+          "feedback": [
+            "这是小数类型检查。",
+            "These are fraction-type checks."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "金额0.01至99.99元、精度为分，设计边界及预期。",
+        "Design edges for 0.01–99.99 yuan at cent precision."
+      ],
+      "sample": [
+        "0.00拒绝、0.01接受、99.99接受、100.00拒绝；超过两位小数另按明确精度约定处理。",
+        "Reject 0.00, accept 0.01 and 99.99, reject 100.00; handle excess precision under an explicit separate rule."
+      ],
+      "criteria": [
+        [
+          "邻近值按精度选。",
+          "Choose neighbors by precision."
+        ],
+        [
+          "每项有可观察预期。",
+          "Give each an observable expectation."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:decision-tables": {
+    "title": [
+      "条件组合与业务动作",
+      "Condition combinations and business actions"
+    ],
+    "explain": [
+      [
+        "决策表把每种条件组合映射到动作。先写业务句子再枚举组合，能发现把“任一满足”实现成“同时满足”的错误。两个布尔条件有四种组合，不等于只测全否与全是。",
+        "A decision table maps combinations to actions. Derive rules before enumerating combinations to expose OR-versus-AND mistakes. Two boolean conditions yield four combinations, not just all-false and all-true."
+      ],
+      [
+        "压缩要有依据：条件确实不影响动作才标无关，组合不可能发生则写明约束。删掉难准备的一列，会把未测范围伪装成覆盖；优先保留能区分不同逻辑的案例。",
+        "Compress with evidence: mark genuinely irrelevant conditions and explain impossible combinations. Deleting inconvenient rules misstates coverage; retain cases that distinguish competing logic."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "免邮券或VIP",
+        "Coupon or VIP shipping"
+      ],
+      "given": [
+        "规则：有免邮券C或VIP V则免运，否则收费。",
+        "Waive shipping for coupon C OR VIP V; otherwise charge."
+      ],
+      "steps": [
+        {
+          "title": [
+            "枚举组合",
+            "Enumerate"
+          ],
+          "detail": [
+            "列00、01、10、11，确保单条件成立的两组没有被遗漏。",
+            "List 00, 01, 10, 11, retaining both single-condition cases."
+          ]
+        },
+        {
+          "title": [
+            "给出动作",
+            "Map actions"
+          ],
+          "detail": [
+            "00收费，01/10/11免运；预期来自给定OR，不来自现程序返回。",
+            "Charge 00 and waive 01/10/11, deriving this from the rule rather than current code."
+          ]
+        },
+        {
+          "title": [
+            "定位错误",
+            "Distinguish the error"
+          ],
+          "detail": [
+            "错误AND在00与11也通过，在01和10才失败，所以它们是关键区分案例。",
+            "AND agrees on 00 and 11 but fails 01 and 10, making those essential cases."
+          ]
+        }
+      ],
+      "result": [
+        "四组动作完整，01和10能发现OR被写成AND。",
+        "The four rules are complete and 01/10 expose erroneous AND."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "00与11通过就说规则正确。",
+        "Declare correctness from 00 and 11."
+      ],
+      "why": [
+        "OR和AND在这两组结果相同。",
+        "OR and AND agree on these combinations."
+      ],
+      "correct": [
+        "补单条件成立的组合，独立写预期。",
+        "Add single-condition cases with independently derived expectations."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "下载要求“登录且邮件验证”。哪个输入可识别误写OR？",
+        "Download requires login AND verified email. Which detects an erroneous OR?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "两者都真。",
+            "Both true."
+          ],
+          "feedback": [
+            "AND与OR都允许。",
+            "Both allow this."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "登录但邮件未验证。",
+            "Logged in, email unverified."
+          ],
+          "feedback": [
+            "正确应拒绝，OR却允许。",
+            "The correct rule denies while OR allows."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "两者都假。",
+            "Both false."
+          ],
+          "feedback": [
+            "AND与OR都拒绝。",
+            "Both deny this."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为“工作日且办公时段才批准”列完整表及区分性案例。",
+        "Build a table for approval only on workdays AND during office hours."
+      ],
+      "sample": [
+        "00/01/10拒绝，11批准；工作日非办公时段应拒绝，能发现OR错误。",
+        "Deny 00/01/10, approve 11; a workday outside office hours detects OR."
+      ],
+      "criteria": [
+        [
+          "动作源于规则。",
+          "Derive actions from the rule."
+        ],
+        [
+          "解释案例为何能发现差异。",
+          "Explain the distinguishing behavior."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:state-transition": {
+    "title": [
+      "状态、事件与禁止转换",
+      "States, events and forbidden transitions"
+    ],
+    "explain": [
+      [
+        "状态决定对象现在允许什么，事件请求转换，守卫决定转换能否生效。同一支付事件在待支付和已取消状态应有不同结果。要记录起始状态、事件、下一状态及副作用，而不只截最终页面。",
+        "State determines allowed actions, events request changes and guards decide whether they apply. Payment differs for pending and cancelled orders. Record initial state, event, final state and effects rather than only a screen."
+      ],
+      [
+        "无效转换也是模型的一部分。取消后支付应按约定拒绝或不执行，状态仍取消。仅隐藏按钮而接口仍接受，不代表约束成立；并发与超时事件需要另行设计。",
+        "Invalid transitions belong to the model. Payment after cancellation must be rejected or ignored while retaining cancellation. Hiding a button does not enforce an API rule; concurrency and timeouts need separate design."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "取消后的迟到支付",
+        "Late payment after cancellation"
+      ],
+      "given": [
+        "D待支付；取消后禁止支付，不得新增扣款。",
+        "D starts pending; once cancelled, payment and new debits are forbidden."
+      ],
+      "steps": [
+        {
+          "title": [
+            "固定起点",
+            "Fix the start"
+          ],
+          "detail": [
+            "创建D为待支付并记录相关扣款数0，避免混入其他订单。",
+            "Create pending D with zero related debits, excluding other orders."
+          ]
+        },
+        {
+          "title": [
+            "执行合法边",
+            "Take a valid edge"
+          ],
+          "detail": [
+            "取消并重新读取已取消，而不只观察通知。",
+            "Cancel and reread cancelled state rather than only a notification."
+          ]
+        },
+        {
+          "title": [
+            "尝试非法边",
+            "Attempt an invalid edge"
+          ],
+          "detail": [
+            "发送支付，核对拒绝、状态仍取消、扣款仍0，三项共同证明未发生禁止转换。",
+            "Verify rejection, retained cancellation and zero debits after payment."
+          ]
+        }
+      ],
+      "result": [
+        "取消可完成，后续支付不能改变订单或资金。",
+        "Cancellation succeeds and later payment changes neither order nor money."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "待支付成功付款一次就算全状态覆盖。",
+        "Infer full coverage from one successful payment."
+      ],
+      "why": [
+        "路径没有访问取消，更没有尝试禁止事件。",
+        "It neither visits cancellation nor attempts a forbidden event."
+      ],
+      "correct": [
+        "分别列合法边、非法边和并发条件。",
+        "List valid edges, invalid edges and concurrency conditions."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "关闭工单不可重新分配。尝试重新分配时应期待？",
+        "A closed ticket cannot be reassigned. What should happen?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "按钮灰色即可。",
+            "A grey button is sufficient."
+          ],
+          "feedback": [
+            "颜色不能证明数据未变。",
+            "Colour does not establish unchanged data."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "成功并改为处理中。",
+            "Accept and reopen it."
+          ],
+          "feedback": [
+            "违反给定禁止转换。",
+            "This violates the stated rule."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "按约定拒绝或无操作，状态与责任人不变。",
+            "Reject or apply the agreed no-op, retaining state and assignee."
+          ],
+          "feedback": [
+            "同时覆盖状态与数据副作用。",
+            "This checks state and data effects."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为草稿→已提交→已批准写合法与禁止路径。",
+        "Write valid and forbidden paths for draft→submitted→approved."
+      ],
+      "sample": [
+        "先提交再批准逐次读取；若禁止直接批准草稿，则拒绝后仍为草稿且无审批记录。",
+        "Read state after submit and approve; if direct approval is forbidden, retain the draft and no approval entry."
+      ],
+      "criteria": [
+        [
+          "包括前置、事件和结果。",
+          "Include preconditions, events and results."
+        ],
+        [
+          "非法路径也检查副作用。",
+          "Check effects on invalid paths too."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:exploratory": {
+    "title": [
+      "带着主题探索未知行为",
+      "Exploring with a focused charter"
+    ],
+    "explain": [
+      [
+        "探索式测试在明确任务下交替进行学习、设计与执行。一次操作产生新线索，再据此设计下一次尝试。记录目的、输入和观察，别人才能复查；“随便点过一遍”无法说明探索了什么。",
+        "Exploration alternates learning, design and execution under a charter. Each observation informs the next attempt. Record purpose, inputs and observations so someone else can investigate; random clicking leaves scope unclear."
+      ],
+      [
+        "观察到差异与确认缺陷不同。顺序不同导致价格不同，首先是可重复差异；要与确认后的优惠规则比较才能判错。时间盒限制本次范围，不证明时间一到就没有其他问题。",
+        "A discrepancy is not yet a confirmed defect. Different totals after different sequences are a lead; the agreed rule determines correctness. A timebox bounds work rather than proving no further issues exist."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "优惠应用顺序的探索",
+        "Exploring discount ordering"
+      ],
+      "given": [
+        "合成商城原价100，优惠券减10，会员九折；尚未规定叠加顺序。",
+        "A synthetic shop has price 100, a coupon subtracting 10 and a 10 percent member discount; ordering is unspecified."
+      ],
+      "steps": [
+        {
+          "title": [
+            "限定主题",
+            "Bound the charter"
+          ],
+          "detail": [
+            "只探索叠加顺序，不触及真实支付。为两次尝试分别准备相同商品的新购物车。",
+            "Explore discount ordering without real payment, using fresh carts with the same item."
+          ]
+        },
+        {
+          "title": [
+            "记录路径",
+            "Record paths"
+          ],
+          "detail": [
+            "先券后折为81，先折后券为80；保存每步顺序、输入和输出，而非只留两张总价截图。",
+            "Coupon then discount yields 81; discount then coupon yields 80. Retain every input, action and result."
+          ]
+        },
+        {
+          "title": [
+            "提出可裁决问题",
+            "Ask a decidable question"
+          ],
+          "detail": [
+            "把1元差异交给规则负责人确认，再将确认规则变成回归检查；现在标“顺序差异待核对”。",
+            "Clarify the one-unit difference with the rule owner, then make a regression from the agreed rule. For now record an unresolved ordering discrepancy."
+          ]
+        }
+      ],
+      "result": [
+        "本次产出是可重复差异和待确认规则，不是凭感觉判两个结果都错。",
+        "The output is a reproducible discrepancy and an unresolved rule, not an unsupported verdict."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "两个价格不同，所以一定都是错的。",
+        "Different prices prove both are wrong."
+      ],
+      "why": [
+        "业务可能规定固定顺序，现有信息不足以裁决。",
+        "A prescribed order may determine correctness; information is insufficient."
+      ],
+      "correct": [
+        "分别保存观察、假设和待确认规则。",
+        "Separate observations, hypotheses and unresolved rules."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "表单偶尔保留旧值，刷新规则未确认，先怎样报告？",
+        "A form sometimes retains old values and refresh rules are unclear. What should be reported first?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "步骤、环境、出现频次和实际值，规则标待核对。",
+            "Steps, environment, occurrence count and values, with the rule unresolved."
+          ],
+          "feedback": [
+            "证据足以继续调查，没有编造根因。",
+            "This supports investigation without inventing a cause."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "所有表单都坏了，无需步骤。",
+            "All forms are broken; no steps needed."
+          ],
+          "feedback": [
+            "扩大了范围且无法复现。",
+            "This overstates scope and prevents reproduction."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "重跑到不出现，就关闭。",
+            "Retry until it disappears and close it."
+          ],
+          "feedback": [
+            "一次未复现不能否定已经记录的现象。",
+            "One non-occurrence does not negate an observation."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为“筛选列表后进入详情再返回”写15分钟探索主题与记录格式。",
+        "Write a 15-minute charter and record format for filtering a list, opening details and returning."
+      ],
+      "sample": [
+        "用一个隔离账户和两个筛选值，记初始状态、动作、结果与疑问；到时列已探索、未探索范围，将可复现差异转成后续任务。",
+        "Use one isolated account and two filters; record initial state, actions, outcomes and questions. At the limit list explored and unexplored scope and create follow-up tasks."
+      ],
+      "criteria": [
+        [
+          "范围可执行。",
+          "Use executable scope."
+        ],
+        [
+          "观察与已确认缺陷分开。",
+          "Separate observations from confirmed defects."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:defect-reproduction": {
+    "title": [
+      "可复现的缺陷报告",
+      "A reproducible defect report"
+    ],
+    "explain": [
+      [
+        "缺陷报告应说明从已知前置怎样得到实际结果，以及它与期望哪里不同。版本、角色、数据ID、操作顺序和出现频次能缩小调查范围，比“保存有问题”更有用。",
+        "A report explains how a known precondition produces an actual result and how it differs from expectation. Version, role, data IDs, sequence and occurrence narrow the investigation more than a vague complaint."
+      ],
+      [
+        "严重度描述后果，优先级决定处理安排，不能混成一项。可以报告证据支持的影响，但不把猜测根因或“必然每次发生”当作事实。偶发问题也可提交，关键是交代已知条件和频次。",
+        "Severity describes consequences while priority schedules work. Report supported impact rather than guessed causes or invented certainty. Intermittent issues remain reportable with known conditions and frequency."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "双击保存产生两条申请",
+        "A duplicate application after double save"
+      ],
+      "given": [
+        "测试版R4，普通角色对申请X连续点击两次保存，约定每次业务提交只产生一条有效记录。",
+        "In test release R4, an ordinary user clicks Save twice for X; one business submission must create one effective record."
+      ],
+      "steps": [
+        {
+          "title": [
+            "固定前置",
+            "Fix preconditions"
+          ],
+          "detail": [
+            "准备自有测试申请X，记版本R4、角色、初始记录数0。",
+            "Prepare owned application X and record R4, role and zero initial records."
+          ]
+        },
+        {
+          "title": [
+            "保存实测",
+            "Preserve observations"
+          ],
+          "detail": [
+            "同一内容快速保存两次，记录请求时间与新记录X1/X2，不只截成功提示。",
+            "Save identical content twice, retaining request times and new IDs X1/X2 rather than only the success toast."
+          ]
+        },
+        {
+          "title": [
+            "写出差异与频次",
+            "State difference and frequency"
+          ],
+          "detail": [
+            "期望1条、实际2条；若5次出现3次，写3/5并附复查查询，不写100%必现。",
+            "Expect one, observe two; if it occurs in three of five attempts, record 3/5 with a recheck query, not constant failure."
+          ]
+        }
+      ],
+      "result": [
+        "另一位同事能复查一条变两条的差异，并知道重现率与环境。",
+        "Another person can recheck the one-to-two discrepancy with its frequency and environment."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只写“后端肯定没加锁”。",
+        "Write that backend locking is definitely missing."
+      ],
+      "why": [
+        "缺少步骤，还把未经证实的根因当结论。",
+        "This lacks steps and asserts an unverified cause."
+      ],
+      "correct": [
+        "先交请求、数据差异和重现率，根因另作假设。",
+        "Report requests, data differences and frequency before causal hypotheses."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "5次中2次超时，哪个表述可信？",
+        "Two of five attempts time out. Which statement is credible?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "接口始终不可用。",
+            "The API is always unavailable."
+          ],
+          "feedback": [
+            "把2/5扩大成全部失败。",
+            "This overstates two of five as all failures."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "同版同输入5次中2次超过10秒，附请求ID与时间。",
+            "Two of five same-version/input attempts exceed ten seconds, with IDs and times."
+          ],
+          "feedback": [
+            "保留范围、频次与可追查证据。",
+            "This preserves scope, frequency and investigable evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "最后一次成功，所以没问题。",
+            "The last succeeded, so no issue exists."
+          ],
+          "feedback": [
+            "忽略已观察到的两次失败。",
+            "This ignores two observed failures."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "把“导出不对”改写成能复现的报告。",
+        "Turn “export wrong” into a reproducible report."
+      ],
+      "sample": [
+        "记录版本、角色、筛选、快照；例如渠道A预期3条A，实际包含1条B，附导出文件和ID。期望未确认时明确列出。",
+        "Record version, role, filter and snapshot; expect three A records but find a B record, attaching file and IDs. Mark unresolved expectations explicitly."
+      ],
+      "criteria": [
+        [
+          "前置、步骤、期望、实际和证据齐全。",
+          "Include preconditions, steps, expected, actual and evidence."
+        ],
+        [
+          "不编造根因和必现。",
+          "Do not invent cause or certainty."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:retest-regression": {
+    "title": [
+      "确认修复与检查回归",
+      "Confirmation and regression"
+    ],
+    "explain": [
+      [
+        "确认测试重走原缺陷条件，回答是否修复那一个问题；回归围绕变更影响，回答其他原正常行为是否被破坏。两者目的和范围不同，不能混成一个“已经验证”。",
+        "Confirmation repeats the original defect conditions; regression examines unintended effects on previously working behavior. Their purposes and scope differ and need separate evidence."
+      ],
+      [
+        "回归范围取决于共享依赖和后果。一处金额函数可能用于退款、优惠与导出，改动行数小不表示影响小。未跑的路径应标未验证，不能因原例变绿自动算通过。",
+        "Regression scope follows shared dependencies and consequences. One converter can affect refunds, discounts and exports. Few changed lines do not imply small impact, and unrun paths remain unverified."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "共享金额函数的修复",
+        "Fixing a shared amount converter"
+      ],
+      "given": [
+        "按已约定舍入规则2.675元应为268分，原实现得到267；退款、优惠和导出共享该函数。",
+        "Under the agreed rounding rule, 2.675 yuan should be 268 cents, but was 267; refunds, discounts and exports share the converter."
+      ],
+      "steps": [
+        {
+          "title": [
+            "确认原例",
+            "Confirm"
+          ],
+          "detail": [
+            "同输入同规则得到268分，记新提交标识；这只证明原条件通过。",
+            "Obtain 268 for the same input and rule, recording the new commit; this covers the original condition."
+          ]
+        },
+        {
+          "title": [
+            "追踪调用",
+            "Trace callers"
+          ],
+          "detail": [
+            "分别准备退款、优惠、导出的普通金额、零值和契约相关负值，观察各自结果。",
+            "Prepare ordinary, zero and contract-relevant negative values in refunds, discounts and exports."
+          ]
+        },
+        {
+          "title": [
+            "陈述真实范围",
+            "State scope"
+          ],
+          "detail": [
+            "如果只跑退款与优惠，写“原例通过，导出待测”，而不是全金额功能已通过。",
+            "If only refunds and discounts ran, retain export as pending instead of declaring all monetary features passed."
+          ]
+        }
+      ],
+      "result": [
+        "修复与回归各自有证据，旧失败与新运行可关联。",
+        "Confirmation and regression retain distinct evidence linked to the fix."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "原退款例通过，就标全金额功能通过。",
+        "Pass all money features after the refund example passes."
+      ],
+      "why": [
+        "不同调用路径的组合和格式没有被原例覆盖。",
+        "The original case does not cover other callers and formatting."
+      ],
+      "correct": [
+        "按依赖与风险选择回归，注明待测路径。",
+        "Select regressions by dependency and risk, recording pending paths."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "修复断网错误提示后，哪项属于回归？",
+        "After fixing an offline error message, which is regression?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "断网重跑原例。",
+            "Repeat the original offline case."
+          ],
+          "feedback": [
+            "这是确认测试。",
+            "This is confirmation."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "统计修改行数。",
+            "Count changed lines."
+          ],
+          "feedback": [
+            "没有验证行为。",
+            "No behavior is verified."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "联网保存并核对草稿未被错误清空。",
+            "Save online and check that the draft is not cleared."
+          ],
+          "feedback": [
+            "验证相邻正常行为未被修复破坏。",
+            "This checks that the change preserved adjacent behavior."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为新增邮件格式校验写确认和两项回归。",
+        "Design confirmation and two regressions for email validation."
+      ],
+      "sample": [
+        "确认原非法邮件被拒绝；回归合法提交、改正后的错误清除；共享导入路径若未跑要注明。",
+        "Confirm original invalid-email rejection; regress valid submission and clearing corrected errors, marking untested shared imports."
+      ],
+      "criteria": [
+        [
+          "目的分开。",
+          "Separate the purposes."
+        ],
+        [
+          "回归与影响面有联系。",
+          "Connect regression to impact."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:test-data": {
+    "title": [
+      "独立、可重置的测试数据",
+      "Independent resettable test data"
+    ],
+    "explain": [
+      [
+        "前置数据也是用例的一部分。B依赖A先创建订单，单独、倒序或并行运行就可能失败。让每项测试自己建立必要数据，并用不会与其他测试冲突的标识，才能重现同样条件。",
+        "Fixtures belong to a test. If B relies on an order created by A, it may fail alone, reversed or in parallel. Each test should prepare its own inputs using collision-free identities."
+      ],
+      [
+        "重置不是随意清库。清理应只作用于本次测试拥有的隔离数据；真实账户、凭据和私密材料不能当方便样本。参数化复用的是规则，不应让后一组继承前一组的可变业务状态。",
+        "Resetting is not arbitrary database clearing. Cleanup stays within owned isolated fixtures; real accounts, credentials and private materials are not sample data. Parameterization reuses rules without inherited mutable state."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "订单读取测试的自足准备",
+        "Self-contained order setup"
+      ],
+      "given": [
+        "A创建A-17；B需要金额60的订单，却固定读取A-17。",
+        "A creates A-17; B needs an order worth 60 but reads A-17."
+      ],
+      "steps": [
+        {
+          "title": [
+            "识别依赖",
+            "Identify dependency"
+          ],
+          "detail": [
+            "B单跑找不到A-17，说明它借用了另一用例的前置，不足以直接断定读取接口错误。",
+            "B alone cannot find A-17, revealing borrowed setup rather than necessarily a broken read API."
+          ]
+        },
+        {
+          "title": [
+            "建立自有数据",
+            "Own the fixture"
+          ],
+          "detail": [
+            "B创建唯一ID的金额60订单，再按此ID读取并断言60。",
+            "B creates a unique order worth 60, reads that ID and asserts 60."
+          ]
+        },
+        {
+          "title": [
+            "限定清理",
+            "Bound cleanup"
+          ],
+          "detail": [
+            "只删B创建的数据；单跑、倒序、并行复测A/B并保留结果。",
+            "Delete only B-owned data and rerun independently, reversed and in parallel."
+          ]
+        }
+      ],
+      "result": [
+        "B不再依赖A，清理不越界。",
+        "B is independent of A and cleanup remains bounded."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "都用ID1，再清空整表。",
+        "Use ID 1 everywhere and clear the whole table."
+      ],
+      "why": [
+        "既有并行竞争，又可能删除非本次数据。",
+        "This creates collisions and can delete unrelated data."
+      ],
+      "correct": [
+        "使用唯一、自有、可追踪的夹具。",
+        "Use unique, owned and traceable fixtures."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "两条并行测试都修改同一演示账户密码，应该怎样处理？",
+        "Two parallel tests change the same demo account password. What should change?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "各自建立隔离账户并限定清理。",
+            "Give each an isolated account and bounded cleanup."
+          ],
+          "feedback": [
+            "消除了共享可变状态。",
+            "This removes shared mutable state."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "等待更久。",
+            "Wait longer."
+          ],
+          "feedback": [
+            "等待没有消除共同修改。",
+            "Waiting does not remove the shared mutation."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "忽略其中一次失败。",
+            "Ignore one failure."
+          ],
+          "feedback": [
+            "掩盖了竞争和错误证据。",
+            "This hides the race and corrupts evidence."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为导入三条再导出设计准备、ID和清理。",
+        "Design setup, identities and cleanup for importing then exporting three records."
+      ],
+      "sample": [
+        "使用隔离账户与本轮唯一批次，保存三条输入，按批次导出，只删除本轮自有批次；再检查并行批次不串入。",
+        "Use an isolated account and unique batch, retain the inputs, export by batch and remove only that batch; check isolation from concurrent batches."
+      ],
+      "criteria": [
+        [
+          "前置不借其他用例。",
+          "Do not borrow another test’s state."
+        ],
+        [
+          "清理有所有权边界。",
+          "Bound cleanup by ownership."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "testing:stable-assertions": {
+    "title": [
+      "用户可见行为与稳定断言",
+      "Stable user-visible assertions"
+    ],
+    "explain": [
+      [
+        "自动化应观察用户实际使用的对象与结果。全页第一个button依赖DOM顺序，新增导航就可能点错；用区域、角色与可访问名称表达“本课练习中的保存”，更接近测试意图。",
+        "Automation should observe real user objects and results. The first button depends on DOM order. Region, role and accessible name express “Save in Lesson practice” more accurately."
+      ],
+      [
+        "等待针对具体条件而不是固定秒数。异步保存可能慢于三秒，也可能更快；可重试断言等待预期状态，但仍需要正确预期和有限超时。没有报错不等于内容已保存。",
+        "Wait for conditions, not fixed seconds. Asynchronous saves vary; retrying assertions await the expected state within bounded time. No exception does not establish persistence."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "区分头像保存与练习保存",
+        "Separating profile and practice Save"
+      ],
+      "given": [
+        "合成页面的“头像设置”和“本课练习”各有保存。练习原值NOTE-R16，本轮写NOTE-R17；练习状态区显示已确认保存的文本，旧提示“NOTE-R16已保存”仍在。刷新会从服务器重读练习。",
+        "A synthetic page has Save in Profile settings and Lesson practice. The saved lesson value is NOTE-R16; this run writes NOTE-R17. Its status includes the confirmed saved text; an old NOTE-R16 saved message remains. Reload reads the lesson from the server."
+      ],
+      "steps": [
+        {
+          "title": [
+            "限定对象",
+            "Scope the target"
+          ],
+          "detail": [
+            "限定“本课练习”区域，再按字段名称找到答案、按按钮名称找到保存；头像设置不属于本用例。不能用全页第一个保存按钮。",
+            "Scope to the Lesson practice region, then locate its named answer field and Save button. Profile settings are outside this case; avoid the first page-wide Save."
+          ]
+        },
+        {
+          "title": [
+            "写入新值",
+            "Enter new data"
+          ],
+          "detail": [
+            "填入NOTE-R17并点击练习保存。唯一文本只标识本轮数据，不能单靠它认定旧提示已经消失或本次请求成功；此时NOTE-R16已保存仍不满足预期。",
+            "Enter NOTE-R17 and save the lesson. Unique text identifies this run; by itself it neither removes an old toast nor proves request success. NOTE-R16 saved is not the expected completion."
+          ]
+        },
+        {
+          "title": [
+            "等待再复读",
+            "Wait and reread"
+          ],
+          "detail": [
+            "在有限超时内等待本区域状态确认为“NOTE-R17已保存”，再刷新并断言答案仍为NOTE-R17、头像值未变。旧NOTE-R16提示不能使状态断言通过；超时或重读不符均失败。",
+            "Within a bounded timeout, await this region confirming NOTE-R17 saved. Reload and assert the answer remains NOTE-R17 and profile data is unchanged. The old NOTE-R16 status cannot satisfy completion; timeout or reread mismatch fails."
+          ]
+        }
+      ],
+      "result": [
+        "目标是本课练习，完成状态关联NOTE-R17，刷新重读仍为NOTE-R17；三层证据分别说明点对对象、本轮完成以及本例的保存结果。",
+        "The target is Lesson practice, completion identifies NOTE-R17, and reload still reads NOTE-R17. These separately establish the intended object, this run’s completion and this case’s saved outcome."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "点第一个按钮，睡三秒，无异常即通过。",
+        "Click the first button, sleep three seconds and pass without an exception."
+      ],
+      "why": [
+        "可能点错，且没有内容断言。",
+        "It can target the wrong action and never assert content."
+      ],
+      "correct": [
+        "限定区域，检查状态与持久化值。",
+        "Scope the action and assert state and persisted values."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "异步保存约两秒完成，哪种等待合理？",
+        "A save takes roughly two seconds. Which wait is appropriate?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "固定等十秒且不检查结果。",
+            "Wait ten seconds without checking."
+          ],
+          "feedback": [
+            "耗时但仍无结果证据。",
+            "This wastes time without evidence."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "限定时限等待该任务保存完成，再核对文本。",
+            "Await this task’s completion within a timeout and verify text."
+          ],
+          "feedback": [
+            "正确：完成状态必须能关联本次保存，随后核对目标文本；仍在显示的旧成功提示不够。",
+            "Correct: completion must relate to this save, followed by checking its text. An existing success toast is insufficient."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "点击后假设立刻完成。",
+            "Assume immediate completion."
+          ],
+          "feedback": [
+            "忽略异步时序。",
+            "This ignores asynchronous completion."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为头像/地址都有保存的页面写地址保存伪代码，避免旧提示。",
+        "Write address-saving pseudocode on a page with profile Save too."
+      ],
+      "sample": [
+        "限定地址区域，填本轮唯一地址并保存；若状态包含地址或保存版本，等它匹配本次值后刷新复读。若只有通用“已保存”，须结合可关联的请求完成证据或新状态周期，不能把唯一输入当作提示身份；最终核对服务器重读值。",
+        "Scope to address, save a unique value and await a matching value/version before rereading. A generic Saved toast needs correlated request completion or a fresh status cycle; unique input does not identify that toast. Finally compare the server-reread value."
+      ],
+      "criteria": [
+        [
+          "新增无关按钮不会改变目标。",
+          "Unrelated buttons must not change the target."
+        ],
+        [
+          "断言状态与实际值。",
+          "Assert state and persisted value."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://playwright.dev/docs/best-practices",
+      "https://playwright.dev/docs/test-assertions"
+    ]
+  },
+  "testing:ci-evidence": {
+    "title": [
+      "把测试证据绑定到实际版本",
+      "Binding evidence to its tested revision"
+    ],
+    "explain": [
+      [
+        "CI结论属于某个提交、依赖、环境和执行范围。新提交失败时，昨天旧提交在本机通过，不能证明新版本正确。回执应能查到提交、运行ID、命令、输入范围、结果和失败产物。",
+        "CI conclusions belong to a commit, dependencies, environment and scope. Yesterday’s local pass cannot establish a new revision. Identify the commit, run, command, input scope, results and artifacts."
+      ],
+      [
+        "产品错误、缺失服务、坏数据与测试竞态都可能表现为红灯。重跑帮助定位频次，但只保留一次绿灯会丢失证据；应调查原因，再把修复后的新验证与原失败关联。",
+        "Product bugs, missing services, bad fixtures and test races can all cause failures. Retries reveal frequency, but retaining only green runs loses evidence. Investigate and link corrected verification to the original failure."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "旧本机通过与新CI失败",
+        "Old local success and new CI failure"
+      ],
+      "given": [
+        "CI R62测试b2/Node24，预期180实际18；本机绿图来自a1/Node22。",
+        "CI R62 tests b2/Node24 and sees 18 instead of 180; the local pass is a1/Node22."
+      ],
+      "steps": [
+        {
+          "title": [
+            "核对身份",
+            "Check identity"
+          ],
+          "detail": [
+            "明确a1与b2、Node22与24不同，不用旧图覆盖R62。",
+            "Record commit and runtime differences instead of overriding R62."
+          ]
+        },
+        {
+          "title": [
+            "同条件复现",
+            "Reproduce"
+          ],
+          "detail": [
+            "使用b2、同锁文件与Node24，运行金额用例，保留输入、实际18和预期180。",
+            "Use b2, the same lock and Node24; preserve input, actual 18 and expected 180."
+          ]
+        },
+        {
+          "title": [
+            "关联修复",
+            "Link the fix"
+          ],
+          "detail": [
+            "在c3修正单位换算后复测并检查相关金额路径；R62仍保留失败记录。",
+            "Correct units in c3, retest and regress related callers while retaining failed R62."
+          ]
+        }
+      ],
+      "result": [
+        "新结论来自匹配条件的新运行，而不是挑选旧绿图。",
+        "The conclusion comes from matching-condition execution, not a selected old green screenshot."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "重跑到绿一次，只保留绿图。",
+        "Retry until green and retain only that run."
+      ],
+      "why": [
+        "无法解释不稳定原因，还掩盖频次。",
+        "This hides frequency and leaves instability unexplained."
+      ],
+      "correct": [
+        "保留每轮身份、结果，再针对原因修复。",
+        "Retain run identities and outcomes before fixing the cause."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "发布候选需要哪份证据？",
+        "Which evidence supports a release candidate?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "另一机器的旧版绿图。",
+            "A green old-version screenshot on another machine."
+          ],
+          "feedback": [
+            "没有绑定候选。",
+            "It is not tied to the candidate."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "聊天说“感觉没问题”。",
+            "A chat saying it seems fine."
+          ],
+          "feedback": [
+            "没有执行范围与结果。",
+            "It lacks executed scope and results."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "同轮候选提交、锁文件、环境、命令、结果和日志。",
+            "One run linking candidate, lock, environment, command, results and logs."
+          ],
+          "feedback": [
+            "身份、范围与结果都可复核。",
+            "Identity, scope and results are reviewable."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "写API回归最小回执，注明两项未测范围。",
+        "Write a minimal API receipt with two untested areas."
+      ],
+      "sample": [
+        "列SHA、依赖锁、环境、隔离数据、命令和结果；例如读取与拒绝已测，付款回调与生产连通未测，保留失败ID和日志。",
+        "Record SHA, lock, environment, isolated data, command and results; mark payment callbacks and production connectivity untested, retaining failure IDs and logs."
+      ],
+      "criteria": [
+        [
+          "运行身份可重现。",
+          "Make run identity reproducible."
+        ],
+        [
+          "未测不冒称通过。",
+          "Do not mark unrun scope passed."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+    ]
+  },
+  "delivery:workflows": {
+    "title": [
+      "现状流程与目标流程",
+      "Current and target workflows"
+    ],
+    "explain": [
+      [
+        "流程描述谁拿到什么输入、作出什么决定、把结果交给谁。现状是有证据支持的实际做法，目标是希望改变后的做法。把二者混在一张理想直线图里，会漏掉等待、退回和人工补救。",
+        "A workflow identifies actors, inputs, decisions and handoffs. Current practice is evidence-based; the target is a proposed change. Combining them into an ideal straight line hides waiting, returns and manual recovery."
+      ],
+      [
+        "观察、人员陈述和分析假设要分开。例如“通常两天审核”可能是访谈描述，不是计时测量；“一天内完成”可能是目标。保留来源与待核实处，后续才能讨论究竟改进了哪一个环节。",
+        "Separate observations, reported practice and hypotheses. “Usually two days” may be interview evidence, not a measurement; “within one day” may be a target. Provenance makes later improvement claims assessable."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "申请退回后再次提交",
+        "Returning and resubmitting an application"
+      ],
+      "given": [
+        "合成申请由学生提交给教务；缺附件退回学生，补齐后再次复核。一天内完成只是拟议目标。",
+        "A synthetic application goes from a student to administration, returns for missing attachments and is reviewed again. One-day completion is only a proposed target."
+      ],
+      "steps": [
+        {
+          "title": [
+            "标清角色与输入",
+            "Identify actors and inputs"
+          ],
+          "detail": [
+            "学生提交表单和附件，教务收到可复查的同一申请ID。",
+            "The student submits a form and attachments; administration receives the same traceable application ID."
+          ]
+        },
+        {
+          "title": [
+            "补上决策与回路",
+            "Add decisions and loops"
+          ],
+          "detail": [
+            "教务判断完整性，完整进入结果通知，不完整带原因退回；学生补齐后回到复核，而不是直接变通过。",
+            "Complete applications proceed to notification; incomplete ones return with reasons and re-enter review after correction."
+          ]
+        },
+        {
+          "title": [
+            "区分事实与目标",
+            "Separate facts from targets"
+          ],
+          "detail": [
+            "给现状步骤标访谈或观察来源，把一天目标单列，并确定未来要记录哪两个时间点。",
+            "Label observation or interview evidence, keep the one-day target separate, and define future timing points."
+          ]
+        }
+      ],
+      "result": [
+        "现状图包含退回和重审，目标时限没有被写成已实现。",
+        "The current flow includes return and re-review, without claiming the target time is achieved."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只画提交→通过。",
+        "Draw only submit→approved."
+      ],
+      "why": [
+        "遗漏不完整材料的实际处理和责任。",
+        "This omits real exceptions and ownership."
+      ],
+      "correct": [
+        "画出决策、退回原因、再次提交与交接。",
+        "Include decisions, return reasons, resubmission and handoff."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "访谈说审核常需两天，方案希望一天。现状记录应怎样写？",
+        "Interviews say review often takes two days; a proposal targets one. How should the current state be recorded?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "标“两天为访谈陈述待测，一天为目标”。",
+            "Label two days as reported and unmeasured, and one day as a target."
+          ],
+          "feedback": [
+            "事实来源与希望达到的结果清楚分开。",
+            "This separates evidence from the desired outcome."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "写系统已经一天完成。",
+            "State that the system already finishes in a day."
+          ],
+          "feedback": [
+            "把目标当成实测事实。",
+            "This treats a target as an observed fact."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "删除全部时间信息。",
+            "Delete all time information."
+          ],
+          "feedback": [
+            "会丢失有用线索，应标来源而非全部丢掉。",
+            "This loses useful evidence; label it rather than discard it."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为报销流程画正常路径与缺票退回路径，并注明一个待确认规则。",
+        "Describe normal and missing-receipt expense paths with an unresolved rule."
+      ],
+      "sample": [
+        "员工提交→财务核票→齐全则审批，不齐则带原因退回→补齐重审；例如电子票是否接受仍待业务确认。",
+        "Submit→finance validates→approve complete evidence, otherwise return with reasons→resubmit. Acceptance of electronic receipts may remain unresolved."
+      ],
+      "criteria": [
+        [
+          "角色、输入、决定、交接可追踪。",
+          "Trace actors, inputs, decisions and handoffs."
+        ],
+        [
+          "实际做法、陈述、目标分开。",
+          "Separate practice, reports and targets."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy"
+    ]
+  },
+  "delivery:scope-acceptance": {
+    "title": [
+      "范围基线与变更验收",
+      "Scope baselines and change acceptance"
+    ],
+    "explain": [
+      [
+        "范围基线是各方对这次交付边界的共同约定；验收说明由谁用哪些证据判断满足。一个读报表按钮改成编辑，不只是视觉变化，还新增数据写入、权限、审计与回退责任。",
+        "A scope baseline agrees delivery boundaries; acceptance identifies who judges them using which evidence. Turning a read-only report into editing adds writes, authorization, audit and recovery responsibilities, not merely UI."
+      ],
+      [
+        "变更管理不是一律拒绝需求，而是在承诺前说明影响并得到有权人的决定。记录原基线、提出的变化、成本与风险、决定和新版验收，避免开发与验收各用不同版本理解。",
+        "Change management does not reject every request; it makes impact visible before commitment. Record the baseline, change, cost, risk, decision and revised criteria so implementation and acceptance use the same version."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "只读报表临时增加修改",
+        "Adding editing to a read-only report"
+      ],
+      "given": [
+        "基线B1只读订单报表；上线前业务要求支持修改收货地址。",
+        "Baseline B1 is a read-only order report; shortly before release, editing delivery addresses is requested."
+      ],
+      "steps": [
+        {
+          "title": [
+            "辨认新增边界",
+            "Identify new boundaries"
+          ],
+          "detail": [
+            "标出地址写入、哪些角色能改、能改哪些订单，以及是否需要审计。",
+            "Enumerate address writes, permitted roles and orders, and audit requirements."
+          ]
+        },
+        {
+          "title": [
+            "评估影响",
+            "Assess impact"
+          ],
+          "detail": [
+            "加入允许/拒绝测试、误改恢复和操作说明，给出新增工作与安排影响，不能只估一个按钮。",
+            "Include allow/deny tests, recovery from mistakes and user guidance, not just a button estimate."
+          ]
+        },
+        {
+          "title": [
+            "保存正式决定",
+            "Record a decision"
+          ],
+          "detail": [
+            "若批准形成B2及新验收；若延期，B1继续是本次标准，保留变更记录而非静默上线。",
+            "Approval creates B2 and new criteria; deferral leaves B1 as this release’s standard with the request retained."
+          ]
+        }
+      ],
+      "result": [
+        "变化被明确决策并绑定验收版本，未授权写入不被包装成小改。",
+        "The change has an explicit decision and acceptance version, with no hidden write capability."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "先实现再让验收人适应。",
+        "Implement first and make reviewers adapt."
+      ],
+      "why": [
+        "验收基线和实际权限已经不一致。",
+        "The acceptance baseline no longer matches actual authority."
+      ],
+      "correct": [
+        "先说明影响和批准，再更新基线。",
+        "Assess and approve before updating the baseline."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "导出CSV临时变为“导出全部客户敏感信息”，第一步应是什么？",
+        "A CSV export request changes to include all sensitive customer data. What comes first?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "直接加字段。",
+            "Add the fields immediately."
+          ],
+          "feedback": [
+            "忽略了范围、权限和使用目的变化。",
+            "This ignores scope, authority and purpose changes."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "核对使用目的、允许范围、权限与验收，再走变更决定。",
+            "Review purpose, permitted scope, authority and acceptance before a change decision."
+          ],
+          "feedback": [
+            "先让新增责任可见，再决定实现。",
+            "This makes new responsibilities visible before implementation."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "删掉原需求记录。",
+            "Delete the original requirement."
+          ],
+          "feedback": [
+            "会失去基线和变更依据。",
+            "This erases the baseline and change rationale."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "将“增加批量删除”拆成变更影响和验收条件。",
+        "Describe change impacts and acceptance for bulk deletion."
+      ],
+      "sample": [
+        "确认对象范围、角色、选择预览、确认动作、恢复或不可恢复边界、审计与失败处理；写清谁批准和如何验证拒绝越权。",
+        "Specify objects, roles, selection preview, confirmation, recovery limits, audit and failures; identify approval and unauthorized-denial tests."
+      ],
+      "criteria": [
+        [
+          "不以界面工作量代替业务影响。",
+          "Do not reduce business impact to UI effort."
+        ],
+        [
+          "新版验收与批准范围一致。",
+          "Match revised acceptance to approval."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy"
+    ]
+  },
+  "delivery:dependency-owners": {
+    "title": [
+      "把外部依赖变成可核对的交付",
+      "Making dependencies verifiable"
+    ],
+    "explain": [
+      [
+        "依赖不是“等对方处理”，而是后续动作需要某项具体条件。每项条件应有提供人、批准或验收人、最晚时间和就绪证据；负责人不是所有问题的自动承担者，应区分提供、决定与验证。",
+        "A dependency is a specific condition needed by later work, not merely waiting for someone. Identify provider, approver or acceptor, latest time and readiness evidence, separating supply, decision and verification."
+      ],
+      [
+        "依赖就绪应由消费方能完成的检查证明。邮件说账户开通，不等于权限合适或白名单可用。记录受控登录和必要动作结果，后续任务才知道能不能继续。",
+        "Readiness needs a consumer-verifiable check. An account-created email does not establish correct permissions or allowlisting. Controlled sign-in and required-action evidence determine whether dependent work can proceed."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "上线前的测试账号和白名单",
+        "Test accounts and allowlisting before rollout"
+      ],
+      "given": [
+        "周五演练依赖受控测试账号与接口白名单，两项缺一不能验收。",
+        "A Friday rehearsal needs a controlled test account and API allowlisting; both are required."
+      ],
+      "steps": [
+        {
+          "title": [
+            "拆分依赖",
+            "Split ownership"
+          ],
+          "detail": [
+            "账号由账户管理员提供，白名单由网络负责人配置；演练负责人负责验收两项。",
+            "Account administration supplies the account, networking configures allowlisting, and the rehearsal owner accepts both."
+          ]
+        },
+        {
+          "title": [
+            "定义就绪",
+            "Define readiness"
+          ],
+          "detail": [
+            "账号可登录且只能访问教学租户；从指定测试出口访问指定接口得到约定结果。不要公开凭据。",
+            "Sign in only to the teaching tenant and call the required endpoint from the approved test egress, without exposing credentials."
+          ]
+        },
+        {
+          "title": [
+            "设置升级时间",
+            "Set escalation"
+          ],
+          "detail": [
+            "要求周四前提供并复核；未就绪标受阻及升级对象，不能在周五把演练失败归为未知。",
+            "Provide and verify by Thursday; unresolved items have blocked status and escalation owners before Friday."
+          ]
+        }
+      ],
+      "result": [
+        "两项依赖都有责任、时限和消费侧证据，后续动作可据此判断。",
+        "Both dependencies have ownership, timing and consumer-side evidence."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "“已开通”邮件就是全部完成证据。",
+        "Treat an enabled email as full readiness."
+      ],
+      "why": [
+        "它不证明所需权限或连通条件。",
+        "It does not establish permissions or connectivity."
+      ],
+      "correct": [
+        "消费方实际核对最小必要动作。",
+        "Have the consumer verify the minimal required action."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "接口负责人说“已准备好”，但没有版本和访问证据，应该？",
+        "An API owner says ready without version or access evidence. What next?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "直接把所有依赖标绿。",
+            "Mark all dependencies green."
+          ],
+          "feedback": [
+            "缺少消费方核对依据。",
+            "Consumer verification is missing."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "取消整个项目。",
+            "Cancel the project."
+          ],
+          "feedback": [
+            "信息不足通常先澄清和升级，不是自动取消。",
+            "Clarify and escalate rather than automatically cancel."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "补接口版本、负责人、最晚时间及受控请求结果，再确认就绪。",
+            "Get version, owner, deadline and a controlled request result before acceptance."
+          ],
+          "feedback": [
+            "把模糊陈述变为可核对条件。",
+            "This converts a vague statement into verifiable readiness."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为一次导入演练列三项外部依赖和就绪证据。",
+        "List three external dependencies and readiness evidence for an import rehearsal."
+      ],
+      "sample": [
+        "可列脱敏输入及字典、测试库与最小权限、业务复核人；各自有提供人、最晚时间和读取/写入/对账的受控结果。",
+        "Examples are synthetic input with dictionary, a test database with minimal rights and a business reviewer; give each provider, deadline and controlled read/write/reconciliation evidence."
+      ],
+      "criteria": [
+        [
+          "责任与验收动作对应。",
+          "Match ownership to acceptance actions."
+        ],
+        [
+          "不以消息状态冒充可用结果。",
+          "Do not confuse a status message with usable evidence."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy"
+    ]
+  },
+  "delivery:environments": {
+    "title": [
+      "环境基线与误写保护",
+      "Environment baselines and write protection"
+    ],
+    "explain": [
+      [
+        "环境不只是页面上的“测试”字样，还包括实际连接目标、配置、依赖版本、凭据、权限和数据来源。测试界面连接生产写库，仍然会修改真实数据；视觉标签不能建立隔离。",
+        "An environment includes actual targets, configuration, dependency versions, credentials, permissions and data origins, not just a test label. A test UI connected to a production writer can still change real data."
+      ],
+      [
+        "隔离最好由多层条件保证：独立资源、独立身份、最小权限和启动校验。记录可复现基线，部署后读取实际生效配置；不要把密钥写进截图、日志或提交文件。",
+        "Use independent resources and identities, minimal rights and startup checks. Record reproducible baselines and inspect effective configuration after deployment, without exposing secrets in screenshots, logs or commits."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "测试页面引用错误数据库",
+        "A test page points to the wrong database"
+      ],
+      "given": [
+        "合成演练中APP_ENV=test，但数据库目标名指向prod-orders，凭据还具有写入权限。",
+        "In a synthetic drill, APP_ENV is test but the database target is prod-orders and credentials can write."
+      ],
+      "steps": [
+        {
+          "title": [
+            "观察实际连接",
+            "Inspect effective targets"
+          ],
+          "detail": [
+            "读取受控配置摘要，比较环境名、主机和库名，不把test变量当唯一依据。",
+            "Compare environment, host and database summaries, not only the test variable."
+          ]
+        },
+        {
+          "title": [
+            "阻断误写",
+            "Block unsafe writes"
+          ],
+          "detail": [
+            "停止该演练写入，改用独立测试库和仅对该库有效的身份；不要拿真实生产写入来“试一下”。",
+            "Stop the drill and use a separate test database and identity rather than trying a production write."
+          ]
+        },
+        {
+          "title": [
+            "复核基线",
+            "Verify the baseline"
+          ],
+          "detail": [
+            "记录修订后的版本、资源标识与权限检查，在自有合成表执行允许动作，并核对该身份不能写其他环境。",
+            "Record revision, resource IDs and rights, exercise an owned synthetic table and verify the identity cannot write elsewhere."
+          ]
+        }
+      ],
+      "result": [
+        "只有实际目标与权限都隔离，测试写入才具备约定边界。",
+        "Isolation requires both the actual target and the identity’s permissions."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "页面有测试水印，所以可放心写库。",
+        "A test watermark makes writes safe."
+      ],
+      "why": [
+        "水印不改变连接与凭据权限。",
+        "A watermark changes neither target nor rights."
+      ],
+      "correct": [
+        "核对生效配置和最小权限，再运行隔离演练。",
+        "Verify effective configuration and minimal permissions before the drill."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "同一身份同时能写测试与生产，怎样降低误操作风险？",
+        "One identity can write both test and production. What reduces accidental-write risk?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "使用不同身份和资源，测试身份无生产写权。",
+            "Separate resources and identities; deny production writes to the test identity."
+          ],
+          "feedback": [
+            "权限层就能阻止一类配置错误。",
+            "Permission boundaries can stop a class of configuration mistakes."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "只把按钮改成绿色。",
+            "Make the button green."
+          ],
+          "feedback": [
+            "颜色不约束数据访问。",
+            "Colour does not restrict data access."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把密钥贴在页面提醒所有人。",
+            "Display credentials on the page."
+          ],
+          "feedback": [
+            "暴露秘密并没有形成隔离。",
+            "This exposes secrets without creating isolation."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为一个仅教学的导入工具写环境启动检查，不使用真实密钥。",
+        "Describe startup checks for a teaching-only importer without real secrets."
+      ],
+      "sample": [
+        "检查允许的测试资源标识、合成数据路径、独立身份权限与工具版本；不符合即拒绝写入。日志只记资源摘要与拒绝原因。",
+        "Check allowed test resources, synthetic input path, dedicated rights and tool version, denying writes on mismatch and logging non-secret summaries."
+      ],
+      "criteria": [
+        [
+          "检查真实生效目标而不只看标签。",
+          "Check actual effective targets, not labels."
+        ],
+        [
+          "凭据与生产写入边界明确。",
+          "Keep credentials and production-write boundaries explicit."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-to-go-live"
+    ]
+  },
+  "delivery:role-matrix": {
+    "title": [
+      "从岗位职责推导允许与拒绝",
+      "Deriving allow and deny rules from roles"
+    ],
+    "explain": [
+      [
+        "权限矩阵把岗位映射到资源与动作。能登录只证明身份入口可用，不能证明能读哪些工单、修改什么字段。把资源归属与允许动作列开，才能发现横向访问和越权写入。",
+        "A permission matrix maps roles to resources and actions. Signing in does not establish which tickets or fields can be accessed. Separate ownership and actions to expose cross-owner reads and unauthorized writes."
+      ],
+      [
+        "验收要同时验证允许与拒绝，且权限有生命周期。临时授权到期、调岗和离岗都可能改变矩阵；界面隐藏入口不能替代服务端逐请求检查。",
+        "Acceptance needs allow and deny evidence plus lifecycle handling. Temporary expiry, role changes and departure affect the matrix; hiding UI controls does not replace server-side request checks."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "客服的工单与付款权限",
+        "Support access to tickets and payments"
+      ],
+      "given": [
+        "教学客服S只能读分配给自己的工单，不能读其他人的工单，也不能修改付款信息。",
+        "Support user S may read assigned tickets, but not others’ tickets or payment information."
+      ],
+      "steps": [
+        {
+          "title": [
+            "写最小矩阵",
+            "Write the matrix"
+          ],
+          "detail": [
+            "列本人工单读取=允许，他人工单读取=拒绝，付款修改=拒绝，避免只有一个“客服权限”勾选框。",
+            "Allow owned-ticket reads, deny others’ reads and deny payment edits instead of one vague support-rights checkbox."
+          ]
+        },
+        {
+          "title": [
+            "准备允许与拒绝样本",
+            "Prepare both sides"
+          ],
+          "detail": [
+            "给S工单T1，给别人T2；以S访问两者，并尝试教学付款修改请求。",
+            "Assign T1 to S and T2 elsewhere, then attempt both reads and a synthetic payment edit as S."
+          ]
+        },
+        {
+          "title": [
+            "核对数据后果",
+            "Verify effects"
+          ],
+          "detail": [
+            "T1可读，T2不返回正文，付款值不变。保留请求身份和资源ID，不公开秘密。",
+            "Read T1, return no T2 body and retain payment values, recording actor and resource identities without secrets."
+          ]
+        }
+      ],
+      "result": [
+        "允许与拒绝都按资源/动作验证，登录成功不再被当作权限完成。",
+        "Both permission outcomes are verified by resource and action, beyond successful sign-in."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "客服能登录，权限验收结束。",
+        "End authorization acceptance after sign-in."
+      ],
+      "why": [
+        "未触及资源与动作边界。",
+        "Resource and action boundaries remain untested."
+      ],
+      "correct": [
+        "使用两名角色或归属样本，验证允许、拒绝及数据不变。",
+        "Use distinct ownership cases and verify allow, deny and unchanged data."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "员工只能读本人报销。哪项最能验证横向权限？",
+        "Employees may read only their own expenses. What tests horizontal authorization?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "本人报销读取成功。",
+            "Read an owned expense successfully."
+          ],
+          "feedback": [
+            "这是允许路径，没测他人资源。",
+            "This covers allow but not another owner."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "用该员工身份请求他人报销ID，应拒绝且不返回正文。",
+            "Request someone else’s expense ID as the employee; deny and return no body."
+          ],
+          "feedback": [
+            "直接验证了对象归属边界。",
+            "This exercises the ownership boundary."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把链接按钮藏起来。",
+            "Hide the link."
+          ],
+          "feedback": [
+            "隐藏不阻止直接请求。",
+            "Hiding does not stop direct requests."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为临时代理审批写允许、拒绝、到期和撤销的验收点。",
+        "Write allow, deny, expiry and revocation checks for delegated approval."
+      ],
+      "sample": [
+        "允许代理在指定期间审批指定范围；拒绝范围外；到期或撤销后同一身份再次请求必须拒绝，核对审批记录未新增。",
+        "Allow defined-scope approval only during the delegation, deny out-of-scope actions and deny again after expiry or revocation without adding approval records."
+      ],
+      "criteria": [
+        [
+          "权限覆盖资源、动作及时间范围。",
+          "Cover resource, action and time."
+        ],
+        [
+          "撤销后实际再请求，而非只改页面状态。",
+          "Recheck requests after revocation, not only the UI."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy"
+    ]
+  },
+  "delivery:migration": {
+    "title": [
+      "字段语义与迁移对账",
+      "Field meaning and migration reconciliation"
+    ],
+    "explain": [
+      [
+        "迁移不是把行数复制过去，而是把来源含义映射到目标含义。主键、单位、日期、枚举和缺失处理都需要明确；源金额为元、目标为分时，数量相等仍可能错一百倍。",
+        "Migration maps source meaning to target meaning, not only row counts. Define keys, units, dates, enums and missing values; matching counts can still hide a hundredfold unit error."
+      ],
+      [
+        "对账把来源集合拆为成功、拒绝和待处理，并检查是否重叠或漏项。失败清单解释差额，但不能替代内容抽查和重跑去重；重跑应知道哪些已成功，而非全部再插入。",
+        "Reconciliation partitions source records into successful, rejected and pending sets, checking overlap and gaps. A failure log explains differences but does not replace content checks or safe reruns."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "三条金额记录的单位迁移",
+        "Migrating three amount records"
+      ],
+      "given": [
+        "目标表初始为空，来源键A/B/C唯一。源A=12元、B=8元、C=3元，目标金额单位为分。A/B客户ID有效，C缺必填客户ID，规则拒绝并留清单；本例无并发写入。",
+        "The target starts empty and source keys A/B/C are unique. A=12 yuan, B=8 and C=3; targets store cents. A/B have valid customer IDs; C lacks its required ID and must be rejected with a record. Concurrent writes are excluded."
+      ],
+      "steps": [
+        {
+          "title": [
+            "明确映射",
+            "Define mapping"
+          ],
+          "detail": [
+            "保留A/B/C来源键，金额乘100；客户ID缺失不编造默认客户。",
+            "Preserve source keys, multiply amounts by 100 and do not invent a customer for missing identity."
+          ]
+        },
+        {
+          "title": [
+            "核对成功与拒绝",
+            "Reconcile"
+          ],
+          "detail": [
+            "成功A1200/B800分，共2条2000分；拒绝C3元。来源3条23元可解释为成功20元加拒绝3元。",
+            "A1200/B800 cents give two rows and 2000 cents; rejected C is 3 yuan. Three source rows and 23 yuan equal 20 successful plus 3 rejected."
+          ]
+        },
+        {
+          "title": [
+            "验证修正重跑",
+            "Verify rerun"
+          ],
+          "detail": [
+            "补齐C后只新增C300分，或按明确幂等键更新；A/B不重复，最终3条2300分。",
+            "After correcting C, add only C300 or apply a defined idempotent update; do not duplicate A/B. The final result is three rows and 2300 cents."
+          ]
+        }
+      ],
+      "result": [
+        "计数、金额、失败身份和重跑结果均可解释，单位没有混用。",
+        "Counts, amounts, failed identity and rerun results reconcile with consistent units."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "目标有3行就宣告迁移成功。",
+        "Declare success because the target has three rows."
+      ],
+      "why": [
+        "行数相同仍可能单位错、键错或重复。",
+        "Equal counts can hide unit, key or duplication errors."
+      ],
+      "correct": [
+        "结合主键集合、业务总量和内容抽样验收。",
+        "Reconcile keys and business totals with content checks."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "源2条合计15元，目标2条合计15分；映射规定元转分。结论是？",
+        "Two source rows total 15 yuan; two target rows total 15 cents. The mapping requires conversion. What follows?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "行数一致，所以通过。",
+            "Pass because counts match."
+          ],
+          "feedback": [
+            "忽略单位。",
+            "This ignores units."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "只差显示格式，不必查。",
+            "It is only formatting."
+          ],
+          "feedback": [
+            "未有证据支持这个解释。",
+            "No evidence supports that explanation."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "金额应1500分，需修正转换并复核内容。",
+            "Expect 1500 cents; fix conversion and recheck contents."
+          ],
+          "feedback": [
+            "使用同一单位后才可正确对账。",
+            "Reconciliation requires consistent units."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "设计一次有失败记录、允许修正重跑的迁移对账。",
+        "Design reconciliation for a migration with rejected records and corrected reruns."
+      ],
+      "sample": [
+        "保存来源键、映射版本和成功/失败集合；把各集合行数、金额统一单位对齐；修正失败后检查新总量与唯一性，保留原批次关系。",
+        "Retain source keys, mapping version and success/failure sets; reconcile counts and amounts in common units, then check totals and uniqueness after correction with batch provenance."
+      ],
+      "criteria": [
+        [
+          "对账能解释差额与来源身份。",
+          "Explain differences and source identity."
+        ],
+        [
+          "重跑不会重复成功项。",
+          "Do not duplicate prior successes."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-to-go-live"
+    ]
+  },
+  "delivery:uat": {
+    "title": [
+      "业务角色的任务验收",
+      "User acceptance through business tasks"
+    ],
+    "explain": [
+      [
+        "用户验收由有代表性的业务角色完成实际任务，判断系统是否适用。技术测试能支持它，却不能替财务、客服或审批人决定业务流程已经满足。验收前应明确任务、输入、期望产物和负责签署的人。",
+        "Representative business users perform actual tasks to judge fitness. Technical testing supports acceptance but cannot make the business decision for finance, support or approvers. Define tasks, inputs, artifacts and accountable acceptance."
+      ],
+      [
+        "演示、参与和批准是不同状态。观看一张成功截图不等于独立操作；完成操作也可能发现剩余风险。分别保留操作证据、缺陷处理和批准结论，不能因为排期已到而自动关闭风险。",
+        "Demonstration, participation and approval are different states. Watching a successful screenshot is not independent use. Preserve task evidence, defects and the acceptance decision separately."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "财务月结任务的用户验收",
+        "Finance acceptance of monthly closing"
+      ],
+      "given": [
+        "合成月账有两部门记录，财务角色需要按月份筛选、对账和导出，不能查看其他授权范围。",
+        "A synthetic monthly ledger has two departments; a finance role must filter, reconcile and export within its permitted scope."
+      ],
+      "steps": [
+        {
+          "title": [
+            "准备任务",
+            "Prepare the task"
+          ],
+          "detail": [
+            "给财务代表一份明确账期和预期记录集合，使用隔离测试账号，不由开发者代替全部操作。",
+            "Give a finance representative the period and expected record set in an isolated account rather than having developers perform every action."
+          ]
+        },
+        {
+          "title": [
+            "由角色实际完成",
+            "Let the role execute"
+          ],
+          "detail": [
+            "筛选账期，核对总额，导出并复查文件；再尝试越权部门，确认不返回其账目。",
+            "Filter the period, reconcile totals, export and inspect the file, then verify denial for an unauthorized department."
+          ]
+        },
+        {
+          "title": [
+            "形成决定",
+            "Make a decision"
+          ],
+          "detail": [
+            "记录实测文件、差异和剩余问题，由业务验收人给出接受、带条件接受或拒绝，不把测试完成等同于批准。",
+            "Retain files, differences and open issues; the business owner accepts, conditionally accepts or rejects rather than equating execution with approval."
+          ]
+        }
+      ],
+      "result": [
+        "用户任务和业务决定都有证据，技术演示没有被冒称UAT。",
+        "User execution and the business decision have evidence; a technical demo is not mislabeled UAT."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "开发者演示导出，直接记录财务已验收。",
+        "A developer demonstrates export and records finance acceptance."
+      ],
+      "why": [
+        "没有财务角色实际使用和批准证据。",
+        "There is no evidence of finance use or approval."
+      ],
+      "correct": [
+        "让代表角色执行任务并单独记录验收结论。",
+        "Have the representative perform the task and record the acceptance decision separately."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "只有签到表和讲解截图，能否说明用户验收完成？",
+        "Do an attendance sheet and presentation screenshots establish user acceptance?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "不能，还需角色实际任务结果和验收决定。",
+            "No; role-specific task results and an acceptance decision are needed."
+          ],
+          "feedback": [
+            "签到说明参与，不能代替实际使用。",
+            "Attendance establishes participation rather than actual use."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "能，参加就代表接受。",
+            "Yes; attendance means acceptance."
+          ],
+          "feedback": [
+            "混淆参与和业务批准。",
+            "This confuses participation with approval."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "能，只要开发者说测试通过。",
+            "Yes, if developers say tests passed."
+          ],
+          "feedback": [
+            "技术测试不替代业务角色决定。",
+            "Technical checks do not replace the business decision."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为客服新建和升级工单写一次UAT任务及证据。",
+        "Design UAT for creating and escalating support tickets."
+      ],
+      "sample": [
+        "给代表客服两个合成情境，让其独立填写、路由和升级；保留工单、错误与处理意见，由指定业务人确认剩余风险和结论。",
+        "Give a support representative two synthetic cases to enter, route and escalate independently, retaining tickets, errors and the business owner’s risk decision."
+      ],
+      "criteria": [
+        [
+          "角色与实际业务任务匹配。",
+          "Match the role to the business task."
+        ],
+        [
+          "操作结果与批准结论分开。",
+          "Separate execution and approval."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy"
+    ]
+  },
+  "delivery:cutover": {
+    "title": [
+      "有顺序与门槛的切换",
+      "Ordered cutover with decision gates"
+    ],
+    "explain": [
+      [
+        "切换把旧系统服务移交到新系统，需要明确顺序、负责人和继续条件。冻结写入、备份、迁移、对账、路由改变与业务验证有依赖，不能只是一张按时间打勾的清单。",
+        "Cutover transfers service from old to new through ordered actions, owners and gates. Write freeze, backup, migration, reconciliation, routing and business verification have dependencies beyond a timed checklist."
+      ],
+      [
+        "回退也有前提。新系统已接受写入后，单纯切回旧地址可能丢失这些新增业务。计划应说明允许回退的时间点、数据如何处理和由谁决定；演练未验证的恢复能力要明确标记。",
+        "Rollback has preconditions. Returning to the old address after new writes can lose those transactions. Specify rollback timing, data handling and decision ownership, leaving unrehearsed recovery explicit."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "对账不符时停止切换",
+        "Stopping cutover on a reconciliation gap"
+      ],
+      "given": [
+        "合成计划：冻结→备份→迁移→对账一致→切路由→业务验证。约定迁移差额必须解释；当前源100笔，目标99笔，缺一笔原因未知。",
+        "Synthetic sequence: freeze, backup, migrate, reconcile, switch, verify. Differences must be explained; source has 100 and target 99, with one unexplained omission."
+      ],
+      "steps": [
+        {
+          "title": [
+            "定位门槛",
+            "Locate the gate"
+          ],
+          "detail": [
+            "对账一致是切路由前条件，99/100不是“差不多完成”。",
+            "Reconciliation precedes routing; 99/100 is not close enough."
+          ]
+        },
+        {
+          "title": [
+            "执行暂停",
+            "Pause"
+          ],
+          "detail": [
+            "保留当前批次和缺失ID，通知决定人；按已演练路径继续旧服务或恢复，而不是临时跳过门槛。",
+            "Preserve batch and missing identity, notify the decision owner, and use the rehearsed old-service or recovery path."
+          ]
+        },
+        {
+          "title": [
+            "重新验证再决定",
+            "Reverify"
+          ],
+          "detail": [
+            "修正后重跑对账与必要业务验证，形成新的go/no-go记录，不能改写第一次失败。",
+            "Reconcile and run necessary business checks after correction, making a new decision without rewriting the initial failure."
+          ]
+        }
+      ],
+      "result": [
+        "未满足门槛时保持可恢复状态，不为准点而隐藏差额。",
+        "Keep a recoverable state when a gate fails rather than hiding differences to meet the clock."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "时间到了，先切路由再找缺失订单。",
+        "Switch on schedule and investigate later."
+      ],
+      "why": [
+        "把用户带到尚未解释的数据状态。",
+        "This exposes users to unexplained data loss."
+      ],
+      "correct": [
+        "按门槛暂停，确认数据与恢复路径后再决定。",
+        "Pause at the gate and decide after data and recovery checks."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "新系统已经接收10笔新单，此时回退旧库最需要核对什么？",
+        "The new system accepted ten orders. What matters most before returning to the old database?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "只看旧首页能否打开。",
+            "Only whether the old homepage opens."
+          ],
+          "feedback": [
+            "没有处理新增业务数据。",
+            "This ignores new transactions."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "十笔新单的保留、对账和补偿方式，以及批准的回退条件。",
+            "Retention, reconciliation and compensation of the ten orders, plus approved rollback conditions."
+          ],
+          "feedback": [
+            "回退需要维持业务一致性，不只是地址可达。",
+            "Rollback must preserve business consistency, not just reachability."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "清空十笔订单。",
+            "Delete the ten orders."
+          ],
+          "feedback": [
+            "未经业务决定删除会造成损失。",
+            "Unapproved deletion loses business records."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为只读报表上线写五个切换步骤和一个暂停门槛。",
+        "Design five cutover steps and one pause gate for a read-only report."
+      ],
+      "sample": [
+        "保存基线与备份、部署候选、同快照对账、切读路由、业务读取验证；若总量不符或权限拒绝失效则暂停，保留旧读取版本。",
+        "Record baseline and backup, deploy candidate, reconcile one snapshot, switch reads and verify business access. Pause on total mismatch or broken denial and retain the old read version."
+      ],
+      "criteria": [
+        [
+          "步骤说明依赖与负责人。",
+          "State dependencies and owners."
+        ],
+        [
+          "门槛有可核对条件和后续动作。",
+          "Give an observable gate and follow-up action."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-to-go-live"
+    ]
+  },
+  "delivery:go-no-go": {
+    "title": [
+      "用门槛作上线决定",
+      "Making a release decision with gates"
+    ],
+    "explain": [
+      [
+        "上线判断依据预先约定的条件和被明确接受的剩余风险，不是只看平均通过率。关键资金或权限问题可能独立阻断，不能被很多低风险用例通过所稀释。",
+        "Release decisions follow pre-agreed gates and explicitly accepted residual risk, not an average pass rate. Critical financial or authorization failures can independently block release."
+      ],
+      [
+        "决策记录需要范围、证据、未决问题、批准人和有效版本。门槛若要改变，应由有权人评估后明确批准，不能在失败后由测试者临时放宽，假装原要求一直满足。",
+        "Record scope, evidence, open issues, authority and version. Changing a gate needs an authorized assessment, not an improvised relaxation after failure."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "98%通过但有重复扣款",
+        "A 98 percent pass rate with duplicate charging"
+      ],
+      "given": [
+        "100条教学用例98通过，其中一条失败是重复扣款。发布门槛要求关键资金缺陷为零。",
+        "Of 100 teaching cases, 98 pass; one failure is duplicate charging. The release gate requires zero critical money defects."
+      ],
+      "steps": [
+        {
+          "title": [
+            "找独立条件",
+            "Find the independent rule"
+          ],
+          "detail": [
+            "关键资金缺陷为零是单独门槛，不是“通过率达到95%”的附属说明。",
+            "Zero critical money defects is a separate gate, not overridden by a pass percentage."
+          ]
+        },
+        {
+          "title": [
+            "对照证据",
+            "Compare evidence"
+          ],
+          "detail": [
+            "重复扣款违反门槛，保留失败输入、请求标识和影响范围；98%无法改变该事实。",
+            "Duplicate charging fails the gate; retain inputs, request IDs and impact. Ninety-eight percent does not change it."
+          ]
+        },
+        {
+          "title": [
+            "给出no-go与下一步",
+            "Decide no-go"
+          ],
+          "detail": [
+            "阻断本候选，指定修复与复验范围；修复后用新运行重新评审，不把旧记录改绿。",
+            "Block this candidate, assign correction and retest scope, then review a new run without turning the old record green."
+          ]
+        }
+      ],
+      "result": [
+        "本候选no-go，原因是独立关键门槛失败。",
+        "This candidate is no-go because an independent critical gate failed."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "98大于95，所以自动上线。",
+        "Release automatically because 98 exceeds 95."
+      ],
+      "why": [
+        "忽视了关键缺陷门槛。",
+        "This ignores the critical-defect gate."
+      ],
+      "correct": [
+        "逐项验证门槛，再记录有权人的决定。",
+        "Evaluate every gate before recording the authorized decision."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "门槛是“恢复演练成功且关键缺陷零”。缺陷零但恢复未演练，正确表述是？",
+        "A gate needs successful recovery rehearsal and zero critical defects. Defects are zero, but recovery is untested. Which statement is correct?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "满足一半就可上线。",
+            "Half the conditions are enough."
+          ],
+          "feedback": [
+            "题目要求两项同时满足。",
+            "Both conditions are required."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "未演练默认成功。",
+            "Untested recovery defaults to passed."
+          ],
+          "feedback": [
+            "把未知冒称已验证。",
+            "This mislabels unknown as verified."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "门槛尚未满足，补演练证据或取得明确批准的规则变更。",
+            "The gate is unmet; obtain rehearsal evidence or an authorized explicit rule change."
+          ],
+          "feedback": [
+            "区分未满足与合法变更，不隐瞒未知。",
+            "This separates unmet criteria from authorized change."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "给一个文件服务拟定三项上线门槛和证据。",
+        "Define three release gates and evidence for a file service."
+      ],
+      "sample": [
+        "例如对象授权允许/拒绝通过、备份恢复演练通过、容量与失败告警可用；每项有版本、输入和结果，未验证项不勾通过。",
+        "Examples are object allow/deny checks, recovery rehearsal and capacity/failure alerting, each tied to a version, input and result, without passing unverified items."
+      ],
+      "criteria": [
+        [
+          "条件能独立核对。",
+          "Make each gate independently verifiable."
+        ],
+        [
+          "决策身份与剩余风险明确。",
+          "Record authority and remaining risk."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-to-go-live"
+    ]
+  },
+  "delivery:role-training": {
+    "title": [
+      "从演示到独立完成任务",
+      "From demonstration to independent performance"
+    ],
+    "explain": [
+      [
+        "角色培训以用户要完成的工作为单位，而不是只介绍每个按钮。先教普通情况，再解释异常与升级，再让学习者在不同输入下独立完成，才能看到是否会使用。",
+        "Role training follows real tasks rather than a tour of buttons. Demonstrate ordinary work, explain exceptions and escalation, then ask learners to complete a different case independently."
+      ],
+      [
+        "签到和观看不等于学会。应记录独立产物、关键遗漏和复训方向；一次教学情境成功也不代表所有真实业务都已掌握。培训资料需要与实际版本和角色权限一致。",
+        "Attendance and watching do not establish learning. Record independent artifacts, omissions and retraining needs, without generalizing one teaching success to all real work. Materials must match the deployed version and role."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "客服工单的示范与迁移",
+        "Support-ticket demonstration and transfer"
+      ],
+      "given": [
+        "合成规则：普通咨询进入一般队列；疑似账户盗用需升级安全专员，不在聊天中索要密码。",
+        "Synthetic rule: ordinary questions enter general support; suspected account takeover escalates to security, without requesting passwords in chat."
+      ],
+      "steps": [
+        {
+          "title": [
+            "示范普通任务",
+            "Demonstrate ordinary work"
+          ],
+          "detail": [
+            "教师完成咨询工单，解释主题、必要事实、队列和反馈，让学员看见结果怎样形成。",
+            "Create an inquiry ticket and explain subject, necessary facts, queue and feedback."
+          ]
+        },
+        {
+          "title": [
+            "示范异常判断",
+            "Demonstrate an exception"
+          ],
+          "detail": [
+            "账户疑似盗用改走安全升级，解释为何不按普通咨询关闭，也不收集密码。",
+            "Escalate suspected takeover, explaining why not to close it as routine or collect passwords."
+          ]
+        },
+        {
+          "title": [
+            "给不同输入独立做",
+            "Transfer independently"
+          ],
+          "detail": [
+            "学员处理“非本人登录提醒”，保存工单与升级依据；教师核对错误并给具体复训点，不只记到场。",
+            "Have the learner handle an unrecognized-login case, retain the ticket and escalation rationale, and review specific omissions."
+          ]
+        }
+      ],
+      "result": [
+        "培训结果来自独立任务与纠错，非签到表。",
+        "Training evidence comes from independent work and corrections, not attendance."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "讲过所有按钮就算熟练。",
+        "Treat a tour of buttons as proficiency."
+      ],
+      "why": [
+        "没有观察实际任务与异常判断。",
+        "No task or exception judgement was observed."
+      ],
+      "correct": [
+        "示范后给新情境，再依据产物反馈。",
+        "Use a new scenario after demonstration and give artifact-based feedback."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "怎样检验客服是否学会升级高风险工单？",
+        "How should escalation learning be checked?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "给未演示过的合成情境，让其独立分类并说明升级依据。",
+            "Give a new synthetic case for independent classification and escalation rationale."
+          ],
+          "feedback": [
+            "观察迁移判断，而非记忆点击顺序。",
+            "This observes transfer rather than memorized clicks."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "统计课件页数。",
+            "Count slide pages."
+          ],
+          "feedback": [
+            "材料数量不等于学习结果。",
+            "Material volume is not learning evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "只要求签名。",
+            "Require only a signature."
+          ],
+          "feedback": [
+            "签名只证明确认或参与。",
+            "A signature establishes acknowledgement or attendance."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为财务导出对账设计示范、新情境与反馈点。",
+        "Design demonstration, transfer and feedback for financial export reconciliation."
+      ],
+      "sample": [
+        "先示范一个月账期筛选与对账，再给另一账期含缺项的合成数据；核对筛选、单位、缺项记录与结论，针对遗漏要求重做。",
+        "Demonstrate one period, then give another with missing records; review filters, units, missing-item log and conclusion, requiring correction of omissions."
+      ],
+      "criteria": [
+        [
+          "新情境不只是重复教师输入。",
+          "Use genuinely different input."
+        ],
+        [
+          "反馈指向实际错误与修正动作。",
+          "Tie feedback to actual errors and corrections."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/change-management-transition-handover"
+    ]
+  },
+  "delivery:support-triage": {
+    "title": [
+      "按业务影响进行支持分诊",
+      "Support triage by business impact"
+    ],
+    "explain": [
+      [
+        "分诊先确认受影响的人、关键任务、起始时间、范围和绕过方案，再按服务约定安排。页面报错醒目不一定最严重，外观很小的问题也可能阻断业务；需要事实而非截图印象。",
+        "Triage establishes affected users, critical tasks, onset, reach and workarounds before applying service priorities. Visual severity is not business impact; use facts rather than screenshot appearance."
+      ],
+      [
+        "分诊不是立即猜根因。先保存请求或事件标识、版本与复现条件，采取获准的临时措施，并分配升级责任。沟通应说明已知、未知和下一次更新，不承诺未经确认的恢复时间。",
+        "Triage is not immediate root-cause guessing. Preserve identities, versions and conditions, apply approved mitigations and assign escalation. Communicate knowns, unknowns and the next update without inventing restoration times."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "全面不能提交与单人错位",
+        "Submission outage versus one-user misalignment"
+      ],
+      "given": [
+        "事件A：全部测试用户无法提交订单且无绕过；事件B：一名用户的帮助图标错位，核心任务仍可完成。",
+        "A affects all test users’ order submission with no workaround; B misaligns a help icon for one user without blocking tasks."
+      ],
+      "steps": [
+        {
+          "title": [
+            "确认影响",
+            "Confirm impact"
+          ],
+          "detail": [
+            "核对A的失败请求、开始时间与角色范围；B记录设备和是否影响操作，不从标题猜严重度。",
+            "Verify A’s failed requests, onset and roles; record B’s device and usability rather than guessing severity."
+          ]
+        },
+        {
+          "title": [
+            "按约定分派",
+            "Apply policy"
+          ],
+          "detail": [
+            "在本例任务阻断优先的规则下，先升级A并通知负责人，B进入普通修复队列。",
+            "Under the teaching rule prioritizing blocked tasks, escalate A and queue B for ordinary correction."
+          ]
+        },
+        {
+          "title": [
+            "建立沟通闭环",
+            "Close the loop"
+          ],
+          "detail": [
+            "给A保留事件ID、当前状态和下次更新时间；恢复后由业务提交复验，不仅看服务器进程存活。",
+            "Track A’s incident ID, status and next update; verify business submission after recovery, not just process health."
+          ]
+        }
+      ],
+      "result": [
+        "优先级来自影响与约定，恢复结论来自业务复验。",
+        "Priority follows impact and policy; recovery follows business verification."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "错误图标最红，所以先处理图标。",
+        "Prioritize the reddest error icon."
+      ],
+      "why": [
+        "视觉外观不能代替业务影响。",
+        "Appearance does not establish business impact."
+      ],
+      "correct": [
+        "先核任务阻断范围、绕过和服务约定。",
+        "Check blockage, reach, workaround and service policy."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "一个人无法下载唯一月结文件且无绕过，另有全员非阻断提示错字。哪种判断合理？",
+        "One person cannot download the only closing file with no workaround; everyone sees a non-blocking typo. Which is reasonable?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "人数多的错字一定更严重。",
+            "The typo must be worse because it affects more people."
+          ],
+          "feedback": [
+            "忽略任务关键性和绕过。",
+            "This ignores criticality and workarounds."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "结合关键业务期限、影响与约定评估，不能只按人数。",
+            "Assess business deadline, impact and policy, not headcount alone."
+          ],
+          "feedback": [
+            "分诊是多维事实判断。",
+            "Triage uses multiple impact dimensions."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "不需要记录，等用户再催。",
+            "Record nothing and wait for a reminder."
+          ],
+          "feedback": [
+            "缺失责任与更新机制。",
+            "This loses ownership and updates."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "写一份“无法导入客户数据”的初步分诊记录。",
+        "Write initial triage for a customer-data import failure."
+      ],
+      "sample": [
+        "记录版本、批次、失败时间、影响用户和业务期限，是否所有行或特定格式、已有绕过、证据ID；分配升级人与更新时间，根因暂未知。",
+        "Record version, batch, time, users, deadline, affected formats, workarounds and evidence IDs, assigning escalation and update time while leaving cause unresolved."
+      ],
+      "criteria": [
+        [
+          "事实、假设与未知分开。",
+          "Separate facts, hypotheses and unknowns."
+        ],
+        [
+          "有负责人与复验/沟通下一步。",
+          "Assign ownership and recheck or update actions."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/change-management-transition-handover"
+    ]
+  },
+  "delivery:handoff": {
+    "title": [
+      "让接收方真正能够接手",
+      "Making handover usable by the receiver"
+    ],
+    "explain": [
+      [
+        "交接完成不等于发送一份文档。接收方需要理解系统边界、访问入口、日常动作、故障处理、恢复及升级责任，并在受控环境中做得出来。资料存在和接手能力是不同证据。",
+        "Handover is more than sending a document. The receiver needs boundaries, access, routine work, incident handling, recovery and escalation, and must exercise them in a controlled setting. Document existence and operational readiness differ."
+      ],
+      [
+        "交接包应绑定版本和责任，记录未验证项及有效期限。恢复手册若没演练，应标未验证；接收方没有必要权限时不能靠“已发送邮件”宣布关闭。秘密通过获准渠道管理，不能塞进手册。",
+        "Tie materials to versions and owners, recording unverified areas and expiry. Unrehearsed recovery stays unverified; missing access prevents closure. Manage secrets through approved channels rather than manuals."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "备份手册缺负责人",
+        "A backup manual without an owner"
+      ],
+      "given": [
+        "合成交付包有操作手册与备份路径，但未指定恢复负责人，也没有恢复演练结果。",
+        "A synthetic delivery pack includes a manual and backup path but no recovery owner or rehearsal evidence."
+      ],
+      "steps": [
+        {
+          "title": [
+            "列接收任务",
+            "List receiver tasks"
+          ],
+          "detail": [
+            "支持方需找到备份、获得最小权限、在隔离环境恢复并核对业务记录。",
+            "Locate the backup, obtain minimal access, restore in isolation and reconcile business records."
+          ]
+        },
+        {
+          "title": [
+            "补责任与证据",
+            "Add ownership and evidence"
+          ],
+          "detail": [
+            "指定恢复执行人、批准人和升级入口，做受控演练并保存版本、输入与结果。",
+            "Assign execution, approval and escalation, then record a controlled rehearsal with version, input and result."
+          ]
+        },
+        {
+          "title": [
+            "由接收方确认",
+            "Obtain receiver acceptance"
+          ],
+          "detail": [
+            "支持方按入口实际操作并确认；未演练或缺权限的项列待办，不能被文档数量抵消。",
+            "Have support use the documented entry points; retain untested or inaccessible items as open work."
+          ]
+        }
+      ],
+      "result": [
+        "交接以接收方可执行任务和确认记录收口，而非附件发送成功。",
+        "Handover closes on executable receiver tasks and acceptance, not email delivery."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "手册已发，恢复能力已交付。",
+        "A sent manual establishes recovery capability."
+      ],
+      "why": [
+        "没有恢复执行、权限与结果证据。",
+        "Execution, access and result evidence are missing."
+      ],
+      "correct": [
+        "接收方在隔离环境验证关键操作，再明确未完成项。",
+        "Have the receiver verify critical actions in isolation and retain open work."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "交接方有恢复截图，接收方却无权限，应该怎样记录？",
+        "The sender has restore screenshots but the receiver lacks access. How should this be recorded?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "截图存在就关闭。",
+            "Close because screenshots exist."
+          ],
+          "feedback": [
+            "截图不证明接收方可执行。",
+            "Screenshots do not establish receiver capability."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "把管理员密码写入公共手册。",
+            "Put an admin password in the public manual."
+          ],
+          "feedback": [
+            "暴露秘密并绕过权限管理。",
+            "This exposes a secret and bypasses access management."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "权限未就绪，指定负责人按流程开通并由接收方复验。",
+            "Access is pending; assign an owner and have the receiver recheck after approved provisioning."
+          ],
+          "feedback": [
+            "明确真实状态与安全的完成路径。",
+            "This records reality and a legitimate completion path."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "设计一份支持交接清单，至少有三个接收方实际验证动作。",
+        "Design a support handover with three receiver-executed checks."
+      ],
+      "sample": [
+        "可包括登录并查看服务状态、处理一个合成故障、恢复并对账；每项写版本、权限、执行人、结果与未完成项，不记录明文秘密。",
+        "Include sign-in and service inspection, a synthetic incident, and restore/reconciliation, recording version, access, actor, result and open items without plaintext secrets."
+      ],
+      "criteria": [
+        [
+          "清单项是接收方能执行的动作。",
+          "Use receiver-executable actions."
+        ],
+        [
+          "未知、未演练与已验证状态清楚。",
+          "Distinguish unknown, untested and verified states."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/change-management-transition-handover"
+    ]
+  }
+}

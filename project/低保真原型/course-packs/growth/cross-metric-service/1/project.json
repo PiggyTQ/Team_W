@@ -1,0 +1,237 @@
+{
+  "id": "cross-metric-service",
+  "version": 1,
+  "legacy": false,
+  "career": "engineering",
+  "relatedCareers": [
+    "data",
+    "backend",
+    "testing"
+  ],
+  "level": "integrated",
+  "kind": "cross-career",
+  "title": {
+    "zh": "指标与数据服务交付",
+    "en": "Metric service collaboration"
+  },
+  "next": [],
+  "prior": null,
+  "adapter": "data",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "dataset-grain"
+  ],
+  "brief": {
+    "zh": "以数据工程、接口和分析角色轮换交付指标服务。从订单与分次支付模型到接口金额和使用方简报逐层对账，把一对多放大金额的问题反馈到上游并复验。",
+    "en": "Rotate data engineering, API and analysis roles. Reconcile a payment fan-out defect across the model, service totals and consumer report."
+  },
+  "outputs": {
+    "zh": [
+      "数据契约与可复算模型/接口",
+      "报告、差异和发布交接"
+    ],
+    "en": [
+      "Data model",
+      "fixed metric response",
+      "reconciliation and feedback revision"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "明细/模型/接口/报告的口径及汇总一致",
+      "改字段后旧输出不得无提示误用"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "An inflated order amount must be traced to the one-to-many join. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "订单与支付一对多放大金额，应能定位到来源与模型",
+    "en": "An inflated order amount must be traced to the one-to-many join."
+  },
+  "review": {
+    "zh": [
+      "交接是否可执行，反馈/修改是否有依据",
+      "模拟角色如实标注，本人贡献与责任不混淆"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "以数据工程、接口和分析角色轮换交付指标服务。从订单与分次支付模型到接口金额和使用方简报逐层对账，把一对多放大金额的问题反馈到上游并复验。",
+      "订单与支付一对多放大金额，应能定位到来源与模型；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Rotate data engineering, API and analysis roles.",
+      "Reproduce this failure first: An inflated order amount must be traced to the one-to-many join.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "订单与支付一对多放大金额，应能定位到来源与模型",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [
+    {
+      "role": "数据工程",
+      "produces": "字段/粒度/更新契约与模型",
+      "consumedBy": "分析/后端",
+      "requiredOutput": "stage-1.json",
+      "inputDigest": "2009748b073beccfccc2275a54a0eda47113ff4b9bdc350a4cfaa276f1894173",
+      "expectedOutputDigest": "afe35e0e0bcb69fad3556aaad4de3dc0ef80074da4fb12c57e610b53b7bc0237",
+      "canonicalOutputDigest": "1630c226a363694f72cfb3605f71e677855114ff92c4d17627288a46420b899e",
+      "feedbackCode": "cross-metric-service-stage-1",
+      "roleLabel": {
+        "zh": "数据工程",
+        "en": "Data engineering"
+      },
+      "receiverLabel": {
+        "zh": "分析/后端",
+        "en": "Analysis and backend"
+      }
+    },
+    {
+      "role": "后端",
+      "produces": "指标服务或固定结果接口",
+      "consumedBy": "分析/测试",
+      "requiredOutput": "stage-2.json",
+      "inputDigest": "fef9ebf4b6be674aee6df26decf0e11f9eb1663bb473316cdbb7a29c5d44e4c3",
+      "expectedOutputDigest": "b9b2230e9b14e18f69047ef180a85d9abdc6b5bbec32cd4aceeabd44474057a9",
+      "canonicalOutputDigest": "4bd19d9d822ff83d9ad6b6c28886652b55228959ac53fe75a501cb0ad2899cca",
+      "feedbackCode": "cross-metric-service-stage-2",
+      "roleLabel": {
+        "zh": "后端",
+        "en": "Backend"
+      },
+      "receiverLabel": {
+        "zh": "分析/测试",
+        "en": "Analysis and testing"
+      }
+    },
+    {
+      "role": "分析/测试",
+      "produces": "对账、报告与变更反馈",
+      "consumedBy": "数据提供者",
+      "requiredOutput": "stage-3.json",
+      "inputDigest": "e986a836cedc634ab635da3eab5a91058abbe800241e4fce165f53cc2f1064cb",
+      "expectedOutputDigest": "3c248954cbc42f3b0964f3fce16c1147cd61e539dc94c4e873519132f1e118ff",
+      "canonicalOutputDigest": "d8d96e1987a46cd7bfc7c5869e36687610168e9d397e4a790fd4d537aa187100",
+      "feedbackCode": "cross-metric-service-stage-3",
+      "roleLabel": {
+        "zh": "分析/测试",
+        "en": "Analysis and testing"
+      },
+      "receiverLabel": {
+        "zh": "数据提供者",
+        "en": "Data provider"
+      }
+    }
+  ],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "query.sql",
+    "handoff.json",
+    "stage-1.json",
+    "stage-2.json",
+    "stage-3.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "engineering",
+      "branch": "modeling",
+      "skill": "dataset-grain",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "data",
+      "branch": "metrics",
+      "skill": "sql-joins",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "backend",
+      "branch": "api",
+      "skill": "api-contract",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "testing",
+      "branch": "defects",
+      "skill": "retest-regression",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "边界预期由需求计算",
+    "缺陷步骤能在给定版本重现"
+  ],
+  "open": [
+    {
+      "criterion": "风险和需求追溯",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "严重程度与修复优先级",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

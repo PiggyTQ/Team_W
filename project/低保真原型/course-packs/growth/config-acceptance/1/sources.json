@@ -1,0 +1,90 @@
+{
+  "publisher": "Avemly project authors",
+  "kind": "original-synthetic",
+  "license": "Original locally authored teaching inputs and code. Local Avemly practice use. Public redistribution policy requires owner decision.",
+  "copyright": "Avemly project authors",
+  "thirdPartyMaterialCopied": false,
+  "seed": 20261126,
+  "generator": "scripts/author-practice-growth.py; scripts/freeze-practice-growth.mjs",
+  "upstreamCandidatesAdopted": false,
+  "methodReferencesAreLinks": true,
+  "createdAt": "2026-11-26",
+  "review": {
+    "technical": "reference_and_counterexample_executed",
+    "domain": "not_performed",
+    "learnerPilot": "not_performed"
+  },
+  "ownerRole": "practice-content-editor",
+  "assignedPerson": null,
+  "sources": [
+    {
+      "sourceId": "avemly-original-config-acceptance",
+      "publisher": "Avemly / AI-assisted local authorship",
+      "title": "Configuration and acceptance",
+      "originalUrl": null,
+      "actualFileUrl": null,
+      "materialType": "original-synthetic",
+      "readFiles": [
+        "input/fixture.json",
+        "input/dictionary.md",
+        "reference/solution.mjs"
+      ],
+      "supports": "The bounded teaching contract and fixed regression inputs",
+      "doesNotSupport": "Real corporate provenance, professional certification or independent learner mastery",
+      "region": "Synthetic local teaching context",
+      "upstreamVersion": "1",
+      "originalDate": "2026-11-26",
+      "reviewedAt": "2026-11-26T04:30:59.273Z",
+      "license": "Local practice materials; public redistribution policy pending owner review",
+      "licenseUrl": null,
+      "applicableFiles": [
+        "input/",
+        "reference/",
+        "starter/"
+      ],
+      "notice": "Original synthetic teaching materials; AI-assisted authorship; no third-party material copied",
+      "modifications": "Authored for this practice; see CHANGELOG.md",
+      "thirdPartyExceptions": [],
+      "canCache": true,
+      "canAdapt": "within local practice",
+      "canRedistribute": false
+    }
+  ],
+  "methodReferences": [],
+  "materialRecords": [
+    {
+      "projectId": "config-acceptance",
+      "version": 1,
+      "path": "input/fixture.json",
+      "originalFilename": "fixture.json",
+      "format": ".json",
+      "encoding": "UTF-8",
+      "bytes": 508,
+      "sha256": "222fa3ca9313d9c4a55670828b148a5eeb08df538422330c214bed1db34d6fd1",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    },
+    {
+      "projectId": "config-acceptance",
+      "version": 1,
+      "path": "input/dictionary.md",
+      "originalFilename": "dictionary.md",
+      "format": ".md",
+      "encoding": "UTF-8",
+      "bytes": 1262,
+      "sha256": "a86a329869cb2b607978a65a53c0a0f918459ce4d92117b0016e438faa7f5e9d",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    }
+  ]
+}

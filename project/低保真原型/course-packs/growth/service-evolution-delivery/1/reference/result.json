@@ -1,0 +1,39 @@
+{
+  "v1": [
+    {
+      "id": "L1",
+      "total": 120.99
+    },
+    {
+      "id": "L2",
+      "total": 0
+    },
+    {
+      "id": "L3",
+      "total": 8.01
+    }
+  ],
+  "v2": [
+    {
+      "id": "L1",
+      "totalCents": 12099,
+      "currency": "CNY"
+    },
+    {
+      "id": "L2",
+      "totalCents": 0,
+      "currency": "CNY"
+    },
+    {
+      "id": "L3",
+      "totalCents": 801,
+      "currency": "CNY"
+    }
+  ],
+  "preservedIds": [
+    "L1",
+    "L2",
+    "L3"
+  ],
+  "invalid": []
+}

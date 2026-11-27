@@ -1,0 +1,7 @@
+{
+  "files": {
+    "result.json": "{\n  \"releaseAllowed\": false,\n  \"failed\": [\n    \"permissions\"\n  ],\n  \"unexecuted\": [\n    \"keyboard\"\n  ],\n  \"authority\": \"release_owner\"\n}",
+    "notes.md": "# Release risk review\n\nA release owner needs a decision from critical failures, passed tests and unexecuted scope. Identify blockers separately from optional checks.\n\n## Input and contract\ninput/fixture.json; input/dictionary.md; project version 1\n\n## Finding and reproducible output\n```json\n{\n  \"releaseAllowed\": false,\n  \"failed\": [\n    \"permissions\"\n  ],\n  \"unexecuted\": [\n    \"keyboard\"\n  ],\n  \"authority\": \"release_owner\"\n}\n```\n\n## Failure prevented\nA required unexecuted test cannot be counted as passed.\n\n## Decision and limits\nAccept only the specified result set. Escalate a missing identity, permission, business probe or required not-run item. This is an original synthetic teaching reference, not evidence of learner execution or real employment.\n\n## Contribution and handoff\nReference authored with AI assistance for Avemly. The learner must replace this attribution with their own factual contribution; review open criteria before archiving.",
+    "solution.mjs": "import {runScenario} from './model.mjs';\nexport const solve=input=>runScenario(\"release-risk-review\",input);\n"
+  }
+}

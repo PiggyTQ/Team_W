@@ -1,0 +1,92 @@
+{
+  "identity": {
+    "parentProject": "alert-rule-regression",
+    "parentVersion": 1,
+    "id": "rules-2",
+    "seed": 2,
+    "ruleVersion": 1,
+    "checker": "growth-rules-1",
+    "inputDigest": "00e696b8dea3bfbd78bd41995edb237016df5d36fcff2d8717cd431f5f33074f",
+    "expectedDigest": "70a1b07f54d55657cf31624a214a673cf132711522e8ed7ba2fd8e59f3c69720",
+    "rubricDigest": "14341c25843f6224089b56987e2810b4f94d7db0963afd60e2ed904e1454cf76",
+    "independence": "Controlled public teaching extension; not an unseen mastery assessment"
+  },
+  "input": {
+    "rule": {
+      "threshold": 0.02,
+      "for": 2,
+      "minRequests": 100,
+      "label": "registration"
+    },
+    "windows": [
+      {
+        "minute": 1,
+        "requests": 100,
+        "errors": 4
+      },
+      {
+        "minute": 2,
+        "requests": 100,
+        "errors": 4
+      },
+      {
+        "minute": 3,
+        "requests": 100,
+        "errors": 0
+      },
+      {
+        "minute": 4,
+        "requests": 100,
+        "errors": 0
+      },
+      {
+        "minute": 5,
+        "requests": 100,
+        "errors": 0
+      },
+      {
+        "minute": 6,
+        "requests": 100,
+        "errors": 0
+      }
+    ]
+  },
+  "expected": [
+    {
+      "minute": 1,
+      "rate": 0.04,
+      "firing": false,
+      "label": "registration"
+    },
+    {
+      "minute": 2,
+      "rate": 0.04,
+      "firing": true,
+      "label": "registration"
+    },
+    {
+      "minute": 3,
+      "rate": 0,
+      "firing": false,
+      "label": "registration"
+    },
+    {
+      "minute": 4,
+      "rate": 0,
+      "firing": false,
+      "label": "registration"
+    },
+    {
+      "minute": 5,
+      "rate": 0,
+      "firing": false,
+      "label": "registration"
+    },
+    {
+      "minute": 6,
+      "rate": 0,
+      "firing": false,
+      "label": "registration"
+    }
+  ]
+}

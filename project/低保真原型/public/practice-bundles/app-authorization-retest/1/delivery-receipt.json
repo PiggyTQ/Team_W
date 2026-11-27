@@ -1,0 +1,17 @@
+{
+  "projectId": "app-authorization-retest",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "1072dfaa5c163e2eec5175a3dc553d72325a5228967626ad948f93f5b0ee6c26",
+  "bytes": 46344,
+  "files": 31,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"app-authorization-retest\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.300Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

@@ -1,0 +1,36 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "工程/运维",
+  "to": "测试/业务",
+  "content": "迁移结果、对账、增量和回退边界",
+  "payload": {
+    "normalized": [
+      {
+        "id": "U1",
+        "email": "alice@example.invalid",
+        "status": "active"
+      },
+      {
+        "id": "U2",
+        "email": "bob@example.invalid",
+        "status": "pending"
+      }
+    ],
+    "differences": [
+      "U2"
+    ],
+    "preserve": [
+      "U3"
+    ],
+    "unresolvedContractDefect": "A rollback that discards the new records must be blocked."
+  },
+  "consumerFeedback": {
+    "code": "cross-migration-launch-stage-2",
+    "issue": {
+      "zh": "行数相同但状态映射错误或回退丢新增记录应阻断",
+      "en": "A rollback that discards the new records must be blocked."
+    }
+  },
+  "requiredRevision": 2
+}

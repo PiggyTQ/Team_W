@@ -1,0 +1,32 @@
+{
+  "mode": "single-person role rotation with original prefabricated teaching artifacts",
+  "stages": [
+    {
+      "role": "数据工程",
+      "produces": "字段/粒度/更新契约与模型",
+      "consumedBy": "分析/后端",
+      "artifact": "handoff-1.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "后端",
+      "produces": "指标服务或固定结果接口",
+      "consumedBy": "分析/测试",
+      "artifact": "handoff-2.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "分析/测试",
+      "produces": "对账、报告与变更反馈",
+      "consumedBy": "数据提供者",
+      "artifact": "handoff-3.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    }
+  ]
+}

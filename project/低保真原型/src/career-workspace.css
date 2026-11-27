@@ -1,0 +1,46 @@
+/* Explicit alignment replaces the shell's heading + sibling navigation guesses. */
+html body #root#root#root#root#root #main .page-surface:has(> .career-workspace) {
+ display:block;
+ & > .career-workspace{width:100%;max-width:1440px;min-width:0;margin-inline:auto;}
+ & .career-workspace-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 25px;min-height:54px;}
+ & .career-workspace-heading.without-heading{justify-content:flex-end;margin-bottom:10px;}
+ & .career-workspace-title{min-width:0;flex:1;}
+ & .career-workspace-title .screen-heading{display:block;margin:0;padding:0;}
+ & .career-workspace-title h1{font-size:30px;line-height:1.35;color:#103f6b;margin:0;max-width:30ch;}
+ & .career-workspace-title .screen-heading p{font-size:14px;line-height:1.65;max-width:66ch;margin:9px 0 0;}
+ & .career-workspace-modes{position:static;flex:none;min-width:0;margin-left:auto;}
+ & .career-workspace-modes > .tabs{position:relative;inset:auto;float:none;display:inline-flex;width:auto;max-width:none;min-width:0;margin:0;padding:5px;gap:3px;align-items:center;justify-content:flex-end;}
+ & .career-workspace-modes > .tabs > a{min-width:0;white-space:nowrap;font-size:14px;line-height:1.5;padding:11px 14px;}
+ & .career-workspace-content{min-width:0;width:100%;}
+ & .career-workspace-content > :is(.career-reading,.career-comparison-page,.career-jobs-experience,.opportunity-start,.opportunities-layout,.opportunity-toolbar,.personal-opportunity-summary){width:100%;max-width:none;margin-inline:0;box-sizing:border-box;}
+ & .career-workspace-content .career-comparison-heading{justify-content:flex-end;margin:0 0 15px;}
+ & .career-workspace-content .career-comparison-heading > button{min-height:40px;}
+}
+/* Use the space left by navigation, rather than the viewport, to place modes. */
+@container workspace (max-width:900px) {
+ html body #root#root#root#root#root #main .page-surface:has(> .career-workspace) {
+  & .career-workspace-heading {display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start;}
+  & .career-workspace-modes {width:100%;max-width:100%;margin-left:0;}
+  & .career-workspace-modes > .tabs {display:flex;width:fit-content;max-width:100%;box-sizing:border-box;justify-content:flex-start;flex-wrap:wrap;}
+  & .career-workspace-modes > .tabs > a {white-space:normal;text-align:center;}
+  & .explore-layout {grid-template-columns:minmax(0,1fr);gap:20px;}
+  & .occupation-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  & .occupation-actions {flex-wrap:wrap;}
+ }
+ @media(min-width:721px) {
+  html body #root#root#root#root#root #main .page-surface:has(> .career-workspace) .explore-filter {
+   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:20px 24px;
+   & > :is(h2,fieldset,p) {grid-column:1/-1;max-width:none;margin:0;}
+   & > .field {margin:0;min-width:0;}
+   & > .field > span {max-width:none;margin-bottom:8px;}
+   & > fieldset {display:flex;flex-wrap:wrap;column-gap:20px;row-gap:4px;}
+   & > fieldset > .check {flex:1 1 180px;}
+  }
+ }
+}
+@container workspace (max-width:640px) {
+ html body #root#root#root#root#root #main .page-surface:has(> .career-workspace) {
+  & .career-workspace-modes > .tabs {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;}
+  & .occupation-grid {grid-template-columns:minmax(0,1fr);}
+ }
+}

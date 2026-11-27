@@ -1,0 +1,41 @@
+{
+  "mode": "single-person role rotation with original prefabricated teaching artifacts",
+  "stages": [
+    {
+      "role": "需求/实施",
+      "produces": "业务流程、权限和验收",
+      "consumedBy": "后端/前端/测试",
+      "artifact": "handoff-1.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "后端",
+      "produces": "版本化接口和错误契约",
+      "consumedBy": "前端/测试",
+      "artifact": "handoff-2.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "前端",
+      "produces": "可操作界面与状态",
+      "consumedBy": "测试/实施",
+      "artifact": "handoff-3.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "测试/实施",
+      "produces": "缺陷、修订验收与交接",
+      "consumedBy": "相关实现者",
+      "artifact": "handoff-4.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    }
+  ]
+}

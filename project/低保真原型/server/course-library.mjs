@@ -108,7 +108,7 @@ export function importCoursePack(db,packRoot,{now=Date.now}={}){
     db.exec('COMMIT');return {imported,unchanged:4-imported,packHash};
   }catch(error){db.exec('ROLLBACK');throw error;}
 }
-export function createCourseLibrary(db){
+export function createCourseLibrary(db,{allowLocalTrials=false}={}){
   const availability=()=>db.prepare("SELECT count(*) count,sum(CASE WHEN status='published' THEN 1 ELSE 0 END) published FROM courses").get();
   function course(id,requestedVersion){
     const base=db.prepare('SELECT * FROM courses WHERE id=?').get(id);if(!base)throw fail('NOT_FOUND',404);
@@ -116,21 +116,29 @@ export function createCourseLibrary(db){
     if(!Number.isInteger(version)||version<1)throw fail('INVALID_COURSE_VERSION');
     const material=db.prepare('SELECT * FROM course_versions WHERE course_id=? AND version=?').get(id,version);
     if(!material){if(base.status==='published'||requestedVersion!==undefined)throw fail('COURSE_VERSION_UNAVAILABLE',404);return {...base,chapters:db.prepare('SELECT id,ordinal,title,status,body FROM course_chapters WHERE course_id=? ORDER BY ordinal').all(id),videos:db.prepare('SELECT id,kind,url,duration_seconds,status FROM course_media WHERE course_id=?').all(id),assets:[]};}
-    const {project,title,...metadata}=parse(material);
-    return {...base,title:title||base.title,status:'published',content_version:version,packHash:material.pack_hash,overview:material.overview_md,practice:material.task_md,rubric:material.rubric_md,reference:material.reference_md,metadata,...(project?{project}:{}),chapters:db.prepare('SELECT id,ordinal,title,body FROM course_chapter_versions WHERE course_id=? AND version=? ORDER BY ordinal').all(id,version).map(ch=>({...ch,status:'published'})),videos:db.prepare('SELECT metadata_json FROM course_video_versions WHERE course_id=? AND version=? ORDER BY id').all(id,version).map(row=>({...parse(row),kind:'video',status:'external_reference',url:parse(row).source_url})),assets:db.prepare('SELECT id,relative_path,filename,role,mime,sha256,bytes FROM course_assets WHERE course_id=? AND version=? ORDER BY role,relative_path').all(id,version).map(a=>({...a,url:`/api/catalog/courses/${id}/assets/${version}/${a.id}`}))};
+    const {project,growth,title,...metadata}=parse(material);
+    const retainedLegacyVersion=['quality','ai-eval','log','restore'].includes(id)&&version<=2&&version<base.content_version;
+    const state = base.status==='retired'?'retired':retainedLegacyVersion?'published':base.status==='published'?'published':metadata.localTrial?(allowLocalTrials?'local_trial':'draft'):base.status;
+    return {...base,title:title||base.title,status:state,canStart:state==='published'||state==='local_trial',...(growth?{growth}:{}),content_version:version,packHash:material.pack_hash,overview:material.overview_md,practice:material.task_md,rubric:material.rubric_md,reference:material.reference_md,metadata,...(project?{project}:{}),chapters:db.prepare('SELECT id,ordinal,title,body FROM course_chapter_versions WHERE course_id=? AND version=? ORDER BY ordinal').all(id,version).map(ch=>({...ch,status:'published'})),videos:db.prepare('SELECT metadata_json FROM course_video_versions WHERE course_id=? AND version=? ORDER BY id').all(id,version).map(row=>({...parse(row),kind:'video',status:'external_reference',url:parse(row).source_url})),assets:db.prepare('SELECT id,relative_path,filename,role,mime,sha256,bytes FROM course_assets WHERE course_id=? AND version=? ORDER BY role,relative_path').all(id,version).map(a=>({...a,url:`/api/catalog/courses/${id}/assets/${version}/${a.id}`}))};
   }
   const catalog=({summary=false}={})=>({
     courses:db.prepare('SELECT id FROM courses ORDER BY position').all().map(row=>{
       const item=course(row.id);
       if(!summary)return item;
-      const {id,title,career_id,content_version,status,project}=item;
-      return {id,title,career_id,content_version,status,...(project?{
+      const {id,title,career_id,content_version,status,project,growth,canStart}=item;
+      return {id,title,career_id,content_version,status,canStart,...(growth?{growth}:{}),...(project?{
         projectSummary:{title:project.title,brief:project.brief,outcome:project.outcome,case:project.sources.find(source=>source.kind==='case')}
       }:{})};
     }),
     notice:availability().published===availability().count?'COURSE_LIBRARY_READY':'COURSE_CONTENT_PENDING'
   });
-  const map=()=>new Map(db.prepare('SELECT id,status,content_version FROM courses').all().map(row=>[row.id,{...row,versions:db.prepare('SELECT version,pack_hash FROM course_versions WHERE course_id=?').all(row.id)}]));
+  const map=()=>new Map(db.prepare('SELECT id,status,content_version FROM courses').all().map(row=>[row.id,{
+    ...row,
+    canStart:row.status==='published'||allowLocalTrials&&row.status==='draft'&&Boolean(db.prepare("SELECT 1 FROM course_versions WHERE course_id=? AND json_extract(metadata_json,'$.localTrial')=1").get(row.id)),
+    versions:db.prepare(`SELECT v.version,v.pack_hash,json_extract(v.metadata_json,'$.growth.instances') instances,
+      (SELECT count(*) FROM course_chapter_versions c WHERE c.course_id=v.course_id AND c.version=v.version) chapterCount
+      FROM course_versions v WHERE course_id=?`).all(row.id)
+  }]));
   function asset(courseId,version,id){
     if(!/^[a-f0-9]{24}$/.test(id)||!Number.isInteger(Number(version)))throw fail('NOT_FOUND',404);
     const row=db.prepare('SELECT * FROM course_assets WHERE course_id=? AND version=? AND id=?').get(courseId,Number(version),id);if(!row)throw fail('NOT_FOUND',404);return row;

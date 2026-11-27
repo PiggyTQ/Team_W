@@ -1,0 +1,17 @@
+{
+  "projectId": "analysis-change-handoff",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "c7e652f1c2cdb4a7d42da6ea2ae06a141d7dee5ed639d98563cb8597cb776f9a",
+  "bytes": 43330,
+  "files": 33,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"analysis-change-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:46.668Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

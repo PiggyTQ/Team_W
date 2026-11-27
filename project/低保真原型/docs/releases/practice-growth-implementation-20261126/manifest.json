@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-26",
+  "status": "implementation_handoff_only",
+  "businessImplementationPerformed": false,
+  "materialsFor36ProjectsBuilt": false,
+  "permissionAndVerificationGrants": false,
+  "localHeadObserved": "867fff3",
+  "productionBaseline": "Handoff record only: dev-20261126-867fff3-20261126T012540Z",
+  "productionIndependentlyChecked": false,
+  "specifications": {
+    "projects": 36,
+    "careerCore": 30,
+    "crossCareer": 6,
+    "existingProjectsPreserved": 4,
+    "newIndependentProjects": 32,
+    "careers": 10
+  },
+  "staticValidation": {
+    "uniqueIds": true,
+    "allSourcesResolved": true,
+    "progressionResolved": true,
+    "allVerificationTemplatesInitiallyFalse": true,
+    "internalMarkdownLinks": true
+  },
+  "files": [
+    {
+      "path": "asset-record.template.json",
+      "bytes": 1816,
+      "sha256": "d10b3b3a8c2bd942a1669a12e6fbdbe5b473e322d8aeb0b4f37b85d0e9f5c200"
+    },
+    {
+      "path": "completion-matrix.template.json",
+      "bytes": 33433,
+      "sha256": "f192d5efe053881a5bc631f605595034706b3983733ce7d09270b3b664f60456"
+    },
+    {
+      "path": "prior-plan/README.md",
+      "bytes": 1270,
+      "sha256": "b030621fdcce395d82b4997fa79a3b36d5353d342fa695c005de5d4a50e9601f"
+    },
+    {
+      "path": "prior-plan/reference/current-learning-centre.png",
+      "bytes": 766846,
+      "sha256": "1f2bef39501fa50eb712476be8a6cd050c18d7b31ed4d76d1426c3a34cd422d1"
+    },
+    {
+      "path": "prior-plan/总体计划.md",
+      "bytes": 8790,
+      "sha256": "ee725f3917636b8ca53e18fa773d6961524a4d680ebd7199754eb1e7b3d94421"
+    },
+    {
+      "path": "prior-plan/研究来源与可行性.md",
+      "bytes": 10342,
+      "sha256": "cc1bb293fc6724511cca680e77d792473781c0f10b29c5b634a70a87ee3ca4ea"
+    },
+    {
+      "path": "prior-plan/项目蓝图.md",
+      "bytes": 6273,
+      "sha256": "52a9447d3046a883b4d34c269bfc92bc422da1bd7a35a3760fc929981225497e"
+    },
+    {
+      "path": "prior-plan/项目规范与持续运营.md",
+      "bytes": 9032,
+      "sha256": "8010be8888a39f77ac0882133de5896666a244fb762b86096062a524157de8e6"
+    },
+    {
+      "path": "project-briefs.json",
+      "bytes": 68356,
+      "sha256": "1418831b617c0d609251e015124ce0e1751e876876a1bb49cb13dbaaf0d749c8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2769,
+      "sha256": "cfcf39c300f2936a8ea18ec7f8b4af2d853f4bbc0ac9a1419e02906f8a9deec6"
+    },
+    {
+      "path": "source-candidates.json",
+      "bytes": 16907,
+      "sha256": "d4ac7ae1391f6bc097f11dd3eaf0bbb4b48364770455844213f93c84676b8116"
+    },
+    {
+      "path": "START-HERE.txt",
+      "bytes": 857,
+      "sha256": "4350509c0214af5040f67edafbb9e91b13ce0accbff6e630cb2c0fd48ad287d2"
+    },
+    {
+      "path": "兼容迁移与验收清单.md",
+      "bytes": 5011,
+      "sha256": "47d7a845be9ce1b5e52f79bce7ea3198f88e8bb5513a7141fd66819be0385e69"
+    },
+    {
+      "path": "界面与用户链路.md",
+      "bytes": 3737,
+      "sha256": "a6db190d311a9dcfb9cabb023e729eb7c69d56af10e3ab28ec3f9ba32197694d"
+    },
+    {
+      "path": "给Codex的实施提示词.md",
+      "bytes": 8714,
+      "sha256": "cbbba375e4043ee5341ec77469f6a19602dc8e2b89794257ebb4e6a8dda6e244"
+    },
+    {
+      "path": "范围与阶段验收.md",
+      "bytes": 3675,
+      "sha256": "03b64dfb702886521f46607feccf2a7c04d7d1da171a7115d82a720d3d987ffd"
+    },
+    {
+      "path": "项目包与来源契约.md",
+      "bytes": 7223,
+      "sha256": "8c0572f6de29eb4fdaa21d636bc0c57e7419cb4f0297fc2c6224657000361530"
+    }
+  ]
+}

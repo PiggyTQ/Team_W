@@ -1,0 +1,130 @@
+{
+  "id": "release-risk-review",
+  "version": 1,
+  "legacy": false,
+  "career": "testing",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "发布风险与验证交接",
+    "en": "Release risk review"
+  },
+  "next": [
+    "cross-registration-service",
+    "cross-metric-service",
+    "cross-knowledge-assistant",
+    "cross-service-incident",
+    "cross-security-remediation",
+    "cross-migration-launch"
+  ],
+  "prior": "api-ui-regression",
+  "adapter": "test",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "risk-priority"
+  ],
+  "brief": {
+    "zh": "发布负责人需要从测试报告作有界判断。把关键失败、未执行项和可选检查分开，指出阻断条件及剩余风险，不用平均通过率掩盖必要功能未测。",
+    "en": "A release owner needs a decision from critical failures, passed tests and unexecuted scope. Identify blockers separately from optional checks."
+  },
+  "outputs": {
+    "zh": [
+      "风险/范围及测试计划",
+      "执行、缺陷、回归和剩余风险包"
+    ],
+    "en": [
+      "Risk-prioritized test report and a bounded release recommendation"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "执行记录与实际版本和用例对上",
+      "未执行项目不能混为通过"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A required unexecuted test cannot be counted as passed. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "关键失败被平均总分掩盖时应明确不满足发布约定",
+    "en": "A required unexecuted test cannot be counted as passed."
+  },
+  "review": {
+    "zh": [
+      "发布建议的依据",
+      "质量信息与决定权边界"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "发布负责人需要从测试报告作有界判断。把关键失败、未执行项和可选检查分开，指出阻断条件及剩余风险，不用平均通过率掩盖必要功能未测。",
+      "关键失败被平均总分掩盖时应明确不满足发布约定；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A release owner needs a decision from critical failures, passed tests and unexecuted scope.",
+      "Reproduce this failure first: A required unexecuted test cannot be counted as passed.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "关键失败被平均总分掩盖时应明确不满足发布约定",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "testing",
+      "branch": "analysis",
+      "skill": "risk-priority",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

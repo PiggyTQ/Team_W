@@ -1,0 +1,34 @@
+{
+  "source": [
+    {
+      "id": "U1",
+      "email": " ALICE@example.invalid ",
+      "status": "confirmed"
+    },
+    {
+      "id": "U2",
+      "email": "Bob@example.invalid",
+      "status": "pending"
+    }
+  ],
+  "target": [
+    {
+      "id": "U1",
+      "email": "alice@example.invalid",
+      "status": "active"
+    },
+    {
+      "id": "U2",
+      "email": "bob@example.invalid",
+      "status": "active"
+    }
+  ],
+  "newRecords": [
+    {
+      "id": "U3",
+      "email": "new@example.invalid",
+      "status": "active"
+    }
+  ],
+  "revision": 2
+}

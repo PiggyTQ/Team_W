@@ -1,0 +1,1 @@
+export const solve=()=>[{"id":"valid","exit":0,"stdout":"{\"cents\":10000,\"version\":\"1.0.0\"}","stderr":""},{"id":"missing","exit":0,"stdout":"","stderr":"Usage: tool <integer cents>"},{"id":"invalid","exit":2,"stdout":"","stderr":"Usage: tool <integer cents>"}];

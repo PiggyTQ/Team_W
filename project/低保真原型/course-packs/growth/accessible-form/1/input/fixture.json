@@ -1,0 +1,35 @@
+{
+  "actions": [
+    {
+      "id": "empty",
+      "email": "",
+      "network": "success"
+    },
+    {
+      "id": "format",
+      "email": "bad",
+      "network": "success"
+    },
+    {
+      "id": "success",
+      "email": "a@example.invalid",
+      "network": "success"
+    },
+    {
+      "id": "failure",
+      "email": "b@example.invalid",
+      "network": "failure"
+    },
+    {
+      "id": "edited",
+      "email": "new@example.invalid",
+      "network": "success",
+      "edited": true
+    },
+    {
+      "id": "timeout",
+      "email": "c@example.invalid",
+      "network": "timeout"
+    }
+  ]
+}

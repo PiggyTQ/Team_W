@@ -1,0 +1,144 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  {\r\n+   decision: 'limited_go',\r\n-   decision: 'stop',\r\n    owner: 'exercise-support-role',\r\n+   preserve: [],\r\n-   preserve: [\r\n-     'POST-CUTOVER-1'\r\n-   ],\r\n    training: [\r\n      {\r\n        role: 'member',\r\n        scenario: 'register-and-cancel'\r\n      },\r\n...\r\n    ],\r\n+   unresolved: []\r\n-   unresolved: [\r\n-     'permission',\r\n-     'help'\r\n-   ]\r\n  }\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/rollout-support-handoff/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: {\r\n    decision: 'limited_go',\r\n    unresolved: [],\r\n    preserve: [],\r\n    owner: 'exercise-support-role',\r\n    training: [\r\n      { role: 'member', scenario: 'register-and-cancel' },\r\n      { role: 'support', scenario: 'find-and-escalate' }\r\n    ]\r\n  },\r\n  expected: {\r\n    decision: 'stop',\r\n    unresolved: [ 'permission', 'help' ],\r\n    preserve: [ 'POST-CUTOVER-1' ],\r\n    owner: 'exercise-support-role',\r\n    training: [\r\n      { role: 'member', scenario: 'register-and-cancel' },\r\n      { role: 'support', scenario: 'find-and-escalate' }\r\n    ]\r\n  },\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/rollout-support-handoff/1/reference/broken.mjs:1\r\nexport const solve=()=>{\"decision\":\"limited_go\",\"unresolved\":[\"permission\",\"help\"],\"preserve\":[\"POST-CUTOVER-1\"],\"owner\":\"exercise-support-role\",\"training\":[{\"role\":\"member\",\"scenario\":\"register-and-cancel\"},{\"role\":\"support\",\"scenario\":\"find-and-escalate\"}]};\r\n                                  ^\r\n\r\nSyntaxError: Unexpected token ':'\r\n    at compileSourceTextModule (node:internal/modules/esm/utils:319:16)\r\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:89:18)\r\n    at #translate (node:internal/modules/esm/loader:438:20)\r\n    at afterLoad (node:internal/modules/esm/loader:506:29)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:511:12)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:564:36)\r\n    at afterResolve (node:internal/modules/esm/loader:611:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)\r\n    at node:internal/modules/esm/loader:636:32\r\n    at TracingChannel.tracePromise (node:diagnostics_channel:370:14)\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "rollout-support-handoff",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:59.778Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rollout-support-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:59.692Z\"}\n",
+    "inputDigest": "e010a3ab710a7dd34d5870102f45e487ae1572468de19a73c8f966dc6f258628",
+    "artifactDigest": "036efea774c8662c1baab9c79174e515be31fa6a4e48ed53e8f40edf480e8261"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "rollout-support-handoff",
+    "version": 1,
+    "inputDigest": "e010a3ab710a7dd34d5870102f45e487ae1572468de19a73c8f966dc6f258628",
+    "artifactDigest": "b0bc7915e501218198192bc0a953f48c105f36418c1d69c13e59dff5f755e2d9",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.658Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "rollout-support-handoff",
+    "version": 1,
+    "inputDigest": "e010a3ab710a7dd34d5870102f45e487ae1572468de19a73c8f966dc6f258628",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.658Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "rollout-support-handoff",
+    "version": 1,
+    "inputDigest": "e010a3ab710a7dd34d5870102f45e487ae1572468de19a73c8f966dc6f258628",
+    "artifactDigest": "036efea774c8662c1baab9c79174e515be31fa6a4e48ed53e8f40edf480e8261",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.658Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

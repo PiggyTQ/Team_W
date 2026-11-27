@@ -1,0 +1,17 @@
+{
+  "projectId": "data-workbench",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "b9934ab387f02e75d025f46f1bb49b78bd205d00579be6c07f3209121aa0a756",
+  "bytes": 48158,
+  "files": 30,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-workbench\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:48.491Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

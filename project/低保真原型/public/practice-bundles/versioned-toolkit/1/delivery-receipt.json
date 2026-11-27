@@ -1,0 +1,17 @@
+{
+  "projectId": "versioned-toolkit",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "fd7ec61babbe79540fc0666b791ff1ed6406c897566df02207801d019f5f06f4",
+  "bytes": 42668,
+  "files": 30,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"versioned-toolkit\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.149Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

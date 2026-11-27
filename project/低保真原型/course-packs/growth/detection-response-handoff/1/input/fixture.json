@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "id": "F1",
+      "kind": "login-failure",
+      "user": "u1",
+      "device": "a",
+      "minute": 1
+    },
+    {
+      "id": "F2",
+      "kind": "login-failure",
+      "user": "u1",
+      "device": "a",
+      "minute": 2
+    },
+    {
+      "id": "F3",
+      "kind": "login-failure",
+      "user": "u1",
+      "device": "a",
+      "minute": 3
+    },
+    {
+      "id": "S1",
+      "kind": "login-success",
+      "user": "u1",
+      "device": "b",
+      "minute": 4
+    },
+    {
+      "id": "S2",
+      "kind": "login-success",
+      "user": "u2",
+      "device": "c",
+      "minute": 5
+    },
+    {
+      "id": "S3",
+      "kind": "login-success",
+      "user": "u1",
+      "device": "a",
+      "minute": 6
+    }
+  ],
+  "labels": [
+    "S1"
+  ],
+  "approvedDevices": [
+    "a"
+  ],
+  "timezone": "UTC+08:00"
+}

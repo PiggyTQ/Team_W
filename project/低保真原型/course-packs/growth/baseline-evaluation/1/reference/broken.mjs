@@ -1,0 +1,1 @@
+export const solve=()=>{"trainIds":["T1","T2","T3"],"predictions":[{"id":"V1","prediction":5},{"id":"V2","prediction":5}],"mae":1.3333333333333333};

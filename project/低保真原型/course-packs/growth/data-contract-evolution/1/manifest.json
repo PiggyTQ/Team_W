@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 3,
+  "projectId": "data-contract-evolution",
+  "version": 1,
+  "files": [
+    {
+      "path": "assignment.en.md",
+      "bytes": 1310,
+      "sha256": "3b6760d9cca4944a78545c1e237d3d3e7c2cea54bb908b17e15df4754cc96f55",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "assignment.md",
+      "bytes": 1050,
+      "sha256": "4edb9a0de3d688be0ef505b17eb23f051730671a7804b9d0d02c243f9a923d9b",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 125,
+      "sha256": "3d17b163e0014acca02c697260b316c164d02fde86fe5fa4f33d7602199454ce",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/dictionary.md",
+      "bytes": 1069,
+      "sha256": "3437069f914bb5a15d8b3abe306f8282063b23bc8f504bd9a6b2ff493bbc5281",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/fixture.json",
+      "bytes": 208,
+      "sha256": "776423e5bb0b2d673a8a8645134377abab8e7cea4948b11e6656a9f0b9ae11d4",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "project.json",
+      "bytes": 4193,
+      "sha256": "4d98f7bd1ebd9b413c6799e9fcf9ba23468d85ea52f3b4388b586b2c50e28987",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "project.zip",
+      "bytes": 20238,
+      "sha256": "b73fc343293ccdf89e6448a5a71665a9ebc386dc63f713b7de1dedc20ae0d934",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "query.sql",
+      "bytes": 75,
+      "sha256": "fe9813321b046cc71d08b410ea5fbdb3d76e2c192d27938144e3a16d29277980",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "reference/artifact.json",
+      "bytes": 1780,
+      "sha256": "4229d53007ef5c1a6e1e01200d8b598f66ec69fb6522956a391963b8559c0502",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/broken.mjs",
+      "bytes": 178,
+      "sha256": "8445b96cd80bc198b5b561bed303214df63037c92b58e39eece5a9815d5a579e",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/counterexample.json",
+      "bytes": 1780,
+      "sha256": "26ec260b3455ad949cbada933a7611d095a959362fdb7e3be68a082edc307d6b",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/execution.json",
+      "bytes": 7435,
+      "sha256": "b1954e12de5fac70312b5761e1f86f7adee93e4081c452a8d8ecae78638d1231",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/failure.md",
+      "bytes": 275,
+      "sha256": "9cde07a76a52d118b4eead2cbfee983f47a951929f72e8506dbbbb6f9398f972",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/model.mjs",
+      "bytes": 9683,
+      "sha256": "be07765b7ca3b973b7793373f88e537b0171ccefacfed1eef39b005331ca993c",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/query.sql",
+      "bytes": 203,
+      "sha256": "c4067a1d7d64e9aa7bf3d61a57caefc6a99aa36008d9dccaf7abd7ad8dd7bd83",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/result.json",
+      "bytes": 272,
+      "sha256": "335f5b5cbf7fbf9e172480dad5d64dd9ae3be3ed97a1e356b50d0f75e5487823",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/runtime-scope.md",
+      "bytes": 224,
+      "sha256": "d17546c4ee4ecbf79b31251329997140d3eef7c574580f2f62ef4a390f204f66",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/solution.mjs",
+      "bytes": 1305,
+      "sha256": "618c609277f6bb136cbe96ba57de0b713083af064e9607748838741a55054be0",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/sql-rows.json",
+      "bytes": 190,
+      "sha256": "ec0ba2c416ae7a1f9a174e973f3507119ea7f7e0759726db73b9f1cb47bc068f",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/test-subject.mjs",
+      "bytes": 640,
+      "sha256": "a8f4fb64ab1c64214176da7c1a89447e2c11be655c322ec9175c15e3351e706c",
+      "kind": "reference"
+    },
+    {
+      "path": "rubric.json",
+      "bytes": 554,
+      "sha256": "0b932fd13caadf2ca6030d32e4845beb14398e18e349e5e20512ed6a121faa36",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "run-sql.mjs",
+      "bytes": 1670,
+      "sha256": "916a309acdc9b767937fbead646327f8073b1d4c9969ef07bceb0266edfedd5f",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "RUN.md",
+      "bytes": 860,
+      "sha256": "a073fe9900b5d7a659efd4368572c2f0191575cb42fd074b571295afd581287a",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "solution.mjs",
+      "bytes": 331,
+      "sha256": "3353af523f7494a84ae4e693e3f3c09ed5e12ca53441c707b193786b66d69af4",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 3273,
+      "sha256": "b276081a9430635969aab42c11f80c88d3a9cca078bf00fd14bc8e74dd1fbdf8",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "sql-result.json",
+      "bytes": 189,
+      "sha256": "97f88a6ff421faa05927ab277d09762aca69af45442e7d7d3ca32c916b97a9cf",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "starter/solution.mjs",
+      "bytes": 331,
+      "sha256": "3353af523f7494a84ae4e693e3f3c09ed5e12ca53441c707b193786b66d69af4",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "test-subject.mjs",
+      "bytes": 640,
+      "sha256": "a8f4fb64ab1c64214176da7c1a89447e2c11be655c322ec9175c15e3351e706c",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "verify.mjs",
+      "bytes": 1186,
+      "sha256": "fcac0cc3ece5e3dd107631d285b017ee6a70806b04ab8092e524dcd946dcac7f",
+      "kind": "original-synthetic"
+    }
+  ],
+  "status": "frozen-local-trial",
+  "humanPilot": "not_performed"
+}

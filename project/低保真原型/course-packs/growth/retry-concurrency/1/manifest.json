@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 3,
+  "projectId": "retry-concurrency",
+  "version": 1,
+  "files": [
+    {
+      "path": "assignment.en.md",
+      "bytes": 1331,
+      "sha256": "5d5de521a79dbeda61ab496f2da8f120a97218e6d9277009f80ec13a5db35434",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "assignment.md",
+      "bytes": 1091,
+      "sha256": "273a0c110c9daace3e886097aaa6405f22e4605ec14351c253fdd06d07c3c3a7",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 125,
+      "sha256": "3d17b163e0014acca02c697260b316c164d02fde86fe5fa4f33d7602199454ce",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/dictionary.md",
+      "bytes": 1041,
+      "sha256": "434ad9e5e0c79c53a121db9f689c5d5c57f74180e8c040e97ecda3a9e4539c73",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/fixture.json",
+      "bytes": 434,
+      "sha256": "75e324b63a3f85f122f18ea84f0161421379f0d3902a680bbf1c9aee34d7a1fa",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/variants/api-1.json",
+      "bytes": 1346,
+      "sha256": "d25e6d58e0ea314a886ab1195561b00a1e31476edfd32f661eb2e7b17f5e2965",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "input/variants/api-2.json",
+      "bytes": 1346,
+      "sha256": "f22d293cf911876e9a54ac38def65ccb0c8b8f72e4dcbfbfc5ddae1ac457e581",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "local-service.mjs",
+      "bytes": 2862,
+      "sha256": "a5906206c3ab58ee70e37e6a136bdb591a53579c5a9c004ca0847137bede7223",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "project.json",
+      "bytes": 5618,
+      "sha256": "1fff236e7cef4bd6ab7f283920aadd8717a09a24e8dc3b99d674e0263ce69ef7",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "project.zip",
+      "bytes": 23780,
+      "sha256": "29ed29be9cf7121dbf317d6dc6e4cf6e70ff2c099dfd49e24c02bea4c769fbad",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "reference/artifact.json",
+      "bytes": 1683,
+      "sha256": "1b3dd55abbdc6d712e4bb7cbfc6b35622c575ba307e1afef65c6e88b17668310",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/broken.mjs",
+      "bytes": 168,
+      "sha256": "160b6a54822521a60acf59340ddd7e76a358a1cc76202a58c5dbdebd1e10d512",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/counterexample.json",
+      "bytes": 3182,
+      "sha256": "ce7664cb776af733c849a928a5b02222dc2b6f5d73c38ca55c9fbc4c07cf917c",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/execution.json",
+      "bytes": 7175,
+      "sha256": "a22823bc984c54639bbfc0c8cffdf93dcdd84c8e99216b2a287e3d12d92d9e1a",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/failure.md",
+      "bytes": 288,
+      "sha256": "8698b40046bfb30210b86eef2b9f20581bd5a90e2e36bd740339bf7510644324",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/http-execution.json",
+      "bytes": 1445,
+      "sha256": "25de10c434188d5e5465c803b0c222e07f69951011427f461e75ea3cfeccf236",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/model.mjs",
+      "bytes": 9683,
+      "sha256": "be07765b7ca3b973b7793373f88e537b0171ccefacfed1eef39b005331ca993c",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/result.json",
+      "bytes": 264,
+      "sha256": "bd2ceb1ec8535514ad3c4e1dfbd2726e3e75c083ecac59c38135786247c0e2cf",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/runtime-scope.md",
+      "bytes": 301,
+      "sha256": "6c216f671729e595ff9afa5f52e84e2f68ad4f97877e15160f3a7597cb512373",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/solution.mjs",
+      "bytes": 1581,
+      "sha256": "266197e2c50133d6efc8fa8277168a1aa7a9c42dbf0da1766599972bc580466e",
+      "kind": "reference"
+    },
+    {
+      "path": "reference/test-subject.mjs",
+      "bytes": 640,
+      "sha256": "a8f4fb64ab1c64214176da7c1a89447e2c11be655c322ec9175c15e3351e706c",
+      "kind": "reference"
+    },
+    {
+      "path": "rubric.json",
+      "bytes": 577,
+      "sha256": "6dfeea3fcd3ec21d3f0b909686de6c94ac00c450ce74c5ba8188a0088f7a8afd",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "RUN.md",
+      "bytes": 863,
+      "sha256": "f6a47b1350c09d56983b2c4e94d4ad90aec6a0b878f07d534e882cc91b2ec839",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "serve.mjs",
+      "bytes": 633,
+      "sha256": "52abd67dc5438b74e65064a0aaf931b2992df777e78a9cfe1f7536e6e3844cf4",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "solution.mjs",
+      "bytes": 377,
+      "sha256": "f7331318e97bc76e9abf682e8ba87962ceea83f3eff51fec604cdbe2751f95e3",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 4155,
+      "sha256": "c0c0fa62242dd714dd01d5ed42549abc57c25aea71ee830ed315f7342f553d93",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "starter/solution.mjs",
+      "bytes": 377,
+      "sha256": "f7331318e97bc76e9abf682e8ba87962ceea83f3eff51fec604cdbe2751f95e3",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "test-subject.mjs",
+      "bytes": 640,
+      "sha256": "a8f4fb64ab1c64214176da7c1a89447e2c11be655c322ec9175c15e3351e706c",
+      "kind": "original-synthetic"
+    },
+    {
+      "path": "verify.mjs",
+      "bytes": 1180,
+      "sha256": "cc076309c07e0f8e72ac74eaa637fbf29836ff4e9fa74f6987717b094363e40d",
+      "kind": "original-synthetic"
+    }
+  ],
+  "status": "frozen-local-trial",
+  "humanPilot": "not_performed"
+}

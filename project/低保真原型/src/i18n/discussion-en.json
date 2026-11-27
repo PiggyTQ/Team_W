@@ -355,5 +355,17 @@
   "本人复核": "Personal review",
   "交付标准": "Deliverable standard",
   "前置任务": "Dependencies",
-  "重新读取本次资料": "Reload discussion sources"
+  "重新读取本次资料": "Reload discussion sources",
+  "当前目标与预算": "Current target and budget",
+  "讨论选项": "Discussion options",
+  "本机演示 · 回答为模拟示例，未连接模型。": "Local demo · Responses are simulated; no model is connected.",
+  "问题已保留在本机讨论中。可继续整理资料，或回原工作页手动编辑。": "Your question is retained in this local discussion. Review sources or edit on the original work page.",
+  "本机演示只在本机查看明确选中的内容，不向外部模型发送。": "This local demo displays explicitly selected local content and sends nothing to an external model.",
+  "查看已选原文": "Read selected original text",
+  "已有讨论记录": "Existing discussion history",
+  "原有演示记录": "Earlier demo record",
+  "本机演示 · 问题与资料选择在本机保留，不调用模型或生成服务端建议。": "Local demo · Questions and source choices stay on this device. No model calls or server-issued suggestions.",
+  "回个人评估编辑": "Edit in personal assessment",
+  "阅读职业详情": "Read career details",
+  "回原计划编辑": "Edit the original plan"
 }

@@ -1,0 +1,23 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "测试/业务",
+  "to": "实施/支持",
+  "content": "验收与未测/残留项",
+  "payload": {
+    "decision": "preserve_delta_before_rollback",
+    "rollbackAllowed": false,
+    "preserve": [
+      "U3"
+    ],
+    "unresolvedContractDefect": "A rollback that discards the new records must be blocked."
+  },
+  "consumerFeedback": {
+    "code": "cross-migration-launch-stage-3",
+    "issue": {
+      "zh": "行数相同但状态映射错误或回退丢新增记录应阻断",
+      "en": "A rollback that discards the new records must be blocked."
+    }
+  },
+  "requiredRevision": 2
+}

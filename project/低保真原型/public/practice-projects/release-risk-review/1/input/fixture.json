@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "id": "permissions",
+      "critical": true,
+      "status": "failed"
+    },
+    {
+      "id": "normal",
+      "critical": true,
+      "status": "passed"
+    },
+    {
+      "id": "keyboard",
+      "critical": false,
+      "status": "not_run"
+    },
+    {
+      "id": "schema",
+      "critical": true,
+      "status": "passed"
+    }
+  ]
+}

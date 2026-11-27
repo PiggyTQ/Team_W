@@ -1,0 +1,127 @@
+{
+  "id": "rollout-support-handoff",
+  "version": 1,
+  "legacy": false,
+  "career": "delivery",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "上线培训与支持交接",
+    "en": "Rollout and support handoff"
+  },
+  "next": [
+    "cross-registration-service",
+    "cross-migration-launch"
+  ],
+  "prior": "migration-reconciliation",
+  "adapter": "handoff",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "handoff"
+  ],
+  "brief": {
+    "zh": "业务团队需要一次有限切换、培训和支持交接。核对必需功能是否实际执行，保全切换后新增记录，明确各角色如何验收以及谁接手未解决项。",
+    "en": "A customer team needs a cutover decision, role-based training and a support owner. Required untested items block acceptance and new records need preservation."
+  },
+  "outputs": {
+    "zh": [
+      "切换与回退/停止方案",
+      "验收、培训指南和支持交接包"
+    ],
+    "en": [
+      "Cutover checklist",
+      "training scenarios and support handoff"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "清单引用实际版本与证据",
+      "接手者按运行/验收步骤可复现"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A required not-run check blocks rollout even when optional checks pass. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "未测必需功能被写通过或没有新增数据处理应失败",
+    "en": "A required not-run check blocks rollout even when optional checks pass."
+  },
+  "review": {
+    "zh": [
+      "业务适用性和责任",
+      "沟通、培训与剩余风险"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "业务团队需要一次有限切换、培训和支持交接。核对必需功能是否实际执行，保全切换后新增记录，明确各角色如何验收以及谁接手未解决项。",
+      "未测必需功能被写通过或没有新增数据处理应失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A customer team needs a cutover decision, role-based training and a support owner.",
+      "Reproduce this failure first: A required not-run check blocks rollout even when optional checks pass.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "未测必需功能被写通过或没有新增数据处理应失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "delivery",
+      "branch": "handover",
+      "skill": "handoff",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

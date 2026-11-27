@@ -1,0 +1,174 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  [\r\n    {\r\n      allowed: false,\r\n      expected: false,\r\n      id: 'member-export',\r\n+     passed: false\r\n-     passed: true\r\n    },\r\n    {\r\n+     allowed: false,\r\n-     allowed: true,\r\n      expected: true,\r\n      id: 'staff-export',\r\n+     passed: false\r\n-     passed: true\r\n    },\r\n    {\r\n      allowed: false,\r\n      expected: true,\r\n      id: 'support-read',\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/config-acceptance/1/verify.mjs:10:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    {\r\n      id: 'member-export',\r\n      allowed: false,\r\n      expected: false,\r\n      passed: false\r\n    },\r\n    {\r\n      id: 'staff-export',\r\n      allowed: false,\r\n      expected: true,\r\n      passed: false\r\n    },\r\n    {\r\n      id: 'support-read',\r\n      allowed: false,\r\n      expected: true,\r\n      passed: false\r\n    }\r\n  ],\r\n  expected: [\r\n    {\r\n      id: 'member-export',\r\n      allowed: false,\r\n      expected: false,\r\n      passed: true\r\n    },\r\n    { id: 'staff-export', allowed: true, expected: true, passed: true },\r\n    {\r\n      id: 'support-read',\r\n      allowed: false,\r\n      expected: true,\r\n      passed: false\r\n    }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  [\r\n    {\r\n      allowed: false,\r\n      expected: false,\r\n      id: 'member-export',\r\n...\r\n    {\r\n+     allowed: false,\r\n-     allowed: true,\r\n      expected: true,\r\n      id: 'staff-export',\r\n      passed: true\r\n    },\r\n    {\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/config-acceptance/1/verify.mjs:10:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    {\r\n      id: 'member-export',\r\n      allowed: false,\r\n      expected: false,\r\n      passed: true\r\n    },\r\n    {\r\n      id: 'staff-export',\r\n      allowed: false,\r\n      expected: true,\r\n      passed: true\r\n    },\r\n    {\r\n      id: 'support-read',\r\n      allowed: false,\r\n      expected: true,\r\n      passed: false\r\n    }\r\n  ],\r\n  expected: [\r\n    {\r\n      id: 'member-export',\r\n      allowed: false,\r\n      expected: false,\r\n      passed: true\r\n    },\r\n    { id: 'staff-export', allowed: true, expected: true, passed: true },\r\n    {\r\n      id: 'support-read',\r\n      allowed: false,\r\n      expected: true,\r\n      passed: false\r\n    }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "config-acceptance",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:59.273Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"config-acceptance\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:59.184Z\"}\n",
+    "inputDigest": "4ce62cb0bca29a08f60d5dedaf7cce1932b9455d495ba168be3402a0a062132a",
+    "artifactDigest": "15c7eac813d1bb6eb5c07b8dd6cf5a7bc07226dfbbe8745d8ed30ece4acdd03f"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "config-acceptance",
+    "version": 1,
+    "inputDigest": "4ce62cb0bca29a08f60d5dedaf7cce1932b9455d495ba168be3402a0a062132a",
+    "artifactDigest": "114257fd96b64c07ef084b70234367462840c5f064e1e361d1601b7bc77d58e7",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.147Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "file:config.json",
+        "passed": true,
+        "detail": "config.json"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:config.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      },
+      {
+        "id": "permission-configuration",
+        "passed": true,
+        "detail": "Complete allowed and denied role/action configuration"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "config-acceptance",
+    "version": 1,
+    "inputDigest": "4ce62cb0bca29a08f60d5dedaf7cce1932b9455d495ba168be3402a0a062132a",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.147Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "config-acceptance",
+    "version": 1,
+    "inputDigest": "4ce62cb0bca29a08f60d5dedaf7cce1932b9455d495ba168be3402a0a062132a",
+    "artifactDigest": "15c7eac813d1bb6eb5c07b8dd6cf5a7bc07226dfbbe8745d8ed30ece4acdd03f",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.147Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "file:config.json",
+        "passed": true,
+        "detail": "config.json"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:config.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      },
+      {
+        "id": "permission-configuration",
+        "passed": true,
+        "detail": "Complete allowed and denied role/action configuration"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

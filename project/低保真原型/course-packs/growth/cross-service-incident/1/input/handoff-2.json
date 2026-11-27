@@ -1,0 +1,38 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "运维",
+  "to": "业务探测/测试",
+  "content": "指标/日志/恢复行动及版本",
+  "payload": {
+    "checks": [
+      {
+        "version": "v1",
+        "rate": 0.005,
+        "recovered": true,
+        "rollbackAllowed": true
+      },
+      {
+        "version": "v2",
+        "rate": 0.08,
+        "recovered": false,
+        "rollbackAllowed": true
+      },
+      {
+        "version": "rollback",
+        "rate": 0.004285714285714286,
+        "recovered": false,
+        "rollbackAllowed": false
+      }
+    ],
+    "unresolvedContractDefect": "Normal metrics cannot close an incident while registration still fails."
+  },
+  "consumerFeedback": {
+    "code": "cross-service-incident-stage-2",
+    "issue": {
+      "zh": "指标正常而报名仍失败时不得结束联合验收",
+      "en": "Normal metrics cannot close an incident while registration still fails."
+    }
+  },
+  "requiredRevision": 2
+}

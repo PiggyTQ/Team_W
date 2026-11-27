@@ -1,0 +1,29 @@
+{
+  "kind": "actual_loopback_HTTP_requests",
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:22:00.971Z",
+  "passed": true,
+  "evidence": [
+    {
+      "status": 422,
+      "body": {
+        "error": "contract_field_and_key_required",
+        "contract": 2
+      }
+    },
+    {
+      "status": 201,
+      "body": {
+        "count": 1,
+        "contract": 2
+      }
+    },
+    {
+      "status": 201,
+      "body": {
+        "count": 1,
+        "contract": 2
+      }
+    }
+  ]
+}

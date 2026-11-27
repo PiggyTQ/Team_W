@@ -1,3 +1,4 @@
+import {growthProject} from './practice-registry.js';
 import { confirmed } from './model.js';
 import {guidedTask,projectRoute} from './practice-project-model.js';
 
@@ -10,7 +11,7 @@ const practiceTask = s => s.tasks.find(t => t.status === '进行中' && !t.compl
 export const externalPracticeRoute = task => `/plan?tab=执行&practice=${encodeURIComponent(task.id)}`;
 export const taskRoute = (s, task) => s.stage === 'S1' || task.mode === 'S1'
   ? externalPracticeRoute(task)
-  : guidedTask(task) ? projectRoute(task.template,{view:task.completed?'outcome':'practice',task:task.id})
+  : (guidedTask(task)||growthProject(task.template)) ? projectRoute(task.template,{view:task.completed?'outcome':'practice',task:task.id})
   : `/work/${encodeURIComponent(task.id)}`;
 export function practiceDestination(s) {
   const task = practiceTask(s) || s.tasks.findLast(t => t.completed && t.status === '完成');

@@ -1,0 +1,7 @@
+{
+  "files": {
+    "result.json": "{\n  \"hits\": [\n    \"S1\"\n  ],\n  \"falsePositives\": [],\n  \"misses\": [],\n  \"action\": \"request_session_review\"\n}",
+    "notes.md": "# Detection and response handoff\n\nAn analyst receives mixed login events and an approved-device list. Correlate short failure bursts with subsequent success and quantify false alarms and misses.\n\n## Input and contract\ninput/fixture.json; input/dictionary.md; project version 1\n\n## Finding and reproducible output\n```json\n{\n  \"hits\": [\n    \"S1\"\n  ],\n  \"falsePositives\": [],\n  \"misses\": [],\n  \"action\": \"request_session_review\"\n}\n```\n\n## Failure prevented\nMarking every successful login suspicious produces false positives.\n\n## Decision and limits\nAccept only the specified result set. Escalate a missing identity, permission, business probe or required not-run item. This is an original synthetic teaching reference, not evidence of learner execution or real employment.\n\n## Contribution and handoff\nReference authored with AI assistance for Avemly. The learner must replace this attribution with their own factual contribution; review open criteria before archiving.",
+    "solution.mjs": "import {runScenario} from './model.mjs';\nexport const solve=input=>runScenario(\"detection-response-handoff\",input);\n"
+  }
+}

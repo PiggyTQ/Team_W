@@ -1,3 +1,5 @@
+import {importGrowthPack} from './practice-growth/library.mjs';
+import {fileURLToPath} from 'node:url';
 import {createHash,randomUUID} from 'node:crypto';
 import {fresh,learning,usedHours} from '../src/model.js';
 import {normalizePrototypeState} from '../src/storage-recovery-model.js';
@@ -48,11 +50,12 @@ export function canonicalWorkspace(input,userId,catalog) {
     if(!Number.isFinite(Number(task.hours))||Number(task.hours)<0||Number(task.hours)===0&&!recorded||Number(task.hours)>168)throw businessError('INVALID_TASK_HOURS');
     const course=catalog?.get(task.template);
     if(course?.status==='placeholder')throw businessError('COURSE_NOT_READY',409);
-    if(course?.status==='published'){
+    if(course?.versions?.length){
       task.courseVersion=task.courseVersion??(course.versions.some(row=>row.version===1)?1:course.content_version);
       const version=course.versions?.find(row=>row.version===task.courseVersion);
       if(!version)throw businessError('COURSE_VERSION_UNAVAILABLE',409);
-      task.courseRef={id:task.template,version:version.version,packHash:version.pack_hash};
+      let instance=null;if(task.practiceInstance){instance=JSON.parse(version.instances||'[]').find(v=>v.id===task.practiceInstance);if(!instance)throw businessError('INVALID_PROJECT_INSTANCE',409);}
+      task.courseRef={id:task.template,version:version.version,packHash:version.pack_hash,...(instance?{instance:{id:instance.id,inputDigest:instance.inputDigest,ruleVersion:instance.ruleVersion,checker:instance.checker}}:{})};
       for(const [index,attempt]of task.attempts.entries()){
         if(attempt.version!==index+1||!attempt.text?.trim()||attempt.courseVersion!==undefined&&attempt.courseVersion!==task.courseVersion)throw businessError('INVALID_TASK_ATTEMPT');
         attempt.courseVersion=task.courseVersion;
@@ -74,9 +77,9 @@ export function canonicalWorkspace(input,userId,catalog) {
   if(usedHours(state)>Number(state.budget))throw businessError('BUDGET_EXCEEDED',409);
   for(const [id,position]of Object.entries(state.reading)){
     const course=catalog?.get(id);if(course?.status==='placeholder')throw businessError('COURSE_NOT_READY',409);
-    if(course?.status==='published'){
+    if(course?.versions?.length){
       const checkPosition=row=>{
-        if(!row||!Number.isInteger(row.chapter)||row.chapter<0||row.chapter>=4||row.completed===true||
+        if(!row||!Number.isInteger(row.chapter)||row.chapter<0||row.chapter>=(course.versions.find(v=>v.version===row.version)?.chapterCount??4)||row.completed===true||
           row.chapterId&&row.chapterId!==`${id}-chapter-${row.chapter+1}`)throw businessError('INVALID_READING_POSITION');
         if(!course.versions.some(v=>v.version===row.version))throw businessError('COURSE_VERSION_UNAVAILABLE',409);
       };
@@ -94,7 +97,7 @@ export function canonicalWorkspace(input,userId,catalog) {
   return state;
 }
 
-export function createBusinessStore(db,{now=Date.now}={}) {
+export function createBusinessStore(db,{now=Date.now,allowLocalTrials=false}={}) {
   db.exec('PRAGMA foreign_keys=ON; PRAGMA secure_delete=ON; PRAGMA busy_timeout=5000;');
   db.exec('CREATE TABLE IF NOT EXISTS schema_migrations(version INTEGER PRIMARY KEY,name TEXT NOT NULL,applied_at INTEGER NOT NULL)');
   db.exec('BEGIN IMMEDIATE');
@@ -108,7 +111,7 @@ export function createBusinessStore(db,{now=Date.now}={}) {
         CREATE TABLE course_chapters(id TEXT PRIMARY KEY,course_id TEXT NOT NULL REFERENCES courses(id),ordinal INTEGER NOT NULL,title TEXT NOT NULL,body TEXT,status TEXT NOT NULL CHECK(status IN ('placeholder','draft','published','retired')),UNIQUE(course_id,ordinal));
         CREATE TABLE course_media(id TEXT PRIMARY KEY,course_id TEXT NOT NULL REFERENCES courses(id),chapter_id TEXT REFERENCES course_chapters(id),kind TEXT NOT NULL CHECK(kind='video'),url TEXT,duration_seconds INTEGER,status TEXT NOT NULL CHECK(status IN ('placeholder','draft','published','retired')));`);
       for(const table of Object.values(COLLECTIONS))db.exec(`CREATE TABLE ${table}(user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,id TEXT NOT NULL,payload_json TEXT NOT NULL CHECK(json_valid(payload_json)),payload_hash TEXT NOT NULL,object_revision INTEGER NOT NULL,created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL,PRIMARY KEY(user_id,id));`);
-      for(const [position,unit] of learning.entries()) {
+      for(const [position,unit] of learning.filter(unit=>['quality','ai-eval','log','restore'].includes(unit.id)).entries()) {
         db.prepare('INSERT INTO courses(id,title,career_id,position,status) VALUES(?,?,?,?,?)').run(unit.id,unit.title,unit.career,position,'placeholder');
         for(const [index,title] of unit.chapters.entries())db.prepare('INSERT INTO course_chapters VALUES(?,?,?,?,?,?)').run(`${unit.id}-chapter-${index+1}`,unit.id,index+1,title,null,'placeholder');
         db.prepare('INSERT INTO course_media VALUES(?,?,?,?,?,?,?)').run(`${unit.id}-video`,unit.id,null,'video',null,null,'placeholder');
@@ -119,7 +122,8 @@ export function createBusinessStore(db,{now=Date.now}={}) {
   }catch(error){db.exec('ROLLBACK');throw error;}
   ensureCourseSchema(db,now);
   const personalContext=createPersonalContextStore(db,{now});
-  const courseLibrary=createCourseLibrary(db);
+  if(allowLocalTrials)importGrowthPack(db,fileURLToPath(new URL('../course-packs/growth/',import.meta.url)),{now});
+  const courseLibrary=createCourseLibrary(db,{allowLocalTrials});
   const resourceProjects=createResourceProjectStore(db,{now});
   const catalogMap=courseLibrary.map;
   function audit(userId,code,kind='workspace') {db.prepare('INSERT INTO security_events VALUES(?,?,?,?,?)').run(randomUUID(),userId,code,kind,now());}

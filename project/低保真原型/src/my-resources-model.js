@@ -1,3 +1,4 @@
+import {growthProject} from './practice-registry.js';
 import {learning} from './model.js';
 import {taskRoute} from './flow-navigation.js';
 import {guidedTask} from './practice-project-model.js';
@@ -8,7 +9,7 @@ export function completedPracticeResources(s){
   id:task.id,title:task.title,career:task.career||learning.find(unit=>unit.id===task.template).career,
   description:task.attempts?.at(-1)?.text||task.note||'',
   contribution:task.contribution,source:'practice',task,
-  to:taskRoute(s,task)+(s.stage==='S1'||task.mode==='S1'?'&step=record':guidedTask(task)?'':'?tab=完成回执')
+  to:taskRoute(s,task)+(s.stage==='S1'||task.mode==='S1'?'&step=record':(guidedTask(task)||growthProject(task.template))?'':'?tab=完成回执')
  }));
 }
 

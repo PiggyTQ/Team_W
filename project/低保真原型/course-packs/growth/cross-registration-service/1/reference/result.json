@@ -1,0 +1,15 @@
+{
+  "contract": 2,
+  "accepted": [
+    "revised"
+  ],
+  "feedback": [
+    {
+      "id": "legacy",
+      "to": "backend",
+      "issue": "field_mismatch"
+    }
+  ],
+  "revision": 2,
+  "registrationCount": 1
+}

@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "界面调用对应版本接口，业务记录一致",
+    "缺陷意见有对应修改和复验"
+  ],
+  "open": [
+    {
+      "criterion": "交接是否可执行，反馈/修改是否有依据",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "模拟角色如实标注，本人贡献与责任不混淆",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

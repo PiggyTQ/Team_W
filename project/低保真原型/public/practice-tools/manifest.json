@@ -1,0 +1,10 @@
+{
+  "tool": "instance-runner",
+  "version": 1,
+  "path": "instance-runner-1.mjs",
+  "bytes": 5375,
+  "sha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Original local teaching tool; execution claims remain self-reported",
+  "network": "Offline; loopback only with --http",
+  "paidServices": false
+}

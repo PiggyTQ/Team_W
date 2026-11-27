@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "清单引用实际版本与证据",
+    "接手者按运行/验收步骤可复现"
+  ],
+  "open": [
+    {
+      "criterion": "业务适用性和责任",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "沟通、培训与剩余风险",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

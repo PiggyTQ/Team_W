@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "评测ID集合完整，引用版本对应",
+    "可确定回答规则和错误分类复算"
+  ],
+  "open": [
+    {
+      "criterion": "资料范围与权限",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "根因需轨迹，成本与真实运行区分",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

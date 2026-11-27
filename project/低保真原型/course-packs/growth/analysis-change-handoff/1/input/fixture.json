@@ -1,0 +1,41 @@
+{
+  "versions": [
+    {
+      "version": "v1",
+      "unit": "yuan",
+      "rows": [
+        {
+          "id": "E1",
+          "status": "active",
+          "amount": 120
+        },
+        {
+          "id": "E2",
+          "status": "withdrawn",
+          "amount": 80
+        }
+      ]
+    },
+    {
+      "version": "v2",
+      "unit": "cent",
+      "rows": [
+        {
+          "id": "E1",
+          "status": "active",
+          "amount": 12000
+        },
+        {
+          "id": "E2",
+          "status": "withdrawn",
+          "amount": 8000
+        },
+        {
+          "id": "E3",
+          "status": "active",
+          "amount": 5000
+        }
+      ]
+    }
+  ]
+}

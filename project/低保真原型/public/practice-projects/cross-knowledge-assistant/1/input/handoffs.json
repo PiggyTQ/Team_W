@@ -1,0 +1,32 @@
+{
+  "mode": "single-person role rotation with original prefabricated teaching artifacts",
+  "stages": [
+    {
+      "role": "资料/安全",
+      "produces": "允许资料、版本和访问策略",
+      "consumedBy": "AI/后端",
+      "artifact": "handoff-1.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "AI/后端",
+      "produces": "原型或离线可重现服务与轨迹",
+      "consumedBy": "测试/业务评估",
+      "artifact": "handoff-2.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    },
+    {
+      "role": "评估",
+      "produces": "证据错误、越权和不可答反馈",
+      "consumedBy": "资料/实现者",
+      "artifact": "handoff-3.json",
+      "version": 1,
+      "requiresFeedback": true,
+      "requiresRevision": true
+    }
+  ]
+}

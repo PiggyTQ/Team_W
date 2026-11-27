@@ -1,0 +1,2098 @@
+{
+  "schemaVersion": 1,
+  "items": {
+    "multi-source-analysis:1": {
+      "id": "multi-source-analysis",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7"
+      },
+      "technical": {
+        "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"multi-source-analysis\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:33.259Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:33.313Z"
+      },
+      "frozen": {
+        "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+        "at": "2026-11-26T04:31:33.328Z"
+      }
+    },
+    "analysis-change-handoff:1": {
+      "id": "analysis-change-handoff",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e"
+      },
+      "technical": {
+        "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"analysis-change-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:33.433Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:33.483Z"
+      },
+      "frozen": {
+        "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+        "at": "2026-11-26T04:31:33.501Z"
+      }
+    },
+    "baseline-evaluation:1": {
+      "id": "baseline-evaluation",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7"
+      },
+      "technical": {
+        "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"baseline-evaluation\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:33.595Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:33.642Z"
+      },
+      "frozen": {
+        "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+        "at": "2026-11-26T04:31:33.659Z"
+      }
+    },
+    "grounded-assistant-delivery:1": {
+      "id": "grounded-assistant-delivery",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25"
+      },
+      "technical": {
+        "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"grounded-assistant-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:33.761Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:33.811Z"
+      },
+      "frozen": {
+        "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+        "at": "2026-11-26T04:31:33.825Z"
+      }
+    },
+    "app-authorization-retest:1": {
+      "id": "app-authorization-retest",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f"
+      },
+      "technical": {
+        "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"app-authorization-retest\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:33.923Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:33.971Z"
+      },
+      "frozen": {
+        "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+        "at": "2026-11-26T04:31:33.988Z"
+      }
+    },
+    "detection-response-handoff:1": {
+      "id": "detection-response-handoff",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4"
+      },
+      "technical": {
+        "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"detection-response-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:34.087Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:34.139Z"
+      },
+      "frozen": {
+        "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+        "at": "2026-11-26T04:31:34.159Z"
+      }
+    },
+    "alert-rule-regression:1": {
+      "id": "alert-rule-regression",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d"
+      },
+      "technical": {
+        "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"alert-rule-regression\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:34.243Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:34.298Z"
+      },
+      "frozen": {
+        "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+        "at": "2026-11-26T04:31:34.306Z"
+      }
+    },
+    "reliability-release-drill:1": {
+      "id": "reliability-release-drill",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9"
+      },
+      "technical": {
+        "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"reliability-release-drill\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:34.386Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:34.434Z"
+      },
+      "frozen": {
+        "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+        "at": "2026-11-26T04:31:34.453Z"
+      }
+    },
+    "accessible-form:1": {
+      "id": "accessible-form",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573"
+      },
+      "technical": {
+        "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"accessible-form\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:34.558Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:34.605Z"
+      },
+      "frozen": {
+        "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+        "at": "2026-11-26T04:31:34.626Z"
+      }
+    },
+    "data-workbench:1": {
+      "id": "data-workbench",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119"
+      },
+      "technical": {
+        "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-workbench\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:34.720Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:34.766Z"
+      },
+      "frozen": {
+        "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+        "at": "2026-11-26T04:31:34.787Z"
+      }
+    },
+    "frontend-release-delivery:1": {
+      "id": "frontend-release-delivery",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f"
+      },
+      "technical": {
+        "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"frontend-release-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:34.890Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:34.939Z"
+      },
+      "frozen": {
+        "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+        "at": "2026-11-26T04:31:34.960Z"
+      }
+    },
+    "contract-api:1": {
+      "id": "contract-api",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054"
+      },
+      "technical": {
+        "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"contract-api\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:35.054Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:35.104Z"
+      },
+      "frozen": {
+        "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+        "at": "2026-11-26T04:31:35.123Z"
+      }
+    },
+    "retry-concurrency:1": {
+      "id": "retry-concurrency",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2"
+      },
+      "technical": {
+        "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"retry-concurrency\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:35.218Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:35.262Z"
+      },
+      "frozen": {
+        "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+        "at": "2026-11-26T04:31:35.285Z"
+      }
+    },
+    "service-evolution-delivery:1": {
+      "id": "service-evolution-delivery",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481"
+      },
+      "technical": {
+        "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"service-evolution-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:35.385Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:35.433Z"
+      },
+      "frozen": {
+        "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+        "at": "2026-11-26T04:31:35.453Z"
+      }
+    },
+    "relational-model:1": {
+      "id": "relational-model",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7"
+      },
+      "technical": {
+        "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"relational-model\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:35.555Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:35.600Z"
+      },
+      "frozen": {
+        "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+        "at": "2026-11-26T04:31:35.619Z"
+      }
+    },
+    "partition-replay:1": {
+      "id": "partition-replay",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b"
+      },
+      "technical": {
+        "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"partition-replay\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:35.713Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:35.761Z"
+      },
+      "frozen": {
+        "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+        "at": "2026-11-26T04:31:35.770Z"
+      }
+    },
+    "data-contract-evolution:1": {
+      "id": "data-contract-evolution",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916"
+      },
+      "technical": {
+        "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-contract-evolution\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:35.874Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:35.922Z"
+      },
+      "frozen": {
+        "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+        "at": "2026-11-26T04:31:35.947Z"
+      }
+    },
+    "defect-evidence:1": {
+      "id": "defect-evidence",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199"
+      },
+      "technical": {
+        "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"defect-evidence\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.025Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:36.075Z"
+      },
+      "frozen": {
+        "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+        "at": "2026-11-26T04:31:36.082Z"
+      }
+    },
+    "api-ui-regression:1": {
+      "id": "api-ui-regression",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091"
+      },
+      "technical": {
+        "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"api-ui-regression\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.172Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:36.220Z"
+      },
+      "frozen": {
+        "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+        "at": "2026-11-26T04:31:36.242Z"
+      }
+    },
+    "release-risk-review:1": {
+      "id": "release-risk-review",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4"
+      },
+      "technical": {
+        "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"release-risk-review\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.349Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:36.395Z"
+      },
+      "frozen": {
+        "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+        "at": "2026-11-26T04:31:36.417Z"
+      }
+    },
+    "rule-tool:1": {
+      "id": "rule-tool",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342"
+      },
+      "technical": {
+        "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rule-tool\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.471Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:36.520Z"
+      },
+      "frozen": {
+        "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+        "at": "2026-11-26T04:31:36.538Z"
+      }
+    },
+    "legacy-change:1": {
+      "id": "legacy-change",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df"
+      },
+      "technical": {
+        "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"legacy-change\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.644Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:36.691Z"
+      },
+      "frozen": {
+        "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+        "at": "2026-11-26T04:31:36.712Z"
+      }
+    },
+    "versioned-toolkit:1": {
+      "id": "versioned-toolkit",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1"
+      },
+      "technical": {
+        "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"versioned-toolkit\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.795Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:36.846Z"
+      },
+      "frozen": {
+        "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+        "at": "2026-11-26T04:31:36.868Z"
+      }
+    },
+    "config-acceptance:1": {
+      "id": "config-acceptance",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196"
+      },
+      "technical": {
+        "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"config-acceptance\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:36.970Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.027Z"
+      },
+      "frozen": {
+        "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+        "at": "2026-11-26T04:31:37.044Z"
+      }
+    },
+    "migration-reconciliation:1": {
+      "id": "migration-reconciliation",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e"
+      },
+      "technical": {
+        "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"migration-reconciliation\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:37.130Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.181Z"
+      },
+      "frozen": {
+        "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+        "at": "2026-11-26T04:31:37.198Z"
+      }
+    },
+    "rollout-support-handoff:1": {
+      "id": "rollout-support-handoff",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598"
+      },
+      "technical": {
+        "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rollout-support-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:37.286Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.335Z"
+      },
+      "frozen": {
+        "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+        "at": "2026-11-26T04:31:37.356Z"
+      }
+    },
+    "cross-registration-service:1": {
+      "id": "cross-registration-service",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3"
+      },
+      "technical": {
+        "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-registration-service\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:37.458Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.503Z"
+      },
+      "frozen": {
+        "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+        "at": "2026-11-26T04:31:37.522Z"
+      }
+    },
+    "cross-metric-service:1": {
+      "id": "cross-metric-service",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5"
+      },
+      "technical": {
+        "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-metric-service\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:37.617Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.663Z"
+      },
+      "frozen": {
+        "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+        "at": "2026-11-26T04:31:37.682Z"
+      }
+    },
+    "cross-knowledge-assistant:1": {
+      "id": "cross-knowledge-assistant",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1"
+      },
+      "technical": {
+        "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-knowledge-assistant\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:37.766Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.812Z"
+      },
+      "frozen": {
+        "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+        "at": "2026-11-26T04:31:37.835Z"
+      }
+    },
+    "cross-service-incident:1": {
+      "id": "cross-service-incident",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599"
+      },
+      "technical": {
+        "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-service-incident\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:37.933Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:37.978Z"
+      },
+      "frozen": {
+        "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+        "at": "2026-11-26T04:31:37.997Z"
+      }
+    },
+    "cross-security-remediation:1": {
+      "id": "cross-security-remediation",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec"
+      },
+      "technical": {
+        "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-security-remediation\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:38.096Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:38.144Z"
+      },
+      "frozen": {
+        "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+        "at": "2026-11-26T04:31:38.163Z"
+      }
+    },
+    "cross-migration-launch:1": {
+      "id": "cross-migration-launch",
+      "version": 1,
+      "state": "frozen_local_trial",
+      "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+      "sources": {
+        "identity": "original-synthetic",
+        "localUse": true,
+        "redistributionCleared": false,
+        "reviewer": null,
+        "rightsEvidence": null,
+        "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060"
+      },
+      "technical": {
+        "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+        "runtime": "v24.22.1",
+        "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-migration-launch\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:38.258Z\"}\n",
+        "negativeExit": 1,
+        "executedAt": "2026-11-26T04:31:38.314Z"
+      },
+      "frozen": {
+        "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+        "at": "2026-11-26T04:31:38.334Z"
+      }
+    }
+  },
+  "audit": [
+    {
+      "action": "candidate",
+      "id": "multi-source-analysis",
+      "version": 1,
+      "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+      "at": "2026-11-26T04:31:33.088Z",
+      "record": {},
+      "previous": null,
+      "digest": "64b471d737e7b1d58aef54976b4cef25d9f5cace7144bf184e1ec801291a7eb6"
+    },
+    {
+      "action": "candidate",
+      "id": "multi-source-analysis",
+      "version": 1,
+      "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+      "at": "2026-11-26T04:31:33.178Z",
+      "record": {},
+      "previous": "64b471d737e7b1d58aef54976b4cef25d9f5cace7144bf184e1ec801291a7eb6",
+      "digest": "4c6ec9749abdd227756075933e9edd466a4e1d86ea4534d637cd5fd738edef9a"
+    },
+    {
+      "action": "source-review",
+      "id": "multi-source-analysis",
+      "version": 1,
+      "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+      "at": "2026-11-26T04:31:33.190Z",
+      "record": {},
+      "previous": "4c6ec9749abdd227756075933e9edd466a4e1d86ea4534d637cd5fd738edef9a",
+      "digest": "33016667ddcf30debc72b4ab83b1cb13ec89c8851946a11c5847868b8466e71c"
+    },
+    {
+      "action": "technical",
+      "id": "multi-source-analysis",
+      "version": 1,
+      "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+      "at": "2026-11-26T04:31:33.313Z",
+      "record": {},
+      "previous": "33016667ddcf30debc72b4ab83b1cb13ec89c8851946a11c5847868b8466e71c",
+      "digest": "7f5fd294e84f7b954c2aa6e156a659e407027e32221a444d11bee5a9b5d4ce16"
+    },
+    {
+      "action": "freeze",
+      "id": "multi-source-analysis",
+      "version": 1,
+      "packHash": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+      "at": "2026-11-26T04:31:33.328Z",
+      "record": {},
+      "previous": "7f5fd294e84f7b954c2aa6e156a659e407027e32221a444d11bee5a9b5d4ce16",
+      "digest": "e1eeb69e58104830e1626e7b18aa7413e29d0180ed2a07c0c7e5be7554ec4717"
+    },
+    {
+      "action": "candidate",
+      "id": "analysis-change-handoff",
+      "version": 1,
+      "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+      "at": "2026-11-26T04:31:33.348Z",
+      "record": {},
+      "previous": "e1eeb69e58104830e1626e7b18aa7413e29d0180ed2a07c0c7e5be7554ec4717",
+      "digest": "9d6f6f901c963e3f40414bf738b3e7d34aafb000ac17e66ca5176746b68e696e"
+    },
+    {
+      "action": "source-review",
+      "id": "analysis-change-handoff",
+      "version": 1,
+      "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+      "at": "2026-11-26T04:31:33.368Z",
+      "record": {},
+      "previous": "9d6f6f901c963e3f40414bf738b3e7d34aafb000ac17e66ca5176746b68e696e",
+      "digest": "40bfa831b8bebd90640bac4077df1a3b14ea54c825dcc62a0249adbb4b02b33e"
+    },
+    {
+      "action": "technical",
+      "id": "analysis-change-handoff",
+      "version": 1,
+      "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+      "at": "2026-11-26T04:31:33.483Z",
+      "record": {},
+      "previous": "40bfa831b8bebd90640bac4077df1a3b14ea54c825dcc62a0249adbb4b02b33e",
+      "digest": "0a745f0c60ec63839820a465ca72892d6845760e7ba86e213f3d5cd5895d63ec"
+    },
+    {
+      "action": "freeze",
+      "id": "analysis-change-handoff",
+      "version": 1,
+      "packHash": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+      "at": "2026-11-26T04:31:33.501Z",
+      "record": {},
+      "previous": "0a745f0c60ec63839820a465ca72892d6845760e7ba86e213f3d5cd5895d63ec",
+      "digest": "29391e4fc01530988d96d895c1a00b366724e667d8b610827d19347dc17b96b8"
+    },
+    {
+      "action": "candidate",
+      "id": "baseline-evaluation",
+      "version": 1,
+      "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+      "at": "2026-11-26T04:31:33.520Z",
+      "record": {},
+      "previous": "29391e4fc01530988d96d895c1a00b366724e667d8b610827d19347dc17b96b8",
+      "digest": "d1515ffa218cdf6dbc6a690a74202d2cc35f80fe8bf04066a117c0dbe367feb1"
+    },
+    {
+      "action": "source-review",
+      "id": "baseline-evaluation",
+      "version": 1,
+      "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+      "at": "2026-11-26T04:31:33.535Z",
+      "record": {},
+      "previous": "d1515ffa218cdf6dbc6a690a74202d2cc35f80fe8bf04066a117c0dbe367feb1",
+      "digest": "2c824c77f3a989f57e63e31eb6b83dbb23c8695620922ded5ebab141ea428715"
+    },
+    {
+      "action": "technical",
+      "id": "baseline-evaluation",
+      "version": 1,
+      "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+      "at": "2026-11-26T04:31:33.642Z",
+      "record": {},
+      "previous": "2c824c77f3a989f57e63e31eb6b83dbb23c8695620922ded5ebab141ea428715",
+      "digest": "2546e952c318536d607a226be194f428e9933e909e08ac620e45afeeec22c49a"
+    },
+    {
+      "action": "freeze",
+      "id": "baseline-evaluation",
+      "version": 1,
+      "packHash": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+      "at": "2026-11-26T04:31:33.659Z",
+      "record": {},
+      "previous": "2546e952c318536d607a226be194f428e9933e909e08ac620e45afeeec22c49a",
+      "digest": "2534fca4e3e982065d4e9f55c7d150319387d766610289fbe7bea6516bb24d89"
+    },
+    {
+      "action": "candidate",
+      "id": "grounded-assistant-delivery",
+      "version": 1,
+      "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+      "at": "2026-11-26T04:31:33.684Z",
+      "record": {},
+      "previous": "2534fca4e3e982065d4e9f55c7d150319387d766610289fbe7bea6516bb24d89",
+      "digest": "c63008f4c2c3a791050017a699ed50bc83f8aef6d106e4a78b918e1d480b17c7"
+    },
+    {
+      "action": "source-review",
+      "id": "grounded-assistant-delivery",
+      "version": 1,
+      "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+      "at": "2026-11-26T04:31:33.700Z",
+      "record": {},
+      "previous": "c63008f4c2c3a791050017a699ed50bc83f8aef6d106e4a78b918e1d480b17c7",
+      "digest": "0c8aff3fc2e1adfa3be58a4db354b13f2fcaacb7b271a1464ff865a893947fc0"
+    },
+    {
+      "action": "technical",
+      "id": "grounded-assistant-delivery",
+      "version": 1,
+      "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+      "at": "2026-11-26T04:31:33.811Z",
+      "record": {},
+      "previous": "0c8aff3fc2e1adfa3be58a4db354b13f2fcaacb7b271a1464ff865a893947fc0",
+      "digest": "8b0342a43d135fcb5d7f620e05e23661dcbb57dda1f87be6a5ed7fd31554ffbf"
+    },
+    {
+      "action": "freeze",
+      "id": "grounded-assistant-delivery",
+      "version": 1,
+      "packHash": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+      "at": "2026-11-26T04:31:33.825Z",
+      "record": {},
+      "previous": "8b0342a43d135fcb5d7f620e05e23661dcbb57dda1f87be6a5ed7fd31554ffbf",
+      "digest": "d9390071e07c866988417baecbddfcc53a582ff422ed778f9c5cd95e8a0232a2"
+    },
+    {
+      "action": "candidate",
+      "id": "app-authorization-retest",
+      "version": 1,
+      "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+      "at": "2026-11-26T04:31:33.844Z",
+      "record": {},
+      "previous": "d9390071e07c866988417baecbddfcc53a582ff422ed778f9c5cd95e8a0232a2",
+      "digest": "1005e686210218bd15852cbe0b1aa7f460d86cc171f53dec73370f84f43025fb"
+    },
+    {
+      "action": "source-review",
+      "id": "app-authorization-retest",
+      "version": 1,
+      "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+      "at": "2026-11-26T04:31:33.861Z",
+      "record": {},
+      "previous": "1005e686210218bd15852cbe0b1aa7f460d86cc171f53dec73370f84f43025fb",
+      "digest": "37966cb561ba09817e199a8332c825c639dcc954e6e3c922460e20f2fda83098"
+    },
+    {
+      "action": "technical",
+      "id": "app-authorization-retest",
+      "version": 1,
+      "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+      "at": "2026-11-26T04:31:33.971Z",
+      "record": {},
+      "previous": "37966cb561ba09817e199a8332c825c639dcc954e6e3c922460e20f2fda83098",
+      "digest": "3f75800a706a09c5c76606f2154457a95694df7736675cf8c5e94ddfacc9975e"
+    },
+    {
+      "action": "freeze",
+      "id": "app-authorization-retest",
+      "version": 1,
+      "packHash": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+      "at": "2026-11-26T04:31:33.988Z",
+      "record": {},
+      "previous": "3f75800a706a09c5c76606f2154457a95694df7736675cf8c5e94ddfacc9975e",
+      "digest": "fd60ba00fb9882548d7658d00e2f847cf2ea7b9033b0daee83bf91138107b882"
+    },
+    {
+      "action": "candidate",
+      "id": "detection-response-handoff",
+      "version": 1,
+      "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+      "at": "2026-11-26T04:31:34.007Z",
+      "record": {},
+      "previous": "fd60ba00fb9882548d7658d00e2f847cf2ea7b9033b0daee83bf91138107b882",
+      "digest": "6b24af58fe98ddedd43c6462e8c75de44460ce2f66f427a9d682202fb9fc4942"
+    },
+    {
+      "action": "source-review",
+      "id": "detection-response-handoff",
+      "version": 1,
+      "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+      "at": "2026-11-26T04:31:34.024Z",
+      "record": {},
+      "previous": "6b24af58fe98ddedd43c6462e8c75de44460ce2f66f427a9d682202fb9fc4942",
+      "digest": "152827400197d23f76e2d296a5abb20b212f59a854992109bd0404327ee26557"
+    },
+    {
+      "action": "technical",
+      "id": "detection-response-handoff",
+      "version": 1,
+      "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+      "at": "2026-11-26T04:31:34.139Z",
+      "record": {},
+      "previous": "152827400197d23f76e2d296a5abb20b212f59a854992109bd0404327ee26557",
+      "digest": "f3810175074fc7405afb12ba815298a0354bf6911d97e03095c127f3385010b8"
+    },
+    {
+      "action": "freeze",
+      "id": "detection-response-handoff",
+      "version": 1,
+      "packHash": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+      "at": "2026-11-26T04:31:34.159Z",
+      "record": {},
+      "previous": "f3810175074fc7405afb12ba815298a0354bf6911d97e03095c127f3385010b8",
+      "digest": "e5b2f632802b9fbae853fb7c5a8ff39e26b8d29aa6a4e77d7ea77eaae66e34fe"
+    },
+    {
+      "action": "candidate",
+      "id": "alert-rule-regression",
+      "version": 1,
+      "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+      "at": "2026-11-26T04:31:34.174Z",
+      "record": {},
+      "previous": "e5b2f632802b9fbae853fb7c5a8ff39e26b8d29aa6a4e77d7ea77eaae66e34fe",
+      "digest": "7060039dc73b30afd7c2dea65d4c432a778870fa863635d4f800cd791cc0fdc3"
+    },
+    {
+      "action": "source-review",
+      "id": "alert-rule-regression",
+      "version": 1,
+      "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+      "at": "2026-11-26T04:31:34.188Z",
+      "record": {},
+      "previous": "7060039dc73b30afd7c2dea65d4c432a778870fa863635d4f800cd791cc0fdc3",
+      "digest": "0adf3807855387461230eb53acf4528c5c7cbd65dec2cbbee7e54c503d4ddbd4"
+    },
+    {
+      "action": "technical",
+      "id": "alert-rule-regression",
+      "version": 1,
+      "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+      "at": "2026-11-26T04:31:34.298Z",
+      "record": {},
+      "previous": "0adf3807855387461230eb53acf4528c5c7cbd65dec2cbbee7e54c503d4ddbd4",
+      "digest": "8bc1ae681987231786634868e8bc67be1062c084abdd288f397213bbc156f1d6"
+    },
+    {
+      "action": "freeze",
+      "id": "alert-rule-regression",
+      "version": 1,
+      "packHash": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+      "at": "2026-11-26T04:31:34.306Z",
+      "record": {},
+      "previous": "8bc1ae681987231786634868e8bc67be1062c084abdd288f397213bbc156f1d6",
+      "digest": "4fd6fecb7ca02648c374c8c5a2256cb7aa6ccb3853a4e6b9ef59fb610b0e87a2"
+    },
+    {
+      "action": "candidate",
+      "id": "reliability-release-drill",
+      "version": 1,
+      "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+      "at": "2026-11-26T04:31:34.325Z",
+      "record": {},
+      "previous": "4fd6fecb7ca02648c374c8c5a2256cb7aa6ccb3853a4e6b9ef59fb610b0e87a2",
+      "digest": "faeda514f4c54672621746c6e81224a44da5d34a16754fe238dc2e1511c18a46"
+    },
+    {
+      "action": "source-review",
+      "id": "reliability-release-drill",
+      "version": 1,
+      "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+      "at": "2026-11-26T04:31:34.336Z",
+      "record": {},
+      "previous": "faeda514f4c54672621746c6e81224a44da5d34a16754fe238dc2e1511c18a46",
+      "digest": "e01126dbaa786779ce71f45332898513e47d55aaa84e317d414bfd4eef02b709"
+    },
+    {
+      "action": "technical",
+      "id": "reliability-release-drill",
+      "version": 1,
+      "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+      "at": "2026-11-26T04:31:34.434Z",
+      "record": {},
+      "previous": "e01126dbaa786779ce71f45332898513e47d55aaa84e317d414bfd4eef02b709",
+      "digest": "cdaacd4bd127c6f10e33e7d07c4b7c616830d5cce7da65c05819f102ce5487f8"
+    },
+    {
+      "action": "freeze",
+      "id": "reliability-release-drill",
+      "version": 1,
+      "packHash": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+      "at": "2026-11-26T04:31:34.453Z",
+      "record": {},
+      "previous": "cdaacd4bd127c6f10e33e7d07c4b7c616830d5cce7da65c05819f102ce5487f8",
+      "digest": "95d7b054127eecb4f2d7b670bedabcb9199a417224903b23246e6b00abad3b25"
+    },
+    {
+      "action": "candidate",
+      "id": "accessible-form",
+      "version": 1,
+      "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+      "at": "2026-11-26T04:31:34.472Z",
+      "record": {},
+      "previous": "95d7b054127eecb4f2d7b670bedabcb9199a417224903b23246e6b00abad3b25",
+      "digest": "9e0a11d788c4ec4c9c73dfee43664abbfa4721ce7671a447ba2cb1d17f4e5134"
+    },
+    {
+      "action": "source-review",
+      "id": "accessible-form",
+      "version": 1,
+      "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+      "at": "2026-11-26T04:31:34.493Z",
+      "record": {},
+      "previous": "9e0a11d788c4ec4c9c73dfee43664abbfa4721ce7671a447ba2cb1d17f4e5134",
+      "digest": "232a16c8ee08dba2fa495e9f947f6510eb916c3520ccdbf58e69a11981082613"
+    },
+    {
+      "action": "technical",
+      "id": "accessible-form",
+      "version": 1,
+      "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+      "at": "2026-11-26T04:31:34.605Z",
+      "record": {},
+      "previous": "232a16c8ee08dba2fa495e9f947f6510eb916c3520ccdbf58e69a11981082613",
+      "digest": "7bbcb0a8a92a0e60d2a7f53d95b1305a706c121a47ddeff48b92a8b40c551531"
+    },
+    {
+      "action": "freeze",
+      "id": "accessible-form",
+      "version": 1,
+      "packHash": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+      "at": "2026-11-26T04:31:34.626Z",
+      "record": {},
+      "previous": "7bbcb0a8a92a0e60d2a7f53d95b1305a706c121a47ddeff48b92a8b40c551531",
+      "digest": "a4173d8485e78ddd4e5a7497ef98026fea0bb5592e9e6cf2315d1c0b7323fe43"
+    },
+    {
+      "action": "candidate",
+      "id": "data-workbench",
+      "version": 1,
+      "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+      "at": "2026-11-26T04:31:34.642Z",
+      "record": {},
+      "previous": "a4173d8485e78ddd4e5a7497ef98026fea0bb5592e9e6cf2315d1c0b7323fe43",
+      "digest": "d81e4d46f46051dbac3f01b048c62480a1e1a8774cd926dd59085eceb0f98822"
+    },
+    {
+      "action": "source-review",
+      "id": "data-workbench",
+      "version": 1,
+      "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+      "at": "2026-11-26T04:31:34.661Z",
+      "record": {},
+      "previous": "d81e4d46f46051dbac3f01b048c62480a1e1a8774cd926dd59085eceb0f98822",
+      "digest": "9ce3cd4ecf68c169a881bb62d04eb39a89bc97fab03287b949db64acea908014"
+    },
+    {
+      "action": "technical",
+      "id": "data-workbench",
+      "version": 1,
+      "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+      "at": "2026-11-26T04:31:34.766Z",
+      "record": {},
+      "previous": "9ce3cd4ecf68c169a881bb62d04eb39a89bc97fab03287b949db64acea908014",
+      "digest": "c2ea44e7b58c3be7b28fe24effac11837c17950513d0aa2c39f2c7de034fa9fd"
+    },
+    {
+      "action": "freeze",
+      "id": "data-workbench",
+      "version": 1,
+      "packHash": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+      "at": "2026-11-26T04:31:34.787Z",
+      "record": {},
+      "previous": "c2ea44e7b58c3be7b28fe24effac11837c17950513d0aa2c39f2c7de034fa9fd",
+      "digest": "5fca70a3ca3b040972c1dfc8d40be487ba7ac915a435f600c6ac0d4fe72b41ce"
+    },
+    {
+      "action": "candidate",
+      "id": "frontend-release-delivery",
+      "version": 1,
+      "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+      "at": "2026-11-26T04:31:34.804Z",
+      "record": {},
+      "previous": "5fca70a3ca3b040972c1dfc8d40be487ba7ac915a435f600c6ac0d4fe72b41ce",
+      "digest": "a150de13ddd23f0c8eb01774355f8ea9e522ae9dfbee27cfd261df8b96ef1b90"
+    },
+    {
+      "action": "source-review",
+      "id": "frontend-release-delivery",
+      "version": 1,
+      "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+      "at": "2026-11-26T04:31:34.829Z",
+      "record": {},
+      "previous": "a150de13ddd23f0c8eb01774355f8ea9e522ae9dfbee27cfd261df8b96ef1b90",
+      "digest": "b1dacbc01e678d326be1bd78c3d9fcfd51db27f13ea99386dfa547bc11ce3f08"
+    },
+    {
+      "action": "technical",
+      "id": "frontend-release-delivery",
+      "version": 1,
+      "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+      "at": "2026-11-26T04:31:34.939Z",
+      "record": {},
+      "previous": "b1dacbc01e678d326be1bd78c3d9fcfd51db27f13ea99386dfa547bc11ce3f08",
+      "digest": "3f8855e0b37d4b08f0a8465c894cfb69618da7025a3db7a041d125f81ea377d0"
+    },
+    {
+      "action": "freeze",
+      "id": "frontend-release-delivery",
+      "version": 1,
+      "packHash": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+      "at": "2026-11-26T04:31:34.960Z",
+      "record": {},
+      "previous": "3f8855e0b37d4b08f0a8465c894cfb69618da7025a3db7a041d125f81ea377d0",
+      "digest": "3ef43da102ad06f963ed8a01ae6dbb74ab2660de06fc1c9f866d96913410ef65"
+    },
+    {
+      "action": "candidate",
+      "id": "contract-api",
+      "version": 1,
+      "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+      "at": "2026-11-26T04:31:34.982Z",
+      "record": {},
+      "previous": "3ef43da102ad06f963ed8a01ae6dbb74ab2660de06fc1c9f866d96913410ef65",
+      "digest": "708919a9e2d024d23dc2414c80920fd82e16e90dc1235e94a037bf4d8ee99cf3"
+    },
+    {
+      "action": "source-review",
+      "id": "contract-api",
+      "version": 1,
+      "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+      "at": "2026-11-26T04:31:34.999Z",
+      "record": {},
+      "previous": "708919a9e2d024d23dc2414c80920fd82e16e90dc1235e94a037bf4d8ee99cf3",
+      "digest": "5c7832a0c3bb52eccf57e13bef7ac5f173c30c0ec23cd1c628b36fa1a732bf7b"
+    },
+    {
+      "action": "technical",
+      "id": "contract-api",
+      "version": 1,
+      "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+      "at": "2026-11-26T04:31:35.104Z",
+      "record": {},
+      "previous": "5c7832a0c3bb52eccf57e13bef7ac5f173c30c0ec23cd1c628b36fa1a732bf7b",
+      "digest": "ec40d8f4f5127e37b3227949c9a241eb604cec08166065d0fac68ba5785cf64c"
+    },
+    {
+      "action": "freeze",
+      "id": "contract-api",
+      "version": 1,
+      "packHash": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+      "at": "2026-11-26T04:31:35.123Z",
+      "record": {},
+      "previous": "ec40d8f4f5127e37b3227949c9a241eb604cec08166065d0fac68ba5785cf64c",
+      "digest": "4f6dab964101ca77e4e9b6680318f6ba515d0a8548efb83baeaf1ca4bdb49721"
+    },
+    {
+      "action": "candidate",
+      "id": "retry-concurrency",
+      "version": 1,
+      "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+      "at": "2026-11-26T04:31:35.141Z",
+      "record": {},
+      "previous": "4f6dab964101ca77e4e9b6680318f6ba515d0a8548efb83baeaf1ca4bdb49721",
+      "digest": "18ad4eef465cb60f3a887f3fdb5421a62ab13390c9a26ee0cdd5e6beb1a28c9e"
+    },
+    {
+      "action": "source-review",
+      "id": "retry-concurrency",
+      "version": 1,
+      "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+      "at": "2026-11-26T04:31:35.162Z",
+      "record": {},
+      "previous": "18ad4eef465cb60f3a887f3fdb5421a62ab13390c9a26ee0cdd5e6beb1a28c9e",
+      "digest": "2fd2b4752a2ad93ebfe8730f7b14e38151b4fec988e142e054a60e5697752a78"
+    },
+    {
+      "action": "technical",
+      "id": "retry-concurrency",
+      "version": 1,
+      "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+      "at": "2026-11-26T04:31:35.262Z",
+      "record": {},
+      "previous": "2fd2b4752a2ad93ebfe8730f7b14e38151b4fec988e142e054a60e5697752a78",
+      "digest": "0fae38ba05baf25b748592ede9853372f4fa167346c08dc5b41cde66fd4c4ea2"
+    },
+    {
+      "action": "freeze",
+      "id": "retry-concurrency",
+      "version": 1,
+      "packHash": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+      "at": "2026-11-26T04:31:35.285Z",
+      "record": {},
+      "previous": "0fae38ba05baf25b748592ede9853372f4fa167346c08dc5b41cde66fd4c4ea2",
+      "digest": "9e1986d072f3e3d140616925f028bc0e580de8f66ab5cdf4a4ba2ab407fb6fea"
+    },
+    {
+      "action": "candidate",
+      "id": "service-evolution-delivery",
+      "version": 1,
+      "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+      "at": "2026-11-26T04:31:35.305Z",
+      "record": {},
+      "previous": "9e1986d072f3e3d140616925f028bc0e580de8f66ab5cdf4a4ba2ab407fb6fea",
+      "digest": "8784fb83e8cbe9f629ce1a8eba969dff61c941c4f88caecd86aae91215221568"
+    },
+    {
+      "action": "source-review",
+      "id": "service-evolution-delivery",
+      "version": 1,
+      "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+      "at": "2026-11-26T04:31:35.327Z",
+      "record": {},
+      "previous": "8784fb83e8cbe9f629ce1a8eba969dff61c941c4f88caecd86aae91215221568",
+      "digest": "a595eb82988de645deb614bcec069385e7f2228a6409cc958be7a70b64bf17d4"
+    },
+    {
+      "action": "technical",
+      "id": "service-evolution-delivery",
+      "version": 1,
+      "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+      "at": "2026-11-26T04:31:35.433Z",
+      "record": {},
+      "previous": "a595eb82988de645deb614bcec069385e7f2228a6409cc958be7a70b64bf17d4",
+      "digest": "aed497749b865fa8e6818b33ea4230d9bc692c6c0382fab6075ce0c46eee6ac0"
+    },
+    {
+      "action": "freeze",
+      "id": "service-evolution-delivery",
+      "version": 1,
+      "packHash": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+      "at": "2026-11-26T04:31:35.453Z",
+      "record": {},
+      "previous": "aed497749b865fa8e6818b33ea4230d9bc692c6c0382fab6075ce0c46eee6ac0",
+      "digest": "b162ba5545706d3b86ace7a631573ef3e4ffcd21da7dd2c096cc336aeaae2892"
+    },
+    {
+      "action": "candidate",
+      "id": "relational-model",
+      "version": 1,
+      "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+      "at": "2026-11-26T04:31:35.468Z",
+      "record": {},
+      "previous": "b162ba5545706d3b86ace7a631573ef3e4ffcd21da7dd2c096cc336aeaae2892",
+      "digest": "6035e1081e7215199c3c9434cfafe5d7e266e491b01081d544d11a7b57966dba"
+    },
+    {
+      "action": "source-review",
+      "id": "relational-model",
+      "version": 1,
+      "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+      "at": "2026-11-26T04:31:35.494Z",
+      "record": {},
+      "previous": "6035e1081e7215199c3c9434cfafe5d7e266e491b01081d544d11a7b57966dba",
+      "digest": "9054d08eef4181a65338fd60e610a72caff6d53476e57dd05f9c3e4185224eaa"
+    },
+    {
+      "action": "technical",
+      "id": "relational-model",
+      "version": 1,
+      "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+      "at": "2026-11-26T04:31:35.600Z",
+      "record": {},
+      "previous": "9054d08eef4181a65338fd60e610a72caff6d53476e57dd05f9c3e4185224eaa",
+      "digest": "0ca9a05a4d9631ed184948d59548f8458bd8867ac9c092a407b6a9eff922d57a"
+    },
+    {
+      "action": "freeze",
+      "id": "relational-model",
+      "version": 1,
+      "packHash": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+      "at": "2026-11-26T04:31:35.619Z",
+      "record": {},
+      "previous": "0ca9a05a4d9631ed184948d59548f8458bd8867ac9c092a407b6a9eff922d57a",
+      "digest": "243d0016d13474373a970ae2dfc3c462c16c58d5de7de1e697ae9488e82e7909"
+    },
+    {
+      "action": "candidate",
+      "id": "partition-replay",
+      "version": 1,
+      "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+      "at": "2026-11-26T04:31:35.639Z",
+      "record": {},
+      "previous": "243d0016d13474373a970ae2dfc3c462c16c58d5de7de1e697ae9488e82e7909",
+      "digest": "ee3b2fe43cdaf9e7995341fb30dc85c53bbfb848ce2fdb10df1f1faa3cb6fa94"
+    },
+    {
+      "action": "source-review",
+      "id": "partition-replay",
+      "version": 1,
+      "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+      "at": "2026-11-26T04:31:35.647Z",
+      "record": {},
+      "previous": "ee3b2fe43cdaf9e7995341fb30dc85c53bbfb848ce2fdb10df1f1faa3cb6fa94",
+      "digest": "261baa19455af36d29aa12e45ede81ff5b859f2aec6ce6f0359061fa177ea6b9"
+    },
+    {
+      "action": "technical",
+      "id": "partition-replay",
+      "version": 1,
+      "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+      "at": "2026-11-26T04:31:35.761Z",
+      "record": {},
+      "previous": "261baa19455af36d29aa12e45ede81ff5b859f2aec6ce6f0359061fa177ea6b9",
+      "digest": "9a627c43d2e2b8f9ea214cdc7a2504f003eaf1ce9b24eb16c30e2d9119eba7b2"
+    },
+    {
+      "action": "freeze",
+      "id": "partition-replay",
+      "version": 1,
+      "packHash": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+      "at": "2026-11-26T04:31:35.770Z",
+      "record": {},
+      "previous": "9a627c43d2e2b8f9ea214cdc7a2504f003eaf1ce9b24eb16c30e2d9119eba7b2",
+      "digest": "b395d7ae684fa765468a18396b028c57f9030d8d8e5384413258e6c94202ee1f"
+    },
+    {
+      "action": "candidate",
+      "id": "data-contract-evolution",
+      "version": 1,
+      "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+      "at": "2026-11-26T04:31:35.789Z",
+      "record": {},
+      "previous": "b395d7ae684fa765468a18396b028c57f9030d8d8e5384413258e6c94202ee1f",
+      "digest": "fa3b09c4178648b9e2310b87496bc15c3068d1ce583c1fd907e53cb9041cee2b"
+    },
+    {
+      "action": "source-review",
+      "id": "data-contract-evolution",
+      "version": 1,
+      "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+      "at": "2026-11-26T04:31:35.810Z",
+      "record": {},
+      "previous": "fa3b09c4178648b9e2310b87496bc15c3068d1ce583c1fd907e53cb9041cee2b",
+      "digest": "6d631dd57e7d251c6040743484d145c08589c64fc82bb854e4c647ff6c89d422"
+    },
+    {
+      "action": "technical",
+      "id": "data-contract-evolution",
+      "version": 1,
+      "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+      "at": "2026-11-26T04:31:35.922Z",
+      "record": {},
+      "previous": "6d631dd57e7d251c6040743484d145c08589c64fc82bb854e4c647ff6c89d422",
+      "digest": "89d2a168d9f5d6fa372f9a1f37d492686ff3139f9ec955c7c5840359f25e3e1e"
+    },
+    {
+      "action": "freeze",
+      "id": "data-contract-evolution",
+      "version": 1,
+      "packHash": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+      "at": "2026-11-26T04:31:35.947Z",
+      "record": {},
+      "previous": "89d2a168d9f5d6fa372f9a1f37d492686ff3139f9ec955c7c5840359f25e3e1e",
+      "digest": "ff5afcc9de5564609c663a2a2960038698578d8a3cc0d0a9f12980e855203eec"
+    },
+    {
+      "action": "candidate",
+      "id": "defect-evidence",
+      "version": 1,
+      "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+      "at": "2026-11-26T04:31:35.967Z",
+      "record": {},
+      "previous": "ff5afcc9de5564609c663a2a2960038698578d8a3cc0d0a9f12980e855203eec",
+      "digest": "25b08949eccd89180aa8855961dbef38b15e9dec76a821f59fd448f61a9e03e5"
+    },
+    {
+      "action": "source-review",
+      "id": "defect-evidence",
+      "version": 1,
+      "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+      "at": "2026-11-26T04:31:35.975Z",
+      "record": {},
+      "previous": "25b08949eccd89180aa8855961dbef38b15e9dec76a821f59fd448f61a9e03e5",
+      "digest": "c228bafcec0bf7f08747126090c1c8c74e448e6b7615e96d97079ce4ba57b08d"
+    },
+    {
+      "action": "technical",
+      "id": "defect-evidence",
+      "version": 1,
+      "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+      "at": "2026-11-26T04:31:36.075Z",
+      "record": {},
+      "previous": "c228bafcec0bf7f08747126090c1c8c74e448e6b7615e96d97079ce4ba57b08d",
+      "digest": "f861a76886f9b57fe7b34611db86821ac638a7a945f07daf5e4910faca5c5e87"
+    },
+    {
+      "action": "freeze",
+      "id": "defect-evidence",
+      "version": 1,
+      "packHash": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+      "at": "2026-11-26T04:31:36.082Z",
+      "record": {},
+      "previous": "f861a76886f9b57fe7b34611db86821ac638a7a945f07daf5e4910faca5c5e87",
+      "digest": "f85083371bbc24cddcfb8196f092b93a88a4e2250910974d9462653f9b807797"
+    },
+    {
+      "action": "candidate",
+      "id": "api-ui-regression",
+      "version": 1,
+      "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+      "at": "2026-11-26T04:31:36.096Z",
+      "record": {},
+      "previous": "f85083371bbc24cddcfb8196f092b93a88a4e2250910974d9462653f9b807797",
+      "digest": "3e27082fdd45508573b2193e2828b7a079eca587f1153813fdc2c97b6f21398d"
+    },
+    {
+      "action": "source-review",
+      "id": "api-ui-regression",
+      "version": 1,
+      "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+      "at": "2026-11-26T04:31:36.114Z",
+      "record": {},
+      "previous": "3e27082fdd45508573b2193e2828b7a079eca587f1153813fdc2c97b6f21398d",
+      "digest": "36a43446315d2de0b7a208d378d356f197ba1427fbd371b8b2bdc4207feb4e3e"
+    },
+    {
+      "action": "technical",
+      "id": "api-ui-regression",
+      "version": 1,
+      "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+      "at": "2026-11-26T04:31:36.220Z",
+      "record": {},
+      "previous": "36a43446315d2de0b7a208d378d356f197ba1427fbd371b8b2bdc4207feb4e3e",
+      "digest": "5c5c25e320b53ccdb383616d1b6d1386e23fc5da9dcd4430cbde5a5e98f763fe"
+    },
+    {
+      "action": "freeze",
+      "id": "api-ui-regression",
+      "version": 1,
+      "packHash": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+      "at": "2026-11-26T04:31:36.242Z",
+      "record": {},
+      "previous": "5c5c25e320b53ccdb383616d1b6d1386e23fc5da9dcd4430cbde5a5e98f763fe",
+      "digest": "00d418a0e87195f22fd1e6015e7245920a28bc1cb078ff3250fc63e3cc1d8874"
+    },
+    {
+      "action": "candidate",
+      "id": "release-risk-review",
+      "version": 1,
+      "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+      "at": "2026-11-26T04:31:36.265Z",
+      "record": {},
+      "previous": "00d418a0e87195f22fd1e6015e7245920a28bc1cb078ff3250fc63e3cc1d8874",
+      "digest": "aff46c627c0be984775dd02e915a15f31bcedfc5c2c3bb48ae2ccbbea6427aaa"
+    },
+    {
+      "action": "source-review",
+      "id": "release-risk-review",
+      "version": 1,
+      "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+      "at": "2026-11-26T04:31:36.289Z",
+      "record": {},
+      "previous": "aff46c627c0be984775dd02e915a15f31bcedfc5c2c3bb48ae2ccbbea6427aaa",
+      "digest": "8a512106ff5d419a00f5a3305a03fe4b16f2366c3ee12422c3a94825f4baaf7f"
+    },
+    {
+      "action": "technical",
+      "id": "release-risk-review",
+      "version": 1,
+      "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+      "at": "2026-11-26T04:31:36.395Z",
+      "record": {},
+      "previous": "8a512106ff5d419a00f5a3305a03fe4b16f2366c3ee12422c3a94825f4baaf7f",
+      "digest": "5316deeb12200bfcc067c5be26b34df68de5fca8c675bd485251fcfd1bf82d5d"
+    },
+    {
+      "action": "freeze",
+      "id": "release-risk-review",
+      "version": 1,
+      "packHash": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+      "at": "2026-11-26T04:31:36.417Z",
+      "record": {},
+      "previous": "5316deeb12200bfcc067c5be26b34df68de5fca8c675bd485251fcfd1bf82d5d",
+      "digest": "5e034f2da70d3015c134c9f85e6803acb80d700f620d19d09b24e3d924b096f9"
+    },
+    {
+      "action": "candidate",
+      "id": "rule-tool",
+      "version": 1,
+      "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+      "at": "2026-11-26T04:31:36.423Z",
+      "record": {},
+      "previous": "5e034f2da70d3015c134c9f85e6803acb80d700f620d19d09b24e3d924b096f9",
+      "digest": "cc87a95dce3802f8da56d3dc950f036cc573e10236e52038798b2d9e00f82044"
+    },
+    {
+      "action": "source-review",
+      "id": "rule-tool",
+      "version": 1,
+      "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+      "at": "2026-11-26T04:31:36.430Z",
+      "record": {},
+      "previous": "cc87a95dce3802f8da56d3dc950f036cc573e10236e52038798b2d9e00f82044",
+      "digest": "23ef6fd3867e3d9e5f3ecb4b163d39581ee2dc4777130ae4cb32b4ab3f42835f"
+    },
+    {
+      "action": "technical",
+      "id": "rule-tool",
+      "version": 1,
+      "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+      "at": "2026-11-26T04:31:36.520Z",
+      "record": {},
+      "previous": "23ef6fd3867e3d9e5f3ecb4b163d39581ee2dc4777130ae4cb32b4ab3f42835f",
+      "digest": "1c02f63b441de90937ad31c723d25fa2ed039e0ef2e5d6eefd563e73fd11fe30"
+    },
+    {
+      "action": "freeze",
+      "id": "rule-tool",
+      "version": 1,
+      "packHash": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+      "at": "2026-11-26T04:31:36.538Z",
+      "record": {},
+      "previous": "1c02f63b441de90937ad31c723d25fa2ed039e0ef2e5d6eefd563e73fd11fe30",
+      "digest": "1c9563041b9f3aff40ee4caba401a69f31432b92aa024f6ad5ae6ccf77d77aad"
+    },
+    {
+      "action": "candidate",
+      "id": "legacy-change",
+      "version": 1,
+      "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+      "at": "2026-11-26T04:31:36.557Z",
+      "record": {},
+      "previous": "1c9563041b9f3aff40ee4caba401a69f31432b92aa024f6ad5ae6ccf77d77aad",
+      "digest": "3e9854d298c77d1faa3de1b15cbe6cc0bc296922834abb1a31536c20505cdffe"
+    },
+    {
+      "action": "source-review",
+      "id": "legacy-change",
+      "version": 1,
+      "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+      "at": "2026-11-26T04:31:36.575Z",
+      "record": {},
+      "previous": "3e9854d298c77d1faa3de1b15cbe6cc0bc296922834abb1a31536c20505cdffe",
+      "digest": "9c135a1e060df2c5195b7c5ac02735af192cba427b5a054552870841a784bc4a"
+    },
+    {
+      "action": "technical",
+      "id": "legacy-change",
+      "version": 1,
+      "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+      "at": "2026-11-26T04:31:36.691Z",
+      "record": {},
+      "previous": "9c135a1e060df2c5195b7c5ac02735af192cba427b5a054552870841a784bc4a",
+      "digest": "0e31a0ce536c60cb11d7c152ec39b71ac14fc0c31b2ba649e3428c2f0bd1f338"
+    },
+    {
+      "action": "freeze",
+      "id": "legacy-change",
+      "version": 1,
+      "packHash": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+      "at": "2026-11-26T04:31:36.712Z",
+      "record": {},
+      "previous": "0e31a0ce536c60cb11d7c152ec39b71ac14fc0c31b2ba649e3428c2f0bd1f338",
+      "digest": "d48b31a8f4e6561bc3c189b946d317d3a6c37b3015c401bebfe2c18ed71b10a9"
+    },
+    {
+      "action": "candidate",
+      "id": "versioned-toolkit",
+      "version": 1,
+      "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+      "at": "2026-11-26T04:31:36.721Z",
+      "record": {},
+      "previous": "d48b31a8f4e6561bc3c189b946d317d3a6c37b3015c401bebfe2c18ed71b10a9",
+      "digest": "02349dc1f86afc61386995662a458ba4882b23b7d8e8eeefc5bec6b0a69888ff"
+    },
+    {
+      "action": "source-review",
+      "id": "versioned-toolkit",
+      "version": 1,
+      "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+      "at": "2026-11-26T04:31:36.733Z",
+      "record": {},
+      "previous": "02349dc1f86afc61386995662a458ba4882b23b7d8e8eeefc5bec6b0a69888ff",
+      "digest": "ab53c04286d790cada7a608cc82ad1e60a46e19c7af93f9beb4f77474984e5ec"
+    },
+    {
+      "action": "technical",
+      "id": "versioned-toolkit",
+      "version": 1,
+      "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+      "at": "2026-11-26T04:31:36.846Z",
+      "record": {},
+      "previous": "ab53c04286d790cada7a608cc82ad1e60a46e19c7af93f9beb4f77474984e5ec",
+      "digest": "0c2fb317dda216cc326f3b79209f0bd44688d5a52f39b47ef7310cf765c045af"
+    },
+    {
+      "action": "freeze",
+      "id": "versioned-toolkit",
+      "version": 1,
+      "packHash": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+      "at": "2026-11-26T04:31:36.868Z",
+      "record": {},
+      "previous": "0c2fb317dda216cc326f3b79209f0bd44688d5a52f39b47ef7310cf765c045af",
+      "digest": "cf33a2d1fd7c15d07519d2ff8618f440de518c16483f98ba3226238fd71f2c52"
+    },
+    {
+      "action": "candidate",
+      "id": "config-acceptance",
+      "version": 1,
+      "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+      "at": "2026-11-26T04:31:36.892Z",
+      "record": {},
+      "previous": "cf33a2d1fd7c15d07519d2ff8618f440de518c16483f98ba3226238fd71f2c52",
+      "digest": "bb027bfa1ade975e3b9429e40744141dc70f035bc0728d486627b01b8fe0f091"
+    },
+    {
+      "action": "source-review",
+      "id": "config-acceptance",
+      "version": 1,
+      "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+      "at": "2026-11-26T04:31:36.908Z",
+      "record": {},
+      "previous": "bb027bfa1ade975e3b9429e40744141dc70f035bc0728d486627b01b8fe0f091",
+      "digest": "3ebb47bf1aff72e90a53cb8c92dffd23a8334ec52af315bf71f5d00276109f77"
+    },
+    {
+      "action": "technical",
+      "id": "config-acceptance",
+      "version": 1,
+      "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+      "at": "2026-11-26T04:31:37.027Z",
+      "record": {},
+      "previous": "3ebb47bf1aff72e90a53cb8c92dffd23a8334ec52af315bf71f5d00276109f77",
+      "digest": "14ac62b2d360657db56d659e056c076445ebfb33b59cfa27e34df4939408ead1"
+    },
+    {
+      "action": "freeze",
+      "id": "config-acceptance",
+      "version": 1,
+      "packHash": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+      "at": "2026-11-26T04:31:37.044Z",
+      "record": {},
+      "previous": "14ac62b2d360657db56d659e056c076445ebfb33b59cfa27e34df4939408ead1",
+      "digest": "4cc78ef49ce6862772e327dbb7799525337af51272ba259f45fba75716114970"
+    },
+    {
+      "action": "candidate",
+      "id": "migration-reconciliation",
+      "version": 1,
+      "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+      "at": "2026-11-26T04:31:37.057Z",
+      "record": {},
+      "previous": "4cc78ef49ce6862772e327dbb7799525337af51272ba259f45fba75716114970",
+      "digest": "6c05afd1ae445ddc9e72ee123c5231380ad424e550a61ff351d095952c7493ed"
+    },
+    {
+      "action": "source-review",
+      "id": "migration-reconciliation",
+      "version": 1,
+      "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+      "at": "2026-11-26T04:31:37.073Z",
+      "record": {},
+      "previous": "6c05afd1ae445ddc9e72ee123c5231380ad424e550a61ff351d095952c7493ed",
+      "digest": "9133e627cddf44ec2f206074e2939792146a6d8cf53a16da8f0603f82d501106"
+    },
+    {
+      "action": "technical",
+      "id": "migration-reconciliation",
+      "version": 1,
+      "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+      "at": "2026-11-26T04:31:37.181Z",
+      "record": {},
+      "previous": "9133e627cddf44ec2f206074e2939792146a6d8cf53a16da8f0603f82d501106",
+      "digest": "60868977e4d42f8f31ba48e446c4cfc1493e019f6fdf8934d9aa7f675f95cc9b"
+    },
+    {
+      "action": "freeze",
+      "id": "migration-reconciliation",
+      "version": 1,
+      "packHash": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+      "at": "2026-11-26T04:31:37.198Z",
+      "record": {},
+      "previous": "60868977e4d42f8f31ba48e446c4cfc1493e019f6fdf8934d9aa7f675f95cc9b",
+      "digest": "a20bd7d45d35fd7b72b8589bd2b25750b1dcc82e9df31b1981c1c33d91872c0b"
+    },
+    {
+      "action": "candidate",
+      "id": "rollout-support-handoff",
+      "version": 1,
+      "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+      "at": "2026-11-26T04:31:37.218Z",
+      "record": {},
+      "previous": "a20bd7d45d35fd7b72b8589bd2b25750b1dcc82e9df31b1981c1c33d91872c0b",
+      "digest": "eb60d8adf4d113b7cf2b3ebffdf58467b944a2dc8b06d334f4a8b36b22f9eb37"
+    },
+    {
+      "action": "source-review",
+      "id": "rollout-support-handoff",
+      "version": 1,
+      "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+      "at": "2026-11-26T04:31:37.240Z",
+      "record": {},
+      "previous": "eb60d8adf4d113b7cf2b3ebffdf58467b944a2dc8b06d334f4a8b36b22f9eb37",
+      "digest": "611ee6c8a0c3c75f6a45910ddca649980a75d02d9550f4cb2ec997fefd80d3a3"
+    },
+    {
+      "action": "technical",
+      "id": "rollout-support-handoff",
+      "version": 1,
+      "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+      "at": "2026-11-26T04:31:37.335Z",
+      "record": {},
+      "previous": "611ee6c8a0c3c75f6a45910ddca649980a75d02d9550f4cb2ec997fefd80d3a3",
+      "digest": "91ac36515b67b8bcee5aacc2ef16f582dce13d8a3d5bd2e06d9924f52e241f65"
+    },
+    {
+      "action": "freeze",
+      "id": "rollout-support-handoff",
+      "version": 1,
+      "packHash": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+      "at": "2026-11-26T04:31:37.356Z",
+      "record": {},
+      "previous": "91ac36515b67b8bcee5aacc2ef16f582dce13d8a3d5bd2e06d9924f52e241f65",
+      "digest": "26cc93f661159f3521870f3796726842486ebdb41d833a5238077308420ca0a4"
+    },
+    {
+      "action": "candidate",
+      "id": "cross-registration-service",
+      "version": 1,
+      "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+      "at": "2026-11-26T04:31:37.373Z",
+      "record": {},
+      "previous": "26cc93f661159f3521870f3796726842486ebdb41d833a5238077308420ca0a4",
+      "digest": "db5f10b63905692192799a8d143ceba332755aebe547eb86bceaba2f93eee4de"
+    },
+    {
+      "action": "source-review",
+      "id": "cross-registration-service",
+      "version": 1,
+      "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+      "at": "2026-11-26T04:31:37.400Z",
+      "record": {},
+      "previous": "db5f10b63905692192799a8d143ceba332755aebe547eb86bceaba2f93eee4de",
+      "digest": "dcdb0a82fdce2a7df75737e5cf345185c46c8decf4cb85b1a81faa9f908dbba2"
+    },
+    {
+      "action": "technical",
+      "id": "cross-registration-service",
+      "version": 1,
+      "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+      "at": "2026-11-26T04:31:37.503Z",
+      "record": {},
+      "previous": "dcdb0a82fdce2a7df75737e5cf345185c46c8decf4cb85b1a81faa9f908dbba2",
+      "digest": "5a84a5cd0ee54851f742ae694a7cef231065240cce58086921e45570d8a29cd3"
+    },
+    {
+      "action": "freeze",
+      "id": "cross-registration-service",
+      "version": 1,
+      "packHash": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+      "at": "2026-11-26T04:31:37.522Z",
+      "record": {},
+      "previous": "5a84a5cd0ee54851f742ae694a7cef231065240cce58086921e45570d8a29cd3",
+      "digest": "113d7dfa9423703bf047e14c7b4490319dbf393bb213fcbd4b1cbb422905baf5"
+    },
+    {
+      "action": "candidate",
+      "id": "cross-metric-service",
+      "version": 1,
+      "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+      "at": "2026-11-26T04:31:37.541Z",
+      "record": {},
+      "previous": "113d7dfa9423703bf047e14c7b4490319dbf393bb213fcbd4b1cbb422905baf5",
+      "digest": "edb2abde2a95ce8dd5cd8fb76b458166994fec63dbef9d79d95b1268d53eb118"
+    },
+    {
+      "action": "source-review",
+      "id": "cross-metric-service",
+      "version": 1,
+      "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+      "at": "2026-11-26T04:31:37.560Z",
+      "record": {},
+      "previous": "edb2abde2a95ce8dd5cd8fb76b458166994fec63dbef9d79d95b1268d53eb118",
+      "digest": "e9c1ab11b247cc607d1d2faca471bacd168db45e196d94041300dd499993cea7"
+    },
+    {
+      "action": "technical",
+      "id": "cross-metric-service",
+      "version": 1,
+      "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+      "at": "2026-11-26T04:31:37.663Z",
+      "record": {},
+      "previous": "e9c1ab11b247cc607d1d2faca471bacd168db45e196d94041300dd499993cea7",
+      "digest": "bd1e49b2edead580789b729577b73ed97e0ee79acb1a5e414eb6b83866b6bb3b"
+    },
+    {
+      "action": "freeze",
+      "id": "cross-metric-service",
+      "version": 1,
+      "packHash": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+      "at": "2026-11-26T04:31:37.682Z",
+      "record": {},
+      "previous": "bd1e49b2edead580789b729577b73ed97e0ee79acb1a5e414eb6b83866b6bb3b",
+      "digest": "95bc29e1cc7553ff4849dfc17e7c58f3bd7de4cc7615ea70d5230e85e6bb1ab0"
+    },
+    {
+      "action": "candidate",
+      "id": "cross-knowledge-assistant",
+      "version": 1,
+      "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+      "at": "2026-11-26T04:31:37.704Z",
+      "record": {},
+      "previous": "95bc29e1cc7553ff4849dfc17e7c58f3bd7de4cc7615ea70d5230e85e6bb1ab0",
+      "digest": "9af70dbe21ae26e67cc85030959c7bf0d0f21dfbb2d46ae70ba08dd9b849f2f0"
+    },
+    {
+      "action": "source-review",
+      "id": "cross-knowledge-assistant",
+      "version": 1,
+      "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+      "at": "2026-11-26T04:31:37.724Z",
+      "record": {},
+      "previous": "9af70dbe21ae26e67cc85030959c7bf0d0f21dfbb2d46ae70ba08dd9b849f2f0",
+      "digest": "efa673d820b377918f6a2d43b8e0d1da677f615083c6add54ca641bbb74f887a"
+    },
+    {
+      "action": "technical",
+      "id": "cross-knowledge-assistant",
+      "version": 1,
+      "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+      "at": "2026-11-26T04:31:37.812Z",
+      "record": {},
+      "previous": "efa673d820b377918f6a2d43b8e0d1da677f615083c6add54ca641bbb74f887a",
+      "digest": "86d8f0f9e258a4116a33f4778b724f2b35184e4b51722c0109425025371b3ac9"
+    },
+    {
+      "action": "freeze",
+      "id": "cross-knowledge-assistant",
+      "version": 1,
+      "packHash": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+      "at": "2026-11-26T04:31:37.835Z",
+      "record": {},
+      "previous": "86d8f0f9e258a4116a33f4778b724f2b35184e4b51722c0109425025371b3ac9",
+      "digest": "85637a28dd3173eb96521325069f1fea15871e259bb49786d16353c6fa181ebf"
+    },
+    {
+      "action": "candidate",
+      "id": "cross-service-incident",
+      "version": 1,
+      "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+      "at": "2026-11-26T04:31:37.852Z",
+      "record": {},
+      "previous": "85637a28dd3173eb96521325069f1fea15871e259bb49786d16353c6fa181ebf",
+      "digest": "8fc68f707abfb3fe4e056eef982249224a6ca00d6ed782a41df18757af31e72c"
+    },
+    {
+      "action": "source-review",
+      "id": "cross-service-incident",
+      "version": 1,
+      "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+      "at": "2026-11-26T04:31:37.871Z",
+      "record": {},
+      "previous": "8fc68f707abfb3fe4e056eef982249224a6ca00d6ed782a41df18757af31e72c",
+      "digest": "61bd0595972608a10fc8335fb22159e7ec612f97704eaaa9e114132603bd7708"
+    },
+    {
+      "action": "technical",
+      "id": "cross-service-incident",
+      "version": 1,
+      "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+      "at": "2026-11-26T04:31:37.979Z",
+      "record": {},
+      "previous": "61bd0595972608a10fc8335fb22159e7ec612f97704eaaa9e114132603bd7708",
+      "digest": "363503daf23308c8f4288d22b5bc473a0d71d9259f06bb92b7cc1f9f308cbd74"
+    },
+    {
+      "action": "freeze",
+      "id": "cross-service-incident",
+      "version": 1,
+      "packHash": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+      "at": "2026-11-26T04:31:37.997Z",
+      "record": {},
+      "previous": "363503daf23308c8f4288d22b5bc473a0d71d9259f06bb92b7cc1f9f308cbd74",
+      "digest": "8cd42ae9472b1e5ad34e15292850afd970f3ef602b6d8f2f1050b1610bec49f4"
+    },
+    {
+      "action": "candidate",
+      "id": "cross-security-remediation",
+      "version": 1,
+      "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+      "at": "2026-11-26T04:31:38.019Z",
+      "record": {},
+      "previous": "8cd42ae9472b1e5ad34e15292850afd970f3ef602b6d8f2f1050b1610bec49f4",
+      "digest": "159400756e0ee1625b59d8558f7f1a43e4cbeac54cdfd290b558f96da0e58aaa"
+    },
+    {
+      "action": "source-review",
+      "id": "cross-security-remediation",
+      "version": 1,
+      "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+      "at": "2026-11-26T04:31:38.039Z",
+      "record": {},
+      "previous": "159400756e0ee1625b59d8558f7f1a43e4cbeac54cdfd290b558f96da0e58aaa",
+      "digest": "5a1a53bea618428727dc36935f5228f4e1c3115426a60a2cf32eebb2b1a78d6b"
+    },
+    {
+      "action": "technical",
+      "id": "cross-security-remediation",
+      "version": 1,
+      "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+      "at": "2026-11-26T04:31:38.144Z",
+      "record": {},
+      "previous": "5a1a53bea618428727dc36935f5228f4e1c3115426a60a2cf32eebb2b1a78d6b",
+      "digest": "3390995ace6e9eae2dbd24a009b1ad59b49e37ccfed78f04017275c3a91d43cf"
+    },
+    {
+      "action": "freeze",
+      "id": "cross-security-remediation",
+      "version": 1,
+      "packHash": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+      "at": "2026-11-26T04:31:38.163Z",
+      "record": {},
+      "previous": "3390995ace6e9eae2dbd24a009b1ad59b49e37ccfed78f04017275c3a91d43cf",
+      "digest": "9ace9dba0080ccfc3cc5236d01e736df0a6d826720515fbdf68d61e6aa4aadb6"
+    },
+    {
+      "action": "candidate",
+      "id": "cross-migration-launch",
+      "version": 1,
+      "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+      "at": "2026-11-26T04:31:38.183Z",
+      "record": {},
+      "previous": "9ace9dba0080ccfc3cc5236d01e736df0a6d826720515fbdf68d61e6aa4aadb6",
+      "digest": "c91f02de3040003857aebeb050cc7ee221ae394ed7ca6d26faedaa85eabf61e6"
+    },
+    {
+      "action": "source-review",
+      "id": "cross-migration-launch",
+      "version": 1,
+      "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+      "at": "2026-11-26T04:31:38.190Z",
+      "record": {},
+      "previous": "c91f02de3040003857aebeb050cc7ee221ae394ed7ca6d26faedaa85eabf61e6",
+      "digest": "3f13b7dd1f216250d2e4e6eba3f59bbc619db024bbfbdf07ce180ddf356de4af"
+    },
+    {
+      "action": "technical",
+      "id": "cross-migration-launch",
+      "version": 1,
+      "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+      "at": "2026-11-26T04:31:38.314Z",
+      "record": {},
+      "previous": "3f13b7dd1f216250d2e4e6eba3f59bbc619db024bbfbdf07ce180ddf356de4af",
+      "digest": "56d8048a7cd436ad1d8c34cf6406da2a601851491c4698bf8392a0031668f8ce"
+    },
+    {
+      "action": "freeze",
+      "id": "cross-migration-launch",
+      "version": 1,
+      "packHash": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+      "at": "2026-11-26T04:31:38.334Z",
+      "record": {},
+      "previous": "56d8048a7cd436ad1d8c34cf6406da2a601851491c4698bf8392a0031668f8ce",
+      "digest": "0a518b2587082136e3d873a8cd236329481dddbd28a0a5cbf07c044967a4f650"
+    }
+  ],
+  "reviewQueue": []
+}

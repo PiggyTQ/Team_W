@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="940" viewBox="0 0 1440 940">
+<style>text{font-family:'Microsoft YaHei',sans-serif;fill:#143f65}.h{font-size:26px;font-weight:700}.body{font-size:19px}.note{font-size:16px;fill:#62788c}.line{stroke:#d9dfdf;fill:none}.panel{fill:#fffefa;stroke:#dedbd0}</style>
+<rect width="1440" height="940" fill="#fbf8ef"/><text x="52" y="58" class="h">实践与成长 · 结构设计整理</text><text x="52" y="91" class="note">设计示意，非网页截图。沿实施前 structure.md 整理；actual 目录为独立的浏览器实拍。</text>
+<rect x="52" y="130" width="620" height="740" rx="16" class="panel"/><text x="80" y="175" class="h">项目库</text>
+<rect x="80" y="200" width="564" height="102" rx="12" fill="#eaf3fa"/><text x="100" y="236" class="body">继续任务 / 当前筛选与完整数量</text><text x="100" y="273" class="body">十方向 · 实践阶段 · 查看全部</text>
+<text x="100" y="350" class="body">入门 → 增加约束 → 独立交付</text><path d="M100 368H620" class="line"/>
+<text x="100" y="410" class="body">项目具体问题、产物、估算与来源</text><text x="100" y="448" class="note">紧凑项目行；继续既有任务，不重复开题</text>
+<path d="M100 485H620" class="line"/><text x="100" y="527" class="body">30核心项目 / 每方向三阶段</text><text x="100" y="568" class="body">6跨职业情境 / 接收、反馈与修订</text>
+<rect x="100" y="617" width="520" height="178" rx="12" fill="#edf5fb"/><text x="122" y="655" class="body">发布状态分开</text><text x="122" y="695" class="note">旧4项及历史保留；新32项本地试用</text><text x="122" y="733" class="note">参考复现、人审、试学、正式发布分别记录</text><text x="122" y="771" class="note">不以完成次数或点击认定能力掌握</text>
+<rect x="710" y="130" width="678" height="740" rx="16" class="panel"/><text x="738" y="175" class="h">独立项目与产物工作区</text>
+<text x="746" y="226" class="body">具体任务 → 输入 / 契约 → 预算预览</text><text x="746" y="267" class="note">完整下载、本机命令、来源范围、版本冻结</text>
+<path d="M746 296H1355" class="line"/><text x="746" y="338" class="body">按产物制作</text><text x="746" y="379" class="note">SQL与结果 / 程序与接口 / 实际界面</text><text x="746" y="416" class="note">配置与时序 / 回归测试 / 角色接手文件</text>
+<rect x="746" y="448" width="609" height="131" rx="10" fill="#eaf3fa"/><text x="768" y="489" class="body">错误 → 修订 → 重评</text><text x="768" y="531" class="note">文件与结果核对、本机执行、自查、人审分开</text><text x="768" y="560" class="note">修改即失效；不执行任意上传代码</text>
+<text x="746" y="626" class="body">提交快照 → 本人复核 → 确认范围归档</text><text x="746" y="668" class="note">我的资源 / 待本人确认材料 / 原技能学习规则</text>
+<rect x="746" y="714" width="609" height="82" rx="10" fill="#ffe084"/><text x="768" y="751" class="body">补强具体技能 / 受控新约束 / 新情境交接</text><text x="768" y="781" class="note">可改选、不强制解锁、不自动写入计划</text>
+<text x="52" y="913" class="note">独立项目manifest与历史快照 · 来源变化进入待审队列 · 冻结版本不可覆盖 · 本轮仅本地实现</text></svg>

@@ -1,0 +1,126 @@
+{
+  "id": "versioned-toolkit",
+  "version": 1,
+  "legacy": false,
+  "career": "software",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "可发布与可维护工具包",
+    "en": "Versioned maintainable toolkit"
+  },
+  "next": [
+    "cross-registration-service"
+  ],
+  "prior": "legacy-change",
+  "adapter": "code",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "release-version"
+  ],
+  "brief": {
+    "zh": "接手者要从解压包运行一个金额命令行工具。交付参数、版本、退出码和错误说明，在独立Node进程重现正常和缺参命令，不能只在开发机截图。",
+    "en": "A user must run a small cents-based CLI from an extracted release. Provide arguments, exit codes, version output and a useful error path."
+  },
+  "outputs": {
+    "zh": [
+      "代码、版本化包和验证",
+      "运行文档、变更记录和维护边界"
+    ],
+    "en": [
+      "Install-free CLI",
+      "runnable package and release/change instructions"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "干净环境按说明构建运行",
+      "示例命令、错误返回和测试重现"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A missing amount must return usage and a nonzero exit code. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "仅开发机可运行或发布包漏依赖/配置应失败",
+    "en": "A missing amount must return usage and a nonzero exit code."
+  },
+  "review": {
+    "zh": [
+      "可接手性与设计权衡",
+      "不虚构真实用户评价"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "接手者要从解压包运行一个金额命令行工具。交付参数、版本、退出码和错误说明，在独立Node进程重现正常和缺参命令，不能只在开发机截图。",
+      "仅开发机可运行或发布包漏依赖/配置应失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A user must run a small cents-based CLI from an extracted release.",
+      "Reproduce this failure first: A missing amount must return usage and a nonzero exit code.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "仅开发机可运行或发布包漏依赖/配置应失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "software",
+      "branch": "collaboration",
+      "skill": "release-version",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

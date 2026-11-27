@@ -1,0 +1,26 @@
+{
+  "maxError": 0.01,
+  "probes": [
+    {
+      "version": "v1",
+      "requests": 1000,
+      "errors": 5,
+      "business": "ok",
+      "newRecords": 0
+    },
+    {
+      "version": "v2",
+      "requests": 800,
+      "errors": 64,
+      "business": "failed",
+      "newRecords": 0
+    },
+    {
+      "version": "rollback",
+      "requests": 700,
+      "errors": 3,
+      "business": "failed",
+      "newRecords": 2
+    }
+  ]
+}

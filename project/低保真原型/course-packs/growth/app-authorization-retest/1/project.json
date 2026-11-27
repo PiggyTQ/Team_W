@@ -1,0 +1,126 @@
+{
+  "id": "app-authorization-retest",
+  "version": 1,
+  "legacy": false,
+  "career": "security",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "应用权限整改复验",
+    "en": "Application authorization retest"
+  },
+  "next": [
+    "detection-response-handoff"
+  ],
+  "prior": "log",
+  "adapter": "security",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "authorization"
+  ],
+  "brief": {
+    "zh": "应用负责人怀疑“隐藏按钮”没有解决越权。围绕本机实验服务的O1/O2对象，以未登录、本人、他人和编辑权限实际发请求，复现后复验服务端整改。",
+    "en": "An application owner asks you to reproduce and repair object-level access. Test anonymous, owner, another user and edit permissions against a loopback service."
+  },
+  "outputs": {
+    "zh": [
+      "复现证据、修复或整改建议",
+      "授权测试矩阵和回归结果"
+    ],
+    "en": [
+      "HTTP reproduction",
+      "an authorization matrix and regression evidence"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "本人/他人/未登录/不同动作响应符合契约",
+      "修复后正向功能与拒绝路径均验证"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Hiding a button leaves an unauthorized server response exposed. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "只隐藏前端按钮而服务端仍返回数据，必须失败",
+    "en": "Hiding a button leaves an unauthorized server response exposed."
+  },
+  "review": {
+    "zh": [
+      "影响证据与授权边界",
+      "不能扩成全应用安全认证"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "应用负责人怀疑“隐藏按钮”没有解决越权。围绕本机实验服务的O1/O2对象，以未登录、本人、他人和编辑权限实际发请求，复现后复验服务端整改。",
+      "只隐藏前端按钮而服务端仍返回数据，必须失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An application owner asks you to reproduce and repair object-level access.",
+      "Reproduce this failure first: Hiding a button leaves an unauthorized server response exposed.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "只隐藏前端按钮而服务端仍返回数据，必须失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "security",
+      "branch": "identity",
+      "skill": "authorization",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

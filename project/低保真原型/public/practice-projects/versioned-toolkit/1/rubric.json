@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "干净环境按说明构建运行",
+    "示例命令、错误返回和测试重现"
+  ],
+  "open": [
+    {
+      "criterion": "可接手性与设计权衡",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "不虚构真实用户评价",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

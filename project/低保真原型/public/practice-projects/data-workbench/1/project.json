@@ -1,0 +1,126 @@
+{
+  "id": "data-workbench",
+  "version": 1,
+  "legacy": false,
+  "career": "frontend",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "数据工作台与接口异常",
+    "en": "Data workbench and API faults"
+  },
+  "next": [
+    "frontend-release-delivery"
+  ],
+  "prior": "accessible-form",
+  "adapter": "interface",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "async-ui"
+  ],
+  "brief": {
+    "zh": "运营人员需要按组筛选记录并翻页。让筛选、页码、空态和错误态保持一致，制造A慢B快的请求顺序，确认旧响应不会覆盖当前结果。",
+    "en": "An operator needs filterable records with pagination. Keep the current filter and page consistent, handle empty/error states, and reject older asynchronous responses."
+  },
+  "outputs": {
+    "zh": [
+      "可运行工作台与组件说明",
+      "接口状态与回归用例"
+    ],
+    "en": [
+      "Runnable record interface",
+      "response-order tests and state notes"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "过滤/分页结果与契约一致",
+      "旧响应被取消或不覆盖新请求"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "An earlier request must not replace results for the new filter. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "快速改变筛选造成旧结果覆盖，应在测试中失败",
+    "en": "An earlier request must not replace results for the new filter."
+  },
+  "review": {
+    "zh": [
+      "组件边界和可访问性",
+      "哪些状态尚未覆盖"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "运营人员需要按组筛选记录并翻页。让筛选、页码、空态和错误态保持一致，制造A慢B快的请求顺序，确认旧响应不会覆盖当前结果。",
+      "快速改变筛选造成旧结果覆盖，应在测试中失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An operator needs filterable records with pagination.",
+      "Reproduce this failure first: An earlier request must not replace results for the new filter.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "快速改变筛选造成旧结果覆盖，应在测试中失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "index.html"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "frontend",
+      "branch": "interaction",
+      "skill": "async-ui",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "index.html"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

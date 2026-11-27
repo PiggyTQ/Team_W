@@ -1,0 +1,144 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  [\r\n    {\r\n      actual: 200,\r\n      expected: 403,\r\n      id: 'other-object',\r\n+     passed: true\r\n-     passed: false\r\n    },\r\n    {\r\n      actual: 'cleared',\r\n      expected: 'same-input',\r\n      id: 'input-retained',\r\n+     passed: true\r\n-     passed: false\r\n    },\r\n    {\r\n      actual: 201,\r\n      expected: 201,\r\n      id: 'normal-submit',\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/api-ui-regression/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    { id: 'other-object', expected: 403, actual: 200, passed: true },\r\n    {\r\n      id: 'input-retained',\r\n      expected: 'same-input',\r\n      actual: 'cleared',\r\n      passed: true\r\n    },\r\n    { id: 'normal-submit', expected: 201, actual: 201, passed: true }\r\n  ],\r\n  expected: [\r\n    { id: 'other-object', expected: 403, actual: 200, passed: false },\r\n    {\r\n      id: 'input-retained',\r\n      expected: 'same-input',\r\n      actual: 'cleared',\r\n      passed: false\r\n    },\r\n    { id: 'normal-submit', expected: 201, actual: 201, passed: true }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  [\r\n    {\r\n      actual: 200,\r\n      expected: 403,\r\n      id: 'other-object',\r\n+     passed: true\r\n-     passed: false\r\n    },\r\n    {\r\n      actual: 'cleared',\r\n      expected: 'same-input',\r\n      id: 'input-retained',\r\n+     passed: true\r\n-     passed: false\r\n    },\r\n    {\r\n      actual: 201,\r\n      expected: 201,\r\n      id: 'normal-submit',\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/api-ui-regression/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    { id: 'other-object', expected: 403, actual: 200, passed: true },\r\n    {\r\n      id: 'input-retained',\r\n      expected: 'same-input',\r\n      actual: 'cleared',\r\n      passed: true\r\n    },\r\n    { id: 'normal-submit', expected: 201, actual: 201, passed: true }\r\n  ],\r\n  expected: [\r\n    { id: 'other-object', expected: 403, actual: 200, passed: false },\r\n    {\r\n      id: 'input-retained',\r\n      expected: 'same-input',\r\n      actual: 'cleared',\r\n      passed: false\r\n    },\r\n    { id: 'normal-submit', expected: 201, actual: 201, passed: true }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "api-ui-regression",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:57.889Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"api-ui-regression\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:57.799Z\"}\n",
+    "inputDigest": "90c3647448b808624eb28058932aecc72dd02a457f9da1981188275cd3660854",
+    "artifactDigest": "4dab323fd84abca09ec92edef67d6106cd7287a126a3e6d46ac9bc17451ac3f0"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "api-ui-regression",
+    "version": 1,
+    "inputDigest": "90c3647448b808624eb28058932aecc72dd02a457f9da1981188275cd3660854",
+    "artifactDigest": "b04c5c5e3d61ab002f10524ef14ff62d16473d10e01b5f22bf8cbbd58378799d",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:57.758Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "api-ui-regression",
+    "version": 1,
+    "inputDigest": "90c3647448b808624eb28058932aecc72dd02a457f9da1981188275cd3660854",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:57.758Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "api-ui-regression",
+    "version": 1,
+    "inputDigest": "90c3647448b808624eb28058932aecc72dd02a457f9da1981188275cd3660854",
+    "artifactDigest": "4dab323fd84abca09ec92edef67d6106cd7287a126a3e6d46ac9bc17451ac3f0",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:57.758Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

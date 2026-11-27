@@ -1,0 +1,1200 @@
+{
+  "schemaVersion": 1,
+  "status": "blank_template_no_checks_executed",
+  "instructions": "Populate using actual implementation evidence. False/null means not checked in this implementation, not a revocation of historical legacy evidence.",
+  "projects": [
+    {
+      "projectId": "quality",
+      "kind": "career-core",
+      "primaryCareer": "data",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "multi-source-analysis"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "multi-source-analysis",
+      "kind": "career-core",
+      "primaryCareer": "data",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "analysis-change-handoff"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "analysis-change-handoff",
+      "kind": "career-core",
+      "primaryCareer": "data",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-metric-service",
+        "cross-migration-launch"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "ai-eval",
+      "kind": "career-core",
+      "primaryCareer": "ai",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "baseline-evaluation"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "baseline-evaluation",
+      "kind": "career-core",
+      "primaryCareer": "ai",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "grounded-assistant-delivery"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "grounded-assistant-delivery",
+      "kind": "career-core",
+      "primaryCareer": "ai",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-knowledge-assistant"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "log",
+      "kind": "career-core",
+      "primaryCareer": "security",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "app-authorization-retest"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "app-authorization-retest",
+      "kind": "career-core",
+      "primaryCareer": "security",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "detection-response-handoff"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "detection-response-handoff",
+      "kind": "career-core",
+      "primaryCareer": "security",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-knowledge-assistant",
+        "cross-security-remediation"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "restore",
+      "kind": "career-core",
+      "primaryCareer": "ops",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "alert-rule-regression"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "alert-rule-regression",
+      "kind": "career-core",
+      "primaryCareer": "ops",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "reliability-release-drill"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "reliability-release-drill",
+      "kind": "career-core",
+      "primaryCareer": "ops",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-service-incident",
+        "cross-migration-launch"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "accessible-form",
+      "kind": "career-core",
+      "primaryCareer": "frontend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "data-workbench"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "data-workbench",
+      "kind": "career-core",
+      "primaryCareer": "frontend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "frontend-release-delivery"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "frontend-release-delivery",
+      "kind": "career-core",
+      "primaryCareer": "frontend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-service-incident",
+        "cross-security-remediation"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "contract-api",
+      "kind": "career-core",
+      "primaryCareer": "backend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "retry-concurrency"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "retry-concurrency",
+      "kind": "career-core",
+      "primaryCareer": "backend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "service-evolution-delivery"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "service-evolution-delivery",
+      "kind": "career-core",
+      "primaryCareer": "backend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-service-incident",
+        "cross-security-remediation"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "relational-model",
+      "kind": "career-core",
+      "primaryCareer": "engineering",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "partition-replay"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "partition-replay",
+      "kind": "career-core",
+      "primaryCareer": "engineering",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "data-contract-evolution"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "data-contract-evolution",
+      "kind": "career-core",
+      "primaryCareer": "engineering",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-migration-launch"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "defect-evidence",
+      "kind": "career-core",
+      "primaryCareer": "testing",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "api-ui-regression"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "api-ui-regression",
+      "kind": "career-core",
+      "primaryCareer": "testing",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "release-risk-review"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "release-risk-review",
+      "kind": "career-core",
+      "primaryCareer": "testing",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-service-incident",
+        "cross-security-remediation",
+        "cross-migration-launch"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "rule-tool",
+      "kind": "career-core",
+      "primaryCareer": "software",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "legacy-change"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "legacy-change",
+      "kind": "career-core",
+      "primaryCareer": "software",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "versioned-toolkit"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "versioned-toolkit",
+      "kind": "career-core",
+      "primaryCareer": "software",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-registration-service"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "config-acceptance",
+      "kind": "career-core",
+      "primaryCareer": "delivery",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "migration-reconciliation"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "migration-reconciliation",
+      "kind": "career-core",
+      "primaryCareer": "delivery",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "rollout-support-handoff"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "rollout-support-handoff",
+      "kind": "career-core",
+      "primaryCareer": "delivery",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [
+        "cross-registration-service",
+        "cross-migration-launch"
+      ],
+      "remainingWork": []
+    },
+    {
+      "projectId": "cross-registration-service",
+      "kind": "cross-career",
+      "primaryCareer": "frontend",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [],
+      "remainingWork": []
+    },
+    {
+      "projectId": "cross-metric-service",
+      "kind": "cross-career",
+      "primaryCareer": "engineering",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [],
+      "remainingWork": []
+    },
+    {
+      "projectId": "cross-knowledge-assistant",
+      "kind": "cross-career",
+      "primaryCareer": "ai",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [],
+      "remainingWork": []
+    },
+    {
+      "projectId": "cross-service-incident",
+      "kind": "cross-career",
+      "primaryCareer": "ops",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [],
+      "remainingWork": []
+    },
+    {
+      "projectId": "cross-security-remediation",
+      "kind": "cross-career",
+      "primaryCareer": "security",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [],
+      "remainingWork": []
+    },
+    {
+      "projectId": "cross-migration-launch",
+      "kind": "cross-career",
+      "primaryCareer": "delivery",
+      "contentVersion": null,
+      "materialManifest": null,
+      "artifactEntry": null,
+      "checks": {
+        "materialsReadable": false,
+        "rightsReviewed": false,
+        "referenceReproduced": false,
+        "requiredFailureVerified": false,
+        "userFlowVerified": false,
+        "archiveAndExportVerified": false,
+        "progressionVerified": false
+      },
+      "evidencePaths": [],
+      "technicalStatus": "not_started",
+      "contentReview": {
+        "status": "not_performed",
+        "actor": null,
+        "evidence": null
+      },
+      "learnerPilot": {
+        "status": "not_performed",
+        "evidence": null
+      },
+      "publicationStatus": "not_declared",
+      "nextProjects": [],
+      "remainingWork": []
+    }
+  ]
+}

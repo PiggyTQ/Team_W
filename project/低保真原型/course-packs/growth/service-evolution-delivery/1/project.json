@@ -1,0 +1,130 @@
+{
+  "id": "service-evolution-delivery",
+  "version": 1,
+  "legacy": false,
+  "career": "backend",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "可演进服务与迁移交接",
+    "en": "Service evolution and migration"
+  },
+  "next": [
+    "cross-registration-service",
+    "cross-metric-service",
+    "cross-knowledge-assistant",
+    "cross-service-incident",
+    "cross-security-remediation"
+  ],
+  "prior": "retry-concurrency",
+  "adapter": "api",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "integration-tests"
+  ],
+  "brief": {
+    "zh": "服务使用方仍有以元为单位的旧客户端，新客户端需要整数分。保持记录身份，分别提供两个版本的响应和兼容检查，再写清迁移边界。",
+    "en": "A consuming team needs a new cents-based response while an old client still expects yuan. Preserve IDs and both versioned contracts."
+  },
+  "outputs": {
+    "zh": [
+      "版本化服务和迁移方案",
+      "回归、诊断与接手运行说明"
+    ],
+    "en": [
+      "Versioned response adapter",
+      "old/new contract tests and migration notes"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "旧调用方回归和新行为符合契约",
+      "迁移前后数据与故障恢复核对"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Changing the old client to cents without a version change breaks compatibility. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "只按空库测试导致旧数据迁移失败必须暴露",
+    "en": "Changing the old client to cents without a version change breaks compatibility."
+  },
+  "review": {
+    "zh": [
+      "兼容策略和风险",
+      "操作权限与可维护性"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "服务使用方仍有以元为单位的旧客户端，新客户端需要整数分。保持记录身份，分别提供两个版本的响应和兼容检查，再写清迁移边界。",
+      "只按空库测试导致旧数据迁移失败必须暴露；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A consuming team needs a new cents-based response while an old client still expects yuan.",
+      "Reproduce this failure first: Changing the old client to cents without a version change breaks compatibility.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "只按空库测试导致旧数据迁移失败必须暴露",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "backend",
+      "branch": "operations",
+      "skill": "integration-tests",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "旧行为回归与新规则测试",
+    "重构前后约定行为等价"
+  ],
+  "open": [
+    {
+      "criterion": "重构理由与范围",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "评审意见怎样落实",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

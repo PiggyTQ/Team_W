@@ -1,5 +1,12 @@
 import React from 'react';
-export default function SkillLearningAlignment({leaf,lesson,depth,label,language}){
+export default function SkillLearningAlignment({leaf,depth,label,language}){
  const en=language==='en',tx=(z,e)=>en?e:z;
- return <details className="learning-alignment"><summary>{tx('这节课怎样学习、练习和检验','How this lesson,practice and check connect')}</summary><dl><div><dt>{tx('要能做什么','Learning goal')}</dt><dd>{label(lesson.goal)}</dd></div><div><dt>{tx('通过什么练习','Practice evidence')}</dt><dd>{leaf.id==='four-signals'?tx('计算同窗口错误率，调整规则，复核逐分钟状态，并说明噪声、发现延迟与未知范围。','Compute a same-window error proportion,adjust a rule,trace states and explain noise,delay and unknown scope.'):label(depth.practice.task)}</dd></div><div><dt>{tx('最终核对什么','What the final check samples')}</dt><dd><ol>{leaf.questions.map(q=><li key={q.id}>{label(q.prompt)}</li>)}<li>{label(leaf.application.prompt)}</li></ol><p>{tx('这些指定情境能提供部分能力证据。代码、报告或方案的完整质量仍按任务复核标准检查，不因题目通过而推定已全面掌握。','These scenarios provide limited evidence.Code,report and strategy quality still require the task rubric;passing does not establish complete mastery.')}</p></dd></div><div><dt>{tx('怎样复核产物','Artifact review')}</dt><dd>{label(depth.verify)}<p>{label(depth.limits)}</p></dd></div></dl></details>;
+ return <details className="learning-alignment">
+  <summary>{tx('检验范围与产物复核','Check scope and artifact review')}</summary>
+  <dl>
+   <div><dt>{tx('最终检验','Final check')}</dt><dd>{tx('完成独立练习和复核后，可参加情境判断与迁移应用检验。检验覆盖本课指定情境。','Complete the independent task and review to open the scenario and transfer check. It covers the specified lesson scenarios.')}</dd></div>
+   <div><dt>{tx('独立练习','Independent task')}</dt><dd>{leaf.id==='four-signals'?tx('计算同窗口错误率，调整规则，复核逐分钟状态，说明噪声、发现延迟与未知范围。','Compute a same-window error rate, adjust a rule, and trace its minute-by-minute states. Explain noise, detection delay and gaps.'):label(depth.practice.task)}</dd></div>
+   <div><dt>{tx('复核依据','Review evidence')}</dt><dd>{label(depth.verify)}</dd></div>
+  </dl>
+ </details>;
 }

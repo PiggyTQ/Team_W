@@ -1,0 +1,44 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "开发",
+  "to": "测试/安全",
+  "content": "服务端/界面修正及契约变化",
+  "payload": {
+    "responses": [
+      {
+        "id": "anonymous",
+        "status": 401
+      },
+      {
+        "id": "own-read",
+        "status": 200
+      },
+      {
+        "id": "other-read",
+        "status": 403
+      },
+      {
+        "id": "own-edit-denied",
+        "status": 403
+      },
+      {
+        "id": "own-edit",
+        "status": 200
+      },
+      {
+        "id": "invalid-amount",
+        "status": 422
+      }
+    ],
+    "unresolvedContractDefect": "UI-only hiding does not fix an exposed object response."
+  },
+  "consumerFeedback": {
+    "code": "cross-security-remediation-stage-2",
+    "issue": {
+      "zh": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+      "en": "UI-only hiding does not fix an exposed object response."
+    }
+  },
+  "requiredRevision": 2
+}

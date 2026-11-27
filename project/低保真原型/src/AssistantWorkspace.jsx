@@ -5,6 +5,7 @@ import WorkspaceGuide from './WorkspaceGuide';
 import React, { useEffect, useRef, useState } from 'react';
 import AssistantPageHeader from './AssistantPageHeader';
 import AssistantSymbol from './AssistantSymbols';
+import './assistant-reference-layout.css';
 
 export default function AssistantWorkspace({ s, conv, link, update, open, aiContent, tabs, confirmAction, taskPage=null, navigate }) {
   const en=useLanguage()==='en',config=assistantTasks[taskPage];
@@ -24,7 +25,7 @@ export default function AssistantWorkspace({ s, conv, link, update, open, aiCont
     close();navigate?.(discussionRoute(item));
   };
   const management=<><button ref={trigger} onClick={() => setHistory(true)}><AssistantSymbol name="history" size={17}/>历史讨论</button><button onClick={()=>open('aiNotes')}><AssistantSymbol name="note" size={17}/>本人笔记</button><button className="assistant-create" onClick={create}><AssistantSymbol name="plus" size={19}/>新讨论</button></>;
-  return <div className={"assistant-page assistant-page-focused"+(taskPage?" assistant-task-page":"")}>{taskPage&&<div className="assistant-task-back">{link('/assistant',en?'Back to AI workspace':'返回 AI 工作台')}</div>}<div className="assistant-chat-top">{taskPage?<header className="assistant-task-heading"><div><AssistantSymbol name={config.icon} size={36}/><h1>{config.title[en?1:0]}</h1></div><p>{config.description[en?1:0]}</p></header>:<AssistantPageHeader s={s} link={link}/>}<div className="assistant-chat-actions">{management}</div></div>
+  return <div className={"assistant-page assistant-page-focused assistant-reference-page"+(taskPage?" assistant-task-page":"")}>{taskPage&&<div className="assistant-task-back">{link('/assistant',en?'Back to AI workspace':'返回 AI 工作台')}</div>}<div className="assistant-chat-top">{taskPage?<header className="assistant-task-heading"><div><AssistantSymbol name={config.icon} size={36}/><h1>{config.title[en?1:0]}</h1></div><p>{config.description[en?1:0]}</p></header>:<AssistantPageHeader s={s} link={link}/>}<div className="assistant-chat-actions">{management}</div></div>
     <section className="assistant-main" aria-label="AI 职业咨询">{aiContent()}</section>
     <dialog ref={dialog} className="chat-history-drawer" aria-labelledby="history-title" onCancel={e => { e.preventDefault(); close(); }}>
       <header className="section-head"><h2 id="history-title">讨论历史</h2><button onClick={close}>关闭历史</button></header>

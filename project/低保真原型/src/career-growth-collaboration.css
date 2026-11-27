@@ -1,0 +1,82 @@
+/* The existing chapter layer fixes numeric sizes with important rules. Match
+   that scope so this new case can use its own semantic type variables. */
+@layer type-system {
+ html body #root#root#root#root#root#root #main .career-reading .career-reading-panel .career-growth-case {
+  font-size:16px!important;
+  & :is(p,li,dd,dt,button,a,label,blockquote){font-size:var(--ui-type-body)!important;}
+  & h2{font-size:26px!important;}
+  & :is(h3,h4){font-size:var(--ui-type-card)!important;}
+  & small{font-size:13px!important;}
+ }
+}
+#root #main .career-reading .career-growth-case {
+ --ui-type-body:16px; --ui-type-card:21px; --ui-type-note:13px;
+ & :is(.growth-responsibility-tabs,.growth-handoff-paper,.growth-rework-paper) {scroll-margin-top:100px;}
+ & .growth-responsibility-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:25px 0 16px; }
+ & .growth-responsibility-tabs button { display:flex; align-items:center; gap:12px; padding:18px; min-height:78px; border:1px solid #d6e2e9; border-radius:12px; background:#fffefa; color:#42627b; text-align:left; box-shadow:none; }
+ & .growth-responsibility-tabs button>span { display:grid; place-items:center; flex:none; width:32px; height:32px; border-radius:50%; background:#eaf1f6; color:#3e6e8e; }
+ & .growth-responsibility-tabs button[aria-selected="true"] { border-color:#4b8ab6; background:#eaf4fc; color:#144d77; }
+ & .growth-responsibility-tabs button[aria-selected="true"]>span { background:#145d8e; color:white; }
+ & .growth-responsibility-tabs strong { line-height:1.65; }
+ & :is(.growth-scope-paper,.growth-handoff-paper) { border:1px solid #e2ded3; border-radius:18px; background:#fffefa; padding:clamp(20px,3cqw,34px); }
+ & :is(h3,h4,p) { margin-top:0; }
+ & p { line-height:1.85; color:#365a73; }
+ & .growth-current-work { max-width:1000px; }
+ & .growth-current-work h3 { --ui-type-card:24px; margin:4px 0 14px; }
+ & .growth-eyebrow { --ui-type-body:13px; color:#668293; margin-bottom:7px; }
+ & .growth-artifact-paper { margin:24px 0; border:1px solid #d5e3ef; border-radius:12px; background:#f1f7fc; overflow:hidden; }
+ & .growth-artifact-paper>header { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:13px 18px; border-bottom:1px solid #d5e3ef; color:#215c86; }
+ & .growth-artifact-paper h4 { --ui-type-card:17px; margin:0; }
+ & .growth-artifact-paper small { margin-left:auto; color:#698091; }
+ & .growth-artifact-paper blockquote { --ui-type-body:17px; white-space:pre-wrap; overflow-wrap:anywhere; margin:0; padding:22px; color:#254b68; line-height:1.9; border:0; background:transparent; }
+ & .growth-decision-evidence { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:0; }
+ & .growth-decision-evidence dt { display:flex; align-items:start; gap:8px; color:#215c80; font-weight:650; margin-bottom:9px; }
+ & .growth-decision-evidence dt svg { flex:none; margin-top:3px; }
+ & .growth-decision-evidence dd { margin:0; color:#4a6579; line-height:1.8; }
+ & .growth-scope-note { --ui-type-body:13px; color:#6a7e8d; margin:14px 0 32px; }
+ & .growth-handoff-paper>header { display:flex; align-items:center; gap:14px; margin-bottom:22px; }
+ & .growth-handoff-paper>header h3 { margin:0; }
+ & .growth-section-icon { display:grid; place-items:center; flex:none; width:46px; height:46px; background:#edf5fb; color:#17567e; border-radius:12px; }
+ & .growth-handoff-input { padding:18px 22px; border-radius:10px; background:#f2f6f9; }
+ & .growth-handoff-input h4 { --ui-type-card:16px; margin-bottom:8px; }
+ & .growth-handoff-input p { margin:0; }
+ & .growth-handoff-steps { list-style:none; margin:15px 0 24px; padding:0; }
+ & .growth-handoff-steps>li { display:grid; grid-template-columns:190px minmax(0,1fr); gap:26px; padding:22px 0; border-bottom:1px solid #e0e7eb; }
+ & .growth-handoff-actor { display:flex; align-items:start; gap:10px; }
+ & .growth-handoff-actor>span { display:grid; place-items:center; width:29px; height:29px; flex:none; background:#e8f1f8; color:#225a7b; border-radius:50%; }
+ & .growth-handoff-actor h4 { --ui-type-card:17px; margin:0; padding-top:2px; }
+ & .growth-handoff-output { padding:12px 16px; border-left:3px solid #b2cedf; background:#f7fafb; }
+ & .growth-handoff-output>span { color:#728494; }
+ & .growth-handoff-output p { margin:5px 0 0; }
+ & .growth-handoff-acceptance { display:flex; align-items:start; gap:12px; padding:17px 20px; background:#edf5ed; border-radius:10px; color:#40744a; }
+ & .growth-handoff-acceptance>svg { flex:none; margin-top:3px; }
+ & .growth-handoff-acceptance h4 { --ui-type-card:17px; margin-bottom:7px; }
+ & .growth-handoff-acceptance p { margin:0; }
+ & .growth-rework-paper { padding:25px 30px; border-radius:16px; border:1px solid #eadba9; background:#fff9e9; margin:24px 0; }
+ & .growth-rework-paper>header { display:flex; align-items:center; gap:12px; color:#80651f; margin-bottom:18px; }
+ & .growth-rework-paper h3 { margin:0; }
+ & .growth-rework-paper dl { margin:0; }
+ & .growth-rework-paper dl>div { display:grid; grid-template-columns:130px minmax(0,1fr); gap:18px; padding:12px 0; border-top:1px solid #ece2c8; line-height:1.8; }
+ & .growth-rework-paper dt { color:#826c34; font-weight:600; }
+ & .growth-rework-paper dd { margin:0; color:#4d5e67; }
+ & :is(.growth-context-reference,.growth-method-sources) { padding:16px 20px; margin:16px 0; background:#fffefa; border:1px solid #e2ded3; border-radius:10px; }
+ & :is(.growth-context-reference,.growth-method-sources) summary { cursor:pointer; color:#365e7c; }
+ & .growth-method-sources li { padding:12px 0; border-top:1px solid #e4e9ec; }
+ & .growth-method-sources li p { margin:7px 0 0; }
+}
+@container career-chapter (max-width:780px) {
+ #root #main .career-reading .career-growth-case {
+  & .growth-responsibility-tabs { gap:7px; }
+  & .growth-responsibility-tabs button { padding:12px; align-items:start; flex-direction:column; gap:8px; }
+  & .growth-decision-evidence { grid-template-columns:minmax(0,1fr); gap:20px; }
+  & .growth-handoff-steps>li { grid-template-columns:150px minmax(0,1fr); gap:18px; }
+ }
+}
+@media(max-width:720px) {
+ #root #main .career-reading .career-growth-case {
+  & .growth-responsibility-tabs { grid-template-columns:minmax(0,1fr); }
+  & .growth-responsibility-tabs button { flex-direction:row; align-items:center; min-height:62px; }
+  & .growth-handoff-steps>li,& .growth-rework-paper dl>div { grid-template-columns:minmax(0,1fr); gap:10px; }
+  & .growth-artifact-paper small { margin-left:0; }
+ }
+}

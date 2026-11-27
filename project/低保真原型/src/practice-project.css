@@ -1,3 +1,17 @@
+/* Legacy projects use the available work area, including the discussion wrapper. */
+#root #main.workspace:has(.practice-project) {
+  --layout-content: 100%;
+}
+#root #main.workspace > .page-surface:has(.practice-project),
+#root #main .learning-discussion-layout:has(.practice-project),
+#root #main .learning-discussion-main:has(> .practice-project) {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin-inline: 0;
+  grid-column: 1 / -1;
+  justify-self: stretch;
+}
 #root #main .practice-project {
   --project-ink: #13314e;
   --project-muted: #4f657b;
@@ -8,9 +22,13 @@
   --project-yellow: #ffcc49;
   --project-radius: 16px;
   color: var(--project-ink);
-  max-width: 1440px;
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
   min-width: 0;
+  box-sizing: border-box;
+  grid-column: 1 / -1;
+  container: legacy-project / inline-size;
   line-height: 1.65;
 }
 #root #main .practice-project :is(h1,h2,h3,h4) {
@@ -29,24 +47,24 @@
   align-items: center;
   gap: 8px;
   font-size: .875rem;
-  min-height: 40px;
-  margin-bottom: 8px;
+  min-height: 36px;
+  margin-bottom: 4px;
 }
 #root #main .practice-project .project-masthead {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(100px,15%);
+  grid-template-columns: minmax(0,1fr) 112px;
   align-items: center;
-  gap: 22px;
-  padding: 26px 30px;
+  gap: 20px;
+  padding: 20px 24px;
   background: #f6fbfe;
   border: 1px solid var(--project-line);
   border-radius: var(--project-radius);
 }
-#root #main .practice-project .project-masthead h1 { margin-bottom: 10px; font-size: 2rem; }
+#root #main .practice-project .project-masthead h1 { margin-bottom: 8px; font-size: 2rem; }
 #root #main .practice-project .project-masthead p { max-width: 72ch; color: var(--project-muted); }
 #root #main .practice-project .project-masthead-cover { display: grid; place-items: center; min-height: 76px; }
-#root #main .practice-project .project-masthead-cover .learning-cover-art { width: min(100%,126px); height: auto; }
+#root #main .practice-project .project-masthead-cover .learning-cover-art { width: min(100%,100px); height: auto; }
 #root #main .practice-project .project-masthead:not(.project-masthead-overview) { padding-block: 15px; }
 #root #main .practice-project .project-masthead:not(.project-masthead-overview) .project-masthead-cover { min-height: 62px; }
 #root #main .practice-project .project-masthead:not(.project-masthead-overview) .learning-cover-art { width: 76px; }
@@ -71,8 +89,8 @@
 #root #main .practice-project .project-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 20px;
-  margin: 10px 0 21px;
+  gap: 6px 16px;
+  margin: 8px 0 16px;
   border-bottom: 1px solid var(--project-line);
 }
 #root #main .practice-project .project-nav a {
@@ -89,7 +107,7 @@
 #root #main .practice-project .project-nav a:hover { background: #edf5fa; }
 #root #main .practice-project .project-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(248px, 31%);
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 31%, 380px);
   gap: 24px;
   align-items: start;
 }
@@ -97,7 +115,7 @@
   background: var(--project-paper);
   border: 1px solid var(--project-line);
   border-radius: var(--project-radius);
-  padding: 25px 27px;
+  padding: 22px 24px;
   min-width: 0;
 }
 #root #main .practice-project .project-paper h2 { font-size: 1.42rem; }
@@ -116,10 +134,10 @@
 #root #main .practice-project .project-rail h3 { font-size: .93rem; margin: 12px 0 5px; }
 #root #main .practice-project .project-rail p,
 #root #main .practice-project .project-rail small { color: var(--project-muted); font-size: .82rem; }
-#root #main .practice-project .project-brief { display: grid; gap: 10px; margin: 16px 0 22px; }
+#root #main .practice-project .project-brief { display: grid; gap: 6px; margin: 12px 0 18px; }
 #root #main .practice-project .project-brief > div {
   display: grid;
-  grid-template-columns: minmax(100px,26%) minmax(0,1fr);
+  grid-template-columns: minmax(108px,160px) minmax(0,1fr);
   gap: 12px;
   padding-block: 10px;
   border-bottom: 1px solid var(--project-line);
@@ -128,6 +146,18 @@
 #root #main .practice-project .project-brief dd { margin: 0; font-weight: 620; }
 #root #main .practice-project fieldset { border: 0; margin: 0 0 16px; padding: 0; min-width: 0; }
 #root #main .practice-project legend { margin-bottom: 8px; font-weight: 700; }
+#root #main .practice-project .project-role-options {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 10px;
+}
+#root #main .practice-project .project-role-options .project-option { margin-bottom: 0; }
+#root #main .practice-project .project-setup > .project-field { max-width: 620px; }
+#root #main .practice-project .project-source-note { margin: 0 0 10px; color: var(--project-muted); font-size: .82rem; }
+#root #main .practice-project .project-paper > p,
+#root #main .practice-project .project-step-heading p,
+#root #main .practice-project .project-step-context p,
+#root #main .practice-project .project-step-handoff { max-width: 88ch; }
 #root #main .practice-project .project-option {
   display: flex;
   align-items: flex-start;
@@ -302,7 +332,7 @@
 #root #main .practice-project .project-check { margin-block: 11px; }
 
 @media (max-width: 1020px) {
-  #root #main .practice-project .project-grid { gap: 15px; grid-template-columns: minmax(0,1fr) minmax(206px,32%); }
+  #root #main .practice-project .project-grid { gap: 16px; }
   #root #main .practice-project .project-paper { padding: 19px; }
   #root #main .practice-project :is(.project-rail-section,.project-coach) { padding-inline: 14px; }
 }
@@ -319,4 +349,20 @@
 @media (max-width: 400px) {
   #root #main .practice-project .project-filters { grid-template-columns: minmax(0,1fr); gap: 0; }
   #root #main .practice-project .project-nav .product-icon { display: none; }
+}
+
+/* Respond to the lesson space after navigation or Tutor takes its share. */
+@container legacy-project (max-width: 960px) {
+  #root #main .practice-project .project-grid { grid-template-columns: minmax(0,1fr); gap: 18px; }
+}
+@container legacy-project (max-width: 680px) {
+  #root #main .practice-project .project-masthead { padding: 16px 18px; grid-template-columns: minmax(0,1fr); }
+  #root #main .practice-project .project-masthead-cover { display: none; }
+  #root #main .practice-project .project-masthead h1 { font-size: 1.65rem; }
+  #root #main .practice-project .project-paper { padding: 18px; }
+  #root #main .practice-project .project-role-options { grid-template-columns: minmax(0,1fr); }
+}
+@container legacy-project (max-width: 480px) {
+  #root #main .practice-project .project-brief > div { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  #root #main .practice-project .project-filters { grid-template-columns: minmax(0,1fr); gap: 0; }
 }

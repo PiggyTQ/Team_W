@@ -1,0 +1,127 @@
+{
+  "id": "reliability-release-drill",
+  "version": 1,
+  "legacy": false,
+  "career": "ops",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "服务上线与可靠性演练",
+    "en": "Reliability release drill"
+  },
+  "next": [
+    "cross-service-incident",
+    "cross-migration-launch"
+  ],
+  "prior": "alert-rule-regression",
+  "adapter": "rules",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "canary-gate"
+  ],
+  "brief": {
+    "zh": "发布负责人发现候选版本错误增多。结合每版请求分母、核心业务探测与发布后新增记录，决定何时停止、能否回退，以及是否真的恢复。",
+    "en": "A release owner must decide whether a rollback restored the service. Reconcile technical probes, the critical business flow and records written after release."
+  },
+  "outputs": {
+    "zh": [
+      "发布/恢复记录",
+      "证据定位、验证结果和复盘行动"
+    ],
+    "en": [
+      "Probe results",
+      "a release/rollback log and recovery decision"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "服务探测和固定指标可复算",
+      "恢复前后版本与操作记录一致"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A normal error rate with a failed business probe is not recovery. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "旧库/旧版本缺少发布后新增数据时不能直接回退",
+    "en": "A normal error rate with a failed business probe is not recovery."
+  },
+  "review": {
+    "zh": [
+      "故障假设与原因证据",
+      "回退、业务和后续观察"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "发布负责人发现候选版本错误增多。结合每版请求分母、核心业务探测与发布后新增记录，决定何时停止、能否回退，以及是否真的恢复。",
+      "旧库/旧版本缺少发布后新增数据时不能直接回退；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A release owner must decide whether a rollback restored the service.",
+      "Reproduce this failure first: A normal error rate with a failed business probe is not recovery.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "旧库/旧版本缺少发布后新增数据时不能直接回退",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "rules.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "ops",
+      "branch": "recovery",
+      "skill": "canary-gate",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "rules.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

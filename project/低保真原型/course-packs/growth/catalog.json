@@ -1,0 +1,5057 @@
+{
+  "schemaVersion": 3,
+  "trialRequiresExplicitLocalEnable": true,
+  "projects": [
+    {
+      "id": "quality",
+      "version": 2,
+      "legacy": true,
+      "career": "data",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "数据质量与口径复核",
+        "en": "Data quality and metric review"
+      },
+      "next": [
+        "multi-source-analysis"
+      ],
+      "prior": null,
+      "adapter": "data",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "published",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "metric-definition"
+      ]
+    },
+    {
+      "id": "multi-source-analysis",
+      "version": 1,
+      "legacy": false,
+      "career": "data",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "多来源业务分析",
+        "en": "Multi-source business analysis"
+      },
+      "next": [
+        "analysis-change-handoff"
+      ],
+      "prior": "quality",
+      "adapter": "data",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "sql-joins"
+      ],
+      "brief": {
+        "zh": "活动负责人要核对官网与社群订单。订单表每行一单，支付表每行一笔支付；A1分两次支付，另有未付款订单。先确定关联粒度，再交付订单级对账与业务简报。",
+        "en": "The activity owner needs an order and payment reconciliation. Aggregate payments at order grain before joining; distinguish orders, paid amounts and unpaid orders."
+      },
+      "outputs": {
+        "zh": [
+          "SQL/工作簿及关联说明",
+          "图表、分析简报与局限"
+        ],
+        "en": [
+          "SQL",
+          "order-level reconciliation and a short analysis brief"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "连接前后基数与总量对账",
+          "固定数据的分组及指标复算一致"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Duplicating the order amount for each payment inflates the first order. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "故意一对多连接导致重复累计，检查必须捕获",
+        "en": "Duplicating the order amount for each payment inflates the first order."
+      },
+      "review": {
+        "zh": [
+          "问题与指标是否对应",
+          "事实、假设和下一步验证分开"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "活动负责人要核对官网与社群订单。订单表每行一单，支付表每行一笔支付；A1分两次支付，另有未付款订单。先确定关联粒度，再交付订单级对账与业务简报。",
+          "故意一对多连接导致重复累计，检查必须捕获；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "The activity owner needs an order and payment reconciliation.",
+          "Reproduce this failure first: Duplicating the order amount for each payment inflates the first order.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "故意一对多连接导致重复累计，检查必须捕获",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "query.sql"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "instances": [
+        {
+          "parentProject": "multi-source-analysis",
+          "parentVersion": 1,
+          "id": "data-1",
+          "seed": 1,
+          "ruleVersion": 1,
+          "checker": "growth-rules-1",
+          "inputDigest": "bc011e249271f66297f6af7f1093e45cd8e20f24289ee57473ba18be6ae34b79",
+          "expectedDigest": "57320d1a5b8041778559bec16407a6a1e25ad6b53dcb4aec0908b6fd3d3bfb7c",
+          "rubricDigest": "f69c7224d01c584994f57819c4b9d8cb7d9a6cb7db4768bd3af748d2d068b000",
+          "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+          "asset": "input/variants/data-1.json",
+          "label": {
+            "zh": "新增分次支付",
+            "en": "Additional partial payment"
+          }
+        },
+        {
+          "parentProject": "multi-source-analysis",
+          "parentVersion": 1,
+          "id": "data-2",
+          "seed": 2,
+          "ruleVersion": 1,
+          "checker": "growth-rules-1",
+          "inputDigest": "59563f62d576ba6537f2e2915a6d85f08dba9e8118c666482931ef2a3e5a0ec4",
+          "expectedDigest": "dc7687255984eac6a345994330c365ed384ea48e874296e8f4aebfd70e47360b",
+          "rubricDigest": "f69c7224d01c584994f57819c4b9d8cb7d9a6cb7db4768bd3af748d2d068b000",
+          "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+          "asset": "input/variants/data-2.json",
+          "label": {
+            "zh": "新增未支付订单",
+            "en": "Additional unpaid order"
+          }
+        }
+      ],
+      "skillLinks": [
+        {
+          "career": "data",
+          "branch": "metrics",
+          "skill": "sql-joins",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "analysis-change-handoff",
+      "version": 1,
+      "legacy": false,
+      "career": "data",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "数据变化下的分析交付",
+        "en": "Analysis delivery under change"
+      },
+      "next": [
+        "cross-metric-service",
+        "cross-migration-launch"
+      ],
+      "prior": "multi-source-analysis",
+      "adapter": "data",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "decision-brief"
+      ],
+      "brief": {
+        "zh": "财务使用者收到两版业务导出：金额单位从元变为分，记录状态也发生变化。分别复算每版有效记录与金额，说明差异来自哪里、哪些结果不能直接混算。",
+        "en": "The finance analyst receives two extracts with changed currency units and status rules. Reproduce both versions and explain which totals may be compared."
+      },
+      "outputs": {
+        "zh": [
+          "版本化查询与报告",
+          "变更影响、复算证据和使用说明"
+        ],
+        "en": [
+          "Version-aware SQL",
+          "a difference report and consumer instructions"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "旧/新口径结果各自可重现",
+          "所有差异能定位版本与输入"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Treating yuan as cents silently changes the monetary scale. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用",
+        "en": "Treating yuan as cents silently changes the monetary scale."
+      },
+      "review": {
+        "zh": [
+          "变更判断与沟通",
+          "未解决问题及责任交接"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "财务使用者收到两版业务导出：金额单位从元变为分，记录状态也发生变化。分别复算每版有效记录与金额，说明差异来自哪里、哪些结果不能直接混算。",
+          "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "The finance analyst receives two extracts with changed currency units and status rules.",
+          "Reproduce this failure first: Treating yuan as cents silently changes the monetary scale.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "query.sql"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "data",
+          "branch": "communication",
+          "skill": "decision-brief",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "ai-eval",
+      "version": 2,
+      "legacy": true,
+      "career": "ai",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "客服助手评测",
+        "en": "Support assistant evaluation"
+      },
+      "next": [
+        "baseline-evaluation"
+      ],
+      "prior": null,
+      "adapter": "evaluation",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "published",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "eval-cases"
+      ]
+    },
+    {
+      "id": "baseline-evaluation",
+      "version": 1,
+      "legacy": false,
+      "career": "ai",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "基线与独立评估",
+        "en": "Baseline and independent evaluation"
+      },
+      "next": [
+        "grounded-assistant-delivery"
+      ],
+      "prior": "ai-eval",
+      "adapter": "evaluation",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "split-leakage"
+      ],
+      "brief": {
+        "zh": "项目负责人需要一个可解释的数值预测起点。仅用训练集计算均值基线，在独立样本逐行预测、复算MAE，并检查切分泄漏和遗漏ID。",
+        "en": "Estimate a numerical outcome with a training-only mean baseline. Retain every evaluation ID, calculate absolute errors and check split isolation."
+      },
+      "outputs": {
+        "zh": [
+          "切分清单与程序",
+          "逐行预测、指标复算与误差切片"
+        ],
+        "en": [
+          "Split IDs",
+          "executable baseline",
+          "predictions and error slices"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "样本ID不跨训练/评估重叠",
+          "MAE等所选指标按逐行预测复算"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "An omitted evaluation prediction makes the submitted ID set incomplete. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "预处理使用评估标签或漏交样本，检查应明确失败",
+        "en": "An omitted evaluation prediction makes the submitted ID set incomplete."
+      },
+      "review": {
+        "zh": [
+          "基线选择和适用范围",
+          "参数选择不偷看独立评价结果"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "项目负责人需要一个可解释的数值预测起点。仅用训练集计算均值基线，在独立样本逐行预测、复算MAE，并检查切分泄漏和遗漏ID。",
+          "预处理使用评估标签或漏交样本，检查应明确失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Estimate a numerical outcome with a training-only mean baseline.",
+          "Reproduce this failure first: An omitted evaluation prediction makes the submitted ID set incomplete.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "预处理使用评估标签或漏交样本，检查应明确失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "ai",
+          "branch": "training",
+          "skill": "split-leakage",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "grounded-assistant-delivery",
+      "version": 1,
+      "legacy": false,
+      "career": "ai",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "受限知识助手交付",
+        "en": "Bounded knowledge assistant delivery"
+      },
+      "next": [
+        "cross-knowledge-assistant"
+      ],
+      "prior": "baseline-evaluation",
+      "adapter": "evaluation",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "retrieval-grounding"
+      ],
+      "brief": {
+        "zh": "活动服务协调员需要有依据的问答。资料里有签到说明和仅工作人员可见的内部信息；依据身份、文档版本与事实范围回答，缺资料或越权时拒答并留记录。",
+        "en": "A service coordinator needs answers from a bounded document set. Enforce role, fact and version matches, and refuse unavailable or unsupported answers."
+      },
+      "outputs": {
+        "zh": [
+          "资料/评估契约与实现或离线重现",
+          "引用/拒答/错误报告和维护交接"
+        ],
+        "en": [
+          "Answer and citation records",
+          "refusal tests and a maintenance handoff"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "评测ID集合完整，引用版本对应",
+          "可确定回答规则和错误分类复算"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A member must not receive the staff-only budget even if the answer is factually correct. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "引用存在却不支持结论或越权文档被用作依据，应判失败",
+        "en": "A member must not receive the staff-only budget even if the answer is factually correct."
+      },
+      "review": {
+        "zh": [
+          "资料范围与权限",
+          "根因需轨迹，成本与真实运行区分"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "活动服务协调员需要有依据的问答。资料里有签到说明和仅工作人员可见的内部信息；依据身份、文档版本与事实范围回答，缺资料或越权时拒答并留记录。",
+          "引用存在却不支持结论或越权文档被用作依据，应判失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A service coordinator needs answers from a bounded document set.",
+          "Reproduce this failure first: A member must not receive the staff-only budget even if the answer is factually correct.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "引用存在却不支持结论或越权文档被用作依据，应判失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "ai",
+          "branch": "application",
+          "skill": "retrieval-grounding",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "log",
+      "version": 2,
+      "legacy": true,
+      "career": "security",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "离线日志初筛",
+        "en": "Offline log triage"
+      },
+      "next": [
+        "app-authorization-retest"
+      ],
+      "prior": null,
+      "adapter": "security",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "published",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "triage"
+      ]
+    },
+    {
+      "id": "app-authorization-retest",
+      "version": 1,
+      "legacy": false,
+      "career": "security",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "应用权限整改复验",
+        "en": "Application authorization retest"
+      },
+      "next": [
+        "detection-response-handoff"
+      ],
+      "prior": "log",
+      "adapter": "security",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "authorization"
+      ],
+      "brief": {
+        "zh": "应用负责人怀疑“隐藏按钮”没有解决越权。围绕本机实验服务的O1/O2对象，以未登录、本人、他人和编辑权限实际发请求，复现后复验服务端整改。",
+        "en": "An application owner asks you to reproduce and repair object-level access. Test anonymous, owner, another user and edit permissions against a loopback service."
+      },
+      "outputs": {
+        "zh": [
+          "复现证据、修复或整改建议",
+          "授权测试矩阵和回归结果"
+        ],
+        "en": [
+          "HTTP reproduction",
+          "an authorization matrix and regression evidence"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "本人/他人/未登录/不同动作响应符合契约",
+          "修复后正向功能与拒绝路径均验证"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Hiding a button leaves an unauthorized server response exposed. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "只隐藏前端按钮而服务端仍返回数据，必须失败",
+        "en": "Hiding a button leaves an unauthorized server response exposed."
+      },
+      "review": {
+        "zh": [
+          "影响证据与授权边界",
+          "不能扩成全应用安全认证"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "应用负责人怀疑“隐藏按钮”没有解决越权。围绕本机实验服务的O1/O2对象，以未登录、本人、他人和编辑权限实际发请求，复现后复验服务端整改。",
+          "只隐藏前端按钮而服务端仍返回数据，必须失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An application owner asks you to reproduce and repair object-level access.",
+          "Reproduce this failure first: Hiding a button leaves an unauthorized server response exposed.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "只隐藏前端按钮而服务端仍返回数据，必须失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "security",
+          "branch": "identity",
+          "skill": "authorization",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "detection-response-handoff",
+      "version": 1,
+      "legacy": false,
+      "career": "security",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "检测与响应交接",
+        "en": "Detection and response handoff"
+      },
+      "next": [
+        "cross-knowledge-assistant",
+        "cross-security-remediation"
+      ],
+      "prior": "app-authorization-retest",
+      "adapter": "security",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "incident-handoff"
+      ],
+      "brief": {
+        "zh": "安全值班收到正常变更和混合登录日志。关联同一用户短时间内的失败与成功、核对批准设备，交出命中、误报、漏报和需二线补查的证据。",
+        "en": "An analyst receives mixed login events and an approved-device list. Correlate short failure bursts with subsequent success and quantify false alarms and misses."
+      },
+      "outputs": {
+        "zh": [
+          "查询、事件链与命中清单",
+          "误漏报、建议处置和复盘交接"
+        ],
+        "en": [
+          "Executable event query",
+          "hit IDs",
+          "false positives and an escalation handoff"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "查询输出与指定标签/事件ID对照",
+          "时间与主机/用户关联规则一致"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Marking every successful login suspicious produces false positives. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "全部事件都报异常以换取命中率，应在误报/范围检查中暴露",
+        "en": "Marking every successful login suspicious produces false positives."
+      },
+      "review": {
+        "zh": [
+          "证据与归因边界",
+          "响应授权和可接手性"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "安全值班收到正常变更和混合登录日志。关联同一用户短时间内的失败与成功、核对批准设备，交出命中、误报、漏报和需二线补查的证据。",
+          "全部事件都报异常以换取命中率，应在误报/范围检查中暴露；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An analyst receives mixed login events and an approved-device list.",
+          "Reproduce this failure first: Marking every successful login suspicious produces false positives.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "全部事件都报异常以换取命中率，应在误报/范围检查中暴露",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "security",
+          "branch": "detection",
+          "skill": "incident-handoff",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "restore",
+      "version": 2,
+      "legacy": true,
+      "career": "ops",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "故障恢复与回退",
+        "en": "Recovery and rollback"
+      },
+      "next": [
+        "alert-rule-regression"
+      ],
+      "prior": null,
+      "adapter": "rules",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "published",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "rollback-verify"
+      ]
+    },
+    {
+      "id": "alert-rule-regression",
+      "version": 1,
+      "legacy": false,
+      "career": "ops",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "告警规则与反例",
+        "en": "Alert rules and counterexamples"
+      },
+      "next": [
+        "reliability-release-drill"
+      ],
+      "prior": "restore",
+      "adapter": "rules",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "four-signals"
+      ],
+      "brief": {
+        "zh": "报名服务值班要减少短尖峰和低流量告警。编写可执行的JSON教学规则，对连续窗口、无流量、缺失、异常计数和恢复逐时核对；这不是PromQL兼容实现。",
+        "en": "An operator needs an error-rate rule that ignores low traffic and isolated spikes. Evaluate consecutive windows, labels, no traffic, missing data and recovery."
+      },
+      "outputs": {
+        "zh": [
+          "规则YAML与测试fixtures",
+          "实际检查报告和局限"
+        ],
+        "en": [
+          "Executable JSON rule",
+          "time-series fixtures and trigger records"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "promtool或等价真实规则检查记录",
+          "指定时刻数值、触发/不触发、标签及恢复正确"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Counting a short spike as a sustained alert violates the duration requirement. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "计数器重置或低请求量误触发，回归必须捕获",
+        "en": "Counting a short spike as a sustained alert violates the duration requirement."
+      },
+      "review": {
+        "zh": [
+          "告警与用户影响的关系",
+          "测试范围不等于真实事故效果"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "报名服务值班要减少短尖峰和低流量告警。编写可执行的JSON教学规则，对连续窗口、无流量、缺失、异常计数和恢复逐时核对；这不是PromQL兼容实现。",
+          "计数器重置或低请求量误触发，回归必须捕获；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An operator needs an error-rate rule that ignores low traffic and isolated spikes.",
+          "Reproduce this failure first: Counting a short spike as a sustained alert violates the duration requirement.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "计数器重置或低请求量误触发，回归必须捕获",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "rules.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "instances": [
+        {
+          "parentProject": "alert-rule-regression",
+          "parentVersion": 1,
+          "id": "rules-1",
+          "seed": 1,
+          "ruleVersion": 1,
+          "checker": "growth-rules-1",
+          "inputDigest": "61e2693ce3adedbf11ff9aaea2ad4c1e261fd3c9326c33cc416f976bc8de0b08",
+          "expectedDigest": "c84ef699475c0b16f70fc20be421b84ca4717646c2d91afb9c6479da51486ed6",
+          "rubricDigest": "14341c25843f6224089b56987e2810b4f94d7db0963afd60e2ed904e1454cf76",
+          "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+          "asset": "input/variants/rules-1.json",
+          "label": {
+            "zh": "持续窗口与恢复 1",
+            "en": "Sustained window and recovery 1"
+          }
+        },
+        {
+          "parentProject": "alert-rule-regression",
+          "parentVersion": 1,
+          "id": "rules-2",
+          "seed": 2,
+          "ruleVersion": 1,
+          "checker": "growth-rules-1",
+          "inputDigest": "00e696b8dea3bfbd78bd41995edb237016df5d36fcff2d8717cd431f5f33074f",
+          "expectedDigest": "70a1b07f54d55657cf31624a214a673cf132711522e8ed7ba2fd8e59f3c69720",
+          "rubricDigest": "14341c25843f6224089b56987e2810b4f94d7db0963afd60e2ed904e1454cf76",
+          "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+          "asset": "input/variants/rules-2.json",
+          "label": {
+            "zh": "持续窗口与恢复 2",
+            "en": "Sustained window and recovery 2"
+          }
+        }
+      ],
+      "skillLinks": [
+        {
+          "career": "ops",
+          "branch": "observability",
+          "skill": "four-signals",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "rules.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "reliability-release-drill",
+      "version": 1,
+      "legacy": false,
+      "career": "ops",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "服务上线与可靠性演练",
+        "en": "Reliability release drill"
+      },
+      "next": [
+        "cross-service-incident",
+        "cross-migration-launch"
+      ],
+      "prior": "alert-rule-regression",
+      "adapter": "rules",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "canary-gate"
+      ],
+      "brief": {
+        "zh": "发布负责人发现候选版本错误增多。结合每版请求分母、核心业务探测与发布后新增记录，决定何时停止、能否回退，以及是否真的恢复。",
+        "en": "A release owner must decide whether a rollback restored the service. Reconcile technical probes, the critical business flow and records written after release."
+      },
+      "outputs": {
+        "zh": [
+          "发布/恢复记录",
+          "证据定位、验证结果和复盘行动"
+        ],
+        "en": [
+          "Probe results",
+          "a release/rollback log and recovery decision"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "服务探测和固定指标可复算",
+          "恢复前后版本与操作记录一致"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A normal error rate with a failed business probe is not recovery. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "旧库/旧版本缺少发布后新增数据时不能直接回退",
+        "en": "A normal error rate with a failed business probe is not recovery."
+      },
+      "review": {
+        "zh": [
+          "故障假设与原因证据",
+          "回退、业务和后续观察"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "发布负责人发现候选版本错误增多。结合每版请求分母、核心业务探测与发布后新增记录，决定何时停止、能否回退，以及是否真的恢复。",
+          "旧库/旧版本缺少发布后新增数据时不能直接回退；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A release owner must decide whether a rollback restored the service.",
+          "Reproduce this failure first: A normal error rate with a failed business probe is not recovery.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "旧库/旧版本缺少发布后新增数据时不能直接回退",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "rules.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "ops",
+          "branch": "recovery",
+          "skill": "canary-gate",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "rules.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "accessible-form",
+      "version": 1,
+      "legacy": false,
+      "career": "frontend",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "可访问表单与状态恢复",
+        "en": "Accessible form and state recovery"
+      },
+      "next": [
+        "data-workbench"
+      ],
+      "prior": null,
+      "adapter": "interface",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "form-errors"
+      ],
+      "brief": {
+        "zh": "活动协调员需要可使用的报名表单。实现标签与键盘纠错、等待、失败与重试；等待时修改输入，要取消旧响应的影响，避免覆盖或清空新输入。",
+        "en": "An activity coordinator needs a usable registration form. Implement labelled fields, keyboard errors, waiting, failure, retry and cancellation when input changes."
+      },
+      "outputs": {
+        "zh": [
+          "页面源码与状态说明",
+          "浏览器检查和修改记录"
+        ],
+        "en": [
+          "Runnable HTML",
+          "state tests and a revision note"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "键盘路径、错误提示和输入保留",
+          "等待后真实mock成功/失败状态可复现"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A late response must not overwrite an edited input or clear it after failure. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "等待时改输入，旧请求结果不能覆盖新输入",
+        "en": "A late response must not overwrite an edited input or clear it after failure."
+      },
+      "review": {
+        "zh": [
+          "界面可理解性",
+          "自动检查外的辅助技术与体验限制"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "活动协调员需要可使用的报名表单。实现标签与键盘纠错、等待、失败与重试；等待时修改输入，要取消旧响应的影响，避免覆盖或清空新输入。",
+          "等待时改输入，旧请求结果不能覆盖新输入；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An activity coordinator needs a usable registration form.",
+          "Reproduce this failure first: A late response must not overwrite an edited input or clear it after failure.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "等待时改输入，旧请求结果不能覆盖新输入",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "index.html"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "frontend",
+          "branch": "interaction",
+          "skill": "form-errors",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "data-workbench",
+      "version": 1,
+      "legacy": false,
+      "career": "frontend",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "数据工作台与接口异常",
+        "en": "Data workbench and API faults"
+      },
+      "next": [
+        "frontend-release-delivery"
+      ],
+      "prior": "accessible-form",
+      "adapter": "interface",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "async-ui"
+      ],
+      "brief": {
+        "zh": "运营人员需要按组筛选记录并翻页。让筛选、页码、空态和错误态保持一致，制造A慢B快的请求顺序，确认旧响应不会覆盖当前结果。",
+        "en": "An operator needs filterable records with pagination. Keep the current filter and page consistent, handle empty/error states, and reject older asynchronous responses."
+      },
+      "outputs": {
+        "zh": [
+          "可运行工作台与组件说明",
+          "接口状态与回归用例"
+        ],
+        "en": [
+          "Runnable record interface",
+          "response-order tests and state notes"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "过滤/分页结果与契约一致",
+          "旧响应被取消或不覆盖新请求"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "An earlier request must not replace results for the new filter. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "快速改变筛选造成旧结果覆盖，应在测试中失败",
+        "en": "An earlier request must not replace results for the new filter."
+      },
+      "review": {
+        "zh": [
+          "组件边界和可访问性",
+          "哪些状态尚未覆盖"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "运营人员需要按组筛选记录并翻页。让筛选、页码、空态和错误态保持一致，制造A慢B快的请求顺序，确认旧响应不会覆盖当前结果。",
+          "快速改变筛选造成旧结果覆盖，应在测试中失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An operator needs filterable records with pagination.",
+          "Reproduce this failure first: An earlier request must not replace results for the new filter.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "快速改变筛选造成旧结果覆盖，应在测试中失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "index.html"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "frontend",
+          "branch": "interaction",
+          "skill": "async-ui",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "frontend-release-delivery",
+      "version": 1,
+      "legacy": false,
+      "career": "frontend",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "业务界面完整交付",
+        "en": "Frontend release delivery"
+      },
+      "next": [
+        "cross-registration-service",
+        "cross-service-incident",
+        "cross-security-remediation"
+      ],
+      "prior": "data-workbench",
+      "adapter": "interface",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "release-checks"
+      ],
+      "brief": {
+        "zh": "上线审阅人要直接打开详情并刷新。维护列表和详情路由；接口版本不兼容时明确展示契约变化，而不是把错误页面当成正常发布。",
+        "en": "A release reviewer must open detail URLs directly and survive refresh and API changes. Maintain list navigation and show a contract-change state."
+      },
+      "outputs": {
+        "zh": [
+          "可运行多页面应用",
+          "验收记录、使用/运行与变更说明"
+        ],
+        "en": [
+          "Runnable routes",
+          "a compatibility check and release instructions"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "核心流程和状态回归",
+          "约定桌面宽度无溢出，键盘关键流程可达"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A detail refresh using an unsupported API version must not be labelled ready. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "深链接刷新或接口版本变化导致关键流程丢失应被捕获",
+        "en": "A detail refresh using an unsupported API version must not be labelled ready."
+      },
+      "review": {
+        "zh": [
+          "取舍、易用性与维护",
+          "运行条件和接手说明"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "上线审阅人要直接打开详情并刷新。维护列表和详情路由；接口版本不兼容时明确展示契约变化，而不是把错误页面当成正常发布。",
+          "深链接刷新或接口版本变化导致关键流程丢失应被捕获；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A release reviewer must open detail URLs directly and survive refresh and API changes.",
+          "Reproduce this failure first: A detail refresh using an unsupported API version must not be labelled ready.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "深链接刷新或接口版本变化导致关键流程丢失应被捕获",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "index.html"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "frontend",
+          "branch": "quality",
+          "skill": "release-checks",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "contract-api",
+      "version": 1,
+      "legacy": false,
+      "career": "backend",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "校验与权限明确的API",
+        "en": "Validated and authorized API"
+      },
+      "next": [
+        "retry-concurrency"
+      ],
+      "prior": null,
+      "adapter": "api",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "api-contract"
+      ],
+      "brief": {
+        "zh": "接口使用方需要稳定的读写契约。本机HTTP服务要区分未登录、他人对象、编辑权限不足和非法金额，同时保持本人正常读写路径可用。",
+        "en": "An API consumer needs a stable read/edit contract with explicit authentication, ownership, action permission and amount validation."
+      },
+      "outputs": {
+        "zh": [
+          "服务实现和接口说明",
+          "数据约束与测试结果"
+        ],
+        "en": [
+          "Loopback HTTP service",
+          "response matrix and error contract"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "合法/非法/无会话/跨用户动作检查",
+          "响应与契约及存储结果一致"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A non-owner request must be rejected by the server. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "验证了登录但遗漏对象/动作授权必须失败",
+        "en": "A non-owner request must be rejected by the server."
+      },
+      "review": {
+        "zh": [
+          "业务边界与错误语义",
+          "接口文档不替代运行控制"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "接口使用方需要稳定的读写契约。本机HTTP服务要区分未登录、他人对象、编辑权限不足和非法金额，同时保持本人正常读写路径可用。",
+          "验证了登录但遗漏对象/动作授权必须失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An API consumer needs a stable read/edit contract with explicit authentication, ownership, action permission and amount validation..",
+          "Reproduce this failure first: A non-owner request must be rejected by the server.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "验证了登录但遗漏对象/动作授权必须失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "backend",
+          "branch": "api",
+          "skill": "api-contract",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "retry-concurrency",
+      "version": 1,
+      "legacy": false,
+      "career": "backend",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "重复请求与并发一致性",
+        "en": "Retry and concurrent consistency"
+      },
+      "next": [
+        "service-evolution-delivery"
+      ],
+      "prior": "contract-api",
+      "adapter": "api",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "atomicity"
+      ],
+      "brief": {
+        "zh": "报名库存只有少量名额，但客户端会并发与重试。以幂等键、身份和数量约束请求，拒绝同键换人或换载荷，保证不重复扣减、不超卖、失败不半提交。",
+        "en": "A booking owner has two seats and retried requests. Preserve idempotency, reject changed payloads under a reused key and avoid overselling or partial commits."
+      },
+      "outputs": {
+        "zh": [
+          "一致性实现与测试",
+          "副作用、事务和恢复说明"
+        ],
+        "en": [
+          "Executable booking service",
+          "concurrent request tests and an invariant report"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "重复请求不重复业务效果",
+          "并发占用和中途失败按契约保持状态"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Replaying a key must not reserve seats twice. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "先返回成功后写入失败或同请求重复扣减应被捕获",
+        "en": "Replaying a key must not reserve seats twice."
+      },
+      "review": {
+        "zh": [
+          "一致性选择与边界",
+          "不把某种幂等方案写成通用唯一答案"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "报名库存只有少量名额，但客户端会并发与重试。以幂等键、身份和数量约束请求，拒绝同键换人或换载荷，保证不重复扣减、不超卖、失败不半提交。",
+          "先返回成功后写入失败或同请求重复扣减应被捕获；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A booking owner has two seats and retried requests.",
+          "Reproduce this failure first: Replaying a key must not reserve seats twice.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "先返回成功后写入失败或同请求重复扣减应被捕获",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "instances": [
+        {
+          "parentProject": "retry-concurrency",
+          "parentVersion": 1,
+          "id": "api-1",
+          "seed": 1,
+          "ruleVersion": 1,
+          "checker": "growth-rules-1",
+          "inputDigest": "ce2b1cb39bfb4076168a84b7acb0d8b77a135d0c257691fefbfa085df94bc41d",
+          "expectedDigest": "17a266d0676bef31608c374f4ae70d530d8c831295094249aa6983dce68bc03c",
+          "rubricDigest": "d36c9be06342eaa51f59435dcdafe05f8a37ce40552c77b184c2fafddc69b5e0",
+          "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+          "asset": "input/variants/api-1.json",
+          "label": {
+            "zh": "容量与身份冲突 1",
+            "en": "Capacity and identity conflict 1"
+          }
+        },
+        {
+          "parentProject": "retry-concurrency",
+          "parentVersion": 1,
+          "id": "api-2",
+          "seed": 2,
+          "ruleVersion": 1,
+          "checker": "growth-rules-1",
+          "inputDigest": "97544dd168898de6e565e85f987f7d794ed6fc1569abfb2db7c2274ba1f70d79",
+          "expectedDigest": "f3e6fef2aa362dc1d17f9aa25bc96d928dc86be50f406258800317d52e38505a",
+          "rubricDigest": "d36c9be06342eaa51f59435dcdafe05f8a37ce40552c77b184c2fafddc69b5e0",
+          "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+          "asset": "input/variants/api-2.json",
+          "label": {
+            "zh": "容量与身份冲突 2",
+            "en": "Capacity and identity conflict 2"
+          }
+        }
+      ],
+      "skillLinks": [
+        {
+          "career": "backend",
+          "branch": "data",
+          "skill": "atomicity",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "service-evolution-delivery",
+      "version": 1,
+      "legacy": false,
+      "career": "backend",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "可演进服务与迁移交接",
+        "en": "Service evolution and migration"
+      },
+      "next": [
+        "cross-registration-service",
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-service-incident",
+        "cross-security-remediation"
+      ],
+      "prior": "retry-concurrency",
+      "adapter": "api",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "integration-tests"
+      ],
+      "brief": {
+        "zh": "服务使用方仍有以元为单位的旧客户端，新客户端需要整数分。保持记录身份，分别提供两个版本的响应和兼容检查，再写清迁移边界。",
+        "en": "A consuming team needs a new cents-based response while an old client still expects yuan. Preserve IDs and both versioned contracts."
+      },
+      "outputs": {
+        "zh": [
+          "版本化服务和迁移方案",
+          "回归、诊断与接手运行说明"
+        ],
+        "en": [
+          "Versioned response adapter",
+          "old/new contract tests and migration notes"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "旧调用方回归和新行为符合契约",
+          "迁移前后数据与故障恢复核对"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Changing the old client to cents without a version change breaks compatibility. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "只按空库测试导致旧数据迁移失败必须暴露",
+        "en": "Changing the old client to cents without a version change breaks compatibility."
+      },
+      "review": {
+        "zh": [
+          "兼容策略和风险",
+          "操作权限与可维护性"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "服务使用方仍有以元为单位的旧客户端，新客户端需要整数分。保持记录身份，分别提供两个版本的响应和兼容检查，再写清迁移边界。",
+          "只按空库测试导致旧数据迁移失败必须暴露；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A consuming team needs a new cents-based response while an old client still expects yuan.",
+          "Reproduce this failure first: Changing the old client to cents without a version change breaks compatibility.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "只按空库测试导致旧数据迁移失败必须暴露",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "backend",
+          "branch": "operations",
+          "skill": "integration-tests",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "relational-model",
+      "version": 1,
+      "legacy": false,
+      "career": "engineering",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "原始表到可复算数据模型",
+        "en": "Reproducible relational model"
+      },
+      "next": [
+        "partition-replay"
+      ],
+      "prior": null,
+      "adapter": "data",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "dataset-grain"
+      ],
+      "brief": {
+        "zh": "报表使用者要看到全部客户及订单，包括还没有订单的客户。建立客户与订单粒度，写SQL汇总并检查孤立订单，不能用内连接静默丢掉零订单客户。",
+        "en": "A reporting owner needs a customer/order model including customers with no orders. Specify keys, cardinality and orphan checks."
+      },
+      "outputs": {
+        "zh": [
+          "转换SQL、结果CSV和模型字典",
+          "质量检查报告"
+        ],
+        "en": [
+          "Schema",
+          "SQL customer totals and integrity exceptions"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "唯一/非空/关系及总额检查",
+          "关联基数和可复算结果一致"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "An inner join drops the customer with zero orders. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "一对多支付连接重复订单金额应被捕获",
+        "en": "An inner join drops the customer with zero orders."
+      },
+      "review": {
+        "zh": [
+          "模型粒度选择",
+          "上游问题和处理理由"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "报表使用者要看到全部客户及订单，包括还没有订单的客户。建立客户与订单粒度，写SQL汇总并检查孤立订单，不能用内连接静默丢掉零订单客户。",
+          "一对多支付连接重复订单金额应被捕获；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A reporting owner needs a customer/order model including customers with no orders.",
+          "Reproduce this failure first: An inner join drops the customer with zero orders.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "一对多支付连接重复订单金额应被捕获",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "query.sql"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "engineering",
+          "branch": "modeling",
+          "skill": "dataset-grain",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "partition-replay",
+      "version": 1,
+      "legacy": false,
+      "career": "engineering",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "固定分区重跑与发布",
+        "en": "Partition replay and publishing"
+      },
+      "next": [
+        "data-contract-evolution"
+      ],
+      "prior": "relational-model",
+      "adapter": "data",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "idempotent-batch"
+      ],
+      "brief": {
+        "zh": "下游需要可安全重跑的每日数据分区。处理同批重复、重放和错误分区；发现不合法批次时保留上一份可用分区，并给出隔离记录。",
+        "en": "A data consumer needs a safe daily partition replacement. Deduplicate replayed rows, quarantine wrong-partition input and retain the last good partition on failure."
+      },
+      "outputs": {
+        "zh": [
+          "处理和发布实现",
+          "内容对照、质量阻断与恢复记录"
+        ],
+        "en": [
+          "Idempotent batch transform",
+          "reconciliation and quarantine records"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "同输入重跑字段内容与摘要一致",
+          "异常批次不替换最后可用结果"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Appending a replay duplicates a record instead of replacing the partition. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "行数相同但关键字段变化必须失败",
+        "en": "Appending a replay duplicates a record instead of replacing the partition."
+      },
+      "review": {
+        "zh": [
+          "原子性适用条件",
+          "隔离、补数与下游可见性"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "下游需要可安全重跑的每日数据分区。处理同批重复、重放和错误分区；发现不合法批次时保留上一份可用分区，并给出隔离记录。",
+          "行数相同但关键字段变化必须失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A data consumer needs a safe daily partition replacement.",
+          "Reproduce this failure first: Appending a replay duplicates a record instead of replacing the partition.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "行数相同但关键字段变化必须失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "query.sql"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "engineering",
+          "branch": "batch",
+          "skill": "idempotent-batch",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "data-contract-evolution",
+      "version": 1,
+      "legacy": false,
+      "career": "engineering",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "数据契约演进与下游交付",
+        "en": "Data contract evolution"
+      },
+      "next": [
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-migration-launch"
+      ],
+      "prior": "partition-replay",
+      "adapter": "data",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "lineage"
+      ],
+      "brief": {
+        "zh": "上游把金额字段改名，下游仍要读历史与新增数据。兼容两个字段、保留来源版本，缺少必要金额时阻断发布，并交代哪些消费者受影响。",
+        "en": "A downstream analyst needs historical and incremental data after an amount-field rename. Normalize both forms and block missing required values."
+      },
+      "outputs": {
+        "zh": [
+          "模型/契约与变更实现",
+          "血缘、回填核对及维护交接"
+        ],
+        "en": [
+          "Compatibility transform",
+          "lineage and publish/block evidence"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "新旧数据和下游兼容检查",
+          "失败重跑与回填不重复/漏失"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Using only the new field loses historical amounts. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "字段改名后静默全空或回填覆盖增量应失败",
+        "en": "Using only the new field loses historical amounts."
+      },
+      "review": {
+        "zh": [
+          "变更沟通及访问范围",
+          "端到端保证尚未覆盖部分"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "上游把金额字段改名，下游仍要读历史与新增数据。兼容两个字段、保留来源版本，缺少必要金额时阻断发布，并交代哪些消费者受影响。",
+          "字段改名后静默全空或回填覆盖增量应失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A downstream analyst needs historical and incremental data after an amount-field rename.",
+          "Reproduce this failure first: Using only the new field loses historical amounts.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "字段改名后静默全空或回填覆盖增量应失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "query.sql"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "engineering",
+          "branch": "governance",
+          "skill": "lineage",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "defect-evidence",
+      "version": 1,
+      "legacy": false,
+      "career": "testing",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "需求到可复现缺陷",
+        "en": "Reproducible defect evidence"
+      },
+      "next": [
+        "api-ui-regression"
+      ],
+      "prior": null,
+      "adapter": "test",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "defect-reproduction"
+      ],
+      "brief": {
+        "zh": "测试人员收到满8000分优惠的边界投诉。实际调用缺陷与修复函数，以7999、8000等精确金额复现“先取整再判断”的差异，提交可重复的缺陷记录。",
+        "en": "A tester investigates a discount boundary at 8000 cents. Reproduce rounding-based behavior with exact values and distinguish expected from observed results."
+      },
+      "outputs": {
+        "zh": [
+          "用例与执行记录",
+          "缺陷报告及未测风险"
+        ],
+        "en": [
+          "Minimal reproduction",
+          "versioned defect and retest records"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "边界预期由需求计算",
+          "缺陷步骤能在给定版本重现"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Rounding to whole yuan before the boundary test misclassifies an amount below 8000. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "只报告截图而没有输入/版本/预期不能通过复现检查",
+        "en": "Rounding to whole yuan before the boundary test misclassifies an amount below 8000."
+      },
+      "review": {
+        "zh": [
+          "风险和需求追溯",
+          "严重程度与修复优先级"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "测试人员收到满8000分优惠的边界投诉。实际调用缺陷与修复函数，以7999、8000等精确金额复现“先取整再判断”的差异，提交可重复的缺陷记录。",
+          "只报告截图而没有输入/版本/预期不能通过复现检查；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A tester investigates a discount boundary at 8000 cents.",
+          "Reproduce this failure first: Rounding to whole yuan before the boundary test misclassifies an amount below 8000.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "只报告截图而没有输入/版本/预期不能通过复现检查",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "testing",
+          "branch": "defects",
+          "skill": "defect-reproduction",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "api-ui-regression",
+      "version": 1,
+      "legacy": false,
+      "career": "testing",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "接口与界面回归",
+        "en": "API and UI regression"
+      },
+      "next": [
+        "release-risk-review"
+      ],
+      "prior": "defect-evidence",
+      "adapter": "test",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "retest-regression"
+      ],
+      "brief": {
+        "zh": "测试人员要保护授权、失败后输入保留和正常提交。对原创建模程序的缺陷版与修复版逐条执行测试，保留期望、实际输出和失败，而不是一律写通过。",
+        "en": "A tester protects an API/UI behavior matrix before and after a fix. Run each supplied case and retain both expected and actual outputs."
+      },
+      "outputs": {
+        "zh": [
+          "API/UI测试与数据",
+          "失败诊断、确认与回归报告"
+        ],
+        "en": [
+          "Executable regression cases and linked failures"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "坏版本出现预期失败、修复版通过",
+          "清理和隔离避免测试顺序污染"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A blanket passed label conceals a failing case in the broken version. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "测试只查HTTP200或界面标题而漏关键行为应暴露",
+        "en": "A blanket passed label conceals a failing case in the broken version."
+      },
+      "review": {
+        "zh": [
+          "覆盖取舍与脆弱用例",
+          "未测范围"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "测试人员要保护授权、失败后输入保留和正常提交。对原创建模程序的缺陷版与修复版逐条执行测试，保留期望、实际输出和失败，而不是一律写通过。",
+          "测试只查HTTP200或界面标题而漏关键行为应暴露；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A tester protects an API/UI behavior matrix before and after a fix.",
+          "Reproduce this failure first: A blanket passed label conceals a failing case in the broken version.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "测试只查HTTP200或界面标题而漏关键行为应暴露",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "testing",
+          "branch": "defects",
+          "skill": "retest-regression",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "release-risk-review",
+      "version": 1,
+      "legacy": false,
+      "career": "testing",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "发布风险与验证交接",
+        "en": "Release risk review"
+      },
+      "next": [
+        "cross-registration-service",
+        "cross-metric-service",
+        "cross-knowledge-assistant",
+        "cross-service-incident",
+        "cross-security-remediation",
+        "cross-migration-launch"
+      ],
+      "prior": "api-ui-regression",
+      "adapter": "test",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "risk-priority"
+      ],
+      "brief": {
+        "zh": "发布负责人需要从测试报告作有界判断。把关键失败、未执行项和可选检查分开，指出阻断条件及剩余风险，不用平均通过率掩盖必要功能未测。",
+        "en": "A release owner needs a decision from critical failures, passed tests and unexecuted scope. Identify blockers separately from optional checks."
+      },
+      "outputs": {
+        "zh": [
+          "风险/范围及测试计划",
+          "执行、缺陷、回归和剩余风险包"
+        ],
+        "en": [
+          "Risk-prioritized test report and a bounded release recommendation"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "执行记录与实际版本和用例对上",
+          "未执行项目不能混为通过"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A required unexecuted test cannot be counted as passed. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "关键失败被平均总分掩盖时应明确不满足发布约定",
+        "en": "A required unexecuted test cannot be counted as passed."
+      },
+      "review": {
+        "zh": [
+          "发布建议的依据",
+          "质量信息与决定权边界"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "发布负责人需要从测试报告作有界判断。把关键失败、未执行项和可选检查分开，指出阻断条件及剩余风险，不用平均通过率掩盖必要功能未测。",
+          "关键失败被平均总分掩盖时应明确不满足发布约定；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A release owner needs a decision from critical failures, passed tests and unexecuted scope.",
+          "Reproduce this failure first: A required unexecuted test cannot be counted as passed.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "关键失败被平均总分掩盖时应明确不满足发布约定",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "testing",
+          "branch": "analysis",
+          "skill": "risk-priority",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "rule-tool",
+      "version": 1,
+      "legacy": false,
+      "career": "software",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "规则或转换工具",
+        "en": "Rule and conversion tool"
+      },
+      "next": [
+        "legacy-change"
+      ],
+      "prior": null,
+      "adapter": "code",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "unit-tests"
+      ],
+      "brief": {
+        "zh": "小店需要按整数分计算优惠的工具。实现优惠门槛、边界与错误返回，拒绝负值和小数，保留能被下一位维护者复现的测试。",
+        "en": "A shop needs a deterministic discount tool using integer cents. Implement boundary cases and reject negative or non-integer amounts."
+      },
+      "outputs": {
+        "zh": [
+          "代码、测试和使用说明"
+        ],
+        "en": [
+          "Executable function",
+          "boundary tests and rule notes"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "正常/边界/非法输入确定性检查",
+          "相同输入得到约定输出"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A negative amount is invalid rather than a valid discounted output. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "浮点金额、空输入或非法记录静默通过应失败",
+        "en": "A negative amount is invalid rather than a valid discounted output."
+      },
+      "review": {
+        "zh": [
+          "需求澄清",
+          "设计与错误处理"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "小店需要按整数分计算优惠的工具。实现优惠门槛、边界与错误返回，拒绝负值和小数，保留能被下一位维护者复现的测试。",
+          "浮点金额、空输入或非法记录静默通过应失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A shop needs a deterministic discount tool using integer cents.",
+          "Reproduce this failure first: A negative amount is invalid rather than a valid discounted output.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "浮点金额、空输入或非法记录静默通过应失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "software",
+          "branch": "verification",
+          "skill": "unit-tests",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "legacy-change",
+      "version": 1,
+      "legacy": false,
+      "career": "software",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "遗留代码变更与重构",
+        "en": "Legacy change and refactoring"
+      },
+      "next": [
+        "versioned-toolkit"
+      ],
+      "prior": "rule-tool",
+      "adapter": "code",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "refactor"
+      ],
+      "brief": {
+        "zh": "维护者要在已有满减后增加会员优惠。先保护旧调用方，再修改顺序与取整规则；对照新旧行为说明为何改动，以及哪种重构会破坏价格。",
+        "en": "A maintainer adds member pricing after the existing discount while preserving old API callers. Compare legacy and new rule behavior."
+      },
+      "outputs": {
+        "zh": [
+          "修改代码和保护性测试",
+          "变更/评审记录"
+        ],
+        "en": [
+          "Protected refactor",
+          "compatibility tests and review changes"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "旧行为回归与新规则测试",
+          "重构前后约定行为等价"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Applying membership before the fixed discount changes the promised price. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "只通过新用例却破坏旧调用方应失败",
+        "en": "Applying membership before the fixed discount changes the promised price."
+      },
+      "review": {
+        "zh": [
+          "重构理由与范围",
+          "评审意见怎样落实"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "维护者要在已有满减后增加会员优惠。先保护旧调用方，再修改顺序与取整规则；对照新旧行为说明为何改动，以及哪种重构会破坏价格。",
+          "只通过新用例却破坏旧调用方应失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A maintainer adds member pricing after the existing discount while preserving old API callers.",
+          "Reproduce this failure first: Applying membership before the fixed discount changes the promised price.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "只通过新用例却破坏旧调用方应失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "software",
+          "branch": "verification",
+          "skill": "refactor",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "versioned-toolkit",
+      "version": 1,
+      "legacy": false,
+      "career": "software",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "可发布与可维护工具包",
+        "en": "Versioned maintainable toolkit"
+      },
+      "next": [
+        "cross-registration-service"
+      ],
+      "prior": "legacy-change",
+      "adapter": "code",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "release-version"
+      ],
+      "brief": {
+        "zh": "接手者要从解压包运行一个金额命令行工具。交付参数、版本、退出码和错误说明，在独立Node进程重现正常和缺参命令，不能只在开发机截图。",
+        "en": "A user must run a small cents-based CLI from an extracted release. Provide arguments, exit codes, version output and a useful error path."
+      },
+      "outputs": {
+        "zh": [
+          "代码、版本化包和验证",
+          "运行文档、变更记录和维护边界"
+        ],
+        "en": [
+          "Install-free CLI",
+          "runnable package and release/change instructions"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "干净环境按说明构建运行",
+          "示例命令、错误返回和测试重现"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A missing amount must return usage and a nonzero exit code. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "仅开发机可运行或发布包漏依赖/配置应失败",
+        "en": "A missing amount must return usage and a nonzero exit code."
+      },
+      "review": {
+        "zh": [
+          "可接手性与设计权衡",
+          "不虚构真实用户评价"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "接手者要从解压包运行一个金额命令行工具。交付参数、版本、退出码和错误说明，在独立Node进程重现正常和缺参命令，不能只在开发机截图。",
+          "仅开发机可运行或发布包漏依赖/配置应失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A user must run a small cents-based CLI from an extracted release.",
+          "Reproduce this failure first: A missing amount must return usage and a nonzero exit code.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "仅开发机可运行或发布包漏依赖/配置应失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "software",
+          "branch": "collaboration",
+          "skill": "release-version",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "config-acceptance",
+      "version": 1,
+      "legacy": false,
+      "career": "delivery",
+      "relatedCareers": [],
+      "level": 1,
+      "kind": "career-core",
+      "title": {
+        "zh": "需求到配置与验收",
+        "en": "Configuration and acceptance"
+      },
+      "next": [
+        "migration-reconciliation"
+      ],
+      "prior": null,
+      "adapter": "handoff",
+      "estimatedHours": [
+        2,
+        4
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "role-matrix"
+      ],
+      "brief": {
+        "zh": "实施顾问要把业务角色落到权限配置与UAT。制作可执行配置，对照每个角色的允许和拒绝动作，指出哪些业务决定仍需使用者确认。",
+        "en": "An implementation consultant maps role requirements into a configuration and executable UAT matrix. Check allowed and denied actions."
+      },
+      "outputs": {
+        "zh": [
+          "需求/差异与配置",
+          "UAT用例和问题清单"
+        ],
+        "en": [
+          "Permission configuration",
+          "UAT results and unresolved decisions"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "配置/权限符合已给业务矩阵",
+          "UAT步骤能由接手者重复执行"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Omitting a required role changes a positive acceptance case into a denial. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "配置满足演示却遗漏关键业务角色应捕获",
+        "en": "Omitting a required role changes a positive acceptance case into a denial."
+      },
+      "review": {
+        "zh": [
+          "业务确认与技术职责",
+          "哪些尚需用户决定"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "实施顾问要把业务角色落到权限配置与UAT。制作可执行配置，对照每个角色的允许和拒绝动作，指出哪些业务决定仍需使用者确认。",
+          "配置满足演示却遗漏关键业务角色应捕获；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An implementation consultant maps role requirements into a configuration and executable UAT matrix.",
+          "Reproduce this failure first: Omitting a required role changes a positive acceptance case into a denial.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "配置满足演示却遗漏关键业务角色应捕获",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs",
+        "config.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "delivery",
+          "branch": "setup",
+          "skill": "role-matrix",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs",
+            "config.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "migration-reconciliation",
+      "version": 1,
+      "legacy": false,
+      "career": "delivery",
+      "relatedCareers": [],
+      "level": 2,
+      "kind": "career-core",
+      "title": {
+        "zh": "数据迁移与系统集成",
+        "en": "Migration reconciliation"
+      },
+      "next": [
+        "rollout-support-handoff"
+      ],
+      "prior": "config-acceptance",
+      "adapter": "handoff",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "migration"
+      ],
+      "brief": {
+        "zh": "实施负责人要核对源系统与目标系统。按约定规范化邮箱和状态，逐项比较内容与新增记录；行数相等不能替代对账，也不能回退覆盖新增数据。",
+        "en": "An implementation owner compares source and target records after normalization. Reconcile email, status and incremental records, not only row counts."
+      },
+      "outputs": {
+        "zh": [
+          "迁移/集成结果和复算",
+          "差异处置、UAT与停止条件"
+        ],
+        "en": [
+          "Mapping",
+          "transformed records",
+          "content differences and rollback constraints"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "规范化关键字段/摘要/数量均核对",
+          "权限和关键业务流程可复验"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Equal row counts do not excuse a wrong status or loss of new records. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "行数相等但关键状态错误，或新数据回退丢失，必须失败",
+        "en": "Equal row counts do not excuse a wrong status or loss of new records."
+      },
+      "review": {
+        "zh": [
+          "映射选择与残余问题",
+          "客户验收与回退责任"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "实施负责人要核对源系统与目标系统。按约定规范化邮箱和状态，逐项比较内容与新增记录；行数相等不能替代对账，也不能回退覆盖新增数据。",
+          "行数相等但关键状态错误，或新数据回退丢失，必须失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "An implementation owner compares source and target records after normalization.",
+          "Reproduce this failure first: Equal row counts do not excuse a wrong status or loss of new records.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "行数相等但关键状态错误，或新数据回退丢失，必须失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "delivery",
+          "branch": "setup",
+          "skill": "migration",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "rollout-support-handoff",
+      "version": 1,
+      "legacy": false,
+      "career": "delivery",
+      "relatedCareers": [],
+      "level": 3,
+      "kind": "career-core",
+      "title": {
+        "zh": "上线培训与支持交接",
+        "en": "Rollout and support handoff"
+      },
+      "next": [
+        "cross-registration-service",
+        "cross-migration-launch"
+      ],
+      "prior": "migration-reconciliation",
+      "adapter": "handoff",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "handoff"
+      ],
+      "brief": {
+        "zh": "业务团队需要一次有限切换、培训和支持交接。核对必需功能是否实际执行，保全切换后新增记录，明确各角色如何验收以及谁接手未解决项。",
+        "en": "A customer team needs a cutover decision, role-based training and a support owner. Required untested items block acceptance and new records need preservation."
+      },
+      "outputs": {
+        "zh": [
+          "切换与回退/停止方案",
+          "验收、培训指南和支持交接包"
+        ],
+        "en": [
+          "Cutover checklist",
+          "training scenarios and support handoff"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "清单引用实际版本与证据",
+          "接手者按运行/验收步骤可复现"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A required not-run check blocks rollout even when optional checks pass. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "未测必需功能被写通过或没有新增数据处理应失败",
+        "en": "A required not-run check blocks rollout even when optional checks pass."
+      },
+      "review": {
+        "zh": [
+          "业务适用性和责任",
+          "沟通、培训与剩余风险"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "业务团队需要一次有限切换、培训和支持交接。核对必需功能是否实际执行，保全切换后新增记录，明确各角色如何验收以及谁接手未解决项。",
+          "未测必需功能被写通过或没有新增数据处理应失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "A customer team needs a cutover decision, role-based training and a support owner.",
+          "Reproduce this failure first: A required not-run check blocks rollout even when optional checks pass.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "未测必需功能被写通过或没有新增数据处理应失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "solution.mjs"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "delivery",
+          "branch": "handover",
+          "skill": "handoff",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "solution.mjs"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "cross-registration-service",
+      "version": 1,
+      "legacy": false,
+      "career": "frontend",
+      "relatedCareers": [
+        "backend",
+        "testing",
+        "delivery",
+        "software"
+      ],
+      "level": "integrated",
+      "kind": "cross-career",
+      "title": {
+        "zh": "活动报名服务联合交付",
+        "en": "Registration service collaboration"
+      },
+      "next": [],
+      "prior": null,
+      "adapter": "interface",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "form-errors"
+      ],
+      "brief": {
+        "zh": "以实施、后端、前端和测试角色轮换交付报名流程。消费同一版email接口契约，在实际界面与本机服务暴露旧mail字段错误，修订后共同验收。",
+        "en": "Rotate implementation, backend, frontend and testing roles to deliver an activity registration flow. Consume a versioned field contract and repair the recorded mismatch."
+      },
+      "outputs": {
+        "zh": [
+          "需求到验收的追溯",
+          "服务/界面/测试与修改包"
+        ],
+        "en": [
+          "Contract",
+          "runnable UI/service",
+          "acceptance trace and revised role handoffs"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "界面调用对应版本接口，业务记录一致",
+          "缺陷意见有对应修改和复验"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A legacy mail field sent to the email-field contract must fail joint acceptance. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "接口字段变更不通知前端造成流程失败应在联合验收暴露",
+        "en": "A legacy mail field sent to the email-field contract must fail joint acceptance."
+      },
+      "review": {
+        "zh": [
+          "交接是否可执行，反馈/修改是否有依据",
+          "模拟角色如实标注，本人贡献与责任不混淆"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "以实施、后端、前端和测试角色轮换交付报名流程。消费同一版email接口契约，在实际界面与本机服务暴露旧mail字段错误，修订后共同验收。",
+          "接口字段变更不通知前端造成流程失败应在联合验收暴露；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Rotate implementation, backend, frontend and testing roles to deliver an activity registration flow.",
+          "Reproduce this failure first: A legacy mail field sent to the email-field contract must fail joint acceptance.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "接口字段变更不通知前端造成流程失败应在联合验收暴露",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [
+        {
+          "role": "需求/实施",
+          "produces": "业务流程、权限和验收",
+          "consumedBy": "后端/前端/测试",
+          "requiredOutput": "stage-1.json",
+          "inputDigest": "eda8c4e5a1689e4c21b0395aac399449ab07c084e98953ba76f3a38ddd94e65c",
+          "expectedOutputDigest": "0c719d60182f5eca4d17ed4f7c8b8efce13f052d08b68f2cd64b177a87de9bc0",
+          "canonicalOutputDigest": "072186b3ed283ddcbcd67e73c4fb95b0a972cd78880b6d551c1e10281df4ad36",
+          "feedbackCode": "cross-registration-service-stage-1",
+          "roleLabel": {
+            "zh": "需求/实施",
+            "en": "Requirements and implementation"
+          },
+          "receiverLabel": {
+            "zh": "后端/前端/测试",
+            "en": "Backend, frontend and testing"
+          }
+        },
+        {
+          "role": "后端",
+          "produces": "版本化接口和错误契约",
+          "consumedBy": "前端/测试",
+          "requiredOutput": "stage-2.json",
+          "inputDigest": "69b1f642890e600d107bbe0bb7221319108b13f1fa83d7a876fe28c78699f846",
+          "expectedOutputDigest": "a4074a22ef014cc28f507ef57bcd6fc5930d71c78e4914993a935b7dcf6e3c05",
+          "canonicalOutputDigest": "4efcfd9a797a212f342bd5292fc579ec4e51402a6ae78c4e5a3fa8d24cf84283",
+          "feedbackCode": "cross-registration-service-stage-2",
+          "roleLabel": {
+            "zh": "后端",
+            "en": "Backend"
+          },
+          "receiverLabel": {
+            "zh": "前端/测试",
+            "en": "Frontend and testing"
+          }
+        },
+        {
+          "role": "前端",
+          "produces": "可操作界面与状态",
+          "consumedBy": "测试/实施",
+          "requiredOutput": "stage-3.json",
+          "inputDigest": "156d904a5c57fa2216ddf7d205a236ce7d1a18c73ffd45cf8c69163b03b72997",
+          "expectedOutputDigest": "1f7a1b53b958f018dd9ee884935d138ee5ee4ecd575e94b2e5e312bd4a952ea5",
+          "canonicalOutputDigest": "b5e118b7b704cf5d3b936e5a70f6f1ff5e3b6f23ccbd1df4df3c7a7b1a9632cd",
+          "feedbackCode": "cross-registration-service-stage-3",
+          "roleLabel": {
+            "zh": "前端",
+            "en": "Frontend"
+          },
+          "receiverLabel": {
+            "zh": "测试/实施",
+            "en": "Testing and implementation"
+          }
+        },
+        {
+          "role": "测试/实施",
+          "produces": "缺陷、修订验收与交接",
+          "consumedBy": "相关实现者",
+          "requiredOutput": "stage-4.json",
+          "inputDigest": "b74c78cad12bbf10d19184cdf06c45e8ee1a7355712c26090f442f662a6a1d14",
+          "expectedOutputDigest": "8d11c36ea2a53da1feded3e2682177e5b8b02a37af307ac33e0932cb5466ccdd",
+          "canonicalOutputDigest": "75b3ec14bec0e302dc8563222dde875d6076601ac630bbe377366ecf7dd7d83b",
+          "feedbackCode": "cross-registration-service-stage-4",
+          "roleLabel": {
+            "zh": "测试/实施",
+            "en": "Testing and implementation"
+          },
+          "receiverLabel": {
+            "zh": "相关实现者",
+            "en": "Relevant implementers"
+          }
+        }
+      ],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "index.html",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json",
+        "stage-4.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "frontend",
+          "branch": "interaction",
+          "skill": "form-errors",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json",
+            "stage-4.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "backend",
+          "branch": "api",
+          "skill": "api-contract",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json",
+            "stage-4.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "testing",
+          "branch": "defects",
+          "skill": "retest-regression",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json",
+            "stage-4.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "delivery",
+          "branch": "setup",
+          "skill": "role-matrix",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json",
+            "stage-4.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "software",
+          "branch": "verification",
+          "skill": "unit-tests",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "index.html",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json",
+            "stage-4.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "cross-metric-service",
+      "version": 1,
+      "legacy": false,
+      "career": "engineering",
+      "relatedCareers": [
+        "data",
+        "backend",
+        "testing"
+      ],
+      "level": "integrated",
+      "kind": "cross-career",
+      "title": {
+        "zh": "指标与数据服务交付",
+        "en": "Metric service collaboration"
+      },
+      "next": [],
+      "prior": null,
+      "adapter": "data",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "dataset-grain"
+      ],
+      "brief": {
+        "zh": "以数据工程、接口和分析角色轮换交付指标服务。从订单与分次支付模型到接口金额和使用方简报逐层对账，把一对多放大金额的问题反馈到上游并复验。",
+        "en": "Rotate data engineering, API and analysis roles. Reconcile a payment fan-out defect across the model, service totals and consumer report."
+      },
+      "outputs": {
+        "zh": [
+          "数据契约与可复算模型/接口",
+          "报告、差异和发布交接"
+        ],
+        "en": [
+          "Data model",
+          "fixed metric response",
+          "reconciliation and feedback revision"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "明细/模型/接口/报告的口径及汇总一致",
+          "改字段后旧输出不得无提示误用"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "An inflated order amount must be traced to the one-to-many join. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "订单与支付一对多放大金额，应能定位到来源与模型",
+        "en": "An inflated order amount must be traced to the one-to-many join."
+      },
+      "review": {
+        "zh": [
+          "交接是否可执行，反馈/修改是否有依据",
+          "模拟角色如实标注，本人贡献与责任不混淆"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "以数据工程、接口和分析角色轮换交付指标服务。从订单与分次支付模型到接口金额和使用方简报逐层对账，把一对多放大金额的问题反馈到上游并复验。",
+          "订单与支付一对多放大金额，应能定位到来源与模型；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Rotate data engineering, API and analysis roles.",
+          "Reproduce this failure first: An inflated order amount must be traced to the one-to-many join.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "订单与支付一对多放大金额，应能定位到来源与模型",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [
+        {
+          "role": "数据工程",
+          "produces": "字段/粒度/更新契约与模型",
+          "consumedBy": "分析/后端",
+          "requiredOutput": "stage-1.json",
+          "inputDigest": "2009748b073beccfccc2275a54a0eda47113ff4b9bdc350a4cfaa276f1894173",
+          "expectedOutputDigest": "afe35e0e0bcb69fad3556aaad4de3dc0ef80074da4fb12c57e610b53b7bc0237",
+          "canonicalOutputDigest": "1630c226a363694f72cfb3605f71e677855114ff92c4d17627288a46420b899e",
+          "feedbackCode": "cross-metric-service-stage-1",
+          "roleLabel": {
+            "zh": "数据工程",
+            "en": "Data engineering"
+          },
+          "receiverLabel": {
+            "zh": "分析/后端",
+            "en": "Analysis and backend"
+          }
+        },
+        {
+          "role": "后端",
+          "produces": "指标服务或固定结果接口",
+          "consumedBy": "分析/测试",
+          "requiredOutput": "stage-2.json",
+          "inputDigest": "fef9ebf4b6be674aee6df26decf0e11f9eb1663bb473316cdbb7a29c5d44e4c3",
+          "expectedOutputDigest": "b9b2230e9b14e18f69047ef180a85d9abdc6b5bbec32cd4aceeabd44474057a9",
+          "canonicalOutputDigest": "4bd19d9d822ff83d9ad6b6c28886652b55228959ac53fe75a501cb0ad2899cca",
+          "feedbackCode": "cross-metric-service-stage-2",
+          "roleLabel": {
+            "zh": "后端",
+            "en": "Backend"
+          },
+          "receiverLabel": {
+            "zh": "分析/测试",
+            "en": "Analysis and testing"
+          }
+        },
+        {
+          "role": "分析/测试",
+          "produces": "对账、报告与变更反馈",
+          "consumedBy": "数据提供者",
+          "requiredOutput": "stage-3.json",
+          "inputDigest": "e986a836cedc634ab635da3eab5a91058abbe800241e4fce165f53cc2f1064cb",
+          "expectedOutputDigest": "3c248954cbc42f3b0964f3fce16c1147cd61e539dc94c4e873519132f1e118ff",
+          "canonicalOutputDigest": "d8d96e1987a46cd7bfc7c5869e36687610168e9d397e4a790fd4d537aa187100",
+          "feedbackCode": "cross-metric-service-stage-3",
+          "roleLabel": {
+            "zh": "分析/测试",
+            "en": "Analysis and testing"
+          },
+          "receiverLabel": {
+            "zh": "数据提供者",
+            "en": "Data provider"
+          }
+        }
+      ],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "query.sql",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "engineering",
+          "branch": "modeling",
+          "skill": "dataset-grain",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "data",
+          "branch": "metrics",
+          "skill": "sql-joins",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "backend",
+          "branch": "api",
+          "skill": "api-contract",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "testing",
+          "branch": "defects",
+          "skill": "retest-regression",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "query.sql",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "cross-knowledge-assistant",
+      "version": 1,
+      "legacy": false,
+      "career": "ai",
+      "relatedCareers": [
+        "engineering",
+        "backend",
+        "security",
+        "testing"
+      ],
+      "level": "integrated",
+      "kind": "cross-career",
+      "title": {
+        "zh": "受限知识助手联合交付",
+        "en": "Knowledge assistant collaboration"
+      },
+      "next": [],
+      "prior": null,
+      "adapter": "evaluation",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "retrieval-grounding"
+      ],
+      "brief": {
+        "zh": "以资料/安全、服务与评估角色轮换交付受限问答。传递文档版本和访问范围，对可答、不可答和越权题复验，留出可接手的引用与拒答记录。",
+        "en": "Rotate document/security, service and evaluation roles. Propagate document versions and access rules through answers and refusal tests."
+      },
+      "outputs": {
+        "zh": [
+          "资料与服务契约",
+          "评测、修订与运行交接"
+        ],
+        "en": [
+          "Document/service contract",
+          "answer checks and a revised security handoff"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "文档权限与预测ID完整",
+          "引用支持/越权/缺资料行为按契约检查"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A private source must not enter a member answer. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "不可访问资料被用来回答即使文本正确也必须失败",
+        "en": "A private source must not enter a member answer."
+      },
+      "review": {
+        "zh": [
+          "交接是否可执行，反馈/修改是否有依据",
+          "模拟角色如实标注，本人贡献与责任不混淆"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "以资料/安全、服务与评估角色轮换交付受限问答。传递文档版本和访问范围，对可答、不可答和越权题复验，留出可接手的引用与拒答记录。",
+          "不可访问资料被用来回答即使文本正确也必须失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Rotate document/security, service and evaluation roles.",
+          "Reproduce this failure first: A private source must not enter a member answer.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "不可访问资料被用来回答即使文本正确也必须失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [
+        {
+          "role": "资料/安全",
+          "produces": "允许资料、版本和访问策略",
+          "consumedBy": "AI/后端",
+          "requiredOutput": "stage-1.json",
+          "inputDigest": "bb0648676c6fd32fde6fb2d8a4a188f9de18a60e5fc30ed92c88cecb10ce3b1b",
+          "expectedOutputDigest": "7671d4637a99c05c753c4caffb2f6a4218955e49f1037fd1e21485d46d9126d3",
+          "canonicalOutputDigest": "a46a09b5c16781b134a6021da71ab104eeb51c61d04bc540334f813551e9eb4d",
+          "feedbackCode": "cross-knowledge-assistant-stage-1",
+          "roleLabel": {
+            "zh": "资料/安全",
+            "en": "Content and security"
+          },
+          "receiverLabel": {
+            "zh": "AI/后端",
+            "en": "AI and backend"
+          }
+        },
+        {
+          "role": "AI/后端",
+          "produces": "原型或离线可重现服务与轨迹",
+          "consumedBy": "测试/业务评估",
+          "requiredOutput": "stage-2.json",
+          "inputDigest": "eb6704413da3269d3012a0e9062f7f01172f27a70b6ddff28161af716f6ec203",
+          "expectedOutputDigest": "dfe8a2e2b0218727e69ab6cb1e1765d9fe40ebb507758bfb7d1eb1cf8e6d81e9",
+          "canonicalOutputDigest": "9c43c7a28094eb0a6c6aead1879a8960c5c07bc8fc545047fd2fa77fcdd6de69",
+          "feedbackCode": "cross-knowledge-assistant-stage-2",
+          "roleLabel": {
+            "zh": "AI/后端",
+            "en": "AI and backend"
+          },
+          "receiverLabel": {
+            "zh": "测试/业务评估",
+            "en": "Testing and business evaluation"
+          }
+        },
+        {
+          "role": "评估",
+          "produces": "证据错误、越权和不可答反馈",
+          "consumedBy": "资料/实现者",
+          "requiredOutput": "stage-3.json",
+          "inputDigest": "b72d29776b5ab3cc27dfb3c62c85ff927cb17f640477f73ca933becd2d0169c6",
+          "expectedOutputDigest": "5c94a7a1a9199dfc987d4f764e727b69c1d7373d009efa35ec1bebdf446b5a92",
+          "canonicalOutputDigest": "7e62b8b1891db87cbf14e563ead0728dd0dd6f715b4f199a2d55c3f9ecca43ed",
+          "feedbackCode": "cross-knowledge-assistant-stage-3",
+          "roleLabel": {
+            "zh": "评估",
+            "en": "Evaluation"
+          },
+          "receiverLabel": {
+            "zh": "资料/实现者",
+            "en": "Content owner and implementer"
+          }
+        }
+      ],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "ai",
+          "branch": "application",
+          "skill": "retrieval-grounding",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "engineering",
+          "branch": "governance",
+          "skill": "lineage",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "backend",
+          "branch": "api",
+          "skill": "api-contract",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "security",
+          "branch": "identity",
+          "skill": "authorization",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "testing",
+          "branch": "defects",
+          "skill": "retest-regression",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "cross-service-incident",
+      "version": 1,
+      "legacy": false,
+      "career": "ops",
+      "relatedCareers": [
+        "backend",
+        "frontend",
+        "testing"
+      ],
+      "level": "integrated",
+      "kind": "cross-career",
+      "title": {
+        "zh": "服务发布与故障联合演练",
+        "en": "Service incident collaboration"
+      },
+      "next": [],
+      "prior": null,
+      "adapter": "rules",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "rollback-verify"
+      ],
+      "brief": {
+        "zh": "以开发、运维和业务测试角色轮换演练恢复。技术指标恢复后继续验证报名等核心流程；只要业务仍失败，就不能结束联合验收。",
+        "en": "Rotate release, operations and business-testing roles. A technical recovery must also restore the user flow before joint acceptance."
+      },
+      "outputs": {
+        "zh": [
+          "发布/恢复操作包",
+          "业务复验、因果证据和复盘"
+        ],
+        "en": [
+          "Release evidence",
+          "business probes and revised recovery handoffs"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "错误率分母及指标复算正确",
+          "技术/核心流程均满足明确条件才标恢复"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "Normal metrics cannot close an incident while registration still fails. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "指标正常而报名仍失败时不得结束联合验收",
+        "en": "Normal metrics cannot close an incident while registration still fails."
+      },
+      "review": {
+        "zh": [
+          "交接是否可执行，反馈/修改是否有依据",
+          "模拟角色如实标注，本人贡献与责任不混淆"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "以开发、运维和业务测试角色轮换演练恢复。技术指标恢复后继续验证报名等核心流程；只要业务仍失败，就不能结束联合验收。",
+          "指标正常而报名仍失败时不得结束联合验收；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Rotate release, operations and business-testing roles.",
+          "Reproduce this failure first: Normal metrics cannot close an incident while registration still fails.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "指标正常而报名仍失败时不得结束联合验收",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [
+        {
+          "role": "开发",
+          "produces": "发布变更、配置和已知风险",
+          "consumedBy": "运维/测试",
+          "requiredOutput": "stage-1.json",
+          "inputDigest": "e6c4cca9813e81b4a90145b6e945a57acc31b8b81decf12ec9b06f591a913ab6",
+          "expectedOutputDigest": "877ad55aa314ede59790b02ddd4eb5da3603b85d2e10c297efa277c2c4d48b5b",
+          "canonicalOutputDigest": "30fcc5c7de0837b9515c6e0c085d25a9c6ea6cc6b88df9fa0c8f2e5b768d8cd0",
+          "feedbackCode": "cross-service-incident-stage-1",
+          "roleLabel": {
+            "zh": "开发",
+            "en": "Development"
+          },
+          "receiverLabel": {
+            "zh": "运维/测试",
+            "en": "Operations and testing"
+          }
+        },
+        {
+          "role": "运维",
+          "produces": "指标/日志/恢复行动及版本",
+          "consumedBy": "业务探测/测试",
+          "requiredOutput": "stage-2.json",
+          "inputDigest": "83b823a93bc752d74e96e0759c09e64c3fdb5695a2989bf3648248a32153ef35",
+          "expectedOutputDigest": "e8cfb92756a6a9197b771a3cbea57289ab0a35c9e893640c7f67a0af7aa4a231",
+          "canonicalOutputDigest": "ba8f0e8313c63442b1313c3a7cf8a7c584aae9cb11b53c75657443988ae6d694",
+          "feedbackCode": "cross-service-incident-stage-2",
+          "roleLabel": {
+            "zh": "运维",
+            "en": "Operations"
+          },
+          "receiverLabel": {
+            "zh": "业务探测/测试",
+            "en": "Business probes and testing"
+          }
+        },
+        {
+          "role": "测试/前端",
+          "produces": "关键业务复验与反馈",
+          "consumedBy": "发布/恢复负责人",
+          "requiredOutput": "stage-3.json",
+          "inputDigest": "036d60b134d97e6fc8b94a02802e7397b95bd51a195a35103661c890fff5b9c2",
+          "expectedOutputDigest": "c1694f7c58d18ea9b94755a7b3b52c48777ceacdabf58080ae4fd7dee1257d20",
+          "canonicalOutputDigest": "43d8324a48492251b4cc570b47d92c133039fe88ee17c099b3a96a5ae699aef8",
+          "feedbackCode": "cross-service-incident-stage-3",
+          "roleLabel": {
+            "zh": "测试/前端",
+            "en": "Testing and frontend"
+          },
+          "receiverLabel": {
+            "zh": "发布/恢复负责人",
+            "en": "Release and recovery owner"
+          }
+        }
+      ],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "rules.json",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "ops",
+          "branch": "recovery",
+          "skill": "rollback-verify",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "rules.json",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "backend",
+          "branch": "operations",
+          "skill": "integration-tests",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "rules.json",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "frontend",
+          "branch": "quality",
+          "skill": "release-checks",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "rules.json",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "testing",
+          "branch": "analysis",
+          "skill": "risk-priority",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "rules.json",
+            "handoff.json",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        }
+      ]
+    },
+    {
+      "id": "cross-security-remediation",
+      "version": 1,
+      "legacy": false,
+      "career": "security",
+      "relatedCareers": [
+        "backend",
+        "frontend",
+        "testing"
+      ],
+      "level": "integrated",
+      "kind": "cross-career",
+      "title": {
+        "zh": "应用安全整改闭环",
+        "en": "Security remediation collaboration"
+      },
+      "next": [],
+      "prior": null,
+      "adapter": "security",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "authorization"
+      ],
+      "brief": {
+        "zh": "以安全、开发与复验角色轮换闭环授权问题。在实验服务实际重现对象/动作越权，修订服务端，再检查正常功能和拒绝路径；界面隐藏不算整改完成。",
+        "en": "Rotate security, implementation and retest roles. Reproduce an object/action authorization issue and verify server-side rejection alongside normal behavior."
+      },
+      "outputs": {
+        "zh": [
+          "复现与修复/整改记录",
+          "回归和授权范围内的剩余风险报告"
+        ],
+        "en": [
+          "Server correction",
+          "HTTP regression and residual-risk handoff"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "服务器拒绝越权同时允许正常业务",
+          "旧复现失效，相关行为回归"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "UI-only hiding does not fix an exposed object response. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+        "en": "UI-only hiding does not fix an exposed object response."
+      },
+      "review": {
+        "zh": [
+          "交接是否可执行，反馈/修改是否有依据",
+          "模拟角色如实标注，本人贡献与责任不混淆"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "以安全、开发与复验角色轮换闭环授权问题。在实验服务实际重现对象/动作越权，修订服务端，再检查正常功能和拒绝路径；界面隐藏不算整改完成。",
+          "仅修改界面隐藏数据而接口仍泄漏时必须失败；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Rotate security, implementation and retest roles.",
+          "Reproduce this failure first: UI-only hiding does not fix an exposed object response.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [
+        {
+          "role": "安全",
+          "produces": "授权范围与可复现证据",
+          "consumedBy": "开发",
+          "requiredOutput": "stage-1.json",
+          "inputDigest": "1e7e43fae86714f9f32a7bf74cd4c27719d373f2e39659e3fd468fd20a998b25",
+          "expectedOutputDigest": "06bfc37452986ad69e39d8b2f33d9516c6a2463d74c84c31f26b1fc4d4422902",
+          "canonicalOutputDigest": "1e0151af925929de1761f4f5c43d5c7fa71a3eda5f509746f9bb708a30b9f0d8",
+          "feedbackCode": "cross-security-remediation-stage-1",
+          "roleLabel": {
+            "zh": "安全",
+            "en": "Security"
+          },
+          "receiverLabel": {
+            "zh": "开发",
+            "en": "Development"
+          }
+        },
+        {
+          "role": "开发",
+          "produces": "服务端/界面修正及契约变化",
+          "consumedBy": "测试/安全",
+          "requiredOutput": "stage-2.json",
+          "inputDigest": "8f75192f55235f72028076d8f1e3897ee77e0f59997480ab2d6d3fdc803d8290",
+          "expectedOutputDigest": "150671da894ee9043472e16bf43ebe006f50fb25ed380acfabad0fde3e429d47",
+          "canonicalOutputDigest": "150671da894ee9043472e16bf43ebe006f50fb25ed380acfabad0fde3e429d47",
+          "feedbackCode": "cross-security-remediation-stage-2",
+          "roleLabel": {
+            "zh": "开发",
+            "en": "Development"
+          },
+          "receiverLabel": {
+            "zh": "测试/安全",
+            "en": "Testing and security"
+          }
+        },
+        {
+          "role": "测试/安全",
+          "produces": "复验、回归及残余风险",
+          "consumedBy": "业务负责人",
+          "requiredOutput": "stage-3.json",
+          "inputDigest": "e4c8a56d8b3d07f889b8bafe0a363b0bc23685a3d8c8dffefa5bc9cb5b45fbb8",
+          "expectedOutputDigest": "68458448ef948a66d069cbf12f1ee7f4a6c1ac47042f6dd8ca751b8922a40b76",
+          "canonicalOutputDigest": "68458448ef948a66d069cbf12f1ee7f4a6c1ac47042f6dd8ca751b8922a40b76",
+          "feedbackCode": "cross-security-remediation-stage-3",
+          "roleLabel": {
+            "zh": "测试/安全",
+            "en": "Testing and security"
+          },
+          "receiverLabel": {
+            "zh": "业务负责人",
+            "en": "Business owner"
+          }
+        }
+      ],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "security",
+          "branch": "identity",
+          "skill": "authorization",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "backend",
+          "branch": "api",
+          "skill": "api-contract",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "testing",
+          "branch": "defects",
+          "skill": "retest-regression",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "frontend",
+          "skill": null,
+          "state": "unknown",
+          "reason": "A related role is present, but this bounded fixture does not provide a reliable precise skill mapping."
+        }
+      ]
+    },
+    {
+      "id": "cross-migration-launch",
+      "version": 1,
+      "legacy": false,
+      "career": "delivery",
+      "relatedCareers": [
+        "engineering",
+        "ops",
+        "testing",
+        "data"
+      ],
+      "level": "integrated",
+      "kind": "cross-career",
+      "title": {
+        "zh": "业务系统迁移上线交接",
+        "en": "Migration launch collaboration"
+      },
+      "next": [],
+      "prior": null,
+      "adapter": "handoff",
+      "estimatedHours": [
+        4,
+        8
+      ],
+      "effortMeasured": false,
+      "status": "local_trial",
+      "maintainer": {
+        "role": "practice-content-editor",
+        "person": null
+      },
+      "skills": [
+        "migration"
+      ],
+      "brief": {
+        "zh": "以业务、工程/运维与UAT角色轮换处理迁移。传递映射与验收范围，核对规范化内容、差异和切换后新增记录，给出停止、保全与回退交接。",
+        "en": "Rotate business, engineering/operations and UAT roles. Compare normalized content, preserve post-cutover changes and document rollback boundaries."
+      },
+      "outputs": {
+        "zh": [
+          "映射/数据/权限核对包",
+          "切换决定、培训与支持说明"
+        ],
+        "en": [
+          "Migration reconciliation",
+          "cutover decision and support revision"
+        ]
+      },
+      "checks": {
+        "zh": [
+          "关键字段/内容摘要与业务结果一致",
+          "切换后新增记录有保全/对账，不能直接覆盖"
+        ],
+        "en": [
+          "Reconcile the complete result with the supplied input IDs and values.",
+          "A rollback that discards the new records must be blocked. This is a blocking regression."
+        ]
+      },
+      "failure": {
+        "zh": "行数相同但状态映射错误或回退丢新增记录应阻断",
+        "en": "A rollback that discards the new records must be blocked."
+      },
+      "review": {
+        "zh": [
+          "交接是否可执行，反馈/修改是否有依据",
+          "模拟角色如实标注，本人贡献与责任不混淆"
+        ],
+        "en": [
+          "Locate the decision and supporting input/result in your deliverables.",
+          "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+        ]
+      },
+      "environment": {
+        "runtime": "Node.js 24 / modern desktop browser",
+        "installNetwork": false,
+        "runtimeNetwork": false,
+        "accountsRequired": false,
+        "paidServicesRequired": false,
+        "memoryMeasuredMB": null,
+        "diskMeasuredMB": null,
+        "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+      },
+      "hints": {
+        "zh": [
+          "以业务、工程/运维与UAT角色轮换处理迁移。传递映射与验收范围，核对规范化内容、差异和切换后新增记录，给出停止、保全与回退交接。",
+          "行数相同但状态映射错误或回退丢新增记录应阻断；先制作能暴露这项错误的最小检查。",
+          "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+        ],
+        "en": [
+          "Rotate business, engineering/operations and UAT roles.",
+          "Reproduce this failure first: A rollback that discards the new records must be blocked.",
+          "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+        ]
+      },
+      "variants": {
+        "ruleVersion": 1,
+        "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+        "allowed": [
+          "reviewed-base",
+          "reviewed-extension"
+        ],
+        "seed": 20261126,
+        "newJudgment": "行数相同但状态映射错误或回退丢新增记录应阻断",
+        "status": "fixed-base; new instances require explicit generation and frozen identities"
+      },
+      "handoffs": [
+        {
+          "role": "业务/实施",
+          "produces": "范围、权限、UAT与切换约定",
+          "consumedBy": "工程/运维/测试",
+          "requiredOutput": "stage-1.json",
+          "inputDigest": "c966ff320051e9fffde85da5b859c285b980fa7da69df197efa26d8665584659",
+          "expectedOutputDigest": "6dba6b6a2b857d2adb4f7541482d724b39f69397482a28f7de7f5894d0d4349d",
+          "canonicalOutputDigest": "f2b39c676baf1cbd29cd60b0bd05901ba9c061cce3d008c49efa735834959f58",
+          "feedbackCode": "cross-migration-launch-stage-1",
+          "roleLabel": {
+            "zh": "业务/实施",
+            "en": "Business and implementation"
+          },
+          "receiverLabel": {
+            "zh": "工程/运维/测试",
+            "en": "Engineering, operations and testing"
+          }
+        },
+        {
+          "role": "工程/运维",
+          "produces": "迁移结果、对账、增量和回退边界",
+          "consumedBy": "测试/业务",
+          "requiredOutput": "stage-2.json",
+          "inputDigest": "fca5d8a2e9f640d085e432a7b32bb978b461e5c50ee26520d817544d5ebc63d6",
+          "expectedOutputDigest": "ce8051472b27a44de7326790c89f2bbea9605e1fd6488b2417e700f2ae80bc35",
+          "canonicalOutputDigest": "60ac668f1402a4ec6e1735eefa456c44bfe853c944603efd1a5710e5b24c4d18",
+          "feedbackCode": "cross-migration-launch-stage-2",
+          "roleLabel": {
+            "zh": "工程/运维",
+            "en": "Engineering and operations"
+          },
+          "receiverLabel": {
+            "zh": "测试/业务",
+            "en": "Testing and business"
+          }
+        },
+        {
+          "role": "测试/业务",
+          "produces": "验收与未测/残留项",
+          "consumedBy": "实施/支持",
+          "requiredOutput": "stage-3.json",
+          "inputDigest": "838ff66b24d0a427f5dc205d078ef729a3cc194c2204f21923b6cdbf8bd4dfa5",
+          "expectedOutputDigest": "0fae044284b8482d4e27cbe76b20d5e5c946d476dfa9227015c2c99d4c3009b5",
+          "canonicalOutputDigest": "6a71d1587066443e5741abe69bf3691dcd2a8403590f025927ccd48458175fc6",
+          "feedbackCode": "cross-migration-launch-stage-3",
+          "roleLabel": {
+            "zh": "测试/业务",
+            "en": "Testing and business"
+          },
+          "receiverLabel": {
+            "zh": "实施/支持",
+            "en": "Implementation and support"
+          }
+        }
+      ],
+      "requiredFiles": [
+        "result.json",
+        "notes.md",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "materialIdentity": "original-synthetic",
+      "sourceDescription": {
+        "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+        "en": "Original synthetic inputs and code; method links have bounded reading records"
+      },
+      "skillLinks": [
+        {
+          "career": "delivery",
+          "branch": "setup",
+          "skill": "migration",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "engineering",
+          "branch": "governance",
+          "skill": "lineage",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "ops",
+          "branch": "recovery",
+          "skill": "rollback-verify",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "testing",
+          "branch": "analysis",
+          "skill": "risk-priority",
+          "state": "learning-link",
+          "evidence": [
+            "result.json",
+            "handoff.json",
+            "solution.mjs",
+            "stage-1.json",
+            "stage-2.json",
+            "stage-3.json"
+          ],
+          "scope": "Related task practice only; no completion or mastery award"
+        },
+        {
+          "career": "data",
+          "skill": null,
+          "state": "unknown",
+          "reason": "A related role is present, but this bounded fixture does not provide a reliable precise skill mapping."
+        }
+      ]
+    }
+  ],
+  "progression": {
+    "data": [
+      "quality",
+      "multi-source-analysis",
+      "analysis-change-handoff"
+    ],
+    "ai": [
+      "ai-eval",
+      "baseline-evaluation",
+      "grounded-assistant-delivery"
+    ],
+    "security": [
+      "log",
+      "app-authorization-retest",
+      "detection-response-handoff"
+    ],
+    "ops": [
+      "restore",
+      "alert-rule-regression",
+      "reliability-release-drill"
+    ],
+    "frontend": [
+      "accessible-form",
+      "data-workbench",
+      "frontend-release-delivery"
+    ],
+    "backend": [
+      "contract-api",
+      "retry-concurrency",
+      "service-evolution-delivery"
+    ],
+    "engineering": [
+      "relational-model",
+      "partition-replay",
+      "data-contract-evolution"
+    ],
+    "testing": [
+      "defect-evidence",
+      "api-ui-regression",
+      "release-risk-review"
+    ],
+    "software": [
+      "rule-tool",
+      "legacy-change",
+      "versioned-toolkit"
+    ],
+    "delivery": [
+      "config-acceptance",
+      "migration-reconciliation",
+      "rollout-support-handoff"
+    ]
+  }
+}

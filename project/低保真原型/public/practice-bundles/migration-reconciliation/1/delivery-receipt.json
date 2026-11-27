@@ -1,0 +1,17 @@
+{
+  "projectId": "migration-reconciliation",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "13cf69ce23254e6696e04b85979571acb68834171f16452fe2062728ac6de5be",
+  "bytes": 42261,
+  "files": 28,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"migration-reconciliation\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.690Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

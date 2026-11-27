@@ -1,0 +1,1 @@
+export const solve=()=>{"decision":"limited_go","unresolved":["permission","help"],"preserve":["POST-CUTOVER-1"],"owner":"exercise-support-role","training":[{"role":"member","scenario":"register-and-cancel"},{"role":"support","scenario":"find-and-escalate"}]};

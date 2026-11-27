@@ -1,3 +1,5 @@
+import GrowthProjectPage from './GrowthProjectPage';
+import {growthProject} from './practice-registry';
 import LearningDiscussion from './LearningDiscussion';
 import React, {useEffect, useRef, useState} from 'react';
 import {useCatalog} from './CatalogData';
@@ -18,6 +20,10 @@ const caseIcons = {quality: 'file', 'ai-eval': 'brain', log: 'search', restore: 
 const views = ['overview', 'reading', 'practice', 'outcome'];
 
 export default function PracticeProjectPage(props) {
+  return growthProject(props.courseId) ? <GrowthProjectPage {...props}/> : <LegacyPracticeProjectPage {...props}/>;
+}
+
+function LegacyPracticeProjectPage(props) {
   const {courseId, url, state, live, ownerId, link, catalog, requestedTask} = props;
   const language = useLanguage(), t = ui[language];
   const requestPath = live && PRACTICE_COURSES.includes(courseId) && requestedTask !== false
@@ -37,7 +43,13 @@ export default function PracticeProjectPage(props) {
   const course = live ? request.data?.course : local.course;
   const valid = course?.id === courseId && (!requestedTask?.courseVersion || requestedTask.courseVersion === course.content_version);
   if (!course && (live ? request.loading : !local.error)) return <p role="status">{t.loading}</p>;
-  if (!valid || course.status !== 'published') return <ProjectState title={request.error ? displayPublicText(request.error) : t.noMaterial} link={link} t={t} retry={live ? request.retry : null}/>;
+  if (!valid || !['published','local_trial','retired'].includes(course.status)) return <ProjectState title={request.error ? displayPublicText(request.error) : t.noMaterial} link={link} t={t} retry={live ? request.retry : null}/>;
+  if(course.status==='retired')return <section className="practice-project project-legacy">
+    {link('/learning',t.back,'project-back')}<h1>{course.title}</h1>
+    <p>{language==='en'?'Retired — historical materials and your records remain readable.':'已退役；历史材料与本人记录仍可回看。'}</p>
+    {requestedTask&&<><pre translate="no">{requestedTask.attempts.at(-1)?.text||requestedTask.draft||JSON.stringify(requestedTask.projectPractice,null,2)}</pre><button onClick={()=>props.download(courseId+'-history.json',JSON.stringify(requestedTask,null,2),'application/json')}>{language==='en'?'Export this record':'导出本次记录'}</button></>}
+    <CourseReader key={courseId+':'+course.content_version} course={course} chapter={0} onPosition={props.onPosition} onSave={(index,item)=>{props.onPosition(index,item);props.move('/learning');}}/>
+  </section>;
 
   const params = new URL(url, location.origin).searchParams;
   const latest = catalog?.courses.find(item => item.id === courseId);
@@ -70,6 +82,10 @@ function ProjectState({title, link, t, retry}) {
 function ProjectWorkspace({course, project, chapter, params, task, language, t, state, live, link, move,
     onPosition, precheck, startTask, liveAgent, workspace, onSave, onResponse, onCommand, onCandidate, download}) {
   const copy = value => value[language];
+  const sourceHeading = language === 'en' ? 'Case and method sources' : '案例与方法来源';
+  const sourceNote = language === 'en'
+    ? 'Avemly designs this practice. The sources below provide case and method references.'
+    : '本站设计教学练习；下列资料提供案例参考与方法依据。';
   const picked = params.get('view');
   const view = views.includes(picked) ? picked : 'overview';
   const [role, setRole] = useState('member');
@@ -133,7 +149,7 @@ function ProjectWorkspace({course, project, chapter, params, task, language, t, 
       </a>)}
     </nav>
 
-    {view === 'overview' && <div className="project-grid">
+    {view === 'overview' && <div className="project-grid project-overview">
       <div className="project-paper">
         <h2 ref={heading} tabIndex={-1}>{t.brief}</h2>
         <dl className="project-brief">
@@ -147,10 +163,10 @@ function ProjectWorkspace({course, project, chapter, params, task, language, t, 
         </div> : <div className="project-setup">
           <fieldset>
             <legend>{t.role}</legend>
-            {Object.entries(project.roles).map(([id, item]) => <label key={id} className="project-option">
+            <div className="project-role-options">{Object.entries(project.roles).map(([id, item]) => <label key={id} className="project-option">
               <input type="radio" name="practice-role" value={id} checked={role === id} onChange={() => setRole(id)}/>
               <span><strong>{copy(item.title)}</strong><small>{copy(item.responsibility)}</small></span>
-            </label>)}
+            </label>)}</div>
           </fieldset>
           <label className="project-field">
             <span>{t.scope}</span>
@@ -174,7 +190,8 @@ function ProjectWorkspace({course, project, chapter, params, task, language, t, 
           </ol>
         </div>
         <div className="project-rail-section">
-          <h2>{t.official}</h2>
+          <h2>{sourceHeading}</h2>
+          <p className="project-source-note">{sourceNote}</p>
           <ProjectSources project={project} t={t} copy={copy} ids={project.sources.filter(row => row.kind === 'case').map(row => row.id)}/>
           {link(route('reading'), t.readStart)}
         </div>
@@ -208,7 +225,8 @@ function ProjectWorkspace({course, project, chapter, params, task, language, t, 
           </ol>
         </nav>
         <div className="project-rail-section">
-          <h2>{t.official}</h2>
+          <h2>{sourceHeading}</h2>
+          <p className="project-source-note">{sourceNote}</p>
           <ProjectSources project={project} t={t} copy={copy} ids={project.steps[chapter].sourceIds}/>
           <details className="project-disclosure"><summary>{t.allSources}</summary><ProjectSources project={project} t={t} copy={copy}/></details>
         </div>

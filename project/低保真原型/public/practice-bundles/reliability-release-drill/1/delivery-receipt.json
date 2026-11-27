@@ -1,0 +1,17 @@
+{
+  "projectId": "reliability-release-drill",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "6c3bf3cc86170742c4ee2df335f855ef6142f3f02d3e8c4351b8cdbb194325c9",
+  "bytes": 40673,
+  "files": 29,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"reliability-release-drill\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.937Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

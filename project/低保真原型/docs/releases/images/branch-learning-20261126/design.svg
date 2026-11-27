@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 690" font-family="Microsoft YaHei,sans-serif">
+  <rect width="1060" height="690" rx="16" fill="#faf8f1"/>
+  <text x="26" y="34" fill="#1c4b71" font-size="15">职业与技能地图</text>
+  <text x="833" y="34" fill="#1c4b71" font-size="15">换个方向 · 操作引导 · Tutor</text>
+  <rect x="26" y="64" width="222" height="398" rx="14" fill="#fffefb" stroke="#cbdde9"/>
+  <g font-size="15" fill="#173f62">
+    <text x="46" y="96">前端开发</text><text x="46" y="125" font-size="22" font-weight="bold">性能与上线</text>
+    <text x="46" y="155">本枝 0 / 3 已通过</text>
+    <rect x="46" y="171" width="182" height="6" rx="3" fill="#dae7f1"/>
+    <rect x="37" y="200" width="200" height="55" rx="8" fill="#e9f3fb"/>
+    <text x="52" y="232">1  加载与交互体验</text><text x="52" y="285">2  浏览器内容安全</text><text x="52" y="338">3  发布前验收</text>
+    <text x="46" y="432">查看整树 ↗</text>
+  </g>
+  <rect x="267" y="64" width="767" height="187" rx="14" fill="#123d63"/>
+  <g fill="#fffefb">
+   <text x="293" y="112" font-size="27" font-weight="bold">加载与交互体验</text>
+   <text x="293" y="154" font-size="15">学会区分加载慢、响应慢和页面跳动</text>
+   <text x="293" y="184" font-size="15">用可比条件复测，判断改动是否有效</text>
+   <rect x="730" y="87" width="279" height="137" rx="12" fill="#204f76"/>
+   <text x="750" y="122" font-size="14" fill="#ffe086">练习产物</text>
+   <text x="750" y="154" font-size="16">一份性能诊断与复核记录</text>
+  </g>
+  <g fill="#163f64" font-size="14"><text x="278" y="288">学习</text><text x="374" y="288">练习与巩固</text></g>
+  <rect x="267" y="309" width="767" height="354" rx="14" fill="#fffefb" stroke="#cbdde9"/>
+  <rect x="267" y="309" width="767" height="53" rx="14" fill="#edf5fb"/>
+  <g fill="#173f62" font-size="15">
+    <text x="293" y="343">理解问题</text><text x="519" y="343">推演与复核</text><text x="768" y="343">边界与实践</text>
+    <text x="293" y="405" font-size="20" font-weight="bold">看清用户遇到的问题</text><text x="293" y="441">从实际页面现象和关键概念切入</text>
+    <rect x="647" y="381" width="363" height="208" rx="12" fill="#eaf3fb"/>
+    <text x="668" y="414" font-size="20" font-weight="bold">随堂诊断</text><text x="668" y="451">选择指标，再对照改动前后的数据</text>
+    <rect x="668" y="477" width="88" height="34" rx="8" fill="#fffefb"/><text x="691" y="499">LCP</text>
+    <rect x="765" y="477" width="88" height="34" rx="8" fill="#fffefb"/><text x="789" y="499">INP</text>
+    <rect x="862" y="477" width="88" height="34" rx="8" fill="#fffefb"/><text x="883" y="499">CLS</text>
+    <rect x="842" y="609" width="167" height="34" rx="8" fill="#ffd34f"/><text x="883" y="631">推演与复核 →</text>
+  </g>
+</svg>

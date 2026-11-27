@@ -1,0 +1,226 @@
+/* Chapter surfaces borrow the existing practice workspace: task head, paper,
+   evidence margin and action area. The public data and learning rules stay put. */
+html body #root#root#root#root#root#root #main .career-reading {
+ --reading-paper:#fffefa;--reading-wash:#edf6fc;--reading-edge:#e5dfd2;--reading-blue-edge:#d6e5f0;--reading-muted:#526d84;
+ & .career-reading-panel{container:career-chapter / inline-size;padding-top:20px;}
+ & .career-chapter-head{display:flex;align-items:center;gap:17px;padding:24px 27px;margin:0 0 24px;border:1px solid var(--reading-blue-edge);border-radius:18px;background:linear-gradient(110deg,#eaf4fc,#f3f8fb 76%,#fffbeb);box-shadow:0 3px 12px #173d6204;min-width:0;}
+ & .career-chapter-symbol{display:grid;place-items:center;flex:none;width:53px;height:53px;border-radius:15px;background:#fffefa;color:#0a5487;box-shadow:0 2px 6px #193e6510;}
+ & .career-chapter-head > div:not(.career-chapter-action){min-width:0;flex:1;}
+ & .career-chapter-head h2{margin:0;max-width:46ch;letter-spacing:-.025em;text-wrap:pretty;}
+ & .career-chapter-head p{max-width:76ch;margin:8px 0 0;color:#4d6981;line-height:1.75;}
+ & .career-chapter-action{flex:none;max-width:27%;}
+ & .career-chapter-action > a{display:inline-flex;align-items:center;min-height:40px;border-bottom:1px solid #8199aa;text-decoration:none;font-weight:600;}
+ & .career-synthetic-label{display:block;padding:8px 11px;background:#fff4cf;border:1px solid #f0dfa3;border-radius:7px;color:#7b611c;line-height:1.5;}
+ /* Overview: a work route, followed by specialisation and scope. */
+ & .career-work-moments{gap:20px;margin:0 0 28px;}
+ & .career-work-moments > li{padding:24px 22px 0;border-radius:16px;box-shadow:0 5px 18px #193f6207;overflow:visible;}
+ & .career-work-moments > li > div{margin-inline:-22px;padding:15px 22px;background:#f0f7fb;border-top:1px solid #e0eaf0;border-radius:0 0 15px 15px;}
+ & .career-work-moments h3{margin:16px 0 7px;}
+ & .career-work-moments p{margin:0 0 23px;}
+ & .career-scope-layout{gap:24px;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);}
+ & .career-specialisations{padding:24px 26px;background:var(--reading-paper);border:1px solid var(--reading-edge);border-radius:16px;}
+ & .career-specialisations > h3{margin:0 0 7px;}
+ & .career-specialisations dl > div:last-child{border-bottom:0;padding-bottom:0;}
+ & .career-boundary-panel{border:1px solid #d8e7ef;background:#edf6fc;padding:24px;}
+ & .career-full-workflow{border-block:1px solid var(--reading-edge);padding:17px 0;}
+ /* Case: a single task, with a brief and an actual output on separate paper. */
+ & .career-case-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:var(--reading-paper);border:1px solid var(--reading-edge);border-radius:19px;box-shadow:0 7px 24px #173d6208;overflow:hidden;align-items:stretch;}
+ & .career-case-brief{padding:27px;min-width:0;}
+ & .career-case-sender{display:flex;align-items:center;gap:10px;color:#577087;}
+ & .career-case-sender > svg{color:#07558a;}
+ & .career-case-sender > span{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 14px;}
+ & .career-case-sender strong{color:#103f6b;}
+ & .career-case-brief .career-case-question{max-width:28ch;margin:20px 0 25px;line-height:1.6;letter-spacing:-.015em;}
+ & .career-case-input{padding:18px 20px;background:#f7f5ee;border-radius:12px;border:1px solid #ebe6d8;}
+ & .career-case-input h4{margin:0 0 8px;color:#627689;}
+ & .career-case-input p{line-height:1.8;margin:0;}
+ & .career-case-input a{display:inline-block;margin-top:12px;}
+ & .career-case-preview{min-width:0;padding:24px;background:#f1f7fb;border-left:1px solid #dce8ef;border-radius:0;}
+ & .career-case-preview > header{display:flex;gap:9px;align-items:center;margin-bottom:16px;}
+ & .career-case-preview > header h3{margin:0;}
+ & .career-preview-paper{background:#fff;border:1px solid #d5e3ed;border-radius:11px;overflow:hidden;padding:0 17px;}
+ & .career-preview-paper .career-example-table{border:0;margin:0 -17px;border-radius:0;}
+ & .career-preview-paper .career-example-table :is(td,th){padding:12px 14px;min-width:0;}
+ & .career-preview-paper .career-data-result{padding:13px 17px;margin:0 -17px;max-width:none;background:#fff3ce;color:#745b17;line-height:1.7;}
+ & .career-case-preview .career-preview-link{display:inline-flex;margin-top:15px;}
+ & .career-preview-paper pre{padding:17px;margin:0 -17px;overflow:auto;background:#fff;line-height:1.8;}
+ & .career-preview-paper .career-brief > div{padding:13px 0;}
+ & .career-preview-paper .career-brief > div:last-child{border-bottom:0;}
+ & .career-case-lens{display:flex;align-items:baseline;gap:18px;max-width:none;border:0;border-bottom:1px solid #e4e5dc;padding:15px 0;margin:0 0 25px;color:#526d84;}
+ & .career-case-lens > span{font-weight:600;flex:none;max-width:30%;}
+ & .career-case-lens > p{max-width:88ch;margin:0;line-height:1.75;color:#62778b;}
+ & .career-case-judgments{grid-template-columns:minmax(0,1.6fr) minmax(270px,1fr);gap:22px;margin:0 0 17px;align-items:stretch;}
+ & .career-case-judgments > section{padding:23px 25px;border:1px solid var(--reading-edge);border-radius:14px;background:var(--reading-paper);}
+ & .career-case-judgments > .career-review-note{background:#edf6fc;border-color:#d8e7ef;}
+ & .career-case-judgments h3{display:flex;gap:10px;align-items:flex-start;margin:0 0 17px;}
+ & .career-case-judgments h3 > svg{flex:none;margin-top:3px;}
+ & .career-case-judgments ol{padding-left:22px;}
+ & .career-case-judgments li + li{margin-top:12px;}
+ & .career-case-judgments p{margin:0;line-height:1.85;}
+ & .career-work-chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:29px 0 34px;}
+ & .career-work-chain > li{position:relative;display:block;padding:0 0 0 44px;border:0;min-width:0;}
+ & .career-chain-index{position:absolute;left:0;top:0;display:grid;place-items:center;width:30px;height:30px;background:#e4f0fa;border-radius:9px;color:#07558a;font-weight:700;font-variant-numeric:tabular-nums;}
+ & .career-work-chain > li > div{min-width:0;}
+ & .career-work-chain p{line-height:1.8;}
+ & .career-work-chain small{display:flex;align-items:flex-start;gap:7px;margin-top:12px;color:#426480;}
+ & .career-work-chain small svg{margin-top:3px;}
+ /* Deliverables are full document previews; acceptance is a separate margin. */
+ & .career-delivery-heading{display:flex;gap:12px;align-items:center;margin:30px 0 19px;}
+ & .career-delivery-heading > span{display:grid;place-items:center;width:42px;height:42px;background:#e5f1fa;border-radius:12px;flex:none;}
+ & .career-delivery-heading .career-delivery-title{margin:0;scroll-margin-top:105px;}
+ & .career-artifacts,& .career-artifacts.count-3,& .career-artifacts.data-artifacts{display:grid;grid-template-columns:minmax(0,1fr);gap:23px;}
+ & .career-artifact,& .data-artifacts .career-artifact{padding:0;margin:0;border:1px solid #dfe1db;border-radius:17px;background:var(--reading-paper);box-shadow:0 5px 20px #173b6205;overflow:hidden;min-width:0;scroll-margin-top:105px;}
+ & .career-artifact > header{display:flex;align-items:center;gap:17px;margin:0;padding:20px 25px;background:#f2f7fa;border-bottom:1px solid #dfe8ed;}
+ & .career-artifact > header > span{padding:0;width:38px;height:44px;display:grid;place-items:center;border:1px solid #d0e1ec;background:#fffefa;border-radius:6px;color:#4b7390;font-variant-numeric:tabular-nums;flex:none;}
+ & .career-artifact > header > div{flex:1;min-width:0;}
+ & .career-artifact > header > svg{color:#6d8ba2;}
+ & .career-artifact > header p{max-width:85ch;margin:5px 0 0;line-height:1.7;color:#60758a;}
+ & .career-artifact-body,& .data-artifacts .career-artifact-body{display:grid;grid-template-columns:minmax(0,2.5fr) minmax(245px,1fr);gap:0;align-items:stretch;}
+ & .career-artifact-document{min-width:0;padding:22px 25px;background:#fffefa;}
+ & .career-artifact-body > aside,& .data-artifacts .career-artifact-body > aside{display:block;padding:24px;background:#fbf9f1;border-left:1px solid #e7e4d9;border-radius:0;min-width:0;}
+ & .career-artifact-use,& .data-artifacts .career-artifact-use{display:block;padding:0;margin:0;background:none;}
+ & .career-artifact-use > div{display:block;padding:0 0 16px;margin:0 0 17px;border-bottom:1px solid #e7e3d6;}
+ & .career-artifact-use dt{color:#698094;margin-bottom:5px;font-weight:500;}
+ & .career-artifact-use dd{margin:0;color:#254e6e;}
+ & .career-artifact-body > aside > h4,& .data-artifacts .career-artifact-body > aside > h4{margin:3px 0 10px;}
+ & .career-quality-checks > li{margin:9px 0;}
+ & .career-artifact-document .career-example-table{margin:0;}
+ & .career-artifact-document pre{margin:0;}
+ & .career-artifact-document .career-brief{margin:0;}
+ & .career-artifact-document .career-brief > div:first-child{padding-top:0;}
+ & .career-artifact-document .career-brief > div:last-child{border:0;}
+ & .career-artifact-document .career-brief dt{color:#07558a;}
+ & .career-registration-layout{grid-template-columns:minmax(0,1fr);gap:18px;}
+ & .career-registration-layout .career-registration-chart{max-width:680px;margin:8px 0 0;}
+ & .data-artifacts .career-brief{display:block;}
+ & .career-artifact-document .career-file-links{margin:16px 0;}
+ /* Preparation is a method-to-quality work sheet, not a capability score. */
+ & .career-preparation-rows{display:grid;grid-template-columns:minmax(0,1fr);gap:17px;margin:0 0 25px;}
+ & .career-readiness-item{display:grid;grid-template-columns:minmax(170px,.65fr) minmax(0,1.15fr) minmax(0,1fr);background:var(--reading-paper);border:1px solid var(--reading-edge);border-radius:15px;overflow:hidden;}
+ & .career-readiness-item > header{display:flex;align-items:flex-start;gap:11px;padding:24px 20px;background:#f0f6fa;}
+ & .career-readiness-item > header > span{color:#7293aa;font-variant-numeric:tabular-nums;padding-top:2px;}
+ & .career-readiness-item h3{margin:0;}
+ & .career-readiness-work,& .career-readiness-quality{padding:23px;min-width:0;}
+ & .career-readiness-quality{background:#fffaf0;border-left:1px solid #ebe6d7;}
+ & .career-readiness-item h4{display:flex;align-items:center;gap:7px;color:#6b8090;margin:0 0 10px;font-weight:500;}
+ & .career-readiness-item p{margin:0;line-height:1.85;}
+ & .career-evidence-note{display:flex;align-items:center;gap:20px;padding:24px;margin:0;background:#eaf4fb;border:1px solid #d9e7f0;border-radius:15px;}
+ & .career-evidence-note > div{align-self:flex-start;color:#07558a;}
+ & .career-evidence-note > section{flex:1;min-width:0;}
+ & .career-evidence-note h3{margin:0;}
+ & .career-evidence-note p{margin:8px 0;max-width:80ch;}
+ & .career-evidence-note small{display:block;color:#62798c;line-height:1.7;}
+ & .career-evidence-note > a{flex:none;max-width:25%;text-align:center;}
+ /* Growth has a responsibility route and explicit collaborator exchanges. */
+ & .career-growth-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:0;border:0;margin:0 0 12px;}
+ & .career-growth-list.count-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+ & .career-growth-list.count-1{grid-template-columns:minmax(0,1fr);}
+ & .career-growth-list > section{position:relative;padding:25px 23px;background:#fffefa;border:1px solid var(--reading-edge);border-radius:16px;}
+ & .career-growth-list > section:not(:last-child)::after{content:'';position:absolute;right:-25px;top:42px;width:24px;border-top:1px solid #accbdf;}
+ & .career-growth-stop{display:grid;place-items:center;width:33px;height:33px;border-radius:50%;background:#e3f0fa;color:#07558a;font-weight:700;margin-bottom:16px;}
+ & .career-growth-list > section:last-child .career-growth-stop{background:#fff0b8;}
+ & .career-growth-list h3{margin:0 0 10px;}
+ & .career-growth-list p{margin:0;line-height:1.8;color:#4e6b83;}
+ & .career-responsibility-note{margin:0 0 27px;color:#6b7f8e;max-width:95ch;}
+ & .career-collaboration-paper{border:1px solid var(--reading-edge);border-radius:17px;background:#fffefa;padding:25px;}
+ & .career-collaboration-paper > h3{margin:0 0 17px;}
+ & .career-collaboration{display:block;margin:0;}
+ & .career-collaboration > div{display:grid;grid-template-columns:35px minmax(120px,.6fr) minmax(0,2fr);gap:15px;align-items:start;padding:17px 0;border-top:1px solid #e4ebef;}
+ & .career-collaboration > div > span{color:#527e9d;padding-top:1px;}
+ & .career-collaboration h4,& .career-collaboration p{margin:0;line-height:1.8;}
+ & .career-collaboration p{max-width:80ch;}
+ & .career-environment-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;margin-top:25px;}
+ & .career-work-setting{padding:23px 25px;background:#edf6fc;border:1px solid #dbe8f0;border-radius:15px;}
+ & .career-pitfall-note{padding:23px 25px;background:#fff8e7;border:1px solid #ece0bd;border-radius:15px;}
+ & .career-environment-layout h3{margin:0 0 12px;}
+ & .career-environment-layout p{max-width:72ch;}
+ & .career-pitfalls{padding-left:20px;margin:0;}
+ & .career-pitfalls li + li{margin-top:10px;}
+ /* Practice is an actual work area: assignment, input material, working draft. */
+ & .career-practice-sheet{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;margin:0;background:#fffefa;border:1px solid var(--reading-edge);border-radius:17px;padding:0;overflow:hidden;}
+ & .career-practice-sheet > section{padding:25px 27px;min-width:0;}
+ & .career-practice-sheet > .career-practice-outcome{background:#fff9e9;border-left:1px solid #ebe4ce;}
+ & .career-practice-sheet h3{display:flex;align-items:center;gap:9px;}
+ & .career-practice-sheet p{margin:0 0 20px;}
+ & .career-practice-sheet li + li{margin-top:7px;}
+ & .career-case-fork{margin:25px 0;padding:24px;background:#f0f6fa;border:1px solid #dce7ed;border-radius:14px;}
+ & .career-case-fork h3{margin:0;}
+ & .career-trial{padding-top:24px;border-top:1px solid #dddccd;}
+ & .career-trial-inputs > h3{margin:0 0 6px;}
+ & .career-trial-inputs article{padding:20px;border-radius:12px;box-shadow:0 3px 12px #173d6204;}
+ & .career-trial-inputs article h4{padding-bottom:11px;border-bottom:1px solid #e0e9ee;margin:0 0 12px;}
+ & .career-trial-writing{padding:24px;background:#fffefa;border:1px solid #d5e3ec;border-radius:16px;box-shadow:0 5px 18px #173d6208;min-width:0;}
+ & .career-trial[data-guided=true] > .career-trial-writing{top:95px;}
+ & .career-trial-writing > label{display:block;margin:-24px -24px 16px;padding:17px 24px;background:#eaf4fb;border-radius:15px 15px 0 0;color:#103f6b;}
+ & .career-trial-writing > p{max-width:76ch;}
+ & .career-trial-writing textarea{min-height:210px;background:#fffdf7;}
+ & .career-trial-writing .career-practice-actions{gap:9px;margin-top:15px;}
+ & .career-trial-review{margin-top:18px;}
+ & .career-reading-next{padding:24px 26px;margin-top:29px;background:#edf6fc;border:1px solid #d4e6f1;border-radius:16px;}
+ & .career-reading-next h3{margin:0;}
+ & .career-reading-next .career-skill-transition{margin:8px 0 0;max-width:90ch;}
+ & .career-reading-next .career-practice-actions{margin:17px 0;}
+ & .career-reading-next > small{display:block;color:#61788d;line-height:1.75;max-width:100ch;}
+ /* Source archive: compact identity outside, complete provenance inside. */
+ & .career-source-version{display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:#62798c;margin:0 0 18px;}
+ & .career-source-version code{font-size:12px;overflow-wrap:anywhere;}
+ & .career-source-register{display:grid;gap:13px;}
+ & #career-sources .career-reference{max-width:none;padding:0;border:1px solid #e1e1d8;border-radius:13px;background:#fffefa;margin:0;overflow:hidden;scroll-margin-top:100px;}
+ & .career-reference > summary{display:flex;align-items:center;gap:14px;list-style:none;padding:18px 23px;background:#fffefa;}
+ & .career-reference > summary::-webkit-details-marker{display:none;}
+ & .career-reference > summary > svg{flex:none;color:#658ba5;}
+ & .career-reference > summary > span{display:block;flex:1;min-width:0;}
+ & .career-reference > summary strong{font-weight:650;line-height:1.6;display:block;}
+ & .career-reference-publisher{display:block;margin-top:5px;color:#728697;line-height:1.6;}
+ & #career-sources .career-reference > summary > small{display:block;flex:none;margin:0;padding:4px 8px;border-radius:6px;background:#edf5fb;color:#4a6b84;}
+ & .career-reference > summary::after{content:'+';font-size:23px;line-height:1;color:#5e7d94;margin-left:10px;}
+ & .career-reference[open] > summary{background:#edf6fc;border-bottom:1px solid #dce8ef;}
+ & .career-reference[open] > summary::after{content:'−';}
+ & .career-reference-body{padding:20px 24px;}
+ & .career-reference-body > p{max-width:94ch;line-height:1.85;margin:0 0 15px;}
+ & .career-reference-body > dl{display:flex;gap:20px 32px;flex-wrap:wrap;padding:17px 20px;background:#f7f7f0;border-radius:10px;margin:20px 0;}
+ & .career-reference-body > details{padding:14px 0 0;border-top:1px solid #e3e6db;}
+ & .career-reference-body > details p{max-width:94ch;}
+ & .career-reading-panel > section > .career-source-inline{margin:16px 0;padding:11px 0;color:#6b8192;}
+ @container career-chapter (max-width:1000px){
+  & .career-chapter-head{padding:21px;gap:13px;}
+  & .career-chapter-action{max-width:24%;}
+  & .career-case-stage{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);}
+  & .career-case-brief,& .career-case-preview{padding:21px;}
+  & .career-artifact-body,& .data-artifacts .career-artifact-body{grid-template-columns:minmax(0,1.9fr) minmax(225px,1fr);}
+  & .career-artifact-body > aside,& .data-artifacts .career-artifact-body > aside{padding:20px;}
+  & .career-readiness-item{grid-template-columns:minmax(145px,.65fr) minmax(0,1fr) minmax(0,1fr);}
+  & .career-readiness-work,& .career-readiness-quality{padding:20px;}
+  & .career-evidence-note{flex-wrap:wrap;}
+  & .career-evidence-note > a{margin-left:48px;max-width:none;}
+ }
+}
+/* The older global type layer forced every career paragraph and control to
+   17px. Narrow overrides restore hierarchy only inside these six chapters. */
+@layer type-system {
+ html body #root#root#root#root#root#root #main .career-reading .career-reading-panel {
+  font-size:15.5px!important;
+  & :is(p,li,dd){font-size:15.5px!important;}
+  & h2{font-size:26px!important;}
+  & h3{font-size:19px!important;}
+  & h4{font-size:14px!important;}
+  & :is(button,.button,a,label,input,textarea,select){font-size:14px!important;}
+  & :is(td,th){font-size:14px!important;}
+  & .career-chapter-head p{font-size:15px!important;}
+  & .career-case-question{font-size:23px!important;}
+  & .career-synthetic-label,& .career-case-lens > p,& .career-responsibility-note{font-size:13px!important;}
+  & .career-synthetic-label,& .career-case-sender,& .career-source-version{font-size:13px!important;}
+  & .career-case-sender strong{font-size:15px!important;}
+  & .career-case-lens > span{font-size:13px!important;}
+  & .career-artifact > header h3{font-size:20px!important;}
+  & .career-artifact > header p{font-size:13px!important;}
+  & .career-artifact-use dt{font-size:13px!important;}
+  & .career-artifact-body > aside :is(dd,li){font-size:14px!important;}
+  & .career-trial-writing > label{font-size:19px!important;}
+  & .career-trial-writing :is(textarea,input){font-size:16px!important;}
+  & .career-reference > summary strong{font-size:16px!important;}
+  & .career-reference-publisher{font-size:12px!important;}
+  & .career-reference-body dt{font-size:12px!important;}
+  & .career-reference-body dd{font-size:14px!important;}
+ }
+}

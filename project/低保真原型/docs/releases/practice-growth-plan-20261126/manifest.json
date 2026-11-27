@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-26",
+  "status": "planning_only_not_implemented",
+  "currentFormalProjects": 4,
+  "currentCareerCoverage": 4,
+  "suggestedCoreProjects": 30,
+  "suggestedCrossCareerProjects": 6,
+  "scopeNote": "Targets are product planning choices, not validated availability or exhaustive career coverage. Variants and links counted separately.",
+  "checks": {
+    "internalLinks": 0,
+    "blueprintCareerRows": 10,
+    "crossCareerRows": 6
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1270,
+      "sha256": "b030621fdcce395d82b4997fa79a3b36d5353d342fa695c005de5d4a50e9601f"
+    },
+    {
+      "path": "reference/current-learning-centre.png",
+      "bytes": 766846,
+      "sha256": "1f2bef39501fa50eb712476be8a6cd050c18d7b31ed4d76d1426c3a34cd422d1"
+    },
+    {
+      "path": "总体计划.md",
+      "bytes": 8790,
+      "sha256": "ee725f3917636b8ca53e18fa773d6961524a4d680ebd7199754eb1e7b3d94421"
+    },
+    {
+      "path": "研究来源与可行性.md",
+      "bytes": 10342,
+      "sha256": "cc1bb293fc6724511cca680e77d792473781c0f10b29c5b634a70a87ee3ca4ea"
+    },
+    {
+      "path": "项目蓝图.md",
+      "bytes": 6273,
+      "sha256": "52a9447d3046a883b4d34c269bfc92bc422da1bd7a35a3760fc929981225497e"
+    },
+    {
+      "path": "项目规范与持续运营.md",
+      "bytes": 9032,
+      "sha256": "8010be8888a39f77ac0882133de5896666a244fb762b86096062a524157de8e6"
+    }
+  ]
+}

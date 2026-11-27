@@ -1,0 +1,144 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  [\r\n    {\r\n      exit: 0,\r\n      id: 'valid',\r\n      stderr: '',\r\n...\r\n    {\r\n+     exit: 0,\r\n-     exit: 2,\r\n      id: 'missing',\r\n+     stderr: '',\r\n+     stdout: '{\"cents\":0,\"version\":\"1.0.0\"}'\r\n-     stderr: 'Usage: tool <integer cents>',\r\n-     stdout: ''\r\n    },\r\n    {\r\n+     exit: 0,\r\n-     exit: 2,\r\n      id: 'invalid',\r\n+     stderr: '',\r\n+     stdout: '{\"cents\":1.5,\"version\":\"1.0.0\"}'\r\n-     stderr: 'Usage: tool <integer cents>',\r\n-     stdout: ''\r\n    }\r\n  ]\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/versioned-toolkit/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    {\r\n      id: 'valid',\r\n      exit: 0,\r\n      stdout: '{\"cents\":10000,\"version\":\"1.0.0\"}',\r\n      stderr: ''\r\n    },\r\n    {\r\n      id: 'missing',\r\n      exit: 0,\r\n      stdout: '{\"cents\":0,\"version\":\"1.0.0\"}',\r\n      stderr: ''\r\n    },\r\n    {\r\n      id: 'invalid',\r\n      exit: 0,\r\n      stdout: '{\"cents\":1.5,\"version\":\"1.0.0\"}',\r\n      stderr: ''\r\n    }\r\n  ],\r\n  expected: [\r\n    {\r\n      id: 'valid',\r\n      exit: 0,\r\n      stdout: '{\"cents\":10000,\"version\":\"1.0.0\"}',\r\n      stderr: ''\r\n    },\r\n    {\r\n      id: 'missing',\r\n      exit: 2,\r\n      stdout: '',\r\n      stderr: 'Usage: tool <integer cents>'\r\n    },\r\n    {\r\n      id: 'invalid',\r\n      exit: 2,\r\n      stdout: '',\r\n      stderr: 'Usage: tool <integer cents>'\r\n    }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  [\r\n    {\r\n      exit: 0,\r\n      id: 'valid',\r\n      stderr: '',\r\n...\r\n    {\r\n+     exit: 0,\r\n-     exit: 2,\r\n      id: 'missing',\r\n      stderr: 'Usage: tool <integer cents>',\r\n      stdout: ''\r\n    },\r\n    {\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/versioned-toolkit/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [\r\n    {\r\n      id: 'valid',\r\n      exit: 0,\r\n      stdout: '{\"cents\":10000,\"version\":\"1.0.0\"}',\r\n      stderr: ''\r\n    },\r\n    {\r\n      id: 'missing',\r\n      exit: 0,\r\n      stdout: '',\r\n      stderr: 'Usage: tool <integer cents>'\r\n    },\r\n    {\r\n      id: 'invalid',\r\n      exit: 2,\r\n      stdout: '',\r\n      stderr: 'Usage: tool <integer cents>'\r\n    }\r\n  ],\r\n  expected: [\r\n    {\r\n      id: 'valid',\r\n      exit: 0,\r\n      stdout: '{\"cents\":10000,\"version\":\"1.0.0\"}',\r\n      stderr: ''\r\n    },\r\n    {\r\n      id: 'missing',\r\n      exit: 2,\r\n      stdout: '',\r\n      stderr: 'Usage: tool <integer cents>'\r\n    },\r\n    {\r\n      id: 'invalid',\r\n      exit: 2,\r\n      stdout: '',\r\n      stderr: 'Usage: tool <integer cents>'\r\n    }\r\n  ],\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "versioned-toolkit",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:59.020Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"versioned-toolkit\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:58.931Z\"}\n",
+    "inputDigest": "1f4093d06122b3a01f3fb76df90e6e368a9b89ce9a0dac3498d991834e592766",
+    "artifactDigest": "8e12f0e74b67312bb7ca2c8bb66fc2f284f6c73bbf2aaba77097ad0dce06f8b2"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "versioned-toolkit",
+    "version": 1,
+    "inputDigest": "1f4093d06122b3a01f3fb76df90e6e368a9b89ce9a0dac3498d991834e592766",
+    "artifactDigest": "d73f70f0836af52fd707f7bd86791af1fb77fc1e116fc5c7e75d54577f149c18",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:58.893Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "versioned-toolkit",
+    "version": 1,
+    "inputDigest": "1f4093d06122b3a01f3fb76df90e6e368a9b89ce9a0dac3498d991834e592766",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:58.893Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "versioned-toolkit",
+    "version": 1,
+    "inputDigest": "1f4093d06122b3a01f3fb76df90e6e368a9b89ce9a0dac3498d991834e592766",
+    "artifactDigest": "8e12f0e74b67312bb7ca2c8bb66fc2f284f6c73bbf2aaba77097ad0dce06f8b2",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:58.893Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

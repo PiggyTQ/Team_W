@@ -1,0 +1,236 @@
+{
+  "id": "cross-service-incident",
+  "version": 1,
+  "legacy": false,
+  "career": "ops",
+  "relatedCareers": [
+    "backend",
+    "frontend",
+    "testing"
+  ],
+  "level": "integrated",
+  "kind": "cross-career",
+  "title": {
+    "zh": "服务发布与故障联合演练",
+    "en": "Service incident collaboration"
+  },
+  "next": [],
+  "prior": null,
+  "adapter": "rules",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "rollback-verify"
+  ],
+  "brief": {
+    "zh": "以开发、运维和业务测试角色轮换演练恢复。技术指标恢复后继续验证报名等核心流程；只要业务仍失败，就不能结束联合验收。",
+    "en": "Rotate release, operations and business-testing roles. A technical recovery must also restore the user flow before joint acceptance."
+  },
+  "outputs": {
+    "zh": [
+      "发布/恢复操作包",
+      "业务复验、因果证据和复盘"
+    ],
+    "en": [
+      "Release evidence",
+      "business probes and revised recovery handoffs"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "错误率分母及指标复算正确",
+      "技术/核心流程均满足明确条件才标恢复"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Normal metrics cannot close an incident while registration still fails. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "指标正常而报名仍失败时不得结束联合验收",
+    "en": "Normal metrics cannot close an incident while registration still fails."
+  },
+  "review": {
+    "zh": [
+      "交接是否可执行，反馈/修改是否有依据",
+      "模拟角色如实标注，本人贡献与责任不混淆"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "以开发、运维和业务测试角色轮换演练恢复。技术指标恢复后继续验证报名等核心流程；只要业务仍失败，就不能结束联合验收。",
+      "指标正常而报名仍失败时不得结束联合验收；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Rotate release, operations and business-testing roles.",
+      "Reproduce this failure first: Normal metrics cannot close an incident while registration still fails.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "指标正常而报名仍失败时不得结束联合验收",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [
+    {
+      "role": "开发",
+      "produces": "发布变更、配置和已知风险",
+      "consumedBy": "运维/测试",
+      "requiredOutput": "stage-1.json",
+      "inputDigest": "e6c4cca9813e81b4a90145b6e945a57acc31b8b81decf12ec9b06f591a913ab6",
+      "expectedOutputDigest": "877ad55aa314ede59790b02ddd4eb5da3603b85d2e10c297efa277c2c4d48b5b",
+      "canonicalOutputDigest": "30fcc5c7de0837b9515c6e0c085d25a9c6ea6cc6b88df9fa0c8f2e5b768d8cd0",
+      "feedbackCode": "cross-service-incident-stage-1",
+      "roleLabel": {
+        "zh": "开发",
+        "en": "Development"
+      },
+      "receiverLabel": {
+        "zh": "运维/测试",
+        "en": "Operations and testing"
+      }
+    },
+    {
+      "role": "运维",
+      "produces": "指标/日志/恢复行动及版本",
+      "consumedBy": "业务探测/测试",
+      "requiredOutput": "stage-2.json",
+      "inputDigest": "83b823a93bc752d74e96e0759c09e64c3fdb5695a2989bf3648248a32153ef35",
+      "expectedOutputDigest": "e8cfb92756a6a9197b771a3cbea57289ab0a35c9e893640c7f67a0af7aa4a231",
+      "canonicalOutputDigest": "ba8f0e8313c63442b1313c3a7cf8a7c584aae9cb11b53c75657443988ae6d694",
+      "feedbackCode": "cross-service-incident-stage-2",
+      "roleLabel": {
+        "zh": "运维",
+        "en": "Operations"
+      },
+      "receiverLabel": {
+        "zh": "业务探测/测试",
+        "en": "Business probes and testing"
+      }
+    },
+    {
+      "role": "测试/前端",
+      "produces": "关键业务复验与反馈",
+      "consumedBy": "发布/恢复负责人",
+      "requiredOutput": "stage-3.json",
+      "inputDigest": "036d60b134d97e6fc8b94a02802e7397b95bd51a195a35103661c890fff5b9c2",
+      "expectedOutputDigest": "c1694f7c58d18ea9b94755a7b3b52c48777ceacdabf58080ae4fd7dee1257d20",
+      "canonicalOutputDigest": "43d8324a48492251b4cc570b47d92c133039fe88ee17c099b3a96a5ae699aef8",
+      "feedbackCode": "cross-service-incident-stage-3",
+      "roleLabel": {
+        "zh": "测试/前端",
+        "en": "Testing and frontend"
+      },
+      "receiverLabel": {
+        "zh": "发布/恢复负责人",
+        "en": "Release and recovery owner"
+      }
+    }
+  ],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "rules.json",
+    "handoff.json",
+    "stage-1.json",
+    "stage-2.json",
+    "stage-3.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "ops",
+      "branch": "recovery",
+      "skill": "rollback-verify",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "rules.json",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "backend",
+      "branch": "operations",
+      "skill": "integration-tests",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "rules.json",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "frontend",
+      "branch": "quality",
+      "skill": "release-checks",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "rules.json",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "testing",
+      "branch": "analysis",
+      "skill": "risk-priority",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "rules.json",
+        "handoff.json",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import ProductIcon from './ProductIcon';
 import BotanicalGrowthTree from './BotanicalGrowthTree';
 import {useTreeGrowth} from './useTreeGrowth';
 import SkillLearningPanel from './SkillLearningPanel';
+import {skillLearningBrief} from './skill-learning-brief';
 import {skillLearningScene,readSkillWork} from './skill-learning-model';
 import copy from './i18n/skill-tree-ui.json' with {type:'json'};
 import journeyCopy from './i18n/skill-journey-ui.json' with {type:'json'};
@@ -16,6 +17,8 @@ import './skill-tree.css';
 import './skill-journey.css';
 import './skill-tree-scene.css';
 import './skill-learning.css';
+import './branch-learning.css';
+import './skill-teaching.css';
 
 const loadLocal=import.meta.env.VITE_AUTH_MODE==='server'?null:()=>import('./local-skill-tree');
 const icons=['data','ai','security','ops','frontend','backend','engineering','check','software','briefcase'];
@@ -125,6 +128,7 @@ function JourneyBody({tree,mode,saved,state,params,label,t,j,language,live,works
   const nextIndex=branch.leaves.indexOf(leaf);
   const next=[...branch.leaves.slice(nextIndex+1),...branch.leaves.slice(0,nextIndex),...leaves.filter(item=>!branch.leaves.includes(item))].find(item=>!skillRecord(study,tree.id,item)?.assessment?.passedAt);
   const status=record?.assessment?.passedAt?j.passed:step==='check'?j.checking:step==='practice'?j.practicing:readSkillWork(record?.draft).artifact.trim()?j.drafted:record?.read?j.read:j.reading;
+  const brief=scene==='lesson'?skillLearningBrief(tree.id+':'+leaf.id):null;
   const plan=()=>{
     const source=journeyRoute(tree.id,{branch:branch.id,skill:leaf.id,step:'practice',mode:'study'});
     precheck(state.taskDraft?.source===source&&state.taskDraft.template==='external'?state.taskDraft:{title:leaf.title[0],career:tree.id,purpose:leaf.exercise[0],
@@ -136,8 +140,14 @@ function JourneyBody({tree,mode,saved,state,params,label,t,j,language,live,works
             {record?.assessment?.passedAt?<span className="skill-pass-tag"><ProductIcon name="check" size={14}/>{j.passed}</span>:
               (record?.read||record?.draft?.trim())&&<span className="scene-process-note">{status}</span>}
           </div>
-          <div className="scene-branch-meta"><span>{current.done}/{current.total} {t.passed}</span>{scene==='lesson'&&<button type="button" className="scene-overview" onClick={overview}>{j.sceneOverview}</button>}</div>
+          <div className="scene-branch-meta"><span>{current.done}/{current.total} {t.passed}</span></div>
         </header>);
+  const en=language==='en';
+  const learningPanel=<SkillLearningPanel key={key} {...{tree,leaf,step,label,t,language,live,workspace,update,onReload,j}} record={record} studyKey={key}
+    onStep={active=>navigate(branch,leaf,active)} onNext={next?()=>navigate(tree.branches.find(item=>item.leaves.includes(next)),next):null} onCheck={check} onPlan={plan}
+    onConfirmedGrowth={()=>enqueueGrowth(leaf.id)} branchComplete={current.done===current.total}>
+    <SkillSources sources={leaf.sources}/>{branch.project&&<div className="skill-related"><h4>{t.work}</h4>{link(projectRoute(branch.project),t.startWork)}</div>}
+  </SkillLearningPanel>;
   return <>
     {mode==='overview'&&<div className="journey-overview-intro">
       <div><span className="journey-eyebrow">{careerName}</span><h2>{j.overviewTitle}</h2><p>{overall.done===overall.total?j.allDone:j.overviewHint}</p></div>
@@ -162,23 +172,47 @@ function JourneyBody({tree,mode,saved,state,params,label,t,j,language,live,works
         {mode==='overview'&&<details className="journey-growth-details"><summary>{j.aboutGrowth}</summary><p>{j.growthNote}</p><p>{t.sourceNote}</p><SkillSources sources={tree.frameworks}/></details>}
       </aside>}
       {mode==='study'&&<section className="skill-path journey-study-panel" id="skill-branch-path" aria-labelledby="skill-path-title" data-skill-path={branch.id}>
-        {scene!=='assessment'&&skillHeader}
-        <details className="scene-skill-index"><summary>{j.branchSkills}<ProductIcon name="chevronDown" size={14}/></summary>
-        <p>{label(branch.purpose)}</p>
-        <ol className="skill-path-steps" aria-label={t.routeNav} style={{'--skill-steps':branch.leaves.length}}>{branch.leaves.map((item,index)=>{
-          const rec=skillRecord(study,tree.id,item),passed=!!rec?.assessment?.passedAt;
-          return <li key={item.id} data-passed={passed}><button type="button" aria-current={item.id===leaf.id?'step':undefined} onClick={()=>navigate(branch,item)} data-path-leaf={item.id}>
-            <span className="skill-path-number" aria-hidden="true">{passed?<ProductIcon name="check" size={16}/>:index+1}</span>
-            <span className="skill-path-text"><strong>{label(item.title)}</strong><small>{passed?t.passed:rec?.draft?.trim()?t.drafted:rec?.read?t.read:t.untested}</small></span>
-          </button></li>;
-        })}</ol>
-        </details>
-        <SkillLearningPanel key={key} {...{tree,leaf,step,label,t,language,live,workspace,update,onReload,j}} record={record} studyKey={key}
-          hideHeading headingId="skill-path-title"
-          onStep={active=>navigate(branch,leaf,active)} onNext={next?()=>navigate(tree.branches.find(item=>item.leaves.includes(next)),next):null} onCheck={check} onPlan={plan}
-          onConfirmedGrowth={()=>enqueueGrowth(leaf.id)} branchComplete={current.done===current.total}>
-          <SkillSources sources={leaf.sources}/>{branch.project&&<div className="skill-related"><h4>{t.work}</h4>{link(projectRoute(branch.project),t.startWork)}</div>}
-        </SkillLearningPanel>
+        {scene==='lesson'&&<nav className="branch-learning-rail" aria-label={j.branchSkills}>
+          <div className="branch-rail-intro">
+            <span>{careerName}</span>
+            <h3>{label(branch.title)}</h3>
+            <details className="branch-rail-purpose"><summary>{en?'Branch goal':'本分支目标'}</summary><p>{label(branch.purpose)}</p></details>
+            <div className="branch-rail-progress">
+              <span>{current.done}/{current.total} {t.passed}</span>
+              <progress value={current.done} max={current.total} aria-label={en?'Skills passed in this branch':'本分支技能通过数量'}/>
+            </div>
+          </div>
+          <ol className="branch-rail-skills">{branch.leaves.map((item,index)=>{
+            const rec=skillRecord(study,tree.id,item),passed=!!rec?.assessment?.passedAt;
+            const savedWork=readSkillWork(rec?.draft);
+            const hasWork=savedWork.artifact.trim()||Object.values(savedWork.tasks||{}).some(task=>
+              task.artifact.trim()||Object.values(task.fields).some(value=>value.trim()));
+            const currentSkill=item.id===leaf.id;
+            const labelForStatus=passed?t.passed:hasWork?t.drafted:rec?.read?t.read:
+              currentSkill?status:rec?.draft?j.reading:en?'Not started':'未开始';
+            return <li key={item.id} data-passed={passed}>
+              <button type="button" aria-current={currentSkill?'step':undefined} onClick={()=>{if(!currentSkill||step!=='learn')navigate(branch,item);}} data-path-leaf={item.id}>
+                <span className="branch-rail-number" aria-hidden="true">{passed?<ProductIcon name="check" size={16}/>:index+1}</span>
+                <span><strong>{label(item.title)}</strong><small>{labelForStatus}</small></span>
+              </button>
+            </li>;
+          })}</ol>
+          <button type="button" className="branch-rail-overview" onClick={overview}><ProductIcon name="map" size={17}/>{j.sceneOverview}</button>
+        </nav>}
+        <div className={scene==='lesson'?'branch-learning-main':undefined}>
+          {scene==='lesson'&&<header className="branch-learning-hero" data-current-skill={leaf.id}>
+            <div className="branch-hero-goal">
+              <h2 id="skill-path-title" tabIndex={-1} ref={heading}><span className="branch-hero-icon" aria-hidden="true"><ProductIcon name={tree.id} size={28}/></span>{label(leaf.title)}</h2>
+              <div className="branch-hero-label">{en?'What you’ll learn':'学完能做什么'}</div>
+              <p>{label(brief?.outcome||leaf.exercise)}</p>
+            </div>
+            {brief&&<div className="branch-hero-output">
+              <div className="branch-hero-label"><ProductIcon name="briefcase" accent={false} size={17}/>{en?'Independent task artifact':'独立练习产物'}</div>
+              <p>{label(brief.deliverable)}</p>
+            </div>}
+          </header>}
+          {learningPanel}
+        </div>
       </section>}
     </div>
     <LegacyDrafts state={state} career={tree.id} precheck={precheck} language={language}/>

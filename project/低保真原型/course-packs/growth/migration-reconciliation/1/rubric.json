@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "规范化关键字段/摘要/数量均核对",
+    "权限和关键业务流程可复验"
+  ],
+  "open": [
+    {
+      "criterion": "映射选择与残余问题",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "客户验收与回退责任",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

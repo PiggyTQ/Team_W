@@ -1,0 +1,10 @@
+{
+  "releaseAllowed": false,
+  "failed": [
+    "permissions"
+  ],
+  "unexecuted": [
+    "keyboard"
+  ],
+  "authority": "release_owner"
+}

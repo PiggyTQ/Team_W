@@ -1,0 +1,126 @@
+{
+  "id": "legacy-change",
+  "version": 1,
+  "legacy": false,
+  "career": "software",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "遗留代码变更与重构",
+    "en": "Legacy change and refactoring"
+  },
+  "next": [
+    "versioned-toolkit"
+  ],
+  "prior": "rule-tool",
+  "adapter": "code",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "refactor"
+  ],
+  "brief": {
+    "zh": "维护者要在已有满减后增加会员优惠。先保护旧调用方，再修改顺序与取整规则；对照新旧行为说明为何改动，以及哪种重构会破坏价格。",
+    "en": "A maintainer adds member pricing after the existing discount while preserving old API callers. Compare legacy and new rule behavior."
+  },
+  "outputs": {
+    "zh": [
+      "修改代码和保护性测试",
+      "变更/评审记录"
+    ],
+    "en": [
+      "Protected refactor",
+      "compatibility tests and review changes"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "旧行为回归与新规则测试",
+      "重构前后约定行为等价"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Applying membership before the fixed discount changes the promised price. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "只通过新用例却破坏旧调用方应失败",
+    "en": "Applying membership before the fixed discount changes the promised price."
+  },
+  "review": {
+    "zh": [
+      "重构理由与范围",
+      "评审意见怎样落实"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "维护者要在已有满减后增加会员优惠。先保护旧调用方，再修改顺序与取整规则；对照新旧行为说明为何改动，以及哪种重构会破坏价格。",
+      "只通过新用例却破坏旧调用方应失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A maintainer adds member pricing after the existing discount while preserving old API callers.",
+      "Reproduce this failure first: Applying membership before the fixed discount changes the promised price.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "只通过新用例却破坏旧调用方应失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "software",
+      "branch": "verification",
+      "skill": "refactor",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

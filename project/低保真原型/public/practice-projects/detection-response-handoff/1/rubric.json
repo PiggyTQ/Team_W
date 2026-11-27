@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "查询输出与指定标签/事件ID对照",
+    "时间与主机/用户关联规则一致"
+  ],
+  "open": [
+    {
+      "criterion": "证据与归因边界",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "响应授权和可接手性",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

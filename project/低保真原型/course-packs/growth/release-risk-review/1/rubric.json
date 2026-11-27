@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "执行记录与实际版本和用例对上",
+    "未执行项目不能混为通过"
+  ],
+  "open": [
+    {
+      "criterion": "发布建议的依据",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "质量信息与决定权边界",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

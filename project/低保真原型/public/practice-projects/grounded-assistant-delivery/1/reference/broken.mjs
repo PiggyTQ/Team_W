@@ -1,0 +1,1 @@
+export const solve=()=>[{"id":"Q1","answer":"09:00–09:30","citation":"D1"},{"id":"Q2","answer":null,"citation":null},{"id":"Q3","answer":"internal-only","citation":null},{"id":"Q4","answer":null,"citation":null}];

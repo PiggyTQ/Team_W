@@ -1,0 +1,18 @@
+{
+  "history": [
+    {
+      "id": "H1",
+      "amount_cents": 1200
+    }
+  ],
+  "increment": [
+    {
+      "id": "N1",
+      "cents": 801
+    },
+    {
+      "id": "N2",
+      "amount_cents": 999
+    }
+  ]
+}

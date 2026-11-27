@@ -1,0 +1,127 @@
+{
+  "id": "baseline-evaluation",
+  "version": 1,
+  "legacy": false,
+  "career": "ai",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "基线与独立评估",
+    "en": "Baseline and independent evaluation"
+  },
+  "next": [
+    "grounded-assistant-delivery"
+  ],
+  "prior": "ai-eval",
+  "adapter": "evaluation",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "split-leakage"
+  ],
+  "brief": {
+    "zh": "项目负责人需要一个可解释的数值预测起点。仅用训练集计算均值基线，在独立样本逐行预测、复算MAE，并检查切分泄漏和遗漏ID。",
+    "en": "Estimate a numerical outcome with a training-only mean baseline. Retain every evaluation ID, calculate absolute errors and check split isolation."
+  },
+  "outputs": {
+    "zh": [
+      "切分清单与程序",
+      "逐行预测、指标复算与误差切片"
+    ],
+    "en": [
+      "Split IDs",
+      "executable baseline",
+      "predictions and error slices"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "样本ID不跨训练/评估重叠",
+      "MAE等所选指标按逐行预测复算"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "An omitted evaluation prediction makes the submitted ID set incomplete. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "预处理使用评估标签或漏交样本，检查应明确失败",
+    "en": "An omitted evaluation prediction makes the submitted ID set incomplete."
+  },
+  "review": {
+    "zh": [
+      "基线选择和适用范围",
+      "参数选择不偷看独立评价结果"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "项目负责人需要一个可解释的数值预测起点。仅用训练集计算均值基线，在独立样本逐行预测、复算MAE，并检查切分泄漏和遗漏ID。",
+      "预处理使用评估标签或漏交样本，检查应明确失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Estimate a numerical outcome with a training-only mean baseline.",
+      "Reproduce this failure first: An omitted evaluation prediction makes the submitted ID set incomplete.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "预处理使用评估标签或漏交样本，检查应明确失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "ai",
+      "branch": "training",
+      "skill": "split-leakage",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

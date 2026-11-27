@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "合法/非法/无会话/跨用户动作检查",
+    "响应与契约及存储结果一致"
+  ],
+  "open": [
+    {
+      "criterion": "业务边界与错误语义",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "接口文档不替代运行控制",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

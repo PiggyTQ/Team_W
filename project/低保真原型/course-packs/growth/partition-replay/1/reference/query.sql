@@ -1,0 +1,1 @@
+SELECT DISTINCT id,partition,channel FROM batch ORDER BY id;

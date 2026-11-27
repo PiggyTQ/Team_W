@@ -1,0 +1,6 @@
+{
+  "threshold": 0.05,
+  "for": 1,
+  "minRequests": 100,
+  "label": "registration"
+}

@@ -1,0 +1,21 @@
+{
+  "contract": {
+    "version": 2,
+    "field": "email"
+  },
+  "calls": [
+    {
+      "id": "legacy",
+      "body": {
+        "mail": "a@example.invalid"
+      }
+    },
+    {
+      "id": "revised",
+      "body": {
+        "email": "a@example.invalid"
+      }
+    }
+  ],
+  "revision": 2
+}

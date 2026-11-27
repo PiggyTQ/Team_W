@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-27",
+  "checks": [
+    "Concrete teaching, five-step worked case, per-choice feedback and persisted classroom work without exam answers or growth",
+    "Chinese / English at 1366, 1616 and 2560 without horizontal overflow; same response survives language changes",
+    "All ten career directions render their own explanation and annotated worked example"
+  ],
+  "screenshots": [
+    {
+      "name": "01-security-concepts-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "02-security-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "02b-security-trust-flow-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "03-security-feedback-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "04-security-concepts-zh-1366",
+      "width": 1131,
+      "scrollWidth": 1131,
+      "pageWidth": 1366,
+      "pageScrollWidth": 1366
+    },
+    {
+      "name": "05-security-worked-en-1366",
+      "width": 1131,
+      "scrollWidth": 1131,
+      "pageWidth": 1366,
+      "pageScrollWidth": 1366
+    },
+    {
+      "name": "06-security-check-en-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "07-security-concepts-en-2560",
+      "width": 2325,
+      "scrollWidth": 2325,
+      "pageWidth": 2560,
+      "pageScrollWidth": 2560
+    },
+    {
+      "name": "career-data-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-ai-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-ops-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-frontend-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-backend-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-engineering-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-testing-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-software-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    },
+    {
+      "name": "career-delivery-worked-zh-1616",
+      "width": 1381,
+      "scrollWidth": 1381,
+      "pageWidth": 1616,
+      "pageScrollWidth": 1616
+    }
+  ],
+  "pageErrors": []
+}

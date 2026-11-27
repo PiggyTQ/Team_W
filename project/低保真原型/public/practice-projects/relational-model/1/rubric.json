@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "唯一/非空/关系及总额检查",
+    "关联基数和可复算结果一致"
+  ],
+  "open": [
+    {
+      "criterion": "模型粒度选择",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "上游问题和处理理由",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

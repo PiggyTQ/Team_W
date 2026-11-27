@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "id": "anonymous",
+      "status": 401
+    },
+    {
+      "id": "own-read",
+      "status": 200
+    },
+    {
+      "id": "other-read",
+      "status": 403
+    },
+    {
+      "id": "own-edit-denied",
+      "status": 403
+    },
+    {
+      "id": "own-edit",
+      "status": 200
+    },
+    {
+      "id": "invalid-amount",
+      "status": 422
+    }
+  ],
+  "feedback": {
+    "to": "backend",
+    "issue": "object_action_authorization"
+  },
+  "revision": 2,
+  "uiHidingSufficient": false
+}

@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "过滤/分页结果与契约一致",
+    "旧响应被取消或不覆盖新请求"
+  ],
+  "open": [
+    {
+      "criterion": "组件边界和可访问性",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "哪些状态尚未覆盖",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

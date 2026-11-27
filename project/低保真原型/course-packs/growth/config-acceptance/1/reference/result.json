@@ -1,0 +1,20 @@
+[
+  {
+    "id": "member-export",
+    "allowed": false,
+    "expected": false,
+    "passed": true
+  },
+  {
+    "id": "staff-export",
+    "allowed": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "id": "support-read",
+    "allowed": false,
+    "expected": true,
+    "passed": false
+  }
+]

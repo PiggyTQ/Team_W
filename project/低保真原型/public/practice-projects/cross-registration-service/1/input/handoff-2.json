@@ -1,0 +1,25 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "后端",
+  "to": "前端/测试",
+  "content": "版本化接口和错误契约",
+  "payload": {
+    "accepted": [
+      "revised"
+    ],
+    "rejected": [
+      "legacy"
+    ],
+    "contractVersion": 2,
+    "unresolvedContractDefect": "A legacy mail field sent to the email-field contract must fail joint acceptance."
+  },
+  "consumerFeedback": {
+    "code": "cross-registration-service-stage-2",
+    "issue": {
+      "zh": "接口字段变更不通知前端造成流程失败应在联合验收暴露",
+      "en": "A legacy mail field sent to the email-field contract must fail joint acceptance."
+    }
+  },
+  "requiredRevision": 2
+}

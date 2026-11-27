@@ -1,0 +1,1 @@
+SELECT o.id,o.channel,o.cents AS ordered,COALESCE(p.paid,0) AS paid FROM orders o LEFT JOIN (SELECT "order" AS id,SUM(cents) AS paid FROM payments GROUP BY "order") p ON p.id=o.id ORDER BY o.id;

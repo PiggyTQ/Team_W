@@ -1,0 +1,127 @@
+{
+  "id": "analysis-change-handoff",
+  "version": 1,
+  "legacy": false,
+  "career": "data",
+  "relatedCareers": [],
+  "level": 3,
+  "kind": "career-core",
+  "title": {
+    "zh": "数据变化下的分析交付",
+    "en": "Analysis delivery under change"
+  },
+  "next": [
+    "cross-metric-service",
+    "cross-migration-launch"
+  ],
+  "prior": "multi-source-analysis",
+  "adapter": "data",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "decision-brief"
+  ],
+  "brief": {
+    "zh": "财务使用者收到两版业务导出：金额单位从元变为分，记录状态也发生变化。分别复算每版有效记录与金额，说明差异来自哪里、哪些结果不能直接混算。",
+    "en": "The finance analyst receives two extracts with changed currency units and status rules. Reproduce both versions and explain which totals may be compared."
+  },
+  "outputs": {
+    "zh": [
+      "版本化查询与报告",
+      "变更影响、复算证据和使用说明"
+    ],
+    "en": [
+      "Version-aware SQL",
+      "a difference report and consumer instructions"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "旧/新口径结果各自可重现",
+      "所有差异能定位版本与输入"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Treating yuan as cents silently changes the monetary scale. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用",
+    "en": "Treating yuan as cents silently changes the monetary scale."
+  },
+  "review": {
+    "zh": [
+      "变更判断与沟通",
+      "未解决问题及责任交接"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "财务使用者收到两版业务导出：金额单位从元变为分，记录状态也发生变化。分别复算每版有效记录与金额，说明差异来自哪里、哪些结果不能直接混算。",
+      "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "The finance analyst receives two extracts with changed currency units and status rules.",
+      "Reproduce this failure first: Treating yuan as cents silently changes the monetary scale.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "新字段出现但旧查询静默输出旧指标，必须提示或拒绝误用",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "query.sql"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "data",
+      "branch": "communication",
+      "skill": "decision-brief",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

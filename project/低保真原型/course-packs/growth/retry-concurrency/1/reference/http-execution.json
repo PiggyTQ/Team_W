@@ -1,0 +1,84 @@
+{
+  "kind": "actual_loopback_HTTP_requests",
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:22:00.930Z",
+  "passed": true,
+  "evidence": [
+    {
+      "status": 201,
+      "body": {
+        "remaining": 1,
+        "responses": [
+          {
+            "id": "1",
+            "status": 201
+          }
+        ],
+        "committed": 1
+      }
+    },
+    {
+      "status": 201,
+      "body": {
+        "remaining": 1,
+        "responses": [
+          {
+            "id": "1",
+            "status": 201
+          },
+          {
+            "id": "2",
+            "status": 201
+          }
+        ],
+        "committed": 1
+      }
+    },
+    {
+      "status": 409,
+      "body": {
+        "remaining": 1,
+        "responses": [
+          {
+            "id": "1",
+            "status": 201
+          },
+          {
+            "id": "2",
+            "status": 201
+          },
+          {
+            "id": "3",
+            "status": 409
+          }
+        ],
+        "committed": 1
+      }
+    },
+    {
+      "status": 409,
+      "body": {
+        "remaining": 1,
+        "responses": [
+          {
+            "id": "1",
+            "status": 201
+          },
+          {
+            "id": "2",
+            "status": 201
+          },
+          {
+            "id": "3",
+            "status": 409
+          },
+          {
+            "id": "4",
+            "status": 409
+          }
+        ],
+        "committed": 1
+      }
+    }
+  ]
+}

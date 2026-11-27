@@ -1,0 +1,1 @@
+SELECT version,unit,COUNT(*) AS count,SUM(CASE WHEN unit='yuan' THEN amount*100 ELSE amount END) AS cents FROM version_rows WHERE status='active' GROUP BY version,unit ORDER BY version;

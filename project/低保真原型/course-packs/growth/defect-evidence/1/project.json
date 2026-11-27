@@ -1,0 +1,126 @@
+{
+  "id": "defect-evidence",
+  "version": 1,
+  "legacy": false,
+  "career": "testing",
+  "relatedCareers": [],
+  "level": 1,
+  "kind": "career-core",
+  "title": {
+    "zh": "需求到可复现缺陷",
+    "en": "Reproducible defect evidence"
+  },
+  "next": [
+    "api-ui-regression"
+  ],
+  "prior": null,
+  "adapter": "test",
+  "estimatedHours": [
+    2,
+    4
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "defect-reproduction"
+  ],
+  "brief": {
+    "zh": "测试人员收到满8000分优惠的边界投诉。实际调用缺陷与修复函数，以7999、8000等精确金额复现“先取整再判断”的差异，提交可重复的缺陷记录。",
+    "en": "A tester investigates a discount boundary at 8000 cents. Reproduce rounding-based behavior with exact values and distinguish expected from observed results."
+  },
+  "outputs": {
+    "zh": [
+      "用例与执行记录",
+      "缺陷报告及未测风险"
+    ],
+    "en": [
+      "Minimal reproduction",
+      "versioned defect and retest records"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "边界预期由需求计算",
+      "缺陷步骤能在给定版本重现"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Rounding to whole yuan before the boundary test misclassifies an amount below 8000. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "只报告截图而没有输入/版本/预期不能通过复现检查",
+    "en": "Rounding to whole yuan before the boundary test misclassifies an amount below 8000."
+  },
+  "review": {
+    "zh": [
+      "风险和需求追溯",
+      "严重程度与修复优先级"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "测试人员收到满8000分优惠的边界投诉。实际调用缺陷与修复函数，以7999、8000等精确金额复现“先取整再判断”的差异，提交可重复的缺陷记录。",
+      "只报告截图而没有输入/版本/预期不能通过复现检查；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "A tester investigates a discount boundary at 8000 cents.",
+      "Reproduce this failure first: Rounding to whole yuan before the boundary test misclassifies an amount below 8000.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "只报告截图而没有输入/版本/预期不能通过复现检查",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "testing",
+      "branch": "defects",
+      "skill": "defect-reproduction",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

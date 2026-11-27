@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "连接前后基数与总量对账",
+    "固定数据的分组及指标复算一致"
+  ],
+  "open": [
+    {
+      "criterion": "问题与指标是否对应",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "事实、假设和下一步验证分开",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

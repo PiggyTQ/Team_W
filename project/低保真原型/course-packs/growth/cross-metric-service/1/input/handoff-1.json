@@ -1,0 +1,39 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "数据工程",
+  "to": "分析/后端",
+  "content": "字段/粒度/更新契约与模型",
+  "payload": {
+    "grain": "one row per order",
+    "orders": [
+      {
+        "id": "A1",
+        "channel": "web",
+        "ordered": 12000,
+        "paid": 12000
+      },
+      {
+        "id": "A2",
+        "channel": "community",
+        "ordered": 8000,
+        "paid": 8000
+      },
+      {
+        "id": "A3",
+        "channel": "web",
+        "ordered": 6000,
+        "paid": 0
+      }
+    ],
+    "unresolvedContractDefect": "An inflated order amount must be traced to the one-to-many join."
+  },
+  "consumerFeedback": {
+    "code": "cross-metric-service-stage-1",
+    "issue": {
+      "zh": "订单与支付一对多放大金额，应能定位到来源与模型",
+      "en": "An inflated order amount must be traced to the one-to-many join."
+    }
+  },
+  "requiredRevision": 2
+}

@@ -1,0 +1,24 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "安全",
+  "to": "开发",
+  "content": "授权范围与可复现证据",
+  "payload": {
+    "scope": "local synthetic application only",
+    "objectPolicy": "owner and action scope",
+    "affected": [
+      "O1",
+      "O2"
+    ],
+    "unresolvedContractDefect": "UI-only hiding does not fix an exposed object response."
+  },
+  "consumerFeedback": {
+    "code": "cross-security-remediation-stage-1",
+    "issue": {
+      "zh": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+      "en": "UI-only hiding does not fix an exposed object response."
+    }
+  },
+  "requiredRevision": 2
+}

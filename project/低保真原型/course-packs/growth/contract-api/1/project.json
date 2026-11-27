@@ -1,0 +1,126 @@
+{
+  "id": "contract-api",
+  "version": 1,
+  "legacy": false,
+  "career": "backend",
+  "relatedCareers": [],
+  "level": 1,
+  "kind": "career-core",
+  "title": {
+    "zh": "校验与权限明确的API",
+    "en": "Validated and authorized API"
+  },
+  "next": [
+    "retry-concurrency"
+  ],
+  "prior": null,
+  "adapter": "api",
+  "estimatedHours": [
+    2,
+    4
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "api-contract"
+  ],
+  "brief": {
+    "zh": "接口使用方需要稳定的读写契约。本机HTTP服务要区分未登录、他人对象、编辑权限不足和非法金额，同时保持本人正常读写路径可用。",
+    "en": "An API consumer needs a stable read/edit contract with explicit authentication, ownership, action permission and amount validation."
+  },
+  "outputs": {
+    "zh": [
+      "服务实现和接口说明",
+      "数据约束与测试结果"
+    ],
+    "en": [
+      "Loopback HTTP service",
+      "response matrix and error contract"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "合法/非法/无会话/跨用户动作检查",
+      "响应与契约及存储结果一致"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A non-owner request must be rejected by the server. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "验证了登录但遗漏对象/动作授权必须失败",
+    "en": "A non-owner request must be rejected by the server."
+  },
+  "review": {
+    "zh": [
+      "业务边界与错误语义",
+      "接口文档不替代运行控制"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "接口使用方需要稳定的读写契约。本机HTTP服务要区分未登录、他人对象、编辑权限不足和非法金额，同时保持本人正常读写路径可用。",
+      "验证了登录但遗漏对象/动作授权必须失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An API consumer needs a stable read/edit contract with explicit authentication, ownership, action permission and amount validation..",
+      "Reproduce this failure first: A non-owner request must be rejected by the server.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "验证了登录但遗漏对象/动作授权必须失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "solution.mjs"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "backend",
+      "branch": "api",
+      "skill": "api-contract",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "solution.mjs"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

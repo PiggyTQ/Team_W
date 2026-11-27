@@ -1,0 +1,3415 @@
+{
+  "security:network-path": {
+    "title": [
+      "从域名到响应：找出请求停止的一层",
+      "From name to response: locate the failed stage"
+    ],
+    "explain": [
+      [
+        "一次HTTPS请求通常先解析名称，再连接地址与端口，随后协商TLS，最后交换HTTP。DNS回答的是记录，不保证该地址可连接；TCP连接成功也不保证证书或应用请求成功。把过程分层，才能让下一步检查针对已有证据，而不是同时修改多处配置。",
+        "An HTTPS request commonly resolves a name, connects to an address and port, negotiates TLS, then exchanges HTTP. A DNS answer does not establish reachability, and a connection does not establish certificate or application success. Separating stages makes the next investigation evidence-driven."
+      ],
+      [
+        "诊断记录至少要有时间、实际目标、失败阶段和原始错误。浏览器、代理与服务端可能经过不同解析器或缓存，因而“我的电脑能打开”不是同一路径的对照。应让对照请求保持名称、网络位置与时间窗可比。",
+        "Record time, actual target, stage and original error. Browsers, proxies and servers may use different resolvers or caches. A successful request on another computer is not an equivalent control; keep name, network location and observation window comparable."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "三条离线记录怎样缩小范围",
+        "Narrow the search using three offline records"
+      ],
+      "given": [
+        "合成记录R1：10:00，api.example.invalid解析为203.0.113.10；R2：10:00，连接该地址443端口超时；R3：没有TLS或HTTP记录。保留地址只用于读日志，不发起真实探测。",
+        "Synthetic R1 at 10:00 resolves api.example.invalid to 203.0.113.10. R2 times out connecting to port 443. R3 contains no TLS or HTTP event. The reserved address is for offline reading, not probing."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先写已知成功",
+            "Record the established success"
+          ],
+          "detail": [
+            "R1提供一次解析成功的证据，记录目标203.0.113.10。不要因此写“网站正常”，因为它只完成了名称到记录这一步。",
+            "R1 establishes one successful resolution and its target. It does not establish a working website; only name resolution completed."
+          ]
+        },
+        {
+          "title": [
+            "标出首个失败阶段",
+            "Mark the first failed stage"
+          ],
+          "detail": [
+            "R2显示传输连接未在期限内建立，故障范围先放在连接路径或目标监听。TLS与HTTP尚无成功证据，不应先讨论HTTP返回码。",
+            "R2 establishes that the connection was not formed within the deadline. Investigate path or listener availability before TLS or HTTP; there is no response code to interpret."
+          ]
+        },
+        {
+          "title": [
+            "选择能区分假设的证据",
+            "Choose discriminating evidence"
+          ],
+          "detail": [
+            "向获授权的运维人员核对同窗监听状态和连接日志：若目标没有监听，支持服务未就绪；若监听正常而请求未到达，继续核对路径。单凭超时仍不能确定是哪一项。",
+            "Within authorization, obtain same-window listener and connection records. An absent listener supports an unavailable service; a healthy listener with no arriving connection directs attention to the path. Timeout alone cannot decide between them."
+          ]
+        }
+      ],
+      "result": [
+        "可交付的结论是“解析完成，443连接阶段超时，TLS/HTTP未验证”，并附R1/R2和待核监听/路径两项，而不是指定一个未经验证的根因。",
+        "Report resolution completed, connection to 443 timed out, and TLS/HTTP remain unverified, with R1/R2 and two follow-up hypotheses."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "ping不通，所以HTTP一定不可用。",
+        "Ping failed, therefore HTTP must be unavailable."
+      ],
+      "why": [
+        "ICMP与TCP/HTTP可能受不同策略处理；该证据没有经过同一协议路径。",
+        "ICMP and TCP/HTTP may be handled by different policies, so this is not the same protocol path."
+      ],
+      "correct": [
+        "分别记录ICMP和目标协议的结果，不把其中一个替代另一个。",
+        "Record each protocol result separately rather than substituting one for another."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "另一条记录显示TLS握手成功，HTTP返回403。现在可以确定哪一项？",
+        "Another record completes TLS and returns HTTP 403. Which conclusion is established?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "DNS仍是首个失败点",
+            "DNS is still the first failure"
+          ],
+          "feedback": [
+            "已收到该请求的HTTP响应，不能再把它定位成未完成解析；还需确认缓存等实际路径。",
+            "Receiving this HTTP response does not support an unresolved-name diagnosis; record the actual path, including caches."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "请求到达了一个HTTP处理节点，应核对该节点的拒绝依据",
+            "An HTTP handler responded; inspect its refusal and identity"
+          ],
+          "feedback": [
+            "403是当前处理节点拒绝请求的证据。下一步结合请求标识查身份/策略，不能仅凭403指定哪段代码出错。",
+            "A handler refused the request. Correlate the request with identity and policy evidence; 403 alone does not identify faulty code."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "服务完全没有监听",
+            "No service is listening"
+          ],
+          "feedback": [
+            "TLS和HTTP已有响应证据，和“完全没有监听”不一致。",
+            "The recorded TLS and HTTP exchanges contradict that claim."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为DNS超时但已知IP访问得到502的两条离线记录画路径，写出两处独立待查问题。",
+        "Map offline DNS timeout and a separate known-IP request returning 502; list independent investigations."
+      ],
+      "sample": [
+        "名称解析链待核；另一次访问已到网关但上游响应有问题。注明IP访问可能改变TLS名称或路由，不能把两个请求当完全等价。",
+        "Investigate name resolution separately from the gateway/upstream symptom. Note that IP access may alter TLS names or routing and is not an equivalent request."
+      ],
+      "criteria": [
+        [
+          "每一项结论标出对应记录与阶段。",
+          "Tie each conclusion to its record and stage."
+        ],
+        [
+          "不从一次超时或状态码直接写出未经验证的根因。",
+          "Do not invent a root cause from one timeout or status code."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.rfc-editor.org/rfc/rfc1034.html",
+      "https://www.rfc-editor.org/rfc/rfc9110.html"
+    ]
+  },
+  "security:transport-trust": {
+    "title": [
+      "HTTPS保护哪一段，身份验证停在哪里",
+      "Which hop HTTPS protects and authenticates"
+    ],
+    "explain": [
+      [
+        "TLS在两个端点之间保护传输并验证对端身份。浏览器看到的证书属于它协商TLS的端点；若连接在网关终止，网关到应用是另一条连接，需要自己的传输与身份策略。锁图标不等于整条业务链都被同一把“锁”保护。",
+        "TLS protects a connection between endpoints and authenticates peers. The browser checks the endpoint with which it negotiates TLS. Termination at a gateway creates a separate onward connection with its own transport and identity policy."
+      ],
+      [
+        "证书验证不是只看有没有证书：还要按客户端策略核对信任链、目标名称与有效性。机密性与业务授权也不同：加密传输了请求，并不能决定该用户能否读取某一笔订单。",
+        "Certificate validation involves the trust chain, intended name and validity under client policy. Transport confidentiality is separate from authorization: encrypting a request does not establish access to an order."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "把两跳的保证分开写",
+        "Write separate guarantees for two hops"
+      ],
+      "given": [
+        "合成架构：浏览器以HTTPS访问shop.example.invalid，证书在网关G终止；G再用HTTP访问服务S，S读取订单。浏览器证书校验通过。",
+        "Synthetic architecture: browser HTTPS to shop.example.invalid terminates at gateway G; G uses HTTP to service S, which reads orders. Browser certificate validation succeeds."
+      ],
+      "steps": [
+        {
+          "title": [
+            "标TLS端点",
+            "Mark TLS endpoints"
+          ],
+          "detail": [
+            "第一条连接是浏览器↔G：校验通过支持浏览器连接到被信任的目标TLS身份，且该连接有TLS保护。把这一保证标在第一条边上。",
+            "For browser↔G, successful validation supports the intended trusted TLS identity and protection of that connection. Label this edge only."
+          ]
+        },
+        {
+          "title": [
+            "检查下一跳",
+            "Inspect the onward hop"
+          ],
+          "detail": [
+            "G↔S是HTTP，不能继承第一跳的加密保证。记录它经过的网络与可接触这条链路的主体，再评估是否需要独立TLS或其他受控保护。",
+            "G↔S uses HTTP and does not inherit first-hop encryption. Identify its network and potential observers before choosing separate TLS or other approved protection."
+          ]
+        },
+        {
+          "title": [
+            "继续核对对象授权",
+            "Check object authorization separately"
+          ],
+          "detail": [
+            "在S的订单处理处仍要核对主体和订单所有权。即使把G↔S改成TLS，甲读取乙订单的风险也不会自动消失。",
+            "S must still validate the caller and order ownership. Encrypting G↔S would not automatically prevent one user reading another user’s order."
+          ]
+        }
+      ],
+      "result": [
+        "图上形成三条记录：第一跳TLS已校验、第二跳HTTP待评估、订单对象授权另行验证；三者不能互相替代。",
+        "The record distinguishes validated first-hop TLS, an onward HTTP hop to assess, and separately verified object authorization."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只要忽略证书错误后页面能打开，就算HTTPS正常。",
+        "If ignoring the certificate warning opens the page, HTTPS is healthy."
+      ],
+      "why": [
+        "跳过验证恰好移除了需要确认的身份保证；连通性不能证明连接到正确身份。",
+        "Bypassing validation removes the identity guarantee under investigation. Connectivity does not establish the intended peer."
+      ],
+      "correct": [
+        "保留原校验错误，修复名称、信任链或证书配置后重新验证。",
+        "Keep the error and repair name, chain or certificate configuration before retesting."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "浏览器校验证书通过，网关再用明文HTTP连应用。哪个陈述准确？",
+        "The browser validates the gateway certificate; the gateway uses HTTP onward. Which statement is accurate?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "全部链路均已加密",
+            "All hops are encrypted"
+          ],
+          "feedback": [
+            "浏览器只能证明自己的TLS连接，下一跳是独立的。",
+            "The browser establishes properties of its own TLS connection, not the next hop."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "第一跳受TLS保护，下一跳要另行分析",
+            "First-hop TLS is established; assess the next hop separately"
+          ],
+          "feedback": [
+            "这是按端点描述实际保证，既没有忽略成功证据，也没有扩大它。",
+            "This describes the established property without extending it beyond the endpoints."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "订单授权已经正确",
+            "Order authorization is correct"
+          ],
+          "feedback": [
+            "TLS不检查业务中的用户与对象关系。",
+            "TLS does not validate application-level user–object permissions."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "给“客户端→负载均衡→API→数据库”的合成链路标出每段是否加密、由谁验证谁，以及尚缺的证据。",
+        "Annotate encryption, peer validation and missing evidence for a synthetic client→load balancer→API→database chain."
+      ],
+      "sample": [
+        "逐边写协议和终止点，未知标待核；另外列API对象授权与数据库权限，避免把传输图当安全验收报告。",
+        "Record protocol and termination per edge, mark unknowns, and separately list API and database permissions."
+      ],
+      "criteria": [
+        [
+          "每段保证对应实际端点，未知不补造。",
+          "Tie guarantees to endpoints and leave unknowns explicit."
+        ],
+        [
+          "区分传输身份、存储保护与业务授权。",
+          "Separate peer identity, storage protection and business authorization."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.rfc-editor.org/rfc/rfc8446.html"
+    ]
+  },
+  "security:authorized-scope": {
+    "title": [
+      "把授权写成可以逐项核对的范围",
+      "Turn authorization into an actionable scope"
+    ],
+    "explain": [
+      [
+        "测试范围不是一个域名就够了。同一资产可能允许只读而不允许修改，也可能只允许合成账号在约定时间使用。可执行范围要同时匹配资产、身份、动作和时间；新发现的依赖不会自动继承授权。",
+        "A domain name is not a complete testing scope. The same asset may permit reading but not writes, and only synthetic accounts within a window. Asset, identity, action and time must all match; a discovered dependency does not inherit authorization."
+      ],
+      [
+        "停止条件是工作计划的一部分：当出现生产数据、外部系统或超出预期的影响时，先停下相关动作，保存最小必要记录，再联系范围负责人。这样可以继续获准部分，而不以“为了查清楚”为由扩大权限。",
+        "Stop conditions belong in the plan. Unexpected production data, external systems or impact require pausing the relevant action, preserving minimal records and contacting the scope owner. Approved work may continue without expanding access to investigate."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "一条跳转为什么不能跟着测试",
+        "Why a redirect does not extend permission"
+      ],
+      "given": [
+        "合成任务仅允许周五14:00–15:00以账户T读取staging.example.invalid的订单列表，禁止写入与生产访问。列表链接跳到外部支付服务。",
+        "Synthetic scope permits account T to read order lists on staging.example.invalid Friday 14:00–15:00, excluding writes and production. A link redirects to an external payment service."
+      ],
+      "steps": [
+        {
+          "title": [
+            "把允许条件列齐",
+            "List every allowed condition"
+          ],
+          "detail": [
+            "记录资产=测试站、身份=T、动作=读取列表、时间=一小时。取消订单属于写操作，即使按钮在测试站出现，也不在这份范围内。",
+            "Record staging, T, list reads and the one-hour window. Cancelling an order is a write and remains excluded even if the UI exposes it."
+          ]
+        },
+        {
+          "title": [
+            "判断跳转的边界",
+            "Evaluate the redirect boundary"
+          ],
+          "detail": [
+            "支付服务是新的资产且没有单独授权。记录跳转目标与产生链接的页面即可，不向支付服务发送测试负载或使用测试站账号尝试登录。",
+            "The payment service is a new unapproved asset. Record the dependency without sending test payloads or attempting to use staging credentials there."
+          ]
+        },
+        {
+          "title": [
+            "写出可执行停止规则",
+            "Define executable stop rules"
+          ],
+          "detail": [
+            "看到非合成个人数据、操作开始写入或时间到15:00时停止相关步骤，联系指定负责人。要继续需新的明确范围，而非在笔记中自行加一行。",
+            "Stop relevant steps on real personal data, a write action or 15:00, and contact the owner. Continuing requires explicit updated scope, not a self-authored note."
+          ]
+        }
+      ],
+      "result": [
+        "输出是一张允许/排除表和停止联系人，而不是“全站安全测试”。本例只做离线范围判断，不执行网络测试。",
+        "Deliver an allow/exclusion table and stop contact, not a claim of testing the whole site. This is an offline planning exercise."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "页面能访问，说明可以进一步测试。",
+        "Reachability permits further testing."
+      ],
+      "why": [
+        "技术可达性与被授予的操作权限是两件事。",
+        "Technical reachability and granted authority are different."
+      ],
+      "correct": [
+        "先与书面范围逐项匹配；缺少任一项就保持待确认。",
+        "Match the written scope; any missing condition remains unapproved."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "范围只准读取测试订单，页面出现“批量删除”。应怎么处理？",
+        "The scope permits reading test orders and the UI exposes bulk delete. What should you do?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "用一个订单试删除，影响小",
+            "Try deleting one order because impact is small"
+          ],
+          "feedback": [
+            "少量写入仍是被排除的动作，数量不创造授权。",
+            "A small write remains excluded; low volume does not grant authority."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "先扩大到生产确认按钮是否相同",
+            "Check production to compare the button"
+          ],
+          "feedback": [
+            "生产资产明确不在范围内，比较目的也不改变边界。",
+            "Production remains outside scope regardless of the comparison purpose."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "记录入口，不执行删除，向范围负责人核对",
+            "Record it without deleting and ask the scope owner"
+          ],
+          "feedback": [
+            "这样保留了发现，又没有把可见入口误当操作批准。",
+            "This preserves the observation without treating a visible control as permission."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "写一张仅供本机演练的资产/身份/动作/时间/停止条件表，包含一个明确排除的第三方依赖。",
+        "Write an offline scope table with asset, identity, action, window and stops, including an excluded third-party dependency."
+      ],
+      "sample": [
+        "测试门户、合成用户T、只读、约定窗口；排除生产和外部支付。出现真实数据或需要写入时暂停并找负责人。",
+        "Specify staging, synthetic T, read-only actions and a window; exclude production and external payment, with data/write stop rules."
+      ],
+      "criteria": [
+        [
+          "允许与排除项能逐个判定，而不是“适当测试”。",
+          "Make permission decidable rather than saying test appropriately."
+        ],
+        [
+          "停止后的联系人及再次开始条件明确。",
+          "State the contact and conditions for resuming."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://community.owasp.org/Threat_Modeling"
+    ]
+  },
+  "security:authentication": {
+    "title": [
+      "退出之后，旧会话为什么还要验证",
+      "Why an old session must fail after logout"
+    ],
+    "explain": [
+      [
+        "认证让服务确认当前身份；会话把该结果连接到后续请求。浏览器携带的Cookie只是凭据载体，服务仍要验证它对应的会话是否存在、未过期且未撤销。删除一个窗口里的Cookie不会撤销另一窗口已经持有的副本。",
+        "Authentication establishes identity; a session carries that result into later requests. A cookie is only a credential carrier. The server must still check existence, expiry and revocation, including copies held in other windows."
+      ],
+      [
+        "空闲超时衡量多久没有活动，总超时限制会话整体寿命，主动注销则是明确撤销。密码重置、角色提升等事件需要产品定义相应的会话策略。不要把所有策略写成一个通用分钟数，也不要在日志中保存原始会话令牌。",
+        "Idle expiry, absolute lifetime and explicit logout address different conditions. Password recovery and privilege changes need declared session policy. Avoid a universal timeout and do not put raw session tokens in logs."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "用两个窗口验证真正的注销",
+        "Verify logout across two windows"
+      ],
+      "given": [
+        "合成账号A在窗口W1、W2使用同一会话S。W1发出退出请求。教学契约要求退出立即撤销S，旧请求需重新认证。",
+        "Synthetic account A uses session S in W1 and W2. W1 logs out. The teaching contract requires immediate revocation of S and reauthentication of old requests."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先记录退出前的对照",
+            "Establish the pre-logout control"
+          ],
+          "detail": [
+            "退出前W2读取自己的资料成功，证明S原来可用。记录请求编号与成功状态，不把S的实际字符串写入测试报告。",
+            "W2 reads its own profile before logout, establishing that S worked. Record request identity and status without exposing the credential."
+          ]
+        },
+        {
+          "title": [
+            "让服务端处理撤销",
+            "Revoke on the server"
+          ],
+          "detail": [
+            "W1退出后，服务把S标为无效或删除其有效记录。前端清理本窗口凭据是体验步骤，不能替代这一步。",
+            "Logout invalidates S in server-side session state. Clearing the current browser is useful but does not replace revocation."
+          ]
+        },
+        {
+          "title": [
+            "从另一窗口观察结果",
+            "Observe the other window"
+          ],
+          "detail": [
+            "W2再携旧S请求应得到需重新认证的结果，资料正文不得返回。若页面按钮隐藏但接口仍返回正文，说明注销控制没有完成。",
+            "W2 reuses old S and must receive a reauthentication response without profile data. Hiding buttons while the API still returns data fails this control."
+          ]
+        }
+      ],
+      "result": [
+        "报告包括退出前成功、退出回执、退出后旧会话被拒三项，并注明测试契约；它只验证注销，不代替订单对象授权。",
+        "Record pre-logout success, logout receipt and rejection of the old session under the declared contract; this does not establish object authorization."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "退出后看不到头像，因此会话一定失效。",
+        "The avatar vanished, so the session is invalid."
+      ],
+      "why": [
+        "头像可能只是本地状态，未观察服务端是否继续接收旧凭据。",
+        "An avatar can be local state and says nothing about server acceptance."
+      ],
+      "correct": [
+        "在合成环境核对旧会话访问结果与响应正文。",
+        "Verify the old synthetic session and response body."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "产品约定退出撤销S；另一个窗口用S仍可读到资料。哪个结论正确？",
+        "Policy says logout revokes S, but another window still reads data using S. What follows?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "注销控制未达到该契约，需要查服务端撤销",
+            "Logout fails the contract; inspect server revocation"
+          ],
+          "feedback": [
+            "旧S仍被接受是直接的反例，不能由前端退出画面抵消。",
+            "Acceptance of old S is a direct counterexample despite the logged-out UI."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "只要关掉另一窗口就通过",
+            "Closing the other window makes the test pass"
+          ],
+          "feedback": [
+            "这回避了旧凭据是否有效的问题。",
+            "Closing the window avoids rather than verifies the requirement."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "登录流程也必然全部无效",
+            "Every part of login is necessarily broken"
+          ],
+          "feedback": [
+            "证据定位到注销撤销，不足以推翻所有认证功能。",
+            "Evidence concerns logout revocation, not every authentication function."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为合成用户的密码重置写三条会话检查，先明确“是否撤销其他设备”的产品策略。",
+        "Define a password-reset policy for synthetic sessions and write three checks, including other devices."
+      ],
+      "sample": [
+        "记录重置前会话、重置动作、旧设备是否按政策失效；新登录应正常。未知政策先待核，不自行假定全部撤销。",
+        "Record old sessions, reset, expected old-device behavior and a normal new login; do not invent an undeclared policy."
+      ],
+      "criteria": [
+        [
+          "预期来自明确生命周期策略。",
+          "Derive expectations from an explicit lifecycle policy."
+        ],
+        [
+          "报告不泄漏会话秘密且包含允许/拒绝对照。",
+          "Avoid credential disclosure and include success/rejection controls."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+    ]
+  },
+  "security:authorization": {
+    "title": [
+      "一个权限判断要同时回答谁、做什么、对哪个对象",
+      "Authorization binds actor, action and resource"
+    ],
+    "explain": [
+      [
+        "登录只证明身份，授权才决定该身份能对具体资源做什么。一个可核对的判断写成“主体A、动作读取、订单X、条件为所有者”，比“普通用户有订单权限”更准确。相同角色的两个人也可能有不同对象范围。",
+        "Login establishes identity; authorization decides an action on a particular resource. Actor A, read, order X, owned by A is more precise than a generic user order permission. Equal roles can have different object scopes."
+      ],
+      [
+        "服务必须对每次相关请求验证关系，不能仅依赖页面隐藏按钮、难猜的编号或客户端传来的owner_id。最小权限是只授予任务必要动作，默认没有明确允许就拒绝；批量、导出和新增接口也需要同一边界。",
+        "Enforce relationships on relevant requests rather than hiding controls, guessing-resistant IDs or client-supplied owner_id. Grant only necessary actions and deny undeclared permissions, including batch, export and creation paths."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "把订单权限变成四格对照",
+        "Build a four-cell order-access check"
+      ],
+      "given": [
+        "合成订单X属于A，Y属于B。所有者能读取和取消自己的未发货订单；客服C只能读取，不能取消。身份来自服务端会话。",
+        "Synthetic X belongs to A and Y to B. Owners may read and cancel their own unshipped orders. Support C may read but not cancel. Identity comes from the server session."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先确认正常所有者路径",
+            "Verify the normal owner path"
+          ],
+          "detail": [
+            "A读取X应允许，证明正常入口没有被全关；记录对象X和返回结果。测试拒绝路径前先保留这个对照。",
+            "A reading X should succeed, establishing a working legitimate path before rejection cases."
+          ]
+        },
+        {
+          "title": [
+            "改变对象而不是身份",
+            "Change the resource, not the identity"
+          ],
+          "detail": [
+            "仍用A的会话，把对象改成Y。服务按实际订单归属拒绝，不能读取客户端传入的“owner=A”就放行；响应不得带出Y正文。",
+            "With A’s session, request Y. Check stored ownership, reject the request and return no Y body; a supplied owner=A must not grant access."
+          ]
+        },
+        {
+          "title": [
+            "再区分动作权限",
+            "Distinguish allowed actions"
+          ],
+          "detail": [
+            "C读取Y允许，C取消Y拒绝且订单状态不变。这证明“能看”不等于“能改”，同时覆盖只读客服角色的边界。",
+            "C reading Y is allowed, but cancelling Y is rejected and its state stays unchanged. Read permission is not write permission."
+          ]
+        }
+      ],
+      "result": [
+        "权限表应至少列A读X允许、A读Y拒绝、C读Y允许、C取消Y拒绝，并记录拒绝后的状态/正文。",
+        "The table records A→read X allow, A→read Y deny, C→read Y allow and C→cancel Y deny, with response/state evidence."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "订单号换成随机长串，就不需要对象检查。",
+        "Random long IDs remove the need for object checks."
+      ],
+      "why": [
+        "泄漏、分享链接或其他接口仍可能暴露编号；不可猜性不授予访问权限。",
+        "IDs may leak through links or APIs; unpredictability does not confer permission."
+      ],
+      "correct": [
+        "每个读写入口都以可信主体与真实对象关系判定。",
+        "Apply trusted actor–resource checks at each entry point."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "客服可以读取订单但不能修改。读取成功之后，应该再验证哪条？",
+        "Support can read but not modify orders. After a successful read, what else must be checked?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "同一客服能否取消订单且状态不变",
+            "Whether cancellation is denied and the order stays unchanged"
+          ],
+          "feedback": [
+            "应期待取消被拒并检查业务状态，覆盖动作权限而非只看界面。",
+            "Expect cancellation rejection and unchanged state, covering action authorization rather than UI appearance."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "客服能猜出多少订单号",
+            "How many order IDs support can guess"
+          ],
+          "feedback": [
+            "猜测难度不能代替动作权限验证，也不需要扩大到真实资产测试。",
+            "Guessing difficulty does not establish action authorization or justify probing real assets."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "页面按钮是否足够隐蔽",
+            "Whether the button is sufficiently hidden"
+          ],
+          "feedback": [
+            "按钮不是服务端安全边界。",
+            "A hidden control is not the server-side boundary."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为“项目成员可读文档、仅文档创建者可删除、离组后失去访问”写主体/动作/对象矩阵。",
+        "Build an actor/action/resource matrix for members reading documents, creators deleting them and former members losing access."
+      ],
+      "sample": [
+        "包含成员读本组、非成员读本组、非创建者删、创建者删、离组后再读；拒绝时正文不泄漏且对象不变。",
+        "Include member/non-member reads, non-creator/creator deletes and post-removal access, with non-disclosure and unchanged-state rejection checks."
+      ],
+      "criteria": [
+        [
+          "至少一个允许样本与两个不同拒绝原因。",
+          "Include an allowed case and two distinct denial causes."
+        ],
+        [
+          "身份从可信会话取得，不能由请求正文冒充。",
+          "Take identity from a trusted session, not the request body."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+    ]
+  },
+  "security:secrets": {
+    "title": [
+      "密钥泄漏后，轮换为什么不等于删文件",
+      "Why deleting a file does not revoke a leaked secret"
+    ],
+    "explain": [
+      [
+        "密钥授予能力，知道它的人可能继续调用服务。源码、镜像、日志和工单会形成副本，删除当前文件不会收回这些副本。处置既要阻止旧凭据继续被接受，也要让获准的使用方切换到有效的新凭据。",
+        "A secret grants capability. Copies in source, images, logs or tickets survive deletion of the current file. Response must both stop acceptance of the compromised credential and migrate approved consumers."
+      ],
+      [
+        "轮换顺序依紧急程度与系统支持决定。计划轮换可先发新值、迁移使用方再撤旧值；确认泄漏时可能需要立即撤销并接受短时影响。加密密钥还可能用于读取历史数据，不能套用一个“删掉重建”的流程。",
+        "Sequence depends on urgency and system support. Planned rotation may introduce a new value, migrate consumers then revoke the old one; compromise may require immediate revocation despite disruption. Encryption keys may also protect historical reads."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "迁移两个受控使用方并验证旧值失效",
+        "Migrate two controlled consumers and reject the old value"
+      ],
+      "given": [
+        "合成测试服务有使用方A/B，共用已泄漏凭据K。系统支持临时并存K/L，负责人批准先迁移再于10:20撤K；这是演练策略，不是所有泄漏的通用等待规则。",
+        "Synthetic consumers A/B share compromised K. The system supports temporary K/L overlap and the owner approves migration followed by revocation at 10:20. This exercise policy is not a universal delay for compromises."
+      ],
+      "steps": [
+        {
+          "title": [
+            "清点使用方与替代凭据",
+            "Inventory consumers and replacement"
+          ],
+          "detail": [
+            "登记A、B以及它们可做的动作。创建权限不大于K的L，放入受控秘密存储；报告只写凭据标识，不写实际值。",
+            "List A/B and their permitted actions. Create L with no broader permissions and store it securely; report identifiers, not secret values."
+          ]
+        },
+        {
+          "title": [
+            "逐个迁移并观察",
+            "Migrate and observe each consumer"
+          ],
+          "detail": [
+            "A改用L后验证允许动作成功、越权动作仍拒绝；再迁移B。完成记录为A=L、B=L，不用“已通知”代替实际生效证据。",
+            "Move A to L, verify legitimate actions and continued denial of excess permissions, then move B. Record actual activation rather than mere notification."
+          ]
+        },
+        {
+          "title": [
+            "撤销后做反向检查",
+            "Test rejection after revocation"
+          ],
+          "detail": [
+            "按批准窗口撤K；以合成旧K尝试教学服务的受控请求应拒绝，L正常。若K仍成功，轮换未完成，即使当前文件里已没有K。",
+            "Revoke K at the approved point. The controlled synthetic K request must fail while L works. Acceptance of K means rotation is incomplete despite its absence from current files."
+          ]
+        }
+      ],
+      "result": [
+        "交付包含A/B迁移回执、K撤销时点、旧值拒绝/新值成功对照、尚待处理副本位置；没有在报告中复制秘密。",
+        "Deliver migration receipts, K’s revocation time, old-rejected/new-accepted evidence and remaining copy locations without exposing values."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把泄漏工单删除，再重启服务就安全了。",
+        "Delete the leaked ticket and restart the service."
+      ],
+      "why": [
+        "服务或攻击者可能持有旧值，工单删除没有改变验证端的接受规则。",
+        "Consumers or attackers may retain K; deletion does not change credential acceptance."
+      ],
+      "correct": [
+        "按事件策略轮换/撤销并核对旧值确实失效。",
+        "Rotate or revoke under incident policy and verify rejection of the old credential."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "A/B均已改用L，但测试服务仍接受K。当前状态是？",
+        "A/B use L, but the test service still accepts K. What is the state?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "轮换已完成，因为新值能用",
+            "Complete because L works"
+          ],
+          "feedback": [
+            "只验证了迁移，没有验证撤销目标。",
+            "Migration is established, but revocation is not."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "仍需完成旧值撤销与拒绝验证",
+            "Old-value revocation and rejection are incomplete"
+          ],
+          "feedback": [
+            "泄漏凭据仍可用是直接风险，须依策略处理并保留证据。",
+            "The compromised credential still works; resolve this under the declared policy and retain evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把L改成更长字符串即可",
+            "Make L longer"
+          ],
+          "feedback": [
+            "新值长度不会让K自动失效。",
+            "Changing L’s length does not invalidate K."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为一个有在线服务和定时任务的合成密钥写轮换记录，列出立即撤销与平滑迁移两种策略的取舍。",
+        "Plan rotation for a synthetic secret used by an online service and scheduled job; compare immediate revocation with staged migration."
+      ],
+      "sample": [
+        "分别确认使用方、生效证据、撤销时点、故障恢复与旧值拒绝。若是数据加密密钥，另列历史解密依赖。",
+        "Record consumers, activation, revocation, recovery and old-value rejection; identify historical decryption dependencies for encryption keys."
+      ],
+      "criteria": [
+        [
+          "策略依据泄漏影响和系统能力，而非固定机械顺序。",
+          "Base sequencing on impact and system capabilities."
+        ],
+        [
+          "不在作答中粘贴真实秘密。",
+          "Do not paste real secrets into the artifact."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html"
+    ]
+  },
+  "security:event-logs": {
+    "title": [
+      "把跨时区记录连成有依据的时间线",
+      "Build an evidence-based cross-zone timeline"
+    ],
+    "explain": [
+      [
+        "事件时间是动作发生的时点，采集时间是日志到达的时点，两者可能不同。排序前先统一时区并保留原值，否则延迟送达会被误当成刚发生，两个时区的显示值也可能造成错误先后关系。",
+        "Event time is when an action happened; collection time is when it arrived. Normalize zones while retaining originals, or late delivery and display times can create a false sequence."
+      ],
+      [
+        "关联需要稳定标识及其语义。相同会话可支持会话级关联，相同IP却可能只是共享出口；即使时间接近也不能直接写成同一人。缺日志也可能来自采样、断流或字段遗漏，不等于动作未发生。",
+        "Stable IDs support correlation at their declared scope. A shared IP can be common egress, and nearby times do not establish one person. Missing logs may reflect sampling, collection failure or absent fields."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "三条记录中哪两条能连接",
+        "Which two records can be linked?"
+      ],
+      "given": [
+        "合成E1：09:15+08:00登录，session=S7；E2：01:16Z读取订单，session=S7；E3：01:16Z导出，只有相同IP。E1/E2来自同一认证系统。",
+        "Synthetic E1 logs in at 09:15+08:00 with S7; E2 reads at 01:16Z with S7; E3 exports at 01:16Z with only a shared IP. E1/E2 share an authentication system."
+      ],
+      "steps": [
+        {
+          "title": [
+            "保留原值并换算",
+            "Preserve and normalize"
+          ],
+          "detail": [
+            "E1减去8小时为01:15Z，E2保持01:16Z，相隔1分钟。表中并列原时间、UTC和记录ID，换算可以独立复算。",
+            "E1 becomes 01:15Z and E2 remains 01:16Z, one minute later. Keep originals, UTC and IDs together for reproducibility."
+          ]
+        },
+        {
+          "title": [
+            "按可靠标识关联",
+            "Link stable identifiers"
+          ],
+          "detail": [
+            "E1/E2共享同一系统的S7，支持同会话时间线，但是否异常仍需核对主体与订单归属。会话关联本身不是攻击结论。",
+            "Shared S7 supports one session timeline, not an attack conclusion. Inspect actor and order ownership separately."
+          ]
+        },
+        {
+          "title": [
+            "把弱关联单列",
+            "Separate weak correlations"
+          ],
+          "detail": [
+            "E3不能仅凭IP并入S7，标为待关联；下一证据是导出请求ID或会话字段，并检查采集器是否漏字段。",
+            "Keep E3 unlinked; seek an export request/session ID and inspect whether collection omitted the field."
+          ]
+        }
+      ],
+      "result": [
+        "结果为01:15Z登录→01:16Z读取；E3待关联。结论均有原记录和时间换算，不把共享IP写成同一用户。",
+        "Supported sequence: login at 01:15Z then read at 01:16Z, with E3 unlinked and provenance retained."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "同一分钟、同一IP就属于同一用户。",
+        "Same minute and IP mean the same user."
+      ],
+      "why": [
+        "代理与共享出口可让多人同时使用一个IP。",
+        "Proxies and shared egress reuse IPs across people."
+      ],
+      "correct": [
+        "按可靠标识和上下文关联，证据不足保持待查。",
+        "Use stable IDs and context; leave unsupported links open."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "E1=10:00+08:00，E2=02:02Z，共享请求Q。规范顺序是？",
+        "E1 is 10:00+08:00 and E2 is 02:02Z, sharing Q. Which order is correct?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "E2比E1早近8小时",
+            "E2 is almost eight hours earlier"
+          ],
+          "feedback": [
+            "直接比较了两个时区的显示值；E1应换为02:00Z。",
+            "This compares displays without normalization; E1 is 02:00Z."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "E1在02:00Z，E2晚2分钟",
+            "E1 is 02:00Z; E2 is two minutes later"
+          ],
+          "feedback": [
+            "换算后可建立时序，但仍保留原时区和时间精度。",
+            "This supports the time order while retaining zones and precision."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "共享Q能证明全部因果",
+            "Q proves complete causality"
+          ],
+          "feedback": [
+            "标识支持关联，不自动证明一个动作导致另一个。",
+            "An ID supports correlation, not complete causality."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "整理两种时区和一条只有IP的合成日志，分已关联/待关联，并查一次采集缺口。",
+        "Normalize two zones and classify synthetic logs as linked/unlinked, including a collection-gap check."
+      ],
+      "sample": [
+        "保留原时间、UTC、ID及会话来源；缺标识的事件待查，检查采集字段或送达延迟。",
+        "Keep source time, UTC, IDs and session origin; inspect omitted fields and delivery delays."
+      ],
+      "criteria": [
+        [
+          "时间换算可复算，关联不扩大。",
+          "Conversions are reproducible and links are not overstated."
+        ],
+        [
+          "记录未知与采集限制，不保存令牌正文。",
+          "State unknowns and collection limits without token values."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html"
+    ]
+  },
+  "security:triage": {
+    "title": [
+      "从一条告警建立可验证的解释",
+      "Turn an alert into testable explanations"
+    ],
+    "explain": [
+      [
+        "告警说明检测条件被触发，不等于已经证明攻击。分诊先确认实际事件、受影响资产和证据完整性，再比较替代解释。置信度描述结论有多可靠，影响描述后果有多大；低置信度不自动等于低影响。",
+        "An alert establishes a triggered rule, not an attack. Validate events, affected assets and evidence before comparing explanations. Confidence concerns reliability of the conclusion; impact concerns consequences."
+      ],
+      [
+        "有用的假设能被证据支持或推翻。例如维护重试应对应获准身份、目标和时间；只有日历重合不足以解释另一账号或资产。保全相关最小证据，不为查清原因自行扩大操作范围。",
+        "A useful hypothesis names supporting and refuting evidence. Maintenance retry should match approved identity, target and time. Preserve relevant evidence without expanding authorization."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "20次失败后成功，下一步查什么",
+        "Investigate twenty failures followed by success"
+      ],
+      "given": [
+        "合成U在02:00–02:04失败20次，02:05成功，IP多人共享。维护单M允许02:00由服务账号S访问另一主机。",
+        "Synthetic U fails twenty times then succeeds at 02:05 from shared egress. Maintenance M permits S on a different host at 02:00."
+      ],
+      "steps": [
+        {
+          "title": [
+            "分开事实和解释",
+            "Separate facts and explanations"
+          ],
+          "detail": [
+            "事实是U的失败/成功序列与共享IP；攻击成功和正常维护都只是解释。先核认证结果、目标和时间字段是否完整。",
+            "Facts are U’s sequence and the shared IP. Attack and maintenance remain hypotheses; verify event fields first."
+          ]
+        },
+        {
+          "title": [
+            "核维护的身份与目标",
+            "Check maintenance identity and target"
+          ],
+          "detail": [
+            "M使用S且目标不同，不能解释U的访问。记录两项不匹配，不因时间重合就关闭告警。",
+            "S and its target differ from U’s event; record both mismatches rather than closing on time overlap."
+          ]
+        },
+        {
+          "title": [
+            "查后续动作和影响",
+            "Inspect subsequent actions and impact"
+          ],
+          "detail": [
+            "在授权日志中查成功会话的对象、动作及预期业务，向责任人核对。若可能影响关键资产，按策略升级原因待查的事件，而不编造确定根因。",
+            "Inspect authorized logs for objects, actions and expected business use. Escalate potential critical impact under policy without inventing a cause."
+          ]
+        }
+      ],
+      "result": [
+        "记录两个假设、支持/反证、影响与下一证据。维护解释不足，但还不能由此直接证明攻击。",
+        "Record hypotheses, evidence, impact and next evidence. Insufficient maintenance evidence does not prove an attack."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "失败次数多就写攻击成功。",
+        "Many failures prove a successful attack."
+      ],
+      "why": [
+        "计数没有解释成功身份、后续动作或业务背景。",
+        "The count does not explain identity, subsequent actions or business context."
+      ],
+      "correct": [
+        "写可检验假设，按潜在影响安排跟进。",
+        "State testable hypotheses and prioritize by potential impact."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "告警与维护时间重合，但身份和目标不同。应怎样判断？",
+        "The alert overlaps maintenance, but identity and target differ. What follows?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "维护已解释，关闭",
+            "Maintenance explains it; close"
+          ],
+          "feedback": [
+            "忽略了身份和资产不匹配。",
+            "This ignores mismatched identity and asset."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "已经证实攻击",
+            "Attack proven"
+          ],
+          "feedback": [
+            "排除一种解释不等于证明另一种。",
+            "Refuting one explanation does not establish another."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "维护解释不足，继续查成功会话动作",
+            "Maintenance is insufficient; inspect subsequent session actions"
+          ],
+          "feedback": [
+            "准确保留证据强度并给出可操作的下一核对。",
+            "This preserves evidence strength and defines a next check."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "给合成异常导出写两种解释，每种附反证和获准可取的下一证据。",
+        "Give two explanations for a synthetic unusual export, with counterevidence and an authorized follow-up."
+      ],
+      "sample": [
+        "比较获批月报与未授权读取，核对申请、主体、对象和数量；分别写影响、置信度与升级条件。",
+        "Compare approved reporting with unauthorized access using approval, actor, objects and volume, with separate impact/confidence/escalation."
+      ],
+      "criteria": [
+        [
+          "假设能被证据区分。",
+          "Evidence can distinguish the hypotheses."
+        ],
+        [
+          "不把单一IP或时间当身份和因果。",
+          "Do not treat IP or time alone as identity or cause."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/workbook/incident-response/",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html"
+    ]
+  },
+  "security:incident-handoff": {
+    "title": [
+      "让下一位接手者知道事实、影响和下一步",
+      "Write a handoff the receiver can act on"
+    ],
+    "explain": [
+      [
+        "交接不是转发聊天记录。接手者需要发生时间、当前影响、支撑事实的证据、已做动作及批准人。根因未知就写未知，已确认和待查资产分开，不能用肯定语气掩盖证据差距。",
+        "A handoff identifies time, impact, evidence, actions and authority rather than forwarding chat. Keep unknown causes and unverified assets explicit."
+      ],
+      [
+        "下一步包含负责人、目标与再次更新时间。敏感证据留在有访问控制的位置，摘要只给定位信息。事件中的恢复协作和事后的根因复盘职责不同，不要求等到全部原因查清才交班。",
+        "Next steps need an owner, purpose and update time. Keep sensitive evidence access-controlled. Operational handoff need not wait for the later root-cause review."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "两台主机的状态怎样交接",
+        "Hand off two hosts without overstating evidence"
+      ],
+      "given": [
+        "合成A9：02:00Z订单查询部分超时；L17确认H1异常，H2未核；R在02:10Z批准隔离H1，回执C4成功，用户影响未完全消除。",
+        "Synthetic A9 starts at 02:00Z with partial order-query timeouts. L17 confirms H1, H2 is unverified, R authorizes isolation at 02:10Z with C4, and impact continues."
+      ],
+      "steps": [
+        {
+          "title": [
+            "给出可定位摘要",
+            "Write a locatable summary"
+          ],
+          "detail": [
+            "写A9、订单查询部分失败、02:00Z起；H1已确认→L17，H2待核。不写两台已感染，也不写其余全安全。",
+            "State incident, partial impact and time; link H1 to L17 and leave H2 unverified rather than inventing compromise or safety."
+          ]
+        },
+        {
+          "title": [
+            "分动作与恢复状态",
+            "Separate action and recovery"
+          ],
+          "detail": [
+            "列隔离对象、R批准、时点与C4；同时报告订单查询影响仍在。动作成功不能代替业务路径恢复。",
+            "Record isolation, approval, time and C4 alongside continuing user impact. Action success does not establish recovery."
+          ]
+        },
+        {
+          "title": [
+            "指定接手与更新",
+            "Assign owner and update"
+          ],
+          "detail": [
+            "N在02:25Z前查H2同窗记录及订单路径，02:30Z更新影响。根因保留未知，给受限证据链接，不粘贴秘密。",
+            "N checks H2 and the order path by 02:25Z and updates impact at 02:30Z. Retain unknown cause and controlled evidence links."
+          ]
+        }
+      ],
+      "result": [
+        "接手记录包含事件/影响、确认与待核资产、L17/C4、批准动作、N及下一更新时间。",
+        "The receiver gets incident, impact, asset confidence, L17/C4, approved action, N and the next update time."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "隔离回执成功，所以事件已恢复。",
+        "Isolation succeeded, so the incident recovered."
+      ],
+      "why": [
+        "回执只验证隔离，不验证用户查询。",
+        "The receipt verifies isolation, not user queries."
+      ],
+      "correct": [
+        "分别报告动作结果和业务恢复证据。",
+        "Report action results separately from recovery evidence."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "H1已证实异常，H2没有记录。准确的交接是？",
+        "H1 is confirmed abnormal and H2 lacks evidence. Which handoff is accurate?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "H1确认、H2待核，附证据和下一负责人",
+            "H1 confirmed, H2 unverified, with evidence and owner"
+          ],
+          "feedback": [
+            "证据强度和接手动作均可核对。",
+            "This preserves evidence strength and executable follow-up."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "两台已感染，方便引起重视",
+            "Both infected, to ensure urgency"
+          ],
+          "feedback": [
+            "语气不能补齐H2证据。",
+            "Urgency cannot supply missing evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "只写已隔离，不提影响",
+            "Record isolation only"
+          ],
+          "feedback": [
+            "接手者仍无法判断用户影响与恢复。",
+            "The receiver still lacks impact and recovery criteria."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "写一页合成下载失败交接，分事实/假设/未知并指定更新时间。",
+        "Write a one-page synthetic download-failure handoff with facts, hypotheses, unknowns and an update time."
+      ],
+      "sample": [
+        "按事件ID、时间、用户范围、证据、批准动作、下一负责人和恢复检查组织；未知原因保持未知。",
+        "Include incident, time, users, evidence, approved actions, owner and recovery checks, with unknown cause explicit."
+      ],
+      "criteria": [
+        [
+          "接手者不读完整聊天也能继续。",
+          "The receiver can continue without the whole chat."
+        ],
+        [
+          "证据与权限分清，正文不含秘密。",
+          "Separate evidence and authority; omit secrets."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/workbook/incident-response/"
+    ]
+  },
+  "security:threat-model": {
+    "title": [
+      "给上传服务画一张能指导验证的威胁模型",
+      "Build a threat model that guides upload-service tests"
+    ],
+    "explain": [
+      [
+        "资产是要保护的东西，例如其他用户的文件、文件所有权记录和可用存储容量。数据流图描述谁把什么数据交给哪个处理环节；信任边界标明数据控制权或授权规则发生变化的位置。组件清单只是起点：每越过一条边界，都要问输入由谁控制、失败会伤害哪个资产。",
+        "Assets include other users’ files, ownership records and capacity. Data flows show who passes which data to each process; trust boundaries mark changes in control or authorization. Components are only a starting point: examine controlled inputs and the asset harmed at each boundary."
+      ],
+      [
+        "把威胁写成可观察的失败情境，再匹配控制与验证。“输入有风险”无法验收；“A修改文件ID后读到B的文件”明确了主体、动作、对象与影响。模型提出控制假设，记录允许和拒绝结果后，才能说该控制在这些条件下得到验证。",
+        "Write observable failure scenarios and map controls and tests to them. Input is risky is too vague; A changes an ID and receives B’s file identifies actor, action, resource and impact. A proposed control is verified only for the conditions actually tested."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "上传、保存、下载：建立资产—威胁—控制关系",
+        "Upload, storage and download: connect assets, threats and controls"
+      ],
+      "given": [
+        "合成服务：已登录A提交文件名report.pdf、内容及owner_id给上传API；API写私有对象存储，元数据表保存文件ID与所有者；下载API按ID取文件。B已有F2。只做离线/本机合成练习，不使用真实文件或账户。",
+        "Synthetic service: authenticated A submits report.pdf, bytes and owner_id. An upload API writes private storage and ownership metadata; a download API retrieves by ID. B owns F2. This is an offline/local exercise without real files or accounts."
+      ],
+      "steps": [
+        {
+          "title": [
+            "画流向并标资产",
+            "Map flows and assets"
+          ],
+          "detail": [
+            "画浏览器→上传API→存储/元数据，以及浏览器→下载API→存储。资产列B的F2正文、文件归属、存储容量。客户端→API是输入控制变化点，API→存储使用受控服务凭据，是另一条权限边界。",
+            "Draw browser→upload API→storage/metadata and browser→download API→storage. Protect F2 content, ownership and capacity. Browser→API changes input control; API→storage uses service credentials with a different privilege boundary."
+          ]
+        },
+        {
+          "title": [
+            "主体不能由表单自报",
+            "Do not trust the form to select identity"
+          ],
+          "detail": [
+            "A能改owner_id，所以从可信会话确定主体A，不把文件写到表单声称的B名下。对应威胁是伪造归属；验证A提交owner_id=B时，最终归属仍为A或请求被明确拒绝。",
+            "A can alter owner_id. Use trusted session identity, not a supplied owner, and test that owner_id=B is rejected or cannot change ownership from A."
+          ]
+        },
+        {
+          "title": [
+            "名称、内容和存储分开控制",
+            "Control names, content and storage separately"
+          ],
+          "detail": [
+            "文件名只作显示元数据，不直接成为存储路径；服务生成受控对象键、限制大小/类型、保持存储私有。分别处理路径选择、资源消耗与绕过API读取。仅验扩展名不证明内容无害，扫描也有覆盖范围。",
+            "Treat names as display metadata, generate controlled keys, bound size/type and keep storage private. These separately address path choice, capacity and direct access. Extension checks and scanning do not prove universally safe content."
+          ]
+        },
+        {
+          "title": [
+            "下载再次验证对象关系",
+            "Authorize the download separately"
+          ],
+          "detail": [
+            "上传检查保护不了另一个入口。A请求B的F2时按真实元数据拒绝且不返回正文；A请求自己的F1应允许。随机ID减少猜测，但不能代替主体—动作—对象的关系检查。",
+            "The upload check does not secure a separate download. Deny A→F2 without content while allowing A→F1. Random IDs do not replace actor–action–resource authorization."
+          ]
+        },
+        {
+          "title": [
+            "把控制变成证据表",
+            "Turn controls into evidence"
+          ],
+          "detail": [
+            "每行写威胁→执行位置→预期→证据：伪造归属在上传API，跨用户读取在下载API，超额大小在接收限制处。未测试的项只写设计待验证，不把画完图当已安全。",
+            "Record threat, enforcement point, expectation and evidence: forged owner at upload, cross-user access at download and size bounds at receipt. Untested controls remain proposals, not proven security."
+          ]
+        }
+      ],
+      "result": [
+        "输出两条数据流、三类资产和至少三条控制映射。A读F1允许、A读F2拒绝且无正文，是本例对象访问的最小对照；结论不扩大到全部文件安全。",
+        "Deliver flows, assets and control mappings. A→F1 allowed and A→F2 denied without content are the minimum access controls here, not proof of all file security."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "文件扩展名通过校验，所以A不能读取B的文件。",
+        "Validated extensions mean A cannot read B’s file."
+      ],
+      "why": [
+        "扩展名处理上传内容，不检查下载时主体与文件归属。",
+        "An extension check does not validate ownership on download."
+      ],
+      "correct": [
+        "下载逐请求核对可信主体与真实归属，并保留本人允许、他人拒绝的对照。",
+        "Check trusted identity and ownership on downloads, with own-file success and other-user denial."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "上传名称和大小均通过，A把下载ID改成B的F2。哪项直接保护B？",
+        "Name and size checks pass; A requests B’s F2. Which control directly protects B?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "再检查文件扩展名",
+            "Check the extension again"
+          ],
+          "feedback": [
+            "扩展名不回答谁有权读取对象。",
+            "Extensions do not decide who may read an object."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "下载接口核对可信身份与F2归属，拒绝越权且不回正文",
+            "The download API verifies identity/ownership and denies without content"
+          ],
+          "feedback": [
+            "绑定了A、读取动作和F2对象；拒绝时还要观察正文没有泄漏。",
+            "This binds actor, action and resource, with non-disclosure evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把F2编号改得更长",
+            "Make F2’s ID longer"
+          ],
+          "feedback": [
+            "编号可能从分享或其他接口得到，长度不创造授权。",
+            "IDs may be disclosed elsewhere; length does not confer permission."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "给合成头像服务画数据流，补“只准本人替换/删除头像”的威胁与检查。",
+        "Model a synthetic avatar service and test owner-only replacement/deletion."
+      ],
+      "sample": [
+        "列主体、元数据、存储；本人替换允许，A替换/删除B头像拒绝且B内容不变；文件限制与对象授权分别记录。",
+        "List actor, metadata and storage; allow own replacement, deny edits/deletion of B’s avatar and verify unchanged bytes, separately from file restrictions."
+      ],
+      "criteria": [
+        [
+          "每条威胁有资产、边界和控制执行位置。",
+          "Each threat has an asset, boundary and enforcement point."
+        ],
+        [
+          "有允许/拒绝对照，未执行的控制保持待验证。",
+          "Include allow/deny controls and label unexecuted controls as proposed."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://community.owasp.org/Threat_Modeling",
+      "https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+    ]
+  },
+  "security:safe-input": {
+    "title": [
+      "查询结构与用户值需要两种不同的处理",
+      "Query structure and supplied values need different treatment"
+    ],
+    "explain": [
+      [
+        "输入校验约束类型、长度和业务范围，例如页码只能是约定范围的整数；参数化查询则把用户值当数据交给数据库，不让它混进SQL结构。校验通过不能代替结构隔离，反过来参数化也不保证金额或日期符合业务。",
+        "Validation checks type, length and business ranges. Parameterization keeps values out of SQL structure. Validated data still needs structural separation, and bound parameters still need business validation."
+      ],
+      [
+        "列名、表名和排序方向通常不能当普通值参数绑定。让客户端的amount映射到开发者固定定义的金额列，未知键拒绝；姓名O’Neil则原样作为绑定值，不能为处理引号而删除合法字符。",
+        "Identifiers and sort directions generally require fixed developer mappings. Map amount to an approved column, reject unknown keys and bind legitimate names such as O’Neil without stripping characters."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "带引号姓名与排序选项的两条处理线",
+        "Handle a quoted name and sort options separately"
+      ],
+      "given": [
+        "合成输入name=O’Neil，sort=amount，direction=desc。只允许date/amount两键和asc/desc两方向。示范是驱动无关伪代码，真正占位语法需按所用驱动核对。",
+        "Synthetic name=O’Neil, sort=amount and direction=desc. Only date/amount and asc/desc are permitted. Pseudocode is driver-neutral; check actual placeholder syntax."
+      ],
+      "steps": [
+        {
+          "title": [
+            "固定结构映射",
+            "Map structure"
+          ],
+          "detail": [
+            "amount映射order_amount，desc映射固定DESC；date映射order_date。未知键返回参数错误，不把客户端原字符串直接接成列名。",
+            "Map amount to order_amount, desc to fixed DESC and date to order_date. Reject unknown identifiers instead of concatenating them."
+          ]
+        },
+        {
+          "title": [
+            "绑定普通值",
+            "Bind data"
+          ],
+          "detail": [
+            "查询形状为WHERE customer_name=参数 ORDER BY order_amount DESC；把完整O’Neil作为绑定值。姓名的引号不会因此变成SQL语法。",
+            "Use a fixed WHERE customer_name=parameter ORDER BY order_amount DESC shape, binding the full name as data."
+          ]
+        },
+        {
+          "title": [
+            "检查合法与拒绝对照",
+            "Check valid and denied inputs"
+          ],
+          "detail": [
+            "合法姓名应保留原字符，合法排序正常，未知sort被拒。核对真实查询调用是否绑定，不只看网页显示是否正常。",
+            "Verify preserved names, valid sorting and rejection of unknown sort keys; inspect binding in the actual query call."
+          ]
+        }
+      ],
+      "result": [
+        "结构由固定映射产生，普通值使用绑定，各自还保留相应的业务校验。",
+        "Structure comes from fixed mappings; ordinary values use bindings, with business checks retained."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "删掉姓名所有引号即可防注入。",
+        "Removing quotes from names prevents injection."
+      ],
+      "why": [
+        "这损坏合法输入且没有证明查询结构隔离。",
+        "It corrupts valid input without establishing structural separation."
+      ],
+      "correct": [
+        "保留合法值并绑定；结构仅来自允许映射。",
+        "Preserve valid values and bind them; constrain structure to approved mappings."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "sort改成未定义other时应该怎样做？",
+        "What should happen for undefined sort=other?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "作为值绑定就能变成列名",
+            "Bind it as a value to become a column"
+          ],
+          "feedback": [
+            "普通值参数不通用地替换列标识符。",
+            "Ordinary value placeholders do not generally substitute identifiers."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "拒绝未知键，仅使用受控列映射",
+            "Reject it and use only controlled identifier mappings"
+          ],
+          "feedback": [
+            "非法结构不进入查询，合法选项仍可用。",
+            "Unknown structure cannot enter the query; valid choices remain supported."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "直接拼接，因为页面是下拉框",
+            "Concatenate it because the UI is a dropdown"
+          ],
+          "feedback": [
+            "请求可绕过页面控件，服务端仍需限制。",
+            "Requests can bypass UI controls."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "写一个按日期或总额排序的合成搜索处理，再测含引号姓名与未知排序。",
+        "Write synthetic date/amount search handling and test a quoted name and unknown sort."
+      ],
+      "sample": [
+        "name绑定，sort/direction固定映射；未知键拒绝。注明驱动占位语法，并保留合法输入结果。",
+        "Bind name, map structural choices, reject unknowns and identify driver syntax, retaining valid-case results."
+      ],
+      "criteria": [
+        [
+          "解释值与标识符为何分开。",
+          "Explain why data and identifiers differ."
+        ],
+        [
+          "有合法成功与非法结构拒绝两种证据。",
+          "Include valid success and invalid-structure rejection."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+    ]
+  },
+  "security:verify-control": {
+    "title": [
+      "把控制要求变成可重复的验证",
+      "Turn a control into repeatable verification"
+    ],
+    "explain": [
+      [
+        "控制要求需要身份、动作、对象、前置状态和可观察预期。“权限修复了”无法测试；“A不能改B的备注”能够构造反例。测试时固定版本和初始数据，才能区分修复效果与环境变化。",
+        "A testable control names identity, action, object, preconditions and observable expectations. A cannot edit B’s note is testable; permissions fixed is not. Fix version and starting data."
+      ],
+      [
+        "拒绝响应还不够，要检查正文泄漏和副作用。也要保留正常允许路径：若修复把所有请求都拒绝，越权样本失败了，产品仍然损坏。通过只覆盖记录的版本与条件，不等于全部安全。",
+        "Rejection alone is insufficient: inspect disclosure and side effects, and preserve legitimate success. Denying everyone breaks the product. A pass covers documented versions and conditions only."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "验证只有所有者能改备注",
+        "Verify owner-only note editing"
+      ],
+      "given": [
+        "合成X属于A且备注old；Y属于B且备注keep。v2声称只有所有者可改，每次测试从相同初始数据开始。",
+        "Synthetic X belongs to A with old; Y belongs to B with keep. Version v2 claims owner-only edits. Reset starting data between cases."
+      ],
+      "steps": [
+        {
+          "title": [
+            "保留允许路径",
+            "Keep an allowed control"
+          ],
+          "detail": [
+            "A把X改为new应成功，再读X为new，证明正常认证、写入与持久化仍可用。",
+            "A edits X to new and reads back new, establishing legitimate authentication, writing and persistence."
+          ]
+        },
+        {
+          "title": [
+            "构造越权对照",
+            "Construct the denied control"
+          ],
+          "detail": [
+            "A改Y应拒绝；由获准身份读回Y应仍为keep，以抓住“返回拒绝但已经写入”的实现错误。",
+            "Deny A editing Y and verify authorized readback remains keep, catching denial after a write."
+          ]
+        },
+        {
+          "title": [
+            "按同一条件复验",
+            "Recheck under fixed conditions"
+          ],
+          "detail": [
+            "记录v2、身份、对象、请求/响应及读回值。修复后重跑同一对照，不用勾选已修复代替证据。",
+            "Record version, actors, resources, responses and readback; rerun the same controls after repair."
+          ]
+        }
+      ],
+      "result": [
+        "最小证据是一条本人成功、一条他人拒绝且无副作用，附版本与前置条件；它不是全站认证。",
+        "Minimum evidence is own-object success and other-object denial without effects, with version and preconditions."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "返回403说明对象一定没改。",
+        "403 proves no write occurred."
+      ],
+      "why": [
+        "代码可能先写再拒绝，状态码没有覆盖存储结果。",
+        "Code might write before denying; the status does not establish stored state."
+      ],
+      "correct": [
+        "在合成环境读回并检查副作用。",
+        "Read back the controlled synthetic state."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "A改B的Y返回拒绝，但keep变为new，应怎样记录？",
+        "A editing B’s Y is denied, but keep becomes new. What is the result?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "通过，状态码正确",
+            "Pass: correct status"
+          ],
+          "feedback": [
+            "忽略了控制真正保护的数据。",
+            "This ignores the protected data."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "只是界面文字问题",
+            "Only a UI wording issue"
+          ],
+          "feedback": [
+            "业务状态已变化，是实际控制反例。",
+            "Changed business state is a substantive counterexample."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "失败，仍发生了未经允许的写入",
+            "Fail: an unauthorized write occurred"
+          ],
+          "feedback": [
+            "拒绝与无副作用必须同时满足。",
+            "Denial and absence of unauthorized effects must both hold."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为离组成员不能下载文档设计允许、拒绝和泄漏检查。",
+        "Test former-member document access with allow, deny and disclosure checks."
+      ],
+      "sample": [
+        "现成员下载允许；离组后旧身份拒绝且无正文；其他获准成员仍可用。记录成员状态和策略版本。",
+        "Allow current members, deny the revoked member without bytes and retain other approved access, with membership/version evidence."
+      ],
+      "criteria": [
+        [
+          "每条预期对应控制声明。",
+          "Map each expectation to the control."
+        ],
+        [
+          "分别观察拒绝、无泄漏/副作用、正常回归。",
+          "Observe denial, non-disclosure/effects and normal regression separately."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+    ]
+  },
+  "ops:service-account": {
+    "title": [
+      "用服务身份解释文件为什么读不到",
+      "Explain file access under the service identity"
+    ],
+    "explain": [
+      [
+        "进程以具体用户及组运行，权限检查沿整条路径发生。读取已知文件不仅需要文件读权限，还需要每级父目录的遍历权限。目录读取允许列出名称，目录执行位允许查找已知项；管理员读成功不能证明服务账号也可读。",
+        "Processes run under a user and groups. Reading a known file needs file read permission and parent-directory traversal. Directory read permits listing; directory execute permits lookup. Administrator success does not establish service access."
+      ],
+      [
+        "最小权限从任务反推：读日志、写状态和执行程序是不同能力。不要用任意人可写或管理员运行解决问题。ACL、容器身份映射和强制访问控制可能进一步限制实际结果；纸面模式位分析之后，还需在受控环境以服务身份复核。",
+        "Derive minimum permissions from reads, writes and execution. Avoid world-write and administrator shortcuts. ACLs, container mappings and mandatory controls may further restrict access; verify with the real identity in a controlled environment."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "文件可读但父目录不可遍历",
+        "Readable file, non-traversable parent"
+      ],
+      "given": [
+        "纸面Linux示例：svc属于reports组，父级允许遍历。reports目录组权限只有读取、没有遍历；data.csv组权限有读取。服务只需读已知文件，不需列目录或写入。",
+        "Paper Linux example: svc belongs to reports; ancestors are traversable. The reports directory grants group listing but no traversal; data.csv grants group read. Only reading the known file is required."
+      ],
+      "steps": [
+        {
+          "title": [
+            "确认实际身份",
+            "Establish effective identity"
+          ],
+          "detail": [
+            "svc按reports组核对，不使用管理员结果。文件读权限成立，但目录没有查找已知文件所需的遍历能力。",
+            "Check reports permissions for svc, not administrator results. File read is available but directory traversal is missing."
+          ]
+        },
+        {
+          "title": [
+            "定位路径中的阻挡",
+            "Find the path failure"
+          ],
+          "detail": [
+            "失败发生在目录查找阶段，因此修改文件读权限没有针对原因。目录列名与经过目录是不同能力。",
+            "The failure is directory lookup; changing file read permission does not address it. Listing and traversal differ."
+          ]
+        },
+        {
+          "title": [
+            "写最小修订与复验",
+            "Specify a minimal change and recheck"
+          ],
+          "detail": [
+            "只为指定组补充需要的遍历，文件仍只读；以svc验证已知文件可读、写入与无关目录仍拒绝。若还失败，继续检查ACL或容器映射。本课不修改真实系统。",
+            "Grant only necessary traversal to the designated group and keep the file read-only. Verify allowed read and denied writes/unrelated paths; inspect ACLs or mappings if needed. No real system is modified."
+          ]
+        }
+      ],
+      "result": [
+        "原因是目录缺遍历而非文件缺读取；交付应解释身份、路径、最小能力以及允许/拒绝对照。",
+        "The missing capability is directory traversal, not file reading; document identity, path, minimal permission and controls."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "开放所有人读写或改用root就算修复。",
+        "World-write or root counts as a repair."
+      ],
+      "why": [
+        "扩大了无关能力，也遮住了失败原因。",
+        "That expands privileges and hides the cause."
+      ],
+      "correct": [
+        "针对实际身份补最小能力并复核拒绝路径。",
+        "Change only required capabilities and verify denial boundaries."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "svc能读文件，但父目录对它没有遍历权限。能直接读取该路径吗？",
+        "svc can read the file but cannot traverse a parent. Can it read that path?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "不能，目录查找先失败",
+            "No, directory lookup fails first"
+          ],
+          "feedback": [
+            "文件读不能替代每级目录的遍历权限。",
+            "File read cannot replace parent traversal."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "能，有文件读取就足够",
+            "Yes, file read is sufficient"
+          ],
+          "feedback": [
+            "忽略了路径查找。",
+            "This omits path lookup."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "以管理员读成功就能确认",
+            "Administrator success confirms it"
+          ],
+          "feedback": [
+            "管理员不代表服务的实际权限。",
+            "Administrator permissions do not represent the service."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为只读应用日志、只写自身状态的合成采集器列身份和允许/拒绝检查。",
+        "Plan identity and allow/deny checks for a synthetic log collector."
+      ],
+      "sample": [
+        "逐层核对读日志与写状态路径；拒绝写日志、读其他服务秘密及写系统配置，说明ACL或容器限制。",
+        "Check log-read and state-write paths, deny unrelated writes/secrets and note ACL/container constraints."
+      ],
+      "criteria": [
+        [
+          "按实际身份逐层解释。",
+          "Explain each path under the actual identity."
+        ],
+        [
+          "不以管理员结果代替服务复验。",
+          "Do not substitute administrator results."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://man7.org/linux/man-pages/man7/path_resolution.7.html"
+    ]
+  },
+  "ops:http-diagnosis": {
+    "title": [
+      "先定位谁返回错误，再决定查什么",
+      "Locate the responder before investigating"
+    ],
+    "explain": [
+      [
+        "网关、应用或代理都可能产生HTTP状态码。状态描述响应语义，不提供完整根因。把请求标识、时间、返回节点和每段日志对齐，才能区分客户端拒绝、网关连接失败和应用业务错误。",
+        "Gateways, applications and proxies can emit statuses. A status describes a response, not a complete cause. Align request IDs, time, responder and hop logs."
+      ],
+      [
+        "先找最早失败边界：解析、连接、TLS还是HTTP/业务。一次健康检查只覆盖被定义的路径，不证明认证、存储及依赖都正常。修订后需要用户关键路径的对照，而不只是退出码或健康页。",
+        "Locate the earliest failed stage: resolution, connection, TLS or HTTP/business. A health check covers its defined path, not authentication, storage or dependencies. Recheck critical user paths after changes."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "502与上游端口不一致",
+        "A 502 and mismatched upstream port"
+      ],
+      "given": [
+        "合成Q8：客户端收到502；网关Q8日志为连接上游8080被拒；应用无Q8；服务清单写监听8081。全部为离线记录。",
+        "Offline Q8 gets 502; the gateway logs refusal on upstream 8080, the app has no Q8, and the service inventory specifies 8081."
+      ],
+      "steps": [
+        {
+          "title": [
+            "定位已知失败",
+            "Localize the established failure"
+          ],
+          "detail": [
+            "客户端到网关已有响应，网关到上游连接被拒。不能说是应用业务代码主动返回502。",
+            "The gateway responded, but its upstream connection failed. This does not establish an application-generated 502."
+          ]
+        },
+        {
+          "title": [
+            "建立配置假设",
+            "Form a configuration hypothesis"
+          ],
+          "detail": [
+            "8080与8081不一致，提出目标端口不匹配；仍要核当时配置和获准监听记录，当前清单可能滞后。",
+            "The mismatch suggests wrong routing, but verify historical configuration and listener evidence rather than assuming the inventory is current."
+          ]
+        },
+        {
+          "title": [
+            "修订后核业务",
+            "Verify business behavior after repair"
+          ],
+          "detail": [
+            "批准修订后核对实际目标、应用请求ID和正常订单读取。连接成功只是中间证据，业务结果成功才覆盖所测路径。",
+            "After approved correction, verify actual target, application request and order read. Connectivity alone does not establish that path’s recovery."
+          ]
+        }
+      ],
+      "result": [
+        "报告网关到上游连接失败、端口差异待核、监听/配置/业务三项证据，不直接修改无关查询。",
+        "Report the failed hop, port hypothesis and listener/configuration/business evidence rather than changing unrelated queries."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "看到502就修改业务查询。",
+        "Change business queries on any 502."
+      ],
+      "why": [
+        "请求可能没到业务处理。",
+        "The request may not have reached business processing."
+      ],
+      "correct": [
+        "先定位返回节点与首个失败阶段。",
+        "Find the responder and earliest failure first."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "TLS完成后403，与TCP超时的下一步相同吗？",
+        "Does HTTP 403 after TLS need the same next check as a TCP timeout?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "都证明DNS失败",
+            "Both prove DNS failure"
+          ],
+          "feedback": [
+            "证据对应不同阶段。",
+            "They concern different stages."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "403查处理节点拒绝依据，超时先查连接路径",
+            "Inspect refusal for 403 and connection evidence for timeout"
+          ],
+          "feedback": [
+            "按实际停止阶段选择证据，不合并成未经验证的根因。",
+            "Choose evidence by stage without inventing a shared cause."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "403说明全部应用不可用",
+            "403 proves the entire application is unavailable"
+          ],
+          "feedback": [
+            "只能说明当前请求的拒绝，不能覆盖所有路径。",
+            "It establishes refusal of this request, not every path."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "整理一条403和一条连接超时的合成记录，各写下一证据和不能声称的结论。",
+        "Analyze synthetic 403 and timeout records with next evidence and unsupported claims."
+      ],
+      "sample": [
+        "403查身份/策略/返回节点；超时查监听与路径，均保留ID和时间窗。",
+        "Check identity/policy/responder for 403 and listener/path for timeout, retaining IDs and windows."
+      ],
+      "criteria": [
+        [
+          "按阶段组织证据。",
+          "Organize evidence by stage."
+        ],
+        [
+          "修订后包含端到端业务检查。",
+          "Include end-to-end verification."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html"
+    ]
+  },
+  "ops:signal-triage": {
+    "title": [
+      "把相关指标变成可检验的故障假设",
+      "Turn correlated metrics into testable hypotheses"
+    ],
+    "explain": [
+      [
+        "CPU、流量、延迟和错误描述不同现象。CPU升高可能是流量增加的结果，时间靠前也不等于因果。先确认用户错误和尾部延迟，再查能区分解释的证据，而不是看到资源高就扩容。",
+        "CPU, traffic, latency and errors describe different phenomena. CPU can be a consequence; temporal order is not causality. Start with user-visible impact and discriminating evidence."
+      ],
+      [
+        "平均值会隐藏慢请求，服务总计会隐藏特定版本。对照要同窗、同业务分组，记录采样与聚合粒度。给出两个可被证据反驳的假设，比一个肯定的“CPU不够”更有诊断价值。",
+        "Means hide slow subsets and totals hide versions. Align windows and cohorts, document sampling and compare refutable explanations rather than declaring insufficient CPU."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "发布、流量和CPU一起变化",
+        "Release, traffic and CPU change together"
+      ],
+      "given": [
+        "合成：12:00发布；12:02 p95从200到900ms、错误1%到6%；12:04请求翻倍、CPU80%。尚无版本分组。",
+        "Synthetic release at 12:00; p95 rises 200→900ms and errors 1→6% at 12:02; traffic doubles and CPU reaches 80% at 12:04."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先记录影响",
+            "Record impact"
+          ],
+          "detail": [
+            "错误和尾延迟先异常，报告受影响路径与时间。CPU较晚，只作为线索。",
+            "Errors and tail latency degraded first; record affected paths and time, keeping CPU as a clue."
+          ]
+        },
+        {
+          "title": [
+            "构造替代解释",
+            "Construct alternatives"
+          ],
+          "detail": [
+            "新版本回归需候选/稳定对照；流量或容量变化需请求类型、队列和下游拆分。不能由相关指标选定唯一根因。",
+            "A regression needs version comparison; capacity/workload changes need request-type, queue and dependency evidence. Correlation does not select a cause."
+          ]
+        },
+        {
+          "title": [
+            "取得区分证据",
+            "Obtain discriminating evidence"
+          ],
+          "detail": [
+            "仅候选同负载恶化支持回归；所有版本随共享依赖排队支持共同瓶颈。两者可以同时存在，继续保留未验证部分。",
+            "Candidate-only degradation supports regression; cross-version queuing supports a shared bottleneck. Both may coexist."
+          ]
+        }
+      ],
+      "result": [
+        "输出时间线、影响、假设与下一对照，不把扩容写成已证实恢复方法。",
+        "Deliver timeline, impact, hypotheses and next controls, not a guaranteed scaling remedy."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "CPU高就是根因，扩容必恢复。",
+        "High CPU is the cause; scaling guarantees recovery."
+      ],
+      "why": [
+        "共享数据库或下游瓶颈可能仍在。",
+        "A shared database or downstream bottleneck may remain."
+      ],
+      "correct": [
+        "按版本、业务与依赖证据区分。",
+        "Compare version, workload and dependency evidence."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "p95升高但平均值稳定，准确解释是？",
+        "p95 rises with a stable mean. Which interpretation fits?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "没有用户受影响",
+            "No users are affected"
+          ],
+          "feedback": [
+            "均值可能稀释慢请求。",
+            "The mean can dilute a slow subset."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "已证明CPU不足",
+            "CPU insufficiency is proven"
+          ],
+          "feedback": [
+            "尾延迟没有独立定位资源根因。",
+            "Tail latency alone does not locate a resource cause."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "慢请求子集恶化，继续按路径或人群拆分",
+            "A slow subset degraded; split by path or cohort"
+          ],
+          "feedback": [
+            "保留体验变化，同时不扩大根因判断。",
+            "This preserves observed impact without inventing its cause."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "为流量不变但错误升高写两个解释和下一证据。",
+        "Explain rising errors with stable traffic using two hypotheses and follow-ups."
+      ],
+      "sample": [
+        "比较版本缺陷与下游失败，查版本分组、依赖日志，并核错误分母与窗口。",
+        "Compare version defects and dependency failure with version splits, logs and aligned denominators/windows."
+      ],
+      "criteria": [
+        [
+          "假设有可区分证据。",
+          "Evidence distinguishes hypotheses."
+        ],
+        [
+          "不把相关性当因果，不漏用户影响。",
+          "Separate correlation and cause while retaining impact."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/sre-book/monitoring-distributed-systems/"
+    ]
+  },
+  "ops:container-build": {
+    "title": [
+      "从构建材料到可追溯的运行镜像",
+      "From build inputs to a traceable runtime image"
+    ],
+    "explain": [
+      [
+        "镜像是分层文件系统与运行配置的组合，容器是它启动后的进程。构建时把文件写入一层，再在后一层删除，不等于前层内容从镜像历史中消失。因此凭据不能先复制进去再清理；构建所需的临时秘密应走专用秘密挂载，运行秘密由部署环境提供。",
+        "An image combines filesystem layers with runtime configuration; a container is a running instance. Deleting a file in a later layer does not remove the earlier layer. Never copy credentials and then clean them up; use build-secret mounts for temporary build credentials and deployment-managed runtime secrets."
+      ],
+      [
+        "多阶段构建把编译工具与运行产物分开，但不自动证明安全。运行阶段仍需匹配依赖、非特权身份和启动行为。标签是可移动名称，摘要标识具体镜像内容；审计与回退要记录实际摘要，而不是只记latest。以下只读示例，不在本课构建或发布。",
+        "Multi-stage builds separate build tools from runtime artifacts but do not establish safety by themselves. Check runtime dependencies, identity and startup behavior. Tags can move; digests identify image content. Record the actual digest for audit and rollback, rather than only latest. This is a read-only example, not a build or release."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "同一份应用怎样避免把开发材料带到运行环境",
+        "Keep development materials out of the runtime image"
+      ],
+      "given": [
+        "合成目录含src、依赖锁文件、.env和编译器缓存。应用运行只需可执行产物app及其已确认的运行依赖。现方案将目录整体复制到运行镜像，随后删除.env，并用latest发布。",
+        "A synthetic directory contains src, a dependency lockfile, .env and compiler cache. Runtime requires only app and its confirmed dependencies. The current proposal copies everything into the runtime image, deletes .env later, and publishes latest."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先列出该留下的内容",
+            "List the required contents"
+          ],
+          "detail": [
+            "src和锁文件供构建使用；编译器缓存不属于交付物；.env中的凭据不进入构建上下文。得到运行材料清单：app及必要依赖，而不是整个工作目录。",
+            "Source and lockfile support the build; compiler cache is not a deliverable. Keep .env credentials out of the build context. The runtime allowlist is app plus necessary dependencies, not the whole workspace."
+          ]
+        },
+        {
+          "title": [
+            "画出两个阶段的文件去向",
+            "Trace files through two stages"
+          ],
+          "detail": [
+            "构建阶段生成app；全新的运行阶段仅从前者复制app和已确认依赖。运行阶段未继承源目录或编译器。临时构建凭据使用秘密挂载，不能用ARG或ENV替代。",
+            "The build stage produces app. A fresh runtime stage copies only app and confirmed dependencies from it, without inheriting source or compiler files. Temporary build credentials use secret mounts, not ARG or ENV."
+          ]
+        },
+        {
+          "title": [
+            "核对运行与追溯证据",
+            "Check runtime and provenance evidence"
+          ],
+          "detail": [
+            "验收清单分别检查非特权身份能启动、所需文件可读、材料清单不含凭据，并记录镜像摘要D1、源码提交C1及依赖锁版本。这里只得到待执行清单，不能写成扫描已通过。",
+            "The acceptance checklist covers non-privileged startup, required file access, no credentials in the contents inventory, and records digest D1, source commit C1 and lockfile version. These are planned checks, not a claim that a scan passed."
+          ]
+        }
+      ],
+      "result": [
+        "改进后的交付边界是可追溯的最小运行材料；秘密不曾进入镜像，比“最后删掉”更可靠。是否能正常运行仍要按清单实测。",
+        "The delivery boundary is a traceable minimum runtime inventory. Preventing secrets from entering the image is stronger than deleting them later. Runtime behavior still requires the listed checks."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "容器能启动，且最新层已看不到.env，所以镜像没有秘密。",
+        "It starts and .env is absent in the newest layer, so the image has no secrets."
+      ],
+      "why": [
+        "启动只验证部分行为；较早层、历史或构建材料仍可能保留凭据。",
+        "Startup covers only some behavior; earlier layers, history or build inputs may retain credentials."
+      ],
+      "correct": [
+        "从材料进入构建的路径预防泄漏，检查最终内容及历史，并记录固定摘要和验证结果。",
+        "Prevent exposure at the input boundary, inspect contents and history, and record a fixed digest with verification evidence."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "预发布用D1通过验收；上线前latest已指向D2。怎样最能保持验收对象一致？",
+        "Staging passed with D1, but latest now points to D2. What best preserves the validated artifact?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "继续用latest，名称相同就表示内容相同。",
+            "Use latest because the name is unchanged."
+          ],
+          "feedback": [
+            "标签可以移动；同名不能证明上线的是D1。",
+            "Tags can move; the same name does not establish D1."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "明确部署已验收的D1摘要，并核对实际运行摘要。",
+            "Deploy the validated D1 digest and check the running digest."
+          ],
+          "feedback": [
+            "对：固定内容标识，再核对运行对象，才能连接验收证据与发布对象。",
+            "Correct: fixing content identity and checking the running artifact links validation to deployment."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "只重新检查源码文件名。",
+            "Recheck only source filenames."
+          ],
+          "feedback": [
+            "源码文件名不能覆盖基础镜像、依赖与构建过程形成的差异。",
+            "Filenames do not capture differences in base images, dependencies or builds."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "另一个报表服务运行只需dist和生产依赖，却把测试数据与私钥一起复制。写出材料分流和上线前检查。",
+        "A report service needs dist and production dependencies but copies test data and a private key. Describe input separation and pre-release checks."
+      ],
+      "sample": [
+        "构建阶段保留编译所需材料；运行阶段只接收dist及必要依赖；私钥不进构建上下文。记录实际镜像摘要，检查身份、依赖、启动与密钥缺失，不把计划写成已通过。",
+        "Keep build inputs in the build stage; send only dist and necessary dependencies to runtime. Exclude the private key from the context. Record the digest and check identity, dependencies, startup and key absence without claiming planned checks passed."
+      ],
+      "criteria": [
+        [
+          "能说明哪些材料不应进入镜像及原因。",
+          "Explain which materials must not enter the image and why."
+        ],
+        [
+          "包含固定摘要、运行依赖及实际验证证据。",
+          "Include a fixed digest, runtime dependencies and actual validation evidence."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://docs.docker.com/build/building/multi-stage/",
+      "https://docs.docker.com/build/building/secrets/"
+    ]
+  },
+  "ops:deployment-health": {
+    "title": [
+      "让探针分别回答启动、接流量和重启的问题",
+      "Separate startup, traffic readiness and restart decisions"
+    ],
+    "explain": [
+      [
+        "启动探针回答初始化是否完成；就绪探针回答此刻能否接收流量；存活探针回答进程是否进入应通过重启恢复的故障。配置了启动探针时，启动成功前不会执行就绪和存活探针。三者动作不同，不能因为都返回HTTP状态就使用同一判断。",
+        "Startup probes check initialization; readiness checks current ability to receive traffic; liveness detects failures that should recover through restart. When configured, startup success gates readiness and liveness. Different actions require different judgments, even when all use HTTP status."
+      ],
+      [
+        "暂时依赖不可用不一定适合重启应用：把数据库短故障当成存活失败，会造成同时重启和额外压力。就绪失败通常使匹配服务不再把常规流量送来；存活失败达到阈值可触发容器重启。阈值、周期和超时需按实际启动分布与故障模式设计。",
+        "A temporary dependency outage does not necessarily justify restarting the application: doing so can synchronize restarts and add load. Failed readiness removes normal service routing; liveness failure beyond its threshold can trigger restart. Set thresholds, periods and timeouts from measured startup distributions and failure modes."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "45秒预热与一次短暂依赖故障",
+        "A 45-second warmup and a transient dependency fault"
+      ],
+      "given": [
+        "合成应用启动需45秒加载索引；预热期间不能处理搜索。预热后本地事件循环正常，但数据库曾中断10秒；另有一种故障是事件循环死锁。团队希望避免未就绪流量和无意义重启。",
+        "A synthetic search app needs 45 seconds to load an index and cannot serve during warmup. Later its event loop remains healthy during a 10-second database outage; another failure mode is a deadlocked event loop. The team wants neither premature traffic nor pointless restarts."
+      ],
+      "steps": [
+        {
+          "title": [
+            "保护初始化阶段",
+            "Protect initialization"
+          ],
+          "detail": [
+            "启动检查观察索引初始化标志，失败容忍窗口留出超过正常45秒的余量；不把周期乘次数当成精确重启时刻。启动成功之前，就绪与存活检查尚未运行。",
+            "The startup check observes index initialization and allows margin beyond the normal 45 seconds. Period times count is not an exact restart timestamp. Readiness and liveness have not run before startup succeeds."
+          ]
+        },
+        {
+          "title": [
+            "把不能接流量与必须重启分开",
+            "Separate not-ready from restart-worthy"
+          ],
+          "detail": [
+            "数据库短故障使关键搜索暂不可用，就绪检查转失败以停止常规路由；事件循环仍有响应，存活保持成功。数据库恢复后再次检查就绪，而不是预先决定一定恢复。",
+            "The brief database fault makes critical search unavailable, so readiness fails to stop normal routing. The responsive event loop keeps liveness successful. Recheck readiness after dependency recovery rather than assuming it."
+          ]
+        },
+        {
+          "title": [
+            "为不可进展故障准备恢复动作",
+            "Handle inability to make progress"
+          ],
+          "detail": [
+            "死锁使本地进展检查持续失败，可按存活策略重启。验证时分别注入预热、依赖短故障和死锁场景，记录路由变化、重启次数以及真实搜索结果，不能只看探针颜色。",
+            "A deadlock persistently fails the local progress check and can trigger restart under the liveness policy. Controlled validation separates warmup, dependency outage and deadlock, recording routing, restarts and real search results, not only probe colors."
+          ]
+        }
+      ],
+      "result": [
+        "三个场景对应三种判断：预热由启动保护，暂不可服务由就绪摘流量，不可进展由存活恢复；业务请求仍需单独验收。",
+        "The three scenarios now have separate decisions: startup protects warmup, readiness withdraws traffic, and liveness handles inability to progress. Validate business requests separately."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "只要数据库连不上，就让所有实例的存活探针失败。",
+        "Fail liveness on all instances whenever the database is unreachable."
+      ],
+      "why": [
+        "重启不会修好远端数据库，还可能放大连接风暴与服务容量下降。",
+        "Restarting does not repair the remote database and can amplify reconnection storms and capacity loss."
+      ],
+      "correct": [
+        "依据服务依赖设计就绪条件；存活聚焦重启能改善的本地故障，并用故障场景验证。",
+        "Design readiness around service dependencies; reserve liveness for local failures a restart can improve, and validate with fault scenarios."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "合成服务初始化已完成，消息下游短暂中断，但进程仍能响应本地进展检查。最合理的起点是什么？",
+        "Initialization is complete. A downstream queue is briefly unavailable while the local progress check succeeds. What is the best starting point?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "评估关键业务是否可服务，必要时就绪失败；避免仅因下游短故障重启。",
+            "Assess critical service ability, fail readiness if necessary, and avoid restarting solely for the downstream transient."
+          ],
+          "feedback": [
+            "对：先匹配故障与动作；还需检查该依赖是否真是当前请求的必需条件。",
+            "Correct: match the fault to the action, including whether that dependency is required for the current requests."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "把启动标志重新改回未启动，永久跳过其他探针。",
+            "Reset startup forever to skip other probes."
+          ],
+          "feedback": [
+            "启动保护初始化，不是运行时故障的通用开关；这样会掩盖后续健康问题。",
+            "Startup guards initialization, not all runtime faults; this would hide subsequent health issues."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "让所有实例立即重启，一定恢复下游。",
+            "Restart every instance to guarantee downstream recovery."
+          ],
+          "feedback": [
+            "应用重启不能保证远端恢复，反而可能减少可用容量。",
+            "Application restarts cannot guarantee remote recovery and may reduce capacity."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "图片服务启动需加载模型，运行后可能模型线程死锁，也可能远端存储短故障。分别写探针判断和观察证据。",
+        "An image service loads a model at startup, may deadlock its model worker, or suffer a brief remote-storage fault. Specify probe decisions and evidence."
+      ],
+      "sample": [
+        "启动确认模型装载完成；就绪检查当前关键请求依赖；存活观察本地可恢复的无进展。受控验证分别记录路由、重启与图片处理结果，不承诺任意超时值通用。",
+        "Startup checks model readiness; readiness checks current critical dependencies; liveness detects locally recoverable lack of progress. Controlled tests record routing, restarts and image-processing results without universal timeout claims."
+      ],
+      "criteria": [
+        [
+          "清楚区分三种探针及失败后的不同动作。",
+          "Distinguish the three probes and their failure actions."
+        ],
+        [
+          "说明为什么重启能或不能改善该故障，并给业务验收。",
+          "Explain whether restart can help and include business acceptance checks."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://kubernetes.io/docs/concepts/workloads/pods/probes/"
+    ]
+  },
+  "ops:infra-state": {
+    "title": [
+      "读懂配置、状态与真实资源之间的差异",
+      "Read differences between configuration, state and real resources"
+    ],
+    "explain": [
+      [
+        "基础设施配置描述期望结构；状态记录配置中的资源地址与远端对象之间的绑定及相关属性；真实资源则是服务商当前实际存在的对象。三者可能因手工修改、导入或过时状态而不一致。不能把配置文件当成现状证明，也不能把状态文件当成可公开的普通文档。",
+        "Configuration describes intended infrastructure; state binds configuration addresses to remote objects and related attributes; real infrastructure is what the provider currently has. Manual changes, imports and stale state can separate them. Configuration is not proof of reality, and state is not a public document."
+      ],
+      [
+        "计划展示拟采取的变更，并不执行它们。原地更新与替换对象的风险不同，尤其数据库被替换时，回退配置不等于恢复数据。读计划要追问对象身份、影响范围、数据保留与恢复验证；涉及敏感信息的状态和计划只向有权限者提供。",
+        "A plan proposes changes without executing them. In-place updates and replacement have different risks. For a database, reverting configuration does not restore lost data. Review object identity, impact, retention and tested recovery; restrict access to sensitive state and plans."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "一次看似改名却会替换数据库的计划",
+        "A naming change that proposes database replacement"
+      ],
+      "given": [
+        "纸面输入：配置资源db.main期望名称orders-v2；状态将db.main绑定远端db-17；远端db-17有订单数据。计划标出db.main为替换，而非原地修改；现有备份仅显示“创建成功”，未做恢复验证。",
+        "Paper inputs: db.main intends the name orders-v2; state binds db.main to remote db-17; db-17 contains orders. The plan marks replacement, not an in-place update. A backup says created successfully but has not been restored in a test."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先确认三个对象身份",
+            "Establish the three identities"
+          ],
+          "detail": [
+            "配置地址db.main不是数据库的永久业务身份；状态指向db-17，数据也在db-17。先核对工作区、账号、区域与绑定，防止把另一个环境的计划当成本环境。",
+            "The configuration address db.main is not permanent business identity. State points to db-17 and its data. Check workspace, account, region and binding to avoid reviewing a different environment."
+          ]
+        },
+        {
+          "title": [
+            "把变更符号翻译成业务影响",
+            "Translate the proposed action"
+          ],
+          "detail": [
+            "替换可能销毁旧对象再创建新对象，不能理解为只改显示名称。此时应暂停执行，调查哪个属性要求替换、旧数据如何保留，以及依赖连接将怎样切换。",
+            "Replacement may destroy and recreate the object; it is not merely a display-name change. Pause execution and investigate the forcing attribute, data retention and dependent connection changes."
+          ]
+        },
+        {
+          "title": [
+            "给出可审查的下一步",
+            "Specify a reviewable next step"
+          ],
+          "detail": [
+            "补充隔离环境恢复演练、数据核对和经授权的迁移或避免替换方案，再重新生成并复核计划。备份文件存在只是一条证据；恢复能否满足业务目标仍未证实。本课没有执行任何资源变更。",
+            "Add an isolated restore rehearsal, data checks and an authorized migration or non-replacement proposal, then regenerate and review the plan. Backup existence is evidence, not proof of recovery objectives. No resource changes are performed in this lesson."
+          ]
+        }
+      ],
+      "result": [
+        "当前结论是“识别到未解决的数据风险，暂不执行”，不是“计划生成成功所以可以上线”。状态绑定与恢复证据共同决定下一步。",
+        "The conclusion is unresolved data risk and no execution, rather than permission to release because planning succeeded. State identity and recovery evidence guide the next decision."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把旧配置提交回来，就一定能恢复被替换数据库的订单。",
+        "Restoring the old configuration commit necessarily recovers orders after replacement."
+      ],
+      "why": [
+        "配置描述结构，不包含原数据库全部业务数据；新建同名对象也不是旧对象复活。",
+        "Configuration describes structure, not all business data; recreating a name does not revive the old object."
+      ],
+      "correct": [
+        "分别准备配置回退、数据恢复和业务一致性验证，并由有权限者评审执行条件。",
+        "Prepare configuration rollback, data recovery and business consistency checks separately, with authorized review of execution conditions."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "计划显示一个存储对象将被替换，但状态绑定指向与预期不同的环境。先做什么？",
+        "A plan proposes storage replacement, but state points to an unexpected environment. What comes first?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "先执行，让新状态自动纠正环境。",
+            "Apply first and let new state correct the environment."
+          ],
+          "feedback": [
+            "执行会对当前绑定对象产生影响，不能拿真实变更来消除身份疑问。",
+            "Execution affects the currently bound object; real changes must not resolve an identity uncertainty."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "删掉状态文件，当作全新资源。",
+            "Delete state and treat everything as new."
+          ],
+          "feedback": [
+            "丢失绑定可能产生重复或失管资源，也没有解释原对象与数据。",
+            "Losing bindings may create duplicates or unmanaged objects and does not account for original data."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "停止执行，核对工作区、凭据、区域与资源绑定，再审查新计划。",
+            "Stop execution and verify workspace, credentials, region and resource bindings before reviewing a new plan."
+          ],
+          "feedback": [
+            "对：先证明操作对象，才能讨论变更风险与恢复条件。",
+            "Correct: establish the target before assessing change and recovery risks."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "缓存集群由人工扩容，但配置与状态读数不同。说明你要比对哪些证据，怎样避免直接覆盖现状。",
+        "A cache cluster was manually expanded and configuration differs from state observations. Identify evidence to compare and avoid blindly overwriting reality."
+      ],
+      "sample": [
+        "确认环境和对象绑定，读取当前容量及变更记录，区分期望与实际；生成只读计划，评估容量回缩对负载和数据的影响，再提出经评审的同步方案。",
+        "Verify environment and binding, inspect current capacity and change records, distinguish intent from reality, review a read-only plan and assess shrink effects before proposing reviewed reconciliation."
+      ],
+      "criteria": [
+        [
+          "区分配置、状态、真实资源，不把任何一者单独当成全部事实。",
+          "Distinguish configuration, state and reality without treating one as complete truth."
+        ],
+        [
+          "识别破坏性变更及恢复证据，不未经评审执行。",
+          "Identify destructive change and recovery evidence without unreviewed execution."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://developer.hashicorp.com/terraform/language/state",
+      "https://developer.hashicorp.com/terraform/cli/commands/plan"
+    ]
+  },
+  "ops:four-signals": {
+    "title": [
+      "从四类信号做出有依据的告警判断",
+      "Make evidence-based alert decisions from four signal types"
+    ],
+    "explain": [
+      [
+        "流量告诉你工作量及比例的分母；延迟描述完成请求要多久，应区分成功与失败并观察尾部；错误描述未达到约定结果的请求；饱和度描述资源离上限或排队有多近。CPU利用率可帮助解释容量，但不能代替用户是否成功完成任务。",
+        "Traffic describes workload and denominators; latency measures completion time, including tails and success/failure distinctions; errors measure outcomes outside the contract; saturation measures proximity to capacity or queueing. CPU helps explain capacity but does not replace user outcomes."
+      ],
+      [
+        "告警要连接需要人处理的影响与具体动作。先定义关键路径、统计窗口、错误分母和持续条件，再确定负责人及排查入口。低流量的一次失败与高流量的持续失败不能只凭同一个百分比比较；也不要让短资源尖峰自动等于业务事故。",
+        "Connect alerts to actionable impact. Define the critical path, window, error denominator and persistence, then an owner and investigation entry. A single low-volume failure and sustained high-volume failures need more than a shared percentage. A brief resource spike is not automatically a business incident."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "CPU较低的窗口为什么更需要先处理",
+        "Why the lower-CPU window needs attention first"
+      ],
+      "given": [
+        "合成支付接口两个独立5分钟窗口：A有1000次有效请求、2次失败、成功请求p95为220ms、CPU峰值90%；B有200次有效请求、12次失败、成功请求p95为900ms、CPU峰值45%。本练习约定延迟目标500ms。",
+        "Two independent synthetic five-minute payment windows: A has 1,000 eligible requests, 2 failures, successful-request p95 220ms and peak CPU 90%; B has 200 requests, 12 failures, successful-request p95 900ms and peak CPU 45%. The exercise latency target is 500ms."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先算用户结果",
+            "Calculate user outcomes"
+          ],
+          "detail": [
+            "A错误率2/1000=0.2%，成功请求尾延迟在目标内；B为12/200=6%，且900ms超过练习目标。B同时存在失败与成功请求变慢，CPU较低不能否定影响。",
+            "A error rate is 2/1,000=0.2% and its successful-request tail is within target. B is 12/200=6%, with 900ms above the exercise target. B has both failures and slow successes; lower CPU does not negate impact."
+          ]
+        },
+        {
+          "title": [
+            "用资源信号解释而非替代结论",
+            "Use resource evidence to explain, not replace"
+          ],
+          "detail": [
+            "A的CPU峰值值得查看持续时间与容量余量，不足以单独认定故障；B需查依赖超时、队列和受影响请求。当前证据不能直接说B是CPU不足。",
+            "Investigate A’s CPU duration and headroom without calling the peak an incident by itself. For B, inspect dependency timeouts, queues and affected requests. The evidence does not establish CPU shortage as B’s cause."
+          ]
+        },
+        {
+          "title": [
+            "写成可操作的告警记录",
+            "Create an actionable alert record"
+          ],
+          "detail": [
+            "记录B的路径、5分钟分母200、失败12、p95 900ms与观察时刻，交值班负责人复核影响、按入口查看请求和依赖。生产门槛还需结合基线及持续窗口，不能直接照搬本题数值。",
+            "Record B’s route, five-minute denominator 200, failures 12, p95 900ms and observation time. Assign an on-call owner to verify impact and inspect requests/dependencies. Production thresholds need baselines and persistence; do not copy exercise values."
+          ]
+        }
+      ],
+      "result": [
+        "先处理B的用户影响，继续调查原因；A进入容量观察。这里区分了“需要处理什么”和“故障由什么造成”。",
+        "Prioritize B’s user impact and investigate its cause; observe A’s capacity. This separates what needs action from what caused the problem."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "CPU没超过80%，服务一定正常。",
+        "CPU below 80% means the service is healthy."
+      ],
+      "why": [
+        "请求可能在等待网络、依赖或锁，CPU并不高；成功率和尾延迟仍可能恶化。",
+        "Requests may wait on networks, dependencies or locks with little CPU use while success and tail latency deteriorate."
+      ],
+      "correct": [
+        "以关键用户结果发现影响，以流量和饱和度辅助定位，再补充具有分母的告警证据。",
+        "Detect impact from critical outcomes, use traffic and saturation for diagnosis, and include denominators in alert evidence."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "窗口C有1次失败/2次请求；窗口D有400次失败/10000次请求。最可靠的判断是什么？",
+        "Window C has 1 failure/2 requests; D has 400/10,000. What is the most reliable judgment?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "C的50%大于D的4%，所以D无需处理。",
+            "C is 50% versus D’s 4%, so D needs no action."
+          ],
+          "feedback": [
+            "忽略了失败规模与窗口稳定性；D可能有更广泛的用户影响。",
+            "This ignores failure volume and stability; D may have much broader impact."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "补充关键路径、持续时间和用户影响，再决定紧急程度。",
+            "Add critical-path, duration and user-impact evidence before assigning urgency."
+          ],
+          "feedback": [
+            "对：同时使用比例、数量和业务含义，避免低样本百分比误导。",
+            "Correct: combine rate, volume and business meaning to avoid low-sample distortion."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "只比较CPU即可。",
+            "Compare only CPU."
+          ],
+          "feedback": [
+            "资源利用率无法回答这402次失败分别影响什么用户任务。",
+            "Resource utilization does not explain which user tasks the 402 failures affected."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "下载服务失败率上升但CPU平稳。列出四类信号的观察项，并写出一条带负责人和排查入口的告警说明。",
+        "Download failures rise with stable CPU. Specify observations for all four signal types and write an alert with an owner and investigation entry."
+      ],
+      "sample": [
+        "记录有效下载数与失败数、成功/失败延迟、等待存储的队列及资源余量；告警说明受影响路径、时间窗、分母、持续性，指定下载服务值班人进入相关请求与依赖记录。",
+        "Record eligible downloads and failures, successful/failed latency, storage queues and headroom. State route, window, denominator and persistence, assigning the download on-call owner to relevant request and dependency records."
+      ],
+      "criteria": [
+        [
+          "四类信号各有问题指向，不以CPU替代成功率。",
+          "Give each signal a purpose without substituting CPU for success."
+        ],
+        [
+          "告警包含用户影响、可解释分母及行动归属。",
+          "Include user impact, interpretable denominators and action ownership."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/sre-book/monitoring-distributed-systems/"
+    ]
+  },
+  "ops:slo-budget": {
+    "title": [
+      "把可靠性目标换算成可解释的误差预算",
+      "Translate reliability targets into an interpretable error budget"
+    ],
+    "explain": [
+      [
+        "SLI是你实际测量的服务表现；SLO是约定时间窗内希望达到的目标。本课以“好事件数/有效事件总数”为SLI：必须先定义哪些请求计入、怎样算成功、在哪里测量。客户端失败若根本没到服务端，只看服务端日志可能漏掉它。",
+        "An SLI measures service performance; an SLO is its target over an agreed window. Here the SLI is good events divided by eligible events. Define eligibility, success and measurement location first. Server-only logs can miss failures that never reach the server."
+      ],
+      [
+        "请求型误差预算=有效请求总数×(1−目标比例)，剩余预算再减实际坏事件数。时间型指标需按有效时间计算，不能把请求百分比直接说成允许停机分钟。预算帮助团队讨论发布与可靠性投入，并非主动制造故障的额度；策略与例外应由负责人约定。",
+        "For request-based objectives, budget equals eligible requests times one minus the target; subtract bad events for the remainder. Time-based indicators use eligible time, so request percentages do not directly imply downtime minutes. Budgets guide reliability tradeoffs, not permission to cause failures; owners agree policies and exceptions."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "一个已结束窗口的预算账本",
+        "A completed window’s budget ledger"
+      ],
+      "given": [
+        "合成已结束统计窗共100000次有效结账请求；成功指正确完成且未超时，失败80次。窗口目标99.9%。本题分母固定，不讨论下一窗口流量预测，也不把业务拒绝付款自动计为系统故障。",
+        "A completed synthetic window has 100,000 eligible checkout requests. Success means correct completion without timeout; 80 failed. The target is 99.9%. The denominator is fixed; this is not next-window forecasting, and business-declined payments are not automatically system failures."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先确认指标口径",
+            "Establish the indicator contract"
+          ],
+          "detail": [
+            "好事件数100000−80=99920，因此SLI=99920/100000=99.92%。这里数的是请求结果，不是机器开机时间。",
+            "Good events are 100,000−80=99,920, giving SLI 99.92%. This counts request outcomes, not machine uptime."
+          ]
+        },
+        {
+          "title": [
+            "计算允许量与消耗",
+            "Calculate allowance and consumption"
+          ],
+          "detail": [
+            "预算100000×0.001=100次坏事件；已消耗80次，即80%；剩余100−80=20次，即20%。这些数只适用于本题固定窗口。",
+            "The budget is 100,000×0.001=100 bad events. Eighty events consume 80%, leaving 20 events or 20%. These numbers belong to this fixed window."
+          ]
+        },
+        {
+          "title": [
+            "把结果变成决策输入",
+            "Turn the ledger into a decision input"
+          ],
+          "detail": [
+            "窗口达到目标，但预算已用去大部分。评审应同时看近期消耗速度、受影响用户与团队既定政策；不能只因“还剩20次”就承诺下一次发布安全。新窗口或滚动窗口必须重新按其分母核算。",
+            "The window meets the target but consumes most of its budget. Review recent burn, user impact and agreed policy; 20 remaining events do not establish a safe release. Recalculate for a new or rolling window using its own denominator."
+          ]
+        }
+      ],
+      "result": [
+        "结论是99.92%达到99.9%，已耗80%、剩余20%；它是可追溯的可靠性账本，不是未来风险保证。",
+        "The ledger shows 99.92% against 99.9%, with 80% consumed and 20% remaining. It is an auditable account, not a future-risk guarantee."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "99.9%请求成功率等于每个月都可停机固定分钟数。",
+        "A 99.9% request-success target always grants a fixed number of downtime minutes each month."
+      ],
+      "why": [
+        "请求量随时间变化，一分钟高峰与一分钟低峰影响的请求数不同；时间SLI与请求SLI分母不同。",
+        "Traffic varies over time; peak and quiet minutes affect different request counts. Time- and request-based SLIs have different denominators."
+      ],
+      "correct": [
+        "写明SLI类型、统计窗及分母，在同一口径内计算，不跨指标直接换算。",
+        "State indicator type, window and denominator; calculate within the same contract without unsupported conversions."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "另一个已结束窗口有20000次有效请求，目标99.5%，75次坏事件。剩余预算是多少？",
+        "Another completed window has 20,000 eligible requests, a 99.5% target and 75 bad events. What remains?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "25次，因为允许100次，已消耗75次。",
+            "25 events: 100 allowed minus 75 consumed."
+          ],
+          "feedback": [
+            "对：20000×0.005=100，再减75得到25；口径是该固定窗口的请求事件。",
+            "Correct: 20,000×0.005=100; subtract 75 to get 25 request events in this fixed window."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "100次，因为目标只决定总预算。",
+            "100 events because the target defines the total."
+          ],
+          "feedback": [
+            "100是总预算，尚未扣除已发生的75次坏事件。",
+            "100 is the total allowance before subtracting 75 bad events."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "25分钟，因为预算与停机时间相同。",
+            "25 minutes because budget equals downtime."
+          ],
+          "feedback": [
+            "这里按请求计数，没有请求分布或时间SLI，不能得到分钟数。",
+            "This is request counting; neither a time SLI nor a traffic distribution supports minutes."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "为报表导出设计一个SLI说明：用户关心正确生成且及时可下载。写清好事件、有效事件、时间窗和观测盲区，再给一个小账本。",
+        "Design an SLI for report exports that must be correct and promptly downloadable. Define good/eligible events, window and blind spots, then give a small ledger."
+      ],
+      "sample": [
+        "例如在明确的7天窗内，以被接受的有效导出任务为分母，5分钟内生成正确文件且可下载为好事件。另监测提交入口失败，避免漏掉未创建任务的用户。目标与预算按这个口径计算，由负责人确认适用性。",
+        "For a specified seven-day window, use accepted eligible export jobs as denominator; good means a correct downloadable file within five minutes. Monitor submission failures separately to cover users without created jobs. Calculate targets and budgets under that definition with owner review."
+      ],
+      "criteria": [
+        [
+          "好事件有可观察标准，分母及时间窗明确。",
+          "Use observable good-event criteria with a clear denominator and window."
+        ],
+        [
+          "计算一致并说明盲区，不把示例目标说成通用标准。",
+          "Keep calculations consistent, state blind spots and avoid universal target claims."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/workbook/implementing-slos/"
+    ]
+  },
+  "ops:telemetry": {
+    "title": [
+      "把指标、日志与追踪连成一条证据链",
+      "Connect metrics, logs and traces into an evidence chain"
+    ],
+    "explain": [
+      [
+        "指标适合看整体规模、趋势与分组差异；日志描述离散事件及上下文；追踪用一组带父子关系的span描述一次请求的工作路径。trace_id连接同一次追踪，span_id定位其中一步。它们互补：一条慢追踪能提出线索，不能自动代表所有用户。",
+        "Metrics show aggregate volume, trends and cohorts; logs describe events and context; traces use related spans to describe a request path. trace_id links a trace and span_id identifies a step. A slow trace provides a lead, not automatic evidence about every user."
+      ],
+      [
+        "span持续时间不是随意相加的账单：并行跨度会重叠，父span可能包含子span时间；还可能有未埋点的间隙。采样、传播缺失和采集丢失都会造成记录不完整。把没有找到日志写成“未观察到”，不能直接断言事件没发生；关联字段也不应携带秘密。",
+        "Span durations cannot be added indiscriminately: parallel spans overlap, parents contain children, and uninstrumented gaps may remain. Sampling, propagation gaps and collection loss reduce coverage. Missing records mean not observed, not necessarily did not occur. Correlation fields should not carry secrets."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "500ms请求中的数据库等待线索",
+        "Database-wait evidence within a 500ms request"
+      ],
+      "given": [
+        "合成追踪T7：入口span为0–500ms；身份检查子span为0–40ms；数据库子span为40–460ms；其后到结束未埋点。日志L9记录trace_id=T7、数据库连接等待；同窗口指标显示查询p95上升，但尚未比较版本。",
+        "Synthetic trace T7: entry span 0–500ms; authentication child 0–40ms; database child 40–460ms; the final interval is uninstrumented. Log L9 includes trace_id=T7 and connection waiting. Query p95 rises in the same window, but versions have not been compared."
+      ],
+      "steps": [
+        {
+          "title": [
+            "沿相同请求关联记录",
+            "Link records for the same request"
+          ],
+          "detail": [
+            "T7与L9通过明确trace_id相连，不是仅凭相近时间。得到一条请求里的数据库等待证据；相同时间的其他日志仍需自己的关联信息。",
+            "T7 and L9 share an explicit trace_id rather than only nearby times. This supports database waiting in one request; other logs still need their own correlation evidence."
+          ]
+        },
+        {
+          "title": [
+            "按时间区间解释耗时",
+            "Interpret the intervals"
+          ],
+          "detail": [
+            "身份40ms，数据库420ms，尾部剩余40ms未解释。两个子span本题为串行且不重叠；不能把入口500ms再加子span得到960ms。数据库跨度也不等于全是数据库执行时间。",
+            "Authentication is 40ms, database 420ms, and the final 40ms is unexplained. These children are sequential and non-overlapping; do not add the 500ms parent to get 960ms. The database span is not necessarily all database execution."
+          ]
+        },
+        {
+          "title": [
+            "从单例回到整体并验证假设",
+            "Return from a trace to the population"
+          ],
+          "detail": [
+            "按版本、请求类型比较同窗口样本与查询指标，检查连接池等待和数据库执行分解。当前可写“数据库相关路径值得优先调查”，不可写“数据库代码已被证明是所有慢请求根因”。",
+            "Compare same-window traces and query metrics by version and request type; separate pool wait from execution. Say the database-related path deserves investigation, not that database code is proven to cause every slow request."
+          ]
+        }
+      ],
+      "result": [
+        "证据链给出T7→L9→同窗指标的联系，并保留40ms观测缺口与样本代表性问题；下一步调查更具体。",
+        "The chain links T7, L9 and same-window metrics while retaining the 40ms gap and representativeness questions, making the next investigation concrete."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "两个并行子span分别180ms与170ms，所以父请求至少350ms。",
+        "Parallel child spans of 180ms and 170ms imply a parent of at least 350ms."
+      ],
+      "why": [
+        "并行阶段可以重叠，简单求和会重复计算同一段墙钟时间。",
+        "Parallel work overlaps, so summation can double-count wall-clock time."
+      ],
+      "correct": [
+        "先画开始/结束区间及父子关系，再解释关键路径与未覆盖时间。",
+        "Draw start/end intervals and parent relationships before interpreting the critical path and uncovered time."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "300ms父请求内，子spanA是0–180ms，B是20–190ms。哪项成立？",
+        "Within a 300ms parent, child A runs 0–180ms and B runs 20–190ms. Which statement holds?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "A+B=350ms，必定是计时错误。",
+            "A+B=350ms proves a timing error."
+          ],
+          "feedback": [
+            "子span重叠并不违反300ms父时长；求和不是墙钟时长。",
+            "Overlapping child spans do not contradict a 300ms parent; their sum is not wall-clock duration."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "B结束后只需解释300−170=130ms。",
+            "Only 300−170=130ms needs explanation after B."
+          ],
+          "feedback": [
+            "B的170ms是其持续时间，结束时刻是190ms；尾部区间为190–300ms。",
+            "170ms is B’s duration; it ends at 190ms. The tail interval is 190–300ms."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "两者覆盖0–190ms，尾部110ms仍需其他证据。",
+            "Together they cover 0–190ms; the final 110ms needs other evidence."
+          ],
+          "feedback": [
+            "对：按时间区间并集判断覆盖，不能仅相加子span。",
+            "Correct: use interval coverage rather than merely summing child durations."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "导出请求很慢，但只找到一条无trace_id的错误日志。写出可以下的结论和补充观测方案。",
+        "An export request is slow but you find only one error log without trace_id. State defensible conclusions and an observation plan."
+      ],
+      "sample": [
+        "先记录时间、路径及可用请求标识，错误与该请求的关系仍未证实；补齐传播和日志关联字段，比较同类请求指标，并检查采样与采集覆盖。不把正文、令牌或敏感业务内容当关联标识。",
+        "Record time, route and available request identifiers; the error’s relationship remains unconfirmed. Improve propagation and correlation fields, compare peer metrics and inspect sampling/collection coverage. Do not use bodies, tokens or sensitive business content as identifiers."
+      ],
+      "criteria": [
+        [
+          "区分整体与单次请求证据，关联依据明确。",
+          "Separate aggregate and per-request evidence with explicit links."
+        ],
+        [
+          "正确处理并行、父子跨度及观测缺失。",
+          "Handle overlap, parent-child spans and missing observations correctly."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://opentelemetry.io/docs/concepts/signals/",
+      "https://opentelemetry.io/docs/concepts/signals/traces/"
+    ]
+  },
+  "ops:canary-gate": {
+    "title": [
+      "比较灰度与对照，决定是否扩大发布",
+      "Compare canary and control before expanding a release"
+    ],
+    "explain": [
+      [
+        "灰度发布先把变更限制在一部分实例或用户，再观察是否扩大。灰度组运行候选版本，对照组保持原版本；同一时间观察能减少外部变化的干扰，但还需检查请求类型、地区和用户组成是否可比。全站平均值可能把小灰度组的严重退化稀释掉。",
+        "A canary limits a change to some instances or users before expansion. The candidate and unchanged control are observed concurrently, with checks for comparable routes, regions and populations. A site-wide average can dilute serious regression in a small canary cohort."
+      ],
+      [
+        "门槛应在发布前写清指标、样本量、观察窗和停止动作。样本不足表示证据不足，不能算通过；无错误也不等于长期安全。满足停止条件后先限制影响、保留证据，再依权限执行预案并验收恢复。数值门槛必须符合实际服务目标，不能套用课内示例。",
+        "Define metrics, sample size, observation window and stop actions before release. Insufficient samples mean insufficient evidence, not a pass; zero errors do not establish long-term safety. On a stop condition, limit impact, preserve evidence, follow the authorized plan and verify recovery. Exercise thresholds are not universal."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "全站1.9%为什么仍应停止扩大",
+        "Why 1.9% site-wide still means stop expansion"
+      ],
+      "given": [
+        "合成同窗同类请求：候选V2处理100次、失败10次；对照V1处理900次、失败9次。课内预设：候选达到100次样本后，错误率超过2%就停止扩大并评估回退；还要检查对照与关键业务。",
+        "Synthetic same-window, comparable requests: candidate V2 handles 100 with 10 failures; control V1 handles 900 with 9 failures. The exercise rule is to stop expansion and assess rollback above 2% candidate errors after 100 samples, with control and critical-flow checks."
+      ],
+      "steps": [
+        {
+          "title": [
+            "分别计算两个组",
+            "Calculate each cohort"
+          ],
+          "detail": [
+            "候选10/100=10%；对照9/900=1%。候选比对照高9个百分点；不是“多9%”。请求分组与时间窗一致，才有比较意义。",
+            "Candidate errors are 10/100=10%; control errors are 9/900=1%. The difference is nine percentage points, not nine percent. Comparable cohorts and windows make the comparison meaningful."
+          ]
+        },
+        {
+          "title": [
+            "对照预定门槛",
+            "Apply the preset gate"
+          ],
+          "detail": [
+            "候选样本100达到本题最低要求，10%超过2%，触发停止扩大。全站19/1000=1.9%不能覆盖候选10%的退化；也不能等到全站超过2%再处理。",
+            "The candidate reaches the exercise minimum of 100, and 10% exceeds 2%, triggering a stop. Site-wide 19/1,000=1.9% does not erase the candidate’s 10% regression or justify waiting for a site-wide breach."
+          ]
+        },
+        {
+          "title": [
+            "保留证据并确认处置结果",
+            "Preserve evidence and verify the response"
+          ],
+          "detail": [
+            "记录V2摘要、灰度比例、请求口径与窗口；暂停扩大，由负责人按预案决定回退或隔离。随后核对实际版本、关键业务与两组指标；“已发出回退指令”不能写成“已恢复”。",
+            "Record V2 digest, allocation, request definition and window. Pause expansion and let the owner follow the rollback/isolation plan. Then check the actual version, critical flows and cohort metrics; issuing rollback is not proof of recovery."
+          ]
+        }
+      ],
+      "result": [
+        "当前决定是停止扩大并处置候选退化。分组证据比全站均值更能发现问题，但还需继续验证原因和恢复。",
+        "Stop expansion and address the candidate regression. Cohort evidence detects what the site average hides, while cause and recovery still require verification."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "总体错误率低于2%，候选组就可以继续扩大。",
+        "Overall errors below 2% allow candidate expansion."
+      ],
+      "why": [
+        "总体分母大多来自旧版本，会稀释新版本的错误，且不符合预先定义的候选组门槛。",
+        "Most of the overall denominator comes from the old version, diluting candidate failures and ignoring the preset candidate gate."
+      ],
+      "correct": [
+        "按版本和关键路径分组，先检查样本及可比性，再使用预定门槛。",
+        "Group by version and critical route; check sample size and comparability before applying the preset gate."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "另次导出灰度已满足样本与窗口，新旧版本失败率同为1%；候选成功任务p95为4秒，对照400ms，预定延迟上限1秒。应如何决定？",
+        "Another export canary meets sample/window requirements. Both versions have 1% errors, but successful-task p95 is 4s for the candidate and 400ms for control; the preset latency ceiling is 1s. What is the decision?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "失败率相同，可以扩大。",
+            "Expand because error rates match."
+          ],
+          "feedback": [
+            "忽略了已经定义的延迟门槛；任务成功但过慢仍可能损害用户体验。",
+            "This ignores the preset latency gate; successful but slow tasks can still harm user experience."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "停止扩大，记录候选延迟超限并按预案评估处置。",
+            "Stop expansion, record the candidate latency breach and assess the planned response."
+          ],
+          "feedback": [
+            "对：4秒超过1秒门槛，不能用相同失败率抵消；仍需核对任务类型可比性及恢复证据。",
+            "Correct: 4s exceeds the 1s gate and equal errors do not cancel it. Confirm task comparability and recovery evidence."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "临时把延迟上限调到5秒，就算通过。",
+            "Raise the ceiling to 5s during the run and call it a pass."
+          ],
+          "feedback": [
+            "看见结果后改门槛会失去决策约束；若目标确需改变，应独立评审，不能伪造本次通过。",
+            "Changing the gate after seeing the result defeats its purpose. Legitimate target changes need independent review rather than relabeling this run."
+          ]
+        }
+      ],
+      "correct": "b"
+    },
+    "transfer": {
+      "prompt": [
+        "为文件导出新版本设计灰度判断，包含失败率、完成延迟、版本分组、最低样本、停止与恢复验收。",
+        "Design a canary decision for a new file-export version, including errors, latency, cohorts, sample requirements, stop and recovery checks."
+      ],
+      "sample": [
+        "按同类导出任务比较新旧版本，区分任务接受与最终完成，预设样本及观察窗；超出约定失败或延迟条件停止扩大，记录负责人、版本摘要与处置；恢复需核对文件正确性与待处理任务。",
+        "Compare equivalent export jobs by version, separating acceptance from completion. Predefine samples/window and stop on agreed error or latency conditions. Record owner, digest and action; recovery checks file correctness and pending jobs."
+      ],
+      "criteria": [
+        [
+          "使用灰度与对照分组，不被全站平均值掩盖。",
+          "Use candidate/control evidence rather than only site-wide averages."
+        ],
+        [
+          "明确证据不足、停止动作与恢复验收。",
+          "Define insufficient evidence, stop actions and recovery validation."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/workbook/canarying-releases/"
+    ]
+  },
+  "ops:rollback-verify": {
+    "title": [
+      "回退版本后，还要证明业务恢复",
+      "Prove business recovery after a version rollback"
+    ],
+    "explain": [
+      [
+        "回退把代码或配置恢复到已知版本；恢复还要求用户任务再次正确完成、数据一致且积压可控。两者不是同义词。新版本若改变数据格式或写入不可逆内容，旧程序未必能读取；因此发布前就需要兼容性、迁移与恢复策略。",
+        "Rollback returns code or configuration to a known version; recovery also requires correct user outcomes, consistent data and controlled backlog. They are not synonyms. If a new version changes stored formats or writes irreversibly, old code may not read them. Plan compatibility, migration and recovery before release."
+      ],
+      [
+        "验收需要分层证据：实际运行版本是否正确，健康信号是否稳定，关键读写是否正确，异常期间的任务是否重复、丢失或滞留。只看到发布工具显示成功或健康接口200，无法证明订单、支付等完整流程恢复。观察窗口应按业务周期与风险约定。",
+        "Validate the running artifact, stable health, correct critical reads/writes and incident-period tasks for duplication, loss or backlog. A successful deployment or health endpoint 200 does not establish recovery of full order/payment flows. Agree observation windows from business cycles and risk."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "健康接口恢复，但导出任务仍然积压",
+        "Healthy endpoint, unresolved export backlog"
+      ],
+      "given": [
+        "合成事件：V2引入任务格式schema2，旧V1只支持schema1。负责人批准回退到D1；工具显示完成、健康接口200，队列仍有20条schema2待处理任务，尚未检查文件结果。",
+        "Synthetic incident: V2 writes schema2 jobs, while old V1 supports only schema1. An owner authorizes rollback to D1. The tool reports completion and health returns 200, but 20 schema2 jobs remain queued and file results are unchecked."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先核对回退对象与兼容性",
+            "Check artifact and compatibility"
+          ],
+          "detail": [
+            "从实际运行清单确认D1，不能只看按钮状态。V1不支持schema2，故不能让它盲目消费20条任务；先隔离并记录这些任务及其状态，由负责人选择兼容处理方案。",
+            "Confirm D1 from the running inventory, not button status. Because V1 cannot read schema2, do not let it blindly consume those 20 jobs. Isolate and record their states for an owner-approved compatibility path."
+          ]
+        },
+        {
+          "title": [
+            "验证关键业务与副作用",
+            "Check business behavior and side effects"
+          ],
+          "detail": [
+            "用受控schema1样本验证提交、执行、下载及文件内容；核对同一任务的唯一性与完成记录，防止回退重试造成重复结果。健康200仅证明该接口可响应。",
+            "Use controlled schema1 samples to check submission, execution, download and file contents. Reconcile task identity/completion to avoid duplicates from rollback retries. Health 200 establishes only that endpoint’s response."
+          ]
+        },
+        {
+          "title": [
+            "分别报告缓解与未恢复项",
+            "Report mitigation and remaining recovery"
+          ],
+          "detail": [
+            "可记录“D1运行，受控schema1链路待验/验收结果如实填写；20条schema2仍隔离”。为积压安排负责人、处理策略和观察时刻，确认全部状态后再声明恢复范围。",
+            "Report “D1 running; record the actual status of controlled schema1 validation; 20 schema2 jobs still isolated.” Assign backlog ownership, handling strategy and observation times, then declare only the scope supported by evidence."
+          ]
+        }
+      ],
+      "result": [
+        "回退动作已完成不代表事件结束：版本证据、业务验收与20条任务的处置缺一不可。",
+        "Completing rollback does not close the incident: artifact evidence, business validation and disposition of the 20 jobs all matter."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "回退成功后直接清空队列，所有任务重新提交就好。",
+        "After rollback, clear the queue and ask everyone to resubmit."
+      ],
+      "why": [
+        "可能丢失任务证据、重复已经完成的工作，也不能处理新旧格式兼容问题。",
+        "This can lose task evidence, duplicate completed work and leave compatibility unexplained."
+      ],
+      "correct": [
+        "先保留任务身份与状态，区分已完成、待处理及未知项，再按批准策略恢复并核对结果。",
+        "Preserve task identities/states, separate completed, pending and unknown work, then recover under an approved plan and reconcile results."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "结账服务已回到旧摘要，健康接口正常，但事故期间部分支付结果未知。可以宣布完全恢复吗？",
+        "Checkout runs the old digest and health is normal, but some incident-period payment outcomes are unknown. Is full recovery established?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "可以，镜像正确已足够。",
+            "Yes; the correct image is enough."
+          ],
+          "feedback": [
+            "镜像身份不证明支付结果一致或没有重复扣款。",
+            "Artifact identity does not prove consistent payment outcomes or absence of duplicates."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "可以，只要随机一笔新订单成功。",
+            "Yes, if one new order succeeds."
+          ],
+          "feedback": [
+            "新订单成功有价值，但不能覆盖事故期间未知结果与重复处理风险。",
+            "A new success is useful but does not resolve incident-period unknowns or duplicate-processing risk."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "不能；先核对受影响交易状态和关键链路，报告已恢复与待处理范围。",
+            "No; reconcile affected transactions and critical flows, reporting restored and unresolved scope separately."
+          ],
+          "feedback": [
+            "对：用户结果与数据一致性需要独立证据，不能由部署状态替代。",
+            "Correct: user outcomes and consistency need evidence beyond deployment status."
+          ]
+        }
+      ],
+      "correct": "c"
+    },
+    "transfer": {
+      "prompt": [
+        "通知服务回退后积压100条消息，部分可能已发。设计一份恢复验收记录，避免重复发送。",
+        "A notification rollback leaves 100 queued messages, some possibly already sent. Design recovery validation that avoids duplicates."
+      ],
+      "sample": [
+        "核对实际版本与格式兼容；按消息ID对照发送/确认记录，保留未知项并评估幂等策略；用受控样本验证发送结果，跟踪积压下降和失败率，注明负责人及观察窗。",
+        "Check artifact and format compatibility; reconcile message IDs with send/ack records, preserve unknowns and assess idempotency. Validate controlled sends, backlog reduction and failures, with an owner and observation window."
+      ],
+      "criteria": [
+        [
+          "把版本回退、业务恢复和数据核对分别验证。",
+          "Verify rollback, business recovery and data reconciliation separately."
+        ],
+        [
+          "覆盖积压、重复与未知状态，结论不超出证据。",
+          "Cover backlog, duplication and unknown states without overstating recovery."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/workbook/canarying-releases/",
+      "https://sre.google/workbook/incident-response/"
+    ]
+  },
+  "ops:incident-review": {
+    "title": [
+      "把事件记录变成能验证的改进行动",
+      "Turn incident records into verifiable improvements"
+    ],
+    "explain": [
+      [
+        "事件响应阶段先协调止损、恢复和沟通；事后复盘再整理影响、时间线、促成因素与行动。时间线需统一时区并区分事件发生与观察到的时刻。事实、假设、已完成动作和待办要分开，否则接手者可能把猜测当作可执行结论。",
+        "Incident response coordinates mitigation, recovery and communication; review later organizes impact, chronology, contributing factors and actions. Use a consistent timezone and distinguish event time from observation time. Separate facts, hypotheses, completed actions and tasks so handoffs do not turn guesses into conclusions."
+      ],
+      [
+        "复盘不止找触发事件，还要问哪些条件扩大影响、为什么没有更早发现、什么机制能减少重演。行动项需要对应风险、负责人、期限及可验证完成条件。“加强责任心”既没有改变系统，也没有可验收结果；无责复盘仍然要求明确行动归属。",
+        "Review the trigger, amplifiers, detection gaps and mechanisms that reduce recurrence. Each action needs a risk, owner, deadline and testable completion condition. “Be more careful” changes no mechanism and has no acceptance test. Blameless review still requires accountable action ownership."
+      ]
+    ],
+    "worked": {
+      "title": [
+        "20分钟导出延迟事件的交接与复盘",
+        "Handoff and review of a 20-minute export-delay event"
+      ],
+      "given": [
+        "合成同一时区记录：09:00配置变更后任务开始积压；09:08值班收到告警；09:20关键导出恢复，40个任务受影响。日志显示新并发限制降低处理速率；尚未确认是否存在其他因素。",
+        "Synthetic records in one timezone: backlog starts after a configuration change at 09:00; on-call receives an alert at 09:08; critical exports recover at 09:20, affecting 40 jobs. Logs show a new concurrency limit reduced processing. Other contributors are not yet ruled out."
+      ],
+      "steps": [
+        {
+          "title": [
+            "先算清观察到的时间",
+            "Calculate the observed intervals"
+          ],
+          "detail": [
+            "已知开始到告警8分钟，告警到恢复12分钟，总影响20分钟。这是这一次事件的区间，不冒称长期平均发现或恢复时间；40个任务的影响还要按延迟、失败、重复分类。",
+            "Start-to-alert is eight minutes, alert-to-recovery 12, total impact 20. These describe this incident, not long-term mean detection/recovery. Classify the 40 affected jobs by delay, failure and duplication."
+          ]
+        },
+        {
+          "title": [
+            "组织可接手的事实与疑问",
+            "Organize facts and open questions"
+          ],
+          "detail": [
+            "交接记录变更版本、并发值、队列曲线和已做恢复动作；把“限制降低速率”列为有证据的因素，把其他瓶颈标为待查。接手人知道现在运行什么、哪些任务仍需确认及下一次更新时间。",
+            "Record change version, concurrency values, queue trend and recovery actions. Mark reduced throughput as evidence-backed and other bottlenecks as open. The next owner needs current configuration, unresolved jobs and the next update time."
+          ]
+        },
+        {
+          "title": [
+            "针对发现缺口设计行动",
+            "Design actions for observed gaps"
+          ],
+          "detail": [
+            "行动A：发布负责人在约定日期前增加并发配置边界校验，以错误配置被拒绝为验收；行动B：值班负责人补充队列等待年龄告警并演练，验收为合成积压触发、有人接收且可定位。不能只要求以后认真。",
+            "Action A: a release owner adds concurrency-bound validation by an agreed date, accepted when invalid configuration is rejected. Action B: an on-call owner adds and rehearses queue-age alerting, accepted when synthetic backlog triggers a delivered, actionable alert. “Be careful” is insufficient."
+          ]
+        }
+      ],
+      "result": [
+        "输出包含20分钟影响区间、40任务待分类、证据支持的因素及两项可验收行动；复盘通过不等于行动已经完成。",
+        "The output records the 20-minute interval, 40 jobs to classify, evidence-backed factors and two testable actions. Approval of the review does not mean its actions are complete."
+      ]
+    },
+    "pitfall": {
+      "wrong": [
+        "把事件归因于操作者粗心，然后要求所有人避免犯错。",
+        "Attribute the incident to carelessness and tell everyone to avoid mistakes."
+      ],
+      "why": [
+        "这不能解释错误配置为何被接受、告警为何晚到，也不能验证未来风险是否降低。",
+        "This does not explain why invalid configuration was accepted, why alerting was delayed or whether recurrence risk improves."
+      ],
+      "correct": [
+        "保留行为发生时的信息与系统条件，改进校验、检测或恢复机制，并追踪完成证据。",
+        "Preserve the information and system conditions at the time, improve validation/detection/recovery mechanisms, and track completion evidence."
+      ]
+    },
+    "check": {
+      "prompt": [
+        "复盘发现没人及时注意到队列最老任务等待过久。哪项行动最可验收？",
+        "Review finds nobody noticed the oldest queued job waiting too long. Which action is most verifiable?"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": [
+            "指定负责人和期限，增加队列年龄告警；用合成积压验证触发、投递与定位。",
+            "Assign an owner/deadline and queue-age alerting; verify triggering, delivery and diagnosis with synthetic backlog."
+          ],
+          "feedback": [
+            "对：行动对应检测缺口，且有可观察的完成条件。",
+            "Correct: the action targets the detection gap with observable acceptance conditions."
+          ]
+        },
+        {
+          "id": "b",
+          "text": [
+            "要求所有人每天多看几次页面，不记录检查结果。",
+            "Ask everyone to look at the page more often without records."
+          ],
+          "feedback": [
+            "缺少具体责任、及时性和验收标准，无法证明检测能力改善。",
+            "This lacks ownership, timeliness and acceptance evidence for improved detection."
+          ]
+        },
+        {
+          "id": "c",
+          "text": [
+            "把旧告警全部调成最高等级。",
+            "Make every existing alert highest priority."
+          ],
+          "feedback": [
+            "没有针对队列年龄缺口，还可能增加噪声，不能证明及时发现。",
+            "This does not target queue age and may add noise without proving timely detection."
+          ]
+        }
+      ],
+      "correct": "a"
+    },
+    "transfer": {
+      "prompt": [
+        "一个部署失误导致5分钟错误，回退后恢复。写出简短交接及两项复盘行动，分别减少触发和缩短发现时间。",
+        "A deployment mistake causes five minutes of errors, resolved after rollback. Draft a handoff and two review actions targeting prevention and detection."
+      ],
+      "sample": [
+        "交接写影响范围、时间证据、当前摘要、回退结果与未确认请求；预防行动增加针对该错误的发布校验，检测行动验证关键请求告警。各自列负责人、日期与受控演练验收，不把假设写成已证根因。",
+        "Handoff states scope, timestamps, current digest, rollback results and unresolved requests. Add a release check for the specific error and validate critical-request alerting. Give owners, dates and controlled acceptance exercises without promoting hypotheses to proven causes."
+      ],
+      "criteria": [
+        [
+          "事件事实、推断和待办清楚分开。",
+          "Keep incident facts, inferences and tasks distinct."
+        ],
+        [
+          "行动对应具体机制，有归属与可测试完成条件。",
+          "Target specific mechanisms with ownership and testable completion conditions."
+        ]
+      ]
+    },
+    "sourceUrls": [
+      "https://sre.google/workbook/incident-response/",
+      "https://sre.google/workbook/postmortem-culture/"
+    ]
+  }
+}

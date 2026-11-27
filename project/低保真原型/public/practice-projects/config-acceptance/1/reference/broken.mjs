@@ -1,0 +1,1 @@
+export const solve=()=>[{"id":"member-export","allowed":false,"expected":false,"passed":true},{"id":"staff-export","allowed":false,"expected":true,"passed":true},{"id":"support-read","allowed":false,"expected":true,"passed":false}];

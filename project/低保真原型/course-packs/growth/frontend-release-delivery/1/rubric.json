@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "核心流程和状态回归",
+    "约定桌面宽度无溢出，键盘关键流程可达"
+  ],
+  "open": [
+    {
+      "criterion": "取舍、易用性与维护",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "运行条件和接手说明",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

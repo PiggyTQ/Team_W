@@ -1,0 +1,89 @@
+{
+  "identity": {
+    "parentProject": "multi-source-analysis",
+    "parentVersion": 1,
+    "id": "data-1",
+    "seed": 1,
+    "ruleVersion": 1,
+    "checker": "growth-rules-1",
+    "inputDigest": "bc011e249271f66297f6af7f1093e45cd8e20f24289ee57473ba18be6ae34b79",
+    "expectedDigest": "57320d1a5b8041778559bec16407a6a1e25ad6b53dcb4aec0908b6fd3d3bfb7c",
+    "rubricDigest": "f69c7224d01c584994f57819c4b9d8cb7d9a6cb7db4768bd3af748d2d068b000",
+    "independence": "Controlled public teaching extension; not an unseen mastery assessment"
+  },
+  "input": {
+    "orders": [
+      {
+        "id": "A1",
+        "customer": "C1",
+        "channel": "web",
+        "cents": 12000
+      },
+      {
+        "id": "A2",
+        "customer": "C1",
+        "channel": "community",
+        "cents": 8000
+      },
+      {
+        "id": "A3",
+        "customer": "C2",
+        "channel": "web",
+        "cents": 6000
+      }
+    ],
+    "payments": [
+      {
+        "id": "P1",
+        "order": "A1",
+        "cents": 6000
+      },
+      {
+        "id": "P2",
+        "order": "A1",
+        "cents": 6000
+      },
+      {
+        "id": "P3",
+        "order": "A2",
+        "cents": 8000
+      },
+      {
+        "id": "P4",
+        "order": "A1",
+        "cents": 1000
+      }
+    ],
+    "customers": [
+      {
+        "id": "C1"
+      },
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C3"
+      }
+    ]
+  },
+  "expected": [
+    {
+      "id": "A1",
+      "channel": "web",
+      "ordered": 12000,
+      "paid": 13000
+    },
+    {
+      "id": "A2",
+      "channel": "community",
+      "ordered": 8000,
+      "paid": 8000
+    },
+    {
+      "id": "A3",
+      "channel": "web",
+      "ordered": 6000,
+      "paid": 0
+    }
+  ]
+}

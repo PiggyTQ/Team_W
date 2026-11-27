@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "服务器拒绝越权同时允许正常业务",
+    "旧复现失效，相关行为回归"
+  ],
+  "open": [
+    {
+      "criterion": "交接是否可执行，反馈/修改是否有依据",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "模拟角色如实标注，本人贡献与责任不混淆",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

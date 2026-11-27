@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "坏版本出现预期失败、修复版通过",
+    "清理和隔离避免测试顺序污染"
+  ],
+  "open": [
+    {
+      "criterion": "覆盖取舍与脆弱用例",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "未测范围",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

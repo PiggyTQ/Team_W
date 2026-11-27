@@ -1,0 +1,90 @@
+{
+  "publisher": "Avemly project authors",
+  "kind": "original-synthetic",
+  "license": "Original locally authored teaching inputs and code. Local Avemly practice use. Public redistribution policy requires owner decision.",
+  "copyright": "Avemly project authors",
+  "thirdPartyMaterialCopied": false,
+  "seed": 20261126,
+  "generator": "scripts/author-practice-growth.py; scripts/freeze-practice-growth.mjs",
+  "upstreamCandidatesAdopted": false,
+  "methodReferencesAreLinks": true,
+  "createdAt": "2026-11-26",
+  "review": {
+    "technical": "reference_and_counterexample_executed",
+    "domain": "not_performed",
+    "learnerPilot": "not_performed"
+  },
+  "ownerRole": "practice-content-editor",
+  "assignedPerson": null,
+  "sources": [
+    {
+      "sourceId": "avemly-original-grounded-assistant-delivery",
+      "publisher": "Avemly / AI-assisted local authorship",
+      "title": "Bounded knowledge assistant delivery",
+      "originalUrl": null,
+      "actualFileUrl": null,
+      "materialType": "original-synthetic",
+      "readFiles": [
+        "input/fixture.json",
+        "input/dictionary.md",
+        "reference/solution.mjs"
+      ],
+      "supports": "The bounded teaching contract and fixed regression inputs",
+      "doesNotSupport": "Real corporate provenance, professional certification or independent learner mastery",
+      "region": "Synthetic local teaching context",
+      "upstreamVersion": "1",
+      "originalDate": "2026-11-26",
+      "reviewedAt": "2026-11-26T04:30:53.744Z",
+      "license": "Local practice materials; public redistribution policy pending owner review",
+      "licenseUrl": null,
+      "applicableFiles": [
+        "input/",
+        "reference/",
+        "starter/"
+      ],
+      "notice": "Original synthetic teaching materials; AI-assisted authorship; no third-party material copied",
+      "modifications": "Authored for this practice; see CHANGELOG.md",
+      "thirdPartyExceptions": [],
+      "canCache": true,
+      "canAdapt": "within local practice",
+      "canRedistribute": false
+    }
+  ],
+  "methodReferences": [],
+  "materialRecords": [
+    {
+      "projectId": "grounded-assistant-delivery",
+      "version": 1,
+      "path": "input/fixture.json",
+      "originalFilename": "fixture.json",
+      "format": ".json",
+      "encoding": "UTF-8",
+      "bytes": 835,
+      "sha256": "8547cceacb91ee995aecad621269293fc3ff4085d75fc8f06188ea946c772762",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    },
+    {
+      "projectId": "grounded-assistant-delivery",
+      "version": 1,
+      "path": "input/dictionary.md",
+      "originalFilename": "dictionary.md",
+      "format": ".md",
+      "encoding": "UTF-8",
+      "bytes": 1455,
+      "sha256": "2c275f46ad338d15257c579346d5c3286a130a6ca0eea696d8be1634c50c094a",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    }
+  ]
+}

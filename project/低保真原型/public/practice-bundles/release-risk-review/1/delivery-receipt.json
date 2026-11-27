@@ -1,0 +1,17 @@
+{
+  "projectId": "release-risk-review",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "33705579eb538e63406d1f14c74f7fdb2fc612319cc09ea6da1afc28ba003a8c",
+  "bytes": 41149,
+  "files": 28,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"release-risk-review\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:51.365Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

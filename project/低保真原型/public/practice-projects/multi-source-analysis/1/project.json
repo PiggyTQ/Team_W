@@ -1,0 +1,162 @@
+{
+  "id": "multi-source-analysis",
+  "version": 1,
+  "legacy": false,
+  "career": "data",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "多来源业务分析",
+    "en": "Multi-source business analysis"
+  },
+  "next": [
+    "analysis-change-handoff"
+  ],
+  "prior": "quality",
+  "adapter": "data",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "sql-joins"
+  ],
+  "brief": {
+    "zh": "活动负责人要核对官网与社群订单。订单表每行一单，支付表每行一笔支付；A1分两次支付，另有未付款订单。先确定关联粒度，再交付订单级对账与业务简报。",
+    "en": "The activity owner needs an order and payment reconciliation. Aggregate payments at order grain before joining; distinguish orders, paid amounts and unpaid orders."
+  },
+  "outputs": {
+    "zh": [
+      "SQL/工作簿及关联说明",
+      "图表、分析简报与局限"
+    ],
+    "en": [
+      "SQL",
+      "order-level reconciliation and a short analysis brief"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "连接前后基数与总量对账",
+      "固定数据的分组及指标复算一致"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Duplicating the order amount for each payment inflates the first order. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "故意一对多连接导致重复累计，检查必须捕获",
+    "en": "Duplicating the order amount for each payment inflates the first order."
+  },
+  "review": {
+    "zh": [
+      "问题与指标是否对应",
+      "事实、假设和下一步验证分开"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "活动负责人要核对官网与社群订单。订单表每行一单，支付表每行一笔支付；A1分两次支付，另有未付款订单。先确定关联粒度，再交付订单级对账与业务简报。",
+      "故意一对多连接导致重复累计，检查必须捕获；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "The activity owner needs an order and payment reconciliation.",
+      "Reproduce this failure first: Duplicating the order amount for each payment inflates the first order.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "故意一对多连接导致重复累计，检查必须捕获",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "query.sql"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "instances": [
+    {
+      "parentProject": "multi-source-analysis",
+      "parentVersion": 1,
+      "id": "data-1",
+      "seed": 1,
+      "ruleVersion": 1,
+      "checker": "growth-rules-1",
+      "inputDigest": "bc011e249271f66297f6af7f1093e45cd8e20f24289ee57473ba18be6ae34b79",
+      "expectedDigest": "57320d1a5b8041778559bec16407a6a1e25ad6b53dcb4aec0908b6fd3d3bfb7c",
+      "rubricDigest": "f69c7224d01c584994f57819c4b9d8cb7d9a6cb7db4768bd3af748d2d068b000",
+      "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+      "asset": "input/variants/data-1.json",
+      "label": {
+        "zh": "新增分次支付",
+        "en": "Additional partial payment"
+      }
+    },
+    {
+      "parentProject": "multi-source-analysis",
+      "parentVersion": 1,
+      "id": "data-2",
+      "seed": 2,
+      "ruleVersion": 1,
+      "checker": "growth-rules-1",
+      "inputDigest": "59563f62d576ba6537f2e2915a6d85f08dba9e8118c666482931ef2a3e5a0ec4",
+      "expectedDigest": "dc7687255984eac6a345994330c365ed384ea48e874296e8f4aebfd70e47360b",
+      "rubricDigest": "f69c7224d01c584994f57819c4b9d8cb7d9a6cb7db4768bd3af748d2d068b000",
+      "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+      "asset": "input/variants/data-2.json",
+      "label": {
+        "zh": "新增未支付订单",
+        "en": "Additional unpaid order"
+      }
+    }
+  ],
+  "skillLinks": [
+    {
+      "career": "data",
+      "branch": "metrics",
+      "skill": "sql-joins",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "query.sql"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

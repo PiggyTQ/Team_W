@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "本人/他人/未登录/不同动作响应符合契约",
+    "修复后正向功能与拒绝路径均验证"
+  ],
+  "open": [
+    {
+      "criterion": "影响证据与授权边界",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "不能扩成全应用安全认证",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

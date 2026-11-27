@@ -1,0 +1,162 @@
+{
+  "id": "alert-rule-regression",
+  "version": 1,
+  "legacy": false,
+  "career": "ops",
+  "relatedCareers": [],
+  "level": 2,
+  "kind": "career-core",
+  "title": {
+    "zh": "告警规则与反例",
+    "en": "Alert rules and counterexamples"
+  },
+  "next": [
+    "reliability-release-drill"
+  ],
+  "prior": "restore",
+  "adapter": "rules",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "four-signals"
+  ],
+  "brief": {
+    "zh": "报名服务值班要减少短尖峰和低流量告警。编写可执行的JSON教学规则，对连续窗口、无流量、缺失、异常计数和恢复逐时核对；这不是PromQL兼容实现。",
+    "en": "An operator needs an error-rate rule that ignores low traffic and isolated spikes. Evaluate consecutive windows, labels, no traffic, missing data and recovery."
+  },
+  "outputs": {
+    "zh": [
+      "规则YAML与测试fixtures",
+      "实际检查报告和局限"
+    ],
+    "en": [
+      "Executable JSON rule",
+      "time-series fixtures and trigger records"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "promtool或等价真实规则检查记录",
+      "指定时刻数值、触发/不触发、标签及恢复正确"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "Counting a short spike as a sustained alert violates the duration requirement. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "计数器重置或低请求量误触发，回归必须捕获",
+    "en": "Counting a short spike as a sustained alert violates the duration requirement."
+  },
+  "review": {
+    "zh": [
+      "告警与用户影响的关系",
+      "测试范围不等于真实事故效果"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "报名服务值班要减少短尖峰和低流量告警。编写可执行的JSON教学规则，对连续窗口、无流量、缺失、异常计数和恢复逐时核对；这不是PromQL兼容实现。",
+      "计数器重置或低请求量误触发，回归必须捕获；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "An operator needs an error-rate rule that ignores low traffic and isolated spikes.",
+      "Reproduce this failure first: Counting a short spike as a sustained alert violates the duration requirement.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "计数器重置或低请求量误触发，回归必须捕获",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "rules.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "instances": [
+    {
+      "parentProject": "alert-rule-regression",
+      "parentVersion": 1,
+      "id": "rules-1",
+      "seed": 1,
+      "ruleVersion": 1,
+      "checker": "growth-rules-1",
+      "inputDigest": "61e2693ce3adedbf11ff9aaea2ad4c1e261fd3c9326c33cc416f976bc8de0b08",
+      "expectedDigest": "c84ef699475c0b16f70fc20be421b84ca4717646c2d91afb9c6479da51486ed6",
+      "rubricDigest": "14341c25843f6224089b56987e2810b4f94d7db0963afd60e2ed904e1454cf76",
+      "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+      "asset": "input/variants/rules-1.json",
+      "label": {
+        "zh": "持续窗口与恢复 1",
+        "en": "Sustained window and recovery 1"
+      }
+    },
+    {
+      "parentProject": "alert-rule-regression",
+      "parentVersion": 1,
+      "id": "rules-2",
+      "seed": 2,
+      "ruleVersion": 1,
+      "checker": "growth-rules-1",
+      "inputDigest": "00e696b8dea3bfbd78bd41995edb237016df5d36fcff2d8717cd431f5f33074f",
+      "expectedDigest": "70a1b07f54d55657cf31624a214a673cf132711522e8ed7ba2fd8e59f3c69720",
+      "rubricDigest": "14341c25843f6224089b56987e2810b4f94d7db0963afd60e2ed904e1454cf76",
+      "independence": "Controlled public teaching extension; not an unseen mastery assessment",
+      "asset": "input/variants/rules-2.json",
+      "label": {
+        "zh": "持续窗口与恢复 2",
+        "en": "Sustained window and recovery 2"
+      }
+    }
+  ],
+  "skillLinks": [
+    {
+      "career": "ops",
+      "branch": "observability",
+      "skill": "four-signals",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "rules.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    }
+  ]
+}

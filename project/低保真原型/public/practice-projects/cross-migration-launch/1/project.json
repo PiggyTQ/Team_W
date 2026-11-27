@@ -1,0 +1,243 @@
+{
+  "id": "cross-migration-launch",
+  "version": 1,
+  "legacy": false,
+  "career": "delivery",
+  "relatedCareers": [
+    "engineering",
+    "ops",
+    "testing",
+    "data"
+  ],
+  "level": "integrated",
+  "kind": "cross-career",
+  "title": {
+    "zh": "业务系统迁移上线交接",
+    "en": "Migration launch collaboration"
+  },
+  "next": [],
+  "prior": null,
+  "adapter": "handoff",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "migration"
+  ],
+  "brief": {
+    "zh": "以业务、工程/运维与UAT角色轮换处理迁移。传递映射与验收范围，核对规范化内容、差异和切换后新增记录，给出停止、保全与回退交接。",
+    "en": "Rotate business, engineering/operations and UAT roles. Compare normalized content, preserve post-cutover changes and document rollback boundaries."
+  },
+  "outputs": {
+    "zh": [
+      "映射/数据/权限核对包",
+      "切换决定、培训与支持说明"
+    ],
+    "en": [
+      "Migration reconciliation",
+      "cutover decision and support revision"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "关键字段/内容摘要与业务结果一致",
+      "切换后新增记录有保全/对账，不能直接覆盖"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "A rollback that discards the new records must be blocked. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "行数相同但状态映射错误或回退丢新增记录应阻断",
+    "en": "A rollback that discards the new records must be blocked."
+  },
+  "review": {
+    "zh": [
+      "交接是否可执行，反馈/修改是否有依据",
+      "模拟角色如实标注，本人贡献与责任不混淆"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "以业务、工程/运维与UAT角色轮换处理迁移。传递映射与验收范围，核对规范化内容、差异和切换后新增记录，给出停止、保全与回退交接。",
+      "行数相同但状态映射错误或回退丢新增记录应阻断；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Rotate business, engineering/operations and UAT roles.",
+      "Reproduce this failure first: A rollback that discards the new records must be blocked.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "行数相同但状态映射错误或回退丢新增记录应阻断",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [
+    {
+      "role": "业务/实施",
+      "produces": "范围、权限、UAT与切换约定",
+      "consumedBy": "工程/运维/测试",
+      "requiredOutput": "stage-1.json",
+      "inputDigest": "c966ff320051e9fffde85da5b859c285b980fa7da69df197efa26d8665584659",
+      "expectedOutputDigest": "6dba6b6a2b857d2adb4f7541482d724b39f69397482a28f7de7f5894d0d4349d",
+      "canonicalOutputDigest": "f2b39c676baf1cbd29cd60b0bd05901ba9c061cce3d008c49efa735834959f58",
+      "feedbackCode": "cross-migration-launch-stage-1",
+      "roleLabel": {
+        "zh": "业务/实施",
+        "en": "Business and implementation"
+      },
+      "receiverLabel": {
+        "zh": "工程/运维/测试",
+        "en": "Engineering, operations and testing"
+      }
+    },
+    {
+      "role": "工程/运维",
+      "produces": "迁移结果、对账、增量和回退边界",
+      "consumedBy": "测试/业务",
+      "requiredOutput": "stage-2.json",
+      "inputDigest": "fca5d8a2e9f640d085e432a7b32bb978b461e5c50ee26520d817544d5ebc63d6",
+      "expectedOutputDigest": "ce8051472b27a44de7326790c89f2bbea9605e1fd6488b2417e700f2ae80bc35",
+      "canonicalOutputDigest": "60ac668f1402a4ec6e1735eefa456c44bfe853c944603efd1a5710e5b24c4d18",
+      "feedbackCode": "cross-migration-launch-stage-2",
+      "roleLabel": {
+        "zh": "工程/运维",
+        "en": "Engineering and operations"
+      },
+      "receiverLabel": {
+        "zh": "测试/业务",
+        "en": "Testing and business"
+      }
+    },
+    {
+      "role": "测试/业务",
+      "produces": "验收与未测/残留项",
+      "consumedBy": "实施/支持",
+      "requiredOutput": "stage-3.json",
+      "inputDigest": "838ff66b24d0a427f5dc205d078ef729a3cc194c2204f21923b6cdbf8bd4dfa5",
+      "expectedOutputDigest": "0fae044284b8482d4e27cbe76b20d5e5c946d476dfa9227015c2c99d4c3009b5",
+      "canonicalOutputDigest": "6a71d1587066443e5741abe69bf3691dcd2a8403590f025927ccd48458175fc6",
+      "feedbackCode": "cross-migration-launch-stage-3",
+      "roleLabel": {
+        "zh": "测试/业务",
+        "en": "Testing and business"
+      },
+      "receiverLabel": {
+        "zh": "实施/支持",
+        "en": "Implementation and support"
+      }
+    }
+  ],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "handoff.json",
+    "solution.mjs",
+    "stage-1.json",
+    "stage-2.json",
+    "stage-3.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "delivery",
+      "branch": "setup",
+      "skill": "migration",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "engineering",
+      "branch": "governance",
+      "skill": "lineage",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "ops",
+      "branch": "recovery",
+      "skill": "rollback-verify",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "testing",
+      "branch": "analysis",
+      "skill": "risk-priority",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "data",
+      "skill": null,
+      "state": "unknown",
+      "reason": "A related role is present, but this bounded fixture does not provide a reliable precise skill mapping."
+    }
+  ]
+}

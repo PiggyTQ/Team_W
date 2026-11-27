@@ -1,0 +1,53 @@
+{
+  "documents": [
+    {
+      "id": "D1",
+      "version": 1,
+      "roles": [
+        "member"
+      ],
+      "fact": "checkin",
+      "value": "09:00–09:30"
+    },
+    {
+      "id": "D2",
+      "version": 2,
+      "roles": [
+        "staff"
+      ],
+      "fact": "budget",
+      "value": "internal-only"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "role": "member",
+      "document": "D1",
+      "version": 1,
+      "fact": "checkin"
+    },
+    {
+      "id": "Q2",
+      "role": "member",
+      "document": "D1",
+      "version": 1,
+      "fact": "late-entry"
+    },
+    {
+      "id": "Q3",
+      "role": "member",
+      "document": "D2",
+      "version": 2,
+      "fact": "budget"
+    },
+    {
+      "id": "Q4",
+      "role": "staff",
+      "document": "D2",
+      "version": 1,
+      "fact": "budget"
+    }
+  ],
+  "revision": 2
+}

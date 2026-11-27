@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import {growthProject,registeredProject} from '../src/practice-registry.js';
 import {careers,learning} from '../src/model.js';
 import {getEnglishTranslations} from '../src/i18n/render.js';
 import {getSkillTree} from '../server/skill-trees/index.mjs';
@@ -13,6 +14,7 @@ const pair = value => {
 
 const projects = {};
 for (const unit of learning) {
+  if(growthProject(unit.id)){const p=registeredProject(unit.id);projects[unit.id]={[p.version]:{title:p.title,purpose:p.brief,standard:{zh:p.outputs.zh.join('、'),en:p.outputs.en.join(', ')}}};continue;}
   const pack = new URL('../course-packs/practice-20261113/' + unit.id + '/project.json', import.meta.url);
   const {title,brief,outcome,version} = JSON.parse(await fs.readFile(pack,'utf8'));
   projects[unit.id] = {

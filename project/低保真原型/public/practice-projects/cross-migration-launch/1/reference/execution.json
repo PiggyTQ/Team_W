@@ -1,0 +1,264 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n... Skipped lines\r\n\r\n  {\r\n+   decision: 'rollback_available',\r\n+   feedback: null,\r\n-   decision: 'preserve_delta_before_rollback',\r\n-   feedback: {\r\n-     issue: 'new_data_preservation',\r\n-     to: 'ops'\r\n-   },\r\n    reconciliation: {\r\n+     differences: [],\r\n-     differences: [\r\n-       'U2'\r\n-     ],\r\n      normalized: [\r\n        {\r\n          email: 'alice@example.invalid',\r\n          id: 'U1',\r\n          status: 'active'\r\n...\r\n          id: 'U2',\r\n+         status: 'active'\r\n-         status: 'pending'\r\n        }\r\n      ],\r\n+     preserve: [],\r\n+     rollbackAllowed: true\r\n-     preserve: [\r\n-       'U3'\r\n-     ],\r\n-     rollbackAllowed: false\r\n    },\r\n    revision: 2\r\n  }\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/cross-migration-launch/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: {\r\n    reconciliation: {\r\n      normalized: [\r\n        { id: 'U1', email: 'alice@example.invalid', status: 'active' },\r\n        { id: 'U2', email: 'bob@example.invalid', status: 'active' }\r\n      ],\r\n      differences: [],\r\n      rollbackAllowed: true,\r\n      preserve: []\r\n    },\r\n    decision: 'rollback_available',\r\n    feedback: null,\r\n    revision: 2\r\n  },\r\n  expected: {\r\n    reconciliation: {\r\n      normalized: [\r\n        { id: 'U1', email: 'alice@example.invalid', status: 'active' },\r\n        { id: 'U2', email: 'bob@example.invalid', status: 'pending' }\r\n      ],\r\n      differences: [ 'U2' ],\r\n      rollbackAllowed: false,\r\n      preserve: [ 'U3' ]\r\n    },\r\n    decision: 'preserve_delta_before_rollback',\r\n    feedback: { to: 'ops', issue: 'new_data_preservation' },\r\n    revision: 2\r\n  },\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/cross-migration-launch/1/reference/broken.mjs:1\r\nexport const solve=()=>{\"reconciliation\":{\"normalized\":[{\"id\":\"U1\",\"email\":\"alice@example.invalid\",\"status\":\"active\"},{\"id\":\"U2\",\"email\":\"bob@example.invalid\",\"status\":\"pending\"}],\"differences\":[\"U2\"],\"rollbackAllowed\":false,\"preserve\":[]},\"decision\":\"rollback_available\",\"feedback\":{\"to\":\"ops\",\"issue\":\"new_data_preservation\"},\"revision\":2};\r\n                                        ^\r\n\r\nSyntaxError: Unexpected token ':'\r\n    at compileSourceTextModule (node:internal/modules/esm/utils:319:16)\r\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:89:18)\r\n    at #translate (node:internal/modules/esm/loader:438:20)\r\n    at afterLoad (node:internal/modules/esm/loader:506:29)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:511:12)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:564:36)\r\n    at afterResolve (node:internal/modules/esm/loader:611:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)\r\n    at node:internal/modules/esm/loader:636:32\r\n    at TracingChannel.tracePromise (node:diagnostics_channel:370:14)\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "cross-migration-launch",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:31:01.428Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-migration-launch\",\"version\":1,\"executedAt\":\"2026-11-26T04:31:01.335Z\"}\n",
+    "inputDigest": "705ba427ef84abbee9425d2032416f163944ed4cde9f53306d1bce0b230efd77",
+    "artifactDigest": "ef4681ca73824a2ef0328b071617045084234d90890b9a999f4cfa53dacf34bc"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "cross-migration-launch",
+    "version": 1,
+    "inputDigest": "705ba427ef84abbee9425d2032416f163944ed4cde9f53306d1bce0b230efd77",
+    "artifactDigest": "508fd5bee98a26afe655d9c8e7dd20f287fb7ab4e041eafdd835a107cca7469c",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:31:01.291Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:handoff.json",
+        "passed": true,
+        "detail": "handoff.json"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "file:stage-1.json",
+        "passed": true,
+        "detail": "stage-1.json"
+      },
+      {
+        "id": "file:stage-2.json",
+        "passed": true,
+        "detail": "stage-2.json"
+      },
+      {
+        "id": "file:stage-3.json",
+        "passed": true,
+        "detail": "stage-3.json"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:handoff.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-1.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-2.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-3.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      },
+      {
+        "id": "role-handoff",
+        "passed": true,
+        "detail": "Input identity, receiving role, feedback and revision"
+      },
+      {
+        "id": "consumer:stage-1.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-2.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-3.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "cross-migration-launch",
+    "version": 1,
+    "inputDigest": "705ba427ef84abbee9425d2032416f163944ed4cde9f53306d1bce0b230efd77",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:31:01.291Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "cross-migration-launch",
+    "version": 1,
+    "inputDigest": "705ba427ef84abbee9425d2032416f163944ed4cde9f53306d1bce0b230efd77",
+    "artifactDigest": "ef4681ca73824a2ef0328b071617045084234d90890b9a999f4cfa53dacf34bc",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:31:01.290Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:handoff.json",
+        "passed": true,
+        "detail": "handoff.json"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "file:stage-1.json",
+        "passed": true,
+        "detail": "stage-1.json"
+      },
+      {
+        "id": "file:stage-2.json",
+        "passed": true,
+        "detail": "stage-2.json"
+      },
+      {
+        "id": "file:stage-3.json",
+        "passed": true,
+        "detail": "stage-3.json"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:handoff.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-1.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-2.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "format:stage-3.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      },
+      {
+        "id": "role-handoff",
+        "passed": true,
+        "detail": "Input identity, receiving role, feedback and revision"
+      },
+      {
+        "id": "consumer:stage-1.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-2.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      },
+      {
+        "id": "consumer:stage-3.json",
+        "passed": true,
+        "detail": "Consumer content reconciles independently of the handoff prose"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

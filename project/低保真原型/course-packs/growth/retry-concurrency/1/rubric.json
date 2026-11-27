@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "重复请求不重复业务效果",
+    "并发占用和中途失败按契约保持状态"
+  ],
+  "open": [
+    {
+      "criterion": "一致性选择与边界",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "不把某种幂等方案写成通用唯一答案",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

@@ -1,0 +1,1 @@
+export const solve=()=>{"normalized":[{"id":"U1","email":"alice@example.invalid","status":"active"},{"id":"U2","email":"bob@example.invalid","status":"pending"}],"differences":["U2"],"rollbackAllowed":true,"preserve":[]};

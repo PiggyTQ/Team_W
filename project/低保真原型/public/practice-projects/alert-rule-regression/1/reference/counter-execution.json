@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "stdout": "{\"scope\":\"Actual original Node rule evaluator, not PromQL or promtool\",\"runtime\":\"v24.22.1\",\"result\":[{\"minute\":0,\"rate\":null,\"firing\":false,\"label\":\"registration\"},{\"minute\":1,\"rate\":0.1,\"firing\":false,\"label\":\"registration\"},{\"minute\":2,\"rate\":0.1,\"firing\":true,\"label\":\"registration\"},{\"minute\":3,\"rate\":null,\"firing\":false,\"label\":\"registration\"},{\"minute\":4,\"rate\":0.01,\"firing\":false,\"label\":\"registration\"},{\"minute\":5,\"rate\":null,\"firing\":false,\"label\":\"registration\"},{\"minute\":6,\"rate\":null,\"firing\":false,\"label\":\"registration\"},{\"minute\":7,\"rate\":null,\"firing\":false,\"label\":\"registration\"}]}\n",
+  "at": "2026-11-26T04:30:54.443Z"
+}

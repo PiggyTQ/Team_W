@@ -1,0 +1,1 @@
+SELECT id,amount_cents AS cents,'v1' AS origin FROM history UNION ALL SELECT id,COALESCE(cents,amount_cents) AS cents,CASE WHEN cents IS NULL THEN 'v1' ELSE 'v2' END AS origin FROM increment ORDER BY id;

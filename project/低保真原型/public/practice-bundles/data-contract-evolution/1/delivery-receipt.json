@@ -1,0 +1,17 @@
+{
+  "projectId": "data-contract-evolution",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "b8a222019254d78a75497b04e7172e9cb0fb21eae8137cd2a859f625217ab395",
+  "bytes": 43920,
+  "files": 33,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-contract-evolution\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:50.466Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

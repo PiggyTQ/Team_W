@@ -1,0 +1,17 @@
+{
+  "projectId": "rule-tool",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "32b88a87317f634aa83235bcd382e74a3c85185ae86e7975b841afe9d45c91a7",
+  "bytes": 40425,
+  "files": 28,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rule-tool\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:51.654Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

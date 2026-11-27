@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "member": [
+      "read",
+      "register"
+    ],
+    "staff": [
+      "read",
+      "register",
+      "export"
+    ]
+  },
+  "cases": [
+    {
+      "id": "member-export",
+      "role": "member",
+      "action": "export",
+      "expected": false
+    },
+    {
+      "id": "staff-export",
+      "role": "staff",
+      "action": "export",
+      "expected": true
+    },
+    {
+      "id": "support-read",
+      "role": "support",
+      "action": "read",
+      "expected": true
+    }
+  ]
+}

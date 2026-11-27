@@ -1,0 +1,144 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  {\r\n+   differences: [],\r\n-   differences: [\r\n-     'U2'\r\n-   ],\r\n    normalized: [\r\n      {\r\n+       email: ' ALICE@example.invalid ',\r\n-       email: 'alice@example.invalid',\r\n        id: 'U1',\r\n+       status: 'confirmed'\r\n-       status: 'active'\r\n      },\r\n      {\r\n+       email: 'Bob@example.invalid',\r\n-       email: 'bob@example.invalid',\r\n        id: 'U2',\r\n        status: 'pending'\r\n      }\r\n    ],\r\n+   preserve: [],\r\n+   rollbackAllowed: true\r\n-   preserve: [\r\n-     'U3'\r\n-   ],\r\n-   rollbackAllowed: false\r\n  }\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/migration-reconciliation/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: {\r\n    normalized: [\r\n      {\r\n        id: 'U1',\r\n        email: ' ALICE@example.invalid ',\r\n        status: 'confirmed'\r\n      },\r\n      { id: 'U2', email: 'Bob@example.invalid', status: 'pending' }\r\n    ],\r\n    differences: [],\r\n    rollbackAllowed: true,\r\n    preserve: []\r\n  },\r\n  expected: {\r\n    normalized: [\r\n      { id: 'U1', email: 'alice@example.invalid', status: 'active' },\r\n      { id: 'U2', email: 'bob@example.invalid', status: 'pending' }\r\n    ],\r\n    differences: [ 'U2' ],\r\n    rollbackAllowed: false,\r\n    preserve: [ 'U3' ]\r\n  },\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/migration-reconciliation/1/reference/broken.mjs:1\r\nexport const solve=()=>{\"normalized\":[{\"id\":\"U1\",\"email\":\"alice@example.invalid\",\"status\":\"active\"},{\"id\":\"U2\",\"email\":\"bob@example.invalid\",\"status\":\"pending\"}],\"differences\":[\"U2\"],\"rollbackAllowed\":true,\"preserve\":[]};\r\n                                    ^\r\n\r\nSyntaxError: Unexpected token ':'\r\n    at compileSourceTextModule (node:internal/modules/esm/utils:319:16)\r\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:89:18)\r\n    at #translate (node:internal/modules/esm/loader:438:20)\r\n    at afterLoad (node:internal/modules/esm/loader:506:29)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:511:12)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:564:36)\r\n    at afterResolve (node:internal/modules/esm/loader:611:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)\r\n    at node:internal/modules/esm/loader:636:32\r\n    at TracingChannel.tracePromise (node:diagnostics_channel:370:14)\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": null,
+  "projectId": "migration-reconciliation",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:59.536Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"migration-reconciliation\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:59.445Z\"}\n",
+    "inputDigest": "4d69e9d9e4aed9df15f572d31a1388a99ca619f6c0d31fdeff4fdefde7c95fc3",
+    "artifactDigest": "780eb8626edb92f7a38e68245c6c7f2bce25a17feb70a030cbb656fef282348d"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "migration-reconciliation",
+    "version": 1,
+    "inputDigest": "4d69e9d9e4aed9df15f572d31a1388a99ca619f6c0d31fdeff4fdefde7c95fc3",
+    "artifactDigest": "e0ac568b02d97a2b7e79e3ca0446b820929a1f532ff6fed4a7347fa7bd64bf5b",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.401Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "migration-reconciliation",
+    "version": 1,
+    "inputDigest": "4d69e9d9e4aed9df15f572d31a1388a99ca619f6c0d31fdeff4fdefde7c95fc3",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.401Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "migration-reconciliation",
+    "version": 1,
+    "inputDigest": "4d69e9d9e4aed9df15f572d31a1388a99ca619f6c0d31fdeff4fdefde7c95fc3",
+    "artifactDigest": "780eb8626edb92f7a38e68245c6c7f2bce25a17feb70a030cbb656fef282348d",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:59.401Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:solution.mjs",
+        "passed": true,
+        "detail": "solution.mjs"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

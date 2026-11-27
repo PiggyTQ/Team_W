@@ -1,0 +1,90 @@
+{
+  "publisher": "Avemly project authors",
+  "kind": "original-synthetic",
+  "license": "Original locally authored teaching inputs and code. Local Avemly practice use. Public redistribution policy requires owner decision.",
+  "copyright": "Avemly project authors",
+  "thirdPartyMaterialCopied": false,
+  "seed": 20261126,
+  "generator": "scripts/author-practice-growth.py; scripts/freeze-practice-growth.mjs",
+  "upstreamCandidatesAdopted": false,
+  "methodReferencesAreLinks": true,
+  "createdAt": "2026-11-26",
+  "review": {
+    "technical": "reference_and_counterexample_executed",
+    "domain": "not_performed",
+    "learnerPilot": "not_performed"
+  },
+  "ownerRole": "practice-content-editor",
+  "assignedPerson": null,
+  "sources": [
+    {
+      "sourceId": "avemly-original-baseline-evaluation",
+      "publisher": "Avemly / AI-assisted local authorship",
+      "title": "Baseline and independent evaluation",
+      "originalUrl": null,
+      "actualFileUrl": null,
+      "materialType": "original-synthetic",
+      "readFiles": [
+        "input/fixture.json",
+        "input/dictionary.md",
+        "reference/solution.mjs"
+      ],
+      "supports": "The bounded teaching contract and fixed regression inputs",
+      "doesNotSupport": "Real corporate provenance, professional certification or independent learner mastery",
+      "region": "Synthetic local teaching context",
+      "upstreamVersion": "1",
+      "originalDate": "2026-11-26",
+      "reviewedAt": "2026-11-26T04:30:53.490Z",
+      "license": "Local practice materials; public redistribution policy pending owner review",
+      "licenseUrl": null,
+      "applicableFiles": [
+        "input/",
+        "reference/",
+        "starter/"
+      ],
+      "notice": "Original synthetic teaching materials; AI-assisted authorship; no third-party material copied",
+      "modifications": "Authored for this practice; see CHANGELOG.md",
+      "thirdPartyExceptions": [],
+      "canCache": true,
+      "canAdapt": "within local practice",
+      "canRedistribute": false
+    }
+  ],
+  "methodReferences": [],
+  "materialRecords": [
+    {
+      "projectId": "baseline-evaluation",
+      "version": 1,
+      "path": "input/fixture.json",
+      "originalFilename": "fixture.json",
+      "format": ".json",
+      "encoding": "UTF-8",
+      "bytes": 300,
+      "sha256": "9279b17d3bee9a8f11251bfba0dab557f0e94ab2378c5d803cb10577a73dbb4a",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    },
+    {
+      "projectId": "baseline-evaluation",
+      "version": 1,
+      "path": "input/dictionary.md",
+      "originalFilename": "dictionary.md",
+      "format": ".md",
+      "encoding": "UTF-8",
+      "bytes": 1070,
+      "sha256": "f625678fb2e1e30ba905e867b8a9ff5abe92d41abc9391ee3cfef79de691528b",
+      "identity": "original-synthetic",
+      "seed": 20261126,
+      "private": false,
+      "rawInputDigest": null,
+      "generatorVersion": 1,
+      "transformation": "Original authored fixture and field documentation; no upstream dataset",
+      "publisherSignature": false
+    }
+  ]
+}

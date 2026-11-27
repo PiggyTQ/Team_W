@@ -1,0 +1,21 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "测试/前端",
+  "to": "发布/恢复负责人",
+  "content": "关键业务复验与反馈",
+  "payload": {
+    "recovered": false,
+    "rollbackAllowed": false,
+    "openIssue": "business_probe_still_failing",
+    "unresolvedContractDefect": "Normal metrics cannot close an incident while registration still fails."
+  },
+  "consumerFeedback": {
+    "code": "cross-service-incident-stage-3",
+    "issue": {
+      "zh": "指标正常而报名仍失败时不得结束联合验收",
+      "en": "Normal metrics cannot close an incident while registration still fails."
+    }
+  },
+  "requiredRevision": 2
+}

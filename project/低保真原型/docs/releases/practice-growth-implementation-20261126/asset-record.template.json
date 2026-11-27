@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "status": "template_not_a_real_asset_or_permission_record",
+  "assetId": null,
+  "projectId": null,
+  "projectVersion": null,
+  "source": {
+    "id": null,
+    "publisher": null,
+    "title": null,
+    "originalUrl": null,
+    "actualFileUrl": null,
+    "kind": null,
+    "readSectionsOrFiles": [],
+    "supports": [],
+    "doesNotSupport": [],
+    "jurisdictionOrProductScope": null,
+    "upstreamVersionOrCommit": null,
+    "originalPublishedAt": null,
+    "accessedAt": null
+  },
+  "rights": {
+    "status": "not_reviewed",
+    "licenseName": null,
+    "licenseUrl": null,
+    "coveredFiles": [],
+    "attributionText": null,
+    "modificationNotice": null,
+    "thirdPartyExceptions": [],
+    "canCache": null,
+    "canRedistribute": null,
+    "canAdapt": null,
+    "evidencePath": null
+  },
+  "file": {
+    "identity": null,
+    "packagePath": null,
+    "originalFilename": null,
+    "format": null,
+    "encoding": null,
+    "bytes": null,
+    "sha256": null,
+    "rows": null,
+    "fieldDictionary": null,
+    "timeRange": null
+  },
+  "derivation": {
+    "inputHashes": [],
+    "scriptVersion": null,
+    "filterAndTransform": null,
+    "seed": null,
+    "injectedIssues": [],
+    "outputHashes": []
+  },
+  "checks": {
+    "sourceRead": false,
+    "downloaded": false,
+    "parsed": false,
+    "referenceReproduced": false,
+    "experimentExecuted": false,
+    "contentReviewed": false,
+    "learnerPilotCompleted": false
+  },
+  "executionEvidence": {
+    "toolVersion": null,
+    "environment": null,
+    "executedAt": null,
+    "logPath": null,
+    "inputHash": null,
+    "outputHash": null,
+    "scope": null
+  },
+  "maintenance": {
+    "ownerRole": null,
+    "assignedPerson": null,
+    "lastReview": null,
+    "nextReviewPolicy": null,
+    "retirementOrReplacement": null
+  }
+}

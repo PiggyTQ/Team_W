@@ -1,0 +1,27 @@
+{
+  "partition": "2026-05-15",
+  "batch": [
+    {
+      "id": "B1",
+      "partition": "2026-05-15",
+      "channel": "web"
+    },
+    {
+      "id": "B2",
+      "partition": "2026-05-15",
+      "channel": "community"
+    },
+    {
+      "id": "B1",
+      "partition": "2026-05-15",
+      "channel": "web"
+    }
+  ],
+  "previous": [
+    {
+      "id": "OLD",
+      "partition": "2026-05-14",
+      "channel": "web"
+    }
+  ]
+}

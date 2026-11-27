@@ -1,0 +1,19 @@
+{
+  "critical": [
+    "明细/模型/接口/报告的口径及汇总一致",
+    "改字段后旧输出不得无提示误用"
+  ],
+  "open": [
+    {
+      "criterion": "交接是否可执行，反馈/修改是否有依据",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    },
+    {
+      "criterion": "模拟角色如实标注，本人贡献与责任不混淆",
+      "evidence": "Point to filename, line/record IDs and revision",
+      "reviewer": "self or explicitly recorded reviewer"
+    }
+  ],
+  "averagingCriticalFailuresAllowed": false
+}

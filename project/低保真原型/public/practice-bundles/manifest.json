@@ -1,0 +1,546 @@
+[
+  {
+    "projectId": "multi-source-analysis",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "0fb701a8f31cc9edcec36133a38983958fc1516407aac58b2e3f2072ec3926c7",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "67a71818f20a57dadcb7a41bb6c0a633542dc7064bd107f45e5a803a8650fb38",
+    "bytes": 47419,
+    "files": 35,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"multi-source-analysis\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:46.510Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "analysis-change-handoff",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "a13b2af5098244f093451cb3eb133d50246dbffc8f6266a16fc296f51d2ac18e",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "c7e652f1c2cdb4a7d42da6ea2ae06a141d7dee5ed639d98563cb8597cb776f9a",
+    "bytes": 43330,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"analysis-change-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:46.668Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "baseline-evaluation",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "ddf8b3c4260c6a09b92bf390fbba7a1072196352128deab37b216e2af8a5f3d7",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "02c4a714c931e3ba562245c8bac7207804dea708e8d9f65c9709e63ec23071b9",
+    "bytes": 41120,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"baseline-evaluation\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:46.870Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "grounded-assistant-delivery",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "df250603eeba4628eb96b8c9bbe59d0030d3e00bba6322799c1fee24d94d9b25",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "805c343dddb7331d46f2a5fc20b679a037661602ed754c1ebb08feb33b61ee01",
+    "bytes": 41558,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"grounded-assistant-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.043Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "app-authorization-retest",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "614435e800373d33ea5b38525c82d53811fdfbfecad57a39607012f0a2b6d52f",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "1072dfaa5c163e2eec5175a3dc553d72325a5228967626ad948f93f5b0ee6c26",
+    "bytes": 46344,
+    "files": 31,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"app-authorization-retest\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.300Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "detection-response-handoff",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "f99c31c4343ed179982d3275a57be1a8bead8f34662ee6483011055a104509f4",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "ffcaa3f8a61a8004efeb7f52d745175a00aeccd658cd925b18c0345993b5e6ad",
+    "bytes": 42414,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"detection-response-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.507Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "alert-rule-regression",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "3d3b3d2f7e16d73ec4417d6508a3ca646ce273dd9747b20fee3512a03aea5b8d",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "0487a2ca92eaa8dd4fe2a87b21d007d4af2a3c95b6e7f014ecd08368102865e6",
+    "bytes": 47931,
+    "files": 34,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"alert-rule-regression\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.723Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "reliability-release-drill",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "138e748747749f45e7e3d790bb37aa3b51aa8511c69562bffa520cba34fd89c9",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "6c3bf3cc86170742c4ee2df335f855ef6142f3f02d3e8c4351b8cdbb194325c9",
+    "bytes": 40673,
+    "files": 29,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"reliability-release-drill\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:47.937Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "accessible-form",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "2a6b1795545fc4fdd2a839fe2b844d83028523aff07880b617e972f69a2da573",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "3c3e20cbccccd4309e52d5af2982ef62c7edf1eec5215a5a045360dd2d8dbe38",
+    "bytes": 50949,
+    "files": 30,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"accessible-form\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:48.195Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "data-workbench",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "8514db311a9b03b7aa9829669180809596278075b0b2ccad5961a65185b97119",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "b9934ab387f02e75d025f46f1bb49b78bd205d00579be6c07f3209121aa0a756",
+    "bytes": 48158,
+    "files": 30,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-workbench\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:48.491Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "frontend-release-delivery",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "a6767bffe825f440c5b5ca8f4167a1d5d244a796e6688704894f93112491b34f",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "6bd2c319e8f0ffbcb4278bf730cb726ff92b1d02835a70ee03339e42fc22a646",
+    "bytes": 46227,
+    "files": 30,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"frontend-release-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:48.821Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "contract-api",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "783c58c095743ba87ebac9a509e032cb94b4b506124c18dce4856d6284c3b6d1",
+    "bytes": 46025,
+    "files": 31,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"contract-api\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:49.108Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "retry-concurrency",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "2b50a54bf70c8b164b0aeba843e5249dcaefbdf76adb61599adb00cc60f17204",
+    "bytes": 50805,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"retry-concurrency\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:49.315Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "service-evolution-delivery",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "0604841289e5983df8152474ec30d24f98bf92c7a198665a7a96cfce4fa69481",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "d6ef686af0c26cf39b07fc912af1004b0fe7c7996eab000b0737bb2b34360580",
+    "bytes": 47130,
+    "files": 31,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"service-evolution-delivery\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:49.570Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "relational-model",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "64eb0da93de764f020b73fef2bf7747444cda63b97b948fcf3576828d619f3e7",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "8410f0274445096617887625737339fbf803360c13f295d63056251522ad6a10",
+    "bytes": 43508,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"relational-model\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:49.842Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "partition-replay",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "bf152c1f76c48cb1c3ff31e9f181166ca17c944a671c8ce521925ecb106f362b",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "8e23f01caaeab83bfd07d04afef56975579804ee2f9b012639fdf13e80675e9d",
+    "bytes": 43647,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"partition-replay\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:50.147Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "data-contract-evolution",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "3e493d4938d5af342826c67f03cb5f963469b651b857854282068200ac264916",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "b8a222019254d78a75497b04e7172e9cb0fb21eae8137cd2a859f625217ab395",
+    "bytes": 43920,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-contract-evolution\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:50.466Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "defect-evidence",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "bab7d4813e465c4256cdecf99f16797ddfc283260228f48b8333a6d77af85199",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "93ccb162b05e391b81175df092d3f8defe2fb866093a792beedf4e7164b49e5b",
+    "bytes": 40869,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"defect-evidence\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:50.629Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "api-ui-regression",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "dba2befb4a04ed20c23cb196b0d0b67f171c371455a668dfb9a0d1232151b091",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "4bd2ad459aa90d7e0a472f80de28bd377e39db15715b6ab341cb5ff7d20fb38e",
+    "bytes": 41235,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"api-ui-regression\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:50.911Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "release-risk-review",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "61ba7ca670b346ca444c4ef564fe33bf0b50b16538ca8f34651dc4958a1471e4",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "33705579eb538e63406d1f14c74f7fdb2fc612319cc09ea6da1afc28ba003a8c",
+    "bytes": 41149,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"release-risk-review\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:51.365Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "rule-tool",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "a7c7cb01d7c3568df5bc0616bfd1853056c94c74763f4c14964a696c74560342",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "32b88a87317f634aa83235bcd382e74a3c85185ae86e7975b841afe9d45c91a7",
+    "bytes": 40425,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rule-tool\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:51.654Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "legacy-change",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "1f491a113c72be7bfb1b2c5fe885b1167b3f273d2fe83d93f14c3c0e2955c1df",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "c0fa2effcb92a147c4e7f4791c4ea6c4d90cc5e579e49bef64c92b4862a4d986",
+    "bytes": 40631,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"legacy-change\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:51.840Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "versioned-toolkit",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "315bb5648ab9687ca6bc6f5bf0aca855aed80ec3f81f754a946b93e67f945df1",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "fd7ec61babbe79540fc0666b791ff1ed6406c897566df02207801d019f5f06f4",
+    "bytes": 42668,
+    "files": 30,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"versioned-toolkit\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.149Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "config-acceptance",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "abff579f512949ba1fb15fdf9b05f7c6043c6cd5a3c01a0c53dc51924e9be196",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "4484e19ef58fa8bb79681a99b29710003df072cfb88a54595f3549a000cb23c4",
+    "bytes": 40726,
+    "files": 29,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"config-acceptance\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.442Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "migration-reconciliation",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "eb0cdd1f553ac67f575669ee25bfc311176dfa63ddd709062c9b23069562088e",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "13cf69ce23254e6696e04b85979571acb68834171f16452fe2062728ac6de5be",
+    "bytes": 42261,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"migration-reconciliation\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.690Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "rollout-support-handoff",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "5ca62cf1a38f1b2fea045c0b2307a217d8aeef25593e513dad0ae68b9c801598",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "5ad6a6ac204ecef6159a574de835b194c6c4ccf81d32f781826f9fdd79fdf603",
+    "bytes": 42264,
+    "files": 28,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"rollout-support-handoff\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:52.960Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "cross-registration-service",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "ad981c12d6d7c34616c2516e15c804b4e5c2fa9d29b1d6b7fc654119415d65f3",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "d81b8571b529278a1e144236565461d667705fb80f075054a8cd0f7d43c0a1a5",
+    "bytes": 71542,
+    "files": 39,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-registration-service\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:53.376Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "cross-metric-service",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "677ececffc9b0d10a1cf6920810ca9f154d148bff46a846c8d6437e48562fcf5",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "c5bc894bc2c4068ff8ffeeefb06b1bc7d6e654f4923e4e93ca6f1546d46bd321",
+    "bytes": 58951,
+    "files": 38,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-metric-service\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:53.776Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "cross-knowledge-assistant",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "e36840786abffe9b5472cd1d291837c594268ad69c7953b1db75c24b6f35bea1",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "ae03df4c5745199f99adaee9728d0f998c5a179ea2dd4bb3e39a87e8b0513e02",
+    "bytes": 56069,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-knowledge-assistant\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:54.072Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "cross-service-incident",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "db8acdcae893bc86616b2d772ab4f7e55845d76b97ef5ce5efb3932d33404599",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "2a1b29fa06ce4c0c85d8d86b34a30885a2d71e553be30e29a7fb249152ea504e",
+    "bytes": 54909,
+    "files": 34,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-service-incident\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:54.440Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "cross-security-remediation",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "1ed2de4c91d8a7fe8e459ebfc169ba7b929cc36fae5861122b133dc2a5931bec",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "7dc4c2cbdc89ff6cff86b65ee405cd981932267b0be82c188513ed7e76ea969e",
+    "bytes": 61072,
+    "files": 36,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-security-remediation\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:54.780Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  },
+  {
+    "projectId": "cross-migration-launch",
+    "version": 1,
+    "deliveryVersion": 1,
+    "materialManifestSha256": "3ce02876246747448a9151c0276a2bbe94c51ee6d3e4bb093f969a287976e060",
+    "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+    "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+    "sha256": "f600ef549cb9da43b6a271bed18d3e8d3d469d0b11e399423a1263f055a250e0",
+    "bytes": 57520,
+    "files": 33,
+    "allExtractedMaterialHashesVerified": true,
+    "actualExtractedReference": {
+      "exit": 0,
+      "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"cross-migration-launch\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:55.134Z\"}\n"
+    },
+    "originalMaterialVersionUnchanged": true
+  }
+]

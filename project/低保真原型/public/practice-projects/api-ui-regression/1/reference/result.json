@@ -1,0 +1,20 @@
+[
+  {
+    "id": "other-object",
+    "expected": 403,
+    "actual": 200,
+    "passed": false
+  },
+  {
+    "id": "input-retained",
+    "expected": "same-input",
+    "actual": "cleared",
+    "passed": false
+  },
+  {
+    "id": "normal-submit",
+    "expected": 201,
+    "actual": 201,
+    "passed": true
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "tests": [
+    {
+      "id": "other-object",
+      "expected": 403,
+      "broken": 200,
+      "version": "bug-1",
+      "action": "read-object",
+      "user": "bob",
+      "owner": "alice"
+    },
+    {
+      "id": "input-retained",
+      "expected": "same-input",
+      "broken": "cleared",
+      "version": "bug-1",
+      "action": "failed-form",
+      "input": "same-input"
+    },
+    {
+      "id": "normal-submit",
+      "expected": 201,
+      "broken": 201,
+      "version": "fixed",
+      "action": "register",
+      "email": "test@example.invalid"
+    }
+  ]
+}

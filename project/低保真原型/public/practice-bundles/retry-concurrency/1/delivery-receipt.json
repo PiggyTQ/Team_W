@@ -1,0 +1,17 @@
+{
+  "projectId": "retry-concurrency",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "871f813c53e4bc1432789cade3e8540f0195ea08fb75fc1950dce3857984c6d2",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "2b50a54bf70c8b164b0aeba843e5249dcaefbdf76adb61599adb00cc60f17204",
+  "bytes": 50805,
+  "files": 33,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"retry-concurrency\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:49.315Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}

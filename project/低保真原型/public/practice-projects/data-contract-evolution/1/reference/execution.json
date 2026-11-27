@@ -1,0 +1,147 @@
+{
+  "starterExecution": {
+    "exit": 1,
+    "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Result must include every ID, boundary, permission and value.\r\n+ actual - expected\r\n\r\n  {\r\n    missing: [],\r\n    publish: true,\r\n    rows: [\r\n      {\r\n+       cents: null,\r\n-       cents: 1200,\r\n        id: 'H1',\r\n+       origin: 'v2'\r\n-       origin: 'v1'\r\n      },\r\n      {\r\n        cents: 801,\r\n        id: 'N1',\r\n        origin: 'v2'\r\n      },\r\n      {\r\n+       cents: null,\r\n-       cents: 999,\r\n        id: 'N2',\r\n+       origin: 'v2'\r\n-       origin: 'v1'\r\n      }\r\n    ]\r\n  }\r\n\r\n    at file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/data-contract-evolution/1/verify.mjs:9:8 {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: {\r\n    rows: [\r\n      { id: 'H1', cents: null, origin: 'v2' },\r\n      { id: 'N1', cents: 801, origin: 'v2' },\r\n      { id: 'N2', cents: null, origin: 'v2' }\r\n    ],\r\n    missing: [],\r\n    publish: true\r\n  },\r\n  expected: {\r\n    rows: [\r\n      { id: 'H1', cents: 1200, origin: 'v1' },\r\n      { id: 'N1', cents: 801, origin: 'v2' },\r\n      { id: 'N2', cents: 999, origin: 'v1' }\r\n    ],\r\n    missing: [],\r\n    publish: true\r\n  },\r\n  operator: 'deepStrictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "negativeExecution": {
+    "exit": 1,
+    "stderr": "file:///C:/Users/tsnbx/Desktop/team/git_file/project/%E4%BD%8E%E4%BF%9D%E7%9C%9F%E5%8E%9F%E5%9E%8B/course-packs/growth/data-contract-evolution/1/reference/broken.mjs:1\r\nexport const solve=()=>{\"rows\":[{\"id\":\"H1\",\"cents\":null,\"origin\":\"v1\"},{\"id\":\"N1\",\"cents\":801,\"origin\":\"v2\"},{\"id\":\"N2\",\"cents\":999,\"origin\":\"v1\"}],\"missing\":[],\"publish\":true};\r\n                              ^\r\n\r\nSyntaxError: Unexpected token ':'\r\n    at compileSourceTextModule (node:internal/modules/esm/utils:319:16)\r\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:89:18)\r\n    at #translate (node:internal/modules/esm/loader:438:20)\r\n    at afterLoad (node:internal/modules/esm/loader:506:29)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:511:12)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:564:36)\r\n    at afterResolve (node:internal/modules/esm/loader:611:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)\r\n    at node:internal/modules/esm/loader:636:32\r\n    at TracingChannel.tracePromise (node:diagnostics_channel:370:14)\r\n\r\nNode.js v24.22.1\r\n"
+  },
+  "sql": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"runtime\":\"v24.22.1\",\"rows\":3,\"scope\":\"Actual SQLite query over the supplied synthetic tables\"}\n"
+  },
+  "projectId": "data-contract-evolution",
+  "version": 1,
+  "runtime": "v24.22.1",
+  "executedAt": "2026-11-26T04:30:57.360Z",
+  "reference": {
+    "status": "passed",
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"data-contract-evolution\",\"version\":1,\"executedAt\":\"2026-11-26T04:30:57.227Z\"}\n",
+    "inputDigest": "b76b0222cde73d8866be538d0b60f332bad678af7c50f136b923ee5135a357c7",
+    "artifactDigest": "3d357885013174ec087f685eab77773b7ad69a70d0fcbc0ac172f5e008c5903b"
+  },
+  "counterexample": {
+    "checker": "growth-rules-1",
+    "projectId": "data-contract-evolution",
+    "version": 1,
+    "inputDigest": "b76b0222cde73d8866be538d0b60f332bad678af7c50f136b923ee5135a357c7",
+    "artifactDigest": "15d07dfd66182cbf1a2659440bad69b3f543898bcd359019ab176640ad1d275e",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:57.182Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:query.sql",
+        "passed": true,
+        "detail": "query.sql"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": false,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "missing": {
+    "checker": "growth-rules-1",
+    "projectId": "data-contract-evolution",
+    "version": 1,
+    "inputDigest": "b76b0222cde73d8866be538d0b60f332bad678af7c50f136b923ee5135a357c7",
+    "artifactDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:57.182Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": false,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": false,
+        "detail": "Expected a bounded JSON object containing text files"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "repaired": {
+    "checker": "growth-rules-1",
+    "projectId": "data-contract-evolution",
+    "version": 1,
+    "inputDigest": "b76b0222cde73d8866be538d0b60f332bad678af7c50f136b923ee5135a357c7",
+    "artifactDigest": "3d357885013174ec087f685eab77773b7ad69a70d0fcbc0ac172f5e008c5903b",
+    "environment": {
+      "runtime": "v24.22.1",
+      "platform": "win32"
+    },
+    "executedAt": "2026-11-26T04:30:57.182Z",
+    "kind": "deterministic_artifact_and_result_check",
+    "executionScope": "Checks submitted files and result values. Learner code execution remains local and self-reported.",
+    "passed": true,
+    "checks": [
+      {
+        "id": "bundle-format",
+        "passed": true,
+        "detail": "Bounded UTF-8 text files with safe names"
+      },
+      {
+        "id": "file:result.json",
+        "passed": true,
+        "detail": "result.json"
+      },
+      {
+        "id": "file:notes.md",
+        "passed": true,
+        "detail": "notes.md"
+      },
+      {
+        "id": "file:query.sql",
+        "passed": true,
+        "detail": "query.sql"
+      },
+      {
+        "id": "format:result.json",
+        "passed": true,
+        "detail": "JSON parsed"
+      },
+      {
+        "id": "result-content",
+        "passed": true,
+        "detail": "Complete IDs, business values, permissions and failure states against frozen inputs"
+      }
+    ],
+    "contentReview": "self_review_required",
+    "masteryGranted": false
+  },
+  "scope": "Reference actually executed in a separate Node process; uploaded result values checked without executing learner code"
+}

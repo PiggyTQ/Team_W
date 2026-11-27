@@ -1,0 +1,17 @@
+[
+  {
+    "id": "H1",
+    "cents": 1200,
+    "origin": "v1"
+  },
+  {
+    "id": "N1",
+    "cents": 801,
+    "origin": "v2"
+  },
+  {
+    "id": "N2",
+    "cents": 999,
+    "origin": "v1"
+  }
+]

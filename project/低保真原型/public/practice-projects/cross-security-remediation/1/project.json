@@ -1,0 +1,227 @@
+{
+  "id": "cross-security-remediation",
+  "version": 1,
+  "legacy": false,
+  "career": "security",
+  "relatedCareers": [
+    "backend",
+    "frontend",
+    "testing"
+  ],
+  "level": "integrated",
+  "kind": "cross-career",
+  "title": {
+    "zh": "应用安全整改闭环",
+    "en": "Security remediation collaboration"
+  },
+  "next": [],
+  "prior": null,
+  "adapter": "security",
+  "estimatedHours": [
+    4,
+    8
+  ],
+  "effortMeasured": false,
+  "status": "local_trial",
+  "maintainer": {
+    "role": "practice-content-editor",
+    "person": null
+  },
+  "skills": [
+    "authorization"
+  ],
+  "brief": {
+    "zh": "以安全、开发与复验角色轮换闭环授权问题。在实验服务实际重现对象/动作越权，修订服务端，再检查正常功能和拒绝路径；界面隐藏不算整改完成。",
+    "en": "Rotate security, implementation and retest roles. Reproduce an object/action authorization issue and verify server-side rejection alongside normal behavior."
+  },
+  "outputs": {
+    "zh": [
+      "复现与修复/整改记录",
+      "回归和授权范围内的剩余风险报告"
+    ],
+    "en": [
+      "Server correction",
+      "HTTP regression and residual-risk handoff"
+    ]
+  },
+  "checks": {
+    "zh": [
+      "服务器拒绝越权同时允许正常业务",
+      "旧复现失效，相关行为回归"
+    ],
+    "en": [
+      "Reconcile the complete result with the supplied input IDs and values.",
+      "UI-only hiding does not fix an exposed object response. This is a blocking regression."
+    ]
+  },
+  "failure": {
+    "zh": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+    "en": "UI-only hiding does not fix an exposed object response."
+  },
+  "review": {
+    "zh": [
+      "交接是否可执行，反馈/修改是否有依据",
+      "模拟角色如实标注，本人贡献与责任不混淆"
+    ],
+    "en": [
+      "Locate the decision and supporting input/result in your deliverables.",
+      "Explain remaining uncertainty, your contribution and what the receiving role must verify."
+    ]
+  },
+  "environment": {
+    "runtime": "Node.js 24 / modern desktop browser",
+    "installNetwork": false,
+    "runtimeNetwork": false,
+    "accountsRequired": false,
+    "paidServicesRequired": false,
+    "memoryMeasuredMB": null,
+    "diskMeasuredMB": null,
+    "scope": "Original small deterministic teaching application; no real enterprise traffic or model inference"
+  },
+  "hints": {
+    "zh": [
+      "以安全、开发与复验角色轮换闭环授权问题。在实验服务实际重现对象/动作越权，修订服务端，再检查正常功能和拒绝路径；界面隐藏不算整改完成。",
+      "仅修改界面隐藏数据而接口仍泄漏时必须失败；先制作能暴露这项错误的最小检查。",
+      "逐个核对输入和产物位置，保留修订前后、本人贡献与尚未验证范围。"
+    ],
+    "en": [
+      "Rotate security, implementation and retest roles.",
+      "Reproduce this failure first: UI-only hiding does not fix an exposed object response.",
+      "Check every result ID and preserve a before/after record; explain what this fixture cannot establish."
+    ]
+  },
+  "variants": {
+    "ruleVersion": 1,
+    "scope": "Fixed reviewed scenario and explicit extension. New constraints require a new review.",
+    "allowed": [
+      "reviewed-base",
+      "reviewed-extension"
+    ],
+    "seed": 20261126,
+    "newJudgment": "仅修改界面隐藏数据而接口仍泄漏时必须失败",
+    "status": "fixed-base; new instances require explicit generation and frozen identities"
+  },
+  "handoffs": [
+    {
+      "role": "安全",
+      "produces": "授权范围与可复现证据",
+      "consumedBy": "开发",
+      "requiredOutput": "stage-1.json",
+      "inputDigest": "1e7e43fae86714f9f32a7bf74cd4c27719d373f2e39659e3fd468fd20a998b25",
+      "expectedOutputDigest": "06bfc37452986ad69e39d8b2f33d9516c6a2463d74c84c31f26b1fc4d4422902",
+      "canonicalOutputDigest": "1e0151af925929de1761f4f5c43d5c7fa71a3eda5f509746f9bb708a30b9f0d8",
+      "feedbackCode": "cross-security-remediation-stage-1",
+      "roleLabel": {
+        "zh": "安全",
+        "en": "Security"
+      },
+      "receiverLabel": {
+        "zh": "开发",
+        "en": "Development"
+      }
+    },
+    {
+      "role": "开发",
+      "produces": "服务端/界面修正及契约变化",
+      "consumedBy": "测试/安全",
+      "requiredOutput": "stage-2.json",
+      "inputDigest": "8f75192f55235f72028076d8f1e3897ee77e0f59997480ab2d6d3fdc803d8290",
+      "expectedOutputDigest": "150671da894ee9043472e16bf43ebe006f50fb25ed380acfabad0fde3e429d47",
+      "canonicalOutputDigest": "150671da894ee9043472e16bf43ebe006f50fb25ed380acfabad0fde3e429d47",
+      "feedbackCode": "cross-security-remediation-stage-2",
+      "roleLabel": {
+        "zh": "开发",
+        "en": "Development"
+      },
+      "receiverLabel": {
+        "zh": "测试/安全",
+        "en": "Testing and security"
+      }
+    },
+    {
+      "role": "测试/安全",
+      "produces": "复验、回归及残余风险",
+      "consumedBy": "业务负责人",
+      "requiredOutput": "stage-3.json",
+      "inputDigest": "e4c8a56d8b3d07f889b8bafe0a363b0bc23685a3d8c8dffefa5bc9cb5b45fbb8",
+      "expectedOutputDigest": "68458448ef948a66d069cbf12f1ee7f4a6c1ac47042f6dd8ca751b8922a40b76",
+      "canonicalOutputDigest": "68458448ef948a66d069cbf12f1ee7f4a6c1ac47042f6dd8ca751b8922a40b76",
+      "feedbackCode": "cross-security-remediation-stage-3",
+      "roleLabel": {
+        "zh": "测试/安全",
+        "en": "Testing and security"
+      },
+      "receiverLabel": {
+        "zh": "业务负责人",
+        "en": "Business owner"
+      }
+    }
+  ],
+  "requiredFiles": [
+    "result.json",
+    "notes.md",
+    "handoff.json",
+    "solution.mjs",
+    "stage-1.json",
+    "stage-2.json",
+    "stage-3.json"
+  ],
+  "materialIdentity": "original-synthetic",
+  "sourceDescription": {
+    "zh": "本站原创合成材料与代码，方法链接按阅读范围标注",
+    "en": "Original synthetic inputs and code; method links have bounded reading records"
+  },
+  "skillLinks": [
+    {
+      "career": "security",
+      "branch": "identity",
+      "skill": "authorization",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "backend",
+      "branch": "api",
+      "skill": "api-contract",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "testing",
+      "branch": "defects",
+      "skill": "retest-regression",
+      "state": "learning-link",
+      "evidence": [
+        "result.json",
+        "handoff.json",
+        "solution.mjs",
+        "stage-1.json",
+        "stage-2.json",
+        "stage-3.json"
+      ],
+      "scope": "Related task practice only; no completion or mastery award"
+    },
+    {
+      "career": "frontend",
+      "skill": null,
+      "state": "unknown",
+      "reason": "A related role is present, but this bounded fixture does not provide a reliable precise skill mapping."
+    }
+  ]
+}

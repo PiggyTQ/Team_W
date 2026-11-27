@@ -1,0 +1,34 @@
+{
+  "mode": "prefabricated single-person teaching handoff",
+  "version": 1,
+  "from": "资料/安全",
+  "to": "AI/后端",
+  "content": "允许资料、版本和访问策略",
+  "payload": {
+    "documents": [
+      {
+        "id": "D1",
+        "version": 1,
+        "roles": [
+          "member"
+        ]
+      },
+      {
+        "id": "D2",
+        "version": 2,
+        "roles": [
+          "staff"
+        ]
+      }
+    ],
+    "unresolvedContractDefect": "A private source must not enter a member answer."
+  },
+  "consumerFeedback": {
+    "code": "cross-knowledge-assistant-stage-1",
+    "issue": {
+      "zh": "不可访问资料被用来回答即使文本正确也必须失败",
+      "en": "A private source must not enter a member answer."
+    }
+  },
+  "requiredRevision": 2
+}

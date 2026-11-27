@@ -1,0 +1,21 @@
+html body #root#root#root#root#root #main .career-reading {
+ & .career-section-nav.report-runway-nav{position:sticky;top:0;isolation:isolate;z-index:4;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;min-height:78px;box-sizing:border-box;padding:0;margin:18px 0 0;border:0;border-radius:0;box-shadow:none;background:#fbf8f0;overflow:visible;}
+ & .career-section-nav > button{position:relative;z-index:1;display:flex;justify-content:center;align-items:flex-start;min-width:0;min-height:0;height:100%;margin:0;padding:12px 4px 33px;border:0;border-radius:0;background:transparent;box-shadow:none;color:#60768b;font-size:15px;line-height:1.4;}
+ & .career-section-nav > button:hover,& .career-section-nav > button[aria-selected=true]{background:transparent;border:0;color:#103f6b;}
+ & .career-section-nav > button::after{content:none;}
+ & .career-section-nav .report-runway-label{display:flex;justify-content:center;align-items:center;min-height:26px;text-align:center;}
+ & .career-section-nav > button[aria-selected=true] .report-runway-label{font-weight:700;color:#103f6b;}
+ & .career-section-nav > button:focus-visible{outline:none;}
+ & .career-section-nav > button:focus-visible .report-runway-label{outline:2px solid #126a9f;outline-offset:5px;border-radius:2px;}
+ & .career-section-nav .report-runway-track{position:absolute;right:0;left:0;bottom:7px;height:1px;background:#cadce9;pointer-events:none;}
+ & .career-section-nav .report-runway-plane{position:absolute;z-index:2;bottom:7px;left:0;display:block;width:34px;height:26px;pointer-events:none;}
+ & .career-section-nav[data-taxiing=true] .report-runway-plane{will-change:transform;}
+ & .career-section-nav .report-runway-aircraft{display:block;width:100%;height:100%;color:#103f6b;fill:currentColor;stroke:none;filter:none;transform:none;}
+ & .career-reading-panel{min-width:0;padding:26px 0 32px;scroll-margin-top:90px;outline:none;}
+ & .career-reading-panel[hidden]{display:none;}
+ & .career-reading-panel > .career-reading-section{border-bottom:0;padding-top:0;margin-top:0;}
+ & .career-reading-panel :is(p,li,dd){overflow-wrap:anywhere;}
+}
+@media(prefers-reduced-motion:reduce){
+ html body #root#root#root#root#root #main .career-reading .career-section-nav .report-runway-label{transition:none;}
+}

@@ -1,0 +1,25 @@
+{
+  "runtime": "v24.22.1",
+  "at": "2026-11-26T04:30:58.892Z",
+  "passed": true,
+  "evidence": [
+    {
+      "id": "valid",
+      "exit": 0,
+      "stdout": "{\"cents\":10000,\"version\":\"1.0.0\"}\n",
+      "stderr": ""
+    },
+    {
+      "id": "missing",
+      "exit": 2,
+      "stdout": "",
+      "stderr": "Usage: tool <integer cents>\n"
+    },
+    {
+      "id": "invalid",
+      "exit": 2,
+      "stdout": "",
+      "stderr": "Usage: tool <integer cents>\n"
+    }
+  ]
+}

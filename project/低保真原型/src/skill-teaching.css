@@ -1,0 +1,88 @@
+/* Teaching uses one reading flow; sources never reserve a competing side column. */
+#root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) {
+  & > .journey-page-head, & .journey-layout[data-flow="lesson"] { max-width: 1280px; }
+  & .journey-layout[data-flow="lesson"] > .journey-study-panel { grid-template-columns: minmax(0,1fr); gap: 22px; }
+  & .branch-learning-rail { position: static; display: grid; grid-template-columns: 160px minmax(0,1fr) auto; align-items: center; gap: 18px; padding: 14px 18px; border-radius: 16px; background: #fffefa; }
+  & .branch-rail-intro { padding: 0; }
+  & .branch-rail-intro h3 { margin: 3px 0 4px; }
+  & .branch-rail-purpose { margin: 4px 0 8px; padding: 0; border: 0; background: transparent; font-size: 12px; }
+  & .branch-rail-purpose summary { cursor: pointer; min-height: 0; padding: 0; border: 0; }
+  & .branch-rail-purpose p { margin: 8px 0; }
+  & .branch-rail-progress { gap: 4px; }
+  & .branch-rail-skills { grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: 8px; align-items: stretch; }
+  & .branch-rail-skills li { display: flex; min-width: 0; }
+  & .branch-rail-skills button { align-items: center; min-height: 64px; padding: 9px; }
+  & .branch-rail-overview { margin: 0; white-space: nowrap; }
+  & .branch-learning-hero { padding: 22px 26px; border-radius: 18px; gap: 24px; grid-template-columns: minmax(0,1.7fr) minmax(240px,1fr); }
+  & .branch-learning-hero h2 { margin-bottom: 10px; --ui-type-section: clamp(25px,3cqw,34px); }
+  & .branch-hero-output { padding: 12px 16px; }
+  & .branch-learning-main :is(.lesson-reading,.follow-course,.alert-course) { padding: clamp(18px,3cqw,34px); --ui-type-body: 17px; --ui-type-card: 22px; --ui-type-note: 13px; }
+  & .branch-learning-main :is(.follow-course-body,.alert-focus-grid) { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; }
+  & .branch-learning-main :is(.teaching-body,.teaching-self-check,.teaching-references,.teaching-extra-example,.teaching-prediction) { max-width: 960px; margin-inline: auto; }
+  & .branch-learning-main .teaching-body p { max-width: none; }
+  & .lesson-index button { display: flex; align-items: center; gap: 10px; }
+  & .lesson-index small { font-size: 12px; font-weight: 650; opacity: .65; }
+  & .teaching-body { padding: 8px 0 0; color: #234660; }
+  & .teaching-body h3 { --ui-type-section: 24px; color: #123f67; line-height: 1.5; margin: 6px 0 20px; }
+  & .teaching-body h4 { --ui-type-card: 18px; margin: 0 0 8px; color: #163f60; line-height: 1.6; }
+  & :is(.teaching-body,.teaching-self-check) p { line-height: 1.9; margin: 12px 0; overflow-wrap: anywhere; }
+  & .teaching-eyebrow { color: #657b8c; --ui-type-body: 13px; margin: 0 0 6px; letter-spacing: .035em; }
+  & .teaching-explanation { padding: 2px 0 16px; }
+  & :is(.teaching-case-preview,.teaching-given) { background: #eef6fc; border: 1px solid #d9e8f3; border-radius: 12px; padding: 20px 24px; margin: 16px 0 24px; }
+  & .teaching-case-preview .skill-control { margin-top: 8px; }
+  & .teaching-steps { list-style: none; padding: 0; margin: 8px 0 22px; }
+  & .teaching-steps li { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 18px; padding: 20px 0; border-bottom: 1px solid #e6e8e6; }
+  & .teaching-step-number { display: grid; place-items: center; align-self: start; width: 34px; height: 34px; background: #eaf2f8; border-radius: 50%; color: #155a8b; font-weight: 700; }
+  & .teaching-steps li p { margin: 0; }
+  & .teaching-flow { margin: 24px 0; padding: 20px; border: 1px solid #cbdfe9; border-radius: 12px; background: #f7fbfd; }
+  & .teaching-flow figcaption { color: #245370; font-weight: 650; }
+  & .teaching-flow-switch { display: flex; gap: 8px; margin: 14px 0; }
+  & .teaching-flow-switch button { border: 1px solid #ccdde7; border-radius: 7px; padding: 7px 14px; background: #fff; color: #215577; }
+  & .teaching-flow-switch button[aria-pressed="true"] { background: #175c89; color: #fff; border-color: #175c89; }
+  & .teaching-flow ol { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; list-style: none; margin: 20px 0; padding: 0; }
+  & .teaching-flow li { position: relative; display: grid; align-content: start; gap: 10px; padding: 14px; border: 1px solid #d7e3ec; border-radius: 9px; background: #fff; }
+  & .teaching-flow li+li::before { content: '→'; position: absolute; left: -23px; top: 35%; color: #65899d; }
+  & .teaching-flow li span { color: #567184; }
+  & .teaching-flow-boundary { --ui-type-body: 14px; color: #647d8c; border-bottom: 1px dashed #c2d5e0; padding-bottom: 14px; }
+  & .teaching-result { background: #fff8e4; border-inline-start: 4px solid #e8bd38; padding: 18px 22px; border-radius: 0 10px 10px 0; margin: 20px 0 26px; }
+  & .teaching-result p { margin: 0; }
+  & .teaching-prediction { display: grid; gap: 10px; margin-block: 24px; }
+  & :is(.teaching-prediction,.teaching-transfer) textarea { display: block; box-sizing: border-box; width: 100%; min-height: 110px; resize: vertical; border: 1px solid #b9ccda; border-radius: 10px; padding: 12px 14px; background: #fff; color: #234660; font: inherit; line-height: 1.7; }
+  & .teaching-self-check { display: grid; gap: 32px; padding-block: 10px; }
+  & .teaching-question fieldset { min-width: 0; border: 0; margin: 0; padding: 0; }
+  & .teaching-question legend { line-height: 1.8; font-weight: 650; padding: 0; margin-bottom: 16px; }
+  & .teaching-option { display: flex; align-items: start; gap: 12px; border: 1px solid #d9e2e9; border-radius: 10px; background: #fff; padding: 14px 16px; margin: 9px 0; cursor: pointer; line-height: 1.7; }
+  & .teaching-option input { flex: none; width: 18px; height: 18px; margin: 5px 0 0; accent-color: #145a8e; }
+  & .teaching-option[data-selected="true"] { border-color: #6da3c9; background: #eef6fc; }
+  & .teaching-question .skill-primary { margin-top: 12px; }
+  & .teaching-feedback { padding: 16px 20px; border-radius: 10px; background: #fff6e5; border: 1px solid #e7c998; margin-top: 18px; }
+  & .teaching-feedback[data-correct="true"] { background: #eef7ee; border-color: #bdd5bc; }
+  & .teaching-feedback p { margin-bottom: 0; }
+  & .teaching-pitfall { border-block: 1px solid #e4e7e6; padding-block: 22px; }
+  & .teaching-pitfall dl { margin: 0; }
+  & .teaching-pitfall dl>div { display: grid; grid-template-columns: 90px minmax(0,1fr); gap: 16px; padding: 10px 0; line-height: 1.85; }
+  & .teaching-pitfall dt { color: #6a7c85; font-size: 14px; }
+  & .teaching-pitfall dd { margin: 0; }
+  & .teaching-transfer>label { display: block; margin: 18px 0 10px; font-weight: 650; }
+  & .teaching-compare { margin-top: 18px; padding: 14px 18px; border-radius: 10px; background: #f3f7fa; }
+  & .teaching-compare li { padding: 5px 0; line-height: 1.75; }
+  & .teaching-note { color: #6d7c83; --ui-type-body: 13px; }
+  & :is(.teaching-references,.teaching-extra-example) { border-top: 1px solid #e4e7e6; padding: 16px 0; margin-block: 22px 0; line-height: 1.8; }
+  & :is(.teaching-compare,.teaching-references,.teaching-extra-example) summary { cursor: pointer; color: #275a7d; font-weight: 600; }
+  & .teaching-references a { overflow-wrap: anywhere; }
+  & .lesson-reading .follow-course-actions { max-width: 960px; margin-inline: auto; }
+}
+@container branch-layout (max-width: 960px) {
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .branch-learning-rail { grid-template-columns: minmax(0,1fr) auto; gap: 12px; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .branch-rail-intro { grid-column: 1/-1; display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .branch-rail-progress { width: 140px; margin-inline-start: auto; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .branch-rail-purpose { margin: 0; }
+}
+@container branch-lesson (max-width: 650px) {
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .branch-learning-hero { grid-template-columns: minmax(0,1fr); gap: 14px; padding: 20px; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .branch-rail-skills { grid-template-columns: minmax(0,1fr); }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .teaching-pitfall dl>div { grid-template-columns: minmax(0,1fr); gap: 2px; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) :is(.teaching-given,.teaching-case-preview,.teaching-result) { padding: 14px 16px; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .teaching-flow ol { grid-template-columns: minmax(0,1fr); gap: 24px; }
+ #root #main .skill-scene.skill-depth.skill-follow:has(.branch-learning-rail) .teaching-flow li+li::before { content: '↓'; left: 50%; top: -24px; }
+}

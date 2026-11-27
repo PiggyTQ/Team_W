@@ -1,0 +1,17 @@
+{
+  "projectId": "contract-api",
+  "version": 1,
+  "deliveryVersion": 1,
+  "materialManifestSha256": "df0baa22b4284142097acc8030e185f370825d9d82ee86574c9060ec82d8e054",
+  "toolSha256": "e2761b63b1e7a6e2a56555f41ed21bd7962f9119544fbede75763b8d9d8cc6a9",
+  "scope": "Complete local teaching delivery retaining immutable material files. No human review or independent learner mastery is implied.",
+  "sha256": "783c58c095743ba87ebac9a509e032cb94b4b506124c18dce4856d6284c3b6d1",
+  "bytes": 46025,
+  "files": 31,
+  "allExtractedMaterialHashesVerified": true,
+  "actualExtractedReference": {
+    "exit": 0,
+    "stdout": "{\"status\":\"passed\",\"scope\":\"local learner execution, self-reported to Avemly\",\"runtime\":\"v24.22.1\",\"project\":\"contract-api\",\"version\":1,\"executedAt\":\"2026-11-26T06:43:49.108Z\"}\n"
+  },
+  "originalMaterialVersionUnchanged": true
+}
